@@ -1,0 +1,83 @@
+# turds
+(.*/)?\#[^/]*\#$
+
+# my idea
+scratch/*
+
+*.ipa
+
+# Intellij
+.idea
+
+# rails
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+*.ids
+seeds.rb
+
+# sqlite
+*.sqlite3
+
+# Xcode 3.*
+*~
+build 
+*.mode* 
+*.perspective* 
+*~.nib 
+.DS_Store
+*.dsidx 
+*.skidx
+*.iws
+.idea
+*.log
+*.pbxuser
+*.swp
+*.mode1v3
+
+# Xcode 4
+*.xcuserdatad
+
+# Ignore Visual Studio files
+*.obj
+*.exe
+*.pdb
+*.user
+*.aps
+
+# whoops - this is a precompiled header file in Xcode
+# *.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.sln
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+*.lib
+*.sbr
+*.scc
+[Bb]in
+[Dd]ebug*/
+obj/
+[Rr]elease*/
+_ReSharper*/
+[Tt]est[Rr]esult*
+[Bb]uild[Ll]og.*
+*.[Pp]ublish.xml
+*.vcproj
+
+# unknown origin
+*.db
+*.xls
+*.lnk
+
+# Lisp
+*.dx64fsl
+*.fasl

@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/moody/Library/Developer/Shared/Documentation/DocSets/au.com.agchoice.AgChoice.docset
+Time: 2011-08-26 21:31:45 +0000

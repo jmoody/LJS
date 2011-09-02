@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AgChoiceGlobals.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AgChoiceGlobals</TokenIdentifier>
+			<Abstract>AgChoiceGlobals is an empty class that contains extern'd globabl variables for
+things like Notification names and dictionary keys that need to be shared
+across multiple classes.</Abstract>
+			<DeclaredIn>AgChoiceGlobals.h</DeclaredIn>
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>
