@@ -10,21 +10,21 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
 
-static NSString *AgChoiceUsernameDefaultsKey = @"au.com.agchoice.AgChoice UserName Defaults Key";
+static NSString *LjsSecurityManagerUsernameDefaultsKey = @"com.littlejoysoftware.Ljs UserName Defaults Key";
 
-static NSString *AgChoiceUseKeychainDefaultsKey = @"au.com.agchoice.AgChoice Use Keychain Defaults Key";
+static NSString *LjsSecurityManagerUseKeychainDefaultsKey = @"com.littlejoysoftware.Ljs Use Keychain Defaults Key";
 
-static NSString *AgChoiceKeychainServiceName = @"au.com.agchoice.AgChoice";
+static NSString *LjsSecurityManagerKeychainServiceName = @"com.littlejoysoftware.Ljs";
 
-static NSString *AgChoiceYES = @"YES";
+static NSString *LjsSecurityManagerYES = @"YES";
 
-static NSString *AgChoiceNO = @"NO";
+static NSString *LjsSecurityManagerNO = @"NO";
 
 /**
  AGKeychainManager provides methods to bridge the Keychain Access API and the 
  User Defaults API.
  */
-@implementation AGSecurityManager
+@implementation LjsSecurityManager
 
 
 - (void) dealloc {
@@ -83,13 +83,13 @@ static NSString *AgChoiceNO = @"NO";
 }
 
 /**
- queries the NSUserDefaults standardUserDefaults with the AgChoiceUsernameDefaultsKey
+ queries the NSUserDefaults standardUserDefaults with the LjsSecurityManagerUsernameDefaultsKey
  
  @return if there is no entry, will return nil
  */
 - (NSString *) usernameStoredInDefaults {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  NSString *username = [defaults stringForKey:AgChoiceUsernameDefaultsKey];
+  NSString *username = [defaults stringForKey:LjsSecurityManagerUsernameDefaultsKey];
 
   NSString *result = nil;
   if ([self isValidUsername:username]) {
@@ -100,38 +100,38 @@ static NSString *AgChoiceNO = @"NO";
 
 
 /**
- deletes the value (if any) for the key AgChoiceUsernameDefaultsKey from the
+ deletes the value (if any) for the key LjsSecurityManagerUsernameDefaultsKey from the
  NSUserDefaults standardUserDefaults
  */
 - (void) deleteUsernameInDefaults {
    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  [defaults setNilValueForKey:AgChoiceUsernameDefaultsKey];
+  [defaults setNilValueForKey:LjsSecurityManagerUsernameDefaultsKey];
 }
 
 
 /**
- sets the value for key AgChoiceUsernameDefaultsKey in the NSUserDefaults
+ sets the value for key LjsSecurityManagerUsernameDefaultsKey in the NSUserDefaults
  standardUserDefaults
- @param username the new value for AgChoiceUsernamDefaultsKey
+ @param username the new value for LjsSecurityManagerUsernamDefaultsKey
  */
 - (void) setDefaultsUsername:(NSString *) username {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  [defaults setObject:username forKey:AgChoiceUsernameDefaultsKey];
+  [defaults setObject:username forKey:LjsSecurityManagerUsernameDefaultsKey];
 }
 
 #pragma mark Should Use Key Chain in Defaults
 
 /**
- looks up the value of AgChoiceUseKeychainDefaultsKey in NSUserDefaults
+ looks up the value of LjsSecurityManagerUseKeychainDefaultsKey in NSUserDefaults
  standardUserDefaults
  
- @return true iff value for key is AgChoiceYES
+ @return true iff value for key is LjsSecurityManagerYES
  */
 - (BOOL) shouldUseKeyChain {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  NSString *value = [defaults stringForKey:AgChoiceUseKeychainDefaultsKey];
+  NSString *value = [defaults stringForKey:LjsSecurityManagerUseKeychainDefaultsKey];
   BOOL result;
-  if (value != nil && [value isEqualToString:AgChoiceYES]) {
+  if (value != nil && [value isEqualToString:LjsSecurityManagerYES]) {
     result = YES;
   } else {
     result = NO;
@@ -141,25 +141,25 @@ static NSString *AgChoiceNO = @"NO";
 
 
 /**
- removes the value of key AgChoiceUseKeychainDefaultsKey from NSUserDefaults
+ removes the value of key LjsSecurityManagerUseKeychainDefaultsKey from NSUserDefaults
  standardUserDefaults
  */
 - (void) deleteShouldUseKeyChainInDefaults {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  [defaults setNilValueForKey:AgChoiceUseKeychainDefaultsKey];
+  [defaults setNilValueForKey:LjsSecurityManagerUseKeychainDefaultsKey];
 }
 
 /**
- sets the value of key AgChoiceUserKeycahinDefaultsKey in NSUserDefaults
+ sets the value of key LjsSecurityManagerUserKeycahinDefaultsKey in NSUserDefaults
  standardUserDefaults
  @param shouldUse the new value to store in the User Defaults
  */
 - (void) setDefaultsShouldUseKeyChain:(BOOL) shouldUse {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   if (shouldUse == YES) {
-    [defaults setObject:AgChoiceYES forKey:AgChoiceUseKeychainDefaultsKey];
+    [defaults setObject:LjsSecurityManagerYES forKey:LjsSecurityManagerUseKeychainDefaultsKey];
   } else {
-    [defaults setObject:AgChoiceNO forKey:AgChoiceUseKeychainDefaultsKey];
+    [defaults setObject:LjsSecurityManagerNO forKey:LjsSecurityManagerUseKeychainDefaultsKey];
   }
 }
 
@@ -186,7 +186,7 @@ static NSString *AgChoiceNO = @"NO";
   if ([self isValidUsername:username]) {
     NSError *error;
     NSString *fetchedPwd = [SFHFKeychainUtils getPasswordForUsername:username
-                                                      andServiceName:AgChoiceKeychainServiceName
+                                                      andServiceName:LjsSecurityManagerKeychainServiceName
                                                                error:&error];
     if (error != nil) {
       [self logKeychainError:error];
@@ -213,7 +213,7 @@ static NSString *AgChoiceNO = @"NO";
     if ([self hasKeychainPasswordForUsername:username]) {
       NSError *error;
       NSString *fetched = [SFHFKeychainUtils getPasswordForUsername:username
-                                                     andServiceName:AgChoiceKeychainServiceName
+                                                     andServiceName:LjsSecurityManagerKeychainServiceName
                                                    error:&error];
       
       if (error != nil) {
@@ -238,7 +238,7 @@ static NSString *AgChoiceNO = @"NO";
     if ([self hasKeychainPasswordForUsername:username]) {
       NSError *error;
       [SFHFKeychainUtils deleteItemForUsername:username
-                                andServiceName:AgChoiceKeychainServiceName
+                                andServiceName:LjsSecurityManagerKeychainServiceName
                                          error:&error];
       
       if (error != nil) {
@@ -262,7 +262,7 @@ static NSString *AgChoiceNO = @"NO";
   BOOL update = [self hasKeychainPasswordForUsername:username];
   NSError *error;
   [SFHFKeychainUtils storeUsername:username andPassword:password
-                    forServiceName:AgChoiceKeychainServiceName updateExisting:update error:&error];
+                    forServiceName:LjsSecurityManagerKeychainServiceName updateExisting:update error:&error];
   if (error != nil) {
     [self logKeychainError:error];
   }

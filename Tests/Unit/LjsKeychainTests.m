@@ -34,14 +34,13 @@
 // GHAssertNoThrowSpecific(expr, specificException, description, ...)
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
-#import <GHUnitIOS/GHUnit.h>
 #import "SFHFKeychainUtils.h"
 
 @interface LjsKeychainTests : GHTestCase {}
 @end
 
 
-@implementation KeychainTests
+@implementation LjsKeychainTests
 
 //- (id) init {
 //  self = [super init];

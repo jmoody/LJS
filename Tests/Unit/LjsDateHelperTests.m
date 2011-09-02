@@ -61,7 +61,6 @@
 // GHAssertNoThrowSpecific(expr, specificException, description, ...)
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
-#import <GHUnitIOS/GHUnit.h>
 #import "LjsDateHelper.h"
 
 @interface LjsDateHelperTests : GHTestCase {}

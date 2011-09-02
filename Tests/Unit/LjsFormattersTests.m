@@ -66,7 +66,6 @@
 // GHAssertNoThrowSpecific(expr, specificException, description, ...)
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
-#import <GHUnit/GHUnit.h>
 #import "LjsFormatters.h"
 
 @interface LjsFormattersTests : GHTestCase {}

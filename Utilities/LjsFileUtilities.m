@@ -30,7 +30,7 @@
 #import "Lumberjack.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
 #else
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
@@ -47,13 +47,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                                      attributes:nil
                                           error:&error];
     if (result == YES) {
-      DDLogVerbose(@"successfully created: %@", path);
+      DDLogDebug(@"successfully created: %@", path);
     } else {
-      DDLogVerbose(@"attept to create save directory failed: %@", error);
+      DDLogDebug(@"attept to create save directory failed: %@", error);
       
     }
   } else {
-    DDLogVerbose(@"save directory exists: %@", path);
+    DDLogDebug(@"save directory exists: %@", path);
     result = YES;
   }
   return result;
