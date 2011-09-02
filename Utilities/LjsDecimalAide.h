@@ -1,4 +1,4 @@
-// Copyright (c) 2010, Little Joy Software
+// Copyright 2011 The Little Joy Software Company. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,29 +26,32 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import "LjsTailingFileManager.h"
-#import "DDLog.h"
 
-const static int ddLogLevel = LOG_LEVEL_DEBUG;
-static NSString *path = @"/tmp/tail.log";
+#import <Foundation/Foundation.h>
 
-@implementation LjsTailingFileManager
-
-
-- (id) init
-{
-	self = [super init];
-	if (self != nil) {
-		DDLogDebug(@"look for the logs at: %@", path);
-		self.maximumNumberOfLogFiles = 1;
-	}
-	return self;
+@interface LjsDecimalAide : NSObject {
+    
 }
 
-- (NSString *)createNewLogFile {
-	
-	[[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil];
-	return path;
-}
++ (NSDecimalNumber *) dnWithInt:(NSUInteger) aInt;
+
++ (NSDecimalNumber *) dnWithDouble:(double) aDouble;
+
++ (NSDecimalNumber *) dnWithString:(NSString *) aString;
+
++ (BOOL) dn:(NSDecimalNumber *) a lt:(NSDecimalNumber *) b;
+
++ (BOOL) dn:(NSDecimalNumber *) a gt:(NSDecimalNumber *) b;
+
++ (BOOL) dn:(NSDecimalNumber *) a lte:(NSDecimalNumber *) b;
+
++ (BOOL) dn:(NSDecimalNumber *) a gte:(NSDecimalNumber *) b;
+
++ (BOOL) dn:(NSDecimalNumber *) a 
+    isOnMin:(NSDecimalNumber *) min
+        max:(NSDecimalNumber *) max;
+
++ (NSDecimalNumber *) round:(NSDecimalNumber *) number withHandler:(NSDecimalNumberHandler *) handler;
+
 
 @end

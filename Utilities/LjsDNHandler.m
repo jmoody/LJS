@@ -1,4 +1,4 @@
-// Copyright (c) 2010, Little Joy Software
+// Copyright 2011 The Little Joy Software Company. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,26 +26,61 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import <Cocoa/Cocoa.h>
+#import "LjsDNHandler.h"
 #import "Lumberjack.h"
 
-int main(int argc, char *argv[]) {
-  
-  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-  // Lumberjack Logging
-  LjsDefaultFormatter *formatter = [[[LjsDefaultFormatter alloc] init] autorelease];
-  DDTTYLogger *tty = [DDTTYLogger sharedInstance];
-  [tty setLogFormatter:formatter];
-  [DDLog addLogger:tty];
-  
-//  DDASLLogger *asl = [DDASLLogger sharedInstance];
-//  [asl setLogFormatter:formatter];
-//  [DDLog addLogger:asl];
-  
-  int result = NSApplicationMain(argc,  (const char **) argv);
-  
-  [pool drain];
-  
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
+
+int const LjsDNHandlerStatisticsScale = 3;
+NSRoundingMode LjsDNHandlerStatisticsRoundingMode = NSRoundPlain;
+
+@implementation LjsDNHandler
+
+// Disallow the normal default initializer for instances
+- (id)init {
+  [self doesNotRecognizeSelector:_cmd];
+  return nil;
+}
+
+//- (id) init {
+//  self = [super init];
+//  if (self) {
+//    // Initialization code here.
+//  }
+//  return self;
+//}
+
+- (void) dealloc {
+  [super dealloc];
+}
+
+- (NSString *) description {
+  NSString *result = [NSString stringWithFormat:@"<#%@ >", [self class]];
   return result;
 }
 
++ (NSDecimalNumberHandler *) statisticsHandler {
+  return [NSDecimalNumberHandler 
+          decimalNumberHandlerWithRoundingMode:LjsDNHandlerStatisticsRoundingMode
+          scale:LjsDNHandlerStatisticsScale
+          raiseOnExactness:NO
+          raiseOnOverflow:NO
+          raiseOnUnderflow:NO
+          raiseOnDivideByZero:YES];
+}
+
++ (NSDecimalNumberHandler *) locationHandler {
+  return  [NSDecimalNumberHandler 
+           decimalNumberHandlerWithRoundingMode:NSRoundPlain
+           scale:5
+           raiseOnExactness:NO
+           raiseOnOverflow:NO
+           raiseOnUnderflow:NO
+           raiseOnDivideByZero:YES];
+}
+
+@end

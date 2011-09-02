@@ -1,4 +1,4 @@
-// Copyright (c) 2010, Little Joy Software
+// Copyright 2011 The Little Joy Software Company. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -28,15 +28,16 @@
 
 
 #import <Foundation/Foundation.h>
-#import "DDLog.h"
 
-@interface LjsDefaultFormatter : NSObject <DDLogFormatter> {
-	NSDateFormatter *formatter;
-} 
+extern int const LjsDNHandlerStatisticsScale;
+extern NSRoundingMode LjsDNHandlerStatisticsRoundingMode;
 
-@property (nonatomic, retain) NSDateFormatter *formatter;
+@interface LjsDNHandler : NSObject {
+    
+}
 
-- (NSString *)stringFromLogFlag:(int)logFlag;
++ (NSDecimalNumberHandler *) statisticsHandler;
 
++ (NSDecimalNumberHandler *) locationHandler;
 
 @end
