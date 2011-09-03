@@ -61,7 +61,7 @@
 // GHAssertNoThrowSpecific(expr, specificException, description, ...)
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
-#import <GHUnitIOS/GHUnitIOS.h>
+#import <GHUnitIOS/GHUnit.h>
 
 @interface ___FILEBASENAMEASIDENTIFIER___ : GHTestCase {}
 @end

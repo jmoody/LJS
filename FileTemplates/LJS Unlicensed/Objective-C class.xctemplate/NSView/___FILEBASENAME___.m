@@ -1,16 +1,22 @@
-
 #import "___FILEBASENAME___.h"
 #import "Lumberjack.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
 #else
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
 @implementation ___FILEBASENAMEASIDENTIFIER___
 
-- (id) initWithFrame:(NSRect)frame {
+#pragma mark Memory Management
+
+- (void) dealloc {
+  DDLogDebug(@"deallocating ___FILEBASENAMEASIDENTIFIER___");
+  [super dealloc];
+}
+
+- (id) initWithFrame:(NSRect) frame {
   self = [super initWithFrame:frame];
   if (self) {
     // Initialization code here.
@@ -18,16 +24,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return self;
 }
 
-- (void) dealloc {
-  [super dealloc];
-}
 
-- (NSString *) description {
-  NSString *result = [NSString stringWithFormat:@"<#%@ >", [self class]];
-  return result;
-}
+#pragma mark Drawing
 
-- (void) drawRect:(NSRect)dirtyRect {
+- (void) drawRect:(NSRect) dirtyRect {
   // Drawing code here.
 }
 

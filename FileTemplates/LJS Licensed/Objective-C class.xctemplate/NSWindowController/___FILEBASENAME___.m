@@ -30,12 +30,19 @@
 #import "Lumberjack.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
 #else
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
 @implementation ___FILEBASENAMEASIDENTIFIER___
+
+#pragma mark Memory Management
+
+- (void) dealloc {
+  DDLogDebug(@"deallocating ___FILEBASENAMEASIDENTIFIER___");
+  [super dealloc];
+}
 
 - (id) initWithWindow:(NSWindow *)window {
   self = [super initWithWindow:window];
@@ -45,19 +52,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return self;
 }
 
-- (void) dealloc {
-  [super dealloc];
-}
-
-- (NSString *) description {
-  NSSTring *result = [NSString stringWithFormat:@"<#%@ >", [self class]];
-  return result;
-}
 
 - (void) windowDidLoad {
   [super windowDidLoad];
   
-  // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+  // Implement this method to handle any initialization after your window
+  // controller's window has been loaded from its nib file.
 }
 
 @end
