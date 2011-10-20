@@ -1,7 +1,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LjsSecurityManager : NSObject {
+@interface LjsKeychainManager : NSObject {
     
 }
 

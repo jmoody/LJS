@@ -1,5 +1,4 @@
-
-#import "LjsSecurityManager.h"
+#import "LjsKeychainManager.h"
 #import "Lumberjack.h"
 #import "SFHFKeychainUtils.h"
 
@@ -10,11 +9,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
 
-static NSString *LjsSecurityManagerUsernameDefaultsKey = @"com.littlejoysoftware.Ljs UserName Defaults Key";
+static NSString *LjsSecurityManagerUsernameDefaultsKey = @"com.littlejoysoftware.ljs LJS Security Manager  UserName Defaults Key";
 
-static NSString *LjsSecurityManagerUseKeychainDefaultsKey = @"com.littlejoysoftware.Ljs Use Keychain Defaults Key";
+static NSString *LjsSecurityManagerUseKeychainDefaultsKey = @"com.littlejoysoftware.ljs LJS Security Manager  Use Keychain Defaults Key";
 
-static NSString *LjsSecurityManagerKeychainServiceName = @"com.littlejoysoftware.Ljs";
+static NSString *LjsSecurityManagerKeychainServiceName = @"com.littlejoysoftware.ljs LJS Security Manager ";
 
 static NSString *LjsSecurityManagerYES = @"YES";
 
@@ -24,7 +23,7 @@ static NSString *LjsSecurityManagerNO = @"NO";
  AGKeychainManager provides methods to bridge the Keychain Access API and the 
  User Defaults API.
  */
-@implementation LjsSecurityManager
+@implementation LjsKeychainManager
 
 
 - (void) dealloc {
@@ -34,10 +33,10 @@ static NSString *LjsSecurityManagerNO = @"NO";
 - (id) init {
   self = [super init];
   if (self) {
-//    // Initialization code here.
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    NSDictionary *dict = [defaults dictionaryRepresentation];
-//    DDLogDebug(@"dict = %@", dict);
+    //    // Initialization code here.
+    //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //    NSDictionary *dict = [defaults dictionaryRepresentation];
+    //    DDLogDebug(@"dict = %@", dict);
   }
   return self;
 }
@@ -65,7 +64,7 @@ static NSString *LjsSecurityManagerNO = @"NO";
 
 /**
  used to determine the validity of a password
-
+ 
  currently there are no restrictions on passwords other than they not be
  nil or empty
  
@@ -83,14 +82,14 @@ static NSString *LjsSecurityManagerNO = @"NO";
 }
 
 /**
- queries the NSUserDefaults standardUserDefaults with the LjsSecurityManagerUsernameDefaultsKey
+ queries the NSUserDefaults standardUserDefaults with the AgChoiceUsernameDefaultsKey
  
  @return if there is no entry, will return nil
  */
 - (NSString *) usernameStoredInDefaults {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   NSString *username = [defaults stringForKey:LjsSecurityManagerUsernameDefaultsKey];
-
+  
   NSString *result = nil;
   if ([self isValidUsername:username]) {
     result = username;
@@ -100,19 +99,19 @@ static NSString *LjsSecurityManagerNO = @"NO";
 
 
 /**
- deletes the value (if any) for the key LjsSecurityManagerUsernameDefaultsKey from the
+ deletes the value (if any) for the key AgChoiceUsernameDefaultsKey from the
  NSUserDefaults standardUserDefaults
  */
 - (void) deleteUsernameInDefaults {
-   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   [defaults setNilValueForKey:LjsSecurityManagerUsernameDefaultsKey];
 }
 
 
 /**
- sets the value for key LjsSecurityManagerUsernameDefaultsKey in the NSUserDefaults
+ sets the value for key AgChoiceUsernameDefaultsKey in the NSUserDefaults
  standardUserDefaults
- @param username the new value for LjsSecurityManagerUsernamDefaultsKey
+ @param username the new value for AgChoiceUsernamDefaultsKey
  */
 - (void) setDefaultsUsername:(NSString *) username {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -122,10 +121,10 @@ static NSString *LjsSecurityManagerNO = @"NO";
 #pragma mark Should Use Key Chain in Defaults
 
 /**
- looks up the value of LjsSecurityManagerUseKeychainDefaultsKey in NSUserDefaults
+ looks up the value of AgChoiceUseKeychainDefaultsKey in NSUserDefaults
  standardUserDefaults
  
- @return true iff value for key is LjsSecurityManagerYES
+ @return true iff value for key is AgChoiceYES
  */
 - (BOOL) shouldUseKeyChain {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -141,7 +140,7 @@ static NSString *LjsSecurityManagerNO = @"NO";
 
 
 /**
- removes the value of key LjsSecurityManagerUseKeychainDefaultsKey from NSUserDefaults
+ removes the value of key AgChoiceUseKeychainDefaultsKey from NSUserDefaults
  standardUserDefaults
  */
 - (void) deleteShouldUseKeyChainInDefaults {
@@ -150,7 +149,7 @@ static NSString *LjsSecurityManagerNO = @"NO";
 }
 
 /**
- sets the value of key LjsSecurityManagerUserKeycahinDefaultsKey in NSUserDefaults
+ sets the value of key AgChoiceUserKeycahinDefaultsKey in NSUserDefaults
  standardUserDefaults
  @param shouldUse the new value to store in the User Defaults
  */
@@ -214,7 +213,7 @@ static NSString *LjsSecurityManagerNO = @"NO";
       NSError *error;
       NSString *fetched = [SFHFKeychainUtils getPasswordForUsername:username
                                                      andServiceName:LjsSecurityManagerKeychainServiceName
-                                                   error:&error];
+                                                              error:&error];
       
       if (error != nil) {
         [self logKeychainError:error];
@@ -228,7 +227,7 @@ static NSString *LjsSecurityManagerNO = @"NO";
 
 /**
  deletes the password for the keychain entry for the username
-
+ 
  if there is an error, it is logged
  
  @param username the username for the password we would like to delete
