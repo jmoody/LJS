@@ -25,7 +25,6 @@
 		F50FE7001410CC420051FC7E /* LjsDecimalAide.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6EC1410CC420051FC7E /* LjsDecimalAide.m */; };
 		F50FE7011410CC420051FC7E /* LjsDNHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6EE1410CC420051FC7E /* LjsDNHandler.m */; };
 		F50FE7021410CC420051FC7E /* LjsFileUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F01410CC420051FC7E /* LjsFileUtilities.m */; };
-		F50FE7031410CC420051FC7E /* LjsFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F21410CC420051FC7E /* LjsFormatter.m */; };
 		F50FE7041410CC420051FC7E /* LjsIdGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F41410CC420051FC7E /* LjsIdGenerator.m */; };
 		F50FE7051410CC420051FC7E /* LjsObjectWithUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F61410CC420051FC7E /* LjsObjectWithUUID.m */; };
 		F50FE7061410CC420051FC7E /* LjsVariates.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F81410CC420051FC7E /* LjsVariates.m */; };
@@ -45,6 +44,9 @@
 		F50FE72F1410CE410051FC7E /* FTSWAbstractSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE72E1410CE410051FC7E /* FTSWAbstractSingleton.m */; };
 		F50FE7321410D2D60051FC7E /* LjsGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE7311410D2D50051FC7E /* LjsGlobals.m */; };
 		F50FE7351410D3160051FC7E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE7331410D30D0051FC7E /* Security.framework */; };
+		F529524514232EB5009C67EE /* LjsValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524414232EB5009C67EE /* LjsValidator.m */; };
+		F529524814232F47009C67EE /* LjsValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524714232F47009C67EE /* LjsValidatorTests.m */; };
+		F529524A14234EA4009C67EE /* LjsFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524914234EA4009C67EE /* LjsFormatter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,7 +83,6 @@
 		F50FE6EF1410CC420051FC7E /* LjsFileUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFileUtilities.h; sourceTree = "<group>"; };
 		F50FE6F01410CC420051FC7E /* LjsFileUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileUtilities.m; sourceTree = "<group>"; };
 		F50FE6F11410CC420051FC7E /* LjsFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFormatter.h; sourceTree = "<group>"; };
-		F50FE6F21410CC420051FC7E /* LjsFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFormatter.m; sourceTree = "<group>"; };
 		F50FE6F31410CC420051FC7E /* LjsIdGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsIdGenerator.h; sourceTree = "<group>"; };
 		F50FE6F41410CC420051FC7E /* LjsIdGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsIdGenerator.m; sourceTree = "<group>"; };
 		F50FE6F51410CC420051FC7E /* LjsObjectWithUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsObjectWithUUID.h; sourceTree = "<group>"; };
@@ -119,6 +120,10 @@
 		F50FE7301410D2D40051FC7E /* LjsGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGlobals.h; sourceTree = "<group>"; };
 		F50FE7311410D2D50051FC7E /* LjsGlobals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGlobals.m; sourceTree = "<group>"; };
 		F50FE7331410D30D0051FC7E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F529524314232EB5009C67EE /* LjsValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsValidator.h; sourceTree = "<group>"; };
+		F529524414232EB5009C67EE /* LjsValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidator.m; sourceTree = "<group>"; };
+		F529524714232F47009C67EE /* LjsValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidatorTests.m; sourceTree = "<group>"; };
+		F529524914234EA4009C67EE /* LjsFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFormatter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +252,7 @@
 				F50FE6DC1410CC250051FC7E /* LjsIdGeneratorTests.m */,
 				F50FE6DD1410CC250051FC7E /* LjsKeychainTests.m */,
 				F50FE6DE1410CC250051FC7E /* LjsVariatesTests.m */,
+				F529524714232F47009C67EE /* LjsValidatorTests.m */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -279,7 +285,7 @@
 				F50FE6EF1410CC420051FC7E /* LjsFileUtilities.h */,
 				F50FE6F01410CC420051FC7E /* LjsFileUtilities.m */,
 				F50FE6F11410CC420051FC7E /* LjsFormatter.h */,
-				F50FE6F21410CC420051FC7E /* LjsFormatter.m */,
+				F529524914234EA4009C67EE /* LjsFormatter.m */,
 				F50FE6F31410CC420051FC7E /* LjsIdGenerator.h */,
 				F50FE6F41410CC420051FC7E /* LjsIdGenerator.m */,
 				F50FE6F51410CC420051FC7E /* LjsObjectWithUUID.h */,
@@ -287,6 +293,8 @@
 				F50FE6F71410CC420051FC7E /* LjsVariates.h */,
 				F50FE6F81410CC420051FC7E /* LjsVariates.m */,
 				F50FE6F91410CC420051FC7E /* Security */,
+				F529524314232EB5009C67EE /* LjsValidator.h */,
+				F529524414232EB5009C67EE /* LjsValidator.m */,
 			);
 			name = Utilities;
 			path = ../Utilities;
@@ -422,7 +430,6 @@
 				F50FE7001410CC420051FC7E /* LjsDecimalAide.m in Sources */,
 				F50FE7011410CC420051FC7E /* LjsDNHandler.m in Sources */,
 				F50FE7021410CC420051FC7E /* LjsFileUtilities.m in Sources */,
-				F50FE7031410CC420051FC7E /* LjsFormatter.m in Sources */,
 				F50FE7041410CC420051FC7E /* LjsIdGenerator.m in Sources */,
 				F50FE7051410CC420051FC7E /* LjsObjectWithUUID.m in Sources */,
 				F50FE7061410CC420051FC7E /* LjsVariates.m in Sources */,
@@ -439,6 +446,9 @@
 				F50FE72C1410CD570051FC7E /* LjsFormatters.m in Sources */,
 				F50FE72F1410CE410051FC7E /* FTSWAbstractSingleton.m in Sources */,
 				F50FE7321410D2D60051FC7E /* LjsGlobals.m in Sources */,
+				F529524514232EB5009C67EE /* LjsValidator.m in Sources */,
+				F529524814232F47009C67EE /* LjsValidatorTests.m in Sources */,
+				F529524A14234EA4009C67EE /* LjsFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +480,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = LOG_CONFIGURATION_DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -489,6 +500,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = LOG_CONFIGURATION_DEBUG;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -514,6 +526,7 @@
 				"GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS[arch=*]" = LOG_CONFIGURATION_DEBUG;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Library/**";
 				INFOPLIST_FILE = "iosTests/iosTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Library\"",
@@ -540,6 +553,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Library/**";
 				INFOPLIST_FILE = "iosTests/iosTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Library\"",
@@ -573,6 +587,7 @@
 				F50FE6C31410C6F60051FC7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

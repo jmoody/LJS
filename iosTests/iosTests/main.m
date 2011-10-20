@@ -1,17 +1,22 @@
-//
-//  main.m
-//  iosTests
-//
-//  Created by Joshua Moody on 9/2/11.
-//  Copyright 2011 Little Joy Software. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
+#import "Lumberjack.h"
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
   NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-  int retVal = UIApplicationMain(argc, argv, nil, @"GHUnitIPhoneAppDelegate");
+  NSString *GHUNIT_DELEGATE;
+  
+  LjsDefaultFormatter *formatter = [[LjsDefaultFormatter alloc] init];
+  DDTTYLogger *tty = [DDTTYLogger sharedInstance];
+  [tty setLogFormatter:formatter];
+  [DDLog addLogger:tty];
+  [formatter release];
+  
+#if TARGET_IPHONE_SIMULATOR 
+  GHUNIT_DELEGATE = @"GHUnitIPhoneAppDelegate";
+#else
+  GHUNIT_DELEGATE = @"GHUnitIOSAppDelegate";
+#endif
+  int retVal = UIApplicationMain(argc, argv, nil, GHUNIT_DELEGATE);
   [pool release];
   return retVal;
 }

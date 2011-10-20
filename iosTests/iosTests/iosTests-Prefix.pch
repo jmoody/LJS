@@ -13,4 +13,5 @@
   #import <Foundation/Foundation.h>
   #import <OCMock/OCMock.h>
   #import <GHUnitIOS/GHUnit.h>
+  #include "TargetConditionals.h"
 #endif

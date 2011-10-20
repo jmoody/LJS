@@ -29,9 +29,23 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString *LjsDateHelperAM;
+extern NSString *LjsDateHelperPM;
+
+extern NSString *LjsDateHelper12HoursStringKey;
+extern NSString *LjsDateHelper24HoursStringKey;
+extern NSString *LjsDateHelperMinutesStringKey;
+extern NSString *LjsDateHelperAmPmKey;
+
+extern NSString *LjsDateHelper12HoursNumberKey;
+extern NSString *LjsDateHelper24HoursNumberKey;
+extern NSString *LjsDateHelperMinutesNumberKey;
+
+
 @interface LjsDateHelper : NSObject {
     
 }
+
 
 + (NSTimeInterval) intervalBetweenPast:(NSDate *) past future:(NSDate *) future;
 
@@ -43,7 +57,43 @@
  The receiver is earlier in time than anotherDate, NSOrderedAscending.
  */
 + (BOOL) dateIsFuture:(NSDate *) date;
-
 + (BOOL) dateIsPast:(NSDate *) date;
+
++ (NSDateFormatter *) hoursMinutesAmPmFormatter;
+
+
++ (BOOL) minutesStringValid:(NSString *) minutesStr;
++ (BOOL) hourStringValid:(NSString *) hoursStr using24HourClock:(BOOL) use24HourClock; 
++ (BOOL) amPmStringValid:(NSString *) amOrPm;
++ (BOOL) timeStringHasCorrectLength:(NSString *) timeString using24HourClock:(BOOL) a24Clock;
+
++ (BOOL) amPmStringHasCorrectComponents:(NSString *) timeString;
++ (BOOL) twentyFourHourTimeStringHasCorrectComponents:(NSString *) timeString;
++ (BOOL) timeStringHasCorrectComponents:(NSString *) timeString using24HourClock:(BOOL) use24HourClock;
+
++ (BOOL) isValidAmPmTime:(NSString *) amPmTime;
++ (BOOL) isValid24HourTime:(NSString *) twentyFourHourTime;
+
++ (NSDictionary *) componentsWithTimeString:(NSString *) timeString;
++ (NSDictionary *) componentsWith24HourTimeString:(NSString *) twentyFourHourTime;
++ (NSDictionary *) componentsWithAmPmTimeString:(NSString *) amPmTime;
+
+
++ (NSString *) convert24hourTimeToAmPmTime:(NSString *) twentyFourHourTime;
++ (NSString *) amPmTimeWithTimeString:(NSString *) amPmTime;
++ (NSString *) amPmTimeWithDate:(NSDate *) date;
+
+
+
+
+#pragma mark DEAD SEA
+
+//+ (BOOL) shouldUse24HourClock;
+//
+//+ (NSString *) hourMinutesWithDate:(NSDate *) date;
+//
+//+ (NSDate *) dateWithHourMinutesString:(NSString *) hoursMinutes;
+
+
 
 @end

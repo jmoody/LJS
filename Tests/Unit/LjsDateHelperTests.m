@@ -122,6 +122,626 @@
   GHAssertFalse(result, nil);
 
 }
-                          
+
+- (void) test_isValidAmPmTime {
+  NSString *time;
+  BOOL actual;
+  
+  time = nil;
+  actual = [LjsDateHelper isValidAmPmTime:time];
+  GHAssertFalse(actual, nil);
+  
+  time = @"";
+  actual = [LjsDateHelper isValidAmPmTime:time];
+  GHAssertFalse(actual, nil);
+  
+  time = @"1234567890";
+  actual = [LjsDateHelper isValidAmPmTime:time];
+  GHAssertFalse(actual, nil);
+  
+  time = @"12:00 AM";
+  actual = [LjsDateHelper isValidAmPmTime:time];
+  GHAssertTrue(actual, nil);
+  
+  time = @"12:59 AM";
+  actual = [LjsDateHelper isValidAmPmTime:time];
+  GHAssertTrue(actual, nil);
+  
+  time = @"1:59 AM";
+  actual = [LjsDateHelper isValidAmPmTime:time];
+  GHAssertTrue(actual, nil);
+  
+  time = @"11:01 PM";
+  actual = [LjsDateHelper isValidAmPmTime:time];
+  GHAssertTrue(actual, nil);
+  
+  time = nil;
+  actual = [LjsDateHelper isValidAmPmTime:time];
+  GHAssertFalse(actual, nil);
+  
+  time = @"13:01 AM";
+  actual = [LjsDateHelper isValidAmPmTime:time];
+  GHAssertFalse(actual, nil);
+  
+  time = @"1:60 AM";
+  actual = [LjsDateHelper isValidAmPmTime:time];
+  GHAssertFalse(actual, nil);
+  
+  time = @"12:01 CM";
+  actual = [LjsDateHelper isValidAmPmTime:time];
+  GHAssertFalse(actual, nil);
+  
+  time = @"13:01";
+  actual = [LjsDateHelper isValidAmPmTime:time];
+  GHAssertFalse(actual, nil);
+}
+
+- (void) test_isValid24HourTime {
+  NSString *time;
+  BOOL actual;
+  
+  time = nil;
+  actual = [LjsDateHelper isValid24HourTime:time];
+  GHAssertFalse(actual, nil);
+  
+  time = @"";
+  actual = [LjsDateHelper isValid24HourTime:time];
+  GHAssertFalse(actual, nil);
+  
+  time = @"1234567890";
+  actual = [LjsDateHelper isValid24HourTime:time];
+  GHAssertFalse(actual, nil);
+
+  time = @"123";
+  actual = [LjsDateHelper isValid24HourTime:time];
+  GHAssertFalse(actual, nil);
+
+  time = @"12:00";
+  actual = [LjsDateHelper isValid24HourTime:time];
+  GHAssertTrue(actual, nil);
+  
+  time = @"12:00 PM";
+  actual = [LjsDateHelper isValid24HourTime:time];
+  GHAssertTrue(actual, nil);
+  
+  time = @"12:00 AM";
+  actual = [LjsDateHelper isValid24HourTime:time];
+  GHAssertFalse(actual, nil);
+  
+  time = @"15:00";
+  actual = [LjsDateHelper isValid24HourTime:time];
+  GHAssertTrue(actual, nil);
+
+  time = @"15:00 PM";
+  actual = [LjsDateHelper isValid24HourTime:time];
+  GHAssertTrue(actual, nil);
+
+  time = @"24:00";
+  actual = [LjsDateHelper isValid24HourTime:time];
+  GHAssertFalse(actual, nil);
+
+}
+
+- (void) test_minuteStringValid {
+  NSString *minutes;
+  BOOL actual;
+  
+  minutes = nil;
+  actual = [LjsDateHelper minutesStringValid:minutes];
+  GHAssertFalse(actual, nil);
+
+  minutes = @"";
+  actual = [LjsDateHelper minutesStringValid:minutes];
+  GHAssertFalse(actual, nil);
+  
+  minutes = @"00";
+  actual = [LjsDateHelper minutesStringValid:minutes];
+  GHAssertTrue(actual, nil);
+  
+  minutes = @"59";
+  actual = [LjsDateHelper minutesStringValid:minutes];
+  GHAssertTrue(actual, nil);
+
+  minutes = @"--";
+  actual = [LjsDateHelper minutesStringValid:minutes];
+  GHAssertFalse(actual, nil);
+
+  minutes = @"60";
+  actual = [LjsDateHelper minutesStringValid:minutes];
+  GHAssertFalse(actual, nil);
+
+  minutes = @"-1";
+  actual = [LjsDateHelper minutesStringValid:minutes];
+  GHAssertFalse(actual, nil);
+  
+  minutes = @"045";
+  actual = [LjsDateHelper minutesStringValid:minutes];
+  GHAssertFalse(actual, nil);
+
+
+}
+
+- (void) test_hourStringValid {
+  NSString *hours;
+  BOOL actual, a24clock;
+  
+  hours = nil;
+  a24clock = NO;
+  actual = [LjsDateHelper hourStringValid:hours using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+  
+  hours = @"";
+  a24clock = NO;
+  actual = [LjsDateHelper hourStringValid:hours using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+
+  
+  hours = @"00";
+  a24clock = NO;
+  actual = [LjsDateHelper hourStringValid:hours using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+
+  hours = @"00";
+  a24clock = YES;
+  actual = [LjsDateHelper hourStringValid:hours using24HourClock:a24clock];
+  GHAssertTrue(actual, nil);
+  
+
+  hours = @"10";
+  a24clock = YES;
+  actual = [LjsDateHelper hourStringValid:hours using24HourClock:a24clock];
+  GHAssertTrue(actual, nil);
+
+  hours = @"10";
+  a24clock = NO;
+  actual = [LjsDateHelper hourStringValid:hours using24HourClock:a24clock];
+  GHAssertTrue(actual, nil);
+
+  hours = @"13";
+  a24clock = YES;
+  actual = [LjsDateHelper hourStringValid:hours using24HourClock:a24clock];
+  GHAssertTrue(actual, nil);
+
+  hours = @"13";
+  a24clock = NO;
+  actual = [LjsDateHelper hourStringValid:hours using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+  
+  hours = @"23";
+  a24clock = YES;
+  actual = [LjsDateHelper hourStringValid:hours using24HourClock:a24clock];
+  GHAssertTrue(actual, nil);
+
+  hours = @"23";
+  a24clock = NO;
+  actual = [LjsDateHelper hourStringValid:hours using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+
+  hours = @"24";
+  a24clock = YES;
+  actual = [LjsDateHelper hourStringValid:hours using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+
+  hours = @"-1";
+  a24clock = YES;
+  actual = [LjsDateHelper hourStringValid:hours using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+  
+  hours = @"013";
+  a24clock = YES;
+  actual = [LjsDateHelper hourStringValid:hours using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+
+}
+
+- (void) test_timeStringHasCorrectLength {
+  NSString *time;
+  BOOL actual, a24clock;
+  
+  time = nil;
+  a24clock = NO;
+  actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+  
+  time = nil;
+  a24clock = YES;
+  actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+
+  time = @"";
+  a24clock = YES;
+  actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+
+  time = @"";
+  a24clock = NO;
+  actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+  
+  time = @"123";
+  a24clock = YES;
+  actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+
+  time = @"123456";
+  a24clock = NO;
+  actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+
+  time = @"123$";
+  a24clock = YES;
+  actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
+  GHAssertTrue(actual, nil);
+  
+  time = @"1234567";
+  a24clock = NO;
+  actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
+  GHAssertTrue(actual, nil);
+  
+  time = @"12345678";
+  a24clock = YES;
+  actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
+  GHAssertTrue(actual, nil);
+  
+  time = @"12345678";
+  a24clock = NO;
+  actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
+  GHAssertTrue(actual, nil);
+
+
+  time = @"123456789";
+  a24clock = YES;
+  actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+  
+  time = @"123456789";
+  a24clock = NO;
+  actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+
+  
+  NSDateFormatter *formatter = [LjsDateHelper hoursMinutesAmPmFormatter];
+  time = [formatter stringFromDate:[NSDate date]];
+  a24clock = YES;
+  actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
+  GHAssertTrue(actual, nil);
+
+  time = [formatter stringFromDate:[NSDate date]];
+  a24clock = NO;
+  actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
+  GHAssertTrue(actual, nil);
+}
+
+
+- (void) test_timeStringHasCorrectComponents {
+  NSString *time;
+  BOOL actual, a24clock;
+  
+  time = nil;
+  a24clock = NO;
+  actual = [LjsDateHelper timeStringHasCorrectComponents:time using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+  
+  time = nil;
+  a24clock = YES;
+  actual = [LjsDateHelper timeStringHasCorrectComponents:time using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+  
+  time = @"";
+  a24clock = YES;
+  actual = [LjsDateHelper timeStringHasCorrectComponents:time using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+
+  time = @"";
+  a24clock = NO;
+  actual = [LjsDateHelper timeStringHasCorrectComponents:time using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+
+  time = @"13:45";
+  a24clock = NO;
+  actual = [LjsDateHelper timeStringHasCorrectComponents:time using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+  
+
+  time = @"13:45";
+  a24clock = YES;
+  actual = [LjsDateHelper timeStringHasCorrectComponents:time using24HourClock:a24clock];
+  GHAssertTrue(actual, nil);
+
+  time = @"00:45 AM";
+  a24clock = YES;
+  actual = [LjsDateHelper timeStringHasCorrectComponents:time using24HourClock:a24clock];
+  GHAssertTrue(actual, nil);
+  
+
+  time = @"00:45 AM";
+  a24clock = NO;
+  actual = [LjsDateHelper timeStringHasCorrectComponents:time using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+
+  time = @"6:30 CM";
+  a24clock = NO;
+  actual = [LjsDateHelper timeStringHasCorrectComponents:time using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+
+  time = @"6:30 CM";
+  a24clock = YES;
+  actual = [LjsDateHelper timeStringHasCorrectComponents:time using24HourClock:a24clock];
+  GHAssertFalse(actual, nil);
+  
+}
+
+- (void) test_componentsWithTimeString {
+  NSString *amPmA, *twelveHourA, *twentyFourHoursA, *minuteA;
+  NSString *amPmE, *twelveHourE, *twentyFourHoursE, *minuteE;
+  
+  NSInteger twelveHourNumberA, twentyFourHourNumberA, minuteNumberA;
+  NSInteger twelveHourNumberE, twentyFourHourNumberE, minuteNumberE;
+  
+  NSString *timeString;
+  NSDictionary *components;
+  
+  timeString = nil;
+  components = [LjsDateHelper componentsWithTimeString:timeString];
+  GHAssertNil(components, nil);
+  
+  timeString = @"";
+  components = [LjsDateHelper componentsWithTimeString:timeString];
+  GHAssertNil(components, nil);
+  
+  timeString = @"asdj@#!@#123";
+  components = [LjsDateHelper componentsWithTimeString:timeString];
+  GHAssertNil(components, nil);
+
+  timeString = @"12:00 PM";
+  components = [LjsDateHelper componentsWithTimeString:timeString];
+  GHAssertNotNil(components, nil);
+  amPmA = [components objectForKey:LjsDateHelperAmPmKey];
+  amPmE = @"PM";
+  GHAssertEqualStrings(amPmA, amPmE, nil);
+  twelveHourA = [components objectForKey:LjsDateHelper12HoursStringKey];
+  twelveHourE = @"12";
+  GHAssertEqualStrings(twelveHourA, twelveHourE, nil);
+  twentyFourHoursA = [components objectForKey:LjsDateHelper24HoursStringKey];
+  twentyFourHoursE = @"12";
+  GHAssertEqualStrings(twentyFourHoursA, twentyFourHoursE, nil);
+  minuteA = [components objectForKey:LjsDateHelperMinutesStringKey];
+  minuteE = @"00";
+  GHAssertEqualStrings(minuteA, minuteE, nil);
+  twelveHourNumberA = [[components objectForKey:LjsDateHelper12HoursNumberKey] integerValue];
+  twelveHourNumberE = 12;
+  GHAssertEquals((NSInteger)twelveHourNumberA, (NSInteger)twelveHourNumberE, nil);
+  twentyFourHourNumberA = [[components objectForKey:LjsDateHelper24HoursNumberKey] integerValue];
+  twentyFourHourNumberE = 12;
+  GHAssertEquals((NSInteger)twentyFourHourNumberA, (NSInteger)twentyFourHourNumberE, nil);
+  minuteNumberA = [[components objectForKey:LjsDateHelperMinutesNumberKey] integerValue];
+  minuteNumberE = 0;
+  GHAssertEquals((NSInteger)minuteNumberA, (NSInteger)minuteNumberE, nil);
+
+  
+  
+  timeString = @"11:00 AM";
+  components = [LjsDateHelper componentsWithTimeString:timeString];
+  GHAssertNotNil(components, nil);
+  amPmA = [components objectForKey:LjsDateHelperAmPmKey];
+  amPmE = @"AM";
+  GHAssertEqualStrings(amPmA, amPmE, nil);
+  twelveHourA = [components objectForKey:LjsDateHelper12HoursStringKey];
+  twelveHourE = @"11";
+  GHAssertEqualStrings(twelveHourA, twelveHourE, nil);
+  twentyFourHoursA = [components objectForKey:LjsDateHelper24HoursStringKey];
+  twentyFourHoursE = @"11";
+  GHAssertEqualStrings(twentyFourHoursA, twentyFourHoursE, nil);
+  minuteA = [components objectForKey:LjsDateHelperMinutesStringKey];
+  minuteE = @"00";
+  GHAssertEqualStrings(minuteA, minuteE, nil);
+  twelveHourNumberA = [[components objectForKey:LjsDateHelper12HoursNumberKey] integerValue];
+  twelveHourNumberE = 11;
+  GHAssertEquals((NSInteger)twelveHourNumberA, (NSInteger)twelveHourNumberE, nil);
+  twentyFourHourNumberA = [[components objectForKey:LjsDateHelper24HoursNumberKey] integerValue];
+  twentyFourHourNumberE = 11;
+  GHAssertEquals((NSInteger)twentyFourHourNumberA, (NSInteger)twentyFourHourNumberE, nil);
+  minuteNumberA = [[components objectForKey:LjsDateHelperMinutesNumberKey] integerValue];
+  minuteNumberE = 0;
+  GHAssertEquals((NSInteger)minuteNumberA, (NSInteger)minuteNumberE, nil);
+
+  timeString = @"11:00 PM";
+  components = [LjsDateHelper componentsWithTimeString:timeString];
+  GHAssertNotNil(components, nil);
+  amPmA = [components objectForKey:LjsDateHelperAmPmKey];
+  amPmE = @"PM";
+  GHAssertEqualStrings(amPmA, amPmE, nil);
+  twelveHourA = [components objectForKey:LjsDateHelper12HoursStringKey];
+  twelveHourE = @"11";
+  GHAssertEqualStrings(twelveHourA, twelveHourE, nil);
+  twentyFourHoursA = [components objectForKey:LjsDateHelper24HoursStringKey];
+  twentyFourHoursE = @"23";
+  GHAssertEqualStrings(twentyFourHoursA, twentyFourHoursE, nil);
+  minuteA = [components objectForKey:LjsDateHelperMinutesStringKey];
+  minuteE = @"00";
+  GHAssertEqualStrings(minuteA, minuteE, nil);
+  twelveHourNumberA = [[components objectForKey:LjsDateHelper12HoursNumberKey] integerValue];
+  twelveHourNumberE = 11;
+  GHAssertEquals((NSInteger)twelveHourNumberA, (NSInteger)twelveHourNumberE, nil);
+  twentyFourHourNumberA = [[components objectForKey:LjsDateHelper24HoursNumberKey] integerValue];
+  twentyFourHourNumberE = 23;
+  GHAssertEquals((NSInteger)twentyFourHourNumberA, (NSInteger)twentyFourHourNumberE, nil);
+  minuteNumberA = [[components objectForKey:LjsDateHelperMinutesNumberKey] integerValue];
+  minuteNumberE = 0;
+  GHAssertEquals((NSInteger)minuteNumberA, (NSInteger)minuteNumberE, nil);
+  
+  timeString = @"13:00 PM";
+  components = [LjsDateHelper componentsWithTimeString:timeString];
+  GHAssertNotNil(components, nil);
+  amPmA = [components objectForKey:LjsDateHelperAmPmKey];
+  amPmE = @"PM";
+  GHAssertEqualStrings(amPmA, amPmE, nil);
+  twelveHourA = [components objectForKey:LjsDateHelper12HoursStringKey];
+  twelveHourE = @"1";
+  GHAssertEqualStrings(twelveHourA, twelveHourE, nil);
+  twentyFourHoursA = [components objectForKey:LjsDateHelper24HoursStringKey];
+  twentyFourHoursE = @"13";
+  GHAssertEqualStrings(twentyFourHoursA, twentyFourHoursE, nil);
+  minuteA = [components objectForKey:LjsDateHelperMinutesStringKey];
+  minuteE = @"00";
+  GHAssertEqualStrings(minuteA, minuteE, nil);
+  twelveHourNumberA = [[components objectForKey:LjsDateHelper12HoursNumberKey] integerValue];
+  twelveHourNumberE = 1;
+  GHAssertEquals((NSInteger)twelveHourNumberA, (NSInteger)twelveHourNumberE, nil);
+  twentyFourHourNumberA = [[components objectForKey:LjsDateHelper24HoursNumberKey] integerValue];
+  twentyFourHourNumberE = 13;
+  GHAssertEquals((NSInteger)twentyFourHourNumberA, (NSInteger)twentyFourHourNumberE, nil);
+  minuteNumberA = [[components objectForKey:LjsDateHelperMinutesNumberKey] integerValue];
+  minuteNumberE = 0;
+  GHAssertEquals((NSInteger)minuteNumberA, (NSInteger)minuteNumberE, nil);
+
+  
+  timeString = @"0:30";
+  components = [LjsDateHelper componentsWithTimeString:timeString];
+  GHAssertNotNil(components, nil);
+  amPmA = [components objectForKey:LjsDateHelperAmPmKey];
+  amPmE = @"AM";
+  GHAssertEqualStrings(amPmA, amPmE, nil);
+  twelveHourA = [components objectForKey:LjsDateHelper12HoursStringKey];
+  twelveHourE = @"12";
+  GHAssertEqualStrings(twelveHourA, twelveHourE, nil);
+  twentyFourHoursA = [components objectForKey:LjsDateHelper24HoursStringKey];
+  twentyFourHoursE = @"0";
+  GHAssertEqualStrings(twentyFourHoursA, twentyFourHoursE, nil);
+  minuteA = [components objectForKey:LjsDateHelperMinutesStringKey];
+  minuteE = @"30";
+  GHAssertEqualStrings(minuteA, minuteE, nil);
+  twelveHourNumberA = [[components objectForKey:LjsDateHelper12HoursNumberKey] integerValue];
+  twelveHourNumberE = 12;
+  GHAssertEquals((NSInteger)twelveHourNumberA, (NSInteger)twelveHourNumberE, nil);
+  twentyFourHourNumberA = [[components objectForKey:LjsDateHelper24HoursNumberKey] integerValue];
+  twentyFourHourNumberE = 0;
+  GHAssertEquals((NSInteger)twentyFourHourNumberA, (NSInteger)twentyFourHourNumberE, nil);
+  minuteNumberA = [[components objectForKey:LjsDateHelperMinutesNumberKey] integerValue];
+  minuteNumberE = 30;
+  GHAssertEquals((NSInteger)minuteNumberA, (NSInteger)minuteNumberE, nil);
+
+  timeString = @"0:30 AM";
+  components = [LjsDateHelper componentsWithTimeString:timeString];
+  GHAssertNotNil(components, nil);
+  amPmA = [components objectForKey:LjsDateHelperAmPmKey];
+  amPmE = @"AM";
+  GHAssertEqualStrings(amPmA, amPmE, nil);
+  twelveHourA = [components objectForKey:LjsDateHelper12HoursStringKey];
+  twelveHourE = @"12";
+  GHAssertEqualStrings(twelveHourA, twelveHourE, nil);
+  twentyFourHoursA = [components objectForKey:LjsDateHelper24HoursStringKey];
+  twentyFourHoursE = @"0";
+  GHAssertEqualStrings(twentyFourHoursA, twentyFourHoursE, nil);
+  minuteA = [components objectForKey:LjsDateHelperMinutesStringKey];
+  minuteE = @"30";
+  GHAssertEqualStrings(minuteA, minuteE, nil);
+  twelveHourNumberA = [[components objectForKey:LjsDateHelper12HoursNumberKey] integerValue];
+  twelveHourNumberE = 12;
+  GHAssertEquals((NSInteger)twelveHourNumberA, (NSInteger)twelveHourNumberE, nil);
+  twentyFourHourNumberA = [[components objectForKey:LjsDateHelper24HoursNumberKey] integerValue];
+  twentyFourHourNumberE = 0;
+  GHAssertEquals((NSInteger)twentyFourHourNumberA, (NSInteger)twentyFourHourNumberE, nil);
+  minuteNumberA = [[components objectForKey:LjsDateHelperMinutesNumberKey] integerValue];
+  minuteNumberE = 30;
+  GHAssertEquals((NSInteger)minuteNumberA, (NSInteger)minuteNumberE, nil);
+
+  NSDateFormatter *formatter = [LjsDateHelper hoursMinutesAmPmFormatter];
+  timeString = [formatter stringFromDate:[NSDate date]];
+  components = [LjsDateHelper componentsWithTimeString:timeString];
+  GHAssertNotNil(components, nil);
+
+}
+
+
+#pragma mark DEAD SEA 
+
+//- (void) test_hourMinutesWithDateAndDateWithHourMinutesString {
+//  NSDateFormatter *longFormatter = [[[NSDateFormatter alloc]
+//                                 init] autorelease];
+//  NSString *longFormatString = @"yyyy-MM-dd HH:mm a";
+//  [longFormatter setDateFormat:longFormatString];
+//  
+//  NSDate *dateResult = [LjsDateHelper dateWithHourMinutesString:@"11:14 PM"];
+//  NSString *dateString = [longFormatter stringFromDate:dateResult];
+//  NSString *hoursMinutesString = [LjsDateHelper hourMinutesWithDate:dateResult];
+//#if TARGET_IPHONE_SIMULATOR
+//  NSString *expectedDate = @"1970-01-01 23:14 PM";
+//  NSString *expectedString = @"11:14";
+//#else
+//  NSString *expectedDate = @"1970-01-01 23:14";
+//  NSString *expectedString = @"23:14";
+//#endif
+//  GHAssertEqualStrings(dateString, expectedDate, nil);
+//  GHAssertEqualStrings(hoursMinutesString, expectedString, nil);
+//  
+//  
+//  dateResult = [LjsDateHelper dateWithHourMinutesString:@"10:14 AM"];
+//  dateString = [longFormatter stringFromDate:dateResult];
+//  hoursMinutesString = [LjsDateHelper hourMinutesWithDate:dateResult];
+//#if TARGET_IPHONE_SIMULATOR
+//  expectedDate = @"1970-01-01 10:14 AM";
+//#else
+//  expectedDate = @"1970-01-01 10:14";
+//#endif
+//  GHAssertEqualStrings(dateString, expectedDate, nil);
+//  GHAssertEqualStrings(hoursMinutesString, expectedString, nil);
+//
+//  
+//  dateResult = [LjsDateHelper dateWithHourMinutesString:@"1:14 AM"];
+//  dateString = [longFormatter stringFromDate:dateResult];
+//  hoursMinutesString = [LjsDateHelper hourMinutesWithDate:dateResult];
+//#if TARGET_IPHONE_SIMULATOR
+//  expectedDate = @"1970-01-01 01:14 AM";
+//  expectedString = @"1:14 AM";
+//#else
+//  expectedDate = @"1970-01-01 01:14";
+//  expectedString = @"1:14";
+//#endif
+//  GHAssertEqualStrings(dateString, expectedDate, nil);
+//  GHAssertEqualStrings(hoursMinutesString, expectedString, nil);
+//  
+//  
+//  dateResult = [LjsDateHelper dateWithHourMinutesString:@"7:14 PM"];
+//  dateString = [longFormatter stringFromDate:dateResult];
+//  hoursMinutesString = [LjsDateHelper hourMinutesWithDate:dateResult];
+//#if TARGET_IPHONE_SIMULATOR
+//  expectedDate = @"1970-01-01 19:14 PM";
+//  expectedString = @"7:14 PM";
+//#else
+//  expectedDate = @"1970-01-01 19:14";
+//  expectedString = @"19:14";
+//#endif
+//  GHAssertEqualStrings(dateString, expectedDate, nil);
+//  GHAssertEqualStrings(hoursMinutesString, expectedString, nil);
+//
+//  dateResult = [LjsDateHelper dateWithHourMinutesString:@"17:14"];
+//  dateString = [longFormatter stringFromDate:dateResult];
+//  hoursMinutesString = [LjsDateHelper hourMinutesWithDate:dateResult];
+//#if TARGET_IPHONE_SIMULATOR
+//  expectedDate = @"1970-01-01 17:14 PM";
+//  expectedString = @"5:14 PM";
+//#else
+//  expectedDate = @"1970-01-01 17:14";
+//  expectedString = @"17:14";
+//#endif
+//  GHAssertEqualStrings(dateString, expectedDate, nil);
+//  GHAssertEqualStrings(hoursMinutesString, expectedString, nil);
+//
+//  dateResult = [LjsDateHelper dateWithHourMinutesString:@"2:14"];
+//  dateString = [longFormatter stringFromDate:dateResult];
+//  hoursMinutesString = [LjsDateHelper hourMinutesWithDate:dateResult];
+//#if TARGET_IPHONE_SIMULATOR
+//  expectedDate = @"1970-01-01 02:14 AM";
+//  expectedString = @"2:14 AM";
+//#else
+//  expectedDate = @"1970-01-01 02:14";
+//  expectedString = @"2:14";
+//#endif
+//  GHAssertEqualStrings(dateString, expectedDate, nil);
+//  GHAssertEqualStrings(hoursMinutesString, expectedString, nil);
+//}
+
+
 
 @end

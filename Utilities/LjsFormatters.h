@@ -26,11 +26,6 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-//  LjsFormatters.h
-//  ProjectTemplate
-//
-//  Created by Joshua Moody on 12/31/10.
-
 #import <Foundation/Foundation.h>
 #import "FTSWAbstractSingleton.h"
 

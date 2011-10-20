@@ -135,7 +135,7 @@
 - (void) testRandomInteger {
 //  int max = pow(2,32) - 1;
 //  int min = -max;
-  int passes = 1000000;
+  int passes = 1000;
   int index = 0;
   for (index = 0; index < passes; index++) {
     [LjsVariates randomInteger];
@@ -148,7 +148,7 @@
 - (void) testRandomIntegerWithRange {
   int max = 10;
   int min = 1;
-  int passes = 100000000;
+  int passes = 1000;
   int index = 0;
   int maxGenerated = min;
   int minGenerated = max;
