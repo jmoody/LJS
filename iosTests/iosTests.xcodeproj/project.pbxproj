@@ -20,7 +20,6 @@
 		F50FE6E21410CC250051FC7E /* LjsIdGeneratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6DC1410CC250051FC7E /* LjsIdGeneratorTests.m */; };
 		F50FE6E31410CC250051FC7E /* LjsKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6DD1410CC250051FC7E /* LjsKeychainTests.m */; };
 		F50FE6E41410CC250051FC7E /* LjsVariatesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6DE1410CC250051FC7E /* LjsVariatesTests.m */; };
-		F50FE6FE1410CC420051FC7E /* Reporter.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6E71410CC420051FC7E /* Reporter.m */; };
 		F50FE6FF1410CC420051FC7E /* LjsDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6EA1410CC420051FC7E /* LjsDateHelper.m */; };
 		F50FE7001410CC420051FC7E /* LjsDecimalAide.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6EC1410CC420051FC7E /* LjsDecimalAide.m */; };
 		F50FE7011410CC420051FC7E /* LjsDNHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6EE1410CC420051FC7E /* LjsDNHandler.m */; };
@@ -28,25 +27,21 @@
 		F50FE7041410CC420051FC7E /* LjsIdGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F41410CC420051FC7E /* LjsIdGenerator.m */; };
 		F50FE7051410CC420051FC7E /* LjsObjectWithUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F61410CC420051FC7E /* LjsObjectWithUUID.m */; };
 		F50FE7061410CC420051FC7E /* LjsVariates.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F81410CC420051FC7E /* LjsVariates.m */; };
-		F50FE7071410CC420051FC7E /* LjsSecurityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6FB1410CC420051FC7E /* LjsSecurityManager.m */; };
-		F50FE7081410CC420051FC7E /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6FD1410CC420051FC7E /* SFHFKeychainUtils.m */; };
-		F50FE7201410CCB00051FC7E /* config-for-debug-and-release-block.txt in Resources */ = {isa = PBXBuildFile; fileRef = F50FE70B1410CCB00051FC7E /* config-for-debug-and-release-block.txt */; };
-		F50FE7211410CCB00051FC7E /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE70D1410CCB00051FC7E /* LjsDefaultFormatter.m */; };
-		F50FE7221410CCB00051FC7E /* LjsMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE7101410CCB00051FC7E /* LjsMessageBuilder.m */; };
-		F50FE7231410CCB00051FC7E /* LjsTailingFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE7121410CCB00051FC7E /* LjsTailingFileManager.m */; };
-		F50FE7241410CCB00051FC7E /* main.m-for-cocoa-app.txt in Resources */ = {isa = PBXBuildFile; fileRef = F50FE7141410CCB00051FC7E /* main.m-for-cocoa-app.txt */; };
-		F50FE7251410CCB00051FC7E /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE7171410CCB00051FC7E /* DDAbstractDatabaseLogger.m */; };
-		F50FE7261410CCB00051FC7E /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE7191410CCB00051FC7E /* DDASLLogger.m */; };
-		F50FE7271410CCB00051FC7E /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE71B1410CCB00051FC7E /* DDFileLogger.m */; };
-		F50FE7281410CCB00051FC7E /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE71D1410CCB00051FC7E /* DDLog.m */; };
-		F50FE7291410CCB00051FC7E /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE71F1410CCB00051FC7E /* DDTTYLogger.m */; };
 		F50FE72C1410CD570051FC7E /* LjsFormatters.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE72B1410CD560051FC7E /* LjsFormatters.m */; };
-		F50FE72F1410CE410051FC7E /* FTSWAbstractSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE72E1410CE410051FC7E /* FTSWAbstractSingleton.m */; };
 		F50FE7321410D2D60051FC7E /* LjsGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE7311410D2D50051FC7E /* LjsGlobals.m */; };
 		F50FE7351410D3160051FC7E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE7331410D30D0051FC7E /* Security.framework */; };
 		F529524514232EB5009C67EE /* LjsValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524414232EB5009C67EE /* LjsValidator.m */; };
 		F529524814232F47009C67EE /* LjsValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524714232F47009C67EE /* LjsValidatorTests.m */; };
 		F529524A14234EA4009C67EE /* LjsFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524914234EA4009C67EE /* LjsFormatter.m */; };
+		F5448ACA1450B63B0065E516 /* config-for-debug-and-release-block.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5448AB91450B63B0065E516 /* config-for-debug-and-release-block.txt */; };
+		F5448ACB1450B63B0065E516 /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448ABB1450B63B0065E516 /* LjsDefaultFormatter.m */; };
+		F5448ACC1450B63B0065E516 /* LjsMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448ABE1450B63B0065E516 /* LjsMessageBuilder.m */; };
+		F5448ACD1450B63B0065E516 /* LjsTailingFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AC01450B63B0065E516 /* LjsTailingFileManager.m */; };
+		F5448ACE1450B63B0065E516 /* main.m-for-cocoa-app.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5448AC21450B63B0065E516 /* main.m-for-cocoa-app.txt */; };
+		F5448ACF1450B63B0065E516 /* Reporter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AC61450B63B0065E516 /* Reporter.m */; };
+		F5448AD01450B63B0065E516 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AC91450B63B0065E516 /* SFHFKeychainUtils.m */; };
+		F5448AD31450B6590065E516 /* LjsSecurityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AD21450B6590065E516 /* LjsSecurityManager.m */; };
+		F5448AD71450B6FB0065E516 /* FTSWAbstractSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AD61450B6FB0065E516 /* FTSWAbstractSingleton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,8 +67,6 @@
 		F50FE6DC1410CC250051FC7E /* LjsIdGeneratorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsIdGeneratorTests.m; sourceTree = "<group>"; };
 		F50FE6DD1410CC250051FC7E /* LjsKeychainTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsKeychainTests.m; sourceTree = "<group>"; };
 		F50FE6DE1410CC250051FC7E /* LjsVariatesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariatesTests.m; sourceTree = "<group>"; };
-		F50FE6E61410CC420051FC7E /* Reporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reporter.h; sourceTree = "<group>"; };
-		F50FE6E71410CC420051FC7E /* Reporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reporter.m; sourceTree = "<group>"; };
 		F50FE6E91410CC420051FC7E /* LjsDateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDateHelper.h; sourceTree = "<group>"; };
 		F50FE6EA1410CC420051FC7E /* LjsDateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDateHelper.m; sourceTree = "<group>"; };
 		F50FE6EB1410CC420051FC7E /* LjsDecimalAide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDecimalAide.h; sourceTree = "<group>"; };
@@ -89,34 +82,8 @@
 		F50FE6F61410CC420051FC7E /* LjsObjectWithUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsObjectWithUUID.m; sourceTree = "<group>"; };
 		F50FE6F71410CC420051FC7E /* LjsVariates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsVariates.h; sourceTree = "<group>"; };
 		F50FE6F81410CC420051FC7E /* LjsVariates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariates.m; sourceTree = "<group>"; };
-		F50FE6FA1410CC420051FC7E /* LjsSecurityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsSecurityManager.h; sourceTree = "<group>"; };
-		F50FE6FB1410CC420051FC7E /* LjsSecurityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsSecurityManager.m; sourceTree = "<group>"; };
-		F50FE6FC1410CC420051FC7E /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
-		F50FE6FD1410CC420051FC7E /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
-		F50FE70B1410CCB00051FC7E /* config-for-debug-and-release-block.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "config-for-debug-and-release-block.txt"; sourceTree = "<group>"; };
-		F50FE70C1410CCB00051FC7E /* LjsDefaultFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultFormatter.h; sourceTree = "<group>"; };
-		F50FE70D1410CCB00051FC7E /* LjsDefaultFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultFormatter.m; sourceTree = "<group>"; };
-		F50FE70E1410CCB00051FC7E /* LjsLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLog.h; sourceTree = "<group>"; };
-		F50FE70F1410CCB00051FC7E /* LjsMessageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsMessageBuilder.h; sourceTree = "<group>"; };
-		F50FE7101410CCB00051FC7E /* LjsMessageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsMessageBuilder.m; sourceTree = "<group>"; };
-		F50FE7111410CCB00051FC7E /* LjsTailingFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsTailingFileManager.h; sourceTree = "<group>"; };
-		F50FE7121410CCB00051FC7E /* LjsTailingFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsTailingFileManager.m; sourceTree = "<group>"; };
-		F50FE7131410CCB00051FC7E /* Lumberjack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lumberjack.h; sourceTree = "<group>"; };
-		F50FE7141410CCB00051FC7E /* main.m-for-cocoa-app.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "main.m-for-cocoa-app.txt"; sourceTree = "<group>"; };
-		F50FE7161410CCB00051FC7E /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
-		F50FE7171410CCB00051FC7E /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
-		F50FE7181410CCB00051FC7E /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
-		F50FE7191410CCB00051FC7E /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
-		F50FE71A1410CCB00051FC7E /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
-		F50FE71B1410CCB00051FC7E /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
-		F50FE71C1410CCB00051FC7E /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
-		F50FE71D1410CCB00051FC7E /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
-		F50FE71E1410CCB00051FC7E /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
-		F50FE71F1410CCB00051FC7E /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
 		F50FE72A1410CD560051FC7E /* LjsFormatters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFormatters.h; sourceTree = "<group>"; };
 		F50FE72B1410CD560051FC7E /* LjsFormatters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFormatters.m; sourceTree = "<group>"; };
-		F50FE72D1410CE410051FC7E /* FTSWAbstractSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTSWAbstractSingleton.h; sourceTree = "<group>"; };
-		F50FE72E1410CE410051FC7E /* FTSWAbstractSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTSWAbstractSingleton.m; sourceTree = "<group>"; };
 		F50FE7301410D2D40051FC7E /* LjsGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGlobals.h; sourceTree = "<group>"; };
 		F50FE7311410D2D50051FC7E /* LjsGlobals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGlobals.m; sourceTree = "<group>"; };
 		F50FE7331410D30D0051FC7E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -124,6 +91,24 @@
 		F529524414232EB5009C67EE /* LjsValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidator.m; sourceTree = "<group>"; };
 		F529524714232F47009C67EE /* LjsValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidatorTests.m; sourceTree = "<group>"; };
 		F529524914234EA4009C67EE /* LjsFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFormatter.m; sourceTree = "<group>"; };
+		F5448AB91450B63B0065E516 /* config-for-debug-and-release-block.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "config-for-debug-and-release-block.txt"; sourceTree = "<group>"; };
+		F5448ABA1450B63B0065E516 /* LjsDefaultFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultFormatter.h; sourceTree = "<group>"; };
+		F5448ABB1450B63B0065E516 /* LjsDefaultFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultFormatter.m; sourceTree = "<group>"; };
+		F5448ABC1450B63B0065E516 /* LjsLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLog.h; sourceTree = "<group>"; };
+		F5448ABD1450B63B0065E516 /* LjsMessageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsMessageBuilder.h; sourceTree = "<group>"; };
+		F5448ABE1450B63B0065E516 /* LjsMessageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsMessageBuilder.m; sourceTree = "<group>"; };
+		F5448ABF1450B63B0065E516 /* LjsTailingFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsTailingFileManager.h; sourceTree = "<group>"; };
+		F5448AC01450B63B0065E516 /* LjsTailingFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsTailingFileManager.m; sourceTree = "<group>"; };
+		F5448AC11450B63B0065E516 /* Lumberjack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lumberjack.h; sourceTree = "<group>"; };
+		F5448AC21450B63B0065E516 /* main.m-for-cocoa-app.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "main.m-for-cocoa-app.txt"; sourceTree = "<group>"; };
+		F5448AC51450B63B0065E516 /* Reporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reporter.h; sourceTree = "<group>"; };
+		F5448AC61450B63B0065E516 /* Reporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reporter.m; sourceTree = "<group>"; };
+		F5448AC81450B63B0065E516 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		F5448AC91450B63B0065E516 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		F5448AD11450B6590065E516 /* LjsSecurityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsSecurityManager.h; sourceTree = "<group>"; };
+		F5448AD21450B6590065E516 /* LjsSecurityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsSecurityManager.m; sourceTree = "<group>"; };
+		F5448AD51450B6FB0065E516 /* FTSWAbstractSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTSWAbstractSingleton.h; sourceTree = "<group>"; };
+		F5448AD61450B6FB0065E516 /* FTSWAbstractSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTSWAbstractSingleton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,8 +131,8 @@
 		F50FE6901410C6F60051FC7E = {
 			isa = PBXGroup;
 			children = (
-				F50FE7091410CCB00051FC7E /* Logging */,
-				F50FE6E51410CC420051FC7E /* Error */,
+				F5448AB81450B63B0065E516 /* Logging */,
+				F5448AC31450B63B0065E516 /* ThirdParty */,
 				F50FE6E81410CC420051FC7E /* Utilities */,
 				F50FE6D71410CC250051FC7E /* Tests */,
 				F50FE6CC1410C90C0051FC7E /* Library */,
@@ -257,23 +242,13 @@
 			path = Unit;
 			sourceTree = "<group>";
 		};
-		F50FE6E51410CC420051FC7E /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				F50FE6E61410CC420051FC7E /* Reporter.h */,
-				F50FE6E71410CC420051FC7E /* Reporter.m */,
-			);
-			name = Error;
-			path = ../Error;
-			sourceTree = "<group>";
-		};
 		F50FE6E81410CC420051FC7E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F5448AD11450B6590065E516 /* LjsSecurityManager.h */,
+				F5448AD21450B6590065E516 /* LjsSecurityManager.m */,
 				F50FE7301410D2D40051FC7E /* LjsGlobals.h */,
 				F50FE7311410D2D50051FC7E /* LjsGlobals.m */,
-				F50FE72D1410CE410051FC7E /* FTSWAbstractSingleton.h */,
-				F50FE72E1410CE410051FC7E /* FTSWAbstractSingleton.m */,
 				F50FE72A1410CD560051FC7E /* LjsFormatters.h */,
 				F50FE72B1410CD560051FC7E /* LjsFormatters.m */,
 				F50FE6E91410CC420051FC7E /* LjsDateHelper.h */,
@@ -292,7 +267,6 @@
 				F50FE6F61410CC420051FC7E /* LjsObjectWithUUID.m */,
 				F50FE6F71410CC420051FC7E /* LjsVariates.h */,
 				F50FE6F81410CC420051FC7E /* LjsVariates.m */,
-				F50FE6F91410CC420051FC7E /* Security */,
 				F529524314232EB5009C67EE /* LjsValidator.h */,
 				F529524414232EB5009C67EE /* LjsValidator.m */,
 			);
@@ -300,59 +274,60 @@
 			path = ../Utilities;
 			sourceTree = "<group>";
 		};
-		F50FE6F91410CC420051FC7E /* Security */ = {
+		F5448AB81450B63B0065E516 /* Logging */ = {
 			isa = PBXGroup;
 			children = (
-				F50FE6FA1410CC420051FC7E /* LjsSecurityManager.h */,
-				F50FE6FB1410CC420051FC7E /* LjsSecurityManager.m */,
-				F50FE6FC1410CC420051FC7E /* SFHFKeychainUtils.h */,
-				F50FE6FD1410CC420051FC7E /* SFHFKeychainUtils.m */,
-			);
-			path = Security;
-			sourceTree = "<group>";
-		};
-		F50FE7091410CCB00051FC7E /* Logging */ = {
-			isa = PBXGroup;
-			children = (
-				F50FE70A1410CCB00051FC7E /* ljs */,
-				F50FE7151410CCB00051FC7E /* Lumberjack */,
+				F5448AB91450B63B0065E516 /* config-for-debug-and-release-block.txt */,
+				F5448ABA1450B63B0065E516 /* LjsDefaultFormatter.h */,
+				F5448ABB1450B63B0065E516 /* LjsDefaultFormatter.m */,
+				F5448ABC1450B63B0065E516 /* LjsLog.h */,
+				F5448ABD1450B63B0065E516 /* LjsMessageBuilder.h */,
+				F5448ABE1450B63B0065E516 /* LjsMessageBuilder.m */,
+				F5448ABF1450B63B0065E516 /* LjsTailingFileManager.h */,
+				F5448AC01450B63B0065E516 /* LjsTailingFileManager.m */,
+				F5448AC11450B63B0065E516 /* Lumberjack.h */,
+				F5448AC21450B63B0065E516 /* main.m-for-cocoa-app.txt */,
 			);
 			name = Logging;
 			path = ../Logging;
 			sourceTree = "<group>";
 		};
-		F50FE70A1410CCB00051FC7E /* ljs */ = {
+		F5448AC31450B63B0065E516 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				F50FE70B1410CCB00051FC7E /* config-for-debug-and-release-block.txt */,
-				F50FE70C1410CCB00051FC7E /* LjsDefaultFormatter.h */,
-				F50FE70D1410CCB00051FC7E /* LjsDefaultFormatter.m */,
-				F50FE70E1410CCB00051FC7E /* LjsLog.h */,
-				F50FE70F1410CCB00051FC7E /* LjsMessageBuilder.h */,
-				F50FE7101410CCB00051FC7E /* LjsMessageBuilder.m */,
-				F50FE7111410CCB00051FC7E /* LjsTailingFileManager.h */,
-				F50FE7121410CCB00051FC7E /* LjsTailingFileManager.m */,
-				F50FE7131410CCB00051FC7E /* Lumberjack.h */,
-				F50FE7141410CCB00051FC7E /* main.m-for-cocoa-app.txt */,
+				F5448AD41450B6FB0065E516 /* FTSW */,
+				F5448AC41450B63B0065E516 /* Reporter */,
+				F5448AC71450B63B0065E516 /* Security */,
 			);
-			path = ljs;
+			name = ThirdParty;
+			path = ../ThirdParty;
 			sourceTree = "<group>";
 		};
-		F50FE7151410CCB00051FC7E /* Lumberjack */ = {
+		F5448AC41450B63B0065E516 /* Reporter */ = {
 			isa = PBXGroup;
 			children = (
-				F50FE7161410CCB00051FC7E /* DDAbstractDatabaseLogger.h */,
-				F50FE7171410CCB00051FC7E /* DDAbstractDatabaseLogger.m */,
-				F50FE7181410CCB00051FC7E /* DDASLLogger.h */,
-				F50FE7191410CCB00051FC7E /* DDASLLogger.m */,
-				F50FE71A1410CCB00051FC7E /* DDFileLogger.h */,
-				F50FE71B1410CCB00051FC7E /* DDFileLogger.m */,
-				F50FE71C1410CCB00051FC7E /* DDLog.h */,
-				F50FE71D1410CCB00051FC7E /* DDLog.m */,
-				F50FE71E1410CCB00051FC7E /* DDTTYLogger.h */,
-				F50FE71F1410CCB00051FC7E /* DDTTYLogger.m */,
+				F5448AC51450B63B0065E516 /* Reporter.h */,
+				F5448AC61450B63B0065E516 /* Reporter.m */,
 			);
-			path = Lumberjack;
+			path = Reporter;
+			sourceTree = "<group>";
+		};
+		F5448AC71450B63B0065E516 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				F5448AC81450B63B0065E516 /* SFHFKeychainUtils.h */,
+				F5448AC91450B63B0065E516 /* SFHFKeychainUtils.m */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		F5448AD41450B6FB0065E516 /* FTSW */ = {
+			isa = PBXGroup;
+			children = (
+				F5448AD51450B6FB0065E516 /* FTSWAbstractSingleton.h */,
+				F5448AD61450B6FB0065E516 /* FTSWAbstractSingleton.m */,
+			);
+			path = FTSW;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,8 +381,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F50FE6AA1410C6F60051FC7E /* InfoPlist.strings in Resources */,
-				F50FE7201410CCB00051FC7E /* config-for-debug-and-release-block.txt in Resources */,
-				F50FE7241410CCB00051FC7E /* main.m-for-cocoa-app.txt in Resources */,
+				F5448ACA1450B63B0065E516 /* config-for-debug-and-release-block.txt in Resources */,
+				F5448ACE1450B63B0065E516 /* main.m-for-cocoa-app.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +400,6 @@
 				F50FE6E21410CC250051FC7E /* LjsIdGeneratorTests.m in Sources */,
 				F50FE6E31410CC250051FC7E /* LjsKeychainTests.m in Sources */,
 				F50FE6E41410CC250051FC7E /* LjsVariatesTests.m in Sources */,
-				F50FE6FE1410CC420051FC7E /* Reporter.m in Sources */,
 				F50FE6FF1410CC420051FC7E /* LjsDateHelper.m in Sources */,
 				F50FE7001410CC420051FC7E /* LjsDecimalAide.m in Sources */,
 				F50FE7011410CC420051FC7E /* LjsDNHandler.m in Sources */,
@@ -433,22 +407,18 @@
 				F50FE7041410CC420051FC7E /* LjsIdGenerator.m in Sources */,
 				F50FE7051410CC420051FC7E /* LjsObjectWithUUID.m in Sources */,
 				F50FE7061410CC420051FC7E /* LjsVariates.m in Sources */,
-				F50FE7071410CC420051FC7E /* LjsSecurityManager.m in Sources */,
-				F50FE7081410CC420051FC7E /* SFHFKeychainUtils.m in Sources */,
-				F50FE7211410CCB00051FC7E /* LjsDefaultFormatter.m in Sources */,
-				F50FE7221410CCB00051FC7E /* LjsMessageBuilder.m in Sources */,
-				F50FE7231410CCB00051FC7E /* LjsTailingFileManager.m in Sources */,
-				F50FE7251410CCB00051FC7E /* DDAbstractDatabaseLogger.m in Sources */,
-				F50FE7261410CCB00051FC7E /* DDASLLogger.m in Sources */,
-				F50FE7271410CCB00051FC7E /* DDFileLogger.m in Sources */,
-				F50FE7281410CCB00051FC7E /* DDLog.m in Sources */,
-				F50FE7291410CCB00051FC7E /* DDTTYLogger.m in Sources */,
 				F50FE72C1410CD570051FC7E /* LjsFormatters.m in Sources */,
-				F50FE72F1410CE410051FC7E /* FTSWAbstractSingleton.m in Sources */,
 				F50FE7321410D2D60051FC7E /* LjsGlobals.m in Sources */,
 				F529524514232EB5009C67EE /* LjsValidator.m in Sources */,
 				F529524814232F47009C67EE /* LjsValidatorTests.m in Sources */,
 				F529524A14234EA4009C67EE /* LjsFormatter.m in Sources */,
+				F5448ACB1450B63B0065E516 /* LjsDefaultFormatter.m in Sources */,
+				F5448ACC1450B63B0065E516 /* LjsMessageBuilder.m in Sources */,
+				F5448ACD1450B63B0065E516 /* LjsTailingFileManager.m in Sources */,
+				F5448ACF1450B63B0065E516 /* Reporter.m in Sources */,
+				F5448AD01450B63B0065E516 /* SFHFKeychainUtils.m in Sources */,
+				F5448AD31450B6590065E516 /* LjsSecurityManager.m in Sources */,
+				F5448AD71450B6FB0065E516 /* FTSWAbstractSingleton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
