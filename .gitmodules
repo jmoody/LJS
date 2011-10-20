@@ -1,3 +1,6 @@
 [submodule "cocoalumberjack"]
 	path = cocoalumberjack
 	url = https://code.google.com/p/cocoalumberjack/
+[submodule "gh-unit"]
+	path = gh-unit
+	url = https://github.com/gabriel/gh-unit.git
