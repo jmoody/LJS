@@ -53,14 +53,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F50FE69B1410C6F60051FC7E /* iosTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F50FE69B1410C6F60051FC7E /* Tests-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tests-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50FE69F1410C6F60051FC7E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F50FE6A11410C6F60051FC7E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F50FE6A31410C6F60051FC7E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		F50FE6A71410C6F60051FC7E /* iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iosTests-Info.plist"; sourceTree = "<group>"; };
+		F50FE6A71410C6F60051FC7E /* Tests-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-iOS-Info.plist"; sourceTree = "<group>"; };
 		F50FE6A91410C6F60051FC7E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F50FE6AB1410C6F60051FC7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F50FE6AD1410C6F60051FC7E /* iosTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iosTests-Prefix.pch"; sourceTree = "<group>"; };
+		F50FE6AD1410C6F60051FC7E /* Tests-iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-iOS-Prefix.pch"; sourceTree = "<group>"; };
 		F50FE6C51410C7BD0051FC7E /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnitIOS.framework; sourceTree = "<group>"; };
 		F50FE6CF1410C90C0051FC7E /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		F50FE6D01410C90C0051FC7E /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 				F50FE6E81410CC420051FC7E /* Utilities */,
 				F50FE6D71410CC250051FC7E /* Tests */,
 				F50FE6CC1410C90C0051FC7E /* Library */,
-				F50FE6A51410C6F60051FC7E /* iosTests */,
+				F50FE6A51410C6F60051FC7E /* Tests-iOS */,
 				F50FE69E1410C6F60051FC7E /* Frameworks */,
 				F50FE69C1410C6F60051FC7E /* Products */,
 			);
@@ -168,7 +168,7 @@
 		F50FE69C1410C6F60051FC7E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F50FE69B1410C6F60051FC7E /* iosTests.app */,
+				F50FE69B1410C6F60051FC7E /* Tests-iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,21 +185,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F50FE6A51410C6F60051FC7E /* iosTests */ = {
+		F50FE6A51410C6F60051FC7E /* Tests-iOS */ = {
 			isa = PBXGroup;
 			children = (
 				F50FE6A61410C6F60051FC7E /* Supporting Files */,
 			);
-			path = iosTests;
+			path = Tests-iOS;
 			sourceTree = "<group>";
 		};
 		F50FE6A61410C6F60051FC7E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F50FE6A71410C6F60051FC7E /* iosTests-Info.plist */,
+				F50FE6A71410C6F60051FC7E /* Tests-iOS-Info.plist */,
 				F50FE6A81410C6F60051FC7E /* InfoPlist.strings */,
 				F50FE6AB1410C6F60051FC7E /* main.m */,
-				F50FE6AD1410C6F60051FC7E /* iosTests-Prefix.pch */,
+				F50FE6AD1410C6F60051FC7E /* Tests-iOS-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -388,9 +388,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F50FE69A1410C6F60051FC7E /* iosTests */ = {
+		F50FE69A1410C6F60051FC7E /* Tests-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F50FE6C11410C6F60051FC7E /* Build configuration list for PBXNativeTarget "iosTests" */;
+			buildConfigurationList = F50FE6C11410C6F60051FC7E /* Build configuration list for PBXNativeTarget "Tests-iOS" */;
 			buildPhases = (
 				F50FE6971410C6F60051FC7E /* Sources */,
 				F50FE6981410C6F60051FC7E /* Frameworks */,
@@ -400,9 +400,9 @@
 			);
 			dependencies = (
 			);
-			name = iosTests;
-			productName = iosTests;
-			productReference = F50FE69B1410C6F60051FC7E /* iosTests.app */;
+			name = "Tests-iOS";
+			productName = Tests-iOS;
+			productReference = F50FE69B1410C6F60051FC7E /* Tests-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -411,9 +411,10 @@
 		F50FE6921410C6F60051FC7E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Little Joy Software";
 			};
-			buildConfigurationList = F50FE6951410C6F60051FC7E /* Build configuration list for PBXProject "iosTests" */;
+			buildConfigurationList = F50FE6951410C6F60051FC7E /* Build configuration list for PBXProject "Tests-iOS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -425,7 +426,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F50FE69A1410C6F60051FC7E /* iosTests */,
+				F50FE69A1410C6F60051FC7E /* Tests-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -554,11 +555,11 @@
 					"\"$(SRCROOT)/GHUnit\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iosTests/iosTests-Prefix.pch";
+				GCC_PREFIX_HEADER = "Tests-iOS/Tests-iOS-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				"GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS[arch=*]" = LOG_CONFIGURATION_DEBUG;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Library/**";
-				INFOPLIST_FILE = "iosTests/iosTests-Info.plist";
+				INFOPLIST_FILE = "Tests-iOS/Tests-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -568,7 +569,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Tests-iOS";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -582,10 +583,10 @@
 					"\"$(SRCROOT)/GHUnit\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iosTests/iosTests-Prefix.pch";
+				GCC_PREFIX_HEADER = "Tests-iOS/Tests-iOS-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Library/**";
-				INFOPLIST_FILE = "iosTests/iosTests-Info.plist";
+				INFOPLIST_FILE = "Tests-iOS/Tests-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -595,7 +596,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Tests-iOS";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -604,7 +605,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F50FE6951410C6F60051FC7E /* Build configuration list for PBXProject "iosTests" */ = {
+		F50FE6951410C6F60051FC7E /* Build configuration list for PBXProject "Tests-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F50FE6BF1410C6F60051FC7E /* Debug */,
@@ -613,7 +614,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F50FE6C11410C6F60051FC7E /* Build configuration list for PBXNativeTarget "iosTests" */ = {
+		F50FE6C11410C6F60051FC7E /* Build configuration list for PBXNativeTarget "Tests-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F50FE6C21410C6F60051FC7E /* Debug */,
