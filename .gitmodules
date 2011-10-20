@@ -4,3 +4,6 @@
 [submodule "gh-unit"]
 	path = gh-unit
 	url = https://github.com/gabriel/gh-unit.git
+[submodule "json-framework"]
+	path = json-framework
+	url = https://github.com/stig/json-framework.git
