@@ -323,7 +323,11 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
       twelveHourString = [NSString stringWithFormat:@"%d", twelveHourInt];
       twelveHourNumber = [NSNumber numberWithInteger:twelveHourInt];
       amPmString = LjsDateHelperPM;
-    }    
+    } else {
+      twelveHourString = twentyFourHoursString;
+      twelveHourNumber = twentyFourHourNumber;
+      amPmString = LjsDateHelperAM;
+    }
 
     result = [NSDictionary dictionaryWithObjectsAndKeys:
               twelveHourString, LjsDateHelper12HoursStringKey,
@@ -334,7 +338,7 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
               minuteNumber, LjsDateHelperMinutesNumberKey, 
               amPmString, LjsDateHelperAmPmKey, nil];
 
-  }
+  } 
   return result;
 }
 
@@ -380,7 +384,6 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
       }
     }
     
-  
     result = [NSDictionary dictionaryWithObjectsAndKeys:
               twelveHourString, LjsDateHelper12HoursStringKey,
               twelveHourNumber, LjsDateHelper12HoursNumberKey,
@@ -437,6 +440,7 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
 
 
 
+
 #pragma mark DEAD SEA
 
 //
@@ -488,5 +492,32 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
 //  return result;
 //}
 
+/*
+ + (NSDate *) dateReplacingHoursMinutesSeconds:(NSString *) twentyFourHourTimeString {
+ NSDate *result = nil;
+ if (twentyFourHourTimeString != nil && [LjsDateHelper isValid24HourTime:twentyFourHourTimeString]) {
+ NSDate *now = [NSDate date];
+ NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
+ NSString *ISO8601_DateFormat = @"yyyy-MM-dd HH:mm:ss";
+ [formatter setDateFormat:ISO8601_DateFormat];
+ NSString *isoDateStr = [formatter stringFromDate:now];
+ NSArray *tokens = [isoDateStr componentsSeparatedByString:@" "];
+ NSString *yearMonthDay = [tokens objectAtIndex:0];
+ 
+ NSDictionary *components = [LjsDateHelper componentsWithTimeString:twentyFourHourTimeString];
+ NSString *hours = [components objectForKey:LjsDateHelper24HoursStringKey];
+ NSString *minutes = [components objectForKey:LjsDateHelperMinutesStringKey];
+ NSString *seconds = @"00";
+ NSString *newHourMinSec = [NSString stringWithFormat:@"%@:%@:%@",
+ hours, minutes, seconds];
+ 
+ NSString *newDateStr  = [NSString stringWithFormat:@"%@ %@",
+ yearMonthDay, newHourMinSec];
+ result = [formatter dateFromString:newDateStr];
+ 
+ }
+ return result;
+ }
+*/
 
 @end

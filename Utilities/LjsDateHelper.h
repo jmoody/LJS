@@ -93,7 +93,7 @@ extern NSString *LjsDateHelperMinutesNumberKey;
 //+ (NSString *) hourMinutesWithDate:(NSDate *) date;
 //
 //+ (NSDate *) dateWithHourMinutesString:(NSString *) hoursMinutes;
-
+//+ (NSDate *) dateReplacingHoursMinutesSeconds:(NSString *) twentyFourHourTimeString;
 
 
 @end
