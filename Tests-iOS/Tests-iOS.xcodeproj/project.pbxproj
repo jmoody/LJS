@@ -12,7 +12,6 @@
 		F50FE6A41410C6F60051FC7E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE6A31410C6F60051FC7E /* CoreGraphics.framework */; };
 		F50FE6AA1410C6F60051FC7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F50FE6A81410C6F60051FC7E /* InfoPlist.strings */; };
 		F50FE6AC1410C6F60051FC7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6AB1410C6F60051FC7E /* main.m */; };
-		F50FE6D61410C90C0051FC7E /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE6D51410C90C0051FC7E /* libOCMock.a */; };
 		F50FE6DF1410CC250051FC7E /* LjsDateHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6D91410CC250051FC7E /* LjsDateHelperTests.m */; };
 		F50FE6E01410CC250051FC7E /* LjsDecimalAideTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6DA1410CC250051FC7E /* LjsDecimalAideTests.m */; };
 		F50FE6E11410CC250051FC7E /* LjsFormattersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6DB1410CC250051FC7E /* LjsFormattersTests.m */; };
@@ -50,6 +49,8 @@
 		F5448AEF1450B86E0065E516 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AE71450B86E0065E516 /* DispatchQueueLogFormatter.m */; };
 		F5448AF01450B86E0065E516 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5448AE81450B86E0065E516 /* README.txt */; };
 		F56147AD1450BFB800D2653A /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56147AC1450BFB800D2653A /* GHUnitIOS.framework */; };
+		F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F56147B81450C72A00D2653A /* libOCMock.a */; };
+		F56147BB1450C86700D2653A /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F56147BA1450C86700D2653A /* OCMockWorkingTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,13 +63,6 @@
 		F50FE6AB1410C6F60051FC7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F50FE6AD1410C6F60051FC7E /* Tests-iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-iOS-Prefix.pch"; sourceTree = "<group>"; };
 		F50FE6C51410C7BD0051FC7E /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnitIOS.framework; sourceTree = "<group>"; };
-		F50FE6CF1410C90C0051FC7E /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
-		F50FE6D01410C90C0051FC7E /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
-		F50FE6D11410C90C0051FC7E /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
-		F50FE6D21410C90C0051FC7E /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
-		F50FE6D31410C90C0051FC7E /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
-		F50FE6D41410C90C0051FC7E /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
-		F50FE6D51410C90C0051FC7E /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		F50FE6D91410CC250051FC7E /* LjsDateHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDateHelperTests.m; sourceTree = "<group>"; };
 		F50FE6DA1410CC250051FC7E /* LjsDecimalAideTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDecimalAideTests.m; sourceTree = "<group>"; };
 		F50FE6DB1410CC250051FC7E /* LjsFormattersTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFormattersTests.m; sourceTree = "<group>"; };
@@ -133,6 +127,14 @@
 		F5448AE71450B86E0065E516 /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
 		F5448AE81450B86E0065E516 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		F56147AC1450BFB800D2653A /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../gh-unit/Project-iOS/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
+		F56147B21450C72A00D2653A /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		F56147B31450C72A00D2653A /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		F56147B41450C72A00D2653A /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		F56147B51450C72A00D2653A /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		F56147B61450C72A00D2653A /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		F56147B71450C72A00D2653A /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
+		F56147B81450C72A00D2653A /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		F56147BA1450C86700D2653A /* OCMockWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockWorkingTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,8 +146,8 @@
 				F50FE6A21410C6F60051FC7E /* Foundation.framework in Frameworks */,
 				F50FE6A41410C6F60051FC7E /* CoreGraphics.framework in Frameworks */,
 				F50FE7351410D3160051FC7E /* Security.framework in Frameworks */,
-				F50FE6D61410C90C0051FC7E /* libOCMock.a in Frameworks */,
 				F56147AD1450BFB800D2653A /* GHUnitIOS.framework in Frameworks */,
+				F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +160,6 @@
 				F5448AC31450B63B0065E516 /* ThirdParty */,
 				F5448AB81450B63B0065E516 /* Logging */,
 				F50FE6D71410CC250051FC7E /* Tests */,
-				F50FE6CC1410C90C0051FC7E /* Library */,
 				F50FE6E81410CC420051FC7E /* Utilities */,
 				F50FE6A51410C6F60051FC7E /* Tests-iOS */,
 				F50FE69E1410C6F60051FC7E /* Frameworks */,
@@ -214,40 +215,11 @@
 			path = GHUnit;
 			sourceTree = "<group>";
 		};
-		F50FE6CC1410C90C0051FC7E /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				F50FE6CD1410C90C0051FC7E /* Headers */,
-				F50FE6D51410C90C0051FC7E /* libOCMock.a */,
-			);
-			path = Library;
-			sourceTree = "<group>";
-		};
-		F50FE6CD1410C90C0051FC7E /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				F50FE6CE1410C90C0051FC7E /* OCMock */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		F50FE6CE1410C90C0051FC7E /* OCMock */ = {
-			isa = PBXGroup;
-			children = (
-				F50FE6CF1410C90C0051FC7E /* NSNotificationCenter+OCMAdditions.h */,
-				F50FE6D01410C90C0051FC7E /* OCMArg.h */,
-				F50FE6D11410C90C0051FC7E /* OCMConstraint.h */,
-				F50FE6D21410C90C0051FC7E /* OCMock.h */,
-				F50FE6D31410C90C0051FC7E /* OCMockObject.h */,
-				F50FE6D41410C90C0051FC7E /* OCMockRecorder.h */,
-			);
-			path = OCMock;
-			sourceTree = "<group>";
-		};
 		F50FE6D71410CC250051FC7E /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				F50FE6D81410CC250051FC7E /* Unit */,
+				F56147BA1450C86700D2653A /* OCMockWorkingTest.m */,
 			);
 			name = Tests;
 			path = ../Tests;
@@ -320,6 +292,7 @@
 		F5448AC31450B63B0065E516 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				F56147AE1450C72A00D2653A /* ocmock */,
 				F5448AD81450B86E0065E516 /* Lumberjack */,
 				F5448AD41450B6FB0065E516 /* FTSW */,
 				F5448AC41450B63B0065E516 /* Reporter */,
@@ -385,6 +358,45 @@
 				F5448AE81450B86E0065E516 /* README.txt */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F56147AE1450C72A00D2653A /* ocmock */ = {
+			isa = PBXGroup;
+			children = (
+				F56147AF1450C72A00D2653A /* Library */,
+			);
+			name = ocmock;
+			path = ../ocmock;
+			sourceTree = "<group>";
+		};
+		F56147AF1450C72A00D2653A /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				F56147B01450C72A00D2653A /* Headers */,
+				F56147B81450C72A00D2653A /* libOCMock.a */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		F56147B01450C72A00D2653A /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				F56147B11450C72A00D2653A /* OCMock */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		F56147B11450C72A00D2653A /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				F56147B21450C72A00D2653A /* NSNotificationCenter+OCMAdditions.h */,
+				F56147B31450C72A00D2653A /* OCMArg.h */,
+				F56147B41450C72A00D2653A /* OCMConstraint.h */,
+				F56147B51450C72A00D2653A /* OCMock.h */,
+				F56147B61450C72A00D2653A /* OCMockObject.h */,
+				F56147B71450C72A00D2653A /* OCMockRecorder.h */,
+			);
+			path = OCMock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -485,6 +497,7 @@
 				F5448AED1450B86E0065E516 /* DDTTYLogger.m in Sources */,
 				F5448AEE1450B86E0065E516 /* ContextFilterLogFormatter.m in Sources */,
 				F5448AEF1450B86E0065E516 /* DispatchQueueLogFormatter.m in Sources */,
+				F56147BB1450C86700D2653A /* OCMockWorkingTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,19 +567,18 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/GHUnit\"",
 					"\"$(SRCROOT)/../gh-unit/Project-iOS/build/Framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-iOS/Tests-iOS-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				"GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS[arch=*]" = LOG_CONFIGURATION_DEBUG;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Library/**";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../ocmock/Library/Headers/**";
 				INFOPLIST_FILE = "Tests-iOS/Tests-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Library\"",
+					"\"$(SRCROOT)/../ocmock/Library\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -583,18 +595,17 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/GHUnit\"",
 					"\"$(SRCROOT)/../gh-unit/Project-iOS/build/Framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-iOS/Tests-iOS-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Library/**";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../ocmock/Library/Headers/**";
 				INFOPLIST_FILE = "Tests-iOS/Tests-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Library\"",
+					"\"$(SRCROOT)/../ocmock/Library\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
