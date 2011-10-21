@@ -6,8 +6,8 @@
 #import "GCDAsyncSocket.h"
 #import "WebSocket.h"
 #import "LjsHTTPFileLogger.h"
-//#import "LjsWebSocketLogger.h"
-#import "WebSocketLogger.h"
+#import "LjsWebSocketLogger.h"
+
 
 @implementation LjsHTTPLogConnection
 
@@ -148,7 +148,7 @@
 		WebSocket *ws = [[WebSocket alloc] initWithRequest:request socket:asyncSocket];
 		
 		// Create the WebSocketLogger
-		WebSocketLogger *wsLogger = [[WebSocketLogger alloc] initWithWebSocket:ws];
+		LjsWebSocketLogger *wsLogger = [[LjsWebSocketLogger alloc] initWithWebSocket:ws];
 		
 		// Memory management:
 		// The WebSocket will be retained by the HTTPServer and the WebSocketLogger.
