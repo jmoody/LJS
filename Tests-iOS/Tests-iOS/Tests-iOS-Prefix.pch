@@ -11,4 +11,5 @@
   #import <GHUnitIOS/GHUnit.h>
   #include "TargetConditionals.h"
   #import "LjsLog.h"
+  #import "LjsHTTPLog.h"
 #endif

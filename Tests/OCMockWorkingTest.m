@@ -35,6 +35,12 @@
 
 #import <GHUnitIOS/GHUnit.h> 
 
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
+
 @interface OCMockWorkingTest : GHTestCase {}
 @end
 
@@ -85,5 +91,6 @@
   returnValue = [mock lowercaseString];
   GHAssertEqualObjects(@"megamock", returnValue, @"Should have returned stubbed value."); 
 }
+
 
 @end
