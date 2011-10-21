@@ -85,6 +85,12 @@
 		F54E3A8B1450E6E80059BF53 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A7D1450E6E80059BF53 /* SBJsonTokeniser.m */; };
 		F54E3A8C1450E6E80059BF53 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A7F1450E6E80059BF53 /* SBJsonUTF8Stream.m */; };
 		F54E3A8D1450E6E80059BF53 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A811450E6E80059BF53 /* SBJsonWriter.m */; };
+		F54E3A911450EA340059BF53 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A901450EA340059BF53 /* Reachability.m */; };
+		F54E3A991450EAD40059BF53 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54E3A981450EAD40059BF53 /* CFNetwork.framework */; };
+		F54E3A9B1450EAE10059BF53 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54E3A9A1450EAE10059BF53 /* SystemConfiguration.framework */; };
+		F54E3A9D1450EAEA0059BF53 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54E3A9C1450EAEA0059BF53 /* MobileCoreServices.framework */; };
+		F54E3A9F1450EB000059BF53 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F54E3A9E1450EB000059BF53 /* libz.dylib */; };
+		F54E3AA11450EB080059BF53 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F54E3AA01450EB080059BF53 /* libxml2.dylib */; };
 		F56147AD1450BFB800D2653A /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56147AC1450BFB800D2653A /* GHUnitIOS.framework */; };
 		F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F56147B81450C72A00D2653A /* libOCMock.a */; };
 		F56147BB1450C86700D2653A /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F56147BA1450C86700D2653A /* OCMockWorkingTest.m */; };
@@ -243,6 +249,13 @@
 		F54E3A7F1450E6E80059BF53 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonUTF8Stream.m; path = "../json-framework/Classes/SBJsonUTF8Stream.m"; sourceTree = "<group>"; };
 		F54E3A801450E6E80059BF53 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = "../json-framework/Classes/SBJsonWriter.h"; sourceTree = "<group>"; };
 		F54E3A811450E6E80059BF53 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = "../json-framework/Classes/SBJsonWriter.m"; sourceTree = "<group>"; };
+		F54E3A8F1450EA340059BF53 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "../asi-http-request/External/Reachability/Reachability.h"; sourceTree = "<group>"; };
+		F54E3A901450EA340059BF53 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "../asi-http-request/External/Reachability/Reachability.m"; sourceTree = "<group>"; };
+		F54E3A981450EAD40059BF53 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		F54E3A9A1450EAE10059BF53 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F54E3A9C1450EAEA0059BF53 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		F54E3A9E1450EB000059BF53 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		F54E3AA01450EB080059BF53 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		F56147AC1450BFB800D2653A /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../gh-unit/Project-iOS/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
 		F56147B21450C72A00D2653A /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		F56147B31450C72A00D2653A /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -260,6 +273,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F54E3AA11450EB080059BF53 /* libxml2.dylib in Frameworks */,
+				F54E3A9F1450EB000059BF53 /* libz.dylib in Frameworks */,
+				F54E3A9D1450EAEA0059BF53 /* MobileCoreServices.framework in Frameworks */,
+				F54E3A9B1450EAE10059BF53 /* SystemConfiguration.framework in Frameworks */,
+				F54E3A991450EAD40059BF53 /* CFNetwork.framework in Frameworks */,
 				F50FE6A01410C6F60051FC7E /* UIKit.framework in Frameworks */,
 				F50FE6A21410C6F60051FC7E /* Foundation.framework in Frameworks */,
 				F50FE6A41410C6F60051FC7E /* CoreGraphics.framework in Frameworks */,
@@ -296,6 +314,11 @@
 		F50FE69E1410C6F60051FC7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F54E3AA01450EB080059BF53 /* libxml2.dylib */,
+				F54E3A9E1450EB000059BF53 /* libz.dylib */,
+				F54E3A9C1450EAEA0059BF53 /* MobileCoreServices.framework */,
+				F54E3A9A1450EAE10059BF53 /* SystemConfiguration.framework */,
+				F54E3A981450EAD40059BF53 /* CFNetwork.framework */,
 				F56147AC1450BFB800D2653A /* GHUnitIOS.framework */,
 				F50FE7331410D30D0051FC7E /* Security.framework */,
 				F50FE6C41410C7BD0051FC7E /* GHUnit */,
@@ -414,6 +437,7 @@
 		F5448AC31450B63B0065E516 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				F54E3A8E1450EA180059BF53 /* Reachability */,
 				F54E3A681450E6D20059BF53 /* SBJSON */,
 				F54E3A1D1450E6A90059BF53 /* ASIHTTPRequest */,
 				F56147AE1450C72A00D2653A /* ocmock */,
@@ -617,6 +641,15 @@
 			name = SBJSON;
 			sourceTree = "<group>";
 		};
+		F54E3A8E1450EA180059BF53 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				F54E3A8F1450EA340059BF53 /* Reachability.h */,
+				F54E3A901450EA340059BF53 /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
 		F56147AE1450C72A00D2653A /* ocmock */ = {
 			isa = PBXGroup;
 			children = (
@@ -793,6 +826,7 @@
 				F54E3A8B1450E6E80059BF53 /* SBJsonTokeniser.m in Sources */,
 				F54E3A8C1450E6E80059BF53 /* SBJsonUTF8Stream.m in Sources */,
 				F54E3A8D1450E6E80059BF53 /* SBJsonWriter.m in Sources */,
+				F54E3A911450EA340059BF53 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -868,7 +902,10 @@
 				GCC_PREFIX_HEADER = "Tests-iOS/Tests-iOS-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				"GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS[arch=*]" = LOG_CONFIGURATION_DEBUG;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../ocmock/Library/Headers/**";
+				HEADER_SEARCH_PATHS = (
+					"${SDK_DIR}/usr/include/libxml2",
+					"$(PROJECT_DIR)/../ocmock/Library/Headers/**",
+				);
 				INFOPLIST_FILE = "Tests-iOS/Tests-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
@@ -895,7 +932,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-iOS/Tests-iOS-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../ocmock/Library/Headers/**";
+				HEADER_SEARCH_PATHS = (
+					"${SDK_DIR}/usr/include/libxml2",
+					"$(PROJECT_DIR)/../ocmock/Library/Headers/**",
+				);
 				INFOPLIST_FILE = "Tests-iOS/Tests-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
