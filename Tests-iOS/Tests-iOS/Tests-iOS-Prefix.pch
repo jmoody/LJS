@@ -10,6 +10,5 @@
   #import <OCMock/OCMock.h>
   #import <GHUnitIOS/GHUnit.h>
   #include "TargetConditionals.h"
-  #import "LjsLog.h"
-  #import "LjsHTTPLog.h"
+  #import "Lumberjack.h"
 #endif

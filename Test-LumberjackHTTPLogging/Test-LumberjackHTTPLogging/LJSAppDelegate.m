@@ -1,14 +1,19 @@
-//
-//  LJSAppDelegate.m
-//  Test-LumberjackHTTPLogging
-//
-//  Created by Joshua Moody on 10/21/11.
-//  Copyright (c) 2011 Little Joy Software. All rights reserved.
-//
-
 #import "LJSAppDelegate.h"
-
 #import "LJSViewController.h"
+#import "Lumberjack.h"
+#import "LjsHTTPLog.h"
+#import "LjsHTTPLogConnection.h"
+#import "HTTPServer.h"
+#import "LjsHTTPFileLogger.h"
+
+@class LjsHTTPLogServer;
+
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
+
 
 @implementation LJSAppDelegate
 
@@ -22,18 +27,62 @@
     [super dealloc];
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  
+  LjsDefaultFormatter *formatter = [[LjsDefaultFormatter alloc] init];
+  DDTTYLogger *tty = [DDTTYLogger sharedInstance];
+  [tty setLogFormatter:formatter];
+  [DDLog addLogger:tty];
+  
+   LjsHTTPFileLogger *fileLogger = [LjsHTTPFileLogger sharedInstance];
+   fileLogger.maximumFileSize = 1024 * 512;    // 512 KB
+   fileLogger.rollingFrequency = 60 * 60 * 24; //  24 Hours
+   fileLogger.logFileManager.maximumNumberOfLogFiles = 4;
+   [fileLogger setLogFormatter:formatter];
+   [DDLog addLogger:fileLogger];
+   
+   LjsHTTPLogServer *httpServer = (LjsHTTPLogServer *)[[HTTPServer alloc] init];
+   [httpServer setConnectionClass:[LjsHTTPLogConnection class]];
+   [httpServer setType:@"_http._tcp."];
+   [httpServer setPort:12345];
+    
+  NSString *webPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Web"];
+  [httpServer setDocumentRoot:webPath];
+  NSError *error = nil;
+  if (![httpServer start:&error]) {
+    DDLogError(@"Error starting HTTP Server: %@", error);
+  }
+
+  [NSTimer scheduledTimerWithTimeInterval:1.0
+	                                 target:self
+	                               selector:@selector(writeLogMessages:)
+	                               userInfo:nil
+	                                repeats:YES];
+  
+  self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
       self.viewController = [[[LJSViewController alloc] initWithNibName:@"LJSViewController_iPhone" bundle:nil] autorelease];
   } else {
       self.viewController = [[[LJSViewController alloc] initWithNibName:@"LJSViewController_iPad" bundle:nil] autorelease];
   }
+  
+
+  
   self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
-    return YES;
+  [self.window makeKeyAndVisible];
+  return YES;
+}
+
+- (void)writeLogMessages:(NSTimer *)aTimer {
+	// Log a message in verbose mode.
+	// 
+	// Want to disable this log message?
+	// Try setting the log level (at the top of this file) to LOG_LEVEL_WARN.
+	// After doing this you can leave the log statement below.
+	// It will automatically be compiled out (when compiling in release mode where compiler optimizations are enabled).
+	
+	DDLogDebug(@"I like cheese");
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

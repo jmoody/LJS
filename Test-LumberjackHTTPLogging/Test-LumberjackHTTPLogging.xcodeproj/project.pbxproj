@@ -16,9 +16,6 @@
 		F50185B2145196340053A064 /* LJSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F50185B1145196340053A064 /* LJSViewController.m */; };
 		F50185B5145196340053A064 /* LJSViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F50185B3145196340053A064 /* LJSViewController_iPhone.xib */; };
 		F50185B8145196340053A064 /* LJSViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F50185B6145196340053A064 /* LJSViewController_iPad.xib */; };
-		F50185D5145197140053A064 /* FTSWAbstractSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F50185CE145197140053A064 /* FTSWAbstractSingleton.m */; };
-		F50185D6145197140053A064 /* Reporter.m in Sources */ = {isa = PBXBuildFile; fileRef = F50185D1145197140053A064 /* Reporter.m */; };
-		F50185D7145197140053A064 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F50185D4145197140053A064 /* SFHFKeychainUtils.m */; };
 		F50185E9145197360053A064 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F50185DA145197360053A064 /* DDAbstractDatabaseLogger.m */; };
 		F50185EA145197360053A064 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F50185DC145197360053A064 /* DDASLLogger.m */; };
 		F50185EB145197360053A064 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F50185DE145197360053A064 /* DDFileLogger.m */; };
@@ -44,6 +41,15 @@
 		F5018623145197AF0053A064 /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5018613145197AF0053A064 /* HTTPServer.m */; };
 		F5018624145197AF0053A064 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5018614145197AF0053A064 /* LICENSE.txt */; };
 		F5018625145197AF0053A064 /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F5018616145197AF0053A064 /* WebSocket.m */; };
+		F5018633145198760053A064 /* config-for-debug-and-release-block.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5018627145198760053A064 /* config-for-debug-and-release-block.txt */; };
+		F5018634145198760053A064 /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5018629145198760053A064 /* LjsDefaultFormatter.m */; };
+		F5018635145198760053A064 /* LjsMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F501862C145198760053A064 /* LjsMessageBuilder.m */; };
+		F5018636145198760053A064 /* LjsTailingFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F501862E145198760053A064 /* LjsTailingFileManager.m */; };
+		F5018638145198760053A064 /* main.m-for-cocoa-app.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5018632145198760053A064 /* main.m-for-cocoa-app.txt */; };
+		F5018649145199400053A064 /* LjsHTTPFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5018643145199400053A064 /* LjsHTTPFileLogger.m */; };
+		F501864A145199400053A064 /* LjsHTTPLogConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = F5018646145199400053A064 /* LjsHTTPLogConnection.m */; };
+		F501864B145199400053A064 /* LjsWebSocketLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5018648145199400053A064 /* LjsWebSocketLogger.m */; };
+		F501864D1451A4C20053A064 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F501864C1451A4C20053A064 /* CFNetwork.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,12 +67,6 @@
 		F50185B1145196340053A064 /* LJSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJSViewController.m; sourceTree = "<group>"; };
 		F50185B4145196340053A064 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LJSViewController_iPhone.xib; sourceTree = "<group>"; };
 		F50185B7145196340053A064 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LJSViewController_iPad.xib; sourceTree = "<group>"; };
-		F50185CD145197140053A064 /* FTSWAbstractSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTSWAbstractSingleton.h; sourceTree = "<group>"; };
-		F50185CE145197140053A064 /* FTSWAbstractSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTSWAbstractSingleton.m; sourceTree = "<group>"; };
-		F50185D0145197140053A064 /* Reporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reporter.h; sourceTree = "<group>"; };
-		F50185D1145197140053A064 /* Reporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reporter.m; sourceTree = "<group>"; };
-		F50185D3145197140053A064 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
-		F50185D4145197140053A064 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		F50185D9145197360053A064 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
 		F50185DA145197360053A064 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
 		F50185DB145197360053A064 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
@@ -116,6 +116,24 @@
 		F5018614145197AF0053A064 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		F5018615145197AF0053A064 /* WebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocket.h; sourceTree = "<group>"; };
 		F5018616145197AF0053A064 /* WebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocket.m; sourceTree = "<group>"; };
+		F5018627145198760053A064 /* config-for-debug-and-release-block.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "config-for-debug-and-release-block.txt"; sourceTree = "<group>"; };
+		F5018628145198760053A064 /* LjsDefaultFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultFormatter.h; sourceTree = "<group>"; };
+		F5018629145198760053A064 /* LjsDefaultFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultFormatter.m; sourceTree = "<group>"; };
+		F501862A145198760053A064 /* LjsLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLog.h; sourceTree = "<group>"; };
+		F501862B145198760053A064 /* LjsMessageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsMessageBuilder.h; sourceTree = "<group>"; };
+		F501862C145198760053A064 /* LjsMessageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsMessageBuilder.m; sourceTree = "<group>"; };
+		F501862D145198760053A064 /* LjsTailingFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsTailingFileManager.h; sourceTree = "<group>"; };
+		F501862E145198760053A064 /* LjsTailingFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsTailingFileManager.m; sourceTree = "<group>"; };
+		F5018631145198760053A064 /* Lumberjack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lumberjack.h; sourceTree = "<group>"; };
+		F5018632145198760053A064 /* main.m-for-cocoa-app.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "main.m-for-cocoa-app.txt"; sourceTree = "<group>"; };
+		F5018642145199400053A064 /* LjsHTTPFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsHTTPFileLogger.h; sourceTree = "<group>"; };
+		F5018643145199400053A064 /* LjsHTTPFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsHTTPFileLogger.m; sourceTree = "<group>"; };
+		F5018644145199400053A064 /* LjsHTTPLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsHTTPLog.h; sourceTree = "<group>"; };
+		F5018645145199400053A064 /* LjsHTTPLogConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsHTTPLogConnection.h; sourceTree = "<group>"; };
+		F5018646145199400053A064 /* LjsHTTPLogConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsHTTPLogConnection.m; sourceTree = "<group>"; };
+		F5018647145199400053A064 /* LjsWebSocketLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsWebSocketLogger.h; sourceTree = "<group>"; };
+		F5018648145199400053A064 /* LjsWebSocketLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsWebSocketLogger.m; sourceTree = "<group>"; };
+		F501864C1451A4C20053A064 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F501859F145196340053A064 /* UIKit.framework in Frameworks */,
+				F501864D1451A4C20053A064 /* CFNetwork.framework in Frameworks */,
 				F50185A1145196340053A064 /* Foundation.framework in Frameworks */,
 				F50185A3145196340053A064 /* CoreGraphics.framework in Frameworks */,
 			);
@@ -135,6 +154,8 @@
 		F501858F145196340053A064 = {
 			isa = PBXGroup;
 			children = (
+				F5018641145199400053A064 /* LoggingHTTP */,
+				F5018626145198760053A064 /* Logging */,
 				F50185CB145197140053A064 /* ThirdParty */,
 				F50185A4145196340053A064 /* Test-LumberjackHTTPLogging */,
 				F501859D145196340053A064 /* Frameworks */,
@@ -153,6 +174,7 @@
 		F501859D145196340053A064 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F501864C1451A4C20053A064 /* CFNetwork.framework */,
 				F501859E145196340053A064 /* UIKit.framework */,
 				F50185A0145196340053A064 /* Foundation.framework */,
 				F50185A2145196340053A064 /* CoreGraphics.framework */,
@@ -190,39 +212,9 @@
 			children = (
 				F50185F1145197480053A064 /* LumberjackWebServer-iPhone */,
 				F50185D8145197360053A064 /* Lumberjack */,
-				F50185CC145197140053A064 /* FTSW */,
-				F50185CF145197140053A064 /* Reporter */,
-				F50185D2145197140053A064 /* Security */,
 			);
 			name = ThirdParty;
 			path = ../ThirdParty;
-			sourceTree = "<group>";
-		};
-		F50185CC145197140053A064 /* FTSW */ = {
-			isa = PBXGroup;
-			children = (
-				F50185CD145197140053A064 /* FTSWAbstractSingleton.h */,
-				F50185CE145197140053A064 /* FTSWAbstractSingleton.m */,
-			);
-			path = FTSW;
-			sourceTree = "<group>";
-		};
-		F50185CF145197140053A064 /* Reporter */ = {
-			isa = PBXGroup;
-			children = (
-				F50185D0145197140053A064 /* Reporter.h */,
-				F50185D1145197140053A064 /* Reporter.m */,
-			);
-			path = Reporter;
-			sourceTree = "<group>";
-		};
-		F50185D2145197140053A064 /* Security */ = {
-			isa = PBXGroup;
-			children = (
-				F50185D3145197140053A064 /* SFHFKeychainUtils.h */,
-				F50185D4145197140053A064 /* SFHFKeychainUtils.m */,
-			);
-			path = Security;
 			sourceTree = "<group>";
 		};
 		F50185D8145197360053A064 /* Lumberjack */ = {
@@ -306,6 +298,39 @@
 			path = ../cocoalumberjack/Xcode/WebServerIPhone/Vendor/CocoaHTTPServer;
 			sourceTree = "<group>";
 		};
+		F5018626145198760053A064 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				F5018627145198760053A064 /* config-for-debug-and-release-block.txt */,
+				F5018628145198760053A064 /* LjsDefaultFormatter.h */,
+				F5018629145198760053A064 /* LjsDefaultFormatter.m */,
+				F501862A145198760053A064 /* LjsLog.h */,
+				F501862B145198760053A064 /* LjsMessageBuilder.h */,
+				F501862C145198760053A064 /* LjsMessageBuilder.m */,
+				F501862D145198760053A064 /* LjsTailingFileManager.h */,
+				F501862E145198760053A064 /* LjsTailingFileManager.m */,
+				F5018631145198760053A064 /* Lumberjack.h */,
+				F5018632145198760053A064 /* main.m-for-cocoa-app.txt */,
+			);
+			name = Logging;
+			path = ../Logging;
+			sourceTree = "<group>";
+		};
+		F5018641145199400053A064 /* LoggingHTTP */ = {
+			isa = PBXGroup;
+			children = (
+				F5018642145199400053A064 /* LjsHTTPFileLogger.h */,
+				F5018643145199400053A064 /* LjsHTTPFileLogger.m */,
+				F5018644145199400053A064 /* LjsHTTPLog.h */,
+				F5018645145199400053A064 /* LjsHTTPLogConnection.h */,
+				F5018646145199400053A064 /* LjsHTTPLogConnection.m */,
+				F5018647145199400053A064 /* LjsWebSocketLogger.h */,
+				F5018648145199400053A064 /* LjsWebSocketLogger.m */,
+			);
+			name = LoggingHTTP;
+			path = ../LoggingHTTP;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -363,6 +388,8 @@
 				F50185F0145197360053A064 /* README.txt in Resources */,
 				F50185F61451979F0053A064 /* Web in Resources */,
 				F5018624145197AF0053A064 /* LICENSE.txt in Resources */,
+				F5018633145198760053A064 /* config-for-debug-and-release-block.txt in Resources */,
+				F5018638145198760053A064 /* main.m-for-cocoa-app.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,9 +403,6 @@
 				F50185AB145196340053A064 /* main.m in Sources */,
 				F50185AF145196340053A064 /* LJSAppDelegate.m in Sources */,
 				F50185B2145196340053A064 /* LJSViewController.m in Sources */,
-				F50185D5145197140053A064 /* FTSWAbstractSingleton.m in Sources */,
-				F50185D6145197140053A064 /* Reporter.m in Sources */,
-				F50185D7145197140053A064 /* SFHFKeychainUtils.m in Sources */,
 				F50185E9145197360053A064 /* DDAbstractDatabaseLogger.m in Sources */,
 				F50185EA145197360053A064 /* DDASLLogger.m in Sources */,
 				F50185EB145197360053A064 /* DDFileLogger.m in Sources */,
@@ -401,6 +425,12 @@
 				F5018622145197AF0053A064 /* HTTPRedirectResponse.m in Sources */,
 				F5018623145197AF0053A064 /* HTTPServer.m in Sources */,
 				F5018625145197AF0053A064 /* WebSocket.m in Sources */,
+				F5018634145198760053A064 /* LjsDefaultFormatter.m in Sources */,
+				F5018635145198760053A064 /* LjsMessageBuilder.m in Sources */,
+				F5018636145198760053A064 /* LjsTailingFileManager.m in Sources */,
+				F5018649145199400053A064 /* LjsHTTPFileLogger.m in Sources */,
+				F501864A145199400053A064 /* LjsHTTPLogConnection.m in Sources */,
+				F501864B145199400053A064 /* LjsWebSocketLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +468,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -453,7 +486,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -463,7 +496,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -471,7 +507,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -482,10 +518,15 @@
 		F50185BC145196340053A064 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Test-LumberjackHTTPLogging/Test-LumberjackHTTPLogging-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = LOG_CONFIGURATION_DEBUG;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "Test-LumberjackHTTPLogging/Test-LumberjackHTTPLogging-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C9350E76-9459-463D-BEEE-A00CE9EE1BE3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -495,7 +536,10 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Test-LumberjackHTTPLogging/Test-LumberjackHTTPLogging-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = LOG_CONFIGURATION_DEBUG;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "Test-LumberjackHTTPLogging/Test-LumberjackHTTPLogging-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -520,6 +564,7 @@
 				F50185BD145196340053A064 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

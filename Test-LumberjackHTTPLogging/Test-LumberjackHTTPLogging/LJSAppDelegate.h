@@ -12,8 +12,11 @@
 
 @interface LJSAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, retain) UIWindow *window;
 
-@property (strong, nonatomic) LJSViewController *viewController;
+@property (nonatomic, retain) LJSViewController *viewController;
+
+- (void)writeLogMessages:(NSTimer *)aTimer;
+
 
 @end

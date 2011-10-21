@@ -12,7 +12,7 @@
 
 - (id <DDLogFileManager>)logFileManager
 {
-  return [LjsHTTPFileLogger sharedInstance];
+  return [[LjsHTTPFileLogger sharedInstance] logFileManager];
 }
 
 - (NSData *)generateIndexData

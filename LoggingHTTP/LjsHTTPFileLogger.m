@@ -34,8 +34,9 @@ static LjsHTTPFileLogger *singleton = nil;
 
 + (id) sharedInstance {
   @synchronized(self) {
-    if (singleton == nil)
+    if (singleton == nil) {
       singleton = [[super allocWithZone:NULL] init];
+    }
   }
   return singleton;
 }
