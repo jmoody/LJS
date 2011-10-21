@@ -48,7 +48,6 @@
 		F5018638145198760053A064 /* main.m-for-cocoa-app.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5018632145198760053A064 /* main.m-for-cocoa-app.txt */; };
 		F5018649145199400053A064 /* LjsHTTPFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5018643145199400053A064 /* LjsHTTPFileLogger.m */; };
 		F501864A145199400053A064 /* LjsHTTPLogConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = F5018646145199400053A064 /* LjsHTTPLogConnection.m */; };
-		F501864B145199400053A064 /* LjsWebSocketLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5018648145199400053A064 /* LjsWebSocketLogger.m */; };
 		F501864D1451A4C20053A064 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F501864C1451A4C20053A064 /* CFNetwork.framework */; };
 /* End PBXBuildFile section */
 
@@ -131,8 +130,6 @@
 		F5018644145199400053A064 /* LjsHTTPLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsHTTPLog.h; sourceTree = "<group>"; };
 		F5018645145199400053A064 /* LjsHTTPLogConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsHTTPLogConnection.h; sourceTree = "<group>"; };
 		F5018646145199400053A064 /* LjsHTTPLogConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsHTTPLogConnection.m; sourceTree = "<group>"; };
-		F5018647145199400053A064 /* LjsWebSocketLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsWebSocketLogger.h; sourceTree = "<group>"; };
-		F5018648145199400053A064 /* LjsWebSocketLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsWebSocketLogger.m; sourceTree = "<group>"; };
 		F501864C1451A4C20053A064 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -154,9 +151,9 @@
 		F501858F145196340053A064 = {
 			isa = PBXGroup;
 			children = (
-				F5018641145199400053A064 /* LoggingHTTP */,
 				F5018626145198760053A064 /* Logging */,
 				F50185CB145197140053A064 /* ThirdParty */,
+				F5018641145199400053A064 /* LoggingHTTP */,
 				F50185A4145196340053A064 /* Test-LumberjackHTTPLogging */,
 				F501859D145196340053A064 /* Frameworks */,
 				F501859B145196340053A064 /* Products */,
@@ -324,8 +321,6 @@
 				F5018644145199400053A064 /* LjsHTTPLog.h */,
 				F5018645145199400053A064 /* LjsHTTPLogConnection.h */,
 				F5018646145199400053A064 /* LjsHTTPLogConnection.m */,
-				F5018647145199400053A064 /* LjsWebSocketLogger.h */,
-				F5018648145199400053A064 /* LjsWebSocketLogger.m */,
 			);
 			name = LoggingHTTP;
 			path = ../LoggingHTTP;
@@ -430,7 +425,6 @@
 				F5018636145198760053A064 /* LjsTailingFileManager.m in Sources */,
 				F5018649145199400053A064 /* LjsHTTPFileLogger.m in Sources */,
 				F501864A145199400053A064 /* LjsHTTPLogConnection.m in Sources */,
-				F501864B145199400053A064 /* LjsWebSocketLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
