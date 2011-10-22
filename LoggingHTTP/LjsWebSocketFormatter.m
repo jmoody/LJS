@@ -52,7 +52,7 @@ static NSString * const SOME_LOG  = @"  LOG";
 	self = [super init];
 	if (self != nil) {
 		self.formatter = [[[NSDateFormatter alloc] init] autorelease];
-    [self.formatter setFormatterBehavior:NSDateFormatterBehavior10_4];
+    //[self.formatter setFormatterBehavior:NSDateFormatterBehavior10_4];
     [self.formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
   }
 	return self;
