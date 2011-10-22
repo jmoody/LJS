@@ -38,7 +38,7 @@
 		websocket = [ws retain];
 		websocket.delegate = self;
 		
-		self.logFormatter = [[LjsWebSocketFormatter alloc] init];
+		self.logFormatter = [[[LjsWebSocketFormatter alloc] init] autorelease];
 		
 		// Add our logger
 		// 
