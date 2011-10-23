@@ -91,10 +91,17 @@ static NSString * const SOME_LOG  = @"  LOG";
 	
 	NSString *dateString = [self.formatter stringFromDate:(logMessage->timestamp)];
   NSString *level = [self stringFromLogFlag:logMessage->logFlag];
-	NSString *result =  [NSString stringWithFormat:@"%@ %@ %@: %s %i - %@",
-											 dateString, level, [logMessage fileName], logMessage->function, logMessage->lineNumber, logMessage->logMsg];
+	NSString *standardResult =  [NSString stringWithFormat:@"%@ %@ %@: %s %i - %@",
+                               dateString, level, [logMessage fileName], logMessage->function, logMessage->lineNumber, logMessage->logMsg];
   
-	return result;
+//  NSMutableString *webReadyResult = [[standardResult mutableCopy] autorelease];
+//  
+//  NSUInteger length = [webReadyResult length];
+//  [webReadyResult replaceOccurrencesOfString:@"<"  withString:@"&lt;"  options:0 range:NSMakeRange(0, length)];
+//  [webReadyResult replaceOccurrencesOfString:@">"  withString:@"&gt;"  options:0 range:NSMakeRange(0, length)];
+//  [webReadyResult replaceOccurrencesOfString:@"\n" withString:@"<br/>" options:0 range:NSMakeRange(0, length)];
+//  return webReadyResult;
+  return  standardResult;
 }
 
 @end
