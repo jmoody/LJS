@@ -34,7 +34,6 @@
 		F5448ACA1450B63B0065E516 /* config-for-debug-and-release-block.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5448AB91450B63B0065E516 /* config-for-debug-and-release-block.txt */; };
 		F5448ACB1450B63B0065E516 /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448ABB1450B63B0065E516 /* LjsDefaultFormatter.m */; };
 		F5448ACC1450B63B0065E516 /* LjsMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448ABE1450B63B0065E516 /* LjsMessageBuilder.m */; };
-		F5448ACD1450B63B0065E516 /* LjsTailingFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AC01450B63B0065E516 /* LjsTailingFileManager.m */; };
 		F5448ACE1450B63B0065E516 /* main.m-for-cocoa-app.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5448AC21450B63B0065E516 /* main.m-for-cocoa-app.txt */; };
 		F5448ACF1450B63B0065E516 /* Reporter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AC61450B63B0065E516 /* Reporter.m */; };
 		F5448AD01450B63B0065E516 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AC91450B63B0065E516 /* SFHFKeychainUtils.m */; };
@@ -95,6 +94,8 @@
 		F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F56147B81450C72A00D2653A /* libOCMock.a */; };
 		F56147BB1450C86700D2653A /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F56147BA1450C86700D2653A /* OCMockWorkingTest.m */; };
 		F56147BD1450CCC700D2653A /* LjsSecurityManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F56147BC1450CCC700D2653A /* LjsSecurityManagerTests.m */; };
+		F590BE9F14542E4900E5B89B /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */; };
+		F590BEA014542E4900E5B89B /* LjsFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9E14542E4900E5B89B /* LjsFileManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,8 +144,6 @@
 		F5448ABC1450B63B0065E516 /* LjsLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLog.h; sourceTree = "<group>"; };
 		F5448ABD1450B63B0065E516 /* LjsMessageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsMessageBuilder.h; sourceTree = "<group>"; };
 		F5448ABE1450B63B0065E516 /* LjsMessageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsMessageBuilder.m; sourceTree = "<group>"; };
-		F5448ABF1450B63B0065E516 /* LjsTailingFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsTailingFileManager.h; sourceTree = "<group>"; };
-		F5448AC01450B63B0065E516 /* LjsTailingFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsTailingFileManager.m; sourceTree = "<group>"; };
 		F5448AC11450B63B0065E516 /* Lumberjack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lumberjack.h; sourceTree = "<group>"; };
 		F5448AC21450B63B0065E516 /* main.m-for-cocoa-app.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "main.m-for-cocoa-app.txt"; sourceTree = "<group>"; };
 		F5448AC51450B63B0065E516 /* Reporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reporter.h; sourceTree = "<group>"; };
@@ -266,6 +265,10 @@
 		F56147B81450C72A00D2653A /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		F56147BA1450C86700D2653A /* OCMockWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockWorkingTest.m; sourceTree = "<group>"; };
 		F56147BC1450CCC700D2653A /* LjsSecurityManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsSecurityManagerTests.m; sourceTree = "<group>"; };
+		F590BE9B14542E4900E5B89B /* DDFileLogger+CurrentFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDFileLogger+CurrentFile.h"; sourceTree = "<group>"; };
+		F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
+		F590BE9D14542E4900E5B89B /* LjsFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFileManager.h; sourceTree = "<group>"; };
+		F590BE9E14542E4900E5B89B /* LjsFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,14 +422,16 @@
 		F5448AB81450B63B0065E516 /* Logging */ = {
 			isa = PBXGroup;
 			children = (
+				F590BE9B14542E4900E5B89B /* DDFileLogger+CurrentFile.h */,
+				F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */,
+				F590BE9D14542E4900E5B89B /* LjsFileManager.h */,
+				F590BE9E14542E4900E5B89B /* LjsFileManager.m */,
 				F5448AB91450B63B0065E516 /* config-for-debug-and-release-block.txt */,
 				F5448ABA1450B63B0065E516 /* LjsDefaultFormatter.h */,
 				F5448ABB1450B63B0065E516 /* LjsDefaultFormatter.m */,
 				F5448ABC1450B63B0065E516 /* LjsLog.h */,
 				F5448ABD1450B63B0065E516 /* LjsMessageBuilder.h */,
 				F5448ABE1450B63B0065E516 /* LjsMessageBuilder.m */,
-				F5448ABF1450B63B0065E516 /* LjsTailingFileManager.h */,
-				F5448AC01450B63B0065E516 /* LjsTailingFileManager.m */,
 				F5448AC11450B63B0065E516 /* Lumberjack.h */,
 				F5448AC21450B63B0065E516 /* main.m-for-cocoa-app.txt */,
 			);
@@ -775,7 +780,6 @@
 				F529524A14234EA4009C67EE /* LjsFormatter.m in Sources */,
 				F5448ACB1450B63B0065E516 /* LjsDefaultFormatter.m in Sources */,
 				F5448ACC1450B63B0065E516 /* LjsMessageBuilder.m in Sources */,
-				F5448ACD1450B63B0065E516 /* LjsTailingFileManager.m in Sources */,
 				F5448ACF1450B63B0065E516 /* Reporter.m in Sources */,
 				F5448AD01450B63B0065E516 /* SFHFKeychainUtils.m in Sources */,
 				F5448AD31450B6590065E516 /* LjsKeychainManager.m in Sources */,
@@ -827,6 +831,8 @@
 				F54E3A8C1450E6E80059BF53 /* SBJsonUTF8Stream.m in Sources */,
 				F54E3A8D1450E6E80059BF53 /* SBJsonWriter.m in Sources */,
 				F54E3A911450EA340059BF53 /* Reachability.m in Sources */,
+				F590BE9F14542E4900E5B89B /* DDFileLogger+CurrentFile.m in Sources */,
+				F590BEA014542E4900E5B89B /* LjsFileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
