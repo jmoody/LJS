@@ -144,12 +144,12 @@ static const float ARC4RANDOM_MAX = 0x100000000;
     for (loopVar = 0; loopVar < number; loopVar++) {
       
       randomIndex = [LjsVariates randomIntegerWithMin:0 max:maxArrayIndex];
-      //DDLogVerbose(@"randomIndex == %d", randomIndex);
+      //DDLogDebug(@"randomIndex == %d", randomIndex);
       while ([LjsVariates _arrayOfNSNumbers:indexes containsInt:randomIndex]) {
-        //DDLogVerbose(@"randomIndex %d was found in %@ - regenerating", randomIndex, indexes);
+        //DDLogDebug(@"randomIndex %d was found in %@ - regenerating", randomIndex, indexes);
         randomIndex = [LjsVariates randomIntegerWithMin:0 max:maxArrayIndex];
       }
-      //DDLogVerbose(@"adding randomIndex %d to indexes - %@", randomIndex, indexes);
+      //DDLogDebug(@"adding randomIndex %d to indexes - %@", randomIndex, indexes);
       [indexes addObject:[NSNumber numberWithInt:randomIndex]];
     }
     
