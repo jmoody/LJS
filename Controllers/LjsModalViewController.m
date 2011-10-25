@@ -10,17 +10,17 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @implementation LjsModalViewController 
 
-@synthesize delegate;
+@synthesize dismissDelegate;
 
 - (void) dealloc {
   DDLogDebug(@"deallocating LjsModalViewController");
   [super dealloc];
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil delegate:(id)aDelegate {
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil dismissDelegate:(id)aDelegate {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
-    self.delegate = aDelegate;
+    self.dismissDelegate = aDelegate;
   }
   return self;
 }
