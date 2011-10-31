@@ -45,26 +45,30 @@ static NSString * const SOME_LOG  = @"  LOG";
 //static NSString * const DATE_FORMAT = @"yyyy-MM-dd HH:mm:ss.SSS";
 
 
-@synthesize formatter;
+@synthesize dateFormatter;
+@synthesize formatString;
 
 - (id) init {
 	self = [super init];
 	if (self != nil) {
-		self.formatter = [[[NSDateFormatter alloc] init] autorelease];
-    //[self.formatter setFormatterBehavior:NSDateFormatterBehavior10_4];
-    [self.formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
+		self.dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+    [self.dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
+    self.formatString = @"%@ %@ %@: %s %i - %@";
   }
 	return self;
 }
 
 - (void) dealloc {
-	[formatter release];
+	[dateFormatter release];
+  [formatString release];
 	[super dealloc];
 }
 
-- (NSString *)stringFromLogFlag:(int)logFlag {
-	NSString *level;
-	switch (logFlag) {
+
+- (NSString *)formatLogMessage:(DDLogMessage *)logMessage {
+	
+  NSString *level;
+	switch (logMessage->logFlag) {
     case LOG_FLAG_FATAL:
       level = FATAL_LOG;
       break;
@@ -77,7 +81,6 @@ static NSString * const SOME_LOG  = @"  LOG";
 		case LOG_FLAG_NOTICE:
 			level = NOTE_LOG;
 			break;
-      
     case LOG_FLAG_INFO:
 			level = INFO_LOG;
 			break;
@@ -88,17 +91,21 @@ static NSString * const SOME_LOG  = @"  LOG";
 			level = SOME_LOG;
 			break;
 	}
-	return level;
-}
-
-- (NSString *)formatLogMessage:(DDLogMessage *)logMessage {
-	
-	NSString *dateString = [self.formatter stringFromDate:(logMessage->timestamp)];
-  NSString *level = [self stringFromLogFlag:logMessage->logFlag];
-	NSString *result =  [NSString stringWithFormat:@"%@ %@ %@: %s %i - %@",
-											 dateString, level, [logMessage fileName], logMessage->function, logMessage->lineNumber, logMessage->logMsg];
-
-	return result;
+  
+  
+  NSString *dateStr = [self.dateFormatter stringFromDate:(logMessage->timestamp)];
+  // fixes a problem where by dates are sometimes incorrectly formated
+  if ([dateStr length] != 23) {
+    //NSDate *thedate = logMessage->timestamp;
+    //NSString *oldDateStr = dateStr;
+    dateStr = [self.dateFormatter stringFromDate:(logMessage->timestamp)];
+    //NSLog(@"CORRECTED: %@ ==> %@ for %@", oldDateStr, dateStr, thedate);
+  }
+  
+  return [NSString stringWithFormat:self.formatString,
+          dateStr, 
+          level, [logMessage fileName], logMessage->function, 
+          logMessage->lineNumber, logMessage->logMsg];
 }
 
 
