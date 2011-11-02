@@ -7,16 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LjsHttpLogManager.h"
 
 @class LJSViewController;
 
 @interface LJSAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, retain) UIWindow *window;
-
 @property (nonatomic, retain) LJSViewController *viewController;
-
-- (void)writeLogMessages:(NSTimer *)aTimer;
+@property (nonatomic, retain) LjsHttpLogManager *httpLogManager;
 
 
 @end

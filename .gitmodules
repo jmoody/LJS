@@ -8,3 +8,6 @@
 	path = asi-http-request
 	url = https://github.com/pokeb/asi-http-request.git
 
+[submodule "CocoaLumberjack"]
+	path = CocoaLumberjack
+	url = https://github.com/robbiehanson/CocoaLumberjack.git
