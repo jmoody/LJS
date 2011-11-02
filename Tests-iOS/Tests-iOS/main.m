@@ -1,10 +1,5 @@
 #import <UIKit/UIKit.h>
 #import "Lumberjack.h"
-//#import "LjsHTTPLog.h"
-//#import "LjsHTTPFileLogger.h"
-//#import "HTTPServer.h"
-//
-//@class LjsHTTPServer;
 
 int main(int argc, char *argv[]) {
   NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
