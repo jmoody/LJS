@@ -7,3 +7,6 @@
 [submodule "asi-http-request"]
 	path = asi-http-request
 	url = https://github.com/pokeb/asi-http-request.git
+[submodule "cocoalumberjack"]
+	path = cocoalumberjack
+	url = https://github.com/robbiehanson/CocoaLumberjack.git

@@ -34,18 +34,19 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [tty setLogFormatter:formatter];
   [DDLog addLogger:tty];
   
-   LjsHTTPFileLogger *fileLogger = [LjsHTTPFileLogger sharedInstance];
-   fileLogger.maximumFileSize = 1024 * 512;    // 512 KB
-   fileLogger.rollingFrequency = 60 * 60 * 24; //  24 Hours
-   fileLogger.logFileManager.maximumNumberOfLogFiles = 4;
-   [fileLogger setLogFormatter:formatter];
-   [DDLog addLogger:fileLogger];
+  LjsHTTPFileLogger *fileLogger = [LjsHTTPFileLogger sharedInstance];
+  fileLogger.maximumFileSize = 1024 * 512;    // 512 KB
+  fileLogger.rollingFrequency = 60 * 60 * 24; //  24 Hours
+  fileLogger.logFileManager.maximumNumberOfLogFiles = 4;
+  [fileLogger setLogFormatter:formatter];
+  [DDLog addLogger:fileLogger];
    
-   LjsHTTPLogServer *httpServer = (LjsHTTPLogServer *)[[HTTPServer alloc] init];
-   [httpServer setConnectionClass:[LjsHTTPLogConnection class]];
-   [httpServer setType:@"_http._tcp."];
-   [httpServer setPort:12345];
-    
+  [formatter release];
+  LjsHTTPLogServer *httpServer = (LjsHTTPLogServer *)[[HTTPServer alloc] init];
+  [httpServer setConnectionClass:[LjsHTTPLogConnection class]];
+  [httpServer setType:@"_http._tcp."];
+  [httpServer setPort:12345];
+  
   NSString *webPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Web"];
   [httpServer setDocumentRoot:webPath];
   NSError *error = nil;
