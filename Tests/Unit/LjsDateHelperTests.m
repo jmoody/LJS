@@ -334,6 +334,22 @@
   time = @"13:01";
   actual = [LjsDateHelper isValidAmPmTime:time];
   GHAssertFalse(actual, nil);
+  
+  time = @"9:10 a.m.";
+  actual = [LjsDateHelper isValidAmPmTime:time];
+  GHAssertTrue(actual, nil);
+
+  time = @"12:10 a.m.";
+  actual = [LjsDateHelper isValidAmPmTime:time];
+  GHAssertTrue(actual, nil);
+
+  time = @"9:10 p.m.";
+  actual = [LjsDateHelper isValidAmPmTime:time];
+  GHAssertTrue(actual, nil);
+
+  time = @"12:10 p.m.";
+  actual = [LjsDateHelper isValidAmPmTime:time];
+  GHAssertTrue(actual, nil);
 }
 
 - (void) test_isValid24HourTime {
@@ -379,6 +395,24 @@
   time = @"24:00";
   actual = [LjsDateHelper isValid24HourTime:time];
   GHAssertFalse(actual, nil);
+
+  time = @"15:00 p.m.";
+  actual = [LjsDateHelper isValid24HourTime:time];
+  GHAssertTrue(actual, nil);
+  
+  time = @"15:00 pm";
+  actual = [LjsDateHelper isValid24HourTime:time];
+  GHAssertTrue(actual, nil);
+
+  time = @"09:00 a.m.";
+  actual = [LjsDateHelper isValid24HourTime:time];
+  GHAssertTrue(actual, nil);
+  
+  time = @"09:00 am";
+  actual = [LjsDateHelper isValid24HourTime:time];
+  GHAssertTrue(actual, nil);
+
+
 
 }
 
@@ -764,6 +798,22 @@
   minuteNumberA = [[components objectForKey:LjsDateHelperMinutesNumberKey] integerValue];
   minuteNumberE = 0;
   GHAssertEquals((NSInteger)minuteNumberA, (NSInteger)minuteNumberE, nil);
+  
+  
+  timeString = @"11:00 a.m.";
+  components = [LjsDateHelper componentsWithTimeString:timeString];
+  GHAssertNotNil(components, nil);
+  amPmA = [components objectForKey:LjsDateHelperAmPmKey];
+  amPmE = @"AM";
+  GHAssertEqualStrings(amPmA, amPmE, nil);
+  
+  timeString = @"11:00 p.m.";
+  components = [LjsDateHelper componentsWithTimeString:timeString];
+  GHAssertNotNil(components, nil);
+  amPmA = [components objectForKey:LjsDateHelperAmPmKey];
+  amPmE = @"PM";
+  GHAssertEqualStrings(amPmA, amPmE, nil);
+
   
   timeString = @"13:00 PM";
   components = [LjsDateHelper componentsWithTimeString:timeString];
