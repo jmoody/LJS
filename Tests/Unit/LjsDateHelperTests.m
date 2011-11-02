@@ -62,8 +62,13 @@
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
 #import "LjsDateHelper.h"
+#import <objc/runtime.h>
 
 @interface LjsDateHelperTests : GHTestCase {}
+
+- (NSString *) swizzledLjsDateHelperCanonicalAmWithString:(NSString *) ignored;
+
+- (NSString *) swizzledLjsDateHelperCanonicalPmWithString:(NSString *) ignored;
 @end
 
 
@@ -121,6 +126,161 @@
   result = [LjsDateHelper dateIsPast:[NSDate distantFuture]];
   GHAssertFalse(result, nil);
 
+}
+
+- (void) test_upcaseAndRemovePeriodsFromAmPmString {
+  NSString *amPmString, *actual, *expected;
+  
+  amPmString = nil;
+  expected = nil;
+  actual = [LjsDateHelper upcaseAndRemovePeroidsFromAmPmString:amPmString];
+  GHAssertNil(actual, nil);
+  
+  amPmString = @"";
+  expected = @"";
+  actual = [LjsDateHelper upcaseAndRemovePeroidsFromAmPmString:amPmString];
+  GHAssertEqualStrings(actual, expected, nil);
+  
+  amPmString = @"a.m.";
+  expected = @"AM";
+  actual = [LjsDateHelper upcaseAndRemovePeroidsFromAmPmString:amPmString];
+  GHAssertEqualStrings(actual, expected, nil);
+
+  amPmString = @"AM";
+  expected = @"AM";
+  actual = [LjsDateHelper upcaseAndRemovePeroidsFromAmPmString:amPmString];
+  GHAssertEqualStrings(actual, expected, nil);
+
+  amPmString = @"a.m.b.c.";
+  expected = @"AMBC";
+  actual = [LjsDateHelper upcaseAndRemovePeroidsFromAmPmString:amPmString];
+  GHAssertEqualStrings(actual, expected, nil);
+
+  amPmString = @"a.m.b@c.";
+  expected = @"AMB@C";
+  actual = [LjsDateHelper upcaseAndRemovePeroidsFromAmPmString:amPmString];
+  GHAssertEqualStrings(actual, expected, nil);
+
+}
+
+- (void) test_canonicalAmWithString {
+  NSString *am, *expected, *actual;
+  
+  am = nil;
+  expected = nil;
+  actual = [LjsDateHelper canonicalAmWithString:am];
+  GHAssertNil(actual, nil);
+  
+  am = @"";
+  expected = nil;
+  actual = [LjsDateHelper canonicalAmWithString:am];
+  GHAssertNil(actual, nil);
+
+  am = @"a.m.extra";
+  expected = nil;
+  actual = [LjsDateHelper canonicalAmWithString:am];
+  GHAssertNil(actual, nil);
+
+  am = @"PM";
+  expected = nil;
+  actual = [LjsDateHelper canonicalAmWithString:am];
+  GHAssertNil(actual, nil);
+
+  
+  am = @"am";
+  expected = @"AM";
+  actual = [LjsDateHelper canonicalAmWithString:am];
+  GHAssertEqualStrings(actual, expected, nil);
+
+  am = @"a.M.";
+  expected = @"AM";
+  actual = [LjsDateHelper canonicalAmWithString:am];
+  GHAssertEqualStrings(actual, expected, nil);
+  
+  
+}
+
+- (void) test_canonicalPmWithString {
+  NSString *pm, *expected, *actual;
+  
+  pm = nil;
+  expected = nil;
+  actual = [LjsDateHelper canonicalPmWithString:pm];
+  GHAssertNil(actual, nil);
+  
+  pm = @"";
+  expected = nil;
+  actual = [LjsDateHelper canonicalPmWithString:pm];
+  GHAssertNil(actual, nil);
+  
+  pm = @"p.m.extra";
+  expected = nil;
+  actual = [LjsDateHelper canonicalPmWithString:pm];
+  GHAssertNil(actual, nil);
+  
+  pm = @"pm";
+  expected = @"PM";
+  actual = [LjsDateHelper canonicalPmWithString:pm];
+  GHAssertEqualStrings(actual, expected, nil);
+  
+  pm = @"p.M.";
+  expected = @"PM";
+  actual = [LjsDateHelper canonicalPmWithString:pm];
+  GHAssertEqualStrings(actual, expected, nil);
+}
+
+- (NSString *) swizzledLjsDateHelperCanonicalAmWithString:(NSString *) ignored {
+  return @"AM";
+}
+
+- (NSString *) swizzledLjsDateHelperCanonicalPmWithString:(NSString *) ignored {
+  return @"PM";
+}
+
+- (void) test_canonicalAmPmWithString {
+  NSString *amOrPm, *expected, *actual;
+  
+  amOrPm = nil;
+  expected = nil;
+  actual = [LjsDateHelper canonicalAmPmWithString:amOrPm];
+  GHAssertNil(actual, nil);
+
+  amOrPm = @"";
+  expected = nil;
+  actual = [LjsDateHelper canonicalAmPmWithString:amOrPm];
+  GHAssertNil(actual, nil);
+
+  amOrPm = @"gibberish";
+  expected = nil;
+  actual = [LjsDateHelper canonicalAmPmWithString:amOrPm];
+  GHAssertNil(actual, nil);
+
+   
+  Method originalAm = class_getClassMethod([LjsDateHelper class], @selector(canonicalAmWithString:));
+  Method mockAm = class_getInstanceMethod([self class], @selector(swizzledLjsDateHelperCanonicalAmWithString:));
+  method_exchangeImplementations(originalAm, mockAm);
+  
+  Method orignialPm = class_getClassMethod([LjsDateHelper class], @selector(canonicalPmWithString:));
+  Method mockPm = class_getInstanceMethod([self class], @selector(swizzledLjsDateHelperCanonicalPmWithString:));
+  method_exchangeImplementations(orignialPm, mockPm);
+  
+  amOrPm = @"am";
+  expected = nil;
+  actual = [LjsDateHelper canonicalAmPmWithString:amOrPm];
+  GHAssertNil(actual, nil);
+
+  method_exchangeImplementations(mockAm, originalAm);
+  method_exchangeImplementations(mockPm, orignialPm);
+  
+  amOrPm = @"AM";
+  expected = @"AM";
+  actual = [LjsDateHelper canonicalAmPmWithString:amOrPm];
+  GHAssertEquals(actual, expected, nil);
+
+  amOrPm = @"PM";
+  expected = @"PM";
+  actual = [LjsDateHelper canonicalAmPmWithString:amOrPm];
+  GHAssertEquals(actual, expected, nil);
 }
 
 - (void) test_isValidAmPmTime {
@@ -334,6 +494,41 @@
 
 }
 
+- (void) test_amPmStringValid {
+  NSString *amPm;
+  BOOL actual;
+
+  amPm = nil;
+  actual = [LjsDateHelper amPmStringValid:amPm];
+  GHAssertFalse(actual, nil);
+  
+  amPm = @"";
+  actual = [LjsDateHelper amPmStringValid:amPm];
+  GHAssertFalse(actual, nil);
+  
+  amPm = @"gibberish";
+  actual = [LjsDateHelper amPmStringValid:amPm];
+  GHAssertFalse(actual, nil);
+
+  amPm = @"AM";
+  actual = [LjsDateHelper amPmStringValid:amPm];
+  GHAssertTrue(actual, nil);
+  
+  amPm = @"PM";
+  actual = [LjsDateHelper amPmStringValid:amPm];
+  GHAssertTrue(actual, nil);
+
+  amPm = @"a.m.";
+  actual = [LjsDateHelper amPmStringValid:amPm];
+  GHAssertTrue(actual, nil);
+
+  amPm = @"p.m.";
+  actual = [LjsDateHelper amPmStringValid:amPm];
+  GHAssertTrue(actual, nil);
+
+
+}
+
 - (void) test_timeStringHasCorrectLength {
   NSString *time;
   BOOL actual, a24clock;
@@ -389,12 +584,12 @@
   GHAssertTrue(actual, nil);
 
 
-  time = @"123456789";
+  time = @"12345678901";
   a24clock = YES;
   actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
   GHAssertFalse(actual, nil);
   
-  time = @"123456789";
+  time = @"12345678901";
   a24clock = NO;
   actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
   GHAssertFalse(actual, nil);
@@ -648,6 +843,8 @@
 
   NSDateFormatter *formatter = [LjsDateHelper hoursMinutesAmPmFormatter];
   timeString = [formatter stringFromDate:[NSDate date]];
+//  GHTestLog(@"time string = %@", timeString);
+  
   components = [LjsDateHelper componentsWithTimeString:timeString];
   GHAssertNotNil(components, nil);
 

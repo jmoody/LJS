@@ -39,8 +39,8 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-NSString *LjsDateHelperAM = @"AM";
-NSString *LjsDateHelperPM = @"PM";
+NSString *LjsDateHelperCanonicalAM = @"AM";
+NSString *LjsDateHelperCanonicalPM = @"PM";
 
 NSString *LjsDateHelper12HoursStringKey = @"com.littlejoysoftware.ljs.Date Helper 12 Hours String Key";
 NSString *LjsDateHelper24HoursStringKey = @"com.littlejoysoftware.ljs.Date Helper 24 Hours String Key";
@@ -106,6 +106,73 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
 
 #pragma mark HH:mm a - AM/PM time methods
 
++ (NSString *) upcaseAndRemovePeroidsFromAmPmString:(NSString *) anAmOrPmString {
+  NSString *result;
+  if (anAmOrPmString == nil) {
+    result = nil;
+  } else {
+    NSString *upcased = [anAmOrPmString uppercaseString];
+    result = [upcased stringByReplacingOccurrencesOfString:@"." withString:@""];
+  }
+  return result;
+}
+
++ (BOOL) isCanonicalAmOrPm:(NSString *) amOrPm {
+  return 
+  [amOrPm isEqualToString:LjsDateHelperCanonicalAM] ||
+  [amOrPm isEqualToString:LjsDateHelperCanonicalPM];
+}
+
++ (NSString *) canonicalAmWithString:(NSString *) am {
+  NSString *result;
+  NSString *converted = [LjsDateHelper upcaseAndRemovePeroidsFromAmPmString:am];
+  if (converted == nil) {
+    result = nil;
+  } else {
+    if ([converted isEqualToString:LjsDateHelperCanonicalAM]) {
+      result = LjsDateHelperCanonicalAM;
+    } else {
+      result = nil;
+    }
+  }
+  return result;
+}
+
++ (NSString *) canonicalPmWithString:(NSString *) pm {
+  NSString *result;
+  NSString *converted = [LjsDateHelper upcaseAndRemovePeroidsFromAmPmString:pm];
+  if (converted == nil) {
+    result = nil;
+  } else {
+    if ([converted isEqualToString:LjsDateHelperCanonicalPM]) {
+      result = LjsDateHelperCanonicalPM;
+    } else {
+      result = nil;
+    }
+  }
+  return result;
+}
+
++ (NSString *) canonicalAmPmWithString:(NSString *) amOrPm {
+  NSString *am = [LjsDateHelper canonicalAmWithString:amOrPm];
+  NSString *pm = [LjsDateHelper canonicalPmWithString:amOrPm];
+  NSString *result;
+  if (am == nil && pm == nil) {
+    result = nil;
+  } else if (am != nil && pm != nil) {
+    DDLogError(@"am is < %@ > and pm is < %@ > - expected one to be nil, return nil",
+               am, pm);
+    result = nil;
+  } else if (am != nil) {
+    result = am;
+  } else if (pm != nil) {
+    result = pm;
+  }
+  return result;
+}
+
+
+
 + (BOOL) minutesStringValid:(NSString *) minutesStr {
   BOOL result = NO;
   if (minutesStr != nil && [minutesStr length] == 2 && [LjsValidator stringContainsOnlyNumbers:minutesStr]) {
@@ -131,18 +198,17 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
 }
 
 + (BOOL) amPmStringValid:(NSString *) amOrPm {
-  return 
-  [amOrPm isEqualToString:LjsDateHelperAM] ||
-  [amOrPm isEqualToString:LjsDateHelperPM];
+  return [LjsDateHelper canonicalAmWithString:amOrPm] ||
+  [LjsDateHelper canonicalPmWithString:amOrPm];
 }
 
 
 + (BOOL) timeStringHasCorrectLength:(NSString *) timeString using24HourClock:(BOOL) a24Clock {
   BOOL result;
   if (a24Clock == YES) {
-    result = (timeString != nil && ([timeString length] > 3 && [timeString length] < 9));
+    result = (timeString != nil && ([timeString length] > 3 && [timeString length] < 11));
   } else {
-    result = (timeString != nil && ([timeString length] == 7 || [timeString length] == 8));
+    result = (timeString != nil && ([timeString length] > 6 && [timeString length] < 11));
   }
   return result;
 }
@@ -260,12 +326,14 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
         
         NSInteger hoursInt = [hoursStr integerValue];
         if (hoursInt > 11) {
-          if (![amPm isEqualToString:LjsDateHelperPM]) {
+          NSString *canonicalAmPm = [LjsDateHelper canonicalAmPmWithString:amPm];
+          if (canonicalAmPm != nil && ![canonicalAmPm isEqualToString:LjsDateHelperCanonicalPM]) {
             [reasons addObject:[NSString stringWithFormat:@"hours string is %@, but AM/PM is %@",
                                 hoursStr, amPm]];
           }
         } else if (hoursInt < 13) {
-          if (![amPm isEqualToString:LjsDateHelperAM]) {
+          NSString *canonicalAmPm = [LjsDateHelper canonicalAmPmWithString:amPm];
+          if (canonicalAmPm != nil && ![canonicalAmPm isEqualToString:LjsDateHelperCanonicalAM]) {
             [reasons addObject:[NSString stringWithFormat:@"hours string is %@, but AM/PM is %@",
                                 hoursStr, amPm]];
           }
@@ -276,6 +344,7 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
       [reasons addObject:@"string does not have the correct HH:mm components or has non-numeric characters"];
     }
   } else {
+    
     [reasons addObject:[NSString stringWithFormat:@"time in args is nil or of the wrong length: %@", a24hourTime]];
   }
   BOOL result = [reasons count] == 0;
@@ -317,16 +386,16 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
       twelveHourString = @"12";
       twelveHourInt = 12;
       twelveHourNumber = [NSNumber numberWithInteger:twelveHourInt];
-      amPmString = LjsDateHelperAM;
+      amPmString = LjsDateHelperCanonicalAM;
     } else if (twentyFourHourInt > 12) {
       twelveHourInt = twentyFourHourInt - 12;
       twelveHourString = [NSString stringWithFormat:@"%d", twelveHourInt];
       twelveHourNumber = [NSNumber numberWithInteger:twelveHourInt];
-      amPmString = LjsDateHelperPM;
+      amPmString = LjsDateHelperCanonicalPM;
     } else {
       twelveHourString = twentyFourHoursString;
       twelveHourNumber = twentyFourHourNumber;
-      amPmString = LjsDateHelperAM;
+      amPmString = LjsDateHelperCanonicalAM;
     }
 
     result = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -360,9 +429,11 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
     minuteInt = [minuteString integerValue];
     minuteNumber = [NSNumber numberWithInteger:minuteInt];
     
-    amPmString = [tokens objectAtIndex:2];
+    NSString *rawAmPm = [tokens objectAtIndex:2];
+    amPmString = [LjsDateHelper canonicalAmPmWithString:rawAmPm];
     
-    if ([amPmString isEqualToString:LjsDateHelperAM]) {
+    
+    if ([amPmString isEqualToString:LjsDateHelperCanonicalAM]) {
       if (twelveHourInt == 12) {
         twentyFourHourString = @"00";
         twentyFourHourInt = 0;

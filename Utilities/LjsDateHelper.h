@@ -29,8 +29,8 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString *LjsDateHelperAM;
-extern NSString *LjsDateHelperPM;
+extern NSString *LjsDateHelperCanonicalAM;
+extern NSString *LjsDateHelperCanonicalPM;
 
 extern NSString *LjsDateHelper12HoursStringKey;
 extern NSString *LjsDateHelper24HoursStringKey;
@@ -61,6 +61,13 @@ extern NSString *LjsDateHelperMinutesNumberKey;
 
 + (NSDateFormatter *) hoursMinutesAmPmFormatter;
 
++ (NSString *) upcaseAndRemovePeroidsFromAmPmString:(NSString *) amOrPm;
++ (BOOL) isCanonicalAmOrPm:(NSString *) amOrPm;
++ (NSString *) canonicalAmWithString:(NSString *) am;
++ (NSString *) canonicalPmWithString:(NSString *) pm;
++ (NSString *) canonicalAmPmWithString:(NSString *) amOrPm;
+
+//+ (NSString *) ensureCanonicalAm:(NSString *) alternativeAm;
 
 + (BOOL) minutesStringValid:(NSString *) minutesStr;
 + (BOOL) hourStringValid:(NSString *) hoursStr using24HourClock:(BOOL) use24HourClock; 
