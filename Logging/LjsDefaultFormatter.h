@@ -31,12 +31,11 @@
 #import "DDLog.h"
 
 @interface LjsDefaultFormatter : NSObject <DDLogFormatter> {
-	NSDateFormatter *formatter;
+
 } 
 
-@property (nonatomic, retain) NSDateFormatter *formatter;
-
-- (NSString *)stringFromLogFlag:(int)logFlag;
+@property (nonatomic, retain) NSDateFormatter *dateFormatter;
+@property (nonatomic, retain) NSString *formatString;
 
 
 @end

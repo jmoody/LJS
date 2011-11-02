@@ -12,9 +12,9 @@
 
 @interface LjsModalViewController : UIViewController
 
-@property (nonatomic, assign) id<LjsModalWindowDismissDelegate> delegate;
+@property (nonatomic, assign) id<LjsModalWindowDismissDelegate> dismissDelegate;
 
-- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil delegate:(id) aDelegate;
+- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil dismissDelegate:(id<LjsModalWindowDismissDelegate>) aDismissDelegate;
 
 @end
 
