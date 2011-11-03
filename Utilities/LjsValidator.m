@@ -20,14 +20,40 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return nil;
 }
 
++ (BOOL) string:(NSString *) aString containsOnlyMembersOfCharacterSet:(NSCharacterSet *) aCharacterSet {
+  BOOL result;
+  if (aCharacterSet == nil) {
+    DDLogError(@"the character set was nil - returning NO");
+    result = NO;
+  } else {
+    if (aString != nil && [aString length] > 0) {
+      NSCharacterSet *inverted = [aCharacterSet invertedSet];
+      NSArray *array = [aString componentsSeparatedByCharactersInSet:inverted];
+      result = [array count] == 1;
+    } else {
+      DDLogWarn(@"the string was nil or empty - return NO");
+      result = NO;
+    }
+  }
+  return result;
+}
 
-+ (BOOL) stringContainsOnlyNumbers:(NSString *) string {
++ (BOOL) stringContainsOnlyAlphaNumeric:(NSString *) aString {
   BOOL result = NO;
-  if (string != nil && [string length] > 0) {
+  if (aString != nil && [aString length] > 0) {
+    NSCharacterSet *alphaNumeric = [NSCharacterSet alphanumericCharacterSet];
+    result = [LjsValidator string:aString containsOnlyMembersOfCharacterSet:alphaNumeric];
+    
+  }
+  return result;
+}
+
+
++ (BOOL) stringContainsOnlyNumbers:(NSString *) aString {
+  BOOL result = NO;
+  if (aString != nil && [aString length] > 0) {
     NSCharacterSet *decimalSet = [NSCharacterSet decimalDigitCharacterSet];
-    NSCharacterSet *inverted = [decimalSet invertedSet];
-    NSArray *array = [string componentsSeparatedByCharactersInSet:inverted];
-    result = [array count] == 1;
+    result = [LjsValidator string:aString containsOnlyMembersOfCharacterSet:decimalSet];
   }
   return result;
 }

@@ -8,6 +8,11 @@
     
 }
 
++ (BOOL) string:(NSString *) aString containsOnlyMembersOfCharacterSet:(NSCharacterSet *) aCharacterSet;
+
+
++ (BOOL) stringContainsOnlyAlphaNumeric:(NSString *) aString;
+
 /**
  Method for checking if a string contains only numbers.  Does not check to see
  if the number is a valid deciment - e.g. 0454.  Will return false if there are
@@ -15,7 +20,7 @@
  @param string the string to test
  @return true iff string contains only numeric characters
  */
-+ (BOOL) stringContainsOnlyNumbers:(NSString *) string;
++ (BOOL) stringContainsOnlyNumbers:(NSString *) aString;
 
 /**
  Method for checking if a value is an NSDictionary

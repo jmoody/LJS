@@ -79,6 +79,71 @@
 //  GHTestLog(@"GH test logging is working");
 //}
 
+- (void) test_stringContiansOnlyMembersOfCharacterSet {
+  NSString *string;
+  BOOL actual;
+  NSCharacterSet *set;
+  
+  string = nil;
+  set = nil;
+  actual = [LjsValidator string:string containsOnlyMembersOfCharacterSet:set];
+  GHAssertFalse(actual, nil);
+  
+  string = nil;
+  set = [NSCharacterSet alphanumericCharacterSet];
+  actual = [LjsValidator string:string containsOnlyMembersOfCharacterSet:set];
+  GHAssertFalse(actual, nil);
+  
+  string = @"";
+  set = [NSCharacterSet alphanumericCharacterSet];
+  actual = [LjsValidator string:string containsOnlyMembersOfCharacterSet:set];
+  GHAssertFalse(actual, nil);
+
+  string = @"abcde1234";
+  set = [NSCharacterSet alphanumericCharacterSet];
+  actual = [LjsValidator string:string containsOnlyMembersOfCharacterSet:set];
+  GHAssertTrue(actual, nil);
+
+  string = @"abc de1234";
+  set = [NSCharacterSet alphanumericCharacterSet];
+  actual = [LjsValidator string:string containsOnlyMembersOfCharacterSet:set];
+  GHAssertFalse(actual, nil);
+
+  string = @"abcde1234";
+  set = [NSCharacterSet decimalDigitCharacterSet];
+  actual = [LjsValidator string:string containsOnlyMembersOfCharacterSet:set];
+  GHAssertFalse(actual, nil);
+  
+}
+
+
+- (void) test_isAlphaNumeric {
+  NSString *test;
+  BOOL actual;
+  
+  test = nil;
+  actual = [LjsValidator stringContainsOnlyAlphaNumeric:test];
+  GHAssertFalse(actual, nil);
+  
+  test = @"";
+  actual = [LjsValidator stringContainsOnlyAlphaNumeric:test];
+  GHAssertFalse(actual, nil);
+  
+  test = @"530";
+  actual = [LjsValidator stringContainsOnlyAlphaNumeric:test];
+  GHAssertTrue(actual, nil);
+  
+  test = @"5--";
+  actual = [LjsValidator stringContainsOnlyAlphaNumeric:test];
+  GHAssertFalse(actual, nil);
+  
+  test = @"5adf";
+  actual = [LjsValidator stringContainsOnlyAlphaNumeric:test];
+  GHAssertTrue(actual, nil);
+  
+}
+
+
 - (void) test_isNumeric {
   NSString *test;
   BOOL actual;
