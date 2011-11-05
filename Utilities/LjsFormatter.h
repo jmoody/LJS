@@ -37,11 +37,20 @@ extern NSString *HoursMinutesSecondsMillisDateFormat;
     
 }
 
-+ (NSString *) stringWithTimeInterval:(NSTimeInterval) interval;
 
 + (NSDateFormatter *) hoursMinutesSecondsDateFormatter;
 
 + (NSDateFormatter *) millisecondsFormatter;
+
++ (NSDateFormatter *) isoDateFormatter;
+
++ (NSDateFormatter *) isoDateWithMillisFormatter;
+
++ (NSDateFormatter *) orderedDateFormatter;
+
++ (NSDateFormatter *) orderedDateFormatterWithMillis;
+
++ (NSString *) stringWithTimeInterval:(NSTimeInterval) interval;
 
 + (NSString *) stringWithTimeInterval:(NSTimeInterval)interval 
                             formatter:(NSDateFormatter *) formatter;

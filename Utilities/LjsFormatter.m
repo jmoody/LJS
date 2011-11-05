@@ -37,8 +37,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 
 NSString *HoursMinutesSecondsDateFormat = @"H:mm:ss";
-
 NSString *HoursMinutesSecondsMillisDateFormat = @"H:mm:ss:SSS";
+static NSString *ISO8601_DateFormatWithMillis = @"yyyy-MM-dd HH:mm:ss.SSS";
+static NSString *ISO8601_DateFormat = @"yyyy-MM-dd HH:mm:ss";
+static NSString *OrderedDateFormat = @"yyyy_MM_dd_HH_mm";
+static NSString *OrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 
 
 @implementation LjsFormatter
@@ -88,6 +91,32 @@ NSString *HoursMinutesSecondsMillisDateFormat = @"H:mm:ss:SSS";
   return [formatter autorelease];
 }
 
++ (NSDateFormatter *) isoDateFormatter {
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:ISO8601_DateFormat];
+  //[formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
+  return [formatter autorelease];  
+}
+
++ (NSDateFormatter *) isoDateWithMillisFormatter {
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:ISO8601_DateFormatWithMillis];
+  //[formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
+  return [formatter autorelease];  
+}
+
+
++ (NSDateFormatter *) orderedDateFormatter {
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:OrderedDateFormat];
+  return [formatter autorelease];  
+}
+
++ (NSDateFormatter *) orderedDateFormatterWithMillis {
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:OrderedDateFormatWithMillis];
+  return [formatter autorelease];  
+}
 
 + (NSString *) stringWithTimeInterval:(NSTimeInterval)interval 
                             formatter:(NSDateFormatter *) formatter {
