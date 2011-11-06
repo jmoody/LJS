@@ -67,4 +67,75 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                                       YES);
   return [dirPaths objectAtIndex:0];
 }
+
++ (NSString *) parentDirectoryForDirectoryPath:(NSString *) childPath {
+  NSArray *tokens = [childPath pathComponents];
+  NSString *parentDirectory;
+  NSMutableArray *array = [NSMutableArray arrayWithArray:tokens];
+  
+  if ([array count] > 1) {
+    [array removeLastObject];
+  } 
+  parentDirectory = [NSString pathWithComponents:array];
+  return parentDirectory;
+}
+
++ (NSString *) pathFromOpenPanelWithPrompt:(NSString *) aPrompt 
+                                     title:(NSString *) aTitle
+                             lastDirectory:(NSString *) aLastDirectory 
+                         fallBackDirectory:(NSString *) fallbackDirectory
+                          defaultsKeyOrNil:(NSString *) aDefaultsKeyOrNil {
+
+  NSString *result = nil;
+  NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+  [openPanel setCanChooseFiles:NO];
+  [openPanel setPrompt:aPrompt];
+  [openPanel setCanChooseDirectories:YES];
+  [openPanel setCanCreateDirectories:YES];
+  [openPanel setAllowsMultipleSelection:NO];
+  [openPanel setTitle:aTitle];
+  
+  NSString *lastDirectoryRoot = aLastDirectory;
+  
+  NSFileManager *fm = [NSFileManager defaultManager];
+  BOOL isDirectory;
+  if (!([fm fileExistsAtPath:lastDirectoryRoot isDirectory:&isDirectory] && isDirectory)) {
+    lastDirectoryRoot = fallbackDirectory;
+  }
+  
+  [openPanel setDirectoryURL:[NSURL fileURLWithPath:lastDirectoryRoot]];
+  NSInteger response = [openPanel runModal];
+  
+  if (response == NSOKButton) {
+    NSString *savePath = [[[openPanel URLs] objectAtIndex:0] path];
+    if (aDefaultsKeyOrNil != nil) {
+      NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+      
+      [defaults setObject:savePath forKey:aDefaultsKeyOrNil];
+    }
+    result = savePath;
+  }
+  return result;
+}
+
++ (NSString *) lastDirectoryPathWithDefaultsKey:(NSString *) aDefaultsKey
+                              fallbackDirectory:(NSString *) aFallbackDirectory {
+  
+  NSString *result;
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSString *lastDirectoryPath = [defaults stringForKey:aDefaultsKey];
+  
+  NSFileManager *fm = [NSFileManager defaultManager];
+  BOOL isDirectory;
+  if (!([fm fileExistsAtPath:lastDirectoryPath isDirectory:&isDirectory] && isDirectory)) {
+    result = aFallbackDirectory;
+    [defaults setObject:aFallbackDirectory forKey:aDefaultsKey];
+  } else {
+    result = lastDirectoryPath;
+  } 
+  return result;
+}
+
+
+
 @end

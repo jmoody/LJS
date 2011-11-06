@@ -37,4 +37,19 @@
 
 + (BOOL) ensureSaveDirectory:(NSString *) path existsWithManager:(NSFileManager *) fileManager;
 
++ (NSString *) parentDirectoryForDirectoryPath:(NSString *) childPath;
+
++ (NSString *) pathFromOpenPanelWithPrompt:(NSString *) aPrompt 
+                                     title:(NSString *) aTitle
+                             lastDirectory:(NSString *) aLastDirectory
+                         fallBackDirectory:(NSString *) fallbackDirectory
+                          defaultsKeyOrNil:(NSString *) aDefaultsKeyOrNil;
+
++ (NSString *) lastDirectoryPathWithDefaultsKey:(NSString *) aDefaultsKey
+                              fallbackDirectory:(NSString *) aFallbackDirectory;
+
+
+
+
+
 @end
