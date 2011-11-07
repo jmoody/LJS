@@ -1,23 +1,12 @@
 # turds
 (.*/)?\#[^/]*\#$
 
+# my idea
+scratch/*
 
-
-*.ipa
-
-# Intellij
-.idea
-
-# rails
-.bundle
-db/*.sqlite3
-log/*.log
-tmp/
-*.ids
-seeds.rb
-
-# sqlite
-*.sqlite3
+## Mac OS X
+# bug in Xcode 4.2 prevents snapshots
+#.DS_Store 
 
 # Xcode 3.*
 *~
@@ -25,17 +14,40 @@ build
 *.mode* 
 *.perspective* 
 *~.nib 
-.DS_Store
 *.dsidx 
 *.skidx
 *.iws
-.idea
 *.log
 *.pbxuser
 *.swp
 *.mode1v3
 
 # Xcode 4
+*.xcodeproj/*.mode*
+*.xcodeproj/*.perspective*
+*.xcodeproj/*.pbxuser   
+*.xcodeproj/xcuserdata
+*.xcodeproj/project.xcworkspace/xcuserdata
+
+## Build products
+build/*
+*.[oa]
+*.pyc
+*.so 
+
+## Other versioning systems
+.svn
+.hg
+CVS
+
+## Generated files
+VersionX-revision.h
+
+## Automated backup nonsense
+*.swp
+*~
+*~.nib
+*(Autosaved).rtfd/
 *.xcuserdatad
 
 # Ignore Visual Studio files
@@ -44,9 +56,6 @@ build
 *.pdb
 *.user
 *.aps
-
-# whoops - this is a precompiled header file in Xcode
-# *.pch
 *.vspscc
 *_i.c
 *_p.c
