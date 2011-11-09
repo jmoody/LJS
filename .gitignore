@@ -6,7 +6,7 @@ scratch/*
 
 ## Mac OS X
 # bug in Xcode 4.2 prevents snapshots
-#.DS_Store 
+.DS_Store 
 
 # Xcode 3.*
 *~
