@@ -1,4 +1,0 @@
-## Xcode
-#*.pbxproj binary -merge
-#*.xcworkspacedata binary -merge
-#*.xcscheme binary -merge
