@@ -97,7 +97,7 @@
   error = nil;
   name = @"inform test username";
   password = @"inform test password";
-  domain = @"com.littlejoysoftware.InformTestDomain";
+  domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
   
   [SFHFKeychainUtils storeUsername:name
                        andPassword:password
@@ -112,7 +112,7 @@
   error = nil;
   name = @"inform test username";
   password = @"inform test password";
-  domain = @"com.littlejoysoftware.InformTestDomain";
+  domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
   
   [SFHFKeychainUtils storeUsername:name
                        andPassword:password
@@ -128,7 +128,7 @@
   error = nil;
   name = @"inform test username";
   password = @"inform test password";
-  domain = @"com.littlejoysoftware.InformTestDomain";
+  domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
   
   [SFHFKeychainUtils storeUsername:name
                        andPassword:password
@@ -144,7 +144,7 @@
   error = nil;
   name = nil;
   password = @"inform test password";
-  domain = @"com.littlejoysoftware.InformTestDomain";
+  domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
   
   [SFHFKeychainUtils storeUsername:name
                        andPassword:password
@@ -160,7 +160,7 @@
   error = nil;
   name = @"inform test username";
   password = @"inform test password";
-  domain = @"com.littlejoysoftware.InformTestDomain";
+  domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
 
   fetcehedPwd = [SFHFKeychainUtils getPasswordForUsername:name andServiceName:domain error:&error];
   
@@ -173,7 +173,7 @@
   error = nil;
   name = @"inform test username";
   password = @"inform test password";
-  domain = @"com.littlejoysoftware.InformTestDomain";
+  domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
   [SFHFKeychainUtils deleteItemForUsername:name andServiceName:domain error:&error];
   
   if (error != nil) {
@@ -185,7 +185,7 @@
   error = nil;
   name = @"inform test username";
   password = @"inform test password";
-  domain = @"com.littlejoysoftware.InformTestDomain";
+  domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
   fetcehedPwd = [SFHFKeychainUtils getPasswordForUsername:name andServiceName:domain error:&error];
   
   if (error != nil) {

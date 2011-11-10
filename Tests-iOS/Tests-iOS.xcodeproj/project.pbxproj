@@ -86,13 +86,13 @@
 		F580719F146C33AC00EA4CFB /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F580719E146C33AC00EA4CFB /* LjsTestCase.m */; };
 		F590BE9F14542E4900E5B89B /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */; };
 		F590BEA014542E4900E5B89B /* LjsFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9E14542E4900E5B89B /* LjsFileManager.m */; };
-		F5B0E95E1461970500CA24F5 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E94F1461970500CA24F5 /* DDAbstractDatabaseLogger.m */; };
-		F5B0E95F1461970500CA24F5 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9511461970500CA24F5 /* DDASLLogger.m */; };
-		F5B0E9601461970500CA24F5 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9531461970500CA24F5 /* DDFileLogger.m */; };
-		F5B0E9611461970500CA24F5 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9551461970500CA24F5 /* DDLog.m */; };
-		F5B0E9621461970500CA24F5 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9571461970500CA24F5 /* DDTTYLogger.m */; };
-		F5B0E9631461970500CA24F5 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E95A1461970500CA24F5 /* ContextFilterLogFormatter.m */; };
-		F5B0E9641461970500CA24F5 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E95C1461970500CA24F5 /* DispatchQueueLogFormatter.m */; };
+		F5B0E95E1461970500CA24F5 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E94F1461970500CA24F5 /* DDAbstractDatabaseLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		F5B0E95F1461970500CA24F5 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9511461970500CA24F5 /* DDASLLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		F5B0E9601461970500CA24F5 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9531461970500CA24F5 /* DDFileLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		F5B0E9611461970500CA24F5 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9551461970500CA24F5 /* DDLog.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		F5B0E9621461970500CA24F5 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9571461970500CA24F5 /* DDTTYLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		F5B0E9631461970500CA24F5 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E95A1461970500CA24F5 /* ContextFilterLogFormatter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		F5B0E9641461970500CA24F5 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E95C1461970500CA24F5 /* DispatchQueueLogFormatter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		F5B0E9651461970500CA24F5 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5B0E95D1461970500CA24F5 /* README.txt */; };
 		F5B0E96C146197E800CA24F5 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B0E96B146197E800CA24F5 /* GHUnitIOS.framework */; };
 /* End PBXBuildFile section */
