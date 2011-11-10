@@ -54,7 +54,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 + (NSDecimalNumber *) dnWithInt:(NSUInteger) aInt {
-  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInt:aInt] decimalValue]];
+  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInteger:aInt] decimalValue]];
 }
 
 + (NSDecimalNumber *) dnWithDouble:(double) aDouble {

@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Tests-MacOS/Tests-MacOS.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Test-LumberjackHTTPLogging/Test-LumberjackHTTPLogging.xcodeproj">
    </FileRef>
    <FileRef

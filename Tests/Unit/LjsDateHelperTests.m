@@ -61,10 +61,11 @@
 // GHAssertNoThrowSpecific(expr, specificException, description, ...)
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
+#import "LjsTestCase.h"
 #import "LjsDateHelper.h"
 #import <objc/runtime.h>
 
-@interface LjsDateHelperTests : GHTestCase {}
+@interface LjsDateHelperTests : LjsTestCase {}
 
 - (NSString *) swizzledLjsDateHelperCanonicalAmWithString:(NSString *) ignored;
 

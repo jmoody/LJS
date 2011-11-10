@@ -66,11 +66,12 @@
 // GHAssertNoThrowSpecific(expr, specificException, description, ...)
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
-
+#import "LjsTestCase.h"
 #import "LjsVariates.h"
+
 #import "math.h"
 
-@interface LjsVariatesTests : GHTestCase {}
+@interface LjsVariatesTests : LjsTestCase {}
 @end
 
 @implementation LjsVariatesTests
@@ -146,13 +147,13 @@
 }
 
 - (void) testRandomIntegerWithRange {
-  int max = 10;
-  int min = 1;
+  NSInteger max = 10;
+  NSInteger min = 1;
   int passes = 1000;
   int index = 0;
-  int maxGenerated = min;
-  int minGenerated = max;
-  int result;
+  NSInteger maxGenerated = min;
+  NSInteger minGenerated = max;
+  NSInteger result;
   for (index = 0; index < passes; index++) {
     result = [LjsVariates randomIntegerWithMin:min max:max];
     GHAssertTrue(result >= min, @"expected result >= %qi, but found %qi after %i runs", min, result, index);
@@ -181,14 +182,14 @@
   
   NSArray *sampled = [LjsVariates sampleWithReplacement:toSample number:10];
   GHAssertNotNil(sampled, nil);
-  GHAssertEquals([[NSNumber numberWithInt:[sampled count]] intValue],
-                 [[NSNumber numberWithInt:10] intValue], nil);
+  GHAssertEquals([[NSNumber numberWithInteger:[sampled count]] intValue],
+                 [[NSNumber numberWithInteger:10] intValue], nil);
   // GHTestLog(@"%@", sampled);
   
   sampled = [LjsVariates sampleWithReplacement:toSample number:100];
   GHAssertNotNil(sampled, nil);
-  GHAssertEquals([[NSNumber numberWithInt:[sampled count]] intValue],
-                 [[NSNumber numberWithInt:100] intValue], nil);
+  GHAssertEquals([[NSNumber numberWithInteger:[sampled count]] intValue],
+                 [[NSNumber numberWithInteger:100] intValue], nil);
   // GHTestLog(@"%@", sampled);
   [toSample release];
 }
@@ -206,14 +207,14 @@
   
   sampled = [LjsVariates sampleWithoutReplacement:toSample number:2];
   GHAssertNotNil(sampled, nil);
-  GHAssertEquals([[NSNumber numberWithInt:[sampled count]] intValue],
-                 [[NSNumber numberWithInt:2] intValue], nil);
+  GHAssertEquals([[NSNumber numberWithInteger:[sampled count]] intValue],
+                 [[NSNumber numberWithInteger:2] intValue], nil);
 
   
   sampled = [LjsVariates sampleWithoutReplacement:toSample number:10];
   GHAssertNotNil(sampled, nil);
-  GHAssertEquals([[NSNumber numberWithInt:[sampled count]] intValue],
-                 [[NSNumber numberWithInt:10] intValue], nil);
+  GHAssertEquals([[NSNumber numberWithInteger:[sampled count]] intValue],
+                 [[NSNumber numberWithInteger:10] intValue], nil);
   
   
   
@@ -235,8 +236,8 @@
 
 - (void) testRandomStringWithLength {
   NSString *random = [LjsVariates randomStringWithLength:5];
-  GHAssertEquals([[NSNumber numberWithInt:[random length]] intValue], 
-                 [[NSNumber numberWithInt:5] intValue], nil);
+  GHAssertEquals([[NSNumber numberWithInteger:[random length]] intValue], 
+                 [[NSNumber numberWithInteger:5] intValue], nil);
 }
 
 @end

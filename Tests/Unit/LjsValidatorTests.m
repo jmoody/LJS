@@ -33,10 +33,10 @@
 // GHAssertNoThrowSpecific(expr, specificException, description, ...)
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
-#import <GHUnitIOS/GHUnit.h> 
+#import "LjsTestCase.h"
 #import "LjsValidator.h"
 
-@interface LjsValidatorTests : GHTestCase {}
+@interface LjsValidatorTests : LjsTestCase {}
 @end
 
 

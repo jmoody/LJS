@@ -34,8 +34,9 @@
 // GHAssertNoThrowSpecific(expr, specificException, description, ...)
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
-#import <GHUnitIOS/GHUnit.h> 
+#import "LjsTestCase.h"
 #import "LjsJsonRpcReply.h"
+
 #import "SBJson.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -84,7 +85,7 @@ static NSString *IncorrectErrorWithBadKey = @"{\"jsonrpc\": \"2.0\", \"error\": 
 static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError\", \"name\":\"JsonException\", \"message\":\"Cannot import System.String from a JSON Object value.\"}]}";
 #endif
 
-@interface LjsJsonRpcReplyTests : GHTestCase {}
+@interface LjsJsonRpcReplyTests : LjsTestCase {}
 @end
 
 @implementation LjsJsonRpcReplyTests

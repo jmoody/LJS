@@ -1,0 +1,10 @@
+//
+// Prefix header for all source files of the 'Tests-MacOS' target in the 'Tests-MacOS' project
+//
+
+#ifdef __OBJC__
+#import <Cocoa/Cocoa.h>
+#import <OCMock/OCMock.h>
+#include "TargetConditionals.h"
+#import "Lumberjack.h"
+#endif

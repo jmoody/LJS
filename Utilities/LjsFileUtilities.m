@@ -28,6 +28,7 @@
 
 #import "LjsFileUtilities.h"
 #import "Lumberjack.h"
+#include "TargetConditionals.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -80,6 +81,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return parentDirectory;
 }
 
+#if !TARGET_OS_IPHONE
 + (NSString *) pathFromOpenPanelWithPrompt:(NSString *) aPrompt 
                                      title:(NSString *) aTitle
                              lastDirectory:(NSString *) aLastDirectory 
@@ -117,6 +119,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
   return result;
 }
+#endif
 
 + (NSString *) lastDirectoryPathWithDefaultsKey:(NSString *) aDefaultsKey
                               fallbackDirectory:(NSString *) aFallbackDirectory {

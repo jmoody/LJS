@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadDescription</key>
+			<string>Sync Apple Push Notification service and UIKit Local Notifications diagnostics back to host Logs folder</string>
+			<key>PayloadDisplayName</key>
+			<string>APNs &amp; UILN Diagnostics</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.persistentconnection.diag</string>
+			<key>PayloadOrganization</key>
+			<string>Apple Inc.</string>
+			<key>PayloadType</key>
+			<string>com.apple.defaults.managed</string>
+			<key>PayloadUUID</key>
+			<string>61BE48C2-ECDD-477E-BA906-14E948E2EABC</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>PayloadContent</key>
+			<array>
+				<dict>
+					<key>DefaultsDomainName</key>
+					<string>com.apple.persistentconnection</string>
+					<key>DefaultsData</key>
+					<dict>
+						<key>PCWriteLogs</key>
+						<true/>
+					</dict>
+				</dict>
+			</array>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Sync Apple Push Notification service and UIKit Local Notifications diagnostics back to host Logs folder</string>
+	<key>PayloadDisplayName</key>
+	<string>APNs &amp; UILN Diagnostics</string>
+	<key>PayloadIdentifier</key>
+	<string>com.apple.persistentconnection.diag</string>
+	<key>PayloadOrganization</key>
+	<string>Apple Inc.</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>61BE48C2-ECDD-477E-BA906-14E948E2EABC</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+	<key>PayloadRebootSuggested</key>
+	<true/>
+</dict>
+</plist>

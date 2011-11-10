@@ -7,8 +7,9 @@
 //
 
 #import "LjsIdGenerator.h"
+#import "LjsTestCase.h"
 
-@interface LjsIdGeneratorTests : GHTestCase {}
+@interface LjsIdGeneratorTests : LjsTestCase {}
 @end
 
 @implementation LjsIdGeneratorTests

@@ -34,7 +34,7 @@
 // GHAssertNoThrowSpecific(expr, specificException, description, ...)
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
-#import <GHUnitIOS/GHUnit.h> 
+#import "LjsTestCase.h"
 #import "LjsKeychainManager.h"
 #import "SFHFKeychainUtils.h"
 
@@ -49,7 +49,7 @@ static NSString *LjsSecurityManagerTestsUsername = @"testuser";
 
 static NSString *LjsSecurityManagerTestsPassword = @"testpass";
 
-@interface LjsSecurityManagerTests : GHTestCase {}
+@interface LjsSecurityManagerTests : LjsTestCase {}
 @end
 
 

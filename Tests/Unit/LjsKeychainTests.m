@@ -35,8 +35,9 @@
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
 #import "SFHFKeychainUtils.h"
+#import "LjsTestCase.h"
 
-@interface LjsKeychainTests : GHTestCase {}
+@interface LjsKeychainTests : LjsTestCase {}
 @end
 
 

@@ -83,6 +83,7 @@
 		F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F56147B81450C72A00D2653A /* libOCMock.a */; };
 		F56147BB1450C86700D2653A /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F56147BA1450C86700D2653A /* OCMockWorkingTest.m */; };
 		F56147BD1450CCC700D2653A /* LjsSecurityManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F56147BC1450CCC700D2653A /* LjsSecurityManagerTests.m */; };
+		F580719F146C33AC00EA4CFB /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F580719E146C33AC00EA4CFB /* LjsTestCase.m */; };
 		F590BE9F14542E4900E5B89B /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */; };
 		F590BEA014542E4900E5B89B /* LjsFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9E14542E4900E5B89B /* LjsFileManager.m */; };
 		F5B0E95E1461970500CA24F5 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E94F1461970500CA24F5 /* DDAbstractDatabaseLogger.m */; };
@@ -244,6 +245,8 @@
 		F56147B81450C72A00D2653A /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		F56147BA1450C86700D2653A /* OCMockWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockWorkingTest.m; sourceTree = "<group>"; };
 		F56147BC1450CCC700D2653A /* LjsSecurityManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsSecurityManagerTests.m; sourceTree = "<group>"; };
+		F580719D146C33AC00EA4CFB /* LjsTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsTestCase.h; path = ../../Tests/LjsTestCase.h; sourceTree = "<group>"; };
+		F580719E146C33AC00EA4CFB /* LjsTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsTestCase.m; path = ../../Tests/LjsTestCase.m; sourceTree = "<group>"; };
 		F590BE9B14542E4900E5B89B /* DDFileLogger+CurrentFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDFileLogger+CurrentFile.h"; sourceTree = "<group>"; };
 		F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
 		F590BE9D14542E4900E5B89B /* LjsFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFileManager.h; sourceTree = "<group>"; };
@@ -292,9 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				F5448AC31450B63B0065E516 /* ThirdParty */,
-				F5448AB81450B63B0065E516 /* Logging */,
-				F50FE6D71410CC250051FC7E /* Tests */,
-				F50FE6E81410CC420051FC7E /* Utilities */,
+				F5807168146C298100EA4CFB /* LJS */,
 				F50FE6A51410C6F60051FC7E /* Tests-iOS */,
 				F50FE69E1410C6F60051FC7E /* Frameworks */,
 				F50FE69C1410C6F60051FC7E /* Products */,
@@ -329,7 +330,9 @@
 		F50FE6A51410C6F60051FC7E /* Tests-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				F5B0E96B146197E800CA24F5 /* GHUnitIOS.framework */,
+				F580719D146C33AC00EA4CFB /* LjsTestCase.h */,
+				F580719E146C33AC00EA4CFB /* LjsTestCase.m */,
+				F50FE6D71410CC250051FC7E /* Tests */,
 				F50FE6A61410C6F60051FC7E /* Supporting Files */,
 			);
 			path = "Tests-iOS";
@@ -338,6 +341,7 @@
 		F50FE6A61410C6F60051FC7E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F5B0E96B146197E800CA24F5 /* GHUnitIOS.framework */,
 				F50FE6A71410C6F60051FC7E /* Tests-iOS-Info.plist */,
 				F50FE6A81410C6F60051FC7E /* InfoPlist.strings */,
 				F50FE6AB1410C6F60051FC7E /* main.m */,
@@ -353,7 +357,7 @@
 				F56147BA1450C86700D2653A /* OCMockWorkingTest.m */,
 			);
 			name = Tests;
-			path = ../Tests;
+			path = ../../Tests;
 			sourceTree = "<group>";
 		};
 		F50FE6D81410CC250051FC7E /* Unit */ = {
@@ -647,6 +651,15 @@
 			path = OCMock;
 			sourceTree = "<group>";
 		};
+		F5807168146C298100EA4CFB /* LJS */ = {
+			isa = PBXGroup;
+			children = (
+				F50FE6E81410CC420051FC7E /* Utilities */,
+				F5448AB81450B63B0065E516 /* Logging */,
+			);
+			name = LJS;
+			sourceTree = "<group>";
+		};
 		F5B0E94D1461970500CA24F5 /* Lumberjack */ = {
 			isa = PBXGroup;
 			children = (
@@ -815,6 +828,7 @@
 				F5B0E9621461970500CA24F5 /* DDTTYLogger.m in Sources */,
 				F5B0E9631461970500CA24F5 /* ContextFilterLogFormatter.m in Sources */,
 				F5B0E9641461970500CA24F5 /* DispatchQueueLogFormatter.m in Sources */,
+				F580719F146C33AC00EA4CFB /* LjsTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,14 +39,18 @@
 
 + (NSString *) parentDirectoryForDirectoryPath:(NSString *) childPath;
 
+
+
++ (NSString *) lastDirectoryPathWithDefaultsKey:(NSString *) aDefaultsKey
+                              fallbackDirectory:(NSString *) aFallbackDirectory;
+
+#if !TARGET_OS_IPHONE
 + (NSString *) pathFromOpenPanelWithPrompt:(NSString *) aPrompt 
                                      title:(NSString *) aTitle
                              lastDirectory:(NSString *) aLastDirectory
                          fallBackDirectory:(NSString *) fallbackDirectory
                           defaultsKeyOrNil:(NSString *) aDefaultsKeyOrNil;
-
-+ (NSString *) lastDirectoryPathWithDefaultsKey:(NSString *) aDefaultsKey
-                              fallbackDirectory:(NSString *) aFallbackDirectory;
+#endif
 
 
 

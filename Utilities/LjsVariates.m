@@ -43,7 +43,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 
 static const NSString *_alphanumeric = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-static const int _max_index = 26 + 26 + 10 - 1;
+static const NSUInteger _max_index = 26 + 26 + 10 - 1;
 
 static const float ARC4RANDOM_MAX = 0x100000000;
 
@@ -81,18 +81,18 @@ static const float ARC4RANDOM_MAX = 0x100000000;
   return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithDouble:random] decimalValue]];
 }
 
-+ (int) randomInteger {
++ (NSInteger) randomInteger {
   return arc4random();
 }
 
 + (NSDecimalNumber *) randomDecimalInteger {
-  int random = [LjsVariates randomInteger];
-  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInt:random] decimalValue]];
+  NSInteger random = [LjsVariates randomInteger];
+  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInteger:random] decimalValue]];
 }
 
-+ (int) randomIntegerWithMin:(int) min max:(int) max {
++ (NSInteger) randomIntegerWithMin:(NSInteger) min max:(NSInteger) max {
   
-  int result;
+  NSInteger result;
   if (max <= min) {
     result = max;
   } else {
@@ -108,16 +108,16 @@ static const float ARC4RANDOM_MAX = 0x100000000;
 + (NSDecimalNumber *) randomDecimalIntegerWithMin:(NSDecimalNumber *) min
                                               max:(NSDecimalNumber *) max {
 
-  int random = [LjsVariates randomIntegerWithMin:[min intValue]
+  NSInteger random = [LjsVariates randomIntegerWithMin:[min intValue]
                                              max:[max intValue]];
-  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInt:random] decimalValue]];  
+  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInteger:random] decimalValue]];  
 }
 
-+ (NSArray *) sampleWithReplacement:(NSArray *) array number:(int) number {
++ (NSArray *) sampleWithReplacement:(NSArray *) array number:(NSUInteger) number {
   NSMutableArray *sampled = [NSMutableArray new];
-  int loopVar;
-  int randomIndex;
-  int maxArrayIndex = [array count] - 1;
+  NSInteger loopVar;
+  NSInteger randomIndex;
+  NSInteger maxArrayIndex = [array count] - 1;
   for (loopVar = 0; loopVar < number; loopVar++) {
     randomIndex = [LjsVariates randomIntegerWithMin:0 max:maxArrayIndex];
     [sampled addObject:[array objectAtIndex:randomIndex]];
@@ -128,17 +128,17 @@ static const float ARC4RANDOM_MAX = 0x100000000;
   return result;
 }
 
-+ (NSArray *) sampleWithoutReplacement:(NSArray *) array number:(int) number {
++ (NSArray *) sampleWithoutReplacement:(NSArray *) array number:(NSUInteger) number {
   NSMutableArray *sampled = [NSMutableArray new];
   NSArray *result;
-  int arraySize = [array count];
+  NSInteger arraySize = [array count];
   if (arraySize < number) {
     // not possible to generate enough samples with out replacement
     result = nil;
   } else {
-    int loopVar;
-    int randomIndex;
-    int maxArrayIndex = arraySize - 1;
+    NSInteger loopVar;
+    NSInteger randomIndex;
+    NSInteger maxArrayIndex = arraySize - 1;
     NSMutableArray *indexes = [NSMutableArray arrayWithCapacity:number];
     
     for (loopVar = 0; loopVar < number; loopVar++) {
@@ -150,7 +150,7 @@ static const float ARC4RANDOM_MAX = 0x100000000;
         randomIndex = [LjsVariates randomIntegerWithMin:0 max:maxArrayIndex];
       }
       //DDLogDebug(@"adding randomIndex %d to indexes - %@", randomIndex, indexes);
-      [indexes addObject:[NSNumber numberWithInt:randomIndex]];
+      [indexes addObject:[NSNumber numberWithInteger:randomIndex]];
     }
     
     for (NSNumber *index in indexes) {
@@ -162,7 +162,7 @@ static const float ARC4RANDOM_MAX = 0x100000000;
   return result;
 }
 
-+ (BOOL) _arrayOfNSNumbers:(NSArray *) array containsInt:(int) number {
++ (BOOL) _arrayOfNSNumbers:(NSArray *) array containsInt:(NSUInteger) number {
   
   for (NSNumber *num in array) {
     if ([num intValue] == number) {
@@ -172,12 +172,12 @@ static const float ARC4RANDOM_MAX = 0x100000000;
   return NO;
 }
 
-+ (NSString *) randomStringWithLength:(int) length {
++ (NSString *) randomStringWithLength:(NSUInteger) length {
   
   NSString *result = @"";
-  int random;
+  NSInteger random;
   
-  for(int finger = 0; finger < length; finger++) {
+  for(NSInteger finger = 0; finger < length; finger++) {
     random = [LjsVariates randomIntegerWithMin:0 max:_max_index];
     char character = [_alphanumeric characterAtIndex:random];
     result = [result stringByAppendingFormat:@"%c", character];

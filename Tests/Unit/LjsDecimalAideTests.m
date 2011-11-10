@@ -63,8 +63,9 @@
 
 
 #import "LjsDecimalAide.h"
+#import "LjsTestCase.h"
 
-@interface LjsDecimalAideTests : GHTestCase {}
+@interface LjsDecimalAideTests : LjsTestCase {}
 
 @property (nonatomic, retain) NSDecimalNumber *zero;
 @property (nonatomic, retain) NSDecimalNumber *one;

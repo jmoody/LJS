@@ -149,7 +149,7 @@
  negative integer and a very large positive integer.
  @return a very large positive or negative integer
  */
-+ (int) randomInteger;
++ (NSInteger) randomInteger;
 
 + (NSDecimalNumber *) randomDecimalInteger;
 
@@ -164,7 +164,7 @@
  @param min the hightest value returned
  @return a random int on (min, max)
  */
-+ (int) randomIntegerWithMin:(int) min max:(int) max;
++ (NSInteger) randomIntegerWithMin:(NSInteger) min max:(NSInteger) max;
 
 + (NSDecimalNumber *) randomDecimalIntegerWithMin:(NSDecimalNumber *) min
                                               max:(NSDecimalNumber *) max;
@@ -175,7 +175,7 @@
  @param number the number to sample
  @return an array with randomly sampled elements
  */
-+ (NSArray *) sampleWithReplacement:(NSArray *) array number:(int) number;
++ (NSArray *) sampleWithReplacement:(NSArray *) array number:(NSUInteger) number;
 
 
 /**
@@ -185,7 +185,7 @@
  @param number the number to sample
  @return an array with randomly sampled elements
  */
-+ (NSArray *) sampleWithoutReplacement:(NSArray *) array number:(int) number;
++ (NSArray *) sampleWithoutReplacement:(NSArray *) array number:(NSUInteger) number;
 
 /**
  a helper function for sampleWithoutReplacement.
@@ -194,13 +194,13 @@
  @param number the number to detect
  @return true iff number appears in the array as an NSNumber
  */
-+ (BOOL) _arrayOfNSNumbers:(NSArray *) array containsInt:(int) number;
++ (BOOL) _arrayOfNSNumbers:(NSArray *) array containsInt:(NSUInteger) number;
   
 /**
  returns a string of random alpha-numeric characters
  @param length the number of characters in the created string
  @return a string of random alpha-numeric characters
  */
-+ (NSString *) randomStringWithLength:(int) length;
++ (NSString *) randomStringWithLength:(NSUInteger) length;
 
 @end
