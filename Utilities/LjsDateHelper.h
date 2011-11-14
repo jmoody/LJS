@@ -60,6 +60,7 @@ extern NSString *LjsDateHelperMinutesNumberKey;
 + (BOOL) dateIsPast:(NSDate *) date;
 
 + (NSDateFormatter *) hoursMinutesAmPmFormatter;
++ (NSDateFormatter *) briefDateAndTimeFormatter;
 
 + (NSString *) upcaseAndRemovePeroidsFromAmPmString:(NSString *) amOrPm;
 + (BOOL) isCanonicalAmOrPm:(NSString *) amOrPm;

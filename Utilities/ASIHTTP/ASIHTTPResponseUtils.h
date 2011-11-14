@@ -43,5 +43,6 @@
 - (NSString *) errorMessageForFailedRequest:(ASIHTTPRequest *) aRequest;
 - (NSString *) responseDescriptionForRequest:(ASIHTTPRequest *) aRequest;
 - (BOOL) requestDidTimeOut:(ASIHTTPRequest *) aRequest;
+- (BOOL) requestWas200or201Successful:(ASIHTTPRequest *) aRequest;
 
 @end
