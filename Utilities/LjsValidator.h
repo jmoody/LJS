@@ -51,4 +51,10 @@
  */
 + (BOOL) dictionary:(NSDictionary *) dictionary containsKey:(NSString *) key;
 
++ (BOOL) dictionary:(NSDictionary *) dictionary containsKeys:(NSArray *)keys;
+
++ (BOOL) dictionary:(NSDictionary *)dictionary 
+       containsKeys:(NSArray *) keys
+       allowsOthers:(BOOL) allowsOthers;
+
 @end

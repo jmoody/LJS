@@ -299,7 +299,7 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
   }
   BOOL result = [reasons count] == 0;
   if (result == NO) {
-    DDLogDebug(@"time: %@ is not valid for these reasons: %@", amPmTime, reasons);
+    //DDLogDebug(@"time: <%@> is not valid for these reasons: %@", amPmTime, reasons);
   }
   return result;
 }
@@ -349,7 +349,7 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
   }
   BOOL result = [reasons count] == 0;
   if (result == NO) {
-    DDLogDebug(@"time: %@ is not valid for these reasons: %@", a24hourTime, reasons);
+    //DDLogDebug(@"time: %@ is not valid for these reasons: %@", a24hourTime, reasons);
   }
   return result;
 }
@@ -485,7 +485,7 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
   NSString *result = nil;
   if (date != nil) {
     NSDateFormatter *formatter = [LjsDateHelper hoursMinutesAmPmFormatter];
-    result = [formatter stringFromDate:date];
+    return [formatter stringFromDate:date];
   }
   return result;
 }
@@ -494,6 +494,13 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
 + (NSDateFormatter *) hoursMinutesAmPmFormatter {
   NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
   [formatter setDateFormat:@"H:mm a"];
+  return formatter;
+}
+
+
++ (NSDateFormatter *) briefDateAndTimeFormatter {
+  NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
+  [formatter setDateFormat:@"ccc MMM d HH:mm a"];
   return formatter;
 }
 

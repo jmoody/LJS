@@ -74,5 +74,31 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [dictionary objectForKey:key] != nil;
 }
 
++ (BOOL) dictionary:(NSDictionary *) dictionary containsKeys:(NSArray *)keys {
+  BOOL result = YES;
+  for (NSString *key in keys) {
+    if (![LjsValidator dictionary:dictionary containsKey:key]) {
+      result = NO;
+      break;
+    }
+  }
+  return result;
+}
+
+
++ (BOOL) dictionary:(NSDictionary *)dictionary 
+       containsKeys:(NSArray *) keys
+       allowsOthers:(BOOL) allowsOthers {
+  BOOL result;
+  if (allowsOthers == NO) {
+    result = ([keys count] == [[dictionary allKeys] count] &&
+              [LjsValidator dictionary:dictionary
+                          containsKeys:keys]);
+  } else {
+    result = [LjsValidator dictionary:dictionary containsKeys:keys];
+  }
+  return result;
+}
+
 
 @end
