@@ -129,7 +129,7 @@ static const float ARC4RANDOM_MAX = 0x100000000;
 }
 
 + (NSArray *) sampleWithoutReplacement:(NSArray *) array number:(NSUInteger) number {
-  NSMutableArray *sampled = [NSMutableArray new];
+  NSMutableArray *sampled = [NSMutableArray array];
   NSArray *result;
   NSInteger arraySize = [array count];
   if (arraySize < number) {
