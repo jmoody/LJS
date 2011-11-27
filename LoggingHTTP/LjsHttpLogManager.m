@@ -88,7 +88,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [fileLogger setLogFormatter:formatter];
   [DDLog addLogger:fileLogger];
   
-  self.httpLogServer = [(LjsHTTPLogServer *)[[HTTPServer alloc] init] autorelease];
+  // looks like a leak, but it is not
+  self.httpLogServer = [(LjsHTTPLogServer *)[HTTPServer alloc] init];
   [self.httpLogServer setConnectionClass:[LjsHTTPLogConnection class]];
   [self.httpLogServer setType:@"_http._tcp."];
   [self.httpLogServer setPort:3030];
