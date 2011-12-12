@@ -22,8 +22,8 @@
 	<key>DocSetPublisherIdentifier</key>
 	<string>com.littlejoysoftware.documentation</string>
 	<key>DocSetPublisherName</key>
-	<string>LJS MacOS</string>
+	<string>Little Joy Software</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2011 LJS MacOS. All rights reserved.</string>
+	<string>Copyright © 2011 Little Joy Software. All rights reserved.</string>
 </dict>
 </plist>

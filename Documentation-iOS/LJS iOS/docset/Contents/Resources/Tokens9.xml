@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/LjsKeychainManager.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsKeychainManager</TokenIdentifier>
+			<Abstract>LjsKeychainManager provides methods to bridge the Keychain Access API and the
+User Defaults API.</Abstract>
+			<DeclaredIn>LjsKeychainManager.h</DeclaredIn>
+			
+			<NodeRef refid="9"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsKeychainManager/isValidUsername:</TokenIdentifier>
+			<Abstract>used to determine the validity of a username</Abstract>
+			<DeclaredIn>LjsKeychainManager.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)isValidUsername:(NSString *)username</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>username</Name>
+					<Abstract>the name to check</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>true if username is a non-nil, non-empty string</Abstract></ReturnValue>
+			<Anchor>//api/name/isValidUsername:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsKeychainManager/isValidPassword:</TokenIdentifier>
+			<Abstract>used to determine the validity of a password</Abstract>
+			<DeclaredIn>LjsKeychainManager.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)isValidPassword:(NSString *)password</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>password</Name>
+					<Abstract>the password to check</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>true iff password is a non-nil, non-empty string</Abstract></ReturnValue>
+			<Anchor>//api/name/isValidPassword:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsKeychainManager/usernameStoredInDefaults</TokenIdentifier>
+			<Abstract>queries the NSUserDefaults standardUserDefaults with the AgChoiceUsernameDefaultsKey</Abstract>
+			<DeclaredIn>LjsKeychainManager.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)usernameStoredInDefaults</Declaration>
+			
+			<ReturnValue><Abstract>if there is no entry, will return nil</Abstract></ReturnValue>
+			<Anchor>//api/name/usernameStoredInDefaults</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsKeychainManager/deleteUsernameInDefaults</TokenIdentifier>
+			<Abstract>deletes the value (if any) for the key AgChoiceUsernameDefaultsKey from the
+NSUserDefaults standardUserDefaults</Abstract>
+			<DeclaredIn>LjsKeychainManager.h</DeclaredIn>			
+			
+			<Declaration>- (void)deleteUsernameInDefaults</Declaration>
+			
+			
+			<Anchor>//api/name/deleteUsernameInDefaults</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsKeychainManager/setDefaultsUsername:</TokenIdentifier>
+			<Abstract>sets the value for key AgChoiceUsernameDefaultsKey in the NSUserDefaults
+standardUserDefaults</Abstract>
+			<DeclaredIn>LjsKeychainManager.h</DeclaredIn>			
+			
+			<Declaration>- (void)setDefaultsUsername:(NSString *)username</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>username</Name>
+					<Abstract>the new value for AgChoiceUsernamDefaultsKey</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setDefaultsUsername:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsKeychainManager/shouldUseKeyChain</TokenIdentifier>
+			<Abstract>looks up the value of AgChoiceUseKeychainDefaultsKey in NSUserDefaults
+standardUserDefaults</Abstract>
+			<DeclaredIn>LjsKeychainManager.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)shouldUseKeyChain</Declaration>
+			
+			<ReturnValue><Abstract>true iff value for key is AgChoiceYES</Abstract></ReturnValue>
+			<Anchor>//api/name/shouldUseKeyChain</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsKeychainManager/deleteShouldUseKeyChainInDefaults</TokenIdentifier>
+			<Abstract>removes the value of key AgChoiceUseKeychainDefaultsKey from NSUserDefaults
+standardUserDefaults</Abstract>
+			<DeclaredIn>LjsKeychainManager.h</DeclaredIn>			
+			
+			<Declaration>- (void)deleteShouldUseKeyChainInDefaults</Declaration>
+			
+			
+			<Anchor>//api/name/deleteShouldUseKeyChainInDefaults</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsKeychainManager/setDefaultsShouldUseKeyChain:</TokenIdentifier>
+			<Abstract>sets the value of key AgChoiceUserKeycahinDefaultsKey in NSUserDefaults
+standardUserDefaults</Abstract>
+			<DeclaredIn>LjsKeychainManager.h</DeclaredIn>			
+			
+			<Declaration>- (void)setDefaultsShouldUseKeyChain:(BOOL)shouldUse</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>shouldUse</Name>
+					<Abstract>the new value to store in the User Defaults</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setDefaultsShouldUseKeyChain:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsKeychainManager/logKeychainError:</TokenIdentifier>
+			<Abstract>prints error information to the log stream(s)</Abstract>
+			<DeclaredIn>LjsKeychainManager.h</DeclaredIn>			
+			
+			<Declaration>- (void)logKeychainError:(NSError *)error</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>error</Name>
+					<Abstract>the error to log</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/logKeychainError:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsKeychainManager/hasKeychainPasswordForUsername:</TokenIdentifier>
+			<Abstract>queries the keychain to see if a password is stored for username</Abstract>
+			<DeclaredIn>LjsKeychainManager.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)hasKeychainPasswordForUsername:(NSString *)username</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>username</Name>
+					<Abstract>the name we want the password for</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>true iff the keychain has a password for the username</Abstract></ReturnValue>
+			<Anchor>//api/name/hasKeychainPasswordForUsername:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsKeychainManager/keyChainPasswordForUsernameInDefaults</TokenIdentifier>
+			<Abstract>queries the keychain for the password stored for username</Abstract>
+			<DeclaredIn>LjsKeychainManager.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)keyChainPasswordForUsernameInDefaults</Declaration>
+			
+			<ReturnValue><Abstract>returns the password stored for the username in the defaults or nil if
+no password is found</Abstract></ReturnValue>
+			<Anchor>//api/name/keyChainPasswordForUsernameInDefaults</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsKeychainManager/keyChainDeletePasswordForUsername:</TokenIdentifier>
+			<Abstract>deletes the password for the keychain entry for the username</Abstract>
+			<DeclaredIn>LjsKeychainManager.h</DeclaredIn>			
+			
+			<Declaration>- (void)keyChainDeletePasswordForUsername:(NSString *)username</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>username</Name>
+					<Abstract>the username for the password we would like to delete</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/keyChainDeletePasswordForUsername:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsKeychainManager/keychainStoreUsername:password:</TokenIdentifier>
+			<Abstract>stores a username and password to the keychain</Abstract>
+			<DeclaredIn>LjsKeychainManager.h</DeclaredIn>			
+			
+			<Declaration>- (void)keychainStoreUsername:(NSString *)username password:(NSString *)password</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>username</Name>
+					<Abstract>the username to store</Abstract>
+				</Parameter><Parameter>
+					<Name>password</Name>
+					<Abstract>the password to store for the username</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/keychainStoreUsername:password:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsKeychainManager/synchronizeKeychainAndDefaultsWithUsername:password:shouldUseKeyChain:</TokenIdentifier>
+			<Abstract>synchronizes the Keychain and User Defaults</Abstract>
+			<DeclaredIn>LjsKeychainManager.h</DeclaredIn>			
+			
+			<Declaration>- (void)synchronizeKeychainAndDefaultsWithUsername:(NSString *)username password:(NSString *)password shouldUseKeyChain:(BOOL)shouldUseKeychain</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>username</Name>
+					<Abstract>a non-nil non-empty string</Abstract>
+				</Parameter><Parameter>
+					<Name>password</Name>
+					<Abstract>a non-nil non-empty string</Abstract>
+				</Parameter><Parameter>
+					<Name>shouldUseKeychain</Name>
+					<Abstract>if YES, will persist username/password to keychain,
+otherwise not</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/synchronizeKeychainAndDefaultsWithUsername:password:shouldUseKeyChain:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

@@ -30,11 +30,13 @@ static NSInteger const LjsTimePickerLargeInteger = 24000;
   [super dealloc];
 }
 
-- (id) init {
-  [self doesNotRecognizeSelector:_cmd];
-  return nil;
-}
 
+/**
+ @return an initialized receiver
+ @param aDelegate the callback delegate
+ @bug Localization of AM/PM might not be a good idea from a layout point
+ of view - AM for Portugal Locale is a.m. for example.
+ */
 - (id) initWithDelegate:(id<LjsTimePickerDidChangeCallBackDelegate>) aDelegate {
   self = [super init];
   if (self) {
@@ -63,9 +65,12 @@ static NSInteger const LjsTimePickerLargeInteger = 24000;
   return self;
 }
 
+/** @name UIPickerViewDataSource */
+
 - (NSInteger) numberOfComponentsInPickerView:(UIPickerView *) pickerView {
   return 3;
 }
+
 
 - (NSInteger) pickerView:(UIPickerView *) pickerView numberOfRowsInComponent:(NSInteger) component {
   NSInteger result;
@@ -87,6 +92,7 @@ static NSInteger const LjsTimePickerLargeInteger = 24000;
   return result;
 }
 
+/** @name UIPickerViewDelegate */
 - (NSString *) pickerView:(UIPickerView *)pickerView 
               titleForRow:(NSInteger)row 
              forComponent:(NSInteger)component {
@@ -139,16 +145,42 @@ static NSInteger const LjsTimePickerLargeInteger = 24000;
       break;
   }
   return result;
+}
 
+/**
+ @return a view
+ @param pickerView the picker view
+ @param row the row
+ @param component the component
+ @param view a view to reuse
+ @bug Does not properly reuse the view.
+ */
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
+  CGFloat width = [self pickerView:pickerView widthForComponent:component];
+  UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, width, 45)] autorelease];
+  
+  label.textAlignment = UITextAlignmentCenter;
+  
+  label.opaque = NO;
+  label.backgroundColor = [UIColor clearColor];
+  label.textColor = [UIColor blackColor];
+  label.font = [UIFont boldSystemFontOfSize:20];
+  label.text = [self pickerView:pickerView titleForRow:row forComponent:component];
+  return label;
 }
 
 
+/**
+ sets the picker view to represent the time in the timeString parameter
+ @param pickerView a picker view
+ @param timeString a time representation
+ */
 - (void) pickerView:(UIPickerView *) pickerView setSelectedWithTimeString:(NSString *) timeString {
   NSDictionary *dictionary = [LjsDateHelper componentsWithAmPmTimeString:timeString];
   NSString *amPmString, *hourString, *minuteString;
   if (dictionary != nil) {
     NSString *canonicalAmPm = [dictionary objectForKey:LjsDateHelperAmPmKey];
-    if ([canonicalAmPm isEqualToString:LjsDateHelperAM]) {
+    if ([LjsDateHelperCanonicalAM isEqualToString:canonicalAmPm]) {
       amPmString = self.AM;
     } else {
       amPmString = self.PM;
@@ -173,14 +205,28 @@ static NSInteger const LjsTimePickerLargeInteger = 24000;
 
 }
 
+/**
+ @return the index of hour
+ @param hourString the hour to look for
+ */
 - (NSInteger) indexForHour:(NSString *) hourString {
   return [self indexForString:hourString inArray:self.hours];
 }
 
+/**
+ @return the index of the minute
+ @param minuteString the minute to look for
+ */
 - (NSInteger) indexForMinute:(NSString *) minuteString {
   return [self indexForString:minuteString inArray:self.minutes];
 }
 
+/**
+ convenience method
+ @return the index of a string in an array
+ @param string the string to search for
+ @param array the array to seach
+ */
 - (NSInteger) indexForString:(NSString *) string inArray:(NSArray *) array {
   NSInteger index = 0;
   for (NSString *value in array) {
@@ -193,20 +239,10 @@ static NSInteger const LjsTimePickerLargeInteger = 24000;
 }
 
 
-- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
-  CGFloat width = [self pickerView:pickerView widthForComponent:component];
-  UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, width, 45)] autorelease];
-
-  label.textAlignment = UITextAlignmentCenter;
-
-  label.opaque = NO;
-  label.backgroundColor = [UIColor clearColor];
-  label.textColor = [UIColor blackColor];
-  label.font = [UIFont boldSystemFontOfSize:20];
-  label.text = [self pickerView:pickerView titleForRow:row forComponent:component];
-  return label;
-}
-
+/**
+ @return a string representation of the picker view
+ @param pickerView the picker view
+ */
 - (NSString *) timeStringWithPicker:(UIPickerView *) pickerView {
   NSString *hoursString = [self.hours objectAtIndex:[pickerView selectedRowInComponent:0] % [self.hours count]];
   NSString *minutesString = [self.minutes objectAtIndex:[pickerView selectedRowInComponent:1] % [self.minutes count]];
@@ -214,6 +250,13 @@ static NSInteger const LjsTimePickerLargeInteger = 24000;
   return [NSString stringWithFormat:@"%@:%@ %@", hoursString, minutesString, amPmString];
 }
 
+/**
+ @return a localized am pm time string
+ @param timeString the string to localize
+ @param swap if YES the am/pm'ness is swapped
+ @bug localization might not be the way to go because some Locales like Portugal
+ use a.m. which might effect the layout.
+ */
 - (NSString *) localizedAmPmTimeString:(NSString *) timeString swapAmPm:(BOOL) swap {
   NSString *result = nil;
   NSDictionary *dictionary = [LjsDateHelper componentsWithTimeString:timeString];
@@ -221,9 +264,9 @@ static NSInteger const LjsTimePickerLargeInteger = 24000;
     NSString *amPmStr = [dictionary objectForKey:LjsDateHelperAmPmKey];
     NSString *hoursStr = [dictionary objectForKey:LjsDateHelper12HoursStringKey];
     NSString *minutesStr = [dictionary objectForKey:LjsDateHelperMinutesStringKey];
-    if ([amPmStr isEqualToString:LjsDateHelperAM]) {
+    if ([LjsDateHelperCanonicalAM isEqualToString:amPmStr]) {
       amPmStr = self.AM;
-    } else if ([amPmStr isEqualToString:LjsDateHelperPM]) {
+    } else if ([LjsDateHelperCanonicalPM isEqualToString:amPmStr]) {
       amPmStr = self.PM;
     }
     
@@ -240,6 +283,13 @@ static NSInteger const LjsTimePickerLargeInteger = 24000;
   return result;
 }
 
+/**
+ @return a localized am pm time string
+ @param date the to localize
+ @param swap if YES the am/pm'ness is swapped
+ @bug localization might not be the way to go because some Locales like Portugal
+ use a.m. which might effect the layout.
+ */
 - (NSString *) localizedAmPmTimeStringWithDate:(NSDate *) date swapAmPm:(BOOL) swap {
   NSDateFormatter *formatter = [LjsDateHelper hoursMinutesAmPmFormatter];
   NSString *timeString = [formatter stringFromDate:date];
