@@ -30,10 +30,10 @@
 
 
 # MUST CHANGE 
-AD_COMPANY="AgChoice"
+AD_COMPANY="LJS MacOS"
 
 # MUST CHANGE (needs to be an reverse DNS id ex: com.littlejoysoftware"
-AD_COMPANY_ID="au.com.agchoice"
+AD_COMPANY_ID="com.littlejoysoftware"
 
 
 # see the script below for examples of how to define mulitple 

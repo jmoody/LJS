@@ -29,29 +29,31 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LjsDecimalAide : NSObject {
-    
-}
 
-+ (NSDecimalNumber *) dnWithInt:(NSUInteger) aInt;
+@interface LjsDecimalAide : NSObject
 
+/** @name NSDecimalNumber creation */
++ (NSDecimalNumber *) dnWithInteger:(NSUInteger) aInteger;
 + (NSDecimalNumber *) dnWithDouble:(double) aDouble;
-
 + (NSDecimalNumber *) dnWithString:(NSString *) aString;
 
+/** @name NSDecimalNumber comparison */
 + (BOOL) dn:(NSDecimalNumber *) a lt:(NSDecimalNumber *) b;
-
 + (BOOL) dn:(NSDecimalNumber *) a gt:(NSDecimalNumber *) b;
-
 + (BOOL) dn:(NSDecimalNumber *) a lte:(NSDecimalNumber *) b;
-
 + (BOOL) dn:(NSDecimalNumber *) a gte:(NSDecimalNumber *) b;
-
 + (BOOL) dn:(NSDecimalNumber *) a 
     isOnMin:(NSDecimalNumber *) min
         max:(NSDecimalNumber *) max;
 
-+ (NSDecimalNumber *) round:(NSDecimalNumber *) number withHandler:(NSDecimalNumberHandler *) handler;
+/** @name NSDecimalNumber rounding */
++ (NSDecimalNumber *) round:(NSDecimalNumber *) number 
+                withHandler:(NSDecimalNumberHandler *) handler;
 
+/** @name common NSDecimalNumberHandler */
++ (NSDecimalNumberHandler *) statisticsHandlerWithRoundMode:(NSRoundingMode) aMode
+                                                      scale:(NSUInteger) aInteger;
++ (NSDecimalNumberHandler *) locationHandlerWithRoundMode:(NSRoundingMode) aMode
+                                                    scale:(NSUInteger) aInteger;
 
 @end

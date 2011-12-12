@@ -1,0 +1,593 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>LjsFileUtilities Class Reference</title>
+		<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" />
+		<meta name="generator" content="appledoc 2.0.5 (build 737)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">LjsFileUtilities Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/ensureSaveDirectory:existsWithManager:">&nbsp;&nbsp;&nbsp;&nbsp;+ ensureSaveDirectory:existsWithManager:</option>
+	
+	<option value="//api/name/findDocumentDirectoryPath">&nbsp;&nbsp;&nbsp;&nbsp;+ findDocumentDirectoryPath</option>
+	
+	<option value="//api/name/lastDirectoryPathWithDefaultsKey:fallbackDirectory:">&nbsp;&nbsp;&nbsp;&nbsp;+ lastDirectoryPathWithDefaultsKey:fallbackDirectory:</option>
+	
+	<option value="//api/name/parentDirectoryForPath:">&nbsp;&nbsp;&nbsp;&nbsp;+ parentDirectoryForPath:</option>
+	
+	<option value="//api/name/pathFromOpenPanelWithPrompt:title:lastDirectory:fallBackDirectory:defaultsKeyOrNil:">&nbsp;&nbsp;&nbsp;&nbsp;+ pathFromOpenPanelWithPrompt:title:lastDirectory:fallBackDirectory:defaultsKeyOrNil:</option>
+	
+	
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/ensureSaveDirectory:existsWithManager:">ensureSaveDirectory:existsWithManager:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/findDocumentDirectoryPath">findDocumentDirectoryPath</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/lastDirectoryPathWithDefaultsKey:fallbackDirectory:">lastDirectoryPathWithDefaultsKey:fallbackDirectory:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/parentDirectoryForPath:">parentDirectoryForPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pathFromOpenPanelWithPrompt:title:lastDirectory:fallBackDirectory:defaultsKeyOrNil:">pathFromOpenPanelWithPrompt:title:lastDirectory:fallBackDirectory:defaultsKeyOrNil:</a></span></li>
+	
+</ul></li>
+
+
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="LjsFileUtilities Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">LjsFileUtilities Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">LjsFileUtilities.h<br />LjsFileUtilities.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p><a href="LjsFileUtilities.html">LjsFileUtilities</a> provides class methods to help with common file operations.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/findDocumentDirectoryPath">+&nbsp;findDocumentDirectoryPath</a></code>
+		<span class="tooltip"><p>wrapper around the NSSearchPathDirectoriesInDomains &ndash; works for both iOS and
+MacOS</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/ensureSaveDirectory:existsWithManager:">+&nbsp;ensureSaveDirectory:existsWithManager:</a></code>
+		<span class="tooltip"><p>ensures directory exists at path</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/parentDirectoryForPath:">+&nbsp;parentDirectoryForPath:</a></code>
+		<span class="tooltip"><p>this method can be useful for controlling the behavior of NSOpenPanel</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pathFromOpenPanelWithPrompt:title:lastDirectory:fallBackDirectory:defaultsKeyOrNil:">+&nbsp;pathFromOpenPanelWithPrompt:title:lastDirectory:fallBackDirectory:defaultsKeyOrNil:</a></code>
+		<span class="tooltip"><p>creates a NSOpenPanel and returns the users selection as a path string.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/lastDirectoryPathWithDefaultsKey:fallbackDirectory:">+&nbsp;lastDirectoryPathWithDefaultsKey:fallbackDirectory:</a></code>
+		<span class="tooltip"><p>useful method for getting NSOpenPanel to open at the appropriate directory and
+directory level</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/ensureSaveDirectory:existsWithManager:" title="ensureSaveDirectory:existsWithManager:"></a>
+	<h3 class="subsubtitle method-title">ensureSaveDirectory:existsWithManager:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>ensures directory exists at path</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (BOOL)ensureSaveDirectory:(NSString *)<em>path</em> existsWithManager:(NSFileManager *)<em>fileManager</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>path</em></dt>
+			<dd><p>the directory path</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fileManager</em></dt>
+			<dd><p>the file manager to use</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>true iff directory was created or exists</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>ensures directory exists at path</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsFileUtilities.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/findDocumentDirectoryPath" title="findDocumentDirectoryPath"></a>
+	<h3 class="subsubtitle method-title">findDocumentDirectoryPath</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>wrapper around the NSSearchPathDirectoriesInDomains &ndash; works for both iOS and
+MacOS</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (NSString *)findDocumentDirectoryPath</code></div>
+	
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>the path to the standard document directory</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>wrapper around the NSSearchPathDirectoriesInDomains &ndash; works for both iOS and
+MacOS</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsFileUtilities.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/lastDirectoryPathWithDefaultsKey:fallbackDirectory:" title="lastDirectoryPathWithDefaultsKey:fallbackDirectory:"></a>
+	<h3 class="subsubtitle method-title">lastDirectoryPathWithDefaultsKey:fallbackDirectory:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>useful method for getting NSOpenPanel to open at the appropriate directory and
+directory level</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (NSString *)lastDirectoryPathWithDefaultsKey:(NSString *)<em>aDefaultsKey</em> fallbackDirectory:(NSString *)<em>aFallbackDirectory</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aDefaultsKey</em></dt>
+			<dd><p>a key to use to look up last directory path &ndash; can be nil</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aFallbackDirectory</em></dt>
+			<dd><p>a fall back directory to use if there is no entry in
+NSUserDefaults for the key or the key is nil</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>a path using value in NSUserDefaults for key aDefaultsKey or to a
+fallback directory</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>useful method for getting NSOpenPanel to open at the appropriate directory and
+directory level</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsFileUtilities.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/parentDirectoryForPath:" title="parentDirectoryForPath:"></a>
+	<h3 class="subsubtitle method-title">parentDirectoryForPath:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>this method can be useful for controlling the behavior of NSOpenPanel</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (NSString *)parentDirectoryForPath:(NSString *)<em>childPath</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>childPath</em></dt>
+			<dd><p>a file or directory path</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>the parent directory of the child path</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>this method can be useful for controlling the behavior of NSOpenPanel</p>
+
+<p>childPath does not need to exist for this method to work</p><div class="warning"><p>will have unexpected behavior if childPath is &ldquo;/&rdquo;</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsFileUtilities.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pathFromOpenPanelWithPrompt:title:lastDirectory:fallBackDirectory:defaultsKeyOrNil:" title="pathFromOpenPanelWithPrompt:title:lastDirectory:fallBackDirectory:defaultsKeyOrNil:"></a>
+	<h3 class="subsubtitle method-title">pathFromOpenPanelWithPrompt:title:lastDirectory:fallBackDirectory:defaultsKeyOrNil:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>creates a NSOpenPanel and returns the users selection as a path string.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (NSString *)pathFromOpenPanelWithPrompt:(NSString *)<em>aPrompt</em> title:(NSString *)<em>aTitle</em> lastDirectory:(NSString *)<em>aLastDirectory</em> fallBackDirectory:(NSString *)<em>fallbackDirectory</em> defaultsKeyOrNil:(NSString *)<em>aDefaultsKeyOrNil</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aPrompt</em></dt>
+			<dd><p>the title of the select button &ndash; should be localized</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aTitle</em></dt>
+			<dd><p>the title of the panel &ndash; should be localized</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aLastDirectory</em></dt>
+			<dd><p>the last directory that was opened by nsopenpanel &ndash; if
+this directory exists, the panel will open to this directory</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fallbackDirectory</em></dt>
+			<dd><p>if the last directory does not exist, then this the
+open panel will open to this directory</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aDefaultsKeyOrNil</em></dt>
+			<dd><p>iff non-nil will use this key to store the users
+selection in NSUserDefaults</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>a string representing the path to the file or directory of the user&rsquo;s
+selection</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>creates a NSOpenPanel and returns the users selection as a path string.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsFileUtilities.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2011 LJS MacOS. All rights reserved. (Last updated: 2011-12-12)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 737)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+		</script>
+	</body>
+</html>

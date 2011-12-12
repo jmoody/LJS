@@ -1,6 +1,7 @@
 #import "LjsTextViewTailing.h"
 #import "Lumberjack.h"
 
+
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
 #else
@@ -13,7 +14,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 #pragma mark Memory Management
 
-
+/**
+ implements the LjsRepeatingTimerProtocol
+ 
+ stops the timer, invalidates it, and releases it
+ */
 - (void) stopAndReleaseRepeatingTimers {
   DDLogDebug(@"stopping animation timer");
   if (self.logFileSearchTimer != nil) {
@@ -22,6 +27,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
 }
 
+/**
+ implements the LjsRepeatingTimerProtocol
+ 
+ stops the timer if non-nil
+ starts the timer and retains it
+ */
 - (void) startAndRetainRepeatingTimers {
   DDLogDebug(@"starting animation timer");
   if (self.logFileSearchTimer != nil) {
@@ -49,6 +60,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [super dealloc];
 }
 
+/**
+ @return an initialized receiver
+ @param aLogView retained by the receiver
+ */
 - (id) initWithTextView:(NSTextView *) aLogView {
   self = [super init];
   if (self != nil) {
@@ -66,7 +81,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return self;
 }
 
-
+/**
+ handles wait for log file timer event - once the log file is acquired, the
+ timer is stopped.
+ @param aTimer the timer
+ */
 - (void) waitForLogFileWithTimer:(NSTimer *) aTimer {
   NSString *filePath = [self.logger currentFilePath];
   if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
@@ -78,6 +97,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
 }
 
+/**
+ handles the UKKQueue File Watcher notifications
+ @param kq the file watcher
+ @param nm the notification received
+ @param fpath the file path
+ */
 -(void) watcher: (id<UKFileWatcher>)kq receivedNotification: (NSString*)nm forPath: (NSString*)fpath {
   NSString *contents = [NSString stringWithContentsOfFile:fpath encoding:NSUTF8StringEncoding error:nil];
   [self.logView setString:contents];

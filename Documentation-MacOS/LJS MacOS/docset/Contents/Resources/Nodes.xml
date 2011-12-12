@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocSetNodes version="1.0">
+    <TOC>
+        <Node type="folder">
+            <Name>Tests-MacOS</Name>
+            <Path>index.html</Path>
+			<Subnodes>
+				
+				<Node type="folder">
+					<Name>Classes</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="1"/>
+						<NodeRef refid="2"/>
+						<NodeRef refid="3"/>
+						<NodeRef refid="4"/>
+						<NodeRef refid="5"/>
+						<NodeRef refid="6"/>
+						<NodeRef refid="7"/>
+						<NodeRef refid="8"/>
+						<NodeRef refid="9"/>
+						<NodeRef refid="10"/>
+						<NodeRef refid="11"/>
+						<NodeRef refid="12"/>
+						<NodeRef refid="13"/>
+						<NodeRef refid="14"/>
+						<NodeRef refid="15"/>
+						
+					</Subnodes>
+				</Node>
+				
+				
+				<Node type="folder">
+					<Name>Categories</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="16"/>
+						
+					</Subnodes>
+				</Node>
+				
+				
+				<Node type="folder">
+					<Name>Protocols</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="17"/>
+						
+					</Subnodes>
+				</Node>
+				
+			</Subnodes>
+        </Node>
+    </TOC>
+	<Library>
+		<Node id="1">
+			<Name>ASIHTTPResponseUtils</Name>
+			<Path>Classes/ASIHTTPResponseUtils.html</Path>
+		</Node>
+		<Node id="2">
+			<Name>LjsDateHelper</Name>
+			<Path>Classes/LjsDateHelper.html</Path>
+		</Node>
+		<Node id="3">
+			<Name>LjsDecimalAide</Name>
+			<Path>Classes/LjsDecimalAide.html</Path>
+		</Node>
+		<Node id="4">
+			<Name>LjsDefaultFormatter</Name>
+			<Path>Classes/LjsDefaultFormatter.html</Path>
+		</Node>
+		<Node id="5">
+			<Name>LjsFileManager</Name>
+			<Path>Classes/LjsFileManager.html</Path>
+		</Node>
+		<Node id="6">
+			<Name>LjsFileUtilities</Name>
+			<Path>Classes/LjsFileUtilities.html</Path>
+		</Node>
+		<Node id="7">
+			<Name>LjsIdGenerator</Name>
+			<Path>Classes/LjsIdGenerator.html</Path>
+		</Node>
+		<Node id="8">
+			<Name>LjsJsonRpcReply</Name>
+			<Path>Classes/LjsJsonRpcReply.html</Path>
+		</Node>
+		<Node id="9">
+			<Name>LjsKeychainManager</Name>
+			<Path>Classes/LjsKeychainManager.html</Path>
+		</Node>
+		<Node id="10">
+			<Name>LjsLog</Name>
+			<Path>Classes/LjsLog.html</Path>
+		</Node>
+		<Node id="11">
+			<Name>LjsMessageBuilder</Name>
+			<Path>Classes/LjsMessageBuilder.html</Path>
+		</Node>
+		<Node id="12">
+			<Name>LjsObjectWithUUID</Name>
+			<Path>Classes/LjsObjectWithUUID.html</Path>
+		</Node>
+		<Node id="13">
+			<Name>LjsTextViewTailing</Name>
+			<Path>Classes/LjsTextViewTailing.html</Path>
+		</Node>
+		<Node id="14">
+			<Name>LjsValidator</Name>
+			<Path>Classes/LjsValidator.html</Path>
+		</Node>
+		<Node id="15">
+			<Name>LjsVariates</Name>
+			<Path>Classes/LjsVariates.html</Path>
+		</Node>
+		
+		<Node id="16">
+			<Name>DDFileLogger(DDFileLogger_CurrentFile)</Name>
+			<Path>Categories/DDFileLogger(DDFileLogger_CurrentFile).html</Path>
+		</Node>
+		
+		<Node id="17">
+			<Name>LjsRepeatingTimerProtocol</Name>
+			<Path>Protocols/LjsRepeatingTimerProtocol.html</Path>
+		</Node>
+		
+	</Library>
+</DocSetNodes>

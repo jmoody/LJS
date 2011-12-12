@@ -36,8 +36,17 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+/**
+ LjsFileUtilities provides class methods to help with common file operations.
+ */
 @implementation LjsFileUtilities
 
+/**
+ ensures directory exists at path
+ @return true iff directory was created or exists
+ @param path the directory path
+ @param fileManager the file manager to use
+ */
 + (BOOL) ensureSaveDirectory:(NSString *) path existsWithManager:(NSFileManager *) fileManager {
   NSError *error = nil;
   BOOL fileExists, result;
@@ -60,7 +69,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return result;
 }
 
-
+/**
+ wrapper around the NSSearchPathDirectoriesInDomains - works for both iOS and
+ MacOS
+ @return the path to the standard document directory
+ */
 + (NSString *) findDocumentDirectoryPath {
   NSArray *dirPaths = 
   NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, 
@@ -69,7 +82,18 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [dirPaths objectAtIndex:0];
 }
 
-+ (NSString *) parentDirectoryForDirectoryPath:(NSString *) childPath {
+
+/**
+ this method can be useful for controlling the behavior of NSOpenPanel
+ 
+ childPath does not need to exist for this method to work
+ 
+ @warning will have unexpected behavior if childPath is "/"
+ 
+ @return the parent directory of the child path
+ @param childPath a file or directory path
+ */
++ (NSString *) parentDirectoryForPath:(NSString *) childPath {
   NSArray *tokens = [childPath pathComponents];
   NSString *parentDirectory;
   NSMutableArray *array = [NSMutableArray arrayWithArray:tokens];
@@ -82,6 +106,19 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 #if !TARGET_OS_IPHONE
+/**
+ creates a NSOpenPanel and returns the users selection as a path string.
+ @return a string representing the path to the file or directory of the user's
+ selection
+ @param aPrompt the title of the select button - should be localized
+ @param aTitle the title of the panel - should be localized
+ @param aLastDirectory the last directory that was opened by nsopenpanel - if 
+ this directory exists, the panel will open to this directory
+ @param fallbackDirectory if the last directory does not exist, then this the
+ open panel will open to this directory
+ @param aDefaultsKeyOrNil iff non-nil will use this key to store the users
+ selection in NSUserDefaults
+ */
 + (NSString *) pathFromOpenPanelWithPrompt:(NSString *) aPrompt 
                                      title:(NSString *) aTitle
                              lastDirectory:(NSString *) aLastDirectory 
@@ -121,6 +158,16 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 #endif
 
+
+/**
+ useful method for getting NSOpenPanel to open at the appropriate directory and
+ directory level
+ @return a path using value in NSUserDefaults for key aDefaultsKey or to a
+ fallback directory
+ @param aDefaultsKey a key to use to look up last directory path - can be nil
+ @param aFallbackDirectory a fall back directory to use if there is no entry in
+ NSUserDefaults for the key or the key is nil
+ */
 + (NSString *) lastDirectoryPathWithDefaultsKey:(NSString *) aDefaultsKey
                               fallbackDirectory:(NSString *) aFallbackDirectory {
   

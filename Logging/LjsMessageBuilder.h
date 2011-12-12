@@ -30,23 +30,22 @@
 #import <Foundation/Foundation.h>
 
 extern NSString *LjsMessageBuilderMethodNotYetTested;
-
 extern NSString *LjsMessageBuilderMethodCouldUseMoreTesting;
 
+@interface LjsMessageBuilder : NSObject 
 
-@interface LjsMessageBuilder : NSObject {
-    
-}
-
+/**
+ the message
+ */
 @property (nonatomic, copy) NSString *message;
 
+/** @name Initialization */
+
 - (id) initWithMessage:(NSString *) aMessage;
-
 + (id) messageBuilderWith:(NSString *) aMessage;
-
 + (id) failedToCreateMessage:(Class) aClass;
 
-
+/** @name append methods */
 - (void) appendWithIntFail:(NSString *) reason
                       name:(NSString *) name
                      value:(int) value;
@@ -55,19 +54,13 @@ extern NSString *LjsMessageBuilderMethodCouldUseMoreTesting;
                       name:(NSString *) name
                      value:(double) value;
 
-
 - (void) appendWithDecimalFail:(NSString *)reason 
                           name:(NSString *)name 
                          value:(NSDecimalNumber *) value;
 
 - (void) appendWithNilOrEmpty:(NSString *) name;
-
 - (void) appendWithNilValue:(NSString *) name;
-
 - (void) appendWithMessage:(NSString *) append;
-
 - (void) appendWithReturn:(NSString *) willReturn;
-
-+ (BOOL) isValidEmail:(NSString *)checkString;
 
 @end

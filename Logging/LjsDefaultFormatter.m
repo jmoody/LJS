@@ -29,6 +29,13 @@
 #import "LjsDefaultFormatter.h"
 #import "LjsLog.h"
 
+/**
+ A verbose formatter for use with CocoaLumberjackLogging framework.
+ 
+ Implements the DDLogFormatter protocol.
+ 
+ See LjsLog.h for details about log level.
+ */
 @implementation LjsDefaultFormatter
 
 static NSString * const ERROR_LOG = @"ERROR";
@@ -48,6 +55,11 @@ static NSString * const SOME_LOG  = @"  LOG";
 @synthesize dateFormatter;
 @synthesize formatString;
 
+/** @name Initialization */
+/**
+ assigns the dateFormatter and formatString properties
+ @return an initialized receiver
+ */
 - (id) init {
 	self = [super init];
 	if (self != nil) {
@@ -64,7 +76,12 @@ static NSString * const SOME_LOG  = @"  LOG";
 	[super dealloc];
 }
 
-
+/** @name Format Log Message */
+/**
+ implements the DDLogFormatter protocol.
+ @return a formatted log message
+ @param logMessage the log message to format
+ */
 - (NSString *)formatLogMessage:(DDLogMessage *)logMessage {
 	
   NSString *level;

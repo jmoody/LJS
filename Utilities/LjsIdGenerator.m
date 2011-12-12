@@ -40,18 +40,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @implementation LjsIdGenerator
 
 
-/**
- Leaks under Garbage Collection
-- (NSString *) generateUUID {
-  //create a new UUID
-  CFUUIDRef	uuidObj = CFUUIDCreate(nil);
-  //get the string representation of the UUID
-  NSString	*uuidString = (NSString*)CFUUIDCreateString(nil, uuidObj);
-  CFRelease(uuidObj);
-  return [uuidString autorelease];
-}
- */
-
 + (NSString *) generateUUID {
   //create a new UUID
   NSString *tmpString;

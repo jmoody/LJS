@@ -127,6 +127,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return code == 408;
 }
 
+/**
+ returns YES iff the request was successful with 200 or 201
+ @param aRequest the request to query
+ @return YES iff the request was successful with 200 or 201
+ */
 - (BOOL) requestWas200or201Successful:(ASIHTTPRequest *) aRequest {
   NSInteger code = [self responseCodeWithRequest:aRequest];
   return code == 200 || code == 201;

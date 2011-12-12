@@ -30,11 +30,17 @@
 #import <Foundation/Foundation.h>
 #import "DDLog.h"
 
-@interface LjsDefaultFormatter : NSObject <DDLogFormatter> {
+@interface LjsDefaultFormatter : NSObject <DDLogFormatter>
 
-} 
-
+/** @name Properties */
+/**
+ the date formatter
+ */
 @property (nonatomic, retain) NSDateFormatter *dateFormatter;
+
+/**
+ the log format string
+ */
 @property (nonatomic, retain) NSString *formatString;
 
 

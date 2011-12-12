@@ -29,9 +29,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LjsIdGenerator : NSObject {
-}
 
+/**
+ Simple UUID generator for all your ID needs.  Has some methods for handling
+ CouchDB UUIDs.
+ */
+@interface LjsIdGenerator : NSObject
 
 /**
  Cribbed from here:

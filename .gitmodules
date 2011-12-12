@@ -11,3 +11,6 @@
 [submodule "CocoaLumberjack"]
 	path = CocoaLumberjack
 	url = https://github.com/robbiehanson/CocoaLumberjack.git
+[submodule "appledoc"]
+	path = appledoc
+	url = https://github.com/tomaz/appledoc.git

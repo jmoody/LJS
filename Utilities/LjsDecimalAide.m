@@ -36,6 +36,17 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
 
+/**
+ NSDecimalNumber is a powerful tool for handling currency, statistics, and other
+ floating point data.  The class name and the methods are, in my opinion, overly
+ verbose and tend to clutter code at the worse times - when you are doing 
+ sensitive currency calculations or implementing a complex confusing statistical
+ algorithm.  And who can remember how to compare two NSDecimalNumbers?  
+ 
+ Enter LjsDecimalAide - which provides methods for creating NSDecimalNumbers
+ from various numeric values, logical comparisons and rounding.
+ 
+ */
 @implementation LjsDecimalAide
 
 // Disallow the normal default initializer for instances
@@ -44,53 +55,125 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return nil;
 }
 
-- (void) dealloc {
-  [super dealloc];
+
+/**
+ @return a decimal number with the integer value
+ @param aInteger an integer
+ */
++ (NSDecimalNumber *) dnWithInteger:(NSUInteger) aInteger {
+  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInteger:aInteger] decimalValue]];
 }
 
-- (NSString *) description {
-  NSString *result = [NSString stringWithFormat:@"<#%@ >", [self class]];
-  return result;
-}
-
-+ (NSDecimalNumber *) dnWithInt:(NSUInteger) aInt {
-  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInteger:aInt] decimalValue]];
-}
-
+/**
+ @return a decimal number with the double value
+ @param aDouble a double
+ */ 
 + (NSDecimalNumber *) dnWithDouble:(double) aDouble {
   return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithDouble:aDouble] decimalValue]];
 }
 
+/**
+ @return a decimal number with the string value
+ @param aString a string
+ */
 + (NSDecimalNumber *) dnWithString:(NSString *) aString {
   return [NSDecimalNumber decimalNumberWithString:aString];
 }
 
+/**
+ @return true iff a < b
+ @param a left hand side
+ @param b right hand side
+ */
 + (BOOL) dn:(NSDecimalNumber *) a lt:(NSDecimalNumber *) b {
   return [a compare:b] == NSOrderedAscending;
 }
 
+/**
+ @return true iff a > b
+ @param a left hand side
+ @param b right hand side
+ */
 + (BOOL) dn:(NSDecimalNumber *) a gt:(NSDecimalNumber *) b {
   return [a compare:b] == NSOrderedDescending;
 }
 
+/**
+ @return true iff a <= b
+ @param a left hand side
+ @param b right hand side
+ */
 + (BOOL) dn:(NSDecimalNumber *) a lte:(NSDecimalNumber *) b {
   return [a compare:b] != NSOrderedDescending;
 }
 
+/**
+ @return true iff a >= b
+ @param a left hand side
+ @param b right hand side
+ */
 + (BOOL) dn:(NSDecimalNumber *) a gte:(NSDecimalNumber *) b {
   return [a compare:b] != NSOrderedAscending;
 }
 
+/**
+ @return return true iff a is on (min, max) 
+ @param a number to test
+ @param min lower bound of range
+ @param max upper bound or range
+ */
 + (BOOL) dn:(NSDecimalNumber *) a 
     isOnMin:(NSDecimalNumber *) min
         max:(NSDecimalNumber *) max {
   return [LjsDecimalAide dn:a gte:min] && [LjsDecimalAide dn:a lte:max];
 }
 
-
+/**
+ @return rounded decimal number with handler
+ @param number the number to round
+ @param handler the handler to use
+ */
 + (NSDecimalNumber *) round:(NSDecimalNumber *) number withHandler:(NSDecimalNumberHandler *) handler {
   return [number decimalNumberByMultiplyingBy:[NSDecimalNumber one]
                                  withBehavior:handler];
 }
+
+
+/**
+ NB: typically you will want to use NSRoundPlain for statistics
+ 
+ @return a handler with mode and scale
+ @param aMode a rounding mode
+ @param aInteger a scale (precision)
+ */
++ (NSDecimalNumberHandler *) statisticsHandlerWithRoundMode:(NSRoundingMode) aMode
+                                                      scale:(NSUInteger) aInteger {
+  return [NSDecimalNumberHandler 
+          decimalNumberHandlerWithRoundingMode:aMode
+          scale:aInteger
+          raiseOnExactness:NO
+          raiseOnOverflow:NO
+          raiseOnUnderflow:NO
+          raiseOnDivideByZero:YES];
+}
+
+/**
+ NB: typically you will want to use NSRoundPlain for location
+ 
+ @return a handler with mode and scale
+ @param aMode a rounding mode
+ @param aInteger a scale (precision)
+ */
++ (NSDecimalNumberHandler *) locationHandlerWithRoundMode:(NSRoundingMode) aMode
+                                                    scale:(NSUInteger) aInteger {
+  return  [NSDecimalNumberHandler 
+           decimalNumberHandlerWithRoundingMode:aMode
+           scale:aInteger
+           raiseOnExactness:NO
+           raiseOnOverflow:NO
+           raiseOnUnderflow:NO
+           raiseOnDivideByZero:YES];
+}
+
 
 @end

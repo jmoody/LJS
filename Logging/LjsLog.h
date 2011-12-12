@@ -1,5 +1,21 @@
 #import "DDLog.h"
 
+/**
+ Redefines the standard CocoaLumberjackLogging logging macros and replaces them
+ with several new levels for finer logging control.
+ 
+ * FATAL - execution should not continue
+ * ERROR - an error occurred, but execution can continue
+ * WARN - the application encountered an expected state or there is a dangerous
+          operation occurring
+ * NOTICE - used for giving clues to other developers - often used with @<developer name>
+            indicates that the developer should take note
+ * INFO - general information
+ * DEBUG - debugging for comprehensive logging
+ */
+@interface LjsLog : NSObject
+
+@end
 #undef LOG_FLAG_ERROR
 #undef LOG_FLAG_WARN 
 #undef LOG_FLAG_INFO

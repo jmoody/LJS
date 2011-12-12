@@ -64,13 +64,9 @@
 		F580715C146C296700EA4CFB /* LjsJsonRpcReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807143146C296700EA4CFB /* LjsJsonRpcReply.m */; };
 		F580715D146C296700EA4CFB /* LjsDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807145146C296700EA4CFB /* LjsDateHelper.m */; };
 		F580715E146C296700EA4CFB /* LjsDecimalAide.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807147146C296700EA4CFB /* LjsDecimalAide.m */; };
-		F580715F146C296700EA4CFB /* LjsDNHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807149146C296700EA4CFB /* LjsDNHandler.m */; };
 		F5807160146C296700EA4CFB /* LjsFileUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F580714B146C296700EA4CFB /* LjsFileUtilities.m */; };
-		F5807161146C296700EA4CFB /* LjsFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F580714D146C296700EA4CFB /* LjsFormatter.m */; };
-		F5807162146C296700EA4CFB /* LjsGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = F580714F146C296700EA4CFB /* LjsGlobals.m */; };
 		F5807163146C296700EA4CFB /* LjsIdGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807151146C296700EA4CFB /* LjsIdGenerator.m */; };
 		F5807164146C296700EA4CFB /* LjsKeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807153146C296700EA4CFB /* LjsKeychainManager.m */; };
-		F5807165146C296700EA4CFB /* LjsObjectWithUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807155146C296700EA4CFB /* LjsObjectWithUUID.m */; };
 		F5807166146C296700EA4CFB /* LjsValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807158146C296700EA4CFB /* LjsValidator.m */; };
 		F5807167146C296700EA4CFB /* LjsVariates.m in Sources */ = {isa = PBXBuildFile; fileRef = F580715A146C296700EA4CFB /* LjsVariates.m */; };
 		F580716C146C2A1F00EA4CFB /* GHUnit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5807045146C280600EA4CFB /* GHUnit.framework */; };
@@ -90,7 +86,28 @@
 		F580718D146C2C8300EA4CFB /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5807182146C2AF500EA4CFB /* libxml2.dylib */; };
 		F580719A146C2F8000EA4CFB /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807199146C2F8000EA4CFB /* LjsTestCase.m */; };
 		F580719C146C328600EA4CFB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F580719B146C328600EA4CFB /* Security.framework */; };
+		F58DBA14149551D6009F39F7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5807028146C26F100EA4CFB /* Cocoa.framework */; };
+		F58DBA1A149551D6009F39F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F58DBA18149551D6009F39F7 /* InfoPlist.strings */; };
+		F58DBA1C149551D6009F39F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DBA1B149551D6009F39F7 /* main.m */; };
+		F58DBA23149551D6009F39F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DBA22149551D6009F39F7 /* AppDelegate.m */; };
+		F5963585149640BA00CDB27E /* LjsObjectWithUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = F5963584149640BA00CDB27E /* LjsObjectWithUUID.m */; };
+		F5963589149655E800CDB27E /* LjsTextViewTailing.m in Sources */ = {isa = PBXBuildFile; fileRef = F5963588149655E800CDB27E /* LjsTextViewTailing.m */; };
+		F59635A31496616400CDB27E /* README in Resources */ = {isa = PBXBuildFile; fileRef = F596359A1496616400CDB27E /* README */; };
+		F59635A41496616400CDB27E /* UKFileWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F596359C1496616400CDB27E /* UKFileWatcher.m */; };
+		F59635A51496616400CDB27E /* UKFNSubscribeFileWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F596359E1496616400CDB27E /* UKFNSubscribeFileWatcher.m */; };
+		F59635A61496616400CDB27E /* UKKQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635A01496616400CDB27E /* UKKQueue.m */; };
+		F59635A71496616400CDB27E /* UKMainThreadProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635A21496616400CDB27E /* UKMainThreadProxy.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F58DBA2B1495520C009F39F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F580701B146C26F100EA4CFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5807023146C26F100EA4CFB;
+			remoteInfo = "Tests-MacOS";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		F580716B146C2A1500EA4CFB /* CopyFiles */ = {
@@ -237,20 +254,12 @@
 		F5807145146C296700EA4CFB /* LjsDateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDateHelper.m; sourceTree = "<group>"; };
 		F5807146146C296700EA4CFB /* LjsDecimalAide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDecimalAide.h; sourceTree = "<group>"; };
 		F5807147146C296700EA4CFB /* LjsDecimalAide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDecimalAide.m; sourceTree = "<group>"; };
-		F5807148146C296700EA4CFB /* LjsDNHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDNHandler.h; sourceTree = "<group>"; };
-		F5807149146C296700EA4CFB /* LjsDNHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDNHandler.m; sourceTree = "<group>"; };
 		F580714A146C296700EA4CFB /* LjsFileUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFileUtilities.h; sourceTree = "<group>"; };
 		F580714B146C296700EA4CFB /* LjsFileUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileUtilities.m; sourceTree = "<group>"; };
-		F580714C146C296700EA4CFB /* LjsFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFormatter.h; sourceTree = "<group>"; };
-		F580714D146C296700EA4CFB /* LjsFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFormatter.m; sourceTree = "<group>"; };
-		F580714E146C296700EA4CFB /* LjsGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGlobals.h; sourceTree = "<group>"; };
-		F580714F146C296700EA4CFB /* LjsGlobals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGlobals.m; sourceTree = "<group>"; };
 		F5807150146C296700EA4CFB /* LjsIdGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsIdGenerator.h; sourceTree = "<group>"; };
 		F5807151146C296700EA4CFB /* LjsIdGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsIdGenerator.m; sourceTree = "<group>"; };
 		F5807152146C296700EA4CFB /* LjsKeychainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsKeychainManager.h; sourceTree = "<group>"; };
 		F5807153146C296700EA4CFB /* LjsKeychainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsKeychainManager.m; sourceTree = "<group>"; };
-		F5807154146C296700EA4CFB /* LjsObjectWithUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsObjectWithUUID.h; sourceTree = "<group>"; };
-		F5807155146C296700EA4CFB /* LjsObjectWithUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsObjectWithUUID.m; sourceTree = "<group>"; };
 		F5807156146C296700EA4CFB /* LjsRepeatingTimerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRepeatingTimerProtocol.h; sourceTree = "<group>"; };
 		F5807157146C296700EA4CFB /* LjsValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsValidator.h; sourceTree = "<group>"; };
 		F5807158146C296700EA4CFB /* LjsValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidator.m; sourceTree = "<group>"; };
@@ -272,6 +281,26 @@
 		F5807198146C2F8000EA4CFB /* LjsTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsTestCase.h; sourceTree = "<group>"; };
 		F5807199146C2F8000EA4CFB /* LjsTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsTestCase.m; sourceTree = "<group>"; };
 		F580719B146C328600EA4CFB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F58DBA12149551D6009F39F7 /* Documentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Documentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F58DBA17149551D6009F39F7 /* Documentation-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Documentation-Info.plist"; sourceTree = "<group>"; };
+		F58DBA19149551D6009F39F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F58DBA1B149551D6009F39F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F58DBA1D149551D6009F39F7 /* Documentation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Documentation-Prefix.pch"; sourceTree = "<group>"; };
+		F58DBA21149551D6009F39F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F58DBA22149551D6009F39F7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F5963583149640BA00CDB27E /* LjsObjectWithUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsObjectWithUUID.h; sourceTree = "<group>"; };
+		F5963584149640BA00CDB27E /* LjsObjectWithUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsObjectWithUUID.m; sourceTree = "<group>"; };
+		F5963587149655E800CDB27E /* LjsTextViewTailing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsTextViewTailing.h; sourceTree = "<group>"; };
+		F5963588149655E800CDB27E /* LjsTextViewTailing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsTextViewTailing.m; sourceTree = "<group>"; };
+		F596359A1496616400CDB27E /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		F596359B1496616400CDB27E /* UKFileWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKFileWatcher.h; sourceTree = "<group>"; };
+		F596359C1496616400CDB27E /* UKFileWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKFileWatcher.m; sourceTree = "<group>"; };
+		F596359D1496616400CDB27E /* UKFNSubscribeFileWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKFNSubscribeFileWatcher.h; sourceTree = "<group>"; };
+		F596359E1496616400CDB27E /* UKFNSubscribeFileWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKFNSubscribeFileWatcher.m; sourceTree = "<group>"; };
+		F596359F1496616400CDB27E /* UKKQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKKQueue.h; sourceTree = "<group>"; };
+		F59635A01496616400CDB27E /* UKKQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKKQueue.m; sourceTree = "<group>"; };
+		F59635A11496616400CDB27E /* UKMainThreadProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKMainThreadProxy.h; sourceTree = "<group>"; };
+		F59635A21496616400CDB27E /* UKMainThreadProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKMainThreadProxy.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +319,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F58DBA0F149551D6009F39F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F58DBA14149551D6009F39F7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -299,6 +336,7 @@
 				F580716A146C29A800EA4CFB /* LJS */,
 				F5807047146C281400EA4CFB /* ThirdParty */,
 				F580702E146C26F100EA4CFB /* Tests-MacOS */,
+				F58DBA15149551D6009F39F7 /* Documentation */,
 				F5807027146C26F100EA4CFB /* Frameworks */,
 				F5807025146C26F100EA4CFB /* Products */,
 			);
@@ -308,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				F5807024146C26F100EA4CFB /* Tests-MacOS.app */,
+				F58DBA12149551D6009F39F7 /* Documentation.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -360,6 +399,7 @@
 		F5807047146C281400EA4CFB /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				F59635991496616400CDB27E /* ukkqueue */,
 				F580711C146C291100EA4CFB /* ocmock */,
 				F58070E5146C288C00EA4CFB /* SBJSON */,
 				F580706D146C287200EA4CFB /* ASIHTTPRequest */,
@@ -612,20 +652,12 @@
 				F5807145146C296700EA4CFB /* LjsDateHelper.m */,
 				F5807146146C296700EA4CFB /* LjsDecimalAide.h */,
 				F5807147146C296700EA4CFB /* LjsDecimalAide.m */,
-				F5807148146C296700EA4CFB /* LjsDNHandler.h */,
-				F5807149146C296700EA4CFB /* LjsDNHandler.m */,
 				F580714A146C296700EA4CFB /* LjsFileUtilities.h */,
 				F580714B146C296700EA4CFB /* LjsFileUtilities.m */,
-				F580714C146C296700EA4CFB /* LjsFormatter.h */,
-				F580714D146C296700EA4CFB /* LjsFormatter.m */,
-				F580714E146C296700EA4CFB /* LjsGlobals.h */,
-				F580714F146C296700EA4CFB /* LjsGlobals.m */,
 				F5807150146C296700EA4CFB /* LjsIdGenerator.h */,
 				F5807151146C296700EA4CFB /* LjsIdGenerator.m */,
 				F5807152146C296700EA4CFB /* LjsKeychainManager.h */,
 				F5807153146C296700EA4CFB /* LjsKeychainManager.m */,
-				F5807154146C296700EA4CFB /* LjsObjectWithUUID.h */,
-				F5807155146C296700EA4CFB /* LjsObjectWithUUID.m */,
 				F5807156146C296700EA4CFB /* LjsRepeatingTimerProtocol.h */,
 				F5807157146C296700EA4CFB /* LjsValidator.h */,
 				F5807158146C296700EA4CFB /* LjsValidator.m */,
@@ -657,6 +689,8 @@
 		F580716A146C29A800EA4CFB /* LJS */ = {
 			isa = PBXGroup;
 			children = (
+				F5963586149655E700CDB27E /* LoggingUKKQueue */,
+				F5963582149640BA00CDB27E /* Model */,
 				F580713D146C296700EA4CFB /* Utilities */,
 				F580712A146C295200EA4CFB /* Logging */,
 			);
@@ -690,6 +724,63 @@
 			path = Unit;
 			sourceTree = "<group>";
 		};
+		F58DBA15149551D6009F39F7 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				F58DBA21149551D6009F39F7 /* AppDelegate.h */,
+				F58DBA22149551D6009F39F7 /* AppDelegate.m */,
+				F58DBA16149551D6009F39F7 /* Supporting Files */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
+		F58DBA16149551D6009F39F7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F58DBA17149551D6009F39F7 /* Documentation-Info.plist */,
+				F58DBA18149551D6009F39F7 /* InfoPlist.strings */,
+				F58DBA1B149551D6009F39F7 /* main.m */,
+				F58DBA1D149551D6009F39F7 /* Documentation-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F5963582149640BA00CDB27E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F5963583149640BA00CDB27E /* LjsObjectWithUUID.h */,
+				F5963584149640BA00CDB27E /* LjsObjectWithUUID.m */,
+			);
+			name = Model;
+			path = ../Model;
+			sourceTree = "<group>";
+		};
+		F5963586149655E700CDB27E /* LoggingUKKQueue */ = {
+			isa = PBXGroup;
+			children = (
+				F5963587149655E800CDB27E /* LjsTextViewTailing.h */,
+				F5963588149655E800CDB27E /* LjsTextViewTailing.m */,
+			);
+			name = LoggingUKKQueue;
+			path = ../LoggingUKKQueue;
+			sourceTree = "<group>";
+		};
+		F59635991496616400CDB27E /* ukkqueue */ = {
+			isa = PBXGroup;
+			children = (
+				F596359A1496616400CDB27E /* README */,
+				F596359B1496616400CDB27E /* UKFileWatcher.h */,
+				F596359C1496616400CDB27E /* UKFileWatcher.m */,
+				F596359D1496616400CDB27E /* UKFNSubscribeFileWatcher.h */,
+				F596359E1496616400CDB27E /* UKFNSubscribeFileWatcher.m */,
+				F596359F1496616400CDB27E /* UKKQueue.h */,
+				F59635A01496616400CDB27E /* UKKQueue.m */,
+				F59635A11496616400CDB27E /* UKMainThreadProxy.h */,
+				F59635A21496616400CDB27E /* UKMainThreadProxy.m */,
+			);
+			path = ukkqueue;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -709,6 +800,25 @@
 			name = "Tests-MacOS";
 			productName = "Tests-MacOS";
 			productReference = F5807024146C26F100EA4CFB /* Tests-MacOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F58DBA11149551D6009F39F7 /* Documentation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F58DBA29149551D7009F39F7 /* Build configuration list for PBXNativeTarget "Documentation" */;
+			buildPhases = (
+				F58DBA0E149551D6009F39F7 /* Sources */,
+				F58DBA0F149551D6009F39F7 /* Frameworks */,
+				F58DBA10149551D6009F39F7 /* Resources */,
+				F58DBA2D14955210009F39F7 /* Run Script appledoc */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F58DBA2C1495520C009F39F7 /* PBXTargetDependency */,
+			);
+			name = Documentation;
+			productName = Documentation;
+			productReference = F58DBA12149551D6009F39F7 /* Documentation.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -733,6 +843,7 @@
 			projectRoot = "";
 			targets = (
 				F5807023146C26F100EA4CFB /* Tests-MacOS */,
+				F58DBA11149551D6009F39F7 /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -744,10 +855,36 @@
 			files = (
 				F5807033146C26F100EA4CFB /* InfoPlist.strings in Resources */,
 				F5807060146C283400EA4CFB /* README.txt in Resources */,
+				F59635A31496616400CDB27E /* README in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F58DBA10149551D6009F39F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F58DBA1A149551D6009F39F7 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F58DBA2D14955210009F39F7 /* Run Script appledoc */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script appledoc";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script uses appledoc to generate *.docsets that\n# can viewed in Xcode and published to document feeds.\n#\n# It also generates nicely formated HTML documentation.\n#\n# By default the scripts assumes that there is a \n# Documentation directory at your project root (top level)\n# directory and that this directory contains the following:\n#\n# 1. a templates directory with the appledoc templates in it\n# 2. the appledoc executable\n#\n# Of course, appledoc can be installed anywhere - ditto for\n# your templates.\n#\n# This script will only run if the build configuration\n# ($BUILD_STYLE) is Release\n#\n# At the very minimum you MUST to change the values for\n# \n# 1. AD_COMPANY \n# 2. AD_COMPANY_ID \n#\n# and you'll probably want to change the AD_SOURCES\n#\n# The comment guide can be found here:\n# http://tomaz.github.com/appledoc/comments.html\n# and a settings guide can be found here:\n# http://tomaz.github.com/appledoc/settings.html\n\n\n# MUST CHANGE \nAD_COMPANY=\"LJS MacOS\"\n\n# MUST CHANGE (needs to be an reverse DNS id ex: com.littlejoysoftware\"\nAD_COMPANY_ID=\"com.littlejoysoftware\"\n\n\n# see the script below for examples of how to define mulitple \n# sources\nAD_SOURCES=\"$SOURCE_ROOT/Utilities\"\n\n\n# path to the Documentation directory (this must exist)\nAD_DOC_DIRECTORY=\"$SOURCE_ROOT/../Documentation-MacOS\"\n\n# path to the templates directory (this must exist)\nAD_TEMPLATES=\"$AD_DOC_DIRECTORY/templates\"\n\n# the name of the project\nAD_PROJECT_NAME=\"$PROJECT_NAME\"\n\n# path to the appledoc executable (this must exist, although\n# you can install appledocs where ever you want\nAPPLEDOC_PATH=\"$SOURCE_ROOT/../Documentation-MacOS/appledoc\"\n\n\n# where appledoc will build the documentation\n# \n# the .docset is then moved (not copied) to --docset-install-path \n# which, if not specified, will be the default location \n# ~/Library/Developer/Shared/DocSets - this is where Xcode expects\n# user generated doc sets to live\n#\n# --keep-intermediate-files _prevents_ the html directory from being deleted \n# from the --output directory - this usually what we want so we can publish\n# docs as html\n# \n# This directory will be created if it does not exist\nAD_BUILD_DIRECTORY=\"$AD_DOC_DIRECTORY/LJS MacOS\"\n\n# queries the project plist to find the version number\n# http://discussions.apple.com/thread.jspa?threadID=2125894\n# http://discussions.apple.com/thread.jspa?threadID=2330135\n# set this number yourself in the project plist\nAD_VERSION_NUMBER=`/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\"`\n\n# range = (1, 3) - 1 is usually enough\nAD_LOG_FORMAT=1\n\n# range = (1, 6) - 3 is usually enough to see documentation errors, but it is slow\nAD_VERBOSE=3\n\nif [ \"$CONFIGURATION\" = Release ] \nthen\nif ! [ -d \"$AD_DOC_DIRECTORY\" ]\nthen \necho No directory found at \"$AD_DOC_DIRECTORY\" - this directory must exist\nexit 1\nfi\n\nif ! [ -d \"$AD_TEMPLATES\" ]\nthen\necho No templates directory found at \"$AD_TEMPLATES\" - this directory must exist and contain the appledoc templates\nexit 1\nfi\n\nif ! [ -f \"$APPLEDOC_PATH\" ]\nthen\necho No application found at $APPLEDOC_PATH\necho install binary from http://www.gentlebytes.com/home/appledocapp/\nexit 1\nfi\n\nif ! [ -d \"$AD_BUILD_DIRECTORY\" ]\nthen\necho Did not find the build directory at \"$AD_BUILD_DIRECTORY\" - making it\nmkdir \"$AD_BUILD_DIRECTORY\"\nfi\n\n\n$APPLEDOC_PATH --output \"$AD_BUILD_DIRECTORY\" --templates \"$AD_TEMPLATES\" --project-name \"$AD_PROJECT_NAME\" \\\n--project-version \"$AD_PROJECT_VERSION\" --project-company \"$AD_COMPANY\" --company-id \"$AD_COMPANY_ID\" \\\n--create-html --create-docset --logformat \"$AD_LOG_FORMAT\" --verbose \"$AD_VERBOSE\" --keep-intermediate-files \\\n--ignore \"$SOURCE_ROOT/../Logging/LjsMessageBuilder.h\" \\\n--ignore \"$SOURCE_ROOT/../Logging/LjsMessageBuilder.m\" \\\n\"$SOURCE_ROOT/../Utilities\" \\\n\"$SOURCE_ROOT/../Model\" \\\n\"$SOURCE_ROOT/../Controllers\" \\\n\"$SOURCE_ROOT/../Logging\" \\\n\"$SOURCE_ROOT/../LoggingUKKQueue\"\n\n\n# multisource examples\n# replace $AD_SOURCES with:\n#\n# --ignore \"$SOURCE_ROOT/MAMFramework/Logging\" \\\n# \"$AD_SOURCES\"\n#\n# or\n#\n#\"$SOURCE_ROOT/MAMFramework/Utilities\" \\\n#\"$SOURCE_ROOT/MAMFramework/PlugIn Abstract Classes\" \\\n#\"$SOURCE_ROOT/MAMFramework/MAM Model Classes\" \\\n#\"$SOURCE_ROOT/MAMFramework/Error\" \\\n#\"$SOURCE_ROOT/MAMFramework/MamFramework.h\" \\\n#\"$SOURCE_ROOT/MAMFramework/MamFrameworkGlobals.h\"\n\nEXIT_CODE=`echo $?`\necho Exiting with code: $EXIT_CODE\nexit $EXIT_CODE\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F5807020146C26F100EA4CFB /* Sources */ = {
@@ -806,13 +943,9 @@
 				F580715C146C296700EA4CFB /* LjsJsonRpcReply.m in Sources */,
 				F580715D146C296700EA4CFB /* LjsDateHelper.m in Sources */,
 				F580715E146C296700EA4CFB /* LjsDecimalAide.m in Sources */,
-				F580715F146C296700EA4CFB /* LjsDNHandler.m in Sources */,
 				F5807160146C296700EA4CFB /* LjsFileUtilities.m in Sources */,
-				F5807161146C296700EA4CFB /* LjsFormatter.m in Sources */,
-				F5807162146C296700EA4CFB /* LjsGlobals.m in Sources */,
 				F5807163146C296700EA4CFB /* LjsIdGenerator.m in Sources */,
 				F5807164146C296700EA4CFB /* LjsKeychainManager.m in Sources */,
-				F5807165146C296700EA4CFB /* LjsObjectWithUUID.m in Sources */,
 				F5807166146C296700EA4CFB /* LjsValidator.m in Sources */,
 				F5807167146C296700EA4CFB /* LjsVariates.m in Sources */,
 				F5807179146C2AAC00EA4CFB /* OCMockWorkingTest.m in Sources */,
@@ -825,16 +958,47 @@
 				F5807180146C2AAC00EA4CFB /* LjsValidatorTests.m in Sources */,
 				F5807181146C2AAC00EA4CFB /* LjsVariatesTests.m in Sources */,
 				F580719A146C2F8000EA4CFB /* LjsTestCase.m in Sources */,
+				F5963585149640BA00CDB27E /* LjsObjectWithUUID.m in Sources */,
+				F5963589149655E800CDB27E /* LjsTextViewTailing.m in Sources */,
+				F59635A41496616400CDB27E /* UKFileWatcher.m in Sources */,
+				F59635A51496616400CDB27E /* UKFNSubscribeFileWatcher.m in Sources */,
+				F59635A61496616400CDB27E /* UKKQueue.m in Sources */,
+				F59635A71496616400CDB27E /* UKMainThreadProxy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F58DBA0E149551D6009F39F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F58DBA1C149551D6009F39F7 /* main.m in Sources */,
+				F58DBA23149551D6009F39F7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F58DBA2C1495520C009F39F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F5807023146C26F100EA4CFB /* Tests-MacOS */;
+			targetProxy = F58DBA2B1495520C009F39F7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F5807031146C26F100EA4CFB /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F5807032146C26F100EA4CFB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F58DBA18149551D6009F39F7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F58DBA19149551D6009F39F7 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -933,6 +1097,28 @@
 			};
 			name = Release;
 		};
+		F58DBA27149551D7009F39F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Documentation/Documentation-Prefix.pch";
+				INFOPLIST_FILE = "Documentation/Documentation-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F58DBA28149551D7009F39F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Documentation/Documentation-Prefix.pch";
+				INFOPLIST_FILE = "Documentation/Documentation-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -952,6 +1138,16 @@
 				F5807044146C26F200EA4CFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F58DBA29149551D7009F39F7 /* Build configuration list for PBXNativeTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F58DBA27149551D7009F39F7 /* Debug */,
+				F58DBA28149551D7009F39F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

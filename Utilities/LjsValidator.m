@@ -9,17 +9,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @implementation LjsValidator
 
-#pragma mark Memory Management
-- (void) dealloc {
-  DDLogDebug(@"deallocating LjsValidator");
-  [super dealloc];
-}
-
-- (id) init {
-  [self doesNotRecognizeSelector:_cmd];
-  return nil;
-}
-
 + (BOOL) string:(NSString *) aString containsOnlyMembersOfCharacterSet:(NSCharacterSet *) aCharacterSet {
   BOOL result;
   if (aCharacterSet == nil) {
@@ -100,5 +89,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return result;
 }
 
+
++ (BOOL) isValidEmail:(NSString *)checkString {
+  BOOL stricterFilter = YES;
+  NSString *stricterFilterString = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+  NSString *laxString = @".+@.+\\.[A-Za-z]{2}[A-Za-z]*";
+  NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+  NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+  return [emailTest evaluateWithObject:checkString];
+}
 
 @end

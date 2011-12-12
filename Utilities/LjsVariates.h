@@ -26,12 +26,6 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-//  Variates.h
-//  iJson
-//
-//  Created by Joshua Moody on 12/27/10.
-
-
 //NAME
 //arc4random, arc4random_buf, arc4random_uniform, arc4random_stir,
 //arc4random_addrandom - arc4 random number generator
@@ -123,16 +117,27 @@
  */
 + (double) randomDouble;
 
+/**
+ Generates a random double.
+ @return a random double 
+*/
 + (NSDecimalNumber *) randomDecimalDouble;
 
 /**
  Generates a random double from min to max inclusive = (min, max)
  @param min the lowest value returned
- @param min the hightest value returned
+ @param max the hightest value returned
  @return a random double on (min, max)
  */
 + (double) randomDoubleWithMin:(double) min max:(double) max;
 
+
+/**
+ Generates a random double and returns it as an NSDecimalNumber.
+ @param min the lowest value returned
+ @param max the hightest value returned
+ @return a random double on (min, max) wrapped in NSDecimalNumber
+ */
 + (NSDecimalNumber *) randomDecimalDoubleWithMin:(NSDecimalNumber *) min
                                               max:(NSDecimalNumber *) max;
 
@@ -147,10 +152,15 @@
  
  Suffice it to say that it produces a randomw integer between a very large
  negative integer and a very large positive integer.
- @return a very large positive or negative integer
+ @return a positive or negative integer
  */
 + (NSInteger) randomInteger;
 
+/**
+ Generates a random integer and returns it as an NSDecimalNumber.
+ @return a positive or negative integer wrapped as an NSDecimalNumber.
+ @see randomInteger
+ */
 + (NSDecimalNumber *) randomDecimalInteger;
 
 /**
@@ -161,11 +171,22 @@
  is produced until the result is less-or-equal to the max.  This is expected.
  
  @param min the lowest value returned
- @param min the hightest value returned
+ @param max the hightest value returned
  @return a random int on (min, max)
  */
 + (NSInteger) randomIntegerWithMin:(NSInteger) min max:(NSInteger) max;
 
+/**
+ Generates a random int from min to max inclusive = (min, max)
+ 
+ This method will occassionally (once every tens of millions of calls) produce
+ a number that is +1 larger than max.  When this happens, another random integer
+ is produced until the result is less-or-equal to the max.  This is expected.
+ 
+ @param min the lowest value returned
+ @param max the hightest value returned
+ @return a random int on (min, max) wrapped in an NSDecimalNumber
+*/
 + (NSDecimalNumber *) randomDecimalIntegerWithMin:(NSDecimalNumber *) min
                                               max:(NSDecimalNumber *) max;
 
@@ -180,7 +201,7 @@
 
 /**
  randomly samples a number of elements from array without replacement.
- if number > [array count], then this method returns nil.
+ if `number > array count`, then this method returns nil.
  @param array the array to sample
  @param number the number to sample
  @return an array with randomly sampled elements

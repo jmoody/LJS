@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.littlejoysoftware.Tests-MacOS</string>
+	<key>CFBundleName</key>
+	<string>Tests-MacOS Documentation</string>
+	
+	
+	
+	
+	
+	<key>DocSetFeedName</key>
+	<string>Tests-MacOS Documentation</string>
+	
+	<key>DocSetMinimumXcodeVersion</key>
+	<string>3.0</string>
+	
+	<key>DocSetPublisherIdentifier</key>
+	<string>com.littlejoysoftware.documentation</string>
+	<key>DocSetPublisherName</key>
+	<string>LJS MacOS</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2011 LJS MacOS. All rights reserved.</string>
+</dict>
+</plist>

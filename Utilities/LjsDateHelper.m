@@ -47,6 +47,14 @@ NSString *LjsDateHelper12HoursNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
 NSString *LjsDateHelper24HoursNumberKey = @"com.littlejoysoftware.ljs.Date Helper 24 Hours Number key";
 NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helper Minutes Number key";
 
+
+NSString *LjsHoursMinutesSecondsDateFormat = @"H:mm:ss";
+NSString *LjsHoursMinutesSecondsMillisDateFormat = @"H:mm:ss:SSS";
+static NSString *LjsISO8601_DateFormatWithMillis = @"yyyy-MM-dd HH:mm:ss.SSS";
+static NSString *LjsISO8601_DateFormat = @"yyyy-MM-dd HH:mm:ss";
+static NSString *LjsOrderedDateFormat = @"yyyy_MM_dd_HH_mm";
+static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
+
 @implementation LjsDateHelper
 
 // Disallow the normal default initializer for instances
@@ -55,19 +63,29 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
   return nil;
 }
 
-- (void) dealloc {
-  [super dealloc];
-}
-
+/**
+ @return the interval in milliseconds between the two dates
+ 
+ @warning will return negative interval if past parameter is later than future
+ paramter.
+ 
+ @param past date in the past
+ @param future date in the past
+ */
 + (NSTimeInterval) intervalBetweenPast:(NSDate *) past future:(NSDate *) future {
-  //DDLogWarn(@"needs unit test");
   NSTimeInterval result = [future timeIntervalSinceDate:past];
   return result;
 }
 
-+ (NSTimeInterval) timeIntervalWithHmsString:(NSString *) timeString {
+/**
+ returns the number of seconds since midnight for a HH:mm:SS string
+ 
+ @param aHHmmssString a string in HH:mm:ss format
+ @return the number of seconds since 12:00a
+ */
++ (NSTimeInterval) secondsSinceMidnightWithHHmmss:(NSString *) aHHmmssString {
   //DDLogWarn(@"needs unit test");
-  NSArray *tokens = [timeString componentsSeparatedByString:@":"];
+  NSArray *tokens = [aHHmmssString componentsSeparatedByString:@":"];
   NSTimeInterval accumulator = 0.0;
   for (int index = 0; index < 3; index++) {
     double value = [[tokens objectAtIndex:index] doubleValue];
@@ -87,6 +105,11 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
  The receiver is later in time than anotherDate, NSOrderedDescending
  The receiver is earlier in time than anotherDate, NSOrderedAscending.
  */
+
+/**
+ @return true iff the date is in the future
+ @param date the date to compare to
+ */
 + (BOOL) dateIsFuture:(NSDate *) date {
   BOOL result;
   if ([date compare:[NSDate date]] == NSOrderedDescending) {
@@ -97,12 +120,23 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
   return result;
 }
 
+/**
+ @return true iff the date is in the past
+ @param date the date to compare to
+ */
 + (BOOL) dateIsPast:(NSDate *) date {
   return ![LjsDateHelper dateIsFuture:date];
 }
 
 #pragma mark HH:mm a - AM/PM time methods
 
+/**
+ some locales print AM/PM like this: a.m./p.m. - this method returns a string
+ with no periods and uppercase
+ 
+ @return a.m./p.m. ==> AM/PM or nil if anAmOrPmString is nil
+ @param anAmOrPmString a string
+ */
 + (NSString *) upcaseAndRemovePeroidsFromAmPmString:(NSString *) anAmOrPmString {
   NSString *result;
   if (anAmOrPmString == nil) {
@@ -114,12 +148,20 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
   return result;
 }
 
+/**
+ @return true iff amOrPm matches AM or PM
+ @param amOrPm a string
+ */
 + (BOOL) isCanonicalAmOrPm:(NSString *) amOrPm {
   return 
   [amOrPm isEqualToString:LjsDateHelperCanonicalAM] ||
   [amOrPm isEqualToString:LjsDateHelperCanonicalPM];
 }
 
+/**
+ @return AM or nil if am parameter cannot be converted
+ @param am a string
+ */
 + (NSString *) canonicalAmWithString:(NSString *) am {
   NSString *result;
   NSString *converted = [LjsDateHelper upcaseAndRemovePeroidsFromAmPmString:am];
@@ -135,6 +177,10 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
   return result;
 }
 
+/**
+ @return PM or nil if am parameter cannot be converted
+ @param pm a string
+ */
 + (NSString *) canonicalPmWithString:(NSString *) pm {
   NSString *result;
   NSString *converted = [LjsDateHelper upcaseAndRemovePeroidsFromAmPmString:pm];
@@ -150,6 +196,10 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
   return result;
 }
 
+/**
+ @return AM or PM or nil if parameter cannot be converted
+ @param amOrPm a string representation of am or pm
+ */
 + (NSString *) canonicalAmPmWithString:(NSString *) amOrPm {
   NSString *am = [LjsDateHelper canonicalAmWithString:amOrPm];
   NSString *pm = [LjsDateHelper canonicalPmWithString:amOrPm];
@@ -169,7 +219,10 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
 }
 
 
-
+/**
+ @return true iff parameter is non-nil and on (0, 59)
+ @param minutesStr a string
+ */
 + (BOOL) minutesStringValid:(NSString *) minutesStr {
   BOOL result = NO;
   if (minutesStr != nil && [minutesStr length] == 2 && [LjsValidator stringContainsOnlyNumbers:minutesStr]) {
@@ -179,6 +232,12 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
   return result;
 }
 
+/**
+ @return true iff hourStr is non-nil and on (1, 12) for 12-hour clock and (0, 23)
+ for 24-hour clock
+ @param hoursStr a string
+ @param use24HourClock should validity be checked against 24-hour clock
+ */
 + (BOOL) hourStringValid:(NSString *) hoursStr using24HourClock:(BOOL) use24HourClock {
   BOOL result = NO;
   if (hoursStr != nil && [hoursStr length] > 0 && 
@@ -194,12 +253,26 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
   return result;
 }
 
+/**
+ @return true iff amOrPm is AM/PM
+ @param amOrPm a string
+ */
 + (BOOL) amPmStringValid:(NSString *) amOrPm {
   return [LjsDateHelper canonicalAmWithString:amOrPm] ||
   [LjsDateHelper canonicalPmWithString:amOrPm];
 }
 
-
+/**
+ checks to see if timeString has correct length (number of characters) for
+ either a `H:mm a` string for 12-hour clocks and `HH:mm` for 24-hour clocks.
+ 
+ handles the (annoying) case there a 24-hour time string contains AM/PM.
+ 
+ @param timeString a string
+ @param a24Clock should use a 24-hour clock if YES, 12-hour otherwise
+ @return true iff the time string has a valid length for a 12-hour or 24-hour
+ clock
+ */
 + (BOOL) timeStringHasCorrectLength:(NSString *) timeString using24HourClock:(BOOL) a24Clock {
   BOOL result;
   if (a24Clock == YES) {
@@ -210,6 +283,14 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
   return result;
 }
 
+/**
+ checks to see if timeString has correct components i.e. hours, minutes and 
+ optionally AM/PM
+ 
+ @param timeString a time string
+ @return true iff timeString can be parsed into hours, minutes and 
+ optionally AM/PM
+ */
 + (BOOL) amPmStringHasCorrectComponents:(NSString *) timeString {
   BOOL result;
   NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@": "];
@@ -227,6 +308,14 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
   return result;
 }   
     
+/**
+ checks to see if timeString has correct components i.e. hours, minutes, and
+ optionally AM/PM
+ 
+ @param timeString a string
+ @return true iff timeString can be parsed into hours, minutes, and optionally
+ AM/PM
+ */
 + (BOOL) twentyFourHourTimeStringHasCorrectComponents:(NSString *) timeString {
   
   BOOL result;
@@ -251,6 +340,15 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
   return result;
 }
 
+/**
+ checks to see if timeString has correct components i.e. hours, minutes, and
+ optionally AM/PM
+ 
+ @param timeString a string
+ @param use24HourClock should validity be checked against 24-hour clock
+ @return true iff timeString can be parsed into hours, minutes, and optionally
+ AM/PM
+ */
 + (BOOL) timeStringHasCorrectComponents:(NSString *) timeString using24HourClock:(BOOL) use24HourClock {
   BOOL result;
   NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@": "];
@@ -273,7 +371,10 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
   return result;
 }
 
-
+/**
+ @return true if amPmTime is valid 12-hour format 
+ @param amPmTime a string
+ */
 + (BOOL) isValidAmPmTime:(NSString *) amPmTime {
   NSMutableArray *reasons = [NSMutableArray arrayWithCapacity:4];
   if ([LjsDateHelper timeStringHasCorrectLength:amPmTime using24HourClock:NO]) {
@@ -300,6 +401,12 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
   }
   return result;
 }
+
+
+/**
+ @return true if a24hourTime is valid 24-hour format
+ @param a24hourTime string
+ */
 
 + (BOOL) isValid24HourTime:(NSString *) a24hourTime {
   NSMutableArray *reasons = [NSMutableArray arrayWithCapacity:6];
@@ -351,6 +458,24 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
   return result;
 }
 
+/**
+ parses timeString and creates a dictionary of components with the following keys:
+
+ - LjsDateHelper12HoursStringKey
+ - LjsDateHelper24HoursStringKey
+ - LjsDateHelperMinutesStringKey
+ - LjsDateHelperAmPmKey
+ - LjsDateHelper12HoursNumberKey
+ - LjsDateHelper24HoursNumberKey
+ - LjsDateHelperMinutesNumberKey
+ 
+ this method is a wrapper around `componentsWith24HourTimeString:` and
+ `componentsWithAmPmTimeString:`
+ 
+ @param timeString a string
+ @return a dictionary of time components or nil if components can be parsed
+ from timeString
+ */
 + (NSDictionary *) componentsWithTimeString:(NSString *) timeString {
   NSDictionary *result = nil;
   if ([LjsDateHelper isValidAmPmTime:timeString]) {
@@ -362,6 +487,25 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
 }
 
 
+/**
+ parses twentyFourHourTime and creates a dictionary of components with the 
+ following keys:
+ 
+ - LjsDateHelper12HoursStringKey
+ - LjsDateHelper24HoursStringKey
+ - LjsDateHelperMinutesStringKey
+ - LjsDateHelperAmPmKey
+ - LjsDateHelper12HoursNumberKey
+ - LjsDateHelper24HoursNumberKey
+ - LjsDateHelperMinutesNumberKey
+ 
+
+ consider calling `componentsWithTimeString:` instead
+ 
+ @param twentyFourHourTime a string
+ @return a dictionary of time components or nil if components can be parsed
+ from twentyFourHourTime
+ */
 + (NSDictionary *) componentsWith24HourTimeString:(NSString *) twentyFourHourTime {
   NSDictionary *result = nil;
   if ([LjsDateHelper isValid24HourTime:twentyFourHourTime]) {
@@ -409,6 +553,25 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
 }
 
 
+/**
+ parses amPmTime and creates a dictionary of components with the 
+ following keys:
+ 
+ - LjsDateHelper12HoursStringKey
+ - LjsDateHelper24HoursStringKey
+ - LjsDateHelperMinutesStringKey
+ - LjsDateHelperAmPmKey
+ - LjsDateHelper12HoursNumberKey
+ - LjsDateHelper24HoursNumberKey
+ - LjsDateHelperMinutesNumberKey
+ 
+ 
+ consider calling `componentsWithTimeString:` instead
+ 
+ @param amPmTime a string
+ @return a dictionary of time components or nil if components can be parsed
+ from amPmTime
+ */
 + (NSDictionary *) componentsWithAmPmTimeString:(NSString *) amPmTime {
   NSDictionary *result = nil;
   if ([LjsDateHelper isValidAmPmTime:amPmTime]) {
@@ -465,6 +628,14 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
   return result;
 }
 
+
+/**
+ uses the `componentsWithAmPmTimeString:` to parse the amPmTime and attempts
+ to parse a `H:mm a` string from the returned components.
+ 
+ @param amPmTime a string
+ @return a string with `H:mm a` format or nil if amPmTime cannot be parsed
+ */
 + (NSString *) amPmTimeWithTimeString:(NSString *) amPmTime {
   NSString *result = nil;
   NSDictionary *dictionary = [LjsDateHelper componentsWithAmPmTimeString:amPmTime];
@@ -478,6 +649,13 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
 }
 
 
+/**
+ uses the `componentsWithAmPmTimeString:` to parse the date and attempts
+ to parse a `H:mm a` string from the returned components.
+ 
+ @param date a date
+ @return a string with `H:mm a` format or nil if date cannot be parsed
+ */
 + (NSString *) amPmTimeWithDate:(NSDate *) date {
   NSString *result = nil;
   if (date != nil) {
@@ -487,20 +665,11 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
   return result;
 }
 
-
-+ (NSDateFormatter *) hoursMinutesAmPmFormatter {
-  NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
-  [formatter setDateFormat:@"H:mm a"];
-  return formatter;
-}
-
-
-+ (NSDateFormatter *) briefDateAndTimeFormatter {
-  NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
-  [formatter setDateFormat:@"ccc MMM d HH:mm a"];
-  return formatter;
-}
-
+/**
+ attempts to convert a 24-hour time string to a 12-hour time string
+ @param twentyFourHourTime a string
+ @return a 24-hour time string in 12-hour format
+ */
 + (NSString *) convert24hourTimeToAmPmTime:(NSString *) twentyFourHourTime {
   NSString *result = nil;
   if ([LjsDateHelper isValid24HourTime:twentyFourHourTime]) {
@@ -514,85 +683,112 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
 }
 
 
+/**
+ @return a date formatter for `H:mm a` format
+ */
++ (NSDateFormatter *) hoursMinutesAmPmFormatter {
+  NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
+  [formatter setDateFormat:@"H:mm a"];
+  return formatter;
+}
+
+/**
+ @return a date formatter for `ccc MMM d HH:mm a` or Wed Sep 7 1:30 PM
+ */
++ (NSDateFormatter *) briefDateAndTimeFormatter {
+  NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
+  [formatter setDateFormat:@"ccc MMM d HH:mm a"];
+  return formatter;
+}
+
+/**
+ @return a date formatter for `H:mm:ss`
+ */
++ (NSDateFormatter *) hoursMinutesSecondsDateFormatter {
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:LjsHoursMinutesSecondsDateFormat];
+  [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
+  return [formatter autorelease];
+}
+
+/**
+ @return a date formatter for `H:mm:ss:SSS`
+ */
++ (NSDateFormatter *) millisecondsFormatter {
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:LjsHoursMinutesSecondsMillisDateFormat];
+  [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
+  return [formatter autorelease];
+}
+
+/**
+ @return a date formatter for `yyyy-MM-dd HH:mm:ss`
+ */
++ (NSDateFormatter *) isoDateFormatter {
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:LjsISO8601_DateFormat];
+  //[formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
+  return [formatter autorelease];  
+}
+
+/**
+ @return a date formatter for `yyyy-MM-dd HH:mm:ss.SSS`
+ */
++ (NSDateFormatter *) isoDateWithMillisFormatter {
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:LjsISO8601_DateFormatWithMillis];
+  //[formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
+  return [formatter autorelease];  
+}
+
+/**
+ @return a date formatter for `yyyy_MM_dd_HH_mm`
+ */
++ (NSDateFormatter *) orderedDateFormatter {
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:LjsOrderedDateFormat];
+  return [formatter autorelease];  
+}
+
+/**
+ @return a date formatter for `yyyy_MM_dd_HH_mm.SSS`
+ */
++ (NSDateFormatter *) orderedDateFormatterWithMillis {
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:LjsOrderedDateFormatWithMillis];
+  return [formatter autorelease];  
+}
+
+/** 
+ @return a string representation of the date created by the interval - the date 
+ formatter is `yyyy-MM-dd HH:mm:ss.SSS`
+ @param interval a time inteval
+ @warning not test extensively
+ */
++ (NSString *) stringWithTimeInterval:(NSTimeInterval) interval {
+  NSDateFormatter *formatter = [LjsDateHelper isoDateWithMillisFormatter];
+  NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:interval];
+  NSString *result = [formatter stringFromDate:date];
+  formatter = nil;
+  return result;
+}
+
+
+/** 
+ @return a string representation of the date created by the interval
+ @param interval a time inteval
+ @param formatter a date formatter that will be used to generate the the string
+ @warning not test extensively
+ */
++ (NSString *) stringWithTimeInterval:(NSTimeInterval)interval 
+                            formatter:(NSDateFormatter *) formatter {
+  NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:interval];
+  NSString *result = [formatter stringFromDate:date];
+  return result;
+}
 
 
 #pragma mark DEAD SEA
 
-//
-//+ (NSDate *) dateWithHourMinutesString:(NSString *) hoursMinutes {
-//  NSDate *result;
-//   
-//  NSArray *tokens = [hoursMinutes componentsSeparatedByString:@" "];
-//  NSString *hoursMinutesPortion = [tokens objectAtIndex:0];
-//  NSArray *hoursMinutesTokens = [hoursMinutesPortion componentsSeparatedByString:@":"];
-//  NSString *hoursStr = [hoursMinutesTokens objectAtIndex:0];
-//  NSString *minutesStr = [hoursMinutesTokens objectAtIndex:1];
-//  NSInteger hours, minutes;
-//  
-//  hours = [hoursStr integerValue];
-//  minutes = [minutesStr integerValue];
-//
-//  if ([tokens count] == 1) {
-//    // nop
-//  } else if ([tokens count] == 2) {
-//    NSString *ampm = [tokens objectAtIndex:1];
-//    if ([ampm isEqualToString:@"AM"]) {
-//       // nop
-//    } else {
-//      hours = hours + 12;
-//    }
-//  } else {
-//    DDLogError(@"%@ is not in the expected format of HH:mm or HH:mm a");
-//  }
-//  
-//  //DDLogDebug(@"found %d hours and %d minutes", hours, minutes);
-//  
-//  NSCalendar *calendar = [NSCalendar currentCalendar];
-//  NSDateComponents *components = [[[NSDateComponents alloc] init] autorelease];
-//  [components setTimeZone:[NSTimeZone localTimeZone]];
-//  [components setHour:hours];
-//  [components setMinute:minutes];
-//  [components setYear:1970];
-//  [components setDay:1];
-//  [components setMonth:1];
-//  
-//  result = [calendar dateFromComponents:components];
-//  NSString *formatString = @"yyyy-MM-dd HH:mm a z Z";
-//  NSDateFormatter *formatter = [[[NSDateFormatter alloc]
-//                                 init] autorelease];
-//  [formatter setDateFormat:formatString];
-//  NSString *dateString = [formatter stringFromDate:result];
-////  result = [formatter dateFromString:dateString];
-//  DDLogDebug(@"date string = %@, date = %@", dateString, result);
-//  return result;
-//}
-
-/*
- + (NSDate *) dateReplacingHoursMinutesSeconds:(NSString *) twentyFourHourTimeString {
- NSDate *result = nil;
- if (twentyFourHourTimeString != nil && [LjsDateHelper isValid24HourTime:twentyFourHourTimeString]) {
- NSDate *now = [NSDate date];
- NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
- NSString *ISO8601_DateFormat = @"yyyy-MM-dd HH:mm:ss";
- [formatter setDateFormat:ISO8601_DateFormat];
- NSString *isoDateStr = [formatter stringFromDate:now];
- NSArray *tokens = [isoDateStr componentsSeparatedByString:@" "];
- NSString *yearMonthDay = [tokens objectAtIndex:0];
- 
- NSDictionary *components = [LjsDateHelper componentsWithTimeString:twentyFourHourTimeString];
- NSString *hours = [components objectForKey:LjsDateHelper24HoursStringKey];
- NSString *minutes = [components objectForKey:LjsDateHelperMinutesStringKey];
- NSString *seconds = @"00";
- NSString *newHourMinSec = [NSString stringWithFormat:@"%@:%@:%@",
- hours, minutes, seconds];
- 
- NSString *newDateStr  = [NSString stringWithFormat:@"%@ %@",
- yearMonthDay, newHourMinSec];
- result = [formatter dateFromString:newDateStr];
- 
- }
- return result;
- }
-*/
 
 @end

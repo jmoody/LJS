@@ -1,0 +1,976 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>LjsDecimalAide Class Reference</title>
+		<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" />
+		<meta name="generator" content="appledoc 2.0.5 (build 737)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">LjsDecimalAide Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/dn:gt:">&nbsp;&nbsp;&nbsp;&nbsp;+ dn:gt:</option>
+	
+	<option value="//api/name/dn:gte:">&nbsp;&nbsp;&nbsp;&nbsp;+ dn:gte:</option>
+	
+	<option value="//api/name/dn:isOnMin:max:">&nbsp;&nbsp;&nbsp;&nbsp;+ dn:isOnMin:max:</option>
+	
+	<option value="//api/name/dn:lt:">&nbsp;&nbsp;&nbsp;&nbsp;+ dn:lt:</option>
+	
+	<option value="//api/name/dn:lte:">&nbsp;&nbsp;&nbsp;&nbsp;+ dn:lte:</option>
+	
+	<option value="//api/name/dnWithDouble:">&nbsp;&nbsp;&nbsp;&nbsp;+ dnWithDouble:</option>
+	
+	<option value="//api/name/dnWithInteger:">&nbsp;&nbsp;&nbsp;&nbsp;+ dnWithInteger:</option>
+	
+	<option value="//api/name/dnWithString:">&nbsp;&nbsp;&nbsp;&nbsp;+ dnWithString:</option>
+	
+	<option value="//api/name/locationHandlerWithRoundMode:scale:">&nbsp;&nbsp;&nbsp;&nbsp;+ locationHandlerWithRoundMode:scale:</option>
+	
+	<option value="//api/name/round:withHandler:">&nbsp;&nbsp;&nbsp;&nbsp;+ round:withHandler:</option>
+	
+	<option value="//api/name/statisticsHandlerWithRoundMode:scale:">&nbsp;&nbsp;&nbsp;&nbsp;+ statisticsHandlerWithRoundMode:scale:</option>
+	
+	
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_NSDecimalNumber creation">NSDecimalNumber creation</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_NSDecimalNumber comparison">NSDecimalNumber comparison</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_NSDecimalNumber rounding">NSDecimalNumber rounding</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_common NSDecimalNumberHandler">common NSDecimalNumberHandler</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dn:gt:">dn:gt:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dn:gte:">dn:gte:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dn:isOnMin:max:">dn:isOnMin:max:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dn:lt:">dn:lt:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dn:lte:">dn:lte:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dnWithDouble:">dnWithDouble:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dnWithInteger:">dnWithInteger:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dnWithString:">dnWithString:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/locationHandlerWithRoundMode:scale:">locationHandlerWithRoundMode:scale:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/round:withHandler:">round:withHandler:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/statisticsHandlerWithRoundMode:scale:">statisticsHandlerWithRoundMode:scale:</a></span></li>
+	
+</ul></li>
+
+
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="LjsDecimalAide Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">LjsDecimalAide Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">LjsDecimalAide.h<br />LjsDecimalAide.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>NSDecimalNumber is a powerful tool for handling currency, statistics, and other
+floating point data.  The class name and the methods are, in my opinion, overly
+verbose and tend to clutter code at the worse times &ndash; when you are doing
+sensitive currency calculations or implementing a complex confusing statistical
+algorithm.  And who can remember how to compare two NSDecimalNumbers?</p>
+
+<p>Enter <a href="LjsDecimalAide.html">LjsDecimalAide</a> &ndash; which provides methods for creating NSDecimalNumbers
+from various numeric values, logical comparisons and rounding.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="NSDecimalNumber creation" name="task_NSDecimalNumber creation"></a>
+						<h3 class="subsubtitle task-title">NSDecimalNumber creation</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dnWithInteger:">+&nbsp;dnWithInteger:</a></code>
+		<span class="tooltip"><p>a decimal number with the integer value</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dnWithDouble:">+&nbsp;dnWithDouble:</a></code>
+		<span class="tooltip"><p>a decimal number with the double value</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dnWithString:">+&nbsp;dnWithString:</a></code>
+		<span class="tooltip"><p>a decimal number with the string value</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="NSDecimalNumber comparison" name="task_NSDecimalNumber comparison"></a>
+						<h3 class="subsubtitle task-title">NSDecimalNumber comparison</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dn:lt:">+&nbsp;dn:lt:</a></code>
+		<span class="tooltip"><p>true iff a &lt; b</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dn:gt:">+&nbsp;dn:gt:</a></code>
+		<span class="tooltip"><p>true iff a > b</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dn:lte:">+&nbsp;dn:lte:</a></code>
+		<span class="tooltip"><p>true iff a &lt;= b</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dn:gte:">+&nbsp;dn:gte:</a></code>
+		<span class="tooltip"><p>true iff a >= b</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dn:isOnMin:max:">+&nbsp;dn:isOnMin:max:</a></code>
+		<span class="tooltip"><p>return true iff a is on (min, max)</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="NSDecimalNumber rounding" name="task_NSDecimalNumber rounding"></a>
+						<h3 class="subsubtitle task-title">NSDecimalNumber rounding</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/round:withHandler:">+&nbsp;round:withHandler:</a></code>
+		<span class="tooltip"><p>rounded decimal number with handler</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="common NSDecimalNumberHandler" name="task_common NSDecimalNumberHandler"></a>
+						<h3 class="subsubtitle task-title">common NSDecimalNumberHandler</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/statisticsHandlerWithRoundMode:scale:">+&nbsp;statisticsHandlerWithRoundMode:scale:</a></code>
+		<span class="tooltip"><p>NB: typically you will want to use NSRoundPlain for statistics</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/locationHandlerWithRoundMode:scale:">+&nbsp;locationHandlerWithRoundMode:scale:</a></code>
+		<span class="tooltip"><p>NB: typically you will want to use NSRoundPlain for location</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/dn:gt:" title="dn:gt:"></a>
+	<h3 class="subsubtitle method-title">dn:gt:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>true iff a > b</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (BOOL)dn:(NSDecimalNumber *)<em>a</em> gt:(NSDecimalNumber *)<em>b</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>a</em></dt>
+			<dd><p>left hand side</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>b</em></dt>
+			<dd><p>right hand side</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>true iff a > b</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsDecimalAide.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dn:gte:" title="dn:gte:"></a>
+	<h3 class="subsubtitle method-title">dn:gte:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>true iff a >= b</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (BOOL)dn:(NSDecimalNumber *)<em>a</em> gte:(NSDecimalNumber *)<em>b</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>a</em></dt>
+			<dd><p>left hand side</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>b</em></dt>
+			<dd><p>right hand side</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>true iff a >= b</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsDecimalAide.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dn:isOnMin:max:" title="dn:isOnMin:max:"></a>
+	<h3 class="subsubtitle method-title">dn:isOnMin:max:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>return true iff a is on (min, max)</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (BOOL)dn:(NSDecimalNumber *)<em>a</em> isOnMin:(NSDecimalNumber *)<em>min</em> max:(NSDecimalNumber *)<em>max</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>a</em></dt>
+			<dd><p>number to test</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>min</em></dt>
+			<dd><p>lower bound of range</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>max</em></dt>
+			<dd><p>upper bound or range</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>return true iff a is on (min, max)</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsDecimalAide.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dn:lt:" title="dn:lt:"></a>
+	<h3 class="subsubtitle method-title">dn:lt:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>true iff a &lt; b</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (BOOL)dn:(NSDecimalNumber *)<em>a</em> lt:(NSDecimalNumber *)<em>b</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>a</em></dt>
+			<dd><p>left hand side</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>b</em></dt>
+			<dd><p>right hand side</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>true iff a &lt; b</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsDecimalAide.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dn:lte:" title="dn:lte:"></a>
+	<h3 class="subsubtitle method-title">dn:lte:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>true iff a &lt;= b</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (BOOL)dn:(NSDecimalNumber *)<em>a</em> lte:(NSDecimalNumber *)<em>b</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>a</em></dt>
+			<dd><p>left hand side</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>b</em></dt>
+			<dd><p>right hand side</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>true iff a &lt;= b</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsDecimalAide.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dnWithDouble:" title="dnWithDouble:"></a>
+	<h3 class="subsubtitle method-title">dnWithDouble:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>a decimal number with the double value</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (NSDecimalNumber *)dnWithDouble:(double)<em>aDouble</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aDouble</em></dt>
+			<dd><p>a double</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>a decimal number with the double value</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsDecimalAide.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dnWithInteger:" title="dnWithInteger:"></a>
+	<h3 class="subsubtitle method-title">dnWithInteger:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>a decimal number with the integer value</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (NSDecimalNumber *)dnWithInteger:(NSUInteger)<em>aInteger</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aInteger</em></dt>
+			<dd><p>an integer</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>a decimal number with the integer value</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsDecimalAide.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dnWithString:" title="dnWithString:"></a>
+	<h3 class="subsubtitle method-title">dnWithString:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>a decimal number with the string value</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (NSDecimalNumber *)dnWithString:(NSString *)<em>aString</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aString</em></dt>
+			<dd><p>a string</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>a decimal number with the string value</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsDecimalAide.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/locationHandlerWithRoundMode:scale:" title="locationHandlerWithRoundMode:scale:"></a>
+	<h3 class="subsubtitle method-title">locationHandlerWithRoundMode:scale:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>NB: typically you will want to use NSRoundPlain for location</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (NSDecimalNumberHandler *)locationHandlerWithRoundMode:(NSRoundingMode)<em>aMode</em> scale:(NSUInteger)<em>aInteger</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aMode</em></dt>
+			<dd><p>a rounding mode</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aInteger</em></dt>
+			<dd><p>a scale (precision)</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>a handler with mode and scale</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>NB: typically you will want to use NSRoundPlain for location</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsDecimalAide.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/round:withHandler:" title="round:withHandler:"></a>
+	<h3 class="subsubtitle method-title">round:withHandler:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>rounded decimal number with handler</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (NSDecimalNumber *)round:(NSDecimalNumber *)<em>number</em> withHandler:(NSDecimalNumberHandler *)<em>handler</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>number</em></dt>
+			<dd><p>the number to round</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>handler</em></dt>
+			<dd><p>the handler to use</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>rounded decimal number with handler</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsDecimalAide.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/statisticsHandlerWithRoundMode:scale:" title="statisticsHandlerWithRoundMode:scale:"></a>
+	<h3 class="subsubtitle method-title">statisticsHandlerWithRoundMode:scale:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>NB: typically you will want to use NSRoundPlain for statistics</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (NSDecimalNumberHandler *)statisticsHandlerWithRoundMode:(NSRoundingMode)<em>aMode</em> scale:(NSUInteger)<em>aInteger</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aMode</em></dt>
+			<dd><p>a rounding mode</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aInteger</em></dt>
+			<dd><p>a scale (precision)</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>a handler with mode and scale</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>NB: typically you will want to use NSRoundPlain for statistics</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsDecimalAide.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2011 LJS MacOS. All rights reserved. (Last updated: 2011-12-12)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 737)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+		</script>
+	</body>
+</html>

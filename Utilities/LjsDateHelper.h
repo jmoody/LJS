@@ -29,6 +29,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 extern NSString *LjsDateHelperCanonicalAM;
 extern NSString *LjsDateHelperCanonicalPM;
 
@@ -36,62 +37,71 @@ extern NSString *LjsDateHelper12HoursStringKey;
 extern NSString *LjsDateHelper24HoursStringKey;
 extern NSString *LjsDateHelperMinutesStringKey;
 extern NSString *LjsDateHelperAmPmKey;
-
 extern NSString *LjsDateHelper12HoursNumberKey;
 extern NSString *LjsDateHelper24HoursNumberKey;
 extern NSString *LjsDateHelperMinutesNumberKey;
 
+extern NSString *LjsHoursMinutesSecondsDateFormat;
+extern NSString *LjsHoursMinutesSecondsMillisDateFormat;
 
-@interface LjsDateHelper : NSObject {
-    
-}
-
-
-+ (NSTimeInterval) intervalBetweenPast:(NSDate *) past future:(NSDate *) future;
-
-+ (NSTimeInterval) timeIntervalWithHmsString:(NSString *) timeString;
-
-/*
- The receiver and anotherDate are exactly equal to each other, NSOrderedSame
- The receiver is later in time than anotherDate, NSOrderedDescending
- The receiver is earlier in time than anotherDate, NSOrderedAscending.
+/**
+ Date handling is a pain, especially on iOS devices where user settings can 
+ override explicit date formatting and locale conventions.  LjsDateHelper 
+ wrangles dates into a predictable format.  It also provides methods for
+ date comparison and deducing intervals.
  */
+@interface LjsDateHelper : NSObject
+
+/** @name Computing Time Intervals */
++ (NSTimeInterval) intervalBetweenPast:(NSDate *) past future:(NSDate *) future;
++ (NSTimeInterval) secondsSinceMidnightWithHHmmss:(NSString *) aHHmmSSString;
+
+/** @name Date Comparison */
 + (BOOL) dateIsFuture:(NSDate *) date;
 + (BOOL) dateIsPast:(NSDate *) date;
 
-+ (NSDateFormatter *) hoursMinutesAmPmFormatter;
-+ (NSDateFormatter *) briefDateAndTimeFormatter;
-
+/** @name AM and PM Handling */
 + (NSString *) upcaseAndRemovePeroidsFromAmPmString:(NSString *) amOrPm;
 + (BOOL) isCanonicalAmOrPm:(NSString *) amOrPm;
 + (NSString *) canonicalAmWithString:(NSString *) am;
 + (NSString *) canonicalPmWithString:(NSString *) pm;
 + (NSString *) canonicalAmPmWithString:(NSString *) amOrPm;
 
-//+ (NSString *) ensureCanonicalAm:(NSString *) alternativeAm;
-
+/** @name Consistency Checking for H:mm a and HH:mm Date Strings*/
 + (BOOL) minutesStringValid:(NSString *) minutesStr;
 + (BOOL) hourStringValid:(NSString *) hoursStr using24HourClock:(BOOL) use24HourClock; 
 + (BOOL) amPmStringValid:(NSString *) amOrPm;
 + (BOOL) timeStringHasCorrectLength:(NSString *) timeString using24HourClock:(BOOL) a24Clock;
-
 + (BOOL) amPmStringHasCorrectComponents:(NSString *) timeString;
 + (BOOL) twentyFourHourTimeStringHasCorrectComponents:(NSString *) timeString;
 + (BOOL) timeStringHasCorrectComponents:(NSString *) timeString using24HourClock:(BOOL) use24HourClock;
-
 + (BOOL) isValidAmPmTime:(NSString *) amPmTime;
 + (BOOL) isValid24HourTime:(NSString *) twentyFourHourTime;
 
+/** @name Components for H:mm a and HH:mm Date Strings */
 + (NSDictionary *) componentsWithTimeString:(NSString *) timeString;
 + (NSDictionary *) componentsWith24HourTimeString:(NSString *) twentyFourHourTime;
 + (NSDictionary *) componentsWithAmPmTimeString:(NSString *) amPmTime;
 
-
+/** @name H:mm a and HH:mm Date Strings Conversions */
 + (NSString *) convert24hourTimeToAmPmTime:(NSString *) twentyFourHourTime;
 + (NSString *) amPmTimeWithTimeString:(NSString *) amPmTime;
 + (NSString *) amPmTimeWithDate:(NSDate *) date;
 
+/** @name Common Date Formatters */
++ (NSDateFormatter *) hoursMinutesAmPmFormatter;
++ (NSDateFormatter *) briefDateAndTimeFormatter;
++ (NSDateFormatter *) hoursMinutesSecondsDateFormatter;
++ (NSDateFormatter *) millisecondsFormatter;
++ (NSDateFormatter *) isoDateFormatter;
++ (NSDateFormatter *) isoDateWithMillisFormatter;
++ (NSDateFormatter *) orderedDateFormatter;
++ (NSDateFormatter *) orderedDateFormatterWithMillis;
 
+/** @name Converting Intervals to Strings */
++ (NSString *) stringWithTimeInterval:(NSTimeInterval) interval;
++ (NSString *) stringWithTimeInterval:(NSTimeInterval)interval 
+                            formatter:(NSDateFormatter *) formatter;
 
 
 #pragma mark DEAD SEA

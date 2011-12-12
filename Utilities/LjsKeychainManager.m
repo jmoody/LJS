@@ -8,19 +8,14 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-
 static NSString *LjsSecurityManagerUsernameDefaultsKey = @"com.littlejoysoftware.ljs LJS Security Manager  UserName Defaults Key";
-
 static NSString *LjsSecurityManagerUseKeychainDefaultsKey = @"com.littlejoysoftware.ljs LJS Security Manager  Use Keychain Defaults Key";
-
 static NSString *LjsSecurityManagerKeychainServiceName = @"com.littlejoysoftware.ljs LJS Security Manager ";
-
 static NSString *LjsSecurityManagerYES = @"YES";
-
 static NSString *LjsSecurityManagerNO = @"NO";
 
 /**
- AGKeychainManager provides methods to bridge the Keychain Access API and the 
+ LjsKeychainManager provides methods to bridge the Keychain Access API and the 
  User Defaults API.
  */
 @implementation LjsKeychainManager
@@ -33,10 +28,10 @@ static NSString *LjsSecurityManagerNO = @"NO";
 - (id) init {
   self = [super init];
   if (self) {
-    //    // Initialization code here.
-    //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    //    NSDictionary *dict = [defaults dictionaryRepresentation];
-    //    DDLogDebug(@"dict = %@", dict);
+    // keep this around - sometimes is it helpful to see what is in the defaults      
+    // NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    // NSDictionary *dict = [defaults dictionaryRepresentation];
+    // DDLogDebug(@"dict = %@", dict);
   }
   return self;
 }
@@ -68,8 +63,8 @@ static NSString *LjsSecurityManagerNO = @"NO";
  currently there are no restrictions on passwords other than they not be
  nil or empty
  
- @param username the name to check
- @return true if username is a non-nil, non-empty string
+ @param password the password to check
+ @return true iff password is a non-nil, non-empty string
  */
 - (BOOL) isValidPassword:(NSString *) password {
   BOOL result;
@@ -280,8 +275,10 @@ static NSString *LjsSecurityManagerNO = @"NO";
  
  the value of shouldUseKeychain is persisted the User Defaults
  
- @param username
- @passwor
+ @param username a non-nil non-empty string
+ @param password a non-nil non-empty string
+ @param shouldUseKeychain if YES, will persist username/password to keychain,
+ otherwise not
  */
 - (void) synchronizeKeychainAndDefaultsWithUsername:(NSString *) username
                                            password:(NSString *) password

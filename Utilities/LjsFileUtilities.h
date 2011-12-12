@@ -29,20 +29,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LjsFileUtilities : NSObject {
-    
-}
+@interface LjsFileUtilities : NSObject 
 
 + (NSString *) findDocumentDirectoryPath;
-
 + (BOOL) ensureSaveDirectory:(NSString *) path existsWithManager:(NSFileManager *) fileManager;
-
-+ (NSString *) parentDirectoryForDirectoryPath:(NSString *) childPath;
-
-
-
-+ (NSString *) lastDirectoryPathWithDefaultsKey:(NSString *) aDefaultsKey
-                              fallbackDirectory:(NSString *) aFallbackDirectory;
++ (NSString *) parentDirectoryForPath:(NSString *) childPath;
 
 #if !TARGET_OS_IPHONE
 + (NSString *) pathFromOpenPanelWithPrompt:(NSString *) aPrompt 
@@ -51,6 +42,9 @@
                          fallBackDirectory:(NSString *) fallbackDirectory
                           defaultsKeyOrNil:(NSString *) aDefaultsKeyOrNil;
 #endif
+
++ (NSString *) lastDirectoryPathWithDefaultsKey:(NSString *) aDefaultsKey
+                              fallbackDirectory:(NSString *) aFallbackDirectory;
 
 
 

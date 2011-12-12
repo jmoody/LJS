@@ -36,10 +36,20 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-
+/**
+ This class overrides one method fromt the superclass DDLogFileManagerDefault:
+ `createNewLogFile` and limits the number of log files to one (1).  
+ 
+ This is desirable to do in cases where you want to generate one log file per
+ application run and with a more meaningful name than the one that 
+ CocoaLumberjackLogging provides.
+ */
 @implementation LjsFileManager
 
-
+/** @name Initialization */
+/**
+ @return an initialized receiver with maximumNumberOfLogFiles = 1
+ */
 - (id) init {
 	self = [super init];
 	if (self != nil) {
@@ -48,9 +58,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 	return self;
 }
 
+/** @name Creating a New Log File */
+
 /**
  * Generates a new unique log file path, and creates the corresponding log file.
- **/
+ */
 - (NSString *)createNewLogFile {
 	NSString *logsDirectory = [self logsDirectory];
 	do {

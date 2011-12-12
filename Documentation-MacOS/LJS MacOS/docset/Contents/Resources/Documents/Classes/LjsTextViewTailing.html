@@ -1,0 +1,744 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>LjsTextViewTailing Class Reference</title>
+		<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" />
+		<meta name="generator" content="appledoc 2.0.5 (build 737)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">LjsTextViewTailing Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/logFileSearchTimer">&nbsp;&nbsp;&nbsp;&nbsp;logFileSearchTimer</option>
+	
+	<option value="//api/name/logView">&nbsp;&nbsp;&nbsp;&nbsp;logView</option>
+	
+	<option value="//api/name/logger">&nbsp;&nbsp;&nbsp;&nbsp;logger</option>
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/initWithTextView:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithTextView:</option>
+	
+	<option value="//api/name/startAndRetainRepeatingTimers">&nbsp;&nbsp;&nbsp;&nbsp;- startAndRetainRepeatingTimers</option>
+	
+	<option value="//api/name/stopAndReleaseRepeatingTimers">&nbsp;&nbsp;&nbsp;&nbsp;- stopAndReleaseRepeatingTimers</option>
+	
+	<option value="//api/name/waitForLogFileWithTimer:">&nbsp;&nbsp;&nbsp;&nbsp;- waitForLogFileWithTimer:</option>
+	
+	<option value="//api/name/watcher:receivedNotification:forPath:">&nbsp;&nbsp;&nbsp;&nbsp;- watcher:receivedNotification:forPath:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Properties">Properties</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Initialization">Initialization</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Handling Timer Events and File Watcher Notifications">Handling Timer Events and File Watcher Notifications</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_LjsRepeatingTimerProtocol">LjsRepeatingTimerProtocol</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logFileSearchTimer">logFileSearchTimer</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logView">logView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logger">logger</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithTextView:">initWithTextView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startAndRetainRepeatingTimers">startAndRetainRepeatingTimers</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stopAndReleaseRepeatingTimers">stopAndReleaseRepeatingTimers</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/waitForLogFileWithTimer:">waitForLogFileWithTimer:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/watcher:receivedNotification:forPath:">watcher:receivedNotification:forPath:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="LjsTextViewTailing Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">LjsTextViewTailing Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value"><a href="../Protocols/LjsRepeatingTimerProtocol.html">LjsRepeatingTimerProtocol</a></td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">LjsTextViewTailing.h<br />LjsTextViewTailing.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p><a href="LjsTextViewTailing.html">LjsTextViewTailing</a> provides an interface into Uli Kusterer&rsquo;s UKKQueue</p>
+
+<p>The class contains an NSTextView configured to listen to a log file.</p>
+
+<p>UKKQueue license:</p>
+
+<p>&copy; 2003-06 by M. Uli Kusterer. You may redistribute, modify, use in
+commercial products free of charge, however distributing modified copies
+requires that you clearly mark them as having been modified by you, while
+maintaining the original markings and copyrights. I don&rsquo;t like getting bug
+reports about code I wasn&rsquo;t involved in.</p>
+
+<p>I&rsquo;d also appreciate if you gave credit in your app&rsquo;s about screen or a similar
+place. A simple &ldquo;Thanks to M. Uli Kusterer&rdquo; is quite sufficient.
+Also, I rarely turn down any postcards, gifts, complementary copies of
+applications etc.</p>
+
+<p>Thank you Uli.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="Properties" name="task_Properties"></a>
+						<h3 class="subsubtitle task-title">Properties</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logView">&nbsp;&nbsp;logView</a></code>
+		<span class="tooltip"><p>the log view</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logger">&nbsp;&nbsp;logger</a></code>
+		<span class="tooltip"><p>the <a href="#//api/name/logger">logger</a></p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logFileSearchTimer">&nbsp;&nbsp;logFileSearchTimer</a></code>
+		<span class="tooltip"><p>the file search timer &ndash; watches for the log file and stops once the file is
+acquired</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Initialization" name="task_Initialization"></a>
+						<h3 class="subsubtitle task-title">Initialization</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithTextView:">&ndash;&nbsp;initWithTextView:</a></code>
+		<span class="tooltip"><p>an initialized receiver</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Handling Timer Events and File Watcher Notifications" name="task_Handling Timer Events and File Watcher Notifications"></a>
+						<h3 class="subsubtitle task-title">Handling Timer Events and File Watcher Notifications</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/waitForLogFileWithTimer:">&ndash;&nbsp;waitForLogFileWithTimer:</a></code>
+		<span class="tooltip"><p>handles wait for log file timer event &ndash; once the log file is acquired, the
+timer is stopped.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/watcher:receivedNotification:forPath:">&ndash;&nbsp;watcher:receivedNotification:forPath:</a></code>
+		<span class="tooltip"><p>handles the UKKQueue File Watcher notifications</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="LjsRepeatingTimerProtocol" name="task_LjsRepeatingTimerProtocol"></a>
+						<h3 class="subsubtitle task-title">LjsRepeatingTimerProtocol</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stopAndReleaseRepeatingTimers">&ndash;&nbsp;stopAndReleaseRepeatingTimers</a></code>
+		<span class="tooltip"><p>implements the <a href="../Protocols/LjsRepeatingTimerProtocol.html">LjsRepeatingTimerProtocol</a></p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/startAndRetainRepeatingTimers">&ndash;&nbsp;startAndRetainRepeatingTimers</a></code>
+		<span class="tooltip"><p>implements the <a href="../Protocols/LjsRepeatingTimerProtocol.html">LjsRepeatingTimerProtocol</a></p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/logFileSearchTimer" title="logFileSearchTimer"></a>
+	<h3 class="subsubtitle method-title">logFileSearchTimer</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>the file search timer &ndash; watches for the log file and stops once the file is
+acquired</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSTimer *logFileSearchTimer</code></div>
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>the file search timer &ndash; watches for the log file and stops once the file is
+acquired</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsTextViewTailing.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logView" title="logView"></a>
+	<h3 class="subsubtitle method-title">logView</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>the log view</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSTextView *logView</code></div>
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>the log view</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsTextViewTailing.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logger" title="logger"></a>
+	<h3 class="subsubtitle method-title">logger</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>the <a href="#//api/name/logger">logger</a></p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) DDFileLogger *logger</code></div>
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>the <a href="#//api/name/logger">logger</a></p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsTextViewTailing.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithTextView:" title="initWithTextView:"></a>
+	<h3 class="subsubtitle method-title">initWithTextView:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>an initialized receiver</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (id)initWithTextView:(NSTextView *)<em>aLogView</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aLogView</em></dt>
+			<dd><p>retained by the receiver</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>an initialized receiver</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsTextViewTailing.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/startAndRetainRepeatingTimers" title="startAndRetainRepeatingTimers"></a>
+	<h3 class="subsubtitle method-title">startAndRetainRepeatingTimers</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>implements the <a href="../Protocols/LjsRepeatingTimerProtocol.html">LjsRepeatingTimerProtocol</a></p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)startAndRetainRepeatingTimers</code></div>
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>implements the <a href="../Protocols/LjsRepeatingTimerProtocol.html">LjsRepeatingTimerProtocol</a></p>
+
+<p>stops the timer if non-nil
+starts the timer and retains it</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsTextViewTailing.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stopAndReleaseRepeatingTimers" title="stopAndReleaseRepeatingTimers"></a>
+	<h3 class="subsubtitle method-title">stopAndReleaseRepeatingTimers</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>implements the <a href="../Protocols/LjsRepeatingTimerProtocol.html">LjsRepeatingTimerProtocol</a></p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)stopAndReleaseRepeatingTimers</code></div>
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>implements the <a href="../Protocols/LjsRepeatingTimerProtocol.html">LjsRepeatingTimerProtocol</a></p>
+
+<p>stops the timer, invalidates it, and releases it</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsTextViewTailing.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/waitForLogFileWithTimer:" title="waitForLogFileWithTimer:"></a>
+	<h3 class="subsubtitle method-title">waitForLogFileWithTimer:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>handles wait for log file timer event &ndash; once the log file is acquired, the
+timer is stopped.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)waitForLogFileWithTimer:(NSTimer *)<em>aTimer</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aTimer</em></dt>
+			<dd><p>the timer</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>handles wait for log file timer event &ndash; once the log file is acquired, the
+timer is stopped.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsTextViewTailing.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/watcher:receivedNotification:forPath:" title="watcher:receivedNotification:forPath:"></a>
+	<h3 class="subsubtitle method-title">watcher:receivedNotification:forPath:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>handles the UKKQueue File Watcher notifications</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)watcher:(id&lt;UKFileWatcher&gt;)<em>kq</em> receivedNotification:(NSString *)<em>nm</em> forPath:(NSString *)<em>fpath</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>kq</em></dt>
+			<dd><p>the file watcher</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>nm</em></dt>
+			<dd><p>the notification received</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fpath</em></dt>
+			<dd><p>the file path</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>handles the UKKQueue File Watcher notifications</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsTextViewTailing.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2011 LJS MacOS. All rights reserved. (Last updated: 2011-12-12)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 737)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+		</script>
+	</body>
+</html>
