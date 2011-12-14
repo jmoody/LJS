@@ -73,7 +73,19 @@ AD_BUILD_DIRECTORY="$AD_DOC_DIRECTORY/$AD_PROJECT_NAME"
 # http://discussions.apple.com/thread.jspa?threadID=2125894
 # http://discussions.apple.com/thread.jspa?threadID=2330135
 # set this number yourself in the project plist
-AD_VERSION_NUMBER=`/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$INFOPLIST_FILE"`
+AD_PROJECT_INFO_PLIST_FILE="$SOURCE_ROOT/Tests-iOS/Tests-iOS-Info.plist"
+
+AD_VERSION_NUMBER=`/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$AD_PROJECT_INFO_PLIST_FILE"`
+AD_BUILD_VERSION=`/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$AD_PROJECT_INFO_PLIST_FILE"`
+
+AD_PROJECT_VERSION="$AD_VERSION_NUMBER $AD_BUILD_VERSION"
+
+echo source root = "$SOURCE_ROOT"
+echo doc directory = "$AD_DOC_DIRECTORY"
+echo build directory = "$AD_BUILD_DIRECTORY"
+echo project info plist = "$AD_PROJECT_INFO_PLIST_FILE"
+echo project verison = "$AD_PROJECT_VERSION"
+
 
 # range = (1, 3) - 1 is usually enough
 AD_LOG_FORMAT=1
