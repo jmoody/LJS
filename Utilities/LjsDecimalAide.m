@@ -80,6 +80,16 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [NSDecimalNumber decimalNumberWithString:aString];
 }
 
+
+/**
+ @return true iff a = b
+ @param a left hand side
+ @param b right hand side
+ */
++ (BOOL) dn:(NSDecimalNumber *) a e:(NSDecimalNumber *) b {
+  return [a compare:b] == NSOrderedSame;
+}
+
 /**
  @return true iff a < b
  @param a left hand side

@@ -117,6 +117,23 @@
   // Run after each test method
 }  
 
+
+- (void) test_dne {
+  NSDecimalNumber *a;
+  NSDecimalNumber *b;
+  BOOL actual;
+  
+  a = zero;
+  b = zero;
+  actual = [LjsDecimalAide dn:a e:b];
+  GHAssertTrue(actual, nil);
+
+  a = zero;
+  b = one;
+  actual = [LjsDecimalAide dn:a e:b];
+  GHAssertFalse(actual, nil);
+
+}
 - (void) test_dnLt {
 
   NSDecimalNumber *a;
