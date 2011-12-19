@@ -77,6 +77,8 @@
 		F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F56147B81450C72A00D2653A /* libOCMock.a */; };
 		F56147BB1450C86700D2653A /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F56147BA1450C86700D2653A /* OCMockWorkingTest.m */; };
 		F56147BD1450CCC700D2653A /* LjsSecurityManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F56147BC1450CCC700D2653A /* LjsSecurityManagerTests.m */; };
+		F5724970149F9AD6006C62A2 /* LjsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F572496F149F9AD6006C62A2 /* LjsButton.m */; };
+		F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5724971149F9C00006C62A2 /* QuartzCore.framework */; };
 		F58013AB149E06F100692073 /* LjsLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F58013AA149E06F100692073 /* LjsLocationManager.m */; };
 		F58013AD149E080E00692073 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58013AC149E080E00692073 /* CoreLocation.framework */; };
 		F580719F146C33AC00EA4CFB /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F580719E146C33AC00EA4CFB /* LjsTestCase.m */; };
@@ -253,6 +255,9 @@
 		F56147B81450C72A00D2653A /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		F56147BA1450C86700D2653A /* OCMockWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockWorkingTest.m; sourceTree = "<group>"; };
 		F56147BC1450CCC700D2653A /* LjsSecurityManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsSecurityManagerTests.m; sourceTree = "<group>"; };
+		F572496E149F9AD6006C62A2 /* LjsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsButton.h; sourceTree = "<group>"; };
+		F572496F149F9AD6006C62A2 /* LjsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsButton.m; sourceTree = "<group>"; };
+		F5724971149F9C00006C62A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F58013A9149E06F100692073 /* LjsLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLocationManager.h; sourceTree = "<group>"; };
 		F58013AA149E06F100692073 /* LjsLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLocationManager.m; sourceTree = "<group>"; };
 		F58013AC149E080E00692073 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -312,6 +317,7 @@
 				F50FE7351410D3160051FC7E /* Security.framework in Frameworks */,
 				F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */,
 				F5B0E96C146197E800CA24F5 /* GHUnitIOS.framework in Frameworks */,
+				F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +358,7 @@
 		F50FE69E1410C6F60051FC7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5724971149F9C00006C62A2 /* QuartzCore.framework */,
 				F58013AC149E080E00692073 /* CoreLocation.framework */,
 				F54E3AA01450EB080059BF53 /* libxml2.dylib */,
 				F54E3A9E1450EB000059BF53 /* libz.dylib */,
@@ -685,6 +692,16 @@
 			path = OCMock;
 			sourceTree = "<group>";
 		};
+		F5724964149F9A1E006C62A2 /* Views-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				F572496E149F9AD6006C62A2 /* LjsButton.h */,
+				F572496F149F9AD6006C62A2 /* LjsButton.m */,
+			);
+			name = "Views-iOS";
+			path = "../Views-iOS";
+			sourceTree = "<group>";
+		};
 		F58013A8149E06F100692073 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -706,6 +723,7 @@
 		F5807168146C298100EA4CFB /* LJS */ = {
 			isa = PBXGroup;
 			children = (
+				F5724964149F9A1E006C62A2 /* Views-iOS */,
 				F58013A8149E06F100692073 /* Managers */,
 				F59635E5149665CC00CDB27E /* Controllers-iOS */,
 				F59635CE1496632000CDB27E /* Model */,
@@ -987,6 +1005,7 @@
 				F59635ED149665CC00CDB27E /* LjsTimePickerDelegate.m in Sources */,
 				F59635EE149665CC00CDB27E /* UIViewController+ParentOrPresenting.m in Sources */,
 				F58013AB149E06F100692073 /* LjsLocationManager.m in Sources */,
+				F5724970149F9AD6006C62A2 /* LjsButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

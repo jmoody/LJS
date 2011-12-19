@@ -1,11 +1,7 @@
 #import "LjsLocationManager.h"
 #import "LjsDecimalAide.h"
 #import "LjsValidator.h"
-
-#ifdef LOCATION_SERVICES_DEBUG
 #import "LjsVariates.h"
-#endif
-
 
 static const int ddLogLevel = LOG_LEVEL_WARN;
 
@@ -15,15 +11,24 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 //
 //#endif
 
-static CGFloat const LocationDelegateLocationNotFound = -999.0;
+static CGFloat const LjsLocationManagerLocationHeadingNotFound = -999.0;
+
+static CGFloat const LjsLocationManagerHeadingMin = 0.0;
+static CGFloat const LjsLocationManagerHeadingMax = 360.0;
+static CGFloat const LjsLocationManagerLongitudeMin = -180.0;
+static CGFloat const LjsLocationManagerLongitudeMax = 180.0;
+static CGFloat const LjsLocationManagerLatitudeMin = -90.0;
+static CGFloat const LjsLocationManagerLatitudeMax = 90.0;
+
 
 #ifdef LOCATION_SERVICES_DEBUG
 static NSString *LjsLocationManagerMercury = @"mercury";
 static NSString *LjsLocationManagerPluto = @"pluto";
+#endif
 
 static NSString *LjsLocationManagerZurichLongitude = @"42.22";
 static NSString *LjsLocationManagerZurichLatitude = @"8.32";
-#endif
+
 
 static LjsLocationManager *singleton = nil;
 
@@ -38,9 +43,8 @@ static LjsLocationManager *singleton = nil;
 
 #ifdef LOCATION_SERVICES_DEBUG
 @synthesize debugDevices;
-@synthesize debugLastHeading;
 #endif
-
+@synthesize debugLastHeading;
 
 #pragma mark Memory Management
 
@@ -54,8 +58,8 @@ static LjsLocationManager *singleton = nil;
   self.coreHeading = nil;
 #ifdef LOCATION_SERVICES_DEBUG
   self.debugDevices = nil;
-  self.debugLastHeading = nil;
 #endif
+  self.debugLastHeading = nil;
   [super dealloc];
 }
 
@@ -111,16 +115,16 @@ static LjsLocationManager *singleton = nil;
     self.handler = [LjsDecimalAide locationHandlerWithRoundMode:NSRoundPlain
                                                           scale:5];
     
-    self.noLocation = [LjsDecimalAide dnWithDouble:LocationDelegateLocationNotFound];
+    self.noLocation = [LjsDecimalAide dnWithDouble:LjsLocationManagerLocationHeadingNotFound];
     
     self.noHeading = self.noLocation;
     
 #ifdef LOCATION_SERVICES_DEBUG
     self.debugDevices = [NSArray arrayWithObjects:LjsLocationManagerMercury,
                          LjsLocationManagerPluto, nil];
+#endif
     double random = [LjsVariates randomDoubleWithMin:0.0 max:360.0];
     self.debugLastHeading = [LjsDecimalAide dnWithDouble:random];
-#endif
   }
   return self;
 }
@@ -159,6 +163,7 @@ static LjsLocationManager *singleton = nil;
   }
 #endif
 
+
   return result;
 }
 
@@ -178,16 +183,37 @@ static LjsLocationManager *singleton = nil;
   return serviceAvailable;
 }
 
-- (BOOL) isUnknownLatitude:(NSDecimalNumber *) aLatitude {
-  return [LjsDecimalAide dn:self.noLocation e:aLatitude];
+
++ (BOOL) isValidHeading:(NSDecimalNumber *) aHeading {
+  if (aHeading == nil) {
+    return NO;
+  } else {
+    NSDecimalNumber *min = [LjsDecimalAide dnWithDouble:LjsLocationManagerHeadingMin];
+    NSDecimalNumber *max = [LjsDecimalAide dnWithDouble:LjsLocationManagerHeadingMax];
+    return [LjsDecimalAide dn:aHeading isOnMin:min max:max];
+  }
 }
 
-- (BOOL) isUnknownLongitude:(NSDecimalNumber *) aLongitude {
-  return [LjsDecimalAide dn:self.noLocation e:aLongitude];
+
++ (BOOL) isValidLatitude:(NSDecimalNumber *) aLatitude {
+  if (aLatitude == nil) {
+    return NO;
+  } else {
+    NSDecimalNumber *min = [LjsDecimalAide dnWithDouble:LjsLocationManagerLatitudeMin];
+    NSDecimalNumber *max = [LjsDecimalAide dnWithDouble:LjsLocationManagerLatitudeMax];
+    return [LjsDecimalAide dn:aLatitude isOnMin:min max:max];
+  }
 }
 
-- (BOOL) isUnknownHeading:(NSDecimalNumber *) aHeading {
-  return [LjsDecimalAide dn:self.noHeading e:aHeading];
+
++ (BOOL) isValidLongitude:(NSDecimalNumber *) aLongitude {
+  if (aLongitude == nil) {
+    return NO;
+  } else {
+    NSDecimalNumber *min = [LjsDecimalAide dnWithDouble:LjsLocationManagerLongitudeMin];
+    NSDecimalNumber *max = [LjsDecimalAide dnWithDouble:LjsLocationManagerLongitudeMax];
+    return [LjsDecimalAide dn:aLongitude isOnMin:min max:max];
+  }
 }
 
 
@@ -204,7 +230,7 @@ static LjsLocationManager *singleton = nil;
   
   
 #ifdef LOCATION_SERVICES_DEBUG 
-  if ([self isUnknownLongitude:result]) {
+  if ([LjsDecimalAide dn:self.noLocation e:result]) {
     NSString *deviceName = [[UIDevice currentDevice] name];
     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
       DDLogNotice(@"location is not available for device: %@ - overriding", deviceName);
@@ -213,6 +239,13 @@ static LjsLocationManager *singleton = nil;
   }
 #endif
   
+#ifdef TARGET_IPHONE_SIMULATOR
+  if ([LjsDecimalAide dn:self.noLocation e:result]) {
+    DDLogNotice(@"location is not available on the simulator - overriding");
+    result = [LjsDecimalAide dnWithString:LjsLocationManagerZurichLongitude];
+  }
+#endif
+
   return result;
 }
 
@@ -226,7 +259,7 @@ static LjsLocationManager *singleton = nil;
   }
   
 #ifdef LOCATION_SERVICES_DEBUG 
-  if ([self isUnknownLatitude:result]) {
+  if ([LjsDecimalAide dn:self.noLocation e:result]) {
     NSString *deviceName = [[UIDevice currentDevice] name];
     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
       DDLogNotice(@"location is not available for device: %@ - overriding", deviceName);
@@ -235,6 +268,14 @@ static LjsLocationManager *singleton = nil;
   }
 #endif
   
+  
+#ifdef TARGET_IPHONE_SIMULATOR
+  if ([LjsDecimalAide dn:self.noLocation e:result]) {
+    DDLogNotice(@"location is not available on the simulator - overriding");
+    result = [LjsDecimalAide dnWithString:LjsLocationManagerZurichLatitude];
+  }
+#endif
+
   return result;
 }
 
@@ -246,17 +287,38 @@ static LjsLocationManager *singleton = nil;
     NSDecimalNumber *trueHeading = [LjsDecimalAide dnWithDouble:self.coreHeading.trueHeading];
     result = [trueHeading decimalNumberByRoundingAccordingToBehavior:self.handler];
   }
+
 #ifdef LOCATION_SERVICES_DEBUG 
-  if ([self isUnknownHeading:result]) {
+  if ([LjsDecimalAide dn:self.noHeading e:result]) {
     NSString *deviceName = [[UIDevice currentDevice] name];
     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
       DDLogNotice(@"heading is not available for device: %@ - overriding", deviceName);
       double random = [LjsVariates randomDoubleWithMin:5.0 max:10.0];
       double current = [self.debugLastHeading doubleValue];
       double new = current + random;
+      
+      if (new > LjsLocationManagerHeadingMax) {
+        new = LjsLocationManagerHeadingMax;
+      }
+      
       self.debugLastHeading = [LjsDecimalAide dnWithDouble:new];
       result = self.debugLastHeading;
     } 
+  }
+#endif
+
+#ifdef TARGET_IPHONE_SIMULATOR
+  if ([LjsDecimalAide dn:self.noHeading e:result]) {
+    DDLogNotice(@"heading is not available for simulator - overriding");
+    double random = [LjsVariates randomDoubleWithMin:5.0 max:10.0];
+    double current = [self.debugLastHeading doubleValue];
+    double new = current + random;
+    if (new > LjsLocationManagerHeadingMax) {
+      new = LjsLocationManagerHeadingMax;
+    }
+      
+    self.debugLastHeading = [LjsDecimalAide dnWithDouble:new];
+    result = self.debugLastHeading;
   }
 #endif
   return result;

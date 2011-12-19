@@ -8,11 +8,17 @@
  latitude, longitude, and heading are returned with with 5 decimal places.
  
  For testing and development, the class provides special handling if
- LOCATION_SERVICES_DEBUG:
+ LOCATION_SERVICES_DEBUG Preprocessor Macro is defined or if the target is the
+ iphone simulator:
  
  1. class will return YES for `locationIsAvailable`
  2. class will return Zurich, CH longitude for `longitude` if long cannont be found
  3. class will return Zurich, CH latitude for `latitude` if lat cannot be found
+ 4. class will return a random heading on (0.0, 360.0) for the initial call
+    and for every subsequent call, the heading will vary between 5 and 10 degrees
+    to simulate the a change in heading.
+ 5. class will return YES for `headingIsAvailable`
+ 
  
  @warning Have not tested/used this class on MacOS.
  
@@ -54,19 +60,19 @@
  */
 @property (nonatomic, retain) NSDecimalNumber *noHeading;
 
-#ifdef LOCATION_SERVICES_DEBUG
+#ifdef LOCATION_SERVICES_DEBUG 
 /**
  available iff LOCATION_SERVICES_DEBUG Preprocessor Macro is defined
  */
 @property (nonatomic, retain) NSArray *debugDevices;
+#endif
 
 /**
- available iff LOCATION_SERVICES_DEBUG Preprocessor Macro is defined - used to
- simulate the heading changing
+ used simulate the heading changing in environments where there is no heading
+ available
  */
 @property (nonatomic, retain) NSDecimalNumber *debugLastHeading;
 
-#endif
 
 #pragma mark Singleton
 /** @name Obtaining the Instance */
@@ -87,32 +93,27 @@
 - (BOOL) locationIsAvailable;
 
 /**
- @return true iff aLatitude is unknown
- @param aLatitude the latitude to check
- @warning It is better to use `locationIsAvailable`
- */
-- (BOOL) isUnknownLatitude:(NSDecimalNumber *) aLatitude;
-
-/**
- @return true iff aLatitude is unknown
- @param aLongitude the latitude to check
- @warning It is better to use `locationIsAvailable`
- */
-- (BOOL) isUnknownLongitude:(NSDecimalNumber *) aLongitude;
-
-/**
- @return true iff aHeading is unknown
+ @return true iff aHeading is on (0.0, 360.0)
  @param aHeading the heading to check
- @warning It is better to use `headingAvailable`
  */
-- (BOOL) isUnknownHeading:(NSDecimalNumber *) aHeading;
++ (BOOL) isValidHeading:(NSDecimalNumber *) aHeading;
 
+/**
+ @return true if aLatitude is on (-90.0, 90.0)
+ @param aLatitude the latitude to check
+ */
++ (BOOL) isValidLatitude:(NSDecimalNumber *) aLatitude;
+
+/**
+ @return true if aLongitude is on (-180.0, 180.0)
+ @param aLongitude the longitude to check  
+ */
++ (BOOL) isValidLongitude:(NSDecimalNumber *) aLongitude;
 
 /**
  @return true iff heading is available
  */
 - (BOOL) headingIsAvailable;
-
 
 /** @name Finding Longitude, Latitude, and Heading */
 
