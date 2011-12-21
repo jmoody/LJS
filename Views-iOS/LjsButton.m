@@ -57,7 +57,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return self;
 }
 
-- (void)awakeFromNib; {
+- (void)awakeFromNib {
   // Initialize the gradient layer
   CAGradientLayer *aGradientLayer = [[CAGradientLayer alloc] init];
   self.gradientLayer = aGradientLayer;
@@ -78,7 +78,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   // Turn on masking
   [[self layer] setMasksToBounds:YES];
   // Display a border around the button 
-  // with a 1.0 pixel width
   [[self layer] setBorderWidth:0.0];
 
   self.showsTouchWhenHighlighted = YES;

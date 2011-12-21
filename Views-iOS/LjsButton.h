@@ -40,4 +40,7 @@
 @property (nonatomic, retain) UIColor *_lowColor;
 @property (nonatomic, retain) CAGradientLayer *gradientLayer;
 
+- (void) setHighColor:(UIColor *) aColor;
+- (void) setLowColor:(UIColor * ) aColor;
+
 @end
