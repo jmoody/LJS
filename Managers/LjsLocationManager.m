@@ -311,9 +311,15 @@ static LjsLocationManager *singleton = nil;
   if ([LjsDecimalAide dn:self.noHeading e:result]) {
     DDLogNotice(@"heading is not available for simulator - overriding");
     double random = [LjsVariates randomDoubleWithMin:5.0 max:10.0];
+    NSUInteger signedness = [LjsVariates randomIntegerWithMin:0 max:1];
+    if (signedness == 0) {
+      random = random * -1.0;
+    }
     double current = [self.debugLastHeading doubleValue];
     double new = current + random;
     if (new > LjsLocationManagerHeadingMax) {
+      new = LjsLocationManagerHeadingMin;
+    } else if (new < LjsLocationManagerHeadingMin) {
       new = LjsLocationManagerHeadingMax;
     }
       
