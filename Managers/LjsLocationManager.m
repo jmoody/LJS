@@ -21,7 +21,7 @@ static CGFloat const LjsLocationManagerLatitudeMin = -90.0;
 static CGFloat const LjsLocationManagerLatitudeMax = 90.0;
 
 
-#ifdef LOCATION_SERVICES_DEBUG
+#ifdef LJS_LOCATION_SERVICES_DEBUG
 static NSString *LjsLocationManagerMercury = @"mercury";
 static NSString *LjsLocationManagerPluto = @"pluto";
 #endif
@@ -41,7 +41,7 @@ static LjsLocationManager *singleton = nil;
 @synthesize noHeading;
 @synthesize coreHeading;
 
-#ifdef LOCATION_SERVICES_DEBUG
+#ifdef LJS_LOCATION_SERVICES_DEBUG
 @synthesize debugDevices;
 #endif
 @synthesize debugLastHeading;
@@ -56,7 +56,7 @@ static LjsLocationManager *singleton = nil;
   self.noLocation = nil;
   self.noHeading = nil;
   self.coreHeading = nil;
-#ifdef LOCATION_SERVICES_DEBUG
+#ifdef LJS_LOCATION_SERVICES_DEBUG
   self.debugDevices = nil;
 #endif
   self.debugLastHeading = nil;
@@ -119,7 +119,7 @@ static LjsLocationManager *singleton = nil;
     
     self.noHeading = self.noLocation;
     
-#ifdef LOCATION_SERVICES_DEBUG
+#ifdef LJS_LOCATION_SERVICES_DEBUG
     self.debugDevices = [NSArray arrayWithObjects:LjsLocationManagerMercury,
                          LjsLocationManagerPluto, nil];
 #endif
@@ -152,12 +152,12 @@ static LjsLocationManager *singleton = nil;
 
   BOOL result = locationServiceEnabled && locationServicesEnabledForThisApp && locationExists;
 
-#ifdef LOCATION_SERVICES_DEBUG
+#ifdef LJS_LOCATION_SERVICES_DEBUG
   if (result == NO) {
     NSString *deviceName = [[UIDevice currentDevice] name];
     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
       
-      DDLogNotice(@"we are using a debug device: %@ and LOCATION_SERVICES_DEBUG is on so return true.", deviceName);
+      DDLogNotice(@"we are using a debug device: %@ and LJS_LOCATION_SERVICES_DEBUG is on so return true.", deviceName);
       result = YES;
     }
   }
@@ -171,11 +171,11 @@ static LjsLocationManager *singleton = nil;
 - (BOOL) headingIsAvailable {
   BOOL serviceAvailable = [CLLocationManager headingAvailable];
   
-#ifdef LOCATION_SERVICES_DEBUG
+#ifdef LJS_LOCATION_SERVICES_DEBUG
   if (serviceAvailable == NO) {
     NSString *deviceName = [[UIDevice currentDevice] name];
     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
-      DDLogNotice(@"we are using a debug device: %@ and LOCATION_SERVICES_DEBUG is on so return true.", deviceName);
+      DDLogNotice(@"we are using a debug device: %@ and LJS_LOCATION_SERVICES_DEBUG is on so return true.", deviceName);
       serviceAvailable = YES;
     }
   }
@@ -229,7 +229,7 @@ static LjsLocationManager *singleton = nil;
   }
   
   
-#ifdef LOCATION_SERVICES_DEBUG 
+#ifdef LJS_LOCATION_SERVICES_DEBUG 
   if ([LjsDecimalAide dn:self.noLocation e:result]) {
     NSString *deviceName = [[UIDevice currentDevice] name];
     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
@@ -239,7 +239,7 @@ static LjsLocationManager *singleton = nil;
   }
 #endif
   
-#ifdef TARGET_IPHONE_SIMULATOR
+#ifdef LJS_LOCATION_SERVICES_SIMULATOR_DEBUG
   if ([LjsDecimalAide dn:self.noLocation e:result]) {
     DDLogNotice(@"location is not available on the simulator - overriding");
     result = [LjsDecimalAide dnWithString:LjsLocationManagerZurichLongitude];
@@ -258,7 +258,7 @@ static LjsLocationManager *singleton = nil;
     result = [result decimalNumberByRoundingAccordingToBehavior:self.handler];
   }
   
-#ifdef LOCATION_SERVICES_DEBUG 
+#ifdef LJS_LOCATION_SERVICES_DEBUG 
   if ([LjsDecimalAide dn:self.noLocation e:result]) {
     NSString *deviceName = [[UIDevice currentDevice] name];
     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
@@ -269,7 +269,7 @@ static LjsLocationManager *singleton = nil;
 #endif
   
   
-#ifdef TARGET_IPHONE_SIMULATOR
+#ifdef LJS_LOCATION_SERVICES_SIMULATOR_DEBUG
   if ([LjsDecimalAide dn:self.noLocation e:result]) {
     DDLogNotice(@"location is not available on the simulator - overriding");
     result = [LjsDecimalAide dnWithString:LjsLocationManagerZurichLatitude];
@@ -288,7 +288,7 @@ static LjsLocationManager *singleton = nil;
     result = [trueHeading decimalNumberByRoundingAccordingToBehavior:self.handler];
   }
 
-#ifdef LOCATION_SERVICES_DEBUG 
+#ifdef LJS_LOCATION_SERVICES_DEBUG 
   if ([LjsDecimalAide dn:self.noHeading e:result]) {
     NSString *deviceName = [[UIDevice currentDevice] name];
     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
@@ -307,7 +307,7 @@ static LjsLocationManager *singleton = nil;
   }
 #endif
 
-#ifdef TARGET_IPHONE_SIMULATOR
+#ifdef LJS_LOCATION_SERVICES_SIMULATOR_DEBUG
   if ([LjsDecimalAide dn:self.noHeading e:result]) {
     DDLogNotice(@"heading is not available for simulator - overriding");
     double random = [LjsVariates randomDoubleWithMin:5.0 max:10.0];

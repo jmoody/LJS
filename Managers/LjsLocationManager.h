@@ -8,7 +8,7 @@
  latitude, longitude, and heading are returned with with 5 decimal places.
  
  For testing and development, the class provides special handling if
- LOCATION_SERVICES_DEBUG Preprocessor Macro is defined or if the target is the
+ LJS_LOCATION_SERVICES_DEBUG Preprocessor Macro is defined or if the target is the
  iphone simulator:
  
  1. class will return YES for `locationIsAvailable`
@@ -60,9 +60,9 @@
  */
 @property (nonatomic, retain) NSDecimalNumber *noHeading;
 
-#ifdef LOCATION_SERVICES_DEBUG 
+#ifdef LJS_LOCATION_SERVICES_DEBUG 
 /**
- available iff LOCATION_SERVICES_DEBUG Preprocessor Macro is defined
+ available iff LJS_LOCATION_SERVICES_DEBUG Preprocessor Macro is defined
  */
 @property (nonatomic, retain) NSArray *debugDevices;
 #endif
@@ -87,7 +87,7 @@
 
 /**
  @return true iff location is available
- @warning if LOCATION_SERVICES_DEBUG Preprocess Macro is defined, this 
+ @warning if LJS_LOCATION_SERVICES_DEBUG Preprocess Macro is defined, this 
  method will always return YES
  */
 - (BOOL) locationIsAvailable;
@@ -119,7 +119,7 @@
 
 /**
  @return the current longitude as a rounded NSDecimalNumber
- @warning if LOCATION_SERVICES_DEBUG Preprocess Macro is defined and no valid
+ @warning if LJS_LOCATION_SERVICES_DEBUG Preprocess Macro is defined and no valid
  location can be found then this method will return the longitude for 
  Zurich, CH
  */
@@ -127,7 +127,7 @@
 
 /**
  @return the current latitude as a rounded NSDecimalNumber
- @warning if LOCATION_SERVICES_DEBUG Preprocess Macro is defined and no valid
+ @warning if LJS_LOCATION_SERVICES_DEBUG Preprocess Macro is defined and no valid
  location can be found then this method will return the latitude for 
  Zurich, CH
  */
@@ -136,7 +136,7 @@
 
 /**
  @return the current latitude as a rounded NSDecimalNumber
- @warning if LOCATION_SERVICES_DEBUG Preprocess Macro is defined and no valid
+ @warning if LJS_LOCATION_SERVICES_DEBUG Preprocess Macro is defined and no valid
  heading can be found then this method will return
  
  */
