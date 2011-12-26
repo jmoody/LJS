@@ -38,12 +38,9 @@
 #import "LjsKeychainManager.h"
 #import "SFHFKeychainUtils.h"
 
-
-static NSString *LjsSecurityManagerTestsUsernameDefaultsKey = @"com.littlejoysoftware.ljs LjsSecurityManagerTests UserName Defaults Key TEST";
-
-static NSString *LjsSecurityManagerTestsUseKeychainDefaultsKey = @"com.littlejoysoftware.ljs LjsSecurityManagerTests Use Keychain Defaults Key TEST";
-
-static NSString *LjsSecurityManagerTestsKeychainServiceName = @"com.littlejoysoftware.ljs LjsSecurityManagerTests.AgChoice TEST";
+static NSString *LjsSecurityManagerUsernameDefaultsKey = @"com.littlejoysoftware.ljs LJS Security Manager  UserName Defaults Key TEST KEY";
+static NSString *LjsSecurityManagerUseKeychainDefaultsKey = @"com.littlejoysoftware.ljs LJS Security Manager  Use Keychain Defaults TEST KEY";
+static NSString *LjsSecurityManagerKeychainServiceName = @"com.littlejoysoftware.ljs LJS Security Manager TEST SERVICE";
 
 static NSString *LjsSecurityManagerTestsUsername = @"testuser";
 
@@ -88,14 +85,14 @@ static NSString *LjsSecurityManagerTestsPassword = @"testpass";
 
 - (void) tearDown {
   // Run after each test method
-  [SFHFKeychainUtils deleteItemForUsername:LjsSecurityManagerTestsUsername andServiceName:LjsSecurityManagerTestsKeychainServiceName error:nil];
+  [SFHFKeychainUtils deleteItemForUsername:LjsSecurityManagerTestsUsername andServiceName:LjsSecurityManagerKeychainServiceName error:nil];
   NSUserDefaults *current = [NSUserDefaults standardUserDefaults];
-  if ([current objectForKey:LjsSecurityManagerTestsUsernameDefaultsKey] != nil) {
-    [current setNilValueForKey:LjsSecurityManagerTestsUsernameDefaultsKey];
+  if ([current objectForKey:LjsSecurityManagerUsernameDefaultsKey] != nil) {
+    [current setNilValueForKey:LjsSecurityManagerUsernameDefaultsKey];
   }
   
-  if ([current objectForKey:LjsSecurityManagerTestsUseKeychainDefaultsKey] != nil) {
-    [current setNilValueForKey:LjsSecurityManagerTestsUseKeychainDefaultsKey];
+  if ([current objectForKey:LjsSecurityManagerUseKeychainDefaultsKey] != nil) {
+    [current setNilValueForKey:LjsSecurityManagerUseKeychainDefaultsKey];
   }
 }  
 
@@ -124,7 +121,7 @@ static NSString *LjsSecurityManagerTestsPassword = @"testpass";
   //NSString *expected;
   NSString *actual;
 
-  actual = [manager usernameStoredInDefaults];
+  actual = [manager usernameStoredInDefaultsForKey:LjsSecurityManagerUsernameDefaultsKey];
   
   GHAssertNil(actual, nil);
   
