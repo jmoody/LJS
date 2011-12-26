@@ -43,7 +43,7 @@ typedef enum {
                                          serviceName:(NSString *) serviceName
                                                error:(NSError **) error;
 
-- (BOOL) keyChainDeletePasswordForUsername:(NSString *) username 
+- (BOOL) keychainDeletePasswordForUsername:(NSString *) username 
                                serviceName:(NSString *) serviceName
                                      error:(NSError **) error;
 - (BOOL) keychainStoreUsername:(NSString *) username 
@@ -64,7 +64,7 @@ typedef enum {
 
 
 /** @name Utility */
-- (NSError *) ljsKeyChainManagerErrorWithCode:(NSUInteger) code
+- (NSError *) ljsKeychainManagerErrorWithCode:(NSUInteger) code
                                      userInfo:(NSDictionary *) userInfo;
 - (void) logKeychainError:(NSError *) error;
 
