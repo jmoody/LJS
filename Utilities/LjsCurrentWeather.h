@@ -28,33 +28,50 @@
 
 
 #import <Foundation/Foundation.h>
+#import "ASIHTTPResponseUtils.h"
+#import "ASIHTTPRequest.h"
+
+extern NSInteger const LjsCurrentWeatherNotFoundInteger;
+extern CGFloat const LjsCurrentWeatherNotFoundFloat;
+
+extern NSString *LjsCurrentWeatherRequestDidFinishNotification;
+
+@interface LjsCurrentWeather : NSObject 
+
+@property (nonatomic, retain) NSDecimalNumber *latitude;
+@property (nonatomic, retain) NSDecimalNumber *longitude;
+@property (nonatomic, retain) ASIHTTPResponseUtils *responseUtils;
+@property (nonatomic, retain) NSDictionary *currentConditions;
+@property (nonatomic, retain) NSURL *requestURL;
+
+- (id) initWithLatitude:(NSDecimalNumber *) aLatitude
+              longitude:(NSDecimalNumber *) aLongitude;
+
+- (BOOL) startRequest;
+- (void) handleWeatherRequestDidFail:(ASIHTTPRequest *) aRequest;
+- (void) handleWeatherRequestDidFinish:(ASIHTTPRequest *) aRequest;
+- (void) postRequestDidFinishNotification;
+
+- (BOOL) weatherAvailable;
+- (NSInteger) cloudCover;
+- (NSInteger) humidity;
+- (NSString *) observationTime;
+- (CGFloat) precipitationMM;
+- (NSInteger) pressure;
+- (NSInteger) temperatureC;
+- (NSInteger) temperatureF;
+- (NSInteger) visibility;
+- (NSInteger) weatherCode;
+- (NSString *) weatherDescription;
+- (NSURL *) weatherIconURL;
+- (NSString *) windDirection16Point;
+- (NSInteger) windDirectionDegree;
+- (NSInteger) windSpeedKmph;
+- (NSInteger) windSpeedMph;
+- (NSString *) briefDescription;
 
 
-@interface LjsDecimalAide : NSObject
 
-/** @name NSDecimalNumber creation */
-+ (NSDecimalNumber *) dnWithInteger:(NSUInteger) aInteger;
-+ (NSDecimalNumber *) dnWithDouble:(double) aDouble;
-+ (NSDecimalNumber *) dnWithString:(NSString *) aString;
 
-/** @name NSDecimalNumber comparison */
-+ (BOOL) dn:(NSDecimalNumber *) a e:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a lt:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a gt:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a lte:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a gte:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a 
-    isOnMin:(NSDecimalNumber *) min
-        max:(NSDecimalNumber *) max;
-
-/** @name NSDecimalNumber rounding */
-+ (NSDecimalNumber *) round:(NSDecimalNumber *) number 
-                withHandler:(NSDecimalNumberHandler *) handler;
-
-/** @name common NSDecimalNumberHandler */
-+ (NSDecimalNumberHandler *) statisticsHandlerWithRoundMode:(NSRoundingMode) aMode
-                                                      scale:(NSUInteger) aInteger;
-+ (NSDecimalNumberHandler *) locationHandlerWithRoundMode:(NSRoundingMode) aMode
-                                                    scale:(NSUInteger) aInteger;
 
 @end

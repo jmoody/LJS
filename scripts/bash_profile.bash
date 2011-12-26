@@ -22,6 +22,8 @@ export MANPATH=/opt/local/share/man:$MANPATH
 
 export RUBYMINE_HOME="/Applications/RubyMine 3.2.4.app/"
 
+export CLASSPATH=~/lib/quaqua:$CLASSPATH
+
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi

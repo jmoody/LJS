@@ -1,4 +1,4 @@
-// Copyright 2011 The Little Joy Software Company. All rights reserved.
+// Copyright 2011 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,35 +26,21 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
+/*
+ Cribbed from http://www.cimgf.com/2010/01/28/fun-with-uibuttons-and-core-animation-layers/
+ 
+ Many thanks.
+ */
 #import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
 
+@interface LjsButton : UIButton
 
-@interface LjsDecimalAide : NSObject
+@property (nonatomic, retain) UIColor *_highColor;
+@property (nonatomic, retain) UIColor *_lowColor;
+@property (nonatomic, retain) CAGradientLayer *gradientLayer;
 
-/** @name NSDecimalNumber creation */
-+ (NSDecimalNumber *) dnWithInteger:(NSUInteger) aInteger;
-+ (NSDecimalNumber *) dnWithDouble:(double) aDouble;
-+ (NSDecimalNumber *) dnWithString:(NSString *) aString;
-
-/** @name NSDecimalNumber comparison */
-+ (BOOL) dn:(NSDecimalNumber *) a e:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a lt:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a gt:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a lte:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a gte:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a 
-    isOnMin:(NSDecimalNumber *) min
-        max:(NSDecimalNumber *) max;
-
-/** @name NSDecimalNumber rounding */
-+ (NSDecimalNumber *) round:(NSDecimalNumber *) number 
-                withHandler:(NSDecimalNumberHandler *) handler;
-
-/** @name common NSDecimalNumberHandler */
-+ (NSDecimalNumberHandler *) statisticsHandlerWithRoundMode:(NSRoundingMode) aMode
-                                                      scale:(NSUInteger) aInteger;
-+ (NSDecimalNumberHandler *) locationHandlerWithRoundMode:(NSRoundingMode) aMode
-                                                    scale:(NSUInteger) aInteger;
+- (void) setHighColor:(UIColor *) aColor;
+- (void) setLowColor:(UIColor * ) aColor;
 
 @end

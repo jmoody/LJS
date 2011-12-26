@@ -26,35 +26,21 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+#import "LjsLocaleUtils.h"
+#import "Lumberjack.h"
 
-#import <Foundation/Foundation.h>
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
 
+@implementation LjsLocaleUtils
 
-@interface LjsDecimalAide : NSObject
++ (BOOL) currentLocaleUsesMetricSystem {
+  NSLocale *current = [NSLocale currentLocale];
+  return [[current objectForKey:NSLocaleUsesMetricSystem] boolValue];
+}
 
-/** @name NSDecimalNumber creation */
-+ (NSDecimalNumber *) dnWithInteger:(NSUInteger) aInteger;
-+ (NSDecimalNumber *) dnWithDouble:(double) aDouble;
-+ (NSDecimalNumber *) dnWithString:(NSString *) aString;
-
-/** @name NSDecimalNumber comparison */
-+ (BOOL) dn:(NSDecimalNumber *) a e:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a lt:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a gt:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a lte:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a gte:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a 
-    isOnMin:(NSDecimalNumber *) min
-        max:(NSDecimalNumber *) max;
-
-/** @name NSDecimalNumber rounding */
-+ (NSDecimalNumber *) round:(NSDecimalNumber *) number 
-                withHandler:(NSDecimalNumberHandler *) handler;
-
-/** @name common NSDecimalNumberHandler */
-+ (NSDecimalNumberHandler *) statisticsHandlerWithRoundMode:(NSRoundingMode) aMode
-                                                      scale:(NSUInteger) aInteger;
-+ (NSDecimalNumberHandler *) locationHandlerWithRoundMode:(NSRoundingMode) aMode
-                                                    scale:(NSUInteger) aInteger;
 
 @end

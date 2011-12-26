@@ -28,33 +28,40 @@
 
 
 #import <Foundation/Foundation.h>
+#import "LjsServiceObserver.h"
+#import "Reachability.h"
+#import "ASIHTTPRequest.h"
 
+extern NSString *LjsReachabilityObserverTimedOutNotification;
+extern NSString *LjsReachabilityObserverStatusChangedNotification;
+extern NSString *LjsReachabilityObserverStatusUserInfoKey;
 
-@interface LjsDecimalAide : NSObject
+typedef enum {
+  LjsConnectivityStatusInternetAndHost = 0,
+  LjsConnectivityStatusInternetAndNoHost,
+  LjsConnectivityStatusNoInternet,
+} LjsConnectivityStatus;
 
-/** @name NSDecimalNumber creation */
-+ (NSDecimalNumber *) dnWithInteger:(NSUInteger) aInteger;
-+ (NSDecimalNumber *) dnWithDouble:(double) aDouble;
-+ (NSDecimalNumber *) dnWithString:(NSString *) aString;
+@interface LjsReachabilityObserver : LjsServiceObserver
 
-/** @name NSDecimalNumber comparison */
-+ (BOOL) dn:(NSDecimalNumber *) a e:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a lt:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a gt:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a lte:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a gte:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a 
-    isOnMin:(NSDecimalNumber *) min
-        max:(NSDecimalNumber *) max;
+@property (nonatomic, retain) Reachability *internetReachability;
+@property (nonatomic, retain) Reachability *hostReachability;
+@property (nonatomic, retain) ASIHTTPRequest *reachabilityRequest;
+@property (nonatomic, copy) NSString *hostName;
+@property (nonatomic, retain) NSURL *reachabilityUrl;
+@property (nonatomic, assign) LjsConnectivityStatus connectivityStatus;
 
-/** @name NSDecimalNumber rounding */
-+ (NSDecimalNumber *) round:(NSDecimalNumber *) number 
-                withHandler:(NSDecimalNumberHandler *) handler;
+- (id) initWithTimerFrequency:(NSTimeInterval)aTimerFrequency
+                     hostName:(NSString *) aHostName;
 
-/** @name common NSDecimalNumberHandler */
-+ (NSDecimalNumberHandler *) statisticsHandlerWithRoundMode:(NSRoundingMode) aMode
-                                                      scale:(NSUInteger) aInteger;
-+ (NSDecimalNumberHandler *) locationHandlerWithRoundMode:(NSRoundingMode) aMode
-                                                    scale:(NSUInteger) aInteger;
+- (id) initWithTimerFrequency:(NSTimeInterval) aTimerFrequency
+                timesToRepeat:(NSUInteger) aTimesToRepeat
+                     hostName:(NSString *) aHostName;
+
+- (void) configure;
+
+- (void) handleHostReachabilityRequest:(ASIHTTPRequest *) aRequest;
+- (void) handleReachabilityStatusChanged:(NSNotification *) aNotification;
+- (NSDictionary *) userInfoWithConnectivityStatus:(LjsConnectivityStatus) aStatus;
 
 @end

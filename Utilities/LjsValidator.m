@@ -59,6 +59,42 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [value respondsToSelector:@selector(componentsSeparatedByString:)];
 }
 
++ (BOOL) array:(NSArray *) aArray hasCount:(NSUInteger) aCount {
+  return [aArray count] == aCount;
+}
+
++ (BOOL) array:(NSArray *) aArray containsString:(NSString *) aString {
+  return [aArray containsObject:aString];
+}
+
++ (BOOL) array:(NSArray *) aArray containsStrings:(NSSet *) aSetOfStrings {
+  return [LjsValidator array:aArray containsStrings:aSetOfStrings allowsOthers:YES];
+}
+
++ (BOOL) array:(NSArray *) aArray containsStrings:(NSSet *) aSetOfStrings
+  allowsOthers:(BOOL) aAllowsOthers {
+  
+  if (aArray == nil || aSetOfStrings == nil) {
+    return NO;
+  }
+  
+  for (NSString *lhs in aSetOfStrings) {
+    if ([LjsValidator array:aArray containsString:lhs] == NO) {
+      return NO;
+    } 
+  }
+  
+  if (aAllowsOthers == NO) {
+    NSSet *nodups = [NSSet setWithArray:aArray];
+    if ([nodups count] != [aSetOfStrings count]) {
+      return NO;
+    }
+  }
+  
+  return YES;
+}
+
+
 + (BOOL) dictionary:(NSDictionary *) dictionary containsKey:(NSString *) key {
   return [dictionary objectForKey:key] != nil;
 }
