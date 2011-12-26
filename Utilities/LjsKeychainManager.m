@@ -82,14 +82,18 @@ static NSString *LjsSecurityManagerNO = @"NO";
  @return if there is no entry, will return nil
  */
 - (NSString *) usernameStoredInDefaults {
+  return [self usernameStoredInDefaultsForKey:LjsSecurityManagerUseKeychainDefaultsKey];
+}
+
+- (NSString *) usernameStoredInDefaultsForKey:(NSString *) key {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  NSString *username = [defaults stringForKey:LjsSecurityManagerUsernameDefaultsKey];
+  NSString *username = [defaults stringForKey:key];
   
   NSString *result = nil;
   if ([self isValidUsername:username]) {
     result = username;
   }
-  return result;
+  return result;  
 }
 
 

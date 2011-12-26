@@ -13,6 +13,7 @@
 
 /** @name Managing Username in Defaults */
 - (NSString *) usernameStoredInDefaults;
+- (NSString *) usernameStoredInDefaultsForKey:(NSString *) key;
 - (void) deleteUsernameInDefaults;
 - (void) setDefaultsUsername:(NSString *) username;
 

@@ -4,6 +4,8 @@
 # my idea
 scratch/*
 
+private/*
+
 ## Mac OS X
 # bug in Xcode 4.2 prevents snapshots
 .DS_Store 
