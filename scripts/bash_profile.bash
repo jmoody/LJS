@@ -11,7 +11,6 @@ export VISUAL=less
 export EDITOR=emacs
 export GIT_EDITOR=emacs
 
-
 # Cli Colors
 export CLICOLOR=1
 # use yellow for dir’s
