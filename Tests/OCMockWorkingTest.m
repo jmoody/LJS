@@ -36,11 +36,11 @@
 
 #import "LjsTestCase.h"
 
-#ifdef LOG_CONFIGURATION_DEBUG
-static const int ddLogLevel = LOG_LEVEL_DEBUG;
-#else
-static const int ddLogLevel = LOG_LEVEL_WARN;
-#endif
+//#ifdef LOG_CONFIGURATION_DEBUG
+//static const int ddLogLevel = LOG_LEVEL_DEBUG;
+//#else
+//static const int ddLogLevel = LOG_LEVEL_WARN;
+//#endif
 
 @interface OCMockWorkingTest : LjsTestCase {}
 @end
