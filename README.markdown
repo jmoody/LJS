@@ -8,15 +8,15 @@ TO CLONE
 This repository contains submodules. 
 To clone:
 
- 1. % git clone --recursive git@github.com:jmoody/LJS.git
- 2. % cd LJS
- 3. % git submodule update --recursive --init
- 4. % cd CocoaLumberjack
- 5. % git checkout master
- 6. % cd ../asi-http-request
- 7. % git checkout master
- 8. % cd ../json-framework
- 9. % git checkout master
+1. % git clone --recursive git@github.com:jmoody/LJS.git
+2. % cd LJS
+3. % git submodule update --recursive --init
+4. % cd CocoaLumberjack
+5. % git checkout master
+6. % cd ../asi-http-request
+7. % git checkout master
+8. % cd ../json-framework
+9. % git checkout master
 10. % cd ../gh-unit
 11. % git checkout master
 12. % cd ../appledoc
