@@ -38,33 +38,37 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/deleteShouldUseKeyChainInDefaults">&nbsp;&nbsp;&nbsp;&nbsp;- deleteShouldUseKeyChainInDefaults</option>
+	<option value="//api/name/deleteShouldUseKeyChainInDefaults:error:">&nbsp;&nbsp;&nbsp;&nbsp;- deleteShouldUseKeyChainInDefaults:error:</option>
 	
-	<option value="//api/name/deleteUsernameInDefaults">&nbsp;&nbsp;&nbsp;&nbsp;- deleteUsernameInDefaults</option>
+	<option value="//api/name/deleteUsernameInDefaultsForKey:error:">&nbsp;&nbsp;&nbsp;&nbsp;- deleteUsernameInDefaultsForKey:error:</option>
 	
-	<option value="//api/name/hasKeychainPasswordForUsername:">&nbsp;&nbsp;&nbsp;&nbsp;- hasKeychainPasswordForUsername:</option>
+	<option value="//api/name/hasKeychainPasswordForUsername:serviceName:error:">&nbsp;&nbsp;&nbsp;&nbsp;- hasKeychainPasswordForUsername:serviceName:error:</option>
+	
+	<option value="//api/name/isValidKey:">&nbsp;&nbsp;&nbsp;&nbsp;- isValidKey:</option>
 	
 	<option value="//api/name/isValidPassword:">&nbsp;&nbsp;&nbsp;&nbsp;- isValidPassword:</option>
 	
 	<option value="//api/name/isValidUsername:">&nbsp;&nbsp;&nbsp;&nbsp;- isValidUsername:</option>
 	
-	<option value="//api/name/keyChainDeletePasswordForUsername:">&nbsp;&nbsp;&nbsp;&nbsp;- keyChainDeletePasswordForUsername:</option>
+	<option value="//api/name/keychainDeletePasswordForUsername:serviceName:error:">&nbsp;&nbsp;&nbsp;&nbsp;- keychainDeletePasswordForUsername:serviceName:error:</option>
 	
-	<option value="//api/name/keyChainPasswordForUsernameInDefaults">&nbsp;&nbsp;&nbsp;&nbsp;- keyChainPasswordForUsernameInDefaults</option>
+	<option value="//api/name/keychainPasswordForUsernameInDefaults:serviceName:error:">&nbsp;&nbsp;&nbsp;&nbsp;- keychainPasswordForUsernameInDefaults:serviceName:error:</option>
 	
-	<option value="//api/name/keychainStoreUsername:password:">&nbsp;&nbsp;&nbsp;&nbsp;- keychainStoreUsername:password:</option>
+	<option value="//api/name/keychainStoreUsername:serviceName:password:error:">&nbsp;&nbsp;&nbsp;&nbsp;- keychainStoreUsername:serviceName:password:error:</option>
+	
+	<option value="//api/name/ljsKeychainManagerErrorWithCode:userInfo:">&nbsp;&nbsp;&nbsp;&nbsp;- ljsKeychainManagerErrorWithCode:userInfo:</option>
 	
 	<option value="//api/name/logKeychainError:">&nbsp;&nbsp;&nbsp;&nbsp;- logKeychainError:</option>
 	
-	<option value="//api/name/setDefaultsShouldUseKeyChain:">&nbsp;&nbsp;&nbsp;&nbsp;- setDefaultsShouldUseKeyChain:</option>
+	<option value="//api/name/setDefaultsShouldUseKeyChain:key:error:">&nbsp;&nbsp;&nbsp;&nbsp;- setDefaultsShouldUseKeyChain:key:error:</option>
 	
-	<option value="//api/name/setDefaultsUsername:">&nbsp;&nbsp;&nbsp;&nbsp;- setDefaultsUsername:</option>
+	<option value="//api/name/setDefaultsUsername:forKey:error:">&nbsp;&nbsp;&nbsp;&nbsp;- setDefaultsUsername:forKey:error:</option>
 	
-	<option value="//api/name/shouldUseKeyChain">&nbsp;&nbsp;&nbsp;&nbsp;- shouldUseKeyChain</option>
+	<option value="//api/name/shouldUseKeyChainWithKey:error:">&nbsp;&nbsp;&nbsp;&nbsp;- shouldUseKeyChainWithKey:error:</option>
 	
-	<option value="//api/name/synchronizeKeychainAndDefaultsWithUsername:password:shouldUseKeyChain:">&nbsp;&nbsp;&nbsp;&nbsp;- synchronizeKeychainAndDefaultsWithUsername:password:shouldUseKeyChain:</option>
+	<option value="//api/name/synchronizeKeychainAndDefaultsWithUsername:usernameDefaultsKey:password:shouldUseKeychainDefaultsKey:shouldUseKeyChain:serviceName:error:">&nbsp;&nbsp;&nbsp;&nbsp;- synchronizeKeychainAndDefaultsWithUsername:usernameDefaultsKey:password:shouldUseKeychainDefaultsKey:shouldUseKeyChain:serviceName:error:</option>
 	
-	<option value="//api/name/usernameStoredInDefaults">&nbsp;&nbsp;&nbsp;&nbsp;- usernameStoredInDefaults</option>
+	<option value="//api/name/usernameStoredInDefaultsForKey:">&nbsp;&nbsp;&nbsp;&nbsp;- usernameStoredInDefaultsForKey:</option>
 	
 	
 	
@@ -92,6 +96,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Synchronizing with Defaults">Synchronizing with Defaults</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Utility">Utility</a></span></li>
+	
 </ul></li>
 
 
@@ -104,33 +110,37 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deleteShouldUseKeyChainInDefaults">deleteShouldUseKeyChainInDefaults</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deleteShouldUseKeyChainInDefaults:error:">deleteShouldUseKeyChainInDefaults:error:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deleteUsernameInDefaults">deleteUsernameInDefaults</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deleteUsernameInDefaultsForKey:error:">deleteUsernameInDefaultsForKey:error:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasKeychainPasswordForUsername:">hasKeychainPasswordForUsername:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasKeychainPasswordForUsername:serviceName:error:">hasKeychainPasswordForUsername:serviceName:error:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isValidKey:">isValidKey:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isValidPassword:">isValidPassword:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isValidUsername:">isValidUsername:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/keyChainDeletePasswordForUsername:">keyChainDeletePasswordForUsername:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/keychainDeletePasswordForUsername:serviceName:error:">keychainDeletePasswordForUsername:serviceName:error:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/keyChainPasswordForUsernameInDefaults">keyChainPasswordForUsernameInDefaults</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/keychainPasswordForUsernameInDefaults:serviceName:error:">keychainPasswordForUsernameInDefaults:serviceName:error:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/keychainStoreUsername:password:">keychainStoreUsername:password:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/keychainStoreUsername:serviceName:password:error:">keychainStoreUsername:serviceName:password:error:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/ljsKeychainManagerErrorWithCode:userInfo:">ljsKeychainManagerErrorWithCode:userInfo:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logKeychainError:">logKeychainError:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setDefaultsShouldUseKeyChain:">setDefaultsShouldUseKeyChain:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setDefaultsShouldUseKeyChain:key:error:">setDefaultsShouldUseKeyChain:key:error:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setDefaultsUsername:">setDefaultsUsername:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setDefaultsUsername:forKey:error:">setDefaultsUsername:forKey:error:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/shouldUseKeyChain">shouldUseKeyChain</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/shouldUseKeyChainWithKey:error:">shouldUseKeyChainWithKey:error:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/synchronizeKeychainAndDefaultsWithUsername:password:shouldUseKeyChain:">synchronizeKeychainAndDefaultsWithUsername:password:shouldUseKeyChain:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/synchronizeKeychainAndDefaultsWithUsername:usernameDefaultsKey:password:shouldUseKeychainDefaultsKey:shouldUseKeyChain:serviceName:error:">synchronizeKeychainAndDefaultsWithUsername:usernameDefaultsKey:password:shouldUseKeychainDefaultsKey:shouldUseKeyChain:serviceName:error:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/usernameStoredInDefaults">usernameStoredInDefaults</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/usernameStoredInDefaultsForKey:">usernameStoredInDefaultsForKey:</a></span></li>
 	
 </ul></li>
 
@@ -169,8 +179,12 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p><a href="LjsKeychainManager.html">LjsKeychainManager</a> provides methods to bridge the Keychain Access API and the
-User Defaults API.</p>
+						<p>It is a common design pattern to have a username stored in defaults and a
+password optionally (user controlled) stored in the Keychain.
+<a href="LjsKeychainManager.html">LjsKeychainManager</a> provides methods to bridge the Keychain Access API (using
+the SFHFKeychainUtils) and the User Defaults API.</p>
+
+<p>@warn Class could use more testing.</p>
 					</div>
 					
 					
@@ -200,6 +214,13 @@ User Defaults API.</p>
 	</span>
 	
 	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/isValidKey:">&ndash;&nbsp;isValidKey:</a></code>
+		<span class="tooltip"><p>true iff key is non-nil and non empty</p></span>
+	</span>
+	
+	
 </li>
 						</ul>
 						
@@ -210,14 +231,14 @@ User Defaults API.</p>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/usernameStoredInDefaults">&ndash;&nbsp;usernameStoredInDefaults</a></code>
+		<code><a href="#//api/name/usernameStoredInDefaultsForKey:">&ndash;&nbsp;usernameStoredInDefaultsForKey:</a></code>
 		<span class="tooltip"><p>queries the NSUserDefaults standardUserDefaults with the AgChoiceUsernameDefaultsKey</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/deleteUsernameInDefaults">&ndash;&nbsp;deleteUsernameInDefaults</a></code>
+		<code><a href="#//api/name/deleteUsernameInDefaultsForKey:error:">&ndash;&nbsp;deleteUsernameInDefaultsForKey:error:</a></code>
 		<span class="tooltip"><p>deletes the value (if any) for the key AgChoiceUsernameDefaultsKey from the
 NSUserDefaults standardUserDefaults</p></span>
 	</span>
@@ -225,7 +246,7 @@ NSUserDefaults standardUserDefaults</p></span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/setDefaultsUsername:">&ndash;&nbsp;setDefaultsUsername:</a></code>
+		<code><a href="#//api/name/setDefaultsUsername:forKey:error:">&ndash;&nbsp;setDefaultsUsername:forKey:error:</a></code>
 		<span class="tooltip"><p>sets the value for key AgChoiceUsernameDefaultsKey in the NSUserDefaults
 standardUserDefaults</p></span>
 	</span>
@@ -241,25 +262,22 @@ standardUserDefaults</p></span>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/shouldUseKeyChain">&ndash;&nbsp;shouldUseKeyChain</a></code>
-		<span class="tooltip"><p>looks up the value of AgChoiceUseKeychainDefaultsKey in NSUserDefaults
-standardUserDefaults</p></span>
+		<code><a href="#//api/name/shouldUseKeyChainWithKey:error:">&ndash;&nbsp;shouldUseKeyChainWithKey:error:</a></code>
+		<span class="tooltip"><p>the BOOL value of the item stored in defaults under key</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/deleteShouldUseKeyChainInDefaults">&ndash;&nbsp;deleteShouldUseKeyChainInDefaults</a></code>
-		<span class="tooltip"><p>removes the value of key AgChoiceUseKeychainDefaultsKey from NSUserDefaults
-standardUserDefaults</p></span>
+		<code><a href="#//api/name/deleteShouldUseKeyChainInDefaults:error:">&ndash;&nbsp;deleteShouldUseKeyChainInDefaults:error:</a></code>
+		<span class="tooltip"><p>true iff the delete was successful</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/setDefaultsShouldUseKeyChain:">&ndash;&nbsp;setDefaultsShouldUseKeyChain:</a></code>
-		<span class="tooltip"><p>sets the value of key AgChoiceUserKeycahinDefaultsKey in NSUserDefaults
-standardUserDefaults</p></span>
+		<code><a href="#//api/name/setDefaultsShouldUseKeyChain:key:error:">&ndash;&nbsp;setDefaultsShouldUseKeyChain:key:error:</a></code>
+		<span class="tooltip"><p>sets defaults value to shouldUse for key</p></span>
 	</span>
 	
 	
@@ -273,35 +291,28 @@ standardUserDefaults</p></span>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/logKeychainError:">&ndash;&nbsp;logKeychainError:</a></code>
-		<span class="tooltip"><p>prints error information to the log stream(s)</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/hasKeychainPasswordForUsername:">&ndash;&nbsp;hasKeychainPasswordForUsername:</a></code>
+		<code><a href="#//api/name/hasKeychainPasswordForUsername:serviceName:error:">&ndash;&nbsp;hasKeychainPasswordForUsername:serviceName:error:</a></code>
 		<span class="tooltip"><p>queries the keychain to see if a password is stored for username</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/keyChainPasswordForUsernameInDefaults">&ndash;&nbsp;keyChainPasswordForUsernameInDefaults</a></code>
+		<code><a href="#//api/name/keychainPasswordForUsernameInDefaults:serviceName:error:">&ndash;&nbsp;keychainPasswordForUsernameInDefaults:serviceName:error:</a></code>
 		<span class="tooltip"><p>queries the keychain for the password stored for username</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/keyChainDeletePasswordForUsername:">&ndash;&nbsp;keyChainDeletePasswordForUsername:</a></code>
+		<code><a href="#//api/name/keychainDeletePasswordForUsername:serviceName:error:">&ndash;&nbsp;keychainDeletePasswordForUsername:serviceName:error:</a></code>
 		<span class="tooltip"><p>deletes the password for the keychain entry for the username</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/keychainStoreUsername:password:">&ndash;&nbsp;keychainStoreUsername:password:</a></code>
+		<code><a href="#//api/name/keychainStoreUsername:serviceName:password:error:">&ndash;&nbsp;keychainStoreUsername:serviceName:password:error:</a></code>
 		<span class="tooltip"><p>stores a username and password to the keychain</p></span>
 	</span>
 	
@@ -316,8 +327,30 @@ standardUserDefaults</p></span>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/synchronizeKeychainAndDefaultsWithUsername:password:shouldUseKeyChain:">&ndash;&nbsp;synchronizeKeychainAndDefaultsWithUsername:password:shouldUseKeyChain:</a></code>
+		<code><a href="#//api/name/synchronizeKeychainAndDefaultsWithUsername:usernameDefaultsKey:password:shouldUseKeychainDefaultsKey:shouldUseKeyChain:serviceName:error:">&ndash;&nbsp;synchronizeKeychainAndDefaultsWithUsername:usernameDefaultsKey:password:shouldUseKeychainDefaultsKey:shouldUseKeyChain:serviceName:error:</a></code>
 		<span class="tooltip"><p>synchronizes the Keychain and User Defaults</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Utility" name="task_Utility"></a>
+						<h3 class="subsubtitle task-title">Utility</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/ljsKeychainManagerErrorWithCode:userInfo:">&ndash;&nbsp;ljsKeychainManagerErrorWithCode:userInfo:</a></code>
+		<span class="tooltip"><p>an error using the LjsKeychainManagerErrorDomain and code</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logKeychainError:">&ndash;&nbsp;logKeychainError:</a></code>
+		<span class="tooltip"><p>prints error information to the log stream(s)</p></span>
 	</span>
 	
 	
@@ -339,28 +372,100 @@ standardUserDefaults</p></span>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/deleteShouldUseKeyChainInDefaults" title="deleteShouldUseKeyChainInDefaults"></a>
-	<h3 class="subsubtitle method-title">deleteShouldUseKeyChainInDefaults</h3>
+	<a name="//api/name/deleteShouldUseKeyChainInDefaults:error:" title="deleteShouldUseKeyChainInDefaults:error:"></a>
+	<h3 class="subsubtitle method-title">deleteShouldUseKeyChainInDefaults:error:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>removes the value of key AgChoiceUseKeychainDefaultsKey from NSUserDefaults
-standardUserDefaults</p>
+		<p>true iff the delete was successful</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)deleteShouldUseKeyChainInDefaults</code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)deleteShouldUseKeyChainInDefaults:(NSString *)<em>key</em> error:(NSError **)<em>error</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>the key to lookup (and delete) from defaults</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>catches bad key</p></dd>
+		</dl>
+		
+	</div>
 	
 	
 	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>true iff the delete was successful</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsKeychainManager.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/deleteUsernameInDefaultsForKey:error:" title="deleteUsernameInDefaultsForKey:error:"></a>
+	<h3 class="subsubtitle method-title">deleteUsernameInDefaultsForKey:error:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>deletes the value (if any) for the key AgChoiceUsernameDefaultsKey from the
+NSUserDefaults standardUserDefaults</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (BOOL)deleteUsernameInDefaultsForKey:(NSString *)<em>key</em> error:(NSError **)<em>error</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>the key under which to look for the username</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>catches invalid key errors</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>true iff the delete was successful</p>
+	</div>
 	
 	
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>removes the value of key AgChoiceUseKeychainDefaultsKey from NSUserDefaults
-standardUserDefaults</p>
+		<p>deletes the value (if any) for the key AgChoiceUsernameDefaultsKey from the
+NSUserDefaults standardUserDefaults</p>
 	</div>
 	
 	
@@ -378,47 +483,8 @@ standardUserDefaults</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/deleteUsernameInDefaults" title="deleteUsernameInDefaults"></a>
-	<h3 class="subsubtitle method-title">deleteUsernameInDefaults</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>deletes the value (if any) for the key AgChoiceUsernameDefaultsKey from the
-NSUserDefaults standardUserDefaults</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>- (void)deleteUsernameInDefaults</code></div>
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>deletes the value (if any) for the key AgChoiceUsernameDefaultsKey from the
-NSUserDefaults standardUserDefaults</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">LjsKeychainManager.m</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/hasKeychainPasswordForUsername:" title="hasKeychainPasswordForUsername:"></a>
-	<h3 class="subsubtitle method-title">hasKeychainPasswordForUsername:</h3>
+	<a name="//api/name/hasKeychainPasswordForUsername:serviceName:error:" title="hasKeychainPasswordForUsername:serviceName:error:"></a>
+	<h3 class="subsubtitle method-title">hasKeychainPasswordForUsername:serviceName:error:</h3>
 	
 	
 	
@@ -427,7 +493,7 @@ NSUserDefaults standardUserDefaults</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (BOOL)hasKeychainPasswordForUsername:(NSString *)<em>username</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)hasKeychainPasswordForUsername:(NSString *)<em>username</em> serviceName:(NSString *)<em>serviceName</em> error:(NSError **)<em>error</em></code></div>
 	
 	
 	<div class="method-subsection arguments-section parameters">
@@ -436,6 +502,16 @@ NSUserDefaults standardUserDefaults</p>
 		<dl class="argument-def parameter-def">
 			<dt><em>username</em></dt>
 			<dd><p>the name we want the password for</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>serviceName</em></dt>
+			<dd><p>the keychain service name</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>catches bad usernames</p></dd>
 		</dl>
 		
 	</div>
@@ -453,6 +529,53 @@ NSUserDefaults standardUserDefaults</p>
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>queries the keychain to see if a password is stored for username</p>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsKeychainManager.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/isValidKey:" title="isValidKey:"></a>
+	<h3 class="subsubtitle method-title">isValidKey:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>true iff key is non-nil and non empty</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (BOOL)isValidKey:(NSString *)<em>key</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>the key to test</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>true iff key is non-nil and non empty</p>
+	</div>
+	
+	
 	
 	
 	
@@ -579,8 +702,8 @@ nil or empty</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/keyChainDeletePasswordForUsername:" title="keyChainDeletePasswordForUsername:"></a>
-	<h3 class="subsubtitle method-title">keyChainDeletePasswordForUsername:</h3>
+	<a name="//api/name/keychainDeletePasswordForUsername:serviceName:error:" title="keychainDeletePasswordForUsername:serviceName:error:"></a>
+	<h3 class="subsubtitle method-title">keychainDeletePasswordForUsername:serviceName:error:</h3>
 	
 	
 	
@@ -589,7 +712,7 @@ nil or empty</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)keyChainDeletePasswordForUsername:(NSString *)<em>username</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)keychainDeletePasswordForUsername:(NSString *)<em>username</em> serviceName:(NSString *)<em>serviceName</em> error:(NSError **)<em>error</em></code></div>
 	
 	
 	<div class="method-subsection arguments-section parameters">
@@ -600,17 +723,30 @@ nil or empty</p>
 			<dd><p>the username for the password we would like to delete</p></dd>
 		</dl>
 		
+		<dl class="argument-def parameter-def">
+			<dt><em>serviceName</em></dt>
+			<dd><p>the service name for the password</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>catches Keychain Access error</p></dd>
+		</dl>
+		
 	</div>
 	
 	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>true iff password was deleted</p>
+	</div>
 	
 	
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>deletes the password for the keychain entry for the username</p>
-
-<p>if there is an error, it is logged</p>
 	</div>
 	
 	
@@ -628,8 +764,8 @@ nil or empty</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/keyChainPasswordForUsernameInDefaults" title="keyChainPasswordForUsernameInDefaults"></a>
-	<h3 class="subsubtitle method-title">keyChainPasswordForUsernameInDefaults</h3>
+	<a name="//api/name/keychainPasswordForUsernameInDefaults:serviceName:error:" title="keychainPasswordForUsernameInDefaults:serviceName:error:"></a>
+	<h3 class="subsubtitle method-title">keychainPasswordForUsernameInDefaults:serviceName:error:</h3>
 	
 	
 	
@@ -638,8 +774,28 @@ nil or empty</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (NSString *)keyChainPasswordForUsernameInDefaults</code></div>
+	<div class="method-subsection method-declaration"><code>- (NSString *)keychainPasswordForUsernameInDefaults:(NSString *)<em>key</em> serviceName:(NSString *)<em>serviceName</em> error:(NSError **)<em>error</em></code></div>
 	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>the key under the username is stored</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>serviceName</em></dt>
+			<dd><p>the keychain service name</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>catches bad key and Keychain Access error</p></dd>
+		</dl>
+		
+	</div>
 	
 	
 	
@@ -654,8 +810,6 @@ no password is found</p>
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>queries the keychain for the password stored for username</p>
-
-<p>if there is an error, it is logged</p>
 	</div>
 	
 	
@@ -673,8 +827,8 @@ no password is found</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/keychainStoreUsername:password:" title="keychainStoreUsername:password:"></a>
-	<h3 class="subsubtitle method-title">keychainStoreUsername:password:</h3>
+	<a name="//api/name/keychainStoreUsername:serviceName:password:error:" title="keychainStoreUsername:serviceName:password:error:"></a>
+	<h3 class="subsubtitle method-title">keychainStoreUsername:serviceName:password:error:</h3>
 	
 	
 	
@@ -683,7 +837,7 @@ no password is found</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)keychainStoreUsername:(NSString *)<em>username</em> password:(NSString *)<em>password</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)keychainStoreUsername:(NSString *)<em>username</em> serviceName:(NSString *)<em>serviceName</em> password:(NSString *)<em>password</em> error:(NSError **)<em>error</em></code></div>
 	
 	
 	<div class="method-subsection arguments-section parameters">
@@ -691,7 +845,12 @@ no password is found</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>username</em></dt>
-			<dd><p>the username to store</p></dd>
+			<dd><p>the username for the password we would like to store</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>serviceName</em></dt>
+			<dd><p>the service name for the password</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -699,20 +858,78 @@ no password is found</p>
 			<dd><p>the password to store for the username</p></dd>
 		</dl>
 		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>catches Keychain Access error</p></dd>
+		</dl>
+		
 	</div>
 	
 	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>true iff store was successful</p>
+	</div>
 	
 	
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>stores a username and password to the keychain</p>
-
-<p>if there is an error, it is logged</p>
-
-<p>existing values are overwritten</p>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsKeychainManager.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/ljsKeychainManagerErrorWithCode:userInfo:" title="ljsKeychainManagerErrorWithCode:userInfo:"></a>
+	<h3 class="subsubtitle method-title">ljsKeychainManagerErrorWithCode:userInfo:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>an error using the LjsKeychainManagerErrorDomain and code</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (NSError *)ljsKeychainManagerErrorWithCode:(NSUInteger)<em>code</em> userInfo:(NSDictionary *)<em>userInfo</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>code</em></dt>
+			<dd><p>the error code use</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>userInfo</em></dt>
+			<dd><p>the user info dictionary</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>an error using the LjsKeychainManagerErrorDomain and code</p>
+	</div>
+	
+	
 	
 	
 	
@@ -776,18 +993,17 @@ no password is found</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/setDefaultsShouldUseKeyChain:" title="setDefaultsShouldUseKeyChain:"></a>
-	<h3 class="subsubtitle method-title">setDefaultsShouldUseKeyChain:</h3>
+	<a name="//api/name/setDefaultsShouldUseKeyChain:key:error:" title="setDefaultsShouldUseKeyChain:key:error:"></a>
+	<h3 class="subsubtitle method-title">setDefaultsShouldUseKeyChain:key:error:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>sets the value of key AgChoiceUserKeycahinDefaultsKey in NSUserDefaults
-standardUserDefaults</p>
+		<p>sets defaults value to shouldUse for key</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)setDefaultsShouldUseKeyChain:(BOOL)<em>shouldUse</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)setDefaultsShouldUseKeyChain:(BOOL)<em>shouldUse</em> key:(NSString *)<em>key</em> error:(NSError **)<em>error</em></code></div>
 	
 	
 	<div class="method-subsection arguments-section parameters">
@@ -798,17 +1014,26 @@ standardUserDefaults</p>
 			<dd><p>the new value to store in the User Defaults</p></dd>
 		</dl>
 		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>the key under which to store the shouldUse value</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>catches bad key</p></dd>
+		</dl>
+		
 	</div>
 	
 	
 	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>sets the value of key AgChoiceUserKeycahinDefaultsKey in NSUserDefaults
-standardUserDefaults</p>
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>sets defaults value to shouldUse for key</p>
 	</div>
+	
+	
 	
 	
 	
@@ -825,8 +1050,8 @@ standardUserDefaults</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/setDefaultsUsername:" title="setDefaultsUsername:"></a>
-	<h3 class="subsubtitle method-title">setDefaultsUsername:</h3>
+	<a name="//api/name/setDefaultsUsername:forKey:error:" title="setDefaultsUsername:forKey:error:"></a>
+	<h3 class="subsubtitle method-title">setDefaultsUsername:forKey:error:</h3>
 	
 	
 	
@@ -836,7 +1061,7 @@ standardUserDefaults</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)setDefaultsUsername:(NSString *)<em>username</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)setDefaultsUsername:(NSString *)<em>username</em> forKey:(NSString *)<em>key</em> error:(NSError **)<em>error</em></code></div>
 	
 	
 	<div class="method-subsection arguments-section parameters">
@@ -847,9 +1072,24 @@ standardUserDefaults</p>
 			<dd><p>the new value for AgChoiceUsernamDefaultsKey</p></dd>
 		</dl>
 		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>the key to store the username under</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>catches bad key and bad username</p></dd>
+		</dl>
+		
 	</div>
 	
 	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>true iff the username was succesfully set</p>
+	</div>
 	
 	
 	
@@ -874,34 +1114,42 @@ standardUserDefaults</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/shouldUseKeyChain" title="shouldUseKeyChain"></a>
-	<h3 class="subsubtitle method-title">shouldUseKeyChain</h3>
+	<a name="//api/name/shouldUseKeyChainWithKey:error:" title="shouldUseKeyChainWithKey:error:"></a>
+	<h3 class="subsubtitle method-title">shouldUseKeyChainWithKey:error:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>looks up the value of AgChoiceUseKeychainDefaultsKey in NSUserDefaults
-standardUserDefaults</p>
+		<p>the BOOL value of the item stored in defaults under key</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (BOOL)shouldUseKeyChain</code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)shouldUseKeyChainWithKey:(NSString *)<em>key</em> error:(NSError **)<em>error</em></code></div>
 	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>the key under which the should use keychain value is stored</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>catches bad key</p></dd>
+		</dl>
+		
+	</div>
 	
 	
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>true iff value for key is AgChoiceYES</p>
+		<p>the BOOL value of the item stored in defaults under key</p>
 	</div>
 	
 	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>looks up the value of AgChoiceUseKeychainDefaultsKey in NSUserDefaults
-standardUserDefaults</p>
-	</div>
 	
 	
 	
@@ -918,8 +1166,8 @@ standardUserDefaults</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/synchronizeKeychainAndDefaultsWithUsername:password:shouldUseKeyChain:" title="synchronizeKeychainAndDefaultsWithUsername:password:shouldUseKeyChain:"></a>
-	<h3 class="subsubtitle method-title">synchronizeKeychainAndDefaultsWithUsername:password:shouldUseKeyChain:</h3>
+	<a name="//api/name/synchronizeKeychainAndDefaultsWithUsername:usernameDefaultsKey:password:shouldUseKeychainDefaultsKey:shouldUseKeyChain:serviceName:error:" title="synchronizeKeychainAndDefaultsWithUsername:usernameDefaultsKey:password:shouldUseKeychainDefaultsKey:shouldUseKeyChain:serviceName:error:"></a>
+	<h3 class="subsubtitle method-title">synchronizeKeychainAndDefaultsWithUsername:usernameDefaultsKey:password:shouldUseKeychainDefaultsKey:shouldUseKeyChain:serviceName:error:</h3>
 	
 	
 	
@@ -928,7 +1176,7 @@ standardUserDefaults</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)synchronizeKeychainAndDefaultsWithUsername:(NSString *)<em>username</em> password:(NSString *)<em>password</em> shouldUseKeyChain:(BOOL)<em>shouldUseKeychain</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)synchronizeKeychainAndDefaultsWithUsername:(NSString *)<em>username</em> usernameDefaultsKey:(NSString *)<em>usernameKey</em> password:(NSString *)<em>password</em> shouldUseKeychainDefaultsKey:(NSString *)<em>shouldUseKeychainKey</em> shouldUseKeyChain:(BOOL)<em>shouldUseKeychain</em> serviceName:(NSString *)<em>serviceName</em> error:(NSError **)<em>error</em></code></div>
 	
 	
 	<div class="method-subsection arguments-section parameters">
@@ -936,23 +1184,47 @@ standardUserDefaults</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>username</em></dt>
-			<dd><p>a non-nil non-empty string</p></dd>
+			<dd><p>the username to persist to defaults</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>usernameKey</em></dt>
+			<dd><p>the key under which to persist the username</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>password</em></dt>
-			<dd><p>a non-nil non-empty string</p></dd>
+			<dd><p>the password to store</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>shouldUseKeychainKey</em></dt>
+			<dd><p>the key under which shouldUseKeychain value is stored</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>shouldUseKeychain</em></dt>
-			<dd><p>if YES, will persist username/password to keychain,
-otherwise not</p></dd>
+			<dd><p>the value to store under shouldUseKeychainKey</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>serviceName</em></dt>
+			<dd><p>the service name for the password</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>catches Keychain Access error</p></dd>
 		</dl>
 		
 	</div>
 	
 	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>true iff synchronization is successful</p>
+	</div>
 	
 	
 	
@@ -967,6 +1239,9 @@ pair is stored to the keychain and the username is stored in the User Defaults</
 is deleted.  the username is still persisted to User Defaults.</p>
 
 <p>the value of shouldUseKeychain is persisted the User Defaults</p>
+
+<p>This method will fail fast, but it is possible that the defaults might be set
+and the keychain elements will not be updated</p>
 	</div>
 	
 	
@@ -984,8 +1259,8 @@ is deleted.  the username is still persisted to User Defaults.</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/usernameStoredInDefaults" title="usernameStoredInDefaults"></a>
-	<h3 class="subsubtitle method-title">usernameStoredInDefaults</h3>
+	<a name="//api/name/usernameStoredInDefaultsForKey:" title="usernameStoredInDefaultsForKey:"></a>
+	<h3 class="subsubtitle method-title">usernameStoredInDefaultsForKey:</h3>
 	
 	
 	
@@ -994,8 +1269,18 @@ is deleted.  the username is still persisted to User Defaults.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (NSString *)usernameStoredInDefaults</code></div>
+	<div class="method-subsection method-declaration"><code>- (NSString *)usernameStoredInDefaultsForKey:(NSString *)<em>key</em></code></div>
 	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>the defaults key</p></dd>
+		</dl>
+		
+	</div>
 	
 	
 	
@@ -1038,7 +1323,7 @@ is deleted.  the username is still persisted to User Defaults.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2011 Little Joy Software. All rights reserved. (Last updated: 2011-12-14)</span><br />
+						<p><span class="copyright">&copy; 2011 Little Joy Software. All rights reserved. (Last updated: 2011-12-27)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 737)</a>.</span></p>
 						

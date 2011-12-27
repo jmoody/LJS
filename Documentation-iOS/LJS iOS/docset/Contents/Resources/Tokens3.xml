@@ -64,6 +64,25 @@ algorithm.  And who can remember how to compare two NSDecimalNumbers?</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDecimalAide/dn:e:</TokenIdentifier>
+			<Abstract>true iff a = b</Abstract>
+			<DeclaredIn>LjsDecimalAide.h</DeclaredIn>			
+			
+			<Declaration>+ (BOOL)dn:(NSDecimalNumber *)a e:(NSDecimalNumber *)b</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>a</Name>
+					<Abstract>left hand side</Abstract>
+				</Parameter><Parameter>
+					<Name>b</Name>
+					<Abstract>right hand side</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>true iff a = b</Abstract></ReturnValue>
+			<Anchor>//api/name/dn:e:</Anchor>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/LjsDecimalAide/dn:lt:</TokenIdentifier>
 			<Abstract>true iff a  b</Abstract>
 			<DeclaredIn>LjsDecimalAide.h</DeclaredIn>			

@@ -11,13 +11,13 @@ have, say the App Delegate, start and stop timers when the user moves from
 one state to another.</Abstract>
 			<DeclaredIn>LjsRepeatingTimerProtocol.h</DeclaredIn>
 			
-			<NodeRef refid="21"/>
+			<NodeRef refid="19"/>
 		</Token>
 		
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/intfm/LjsRepeatingTimerProtocol/stopAndReleaseRepeatingTimers</TokenIdentifier>
-			<Abstract>Implementer should stop timers with invalidate and release the timers.</Abstract>
+			<Abstract></Abstract>
 			<DeclaredIn>LjsRepeatingTimerProtocol.h</DeclaredIn>			
 			
 			<Declaration>- (void)stopAndReleaseRepeatingTimers</Declaration>
@@ -28,8 +28,7 @@ one state to another.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/intfm/LjsRepeatingTimerProtocol/startAndRetainRepeatingTimers</TokenIdentifier>
-			<Abstract>Implementer should start timers and retain them and should ensure that if a
-timer is already running, that is is invalidated and released.</Abstract>
+			<Abstract></Abstract>
 			<DeclaredIn>LjsRepeatingTimerProtocol.h</DeclaredIn>			
 			
 			<Declaration>- (void)startAndRetainRepeatingTimers</Declaration>

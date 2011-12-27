@@ -15,6 +15,8 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
  password optionally (user controlled) stored in the Keychain.  
  LjsKeychainManager provides methods to bridge the Keychain Access API (using
  the SFHFKeychainUtils) and the User Defaults API.
+ 
+ @warn Class could use more testing.
  */
 @implementation LjsKeychainManager
 
@@ -91,6 +93,7 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
  deletes the value (if any) for the key AgChoiceUsernameDefaultsKey from the
  NSUserDefaults standardUserDefaults
  @return true iff the delete was successful
+ @param key the key under which to look for the username
  @param error catches invalid key errors
  */
 - (BOOL) deleteUsernameInDefaultsForKey:(NSString *)key error:(NSError **)error {
@@ -186,7 +189,7 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
  @return sets defaults value to shouldUse for key 
  @param shouldUse the new value to store in the User Defaults
  @param key the key under which to store the shouldUse value
- @param catches bad key
+ @param error catches bad key
  */
 - (BOOL) setDefaultsShouldUseKeyChain:(BOOL) shouldUse key:(NSString *) key error:(NSError **) error {
   if (![self isValidKey:key]) {
@@ -320,6 +323,7 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
  @return true iff synchronization is successful
  @param username the username to persist to defaults
  @param usernameKey the key under which to persist the username 
+ @param password the password to store
  @param shouldUseKeychainKey the key under which shouldUseKeychain value is stored
  @param shouldUseKeychain the value to store under shouldUseKeychainKey
  @param serviceName the service name for the password

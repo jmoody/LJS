@@ -1,109 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/LjsTextViewTailing.html">
+	<File path="Classes/LjsReachabilityObserver.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/LjsTextViewTailing</TokenIdentifier>
-			<Abstract>LjsTextViewTailing provides an interface into Uli Kusterer's UKKQueue</Abstract>
-			<DeclaredIn>LjsTextViewTailing.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsReachabilityObserver</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>LjsReachabilityObserver.h</DeclaredIn>
 			
 			<NodeRef refid="13"/>
 		</Token>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/LjsTextViewTailing/logView</TokenIdentifier>
-			<Abstract>the log view</Abstract>
-			<DeclaredIn>LjsTextViewTailing.h</DeclaredIn>			
-			
-			<Declaration>@property (nonatomic, retain) NSTextView *logView</Declaration>
-			
-			
-			<Anchor>//api/name/logView</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/LjsTextViewTailing/logger</TokenIdentifier>
-			<Abstract>the logger</Abstract>
-			<DeclaredIn>LjsTextViewTailing.h</DeclaredIn>			
-			
-			<Declaration>@property (nonatomic, retain) DDFileLogger *logger</Declaration>
-			
-			
-			<Anchor>//api/name/logger</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/LjsTextViewTailing/logFileSearchTimer</TokenIdentifier>
-			<Abstract>the file search timer - watches for the log file and stops once the file is
-acquired</Abstract>
-			<DeclaredIn>LjsTextViewTailing.h</DeclaredIn>			
-			
-			<Declaration>@property (nonatomic, retain) NSTimer *logFileSearchTimer</Declaration>
-			
-			
-			<Anchor>//api/name/logFileSearchTimer</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/LjsTextViewTailing/initWithTextView:</TokenIdentifier>
-			<Abstract>an initialized receiver</Abstract>
-			<DeclaredIn>LjsTextViewTailing.h</DeclaredIn>			
-			
-			<Declaration>- (id)initWithTextView:(NSTextView *)aLogView</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>aLogView</Name>
-					<Abstract>retained by the receiver</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>an initialized receiver</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithTextView:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/LjsTextViewTailing/waitForLogFileWithTimer:</TokenIdentifier>
-			<Abstract>handles wait for log file timer event - once the log file is acquired, the
-timer is stopped.</Abstract>
-			<DeclaredIn>LjsTextViewTailing.h</DeclaredIn>			
-			
-			<Declaration>- (void)waitForLogFileWithTimer:(NSTimer *)aTimer</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>aTimer</Name>
-					<Abstract>the timer</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/waitForLogFileWithTimer:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/LjsTextViewTailing/watcher:receivedNotification:forPath:</TokenIdentifier>
-			<Abstract>handles the UKKQueue File Watcher notifications</Abstract>
-			<DeclaredIn>LjsTextViewTailing.h</DeclaredIn>			
-			
-			<Declaration>- (void)watcher:(id&lt;UKFileWatcher&gt;)kq receivedNotification:(NSString *)nm forPath:(NSString *)fpath</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>kq</Name>
-					<Abstract>the file watcher</Abstract>
-				</Parameter><Parameter>
-					<Name>nm</Name>
-					<Abstract>the notification received</Abstract>
-				</Parameter><Parameter>
-					<Name>fpath</Name>
-					<Abstract>the file path</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/watcher:receivedNotification:forPath:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/LjsTextViewTailing/stopAndReleaseRepeatingTimers</TokenIdentifier>
-			<Abstract>implements the LjsRepeatingTimerProtocol</Abstract>
-			<DeclaredIn>LjsTextViewTailing.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/instm/LjsReachabilityObserver/stopAndReleaseRepeatingTimers</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>LjsReachabilityObserver.m</DeclaredIn>			
 			
 			<Declaration>- (void)stopAndReleaseRepeatingTimers</Declaration>
 			
@@ -112,9 +23,9 @@ timer is stopped.</Abstract>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/LjsTextViewTailing/startAndRetainRepeatingTimers</TokenIdentifier>
-			<Abstract>implements the LjsRepeatingTimerProtocol</Abstract>
-			<DeclaredIn>LjsTextViewTailing.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/instm/LjsReachabilityObserver/startAndRetainRepeatingTimers</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>LjsReachabilityObserver.m</DeclaredIn>			
 			
 			<Declaration>- (void)startAndRetainRepeatingTimers</Declaration>
 			
