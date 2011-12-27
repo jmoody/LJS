@@ -7,6 +7,7 @@ TO CLONE
 --------------------
 This repository contains submodules. 
 To clone:
+
  1. % git clone --recursive git@github.com:jmoody/LJS.git
  2. % cd LJS
  3. % git submodule update --recursive --init
