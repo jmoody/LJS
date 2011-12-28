@@ -43,5 +43,5 @@ echo "Copying templates to $TEMPLATES_DIR"
 cp -R Templates/ "$TEMPLATES_DIR"
 
 echo "Copying git short revision"
-rm "$BINARY_DIR/appledoc-verion-*"
+rm "$BINARY_DIR/appledoc-version-*"
 touch "$BINARY_DIR/appledoc-version-$getshortrevision"
