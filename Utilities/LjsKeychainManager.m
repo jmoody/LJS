@@ -10,6 +10,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keychain Manager Error";
 
+
+
+
+
 /**
  It is a common design pattern to have a username stored in defaults and a 
  password optionally (user controlled) stored in the Keychain.  
@@ -20,8 +24,11 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
  */
 @implementation LjsKeychainManager
 
+@synthesize reporter;
+
 
 - (void) dealloc {
+  self.reporter = nil;
   [super dealloc];
 }
 
@@ -32,6 +39,7 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
     // NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     // NSDictionary *dict = [defaults dictionaryRepresentation];
     // DDLogDebug(@"dict = %@", dict);
+    self.reporter = nil;
   }
   return self;
 }
@@ -99,10 +107,8 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
 - (BOOL) deleteUsernameInDefaultsForKey:(NSString *)key error:(NSError **)error {
   BOOL result = NO;
   if (![self isValidKey:key]) {
-    if (*error != NULL) {
-      *error = [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
-                                            userInfo:nil];
-    }
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
+                                    error:error];    
   } else {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setNilValueForKey:key];
@@ -122,18 +128,14 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
  */
 - (BOOL) setDefaultsUsername:(NSString *) username forKey:(NSString *) key error:(NSError **) error {
   if (![self isValidUsername:username]) {
-    if (*error != NULL) {
-      *error = [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadUsernameError
-                                            userInfo:nil];
-    }
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadUsernameError
+                                    error:error];
     return NO;
   }
   
   if (![self isValidKey:key]) {
-    if (*error != NULL) {
-      *error = [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
-                                            userInfo:nil];
-    }
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
+                                    error:error];   
     return NO;
   }
 
@@ -153,10 +155,9 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
  */
 - (BOOL) shouldUseKeyChainWithKey:(NSString  *) key error:(NSError **) error {
   if (![self isValidKey:key]) {
-    if (*error != NULL) {
-      *error = [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
-                                            userInfo:nil];
-    }
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
+                                    error:error];   
+    
     return NO;
   } else {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -172,10 +173,8 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
  */
 - (BOOL) deleteShouldUseKeyChainInDefaults:(NSString *) key error:(NSError **) error {
   if (![self isValidKey:key]) {
-    if (*error != NULL) {
-      *error = [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
-                                            userInfo:nil];
-    }
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
+                                    error:error];   
     return NO;
   } else {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -193,10 +192,8 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
  */
 - (BOOL) setDefaultsShouldUseKeyChain:(BOOL) shouldUse key:(NSString *) key error:(NSError **) error {
   if (![self isValidKey:key]) {
-    if (*error != NULL) {
-      *error = [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
-                                            userInfo:nil];
-    }
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
+                                    error:error];   
     return NO;
   } else {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -245,10 +242,8 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
                                          serviceName:(NSString *) serviceName
                                                error:(NSError **) error {
   if (![self isValidKey:key]) {
-    if (*error != NULL) {
-      *error = [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
-                                            userInfo:nil];
-    }
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
+                                    error:error];   
     return nil;
   }
   
@@ -337,34 +332,26 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
                                         serviceName:(NSString *) serviceName
                                               error:(NSError **) error {
   if (![self isValidUsername:username]) {
-    if (*error != NULL) {
-      [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadUsernameError
-                                   userInfo:nil];
-    }
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadUsernameError
+                                    error:error];
     return NO;
   }
   
   if (![self isValidKey:usernameKey]) {
-    if (*error != NULL) {
-      [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
-                                   userInfo:nil];
-    }
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
+                                    error:error];   
     return NO;
   }
   
   if (![self isValidPassword:password]) {
-    if (*error != NULL) {
-      [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadPasswordError
-                                   userInfo:nil];
-    }
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadPasswordError
+                                    error:error];
     return NO;
   }
   
   if (![self isValidKey:shouldUseKeychainKey]) {
-    if (*error != NULL) {
-      [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
-                                   userInfo:nil];
-    }
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
+                                    error:error];   
     return NO;
   }
 
@@ -399,15 +386,38 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
 #pragma mark Utility
 
 /**
- @return an error using the LjsKeychainManagerErrorDomain and code
+ Sets the error using Reporter API
  @param code the error code use
- @param userInfo the user info dictionary
+ @param error the error to populate
  */
-- (NSError *) ljsKeychainManagerErrorWithCode:(NSUInteger) code
-                                     userInfo:(NSDictionary *)userInfo {
-  return [NSError errorWithDomain:LjsKeychainManagerErrorDomain
-                             code:code
-                         userInfo:userInfo];
+- (void) ljsKeychainManagerErrorWithCode:(NSUInteger) code
+                                   error:(NSError **) error {
+  self.reporter = [Reporter reporterWithDomain:LjsKeychainManagerErrorDomain
+                                         error:error];
+  NSString *message;
+  switch (code) {
+    case LjsKeychainManagerBadKeyError:
+      message = NSLocalizedString(@"The key you used was nil or empty, which is not allowed.", 
+                                  @"part of error message");
+      break;
+    case LjsKeychainManagerBadPasswordError:
+      message =  NSLocalizedString(@"The password you used was nil or empty, which is not allowed.", 
+                                   @"part of error message");
+      break;
+    case LjsKeychainManagerBadUsernameError:
+      message =  NSLocalizedString(@"The username you used was nil or empty, which is not allowed.", 
+                                   @"part of error message");
+      break;
+    default:
+      NSAssert(NO, "fell through switch statement which is not allowed");
+      // extra paranoid - do not want to pass a nil value to the userInfo
+      // dictionary at runtime
+      message = @"META ERROR:  fell through switch statement with is not allowed";
+      break;
+  }
+  
+  *error = [self.reporter errorWithCode:code description:message];
+  [self logKeychainError:*error];
 }
 
 

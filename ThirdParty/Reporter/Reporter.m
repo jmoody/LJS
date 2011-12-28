@@ -61,9 +61,16 @@ static NSError *dummyError = nil;
 
 - (NSError*) errorWithCode: (int) code description: (NSString*) msg
 {
-    return [NSError errorWithDomain:domain code:code
-        userInfo:[NSDictionary dictionaryWithObject:msg
-            forKey:NSLocalizedDescriptionKey]];
+  
+  NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                            msg, NSLocalizedDescriptionKey,
+                            NSUTF8StringEncoding, NSStringEncodingErrorKey,
+                            nil];
+ 
+  
+  return [NSError errorWithDomain:domain 
+                             code:code
+                         userInfo:userInfo];
 }
 
 @end

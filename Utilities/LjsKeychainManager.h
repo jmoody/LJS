@@ -1,14 +1,21 @@
 #import <Foundation/Foundation.h>
+#import "Reporter.h"
 
 extern NSString *LjsKeychainManagerErrorDomain;
 
 typedef enum {
-  LjsKeychainManagerBadKeyError = 1,
+  // a sublime number
+  LjsKeychainManagerBadKeyError = 4390116,
   LjsKeychainManagerBadUsernameError,
   LjsKeychainManagerBadPasswordError
 } LjsKeychainManagerErrorCodes;
 
 @interface LjsKeychainManager : NSObject 
+
+/**
+ helps generate NSError instances
+ */
+@property (nonatomic, strong) Reporter *reporter;
 
 #pragma mark Username Stored in Defaults
 
@@ -64,8 +71,12 @@ typedef enum {
 
 
 /** @name Utility */
-- (NSError *) ljsKeychainManagerErrorWithCode:(NSUInteger) code
-                                     userInfo:(NSDictionary *) userInfo;
+- (void) ljsKeychainManagerErrorWithCode:(NSUInteger) code
+                                   error:(NSError **) error;
+
+
 - (void) logKeychainError:(NSError *) error;
+
+
 
 @end
