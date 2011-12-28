@@ -82,7 +82,6 @@
 		F58013AB149E06F100692073 /* LjsLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F58013AA149E06F100692073 /* LjsLocationManager.m */; };
 		F58013AD149E080E00692073 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58013AC149E080E00692073 /* CoreLocation.framework */; };
 		F580719F146C33AC00EA4CFB /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F580719E146C33AC00EA4CFB /* LjsTestCase.m */; };
-		F5831B2814A90B4D00667D4D /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5831B2714A90B4C00667D4D /* GHUnitIOS.framework */; };
 		F590BE9F14542E4900E5B89B /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */; };
 		F590BEA014542E4900E5B89B /* LjsFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9E14542E4900E5B89B /* LjsFileManager.m */; };
 		F59635D11496632000CDB27E /* LjsObjectWithUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635D01496632000CDB27E /* LjsObjectWithUUID.m */; };
@@ -96,9 +95,8 @@
 		F5B03A5A14AA62810015D59B /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B03A4D14AA62810015D59B /* DDTTYLogger.m */; };
 		F5B03A5B14AA62810015D59B /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B03A5014AA62810015D59B /* ContextFilterLogFormatter.m */; };
 		F5B03A5C14AA62810015D59B /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B03A5214AA62810015D59B /* DispatchQueueLogFormatter.m */; };
-		F5B03A5D14AA62810015D59B /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5B03A5314AA62810015D59B /* README.txt */; };
-		F5B03A5E14AA62810015D59B /* PRE_ARC_VERSION in Resources */ = {isa = PBXBuildFile; fileRef = F5B03A5414AA62810015D59B /* PRE_ARC_VERSION */; };
-		F5B03A5F14AA62810015D59B /* README-ARC.markdown in Resources */ = {isa = PBXBuildFile; fileRef = F5B03A5514AA62810015D59B /* README-ARC.markdown */; };
+		F5B03A6714AA64E70015D59B /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B03A6614AA64E70015D59B /* GHUnitIOS.framework */; };
+		F5B03A7714AA67620015D59B /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B03A7414AA67620015D59B /* libOCMock.a */; };
 		F5C112731496715900948605 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE69F1410C6F60051FC7E /* UIKit.framework */; };
 		F5C112741496715900948605 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE6A11410C6F60051FC7E /* Foundation.framework */; };
 		F5C112751496715900948605 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE6A31410C6F60051FC7E /* CoreGraphics.framework */; };
@@ -153,7 +151,6 @@
 		F5448ABD1450B63B0065E516 /* LjsMessageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsMessageBuilder.h; sourceTree = "<group>"; };
 		F5448ABE1450B63B0065E516 /* LjsMessageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsMessageBuilder.m; sourceTree = "<group>"; };
 		F5448AC11450B63B0065E516 /* Lumberjack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lumberjack.h; sourceTree = "<group>"; };
-		F5448AC21450B63B0065E516 /* main.m-for-cocoa-app.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "main.m-for-cocoa-app.txt"; sourceTree = "<group>"; };
 		F5448AC51450B63B0065E516 /* Reporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reporter.h; sourceTree = "<group>"; };
 		F5448AC61450B63B0065E516 /* Reporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reporter.m; sourceTree = "<group>"; };
 		F5448AC81450B63B0065E516 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
@@ -266,14 +263,6 @@
 		F58013AC149E080E00692073 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F580719D146C33AC00EA4CFB /* LjsTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsTestCase.h; path = ../../Tests/LjsTestCase.h; sourceTree = "<group>"; };
 		F580719E146C33AC00EA4CFB /* LjsTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsTestCase.m; path = ../../Tests/LjsTestCase.m; sourceTree = "<group>"; };
-		F5831B2714A90B4C00667D4D /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../../../bikecount/xcode/LJS/Tests-iOS/Tests-iOS/GHUnitIOS.framework"; sourceTree = "<group>"; };
-		F5831B2D14A90B6300667D4D /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
-		F5831B2E14A90B6300667D4D /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
-		F5831B2F14A90B6300667D4D /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
-		F5831B3014A90B6300667D4D /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
-		F5831B3114A90B6300667D4D /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
-		F5831B3214A90B6300667D4D /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
-		F5831B3314A90B6300667D4D /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		F590BE9B14542E4900E5B89B /* DDFileLogger+CurrentFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDFileLogger+CurrentFile.h"; sourceTree = "<group>"; };
 		F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
 		F590BE9D14542E4900E5B89B /* LjsFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFileManager.h; sourceTree = "<group>"; };
@@ -303,6 +292,14 @@
 		F5B03A5314AA62810015D59B /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		F5B03A5414AA62810015D59B /* PRE_ARC_VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PRE_ARC_VERSION; sourceTree = "<group>"; };
 		F5B03A5514AA62810015D59B /* README-ARC.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "README-ARC.markdown"; sourceTree = "<group>"; };
+		F5B03A6614AA64E70015D59B /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnitIOS.framework; sourceTree = "<group>"; };
+		F5B03A6E14AA67620015D59B /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		F5B03A6F14AA67620015D59B /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		F5B03A7014AA67620015D59B /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		F5B03A7114AA67620015D59B /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		F5B03A7214AA67620015D59B /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		F5B03A7314AA67620015D59B /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
+		F5B03A7414AA67620015D59B /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		F5C112711496715900948605 /* Documentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Documentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C112781496715900948605 /* Documentation-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Documentation-Info.plist"; sourceTree = "<group>"; };
 		F5C1127A1496715900948605 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -329,7 +326,8 @@
 				F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */,
 				F50FE6A01410C6F60051FC7E /* UIKit.framework in Frameworks */,
 				F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */,
-				F5831B2814A90B4D00667D4D /* GHUnitIOS.framework in Frameworks */,
+				F5B03A6714AA64E70015D59B /* GHUnitIOS.framework in Frameworks */,
+				F5B03A7714AA67620015D59B /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,8 +398,8 @@
 		F50FE6A61410C6F60051FC7E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F5831B2A14A90B6300667D4D /* Library */,
-				F5831B2714A90B4C00667D4D /* GHUnitIOS.framework */,
+				F5B03A6A14AA67620015D59B /* ocmock */,
+				F5B03A6614AA64E70015D59B /* GHUnitIOS.framework */,
 				F50FE6A71410C6F60051FC7E /* Tests-iOS-Info.plist */,
 				F50FE6A81410C6F60051FC7E /* InfoPlist.strings */,
 				F50FE6AB1410C6F60051FC7E /* main.m */,
@@ -475,7 +473,6 @@
 				F5448ABD1450B63B0065E516 /* LjsMessageBuilder.h */,
 				F5448ABE1450B63B0065E516 /* LjsMessageBuilder.m */,
 				F5448AC11450B63B0065E516 /* Lumberjack.h */,
-				F5448AC21450B63B0065E516 /* main.m-for-cocoa-app.txt */,
 			);
 			name = Logging;
 			path = ../Logging;
@@ -746,37 +743,6 @@
 			name = LJS;
 			sourceTree = "<group>";
 		};
-		F5831B2A14A90B6300667D4D /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				F5831B2B14A90B6300667D4D /* Headers */,
-				F5831B3314A90B6300667D4D /* libOCMock.a */,
-			);
-			name = Library;
-			path = ../../../bikecount/xcode/LJS/ocmock/Library;
-			sourceTree = "<group>";
-		};
-		F5831B2B14A90B6300667D4D /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				F5831B2C14A90B6300667D4D /* OCMock */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		F5831B2C14A90B6300667D4D /* OCMock */ = {
-			isa = PBXGroup;
-			children = (
-				F5831B2D14A90B6300667D4D /* NSNotificationCenter+OCMAdditions.h */,
-				F5831B2E14A90B6300667D4D /* OCMArg.h */,
-				F5831B2F14A90B6300667D4D /* OCMConstraint.h */,
-				F5831B3014A90B6300667D4D /* OCMock.h */,
-				F5831B3114A90B6300667D4D /* OCMockObject.h */,
-				F5831B3214A90B6300667D4D /* OCMockRecorder.h */,
-			);
-			path = OCMock;
-			sourceTree = "<group>";
-		};
 		F59635CE1496632000CDB27E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -832,6 +798,45 @@
 				F5B03A5314AA62810015D59B /* README.txt */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F5B03A6A14AA67620015D59B /* ocmock */ = {
+			isa = PBXGroup;
+			children = (
+				F5B03A6B14AA67620015D59B /* Library */,
+			);
+			name = ocmock;
+			path = ../../ocmock;
+			sourceTree = "<group>";
+		};
+		F5B03A6B14AA67620015D59B /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				F5B03A6C14AA67620015D59B /* Headers */,
+				F5B03A7414AA67620015D59B /* libOCMock.a */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		F5B03A6C14AA67620015D59B /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				F5B03A6D14AA67620015D59B /* OCMock */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		F5B03A6D14AA67620015D59B /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				F5B03A6E14AA67620015D59B /* NSNotificationCenter+OCMAdditions.h */,
+				F5B03A6F14AA67620015D59B /* OCMArg.h */,
+				F5B03A7014AA67620015D59B /* OCMConstraint.h */,
+				F5B03A7114AA67620015D59B /* OCMock.h */,
+				F5B03A7214AA67620015D59B /* OCMockObject.h */,
+				F5B03A7314AA67620015D59B /* OCMockRecorder.h */,
+			);
+			path = OCMock;
 			sourceTree = "<group>";
 		};
 		F5C112761496715900948605 /* Documentation */ = {
@@ -928,9 +933,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F50FE6AA1410C6F60051FC7E /* InfoPlist.strings in Resources */,
-				F5B03A5D14AA62810015D59B /* README.txt in Resources */,
-				F5B03A5E14AA62810015D59B /* PRE_ARC_VERSION in Resources */,
-				F5B03A5F14AA62810015D59B /* README-ARC.markdown in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1177,7 +1179,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../ocmock/Library\"",
-					"\"$(SRCROOT)/../../bikecount/xcode/LJS/ocmock/Library\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1210,7 +1211,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../ocmock/Library\"",
-					"\"$(SRCROOT)/../../bikecount/xcode/LJS/ocmock/Library\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
