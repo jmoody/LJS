@@ -97,6 +97,8 @@
 		F59635FB14966B9600CDB27E /* UKFNSubscribeFileWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F414966B9600CDB27E /* UKFNSubscribeFileWatcher.m */; };
 		F59635FC14966B9600CDB27E /* UKKQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F614966B9600CDB27E /* UKKQueue.m */; };
 		F59635FD14966B9600CDB27E /* UKMainThreadProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F814966B9600CDB27E /* UKMainThreadProxy.m */; };
+		F5B2844114AD0B6700E48908 /* LjsGestalt.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844014AD0B6700E48908 /* LjsGestalt.m */; };
+		F5B2844414AD0E6700E48908 /* LjsGestaltTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844314AD0E6700E48908 /* LjsGestaltTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -301,6 +303,9 @@
 		F59635F614966B9600CDB27E /* UKKQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKKQueue.m; sourceTree = "<group>"; };
 		F59635F714966B9600CDB27E /* UKMainThreadProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKMainThreadProxy.h; sourceTree = "<group>"; };
 		F59635F814966B9600CDB27E /* UKMainThreadProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKMainThreadProxy.m; sourceTree = "<group>"; };
+		F5B2843F14AD0B6700E48908 /* LjsGestalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGestalt.h; sourceTree = "<group>"; };
+		F5B2844014AD0B6700E48908 /* LjsGestalt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestalt.m; sourceTree = "<group>"; };
+		F5B2844314AD0E6700E48908 /* LjsGestaltTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestaltTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -663,6 +668,8 @@
 				F5807158146C296700EA4CFB /* LjsValidator.m */,
 				F5807159146C296700EA4CFB /* LjsVariates.h */,
 				F580715A146C296700EA4CFB /* LjsVariates.m */,
+				F5B2843F14AD0B6700E48908 /* LjsGestalt.h */,
+				F5B2844014AD0B6700E48908 /* LjsGestalt.m */,
 			);
 			name = Utilities;
 			path = ../Utilities;
@@ -720,6 +727,7 @@
 				F5807176146C2AAC00EA4CFB /* LjsSecurityManagerTests.m */,
 				F5807177146C2AAC00EA4CFB /* LjsValidatorTests.m */,
 				F5807178146C2AAC00EA4CFB /* LjsVariatesTests.m */,
+				F5B2844314AD0E6700E48908 /* LjsGestaltTests.m */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -980,6 +988,8 @@
 				F59635FB14966B9600CDB27E /* UKFNSubscribeFileWatcher.m in Sources */,
 				F59635FC14966B9600CDB27E /* UKKQueue.m in Sources */,
 				F59635FD14966B9600CDB27E /* UKMainThreadProxy.m in Sources */,
+				F5B2844114AD0B6700E48908 /* LjsGestalt.m in Sources */,
+				F5B2844414AD0E6700E48908 /* LjsGestaltTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

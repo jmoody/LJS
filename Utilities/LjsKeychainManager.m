@@ -390,7 +390,7 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
  @param code the error code use
  @param error the error to populate
  */
-- (void) ljsKeychainManagerErrorWithCode:(NSUInteger) code
+- (void) ljsKeychainManagerErrorWithCode:(NSInteger) code
                                    error:(NSError **) error {
   self.reporter = [Reporter reporterWithDomain:LjsKeychainManagerErrorDomain
                                          error:error];
@@ -409,7 +409,7 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
                                    @"part of error message");
       break;
     default:
-      NSAssert(NO, "fell through switch statement which is not allowed");
+      NSAssert(NO, @"fell through switch statement which is not allowed");
       // extra paranoid - do not want to pass a nil value to the userInfo
       // dictionary at runtime
       message = @"META ERROR:  fell through switch statement with is not allowed";
