@@ -99,6 +99,7 @@
 		F59635FD14966B9600CDB27E /* UKMainThreadProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F814966B9600CDB27E /* UKMainThreadProxy.m */; };
 		F5B2844114AD0B6700E48908 /* LjsGestalt.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844014AD0B6700E48908 /* LjsGestalt.m */; };
 		F5B2844414AD0E6700E48908 /* LjsGestaltTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844314AD0E6700E48908 /* LjsGestaltTests.m */; };
+		F5B2844E14AD1B5E00E48908 /* LjsRestartFinderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844D14AD1B5E00E48908 /* LjsRestartFinderOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -306,6 +307,8 @@
 		F5B2843F14AD0B6700E48908 /* LjsGestalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGestalt.h; sourceTree = "<group>"; };
 		F5B2844014AD0B6700E48908 /* LjsGestalt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestalt.m; sourceTree = "<group>"; };
 		F5B2844314AD0E6700E48908 /* LjsGestaltTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestaltTests.m; sourceTree = "<group>"; };
+		F5B2844C14AD1B5E00E48908 /* LjsRestartFinderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRestartFinderOperation.h; sourceTree = "<group>"; };
+		F5B2844D14AD1B5E00E48908 /* LjsRestartFinderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsRestartFinderOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -696,6 +699,7 @@
 		F580716A146C29A800EA4CFB /* LJS */ = {
 			isa = PBXGroup;
 			children = (
+				F5B2844B14AD1B3700E48908 /* Operations */,
 				F5963586149655E700CDB27E /* LoggingUKKQueue */,
 				F5963582149640BA00CDB27E /* Model */,
 				F580713D146C296700EA4CFB /* Utilities */,
@@ -788,6 +792,16 @@
 			);
 			name = ukkqueue;
 			path = ../ThirdParty/ukkqueue;
+			sourceTree = "<group>";
+		};
+		F5B2844B14AD1B3700E48908 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				F5B2844C14AD1B5E00E48908 /* LjsRestartFinderOperation.h */,
+				F5B2844D14AD1B5E00E48908 /* LjsRestartFinderOperation.m */,
+			);
+			name = Operations;
+			path = ../Operations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -990,6 +1004,7 @@
 				F59635FD14966B9600CDB27E /* UKMainThreadProxy.m in Sources */,
 				F5B2844114AD0B6700E48908 /* LjsGestalt.m in Sources */,
 				F5B2844414AD0E6700E48908 /* LjsGestaltTests.m in Sources */,
+				F5B2844E14AD1B5E00E48908 /* LjsRestartFinderOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
