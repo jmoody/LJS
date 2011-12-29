@@ -27,8 +27,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   if (self.httpLogManager != nil) {
     [self.httpLogManager stopAndReleaseLogServer];
     [self.httpLogManager stopAndReleaseLogHeartBeatTimer];
+    self.httpLogManager = nil;
   }
-  [httpLogManager release];
   [super dealloc];
 }
 

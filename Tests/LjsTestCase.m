@@ -38,19 +38,4 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @implementation LjsTestCase
 
 
-#pragma mark Memory Management
-- (void) dealloc {
-   DDLogDebug(@"deallocating LjsTestCase");
-  [super dealloc];
-}
-
-- (id) init {
-  //  [self doesNotRecognizeSelector:_cmd];
-  self = [super init];
-  if (self) {
-    // Initialization code here.
-  }
-  return self;
-}
-
 @end

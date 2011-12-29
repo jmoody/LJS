@@ -1,251 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/LjsTimePickerDelegate.html">
+	<File path="Classes/LjsServiceObserver.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/LjsTimePickerDelegate</TokenIdentifier>
-			<Abstract>On iOS devices the Date and Time format can be overridden by the user settings,
-so regardless of Locale and NSDateFormatter settings you can end up with
-unexpected/unparseable data and time values.  This can cause major headaches
-when trying to layout views that contain date and time references.</Abstract>
-			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsServiceObserver</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>LjsServiceObserver.h</DeclaredIn>
 			
 			<NodeRef refid="14"/>
 		</Token>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/LjsTimePickerDelegate/amPm</TokenIdentifier>
-			<Abstract>an array with am or pm - data source for rightmost column</Abstract>
-			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/instm/LjsServiceObserver/stopAndReleaseRepeatingTimers</TokenIdentifier>
+			<Abstract>Implementer should stop timers with invalidate and release the timers.</Abstract>
+			<DeclaredIn>LjsServiceObserver.m</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, retain) NSArray *amPm</Declaration>
+			<Declaration>- (void)stopAndReleaseRepeatingTimers</Declaration>
 			
 			
-			<Anchor>//api/name/amPm</Anchor>
+			<Anchor>//api/name/stopAndReleaseRepeatingTimers</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/LjsTimePickerDelegate/minutes</TokenIdentifier>
-			<Abstract>an array with 00 to 59 - data source for minutes column</Abstract>
-			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/instm/LjsServiceObserver/startAndRetainRepeatingTimers</TokenIdentifier>
+			<Abstract>Implementer should start timers and retain them and should ensure that if a
+timer is already running, that is is invalidated and released.</Abstract>
+			<DeclaredIn>LjsServiceObserver.m</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, retain) NSArray *minutes</Declaration>
-			
-			
-			<Anchor>//api/name/minutes</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/LjsTimePickerDelegate/hours</TokenIdentifier>
-			<Abstract>an array with 1 to 12 - data source for hours column</Abstract>
-			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
-			
-			<Declaration>@property (nonatomic, retain) NSArray *hours</Declaration>
+			<Declaration>- (void)startAndRetainRepeatingTimers</Declaration>
 			
 			
-			<Anchor>//api/name/hours</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/LjsTimePickerDelegate/delegate</TokenIdentifier>
-			<Abstract>the callback delegate</Abstract>
-			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
-			
-			<Declaration>@property (nonatomic, assign) id&lt;LjsTimePickerDidChangeCallBackDelegate&gt; delegate</Declaration>
-			
-			
-			<Anchor>//api/name/delegate</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/LjsTimePickerDelegate/AM</TokenIdentifier>
-			<Abstract>localized AM</Abstract>
-			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
-			
-			<Declaration>@property (nonatomic, copy) NSString *AM</Declaration>
-			
-			
-			<Anchor>//api/name/AM</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/LjsTimePickerDelegate/PM</TokenIdentifier>
-			<Abstract>localized PM</Abstract>
-			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
-			
-			<Declaration>@property (nonatomic, copy) NSString *PM</Declaration>
-			
-			
-			<Anchor>//api/name/PM</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/LjsTimePickerDelegate/initWithDelegate:</TokenIdentifier>
-			<Abstract>Localization of AM/PM might not be a good idea from a layout point
-of view - AM for Portugal Locale is a.m. for example.</Abstract>
-			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
-			
-			<Declaration>- (id)initWithDelegate:(id&lt;LjsTimePickerDidChangeCallBackDelegate&gt;)aDelegate</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>aDelegate</Name>
-					<Abstract>the callback delegate</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>an initialized receiver</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithDelegate:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/LjsTimePickerDelegate/pickerView:setSelectedWithTimeString:</TokenIdentifier>
-			<Abstract>sets the picker view to represent the time in the timeString parameter</Abstract>
-			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
-			
-			<Declaration>- (void)pickerView:(UIPickerView *)pickerView setSelectedWithTimeString:(NSString *)timeString</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>pickerView</Name>
-					<Abstract>a picker view</Abstract>
-				</Parameter><Parameter>
-					<Name>timeString</Name>
-					<Abstract>a time representation</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/pickerView:setSelectedWithTimeString:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/LjsTimePickerDelegate/indexForHour:</TokenIdentifier>
-			<Abstract>the index of hour</Abstract>
-			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
-			
-			<Declaration>- (NSInteger)indexForHour:(NSString *)hourString</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>hourString</Name>
-					<Abstract>the hour to look for</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>the index of hour</Abstract></ReturnValue>
-			<Anchor>//api/name/indexForHour:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/LjsTimePickerDelegate/indexForMinute:</TokenIdentifier>
-			<Abstract>the index of the minute</Abstract>
-			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
-			
-			<Declaration>- (NSInteger)indexForMinute:(NSString *)minuteString</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>minuteString</Name>
-					<Abstract>the minute to look for</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>the index of the minute</Abstract></ReturnValue>
-			<Anchor>//api/name/indexForMinute:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/LjsTimePickerDelegate/indexForString:inArray:</TokenIdentifier>
-			<Abstract>convenience method</Abstract>
-			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
-			
-			<Declaration>- (NSInteger)indexForString:(NSString *)string inArray:(NSArray *)array</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>string</Name>
-					<Abstract>the string to search for</Abstract>
-				</Parameter><Parameter>
-					<Name>array</Name>
-					<Abstract>the array to seach</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>the index of a string in an array</Abstract></ReturnValue>
-			<Anchor>//api/name/indexForString:inArray:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/LjsTimePickerDelegate/timeStringWithPicker:</TokenIdentifier>
-			<Abstract>a string representation of the picker view</Abstract>
-			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
-			
-			<Declaration>- (NSString *)timeStringWithPicker:(UIPickerView *)pickerView</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>pickerView</Name>
-					<Abstract>the picker view</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>a string representation of the picker view</Abstract></ReturnValue>
-			<Anchor>//api/name/timeStringWithPicker:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/LjsTimePickerDelegate/localizedAmPmTimeString:swapAmPm:</TokenIdentifier>
-			<Abstract>localization might not be the way to go because some Locales like Portugal
-use a.m. which might effect the layout.</Abstract>
-			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
-			
-			<Declaration>- (NSString *)localizedAmPmTimeString:(NSString *)timeString swapAmPm:(BOOL)swap</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>timeString</Name>
-					<Abstract>the string to localize</Abstract>
-				</Parameter><Parameter>
-					<Name>swap</Name>
-					<Abstract>if YES the am/pm'ness is swapped</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>a localized am pm time string</Abstract></ReturnValue>
-			<Anchor>//api/name/localizedAmPmTimeString:swapAmPm:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/LjsTimePickerDelegate/localizedAmPmTimeStringWithDate:swapAmPm:</TokenIdentifier>
-			<Abstract>localization might not be the way to go because some Locales like Portugal
-use a.m. which might effect the layout.</Abstract>
-			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
-			
-			<Declaration>- (NSString *)localizedAmPmTimeStringWithDate:(NSDate *)date swapAmPm:(BOOL)swap</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>date</Name>
-					<Abstract>the to localize</Abstract>
-				</Parameter><Parameter>
-					<Name>swap</Name>
-					<Abstract>if YES the am/pm'ness is swapped</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>a localized am pm time string</Abstract></ReturnValue>
-			<Anchor>//api/name/localizedAmPmTimeStringWithDate:swapAmPm:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/LjsTimePickerDelegate/pickerView:viewForRow:forComponent:reusingView:</TokenIdentifier>
-			<Abstract>Does not properly reuse the view.</Abstract>
-			<DeclaredIn>LjsTimePickerDelegate.m</DeclaredIn>			
-			
-			<Declaration>- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>pickerView</Name>
-					<Abstract>the picker view</Abstract>
-				</Parameter><Parameter>
-					<Name>row</Name>
-					<Abstract>the row</Abstract>
-				</Parameter><Parameter>
-					<Name>component</Name>
-					<Abstract>the component</Abstract>
-				</Parameter><Parameter>
-					<Name>view</Name>
-					<Abstract>a view to reuse</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>a view</Abstract></ReturnValue>
-			<Anchor>//api/name/pickerView:viewForRow:forComponent:reusingView:</Anchor>
+			<Anchor>//api/name/startAndRetainRepeatingTimers</Anchor>
 		</Token>
 		
 	</File>

@@ -38,6 +38,7 @@
 + (NSDecimalNumber *) dnWithString:(NSString *) aString;
 
 /** @name NSDecimalNumber comparison */
++ (BOOL) dn:(NSDecimalNumber *) a e:(NSDecimalNumber *) b;
 + (BOOL) dn:(NSDecimalNumber *) a lt:(NSDecimalNumber *) b;
 + (BOOL) dn:(NSDecimalNumber *) a gt:(NSDecimalNumber *) b;
 + (BOOL) dn:(NSDecimalNumber *) a lte:(NSDecimalNumber *) b;

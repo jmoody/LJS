@@ -252,5 +252,93 @@
   GHAssertFalse(actual, nil);
 }
 
+- (void) test_arrayHasCount {
+  NSArray *array = nil;
+  BOOL actual;
+  
+  actual = [LjsValidator array:array hasCount:0];
+  GHAssertTrue(actual, nil);
+  
+  array = [NSArray arrayWithObject:@"foo"];
+  actual = [LjsValidator array:array hasCount:1];
+  GHAssertTrue(actual, nil);
+  actual = [LjsValidator array:array hasCount:2];
+  GHAssertFalse(actual, nil);
+}
+
+- (void) test_arrayContainsString {
+  NSArray *array = nil;
+  NSString *search = nil;
+  BOOL actual;
+  
+  actual = [LjsValidator array:array containsString:search];
+  GHAssertFalse(actual, nil);
+  
+  array = nil;
+  search = @"foo";
+  actual = [LjsValidator array:array containsString:search];
+  GHAssertFalse(actual, nil);
+
+  array = [NSArray arrayWithObject:@"foo"];
+  search = nil;
+  actual = [LjsValidator array:array containsString:search];
+  GHAssertFalse(actual, nil);
+
+  array = [NSArray arrayWithObject:@"foo"];
+  search = @"bar";
+  actual = [LjsValidator array:array containsString:search];
+  GHAssertFalse(actual, nil);
+
+  array = [NSArray arrayWithObject:@"foo"];
+  search = @"foo";
+  actual = [LjsValidator array:array containsString:search];
+  GHAssertTrue(actual, nil);
+}
+
+- (void) test_arrayContainsStringInSetAllowsOthers {
+  NSArray *array = nil;
+  NSSet *set = nil;
+  BOOL actual, allowsOthers;
+  
+  allowsOthers = YES;
+  actual = [LjsValidator array:array containsStrings:set allowsOthers:allowsOthers];
+  GHAssertFalse(actual, nil);
+  
+  allowsOthers = YES;
+  array = [NSArray arrayWithObjects:@"foo", @"bar", @"foobar", nil];
+  set = nil;
+    actual = [LjsValidator array:array containsStrings:set allowsOthers:allowsOthers];
+  GHAssertFalse(actual, nil);
+  
+  allowsOthers = YES;
+  array = [NSArray arrayWithObjects:@"foo", @"bar", @"foobar", nil];
+  set = [NSSet setWithObjects:@"no", nil];
+  actual = [LjsValidator array:array containsStrings:set allowsOthers:allowsOthers];
+  GHAssertFalse(actual, nil);
+  
+  allowsOthers = YES;
+  array = [NSArray arrayWithObjects:@"foo", @"bar", @"foobar", nil];
+  set = [NSSet setWithObjects:@"foo", nil];
+  actual = [LjsValidator array:array containsStrings:set allowsOthers:allowsOthers];
+  GHAssertTrue(actual, nil);
+
+  allowsOthers = NO;
+  array = [NSArray arrayWithObjects:@"foo", @"bar", @"foobar", nil];
+  set = [NSSet setWithObjects:@"foo", nil];
+  actual = [LjsValidator array:array containsStrings:set allowsOthers:allowsOthers];
+  GHAssertFalse(actual, nil);
+
+  allowsOthers = NO;
+  array = [NSArray arrayWithObjects:@"foo", @"bar", @"foobar", nil];
+  set = [NSSet setWithObjects:@"foo", @"bar", @"foobar", nil];
+  actual = [LjsValidator array:array containsStrings:set allowsOthers:allowsOthers];
+  GHAssertTrue(actual, nil);
+
+  allowsOthers = NO;
+  array = [NSArray arrayWithObjects:@"foo", @"bar", @"foo", @"bar", @"foobar", nil];
+  set = [NSSet setWithObjects:@"foo", @"bar", @"foobar", nil];
+  actual = [LjsValidator array:array containsStrings:set allowsOthers:allowsOthers];
+  GHAssertTrue(actual, nil);
+}
 
 @end

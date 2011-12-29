@@ -25,6 +25,8 @@
 						<NodeRef refid="13"/>
 						<NodeRef refid="14"/>
 						<NodeRef refid="15"/>
+						<NodeRef refid="16"/>
+						<NodeRef refid="17"/>
 						
 					</Subnodes>
 				</Node>
@@ -34,7 +36,7 @@
 					<Name>Categories</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="16"/>
+						<NodeRef refid="18"/>
 						
 					</Subnodes>
 				</Node>
@@ -44,7 +46,7 @@
 					<Name>Protocols</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="17"/>
+						<NodeRef refid="19"/>
 						
 					</Subnodes>
 				</Node>
@@ -102,24 +104,32 @@
 			<Path>Classes/LjsObjectWithUUID.html</Path>
 		</Node>
 		<Node id="13">
+			<Name>LjsReachabilityObserver</Name>
+			<Path>Classes/LjsReachabilityObserver.html</Path>
+		</Node>
+		<Node id="14">
+			<Name>LjsServiceObserver</Name>
+			<Path>Classes/LjsServiceObserver.html</Path>
+		</Node>
+		<Node id="15">
 			<Name>LjsTextViewTailing</Name>
 			<Path>Classes/LjsTextViewTailing.html</Path>
 		</Node>
-		<Node id="14">
+		<Node id="16">
 			<Name>LjsValidator</Name>
 			<Path>Classes/LjsValidator.html</Path>
 		</Node>
-		<Node id="15">
+		<Node id="17">
 			<Name>LjsVariates</Name>
 			<Path>Classes/LjsVariates.html</Path>
 		</Node>
 		
-		<Node id="16">
+		<Node id="18">
 			<Name>DDFileLogger(DDFileLogger_CurrentFile)</Name>
 			<Path>Categories/DDFileLogger(DDFileLogger_CurrentFile).html</Path>
 		</Node>
 		
-		<Node id="17">
+		<Node id="19">
 			<Name>LjsRepeatingTimerProtocol</Name>
 			<Path>Protocols/LjsRepeatingTimerProtocol.html</Path>
 		</Node>

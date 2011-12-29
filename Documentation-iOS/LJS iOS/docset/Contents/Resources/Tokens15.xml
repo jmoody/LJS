@@ -1,196 +1,251 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/LjsValidator.html">
+	<File path="Classes/LjsTimePickerDelegate.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/LjsValidator</TokenIdentifier>
-			<Abstract>LjsValidator provides class methods for validating all sorts of things.</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsTimePickerDelegate</TokenIdentifier>
+			<Abstract>On iOS devices the Date and Time format can be overridden by the user settings,
+so regardless of Locale and NSDateFormatter settings you can end up with
+unexpected/unparseable data and time values.  This can cause major headaches
+when trying to layout views that contain date and time references.</Abstract>
+			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>
 			
 			<NodeRef refid="15"/>
 		</Token>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/string:containsOnlyMembersOfCharacterSet:</TokenIdentifier>
-			<Abstract>true iff aString contains only characters from aCharacterSet</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/instp/LjsTimePickerDelegate/amPm</TokenIdentifier>
+			<Abstract>an array with am or pm - data source for rightmost column</Abstract>
+			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
 			
-			<Declaration>+ (BOOL)string:(NSString *)aString containsOnlyMembersOfCharacterSet:(NSCharacterSet *)aCharacterSet</Declaration>
+			<Declaration>@property (nonatomic, retain) NSArray *amPm</Declaration>
+			
+			
+			<Anchor>//api/name/amPm</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/LjsTimePickerDelegate/minutes</TokenIdentifier>
+			<Abstract>an array with 00 to 59 - data source for minutes column</Abstract>
+			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSArray *minutes</Declaration>
+			
+			
+			<Anchor>//api/name/minutes</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/LjsTimePickerDelegate/hours</TokenIdentifier>
+			<Abstract>an array with 1 to 12 - data source for hours column</Abstract>
+			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSArray *hours</Declaration>
+			
+			
+			<Anchor>//api/name/hours</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/LjsTimePickerDelegate/delegate</TokenIdentifier>
+			<Abstract>the callback delegate</Abstract>
+			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) id&lt;LjsTimePickerDidChangeCallBackDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/LjsTimePickerDelegate/AM</TokenIdentifier>
+			<Abstract>localized AM</Abstract>
+			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) NSString *AM</Declaration>
+			
+			
+			<Anchor>//api/name/AM</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/LjsTimePickerDelegate/PM</TokenIdentifier>
+			<Abstract>localized PM</Abstract>
+			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) NSString *PM</Declaration>
+			
+			
+			<Anchor>//api/name/PM</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsTimePickerDelegate/initWithDelegate:</TokenIdentifier>
+			<Abstract>Localization of AM/PM might not be a good idea from a layout point
+of view - AM for Portugal Locale is a.m. for example.</Abstract>
+			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithDelegate:(id&lt;LjsTimePickerDidChangeCallBackDelegate&gt;)aDelegate</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>aString</Name>
-					<Abstract>the reference string</Abstract>
+					<Name>aDelegate</Name>
+					<Abstract>the callback delegate</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>an initialized receiver</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithDelegate:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsTimePickerDelegate/pickerView:setSelectedWithTimeString:</TokenIdentifier>
+			<Abstract>sets the picker view to represent the time in the timeString parameter</Abstract>
+			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)pickerView:(UIPickerView *)pickerView setSelectedWithTimeString:(NSString *)timeString</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>pickerView</Name>
+					<Abstract>a picker view</Abstract>
 				</Parameter><Parameter>
-					<Name>aCharacterSet</Name>
-					<Abstract>the set of characters to test against</Abstract>
+					<Name>timeString</Name>
+					<Abstract>a time representation</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract>true iff aString contains only characters from aCharacterSet</Abstract></ReturnValue>
-			<Anchor>//api/name/string:containsOnlyMembersOfCharacterSet:</Anchor>
+			
+			<Anchor>//api/name/pickerView:setSelectedWithTimeString:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/stringContainsOnlyAlphaNumeric:</TokenIdentifier>
-			<Abstract>true iff aString contains only alpha-numeric characters</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/instm/LjsTimePickerDelegate/indexForHour:</TokenIdentifier>
+			<Abstract>the index of hour</Abstract>
+			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
 			
-			<Declaration>+ (BOOL)stringContainsOnlyAlphaNumeric:(NSString *)aString</Declaration>
+			<Declaration>- (NSInteger)indexForHour:(NSString *)hourString</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>aString</Name>
-					<Abstract>the reference string</Abstract>
+					<Name>hourString</Name>
+					<Abstract>the hour to look for</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract>true iff aString contains only alpha-numeric characters</Abstract></ReturnValue>
-			<Anchor>//api/name/stringContainsOnlyAlphaNumeric:</Anchor>
+			<ReturnValue><Abstract>the index of hour</Abstract></ReturnValue>
+			<Anchor>//api/name/indexForHour:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/stringContainsOnlyNumbers:</TokenIdentifier>
-			<Abstract>Method for checking if a string contains only numbers.  Does not check to see
-if the number is a valid deciment - e.g. 0454.  Will return false if there are
-commas or decimal places.</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/instm/LjsTimePickerDelegate/indexForMinute:</TokenIdentifier>
+			<Abstract>the index of the minute</Abstract>
+			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
 			
-			<Declaration>+ (BOOL)stringContainsOnlyNumbers:(NSString *)aString</Declaration>
+			<Declaration>- (NSInteger)indexForMinute:(NSString *)minuteString</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>aString</Name>
-					<Abstract>the string to test</Abstract>
+					<Name>minuteString</Name>
+					<Abstract>the minute to look for</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract>true iff string contains only numeric characters</Abstract></ReturnValue>
-			<Anchor>//api/name/stringContainsOnlyNumbers:</Anchor>
+			<ReturnValue><Abstract>the index of the minute</Abstract></ReturnValue>
+			<Anchor>//api/name/indexForMinute:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/isDictionary:</TokenIdentifier>
-			<Abstract>Method for checking if a value is an NSDictionary</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/instm/LjsTimePickerDelegate/indexForString:inArray:</TokenIdentifier>
+			<Abstract>convenience method</Abstract>
+			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
 			
-			<Declaration>+ (BOOL)isDictionary:(id)value</Declaration>
+			<Declaration>- (NSInteger)indexForString:(NSString *)string inArray:(NSArray *)array</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>value</Name>
-					<Abstract>some value</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>true iff value is an NSDictionary</Abstract></ReturnValue>
-			<Anchor>//api/name/isDictionary:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/isArray:</TokenIdentifier>
-			<Abstract>Method for checking if a value is an NSArray.</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
-			
-			<Declaration>+ (BOOL)isArray:(id)value</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>value</Name>
-					<Abstract>some value</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>true iff value is an NSArray</Abstract></ReturnValue>
-			<Anchor>//api/name/isArray:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/isString:</TokenIdentifier>
-			<Abstract>Method for checking if a value is an NSString</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
-			
-			<Declaration>+ (BOOL)isString:(id)value</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>value</Name>
-					<Abstract>some value</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>true iff value is an NSString</Abstract></ReturnValue>
-			<Anchor>//api/name/isString:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/dictionary:containsKey:</TokenIdentifier>
-			<Abstract>Method for checking if a dictionary contains a key.</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
-			
-			<Declaration>+ (BOOL)dictionary:(NSDictionary *)dictionary containsKey:(NSString *)key</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>dictionary</Name>
-					<Abstract>a dictionary</Abstract>
+					<Name>string</Name>
+					<Abstract>the string to search for</Abstract>
 				</Parameter><Parameter>
-					<Name>key</Name>
-					<Abstract>the key to search for</Abstract>
+					<Name>array</Name>
+					<Abstract>the array to seach</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract>true iff the dictionary contains the key</Abstract></ReturnValue>
-			<Anchor>//api/name/dictionary:containsKey:</Anchor>
+			<ReturnValue><Abstract>the index of a string in an array</Abstract></ReturnValue>
+			<Anchor>//api/name/indexForString:inArray:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/dictionary:containsKeys:</TokenIdentifier>
-			<Abstract>Method for checking if a dictionary contains a list of keys - other keys are
-allowed.</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/instm/LjsTimePickerDelegate/timeStringWithPicker:</TokenIdentifier>
+			<Abstract>a string representation of the picker view</Abstract>
+			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
 			
-			<Declaration>+ (BOOL)dictionary:(NSDictionary *)dictionary containsKeys:(NSArray *)keys</Declaration>
+			<Declaration>- (NSString *)timeStringWithPicker:(UIPickerView *)pickerView</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>dictionary</Name>
-					<Abstract>the reference dictionary</Abstract>
-				</Parameter><Parameter>
-					<Name>keys</Name>
-					<Abstract>the list of keys to find</Abstract>
+					<Name>pickerView</Name>
+					<Abstract>the picker view</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract>true iff the dictionary contains every key from keys</Abstract></ReturnValue>
-			<Anchor>//api/name/dictionary:containsKeys:</Anchor>
+			<ReturnValue><Abstract>a string representation of the picker view</Abstract></ReturnValue>
+			<Anchor>//api/name/timeStringWithPicker:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/dictionary:containsKeys:allowsOthers:</TokenIdentifier>
-			<Abstract>Method for checking if a dictionary contains a list of keys.  If allowsOthers is
-YES then other keys are allowed, otherwise other keys are not allowed.</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/instm/LjsTimePickerDelegate/localizedAmPmTimeString:swapAmPm:</TokenIdentifier>
+			<Abstract>localization might not be the way to go because some Locales like Portugal
+use a.m. which might effect the layout.</Abstract>
+			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
 			
-			<Declaration>+ (BOOL)dictionary:(NSDictionary *)dictionary containsKeys:(NSArray *)keys allowsOthers:(BOOL)allowsOthers</Declaration>
+			<Declaration>- (NSString *)localizedAmPmTimeString:(NSString *)timeString swapAmPm:(BOOL)swap</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>dictionary</Name>
-					<Abstract>the reference dictionary</Abstract>
+					<Name>timeString</Name>
+					<Abstract>the string to localize</Abstract>
 				</Parameter><Parameter>
-					<Name>keys</Name>
-					<Abstract>the list of keys to find</Abstract>
-				</Parameter><Parameter>
-					<Name>allowsOthers</Name>
-					<Abstract>if YES, other keys are allowed, otherwise they are not</Abstract>
+					<Name>swap</Name>
+					<Abstract>if YES the am/pm'ness is swapped</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract>true iff the dictionary contains every key from keys - if allowOthers is
-YES then other keys are allowed, otherwise other keys are not allowed.</Abstract></ReturnValue>
-			<Anchor>//api/name/dictionary:containsKeys:allowsOthers:</Anchor>
+			<ReturnValue><Abstract>a localized am pm time string</Abstract></ReturnValue>
+			<Anchor>//api/name/localizedAmPmTimeString:swapAmPm:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/isValidEmail:</TokenIdentifier>
-			<Abstract>true iff checkString is valid email address
-Discussion http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/instm/LjsTimePickerDelegate/localizedAmPmTimeStringWithDate:swapAmPm:</TokenIdentifier>
+			<Abstract>localization might not be the way to go because some Locales like Portugal
+use a.m. which might effect the layout.</Abstract>
+			<DeclaredIn>LjsTimePickerDelegate.h</DeclaredIn>			
 			
-			<Declaration>+ (BOOL)isValidEmail:(NSString *)checkString</Declaration>
+			<Declaration>- (NSString *)localizedAmPmTimeStringWithDate:(NSDate *)date swapAmPm:(BOOL)swap</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>checkString</Name>
-					<Abstract>the string to check</Abstract>
+					<Name>date</Name>
+					<Abstract>the to localize</Abstract>
+				</Parameter><Parameter>
+					<Name>swap</Name>
+					<Abstract>if YES the am/pm'ness is swapped</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract>true iff checkString is valid email address
-Discussion http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/</Abstract></ReturnValue>
-			<Anchor>//api/name/isValidEmail:</Anchor>
+			<ReturnValue><Abstract>a localized am pm time string</Abstract></ReturnValue>
+			<Anchor>//api/name/localizedAmPmTimeStringWithDate:swapAmPm:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsTimePickerDelegate/pickerView:viewForRow:forComponent:reusingView:</TokenIdentifier>
+			<Abstract>Does not properly reuse the view.</Abstract>
+			<DeclaredIn>LjsTimePickerDelegate.m</DeclaredIn>			
+			
+			<Declaration>- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>pickerView</Name>
+					<Abstract>the picker view</Abstract>
+				</Parameter><Parameter>
+					<Name>row</Name>
+					<Abstract>the row</Abstract>
+				</Parameter><Parameter>
+					<Name>component</Name>
+					<Abstract>the component</Abstract>
+				</Parameter><Parameter>
+					<Name>view</Name>
+					<Abstract>a view to reuse</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a view</Abstract></ReturnValue>
+			<Anchor>//api/name/pickerView:viewForRow:forComponent:reusingView:</Anchor>
 		</Token>
 		
 	</File>

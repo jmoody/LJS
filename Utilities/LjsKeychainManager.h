@@ -1,40 +1,82 @@
-
 #import <Foundation/Foundation.h>
+#import "Reporter.h"
 
-@interface LjsKeychainManager : NSObject {
-    
-}
+extern NSString *LjsKeychainManagerErrorDomain;
+
+typedef enum {
+  // a sublime number
+  LjsKeychainManagerBadKeyError = 4390116,
+  LjsKeychainManagerBadUsernameError,
+  LjsKeychainManagerBadPasswordError
+} LjsKeychainManagerErrorCodes;
+
+@interface LjsKeychainManager : NSObject 
+
+/**
+ helps generate NSError instances
+ */
+@property (nonatomic, strong) Reporter *reporter;
 
 #pragma mark Username Stored in Defaults
 
 /** @name Username and Password Validity */
 - (BOOL) isValidUsername:(NSString *) username;
 - (BOOL) isValidPassword:(NSString *) password;
+- (BOOL) isValidKey:(NSString *) key;
 
 /** @name Managing Username in Defaults */
-- (NSString *) usernameStoredInDefaults;
-- (void) deleteUsernameInDefaults;
-- (void) setDefaultsUsername:(NSString *) username;
+- (NSString *) usernameStoredInDefaultsForKey:(NSString *) key;
+- (BOOL) deleteUsernameInDefaultsForKey:(NSString *) key error:(NSError **) error;
+- (BOOL) setDefaultsUsername:(NSString *) username forKey:(NSString *) key error:(NSError **) error;
+
 
 #pragma mark Should Use Key Chain in Defaults
 
 /** @name Managing Whether the Keychain Should be Used in Defaults */
-- (BOOL) shouldUseKeyChain;
-- (void) deleteShouldUseKeyChainInDefaults;
-- (void) setDefaultsShouldUseKeyChain:(BOOL) shouldUse;
+- (BOOL) shouldUseKeyChainWithKey:(NSString  *) key error:(NSError **) error;
+- (BOOL) deleteShouldUseKeyChainInDefaults:(NSString *) key error:(NSError **) error;
+- (BOOL) setDefaultsShouldUseKeyChain:(BOOL) shouldUse key:(NSString *) key error:(NSError **) error;
+
+
 
 #pragma mark Key Chain Interaction
 
 /** @name Interacting with the Keychain */
-- (void) logKeychainError:(NSError *) error;
-- (BOOL) hasKeychainPasswordForUsername:(NSString *) username;
-- (NSString *) keyChainPasswordForUsernameInDefaults;
-- (void) keyChainDeletePasswordForUsername:(NSString *) username;
-- (void) keychainStoreUsername:(NSString *) username password:(NSString *) password;
+- (BOOL) hasKeychainPasswordForUsername:(NSString *) username 
+                            serviceName:(NSString *) serviceName
+                                  error:(NSError **) error;
+
+- (NSString *) keychainPasswordForUsernameInDefaults:(NSString *) key
+                                         serviceName:(NSString *) serviceName
+                                               error:(NSError **) error;
+
+- (BOOL) keychainDeletePasswordForUsername:(NSString *) username 
+                               serviceName:(NSString *) serviceName
+                                     error:(NSError **) error;
+- (BOOL) keychainStoreUsername:(NSString *) username 
+                   serviceName:(NSString *) serviceName
+                      password:(NSString *) password
+                         error:(NSError **) error;
 
 #pragma mark Synchronizing Key Chain and Defaults
 /** @name Synchronizing with Defaults */
-- (void) synchronizeKeychainAndDefaultsWithUsername:(NSString *) username
+- (BOOL) synchronizeKeychainAndDefaultsWithUsername:(NSString *) username
+                                usernameDefaultsKey:(NSString *) usernameKey
                                            password:(NSString *) password
-                                  shouldUseKeyChain:(BOOL) shouldUseKeychain;
+                       shouldUseKeychainDefaultsKey:(NSString *) shouldUseKeychainKey
+                                  shouldUseKeyChain:(BOOL) shouldUseKeychain
+                                        serviceName:(NSString *) serviceName
+                                              error:(NSError **) error;
+
+
+
+/** @name Utility */
+- (void) ljsKeychainManagerErrorWithCode:(NSUInteger) code
+                                   error:(NSError **) error;
+
+
+- (void) logKeychainError:(NSError *) error;
+
+
+
 @end

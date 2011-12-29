@@ -8,20 +8,27 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-static NSString *LjsSecurityManagerUsernameDefaultsKey = @"com.littlejoysoftware.ljs LJS Security Manager  UserName Defaults Key";
-static NSString *LjsSecurityManagerUseKeychainDefaultsKey = @"com.littlejoysoftware.ljs LJS Security Manager  Use Keychain Defaults Key";
-static NSString *LjsSecurityManagerKeychainServiceName = @"com.littlejoysoftware.ljs LJS Security Manager ";
-static NSString *LjsSecurityManagerYES = @"YES";
-static NSString *LjsSecurityManagerNO = @"NO";
+NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keychain Manager Error";
+
+
+
+
 
 /**
- LjsKeychainManager provides methods to bridge the Keychain Access API and the 
- User Defaults API.
+ It is a common design pattern to have a username stored in defaults and a 
+ password optionally (user controlled) stored in the Keychain.  
+ LjsKeychainManager provides methods to bridge the Keychain Access API (using
+ the SFHFKeychainUtils) and the User Defaults API.
+ 
+ @warn Class could use more testing.
  */
 @implementation LjsKeychainManager
 
+@synthesize reporter;
+
 
 - (void) dealloc {
+  self.reporter = nil;
   [super dealloc];
 }
 
@@ -32,6 +39,7 @@ static NSString *LjsSecurityManagerNO = @"NO";
     // NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     // NSDictionary *dict = [defaults dictionaryRepresentation];
     // DDLogDebug(@"dict = %@", dict);
+    self.reporter = nil;
   }
   return self;
 }
@@ -48,13 +56,7 @@ static NSString *LjsSecurityManagerNO = @"NO";
  @return true if username is a non-nil, non-empty string
  */
 - (BOOL) isValidUsername:(NSString *) username {
-  BOOL result;
-  if (username != nil && [username length] != 0) {
-    result = YES;
-  } else {
-    result = NO;
-  }
-  return result;
+  return username != nil && [username length] != 0;
 }
 
 /**
@@ -67,154 +69,195 @@ static NSString *LjsSecurityManagerNO = @"NO";
  @return true iff password is a non-nil, non-empty string
  */
 - (BOOL) isValidPassword:(NSString *) password {
-  BOOL result;
-  if (password != nil && [password length] != 0) {
-    result = YES;
-  } else {
-    result = NO;
-  }
-  return result;
+  return password != nil && [password length] != 0;
+}
+
+/**
+ @return true iff key is non-nil and non empty
+ @param key the key to test
+ */
+- (BOOL) isValidKey:(NSString *) key {
+  return key != nil && [key length] != 0;
 }
 
 /**
  queries the NSUserDefaults standardUserDefaults with the AgChoiceUsernameDefaultsKey
- 
+ @param key the defaults key
  @return if there is no entry, will return nil
  */
-- (NSString *) usernameStoredInDefaults {
+- (NSString *) usernameStoredInDefaultsForKey:(NSString *) key {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  NSString *username = [defaults stringForKey:LjsSecurityManagerUsernameDefaultsKey];
+  NSString *username = [defaults stringForKey:key];
   
   NSString *result = nil;
   if ([self isValidUsername:username]) {
     result = username;
   }
-  return result;
+  return result;  
 }
 
 
 /**
  deletes the value (if any) for the key AgChoiceUsernameDefaultsKey from the
  NSUserDefaults standardUserDefaults
+ @return true iff the delete was successful
+ @param key the key under which to look for the username
+ @param error catches invalid key errors
  */
-- (void) deleteUsernameInDefaults {
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  [defaults setNilValueForKey:LjsSecurityManagerUsernameDefaultsKey];
+- (BOOL) deleteUsernameInDefaultsForKey:(NSString *)key error:(NSError **)error {
+  BOOL result = NO;
+  if (![self isValidKey:key]) {
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
+                                    error:error];    
+  } else {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setNilValueForKey:key];
+    result = YES;
+  }
+  return result;
 }
 
 
 /**
  sets the value for key AgChoiceUsernameDefaultsKey in the NSUserDefaults
  standardUserDefaults
+ @return true iff the username was succesfully set
  @param username the new value for AgChoiceUsernamDefaultsKey
+ @param key the key to store the username under
+ @param error catches bad key and bad username
  */
-- (void) setDefaultsUsername:(NSString *) username {
+- (BOOL) setDefaultsUsername:(NSString *) username forKey:(NSString *) key error:(NSError **) error {
+  if (![self isValidUsername:username]) {
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadUsernameError
+                                    error:error];
+    return NO;
+  }
+  
+  if (![self isValidKey:key]) {
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
+                                    error:error];   
+    return NO;
+  }
+
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  [defaults setObject:username forKey:LjsSecurityManagerUsernameDefaultsKey];
+  [defaults setObject:username forKey:key];
+  return YES;
 }
 
 #pragma mark Should Use Key Chain in Defaults
 
 /**
- looks up the value of AgChoiceUseKeychainDefaultsKey in NSUserDefaults
- standardUserDefaults
+
  
- @return true iff value for key is AgChoiceYES
+ @return the BOOL value of the item stored in defaults under key
+ @param key the key under which the should use keychain value is stored
+ @param error catches bad key
  */
-- (BOOL) shouldUseKeyChain {
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  NSString *value = [defaults stringForKey:LjsSecurityManagerUseKeychainDefaultsKey];
-  BOOL result;
-  if (value != nil && [value isEqualToString:LjsSecurityManagerYES]) {
-    result = YES;
+- (BOOL) shouldUseKeyChainWithKey:(NSString  *) key error:(NSError **) error {
+  if (![self isValidKey:key]) {
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
+                                    error:error];   
+    
+    return NO;
   } else {
-    result = NO;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults boolForKey:key];
   }
-  return result;
 }
 
 
 /**
- removes the value of key AgChoiceUseKeychainDefaultsKey from NSUserDefaults
- standardUserDefaults
+ @return true iff the delete was successful
+ @param key the key to lookup (and delete) from defaults
+ @param error catches bad key
  */
-- (void) deleteShouldUseKeyChainInDefaults {
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  [defaults setNilValueForKey:LjsSecurityManagerUseKeychainDefaultsKey];
-}
-
-/**
- sets the value of key AgChoiceUserKeycahinDefaultsKey in NSUserDefaults
- standardUserDefaults
- @param shouldUse the new value to store in the User Defaults
- */
-- (void) setDefaultsShouldUseKeyChain:(BOOL) shouldUse {
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  if (shouldUse == YES) {
-    [defaults setObject:LjsSecurityManagerYES forKey:LjsSecurityManagerUseKeychainDefaultsKey];
+- (BOOL) deleteShouldUseKeyChainInDefaults:(NSString *) key error:(NSError **) error {
+  if (![self isValidKey:key]) {
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
+                                    error:error];   
+    return NO;
   } else {
-    [defaults setObject:LjsSecurityManagerNO forKey:LjsSecurityManagerUseKeychainDefaultsKey];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setNilValueForKey:key];
+    return YES;
+  }
+}
+
+
+/**
+ @return sets defaults value to shouldUse for key 
+ @param shouldUse the new value to store in the User Defaults
+ @param key the key under which to store the shouldUse value
+ @param error catches bad key
+ */
+- (BOOL) setDefaultsShouldUseKeyChain:(BOOL) shouldUse key:(NSString *) key error:(NSError **) error {
+  if (![self isValidKey:key]) {
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
+                                    error:error];   
+    return NO;
+  } else {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:shouldUse forKey:key];
+    return YES;
   }
 }
 
 #pragma mark Key Chain Interaction
 
 /**
- prints error information to the log stream(s)
- @param error the error to log
- */
-- (void) logKeychainError:(NSError *) error {
-  NSInteger code = [error code];
-  NSString *message = [error localizedDescription];
-  DDLogError(@"%d: %@", code, message);
-}
-
-
-/**
  queries the keychain to see if a password is stored for username
  @param username the name we want the password for
+ @param serviceName the keychain service name
+ @param error catches bad usernames
  @return true iff the keychain has a password for the username
  */
-- (BOOL) hasKeychainPasswordForUsername:(NSString *) username {
-  BOOL result = NO;
-  if ([self isValidUsername:username]) {
-    NSError *error;
-    NSString *fetchedPwd = [SFHFKeychainUtils getPasswordForUsername:username
-                                                      andServiceName:LjsSecurityManagerKeychainServiceName
-                                                               error:&error];
-    if (error != nil) {
-      [self logKeychainError:error];
-    } else {
-      result = (fetchedPwd != nil && [fetchedPwd length] != 0);
+- (BOOL) hasKeychainPasswordForUsername:(NSString *) username 
+                            serviceName:(NSString *) serviceName
+                                  error:(NSError **) error {
+  
+  NSError *fetchError;
+  NSString *fetchedPwd = [SFHFKeychainUtils getPasswordForUsername:username
+                                                andServiceName:serviceName
+                                                         error:&fetchError];
+  if (fetchError != nil) {
+    [self logKeychainError:fetchError];
+    if (*error != NULL) {
+        *error = fetchError;
     }
-  }
-  return result;
+  }   
+  return [self isValidPassword:fetchedPwd];
 }
 
 
 /**
  queries the keychain for the password stored for username
  
- if there is an error, it is logged
- 
  @return returns the password stored for the username in the defaults or nil if
  no password is found
+ @param key the key under the username is stored
+ @param serviceName the keychain service name
+ @param error catches bad key and Keychain Access error
  */
-- (NSString *) keyChainPasswordForUsernameInDefaults {
-  NSString *result = nil;
-  NSString *username = [self usernameStoredInDefaults];
-  if ([self isValidUsername:username]) {
-    if ([self hasKeychainPasswordForUsername:username]) {
-      NSError *error;
-      NSString *fetched = [SFHFKeychainUtils getPasswordForUsername:username
-                                                     andServiceName:LjsSecurityManagerKeychainServiceName
-                                                              error:&error];
-      
-      if (error != nil) {
-        [self logKeychainError:error];
-      } else {
-        result = fetched;
-      }
+- (NSString *) keychainPasswordForUsernameInDefaults:(NSString *) key
+                                         serviceName:(NSString *) serviceName
+                                               error:(NSError **) error {
+  if (![self isValidKey:key]) {
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
+                                    error:error];   
+    return nil;
+  }
+  
+  NSString *username = [self usernameStoredInDefaultsForKey:key];
+  
+  NSError *fetchError;
+  NSString *result = [SFHFKeychainUtils getPasswordForUsername:username
+                                                andServiceName:serviceName
+                                                         error:&fetchError];
+  
+  if (fetchError != nil) {
+    [self logKeychainError:fetchError];
+    if (*error != NULL) {
+      *error = fetchError;
     }
   }
   return result;
@@ -222,44 +265,38 @@ static NSString *LjsSecurityManagerNO = @"NO";
 
 /**
  deletes the password for the keychain entry for the username
- 
- if there is an error, it is logged
- 
+
  @param username the username for the password we would like to delete
+ @param serviceName the service name for the password
+ @param error catches Keychain Access error
+ @return true iff password was deleted
  */
-- (void) keyChainDeletePasswordForUsername:(NSString *) username {
-  if ([self isValidUsername:username]) {
-    if ([self hasKeychainPasswordForUsername:username]) {
-      NSError *error;
-      [SFHFKeychainUtils deleteItemForUsername:username
-                                andServiceName:LjsSecurityManagerKeychainServiceName
-                                         error:&error];
-      
-      if (error != nil) {
-        [self logKeychainError:error];
-      }
-    }
-  }
+- (BOOL) keychainDeletePasswordForUsername:(NSString *) username 
+                               serviceName:(NSString *) serviceName
+                                     error:(NSError **) error {
+  return [SFHFKeychainUtils deleteItemForUsername:username
+                                   andServiceName:serviceName
+                                            error:error];
 }
 
 /**
  stores a username and password to the keychain
  
- if there is an error, it is logged
- 
- existing values are overwritten
- 
- @param username the username to store
+ @return true iff store was successful
+ @param username the username for the password we would like to store
+ @param serviceName the service name for the password
  @param password the password to store for the username
+ @param error catches Keychain Access error
  */
-- (void) keychainStoreUsername:(NSString *) username password:(NSString *) password {
-  BOOL update = [self hasKeychainPasswordForUsername:username];
-  NSError *error;
-  [SFHFKeychainUtils storeUsername:username andPassword:password
-                    forServiceName:LjsSecurityManagerKeychainServiceName updateExisting:update error:&error];
-  if (error != nil) {
-    [self logKeychainError:error];
-  }
+- (BOOL) keychainStoreUsername:(NSString *) username 
+                   serviceName:(NSString *) serviceName
+                      password:(NSString *) password
+                         error:(NSError **) error {
+
+  return [SFHFKeychainUtils storeUsername:username andPassword:password
+                    forServiceName:serviceName
+                           updateExisting:YES 
+                                    error:error];
 }
 
 #pragma mark Synchronizing Key Chain and Defaults
@@ -275,32 +312,123 @@ static NSString *LjsSecurityManagerNO = @"NO";
  
  the value of shouldUseKeychain is persisted the User Defaults
  
- @param username a non-nil non-empty string
- @param password a non-nil non-empty string
- @param shouldUseKeychain if YES, will persist username/password to keychain,
- otherwise not
+ This method will fail fast, but it is possible that the defaults might be set
+ and the keychain elements will not be updated
+ 
+ @return true iff synchronization is successful
+ @param username the username to persist to defaults
+ @param usernameKey the key under which to persist the username 
+ @param password the password to store
+ @param shouldUseKeychainKey the key under which shouldUseKeychain value is stored
+ @param shouldUseKeychain the value to store under shouldUseKeychainKey
+ @param serviceName the service name for the password
+ @param error catches Keychain Access error 
  */
-- (void) synchronizeKeychainAndDefaultsWithUsername:(NSString *) username
+- (BOOL) synchronizeKeychainAndDefaultsWithUsername:(NSString *) username
+                                usernameDefaultsKey:(NSString *) usernameKey
                                            password:(NSString *) password
-                                  shouldUseKeyChain:(BOOL) shouldUseKeychain {
-  //DDLogDebug(@"synchronizing with username: %@, password: %@, should use keychain: %d",
-  //           username, password, shouldUseKeychain);
-  if ([self isValidUsername:username]) {
-    [self setDefaultsUsername:username];
-  } else {
-    DDLogError(@"%@ is not a valid username - doing nothing", username);
+                       shouldUseKeychainDefaultsKey:(NSString *) shouldUseKeychainKey
+                                  shouldUseKeyChain:(BOOL) shouldUseKeychain
+                                        serviceName:(NSString *) serviceName
+                                              error:(NSError **) error {
+  if (![self isValidUsername:username]) {
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadUsernameError
+                                    error:error];
+    return NO;
   }
   
-  if (shouldUseKeychain == YES) {
-    if ([self isValidPassword:password]) {
-      [self keychainStoreUsername:username password:password];
-    } else {
-      DDLogError(@"%@ is not a valid password - doing nothing", password);
-    }
-  } else {
-    [self keyChainDeletePasswordForUsername:username];
+  if (![self isValidKey:usernameKey]) {
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
+                                    error:error];   
+    return NO;
   }
-  [self setDefaultsShouldUseKeyChain:shouldUseKeychain];
+  
+  if (![self isValidPassword:password]) {
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadPasswordError
+                                    error:error];
+    return NO;
+  }
+  
+  if (![self isValidKey:shouldUseKeychainKey]) {
+    [self ljsKeychainManagerErrorWithCode:LjsKeychainManagerBadKeyError
+                                    error:error];   
+    return NO;
+  }
+
+  if (![self setDefaultsShouldUseKeyChain:shouldUseKeychain
+                                      key:shouldUseKeychainKey
+                                    error:error]) {
+    return NO;
+  }
+  
+  if (![self setDefaultsUsername:username forKey:usernameKey error:error]) {
+    return NO;
+  }
+  
   [[NSUserDefaults standardUserDefaults] synchronize];
+
+  
+  if (shouldUseKeychain == YES) {
+
+    return [self keychainStoreUsername:username
+                           serviceName:serviceName
+                              password:password
+                                 error:error];
+    
+
+  } else {
+    return [self keychainDeletePasswordForUsername:username
+                                       serviceName:serviceName
+                                             error:error];
+  }
 }
+
+#pragma mark Utility
+
+/**
+ Sets the error using Reporter API
+ @param code the error code use
+ @param error the error to populate
+ */
+- (void) ljsKeychainManagerErrorWithCode:(NSUInteger) code
+                                   error:(NSError **) error {
+  self.reporter = [Reporter reporterWithDomain:LjsKeychainManagerErrorDomain
+                                         error:error];
+  NSString *message;
+  switch (code) {
+    case LjsKeychainManagerBadKeyError:
+      message = NSLocalizedString(@"The key you used was nil or empty, which is not allowed.", 
+                                  @"part of error message");
+      break;
+    case LjsKeychainManagerBadPasswordError:
+      message =  NSLocalizedString(@"The password you used was nil or empty, which is not allowed.", 
+                                   @"part of error message");
+      break;
+    case LjsKeychainManagerBadUsernameError:
+      message =  NSLocalizedString(@"The username you used was nil or empty, which is not allowed.", 
+                                   @"part of error message");
+      break;
+    default:
+      NSAssert(NO, "fell through switch statement which is not allowed");
+      // extra paranoid - do not want to pass a nil value to the userInfo
+      // dictionary at runtime
+      message = @"META ERROR:  fell through switch statement with is not allowed";
+      break;
+  }
+  
+  *error = [self.reporter errorWithCode:code description:message];
+  [self logKeychainError:*error];
+}
+
+
+/**
+ prints error information to the log stream(s)
+ @param error the error to log
+ */
+- (void) logKeychainError:(NSError *) error {
+  NSInteger code = [error code];
+  NSString *message = [error localizedDescription];
+  DDLogError(@"%d: %@", code, message);
+}
+
 @end

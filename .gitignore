@@ -3,6 +3,9 @@
 
 # my idea
 scratch/*
+private/*
+
+private/*
 
 ## Mac OS X
 # bug in Xcode 4.2 prevents snapshots

@@ -1,196 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/LjsValidator.html">
+	<File path="Classes/LjsServiceObserver.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/LjsValidator</TokenIdentifier>
-			<Abstract>LjsValidator provides class methods for validating all sorts of things.</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsServiceObserver</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>LjsServiceObserver.h</DeclaredIn>
 			
 			<NodeRef refid="14"/>
 		</Token>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/string:containsOnlyMembersOfCharacterSet:</TokenIdentifier>
-			<Abstract>true iff aString contains only characters from aCharacterSet</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/instm/LjsServiceObserver/stopAndReleaseRepeatingTimers</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>LjsServiceObserver.m</DeclaredIn>			
 			
-			<Declaration>+ (BOOL)string:(NSString *)aString containsOnlyMembersOfCharacterSet:(NSCharacterSet *)aCharacterSet</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>aString</Name>
-					<Abstract>the reference string</Abstract>
-				</Parameter><Parameter>
-					<Name>aCharacterSet</Name>
-					<Abstract>the set of characters to test against</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>true iff aString contains only characters from aCharacterSet</Abstract></ReturnValue>
-			<Anchor>//api/name/string:containsOnlyMembersOfCharacterSet:</Anchor>
+			<Declaration>- (void)stopAndReleaseRepeatingTimers</Declaration>
+			
+			
+			<Anchor>//api/name/stopAndReleaseRepeatingTimers</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/stringContainsOnlyAlphaNumeric:</TokenIdentifier>
-			<Abstract>true iff aString contains only alpha-numeric characters</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/instm/LjsServiceObserver/startAndRetainRepeatingTimers</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>LjsServiceObserver.m</DeclaredIn>			
 			
-			<Declaration>+ (BOOL)stringContainsOnlyAlphaNumeric:(NSString *)aString</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>aString</Name>
-					<Abstract>the reference string</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>true iff aString contains only alpha-numeric characters</Abstract></ReturnValue>
-			<Anchor>//api/name/stringContainsOnlyAlphaNumeric:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/stringContainsOnlyNumbers:</TokenIdentifier>
-			<Abstract>Method for checking if a string contains only numbers.  Does not check to see
-if the number is a valid deciment - e.g. 0454.  Will return false if there are
-commas or decimal places.</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
+			<Declaration>- (void)startAndRetainRepeatingTimers</Declaration>
 			
-			<Declaration>+ (BOOL)stringContainsOnlyNumbers:(NSString *)aString</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>aString</Name>
-					<Abstract>the string to test</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>true iff string contains only numeric characters</Abstract></ReturnValue>
-			<Anchor>//api/name/stringContainsOnlyNumbers:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/isDictionary:</TokenIdentifier>
-			<Abstract>Method for checking if a value is an NSDictionary</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
 			
-			<Declaration>+ (BOOL)isDictionary:(id)value</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>value</Name>
-					<Abstract>some value</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>true iff value is an NSDictionary</Abstract></ReturnValue>
-			<Anchor>//api/name/isDictionary:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/isArray:</TokenIdentifier>
-			<Abstract>Method for checking if a value is an NSArray.</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
-			
-			<Declaration>+ (BOOL)isArray:(id)value</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>value</Name>
-					<Abstract>some value</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>true iff value is an NSArray</Abstract></ReturnValue>
-			<Anchor>//api/name/isArray:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/isString:</TokenIdentifier>
-			<Abstract>Method for checking if a value is an NSString</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
-			
-			<Declaration>+ (BOOL)isString:(id)value</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>value</Name>
-					<Abstract>some value</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>true iff value is an NSString</Abstract></ReturnValue>
-			<Anchor>//api/name/isString:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/dictionary:containsKey:</TokenIdentifier>
-			<Abstract>Method for checking if a dictionary contains a key.</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
-			
-			<Declaration>+ (BOOL)dictionary:(NSDictionary *)dictionary containsKey:(NSString *)key</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>dictionary</Name>
-					<Abstract>a dictionary</Abstract>
-				</Parameter><Parameter>
-					<Name>key</Name>
-					<Abstract>the key to search for</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>true iff the dictionary contains the key</Abstract></ReturnValue>
-			<Anchor>//api/name/dictionary:containsKey:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/dictionary:containsKeys:</TokenIdentifier>
-			<Abstract>Method for checking if a dictionary contains a list of keys - other keys are
-allowed.</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
-			
-			<Declaration>+ (BOOL)dictionary:(NSDictionary *)dictionary containsKeys:(NSArray *)keys</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>dictionary</Name>
-					<Abstract>the reference dictionary</Abstract>
-				</Parameter><Parameter>
-					<Name>keys</Name>
-					<Abstract>the list of keys to find</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>true iff the dictionary contains every key from keys</Abstract></ReturnValue>
-			<Anchor>//api/name/dictionary:containsKeys:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/dictionary:containsKeys:allowsOthers:</TokenIdentifier>
-			<Abstract>Method for checking if a dictionary contains a list of keys.  If allowsOthers is
-YES then other keys are allowed, otherwise other keys are not allowed.</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
-			
-			<Declaration>+ (BOOL)dictionary:(NSDictionary *)dictionary containsKeys:(NSArray *)keys allowsOthers:(BOOL)allowsOthers</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>dictionary</Name>
-					<Abstract>the reference dictionary</Abstract>
-				</Parameter><Parameter>
-					<Name>keys</Name>
-					<Abstract>the list of keys to find</Abstract>
-				</Parameter><Parameter>
-					<Name>allowsOthers</Name>
-					<Abstract>if YES, other keys are allowed, otherwise they are not</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>true iff the dictionary contains every key from keys - if allowOthers is
-YES then other keys are allowed, otherwise other keys are not allowed.</Abstract></ReturnValue>
-			<Anchor>//api/name/dictionary:containsKeys:allowsOthers:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/isValidEmail:</TokenIdentifier>
-			<Abstract>true iff checkString is valid email address
-Discussion http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/</Abstract>
-			<DeclaredIn>LjsValidator.h</DeclaredIn>			
-			
-			<Declaration>+ (BOOL)isValidEmail:(NSString *)checkString</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>checkString</Name>
-					<Abstract>the string to check</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract>true iff checkString is valid email address
-Discussion http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/</Abstract></ReturnValue>
-			<Anchor>//api/name/isValidEmail:</Anchor>
+			<Anchor>//api/name/startAndRetainRepeatingTimers</Anchor>
 		</Token>
 		
 	</File>

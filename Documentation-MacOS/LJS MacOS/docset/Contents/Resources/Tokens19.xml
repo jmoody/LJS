@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/LjsRepeatingTimerProtocol.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/LjsRepeatingTimerProtocol</TokenIdentifier>
+			<Abstract>When using repeating timers with target self it is important to invalidate
+the timer before deallocating self because the timer maintains a reference
+to the target until invalidate is called.  It is also often very useful to
+have, say the App Delegate, start and stop timers when the user moves from
+one state to another.</Abstract>
+			<DeclaredIn>LjsRepeatingTimerProtocol.h</DeclaredIn>
+			
+			<NodeRef refid="19"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/LjsRepeatingTimerProtocol/stopAndReleaseRepeatingTimers</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>LjsRepeatingTimerProtocol.h</DeclaredIn>			
+			
+			<Declaration>- (void)stopAndReleaseRepeatingTimers</Declaration>
+			
+			
+			<Anchor>//api/name/stopAndReleaseRepeatingTimers</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/LjsRepeatingTimerProtocol/startAndRetainRepeatingTimers</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>LjsRepeatingTimerProtocol.h</DeclaredIn>			
+			
+			<Declaration>- (void)startAndRetainRepeatingTimers</Declaration>
+			
+			
+			<Anchor>//api/name/startAndRetainRepeatingTimers</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

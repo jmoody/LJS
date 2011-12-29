@@ -1,4 +1,4 @@
-// Copyright (c) 2010, Little Joy Software
+// Copyright 2011 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,26 +26,21 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import <Cocoa/Cocoa.h>
-#import "Lumberjack.h"
+/*
+ Cribbed from http://www.cimgf.com/2010/01/28/fun-with-uibuttons-and-core-animation-layers/
+ 
+ Many thanks.
+ */
+#import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
 
-int main(int argc, char *argv[]) {
-  
-  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-  // Lumberjack Logging
-  LjsDefaultFormatter *formatter = [[[LjsDefaultFormatter alloc] init] autorelease];
-  DDTTYLogger *tty = [DDTTYLogger sharedInstance];
-  [tty setLogFormatter:formatter];
-  [DDLog addLogger:tty];
-  
-//  DDASLLogger *asl = [DDASLLogger sharedInstance];
-//  [asl setLogFormatter:formatter];
-//  [DDLog addLogger:asl];
-  
-  int result = NSApplicationMain(argc,  (const char **) argv);
-  
-  [pool drain];
-  
-  return result;
-}
+@interface LjsButton : UIButton
 
+@property (nonatomic, retain) UIColor *_highColor;
+@property (nonatomic, retain) UIColor *_lowColor;
+@property (nonatomic, retain) CAGradientLayer *gradientLayer;
+
+- (void) setHighColor:(UIColor *) aColor;
+- (void) setLowColor:(UIColor * ) aColor;
+
+@end
