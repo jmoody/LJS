@@ -898,7 +898,7 @@
 		F50FE6921410C6F60051FC7E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "Little Joy Software";
 			};
 			buildConfigurationList = F50FE6951410C6F60051FC7E /* Build configuration list for PBXProject "Tests-iOS" */;
