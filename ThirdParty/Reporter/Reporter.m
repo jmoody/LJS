@@ -54,12 +54,12 @@ static NSError *dummyError = nil;
 
 #pragma mark Error Reporting
 
-- (NSError*) errorWithCode: (int) code
+- (NSError*) errorWithCode: (NSInteger) code
 {
     return [NSError errorWithDomain:domain code:code userInfo:nil];
 }
 
-- (NSError*) errorWithCode: (int) code description: (NSString*) msg
+- (NSError*) errorWithCode: (NSInteger) code description: (NSString*) msg
 {
   
   NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:

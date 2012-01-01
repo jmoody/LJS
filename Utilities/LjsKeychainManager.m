@@ -390,7 +390,7 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
  @param code the error code use
  @param error the error to populate
  */
-- (void) ljsKeychainManagerErrorWithCode:(NSUInteger) code
+- (void) ljsKeychainManagerErrorWithCode:(NSInteger) code
                                    error:(NSError **) error {
   self.reporter = [Reporter reporterWithDomain:LjsKeychainManagerErrorDomain
                                          error:error];
