@@ -195,7 +195,6 @@
   GHAssertEquals([[NSNumber numberWithInteger:[sampled count]] intValue],
                  [[NSNumber numberWithInteger:100] intValue], nil);
   // GHTestLog(@"%@", sampled);
-  [toSample release];
 }
 
 

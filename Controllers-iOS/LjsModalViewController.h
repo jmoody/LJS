@@ -29,7 +29,7 @@
 
 /** @name Properties */
 
-@property (nonatomic, assign) id<LjsModalWindowDismissDelegate> dismissDelegate;
+@property (nonatomic, unsafe_unretained) id<LjsModalWindowDismissDelegate> dismissDelegate;
 
 /** @name Memory Management */
 

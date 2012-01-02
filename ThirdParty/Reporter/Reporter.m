@@ -30,27 +30,26 @@ static NSError *dummyError = nil;
 
 @implementation Reporter
 
+@synthesize domain;
+
 #pragma mark Initialization
 
-- (id) initWithDomain: (NSString*) errDomain error: (NSError**) error
-{
-    [super init];
-    domain = [errDomain retain];
-    if (error == NULL)
-        error = &dummyError;
-    return self;
+- (id) initWithDomain: (NSString*) errDomain error: (NSError**) error {
+  self = [super init];
+  if (self != nil) {
+    self.domain = errDomain;
+    if (error == NULL) {
+      *error = dummyError;
+    }
+  }
+  return self;
 }
 
 + (id) reporterWithDomain: (NSString*) errDomain error: (NSError**) error
 {
-    return [[[self alloc] initWithDomain:errDomain error:error] autorelease];
+    return [[self alloc] initWithDomain:errDomain error:error];
 }
 
-- (void) dealloc
-{
-    [domain release];
-    [super dealloc];
-}
 
 #pragma mark Error Reporting
 

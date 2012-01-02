@@ -50,17 +50,9 @@ static LjsLocationManager *singleton = nil;
 
 - (void) dealloc {
   [[NSNotificationCenter defaultCenter] removeObserver:self];
-  self.coreLocationManager = nil;
-  self.coreLocation = nil;
-  self.handler = nil;
-  self.noLocation = nil;
-  self.noHeading = nil;
-  self.coreHeading = nil;
 #ifdef LJS_LOCATION_SERVICES_DEBUG
   self.debugDevices = nil;
 #endif
-  self.debugLastHeading = nil;
-  [super dealloc];
 }
 
 + (id) sharedInstance {
@@ -72,33 +64,33 @@ static LjsLocationManager *singleton = nil;
 }
 
 + (id)allocWithZone:(NSZone *)zone {
-  return [[self sharedInstance] retain];
+  return [self sharedInstance];
 }
 
 - (id)copyWithZone:(NSZone *)zone {
   return self;
 }
 
-- (id)retain {
-  return self;
-}
-
-- (unsigned)retainCount {
-  return UINT_MAX; //denotes an object that cannot be released
-}
-
-- (oneway void) release { 
-  /* do nothing */
-}
-
-- (id)autorelease {
-  return self;
-}
+//- (id)retain {
+//  return self;
+//}
+//
+//- (unsigned)retainCount {
+//  return UINT_MAX; //denotes an object that cannot be released
+//}
+//
+//- (oneway void) release { 
+//  /* do nothing */
+//}
+//
+//- (id)autorelease {
+//  return self;
+//}
 
 - (id) init {
   self = [super init];
   if (self != nil) {
-    self.coreLocationManager = [[[CLLocationManager alloc] init] autorelease];
+    self.coreLocationManager = [[CLLocationManager alloc] init];
     self.coreLocationManager.delegate = self;
 
     self.coreLocationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;

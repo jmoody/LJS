@@ -63,18 +63,13 @@ static NSString * const SOME_LOG  = @"  LOG";
 - (id) init {
 	self = [super init];
 	if (self != nil) {
-		self.dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+		self.dateFormatter = [[NSDateFormatter alloc] init];
     [self.dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
     self.formatString = @"%@ %@ %@: %s %i - %@";
   }
 	return self;
 }
 
-- (void) dealloc {
-	[dateFormatter release];
-  [formatString release];
-	[super dealloc];
-}
 
 /** @name Format Log Message */
 /**

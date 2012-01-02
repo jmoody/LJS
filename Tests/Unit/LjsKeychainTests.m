@@ -97,7 +97,7 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
 - (NSString *) swizzledSFHFgetPasswordForUsername:(NSString *) aIgnored0
                                    andServiceName:(NSString *) aIgnored1
                                             error:(NSError **) aError {
-  NSError *error = nil;
+  NSError __autoreleasing *error = nil;
   aError = &error;
   return LjsKeychainTestsDefaultPassword;
 }
@@ -110,7 +110,7 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
 
 - (void) setUpClass {
   // Run at start of all tests in the class
-  self.km = [[[LjsKeychainManager alloc] init] autorelease];
+  self.km = [[LjsKeychainManager alloc] init];
 }
 
 - (void) tearDownClass {

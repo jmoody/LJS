@@ -72,12 +72,6 @@ NSString *LjsJsonRpcReplyErrorDataUserInfoKey = @"com.littlejoysoftware.ljs.Json
 #pragma mark Memory Management
 - (void) dealloc {
   DDLogDebug(@"deallocating LjsJsonRpcReply");
-  [errorFoundInReply release];
-  [jsonParseError release];
-  [jsonRpcFormatError release];
-  [parser release];
-  [replyDict release];
-  [super dealloc];
 }
 
 - (id) initWithJsonReply:(NSString *)json {
@@ -85,7 +79,6 @@ NSString *LjsJsonRpcReplyErrorDataUserInfoKey = @"com.littlejoysoftware.ljs.Json
   if (self != nil) {
     SBJsonParser *aParser = [[SBJsonParser alloc] init];
     self.parser = aParser;
-    [aParser release];
 
     NSError *tmpParseError = nil;
     self.replyDict = [self.parser objectWithString:json error:&tmpParseError];

@@ -64,20 +64,16 @@ NSString *LjsMessageBuilderMethodCouldUseMoreTesting = @"METHOD COULD USE MORE T
 }
 
 + (id) messageBuilderWith:(NSString *) aMessage {
-  return [[[self alloc] initWithMessage:aMessage] autorelease];
+  return [[self alloc] initWithMessage:aMessage];
 }
 
 + (id) failedToCreateMessage:(Class) aClass {
   NSString *msg = [NSString stringWithFormat:@"Failed to create instance of %@ because:\n",
                    aClass];
-  return [[[self alloc] initWithMessage:msg] autorelease];                   
+  return [[self alloc] initWithMessage:msg];                   
 }
 
 
-- (void) dealloc {
-  [message release];
-  [super dealloc];
-}
 
 - (NSString *) description {
   NSString *result = [NSString stringWithFormat:@"<#%@ >", [self class]];

@@ -46,10 +46,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSString *result;
   CFUUIDRef	uuidObj = CFUUIDCreate(nil);
   if (uuidObj) {
-    tmpString = NSMakeCollectable(CFUUIDCreateString(kCFAllocatorDefault, uuidObj));
+    tmpString = CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, uuidObj));
     CFRelease(uuidObj);
     result = [NSString stringWithFormat:@"%@", tmpString];
-    [tmpString release];
   } else {
     result = nil;
   }

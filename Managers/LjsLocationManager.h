@@ -33,32 +33,32 @@
  the core location manager
  @warning do not access directly use locationAvailable, longitude, and latitude
  methods */
-@property (nonatomic, retain) CLLocationManager *coreLocationManager;
+@property (nonatomic, strong) CLLocationManager *coreLocationManager;
 /** 
  the current location
  @warning do not access directly use locationAvailable, longitude, and latitude
  methods */
-@property (nonatomic, retain) CLLocation *coreLocation;
+@property (nonatomic, strong) CLLocation *coreLocation;
 
 /** 
  the current heading
  @warning do not access directly use headingAvailable and heading methods
  methods */
-@property (nonatomic, retain) CLHeading *coreHeading;
+@property (nonatomic, strong) CLHeading *coreHeading;
 /** 
  a decimal number handler for converting coordinates to decimal numbers
  */
-@property (nonatomic, retain) NSDecimalNumberHandler *handler;
+@property (nonatomic, strong) NSDecimalNumberHandler *handler;
 
 /**
  indicates a bad latitude or longitude
  */
-@property (nonatomic, retain) NSDecimalNumber *noLocation;
+@property (nonatomic, strong) NSDecimalNumber *noLocation;
 
 /**
  indidcates a bad heading
  */
-@property (nonatomic, retain) NSDecimalNumber *noHeading;
+@property (nonatomic, strong) NSDecimalNumber *noHeading;
 
 #ifdef LJS_LOCATION_SERVICES_DEBUG 
 /**
@@ -71,7 +71,7 @@
  used simulate the heading changing in environments where there is no heading
  available
  */
-@property (nonatomic, retain) NSDecimalNumber *debugLastHeading;
+@property (nonatomic, strong) NSDecimalNumber *debugLastHeading;
 
 
 #pragma mark Singleton

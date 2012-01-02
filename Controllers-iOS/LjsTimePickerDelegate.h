@@ -34,22 +34,22 @@ extern NSString *LjsTimePickerDelegatePickerViewTimeUserInfoKey;
 /**
  an array with am or pm - data source for rightmost column
  */
-@property (nonatomic, retain) NSArray *amPm;
+@property (nonatomic, strong) NSArray *amPm;
 
 /**
  an array with 00 to 59 - data source for minutes column
  */
-@property (nonatomic, retain) NSArray *minutes;
+@property (nonatomic, strong) NSArray *minutes;
 
 /**
  an array with 1 to 12 - data source for hours column
  */
-@property (nonatomic, retain) NSArray *hours;
+@property (nonatomic, strong) NSArray *hours;
 
 /**
  the callback delegate
  */
-@property (nonatomic, assign) id<LjsTimePickerDidChangeCallBackDelegate> delegate;
+@property (nonatomic, unsafe_unretained) id<LjsTimePickerDidChangeCallBackDelegate> delegate;
 
 /**
  localized AM

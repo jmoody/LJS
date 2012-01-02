@@ -127,8 +127,8 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
   
   LjsJsonRpcReply *reply;
   
-  reply =  [[[LjsJsonRpcReply alloc]
-                              initWithJsonReply:CorrectWithResult] autorelease];
+  reply =  [[LjsJsonRpcReply alloc]
+                              initWithJsonReply:CorrectWithResult];
   GHAssertTrue([reply replyWasValidJson], nil);
   GHAssertNil(reply.jsonParseError, nil);
     
@@ -147,8 +147,8 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
   LjsJsonRpcReply *reply;
   BOOL result;
   
-  reply =  [[[LjsJsonRpcReply alloc]
-                              initWithJsonReply:MissingVersion] autorelease];
+  reply =  [[LjsJsonRpcReply alloc]
+                              initWithJsonReply:MissingVersion];
   result = [reply replyWasValidRpc];
 #if JSON_RPC_10
   GHAssertTrue(result, nil);
@@ -163,15 +163,15 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
 #endif
   
   
-  reply =  [[[LjsJsonRpcReply alloc]
-             initWithJsonReply:CorrectWithResult] autorelease];
+  reply =  [[LjsJsonRpcReply alloc]
+             initWithJsonReply:CorrectWithResult];
   result = [reply replyWasValidRpc];
   GHAssertTrue(result, nil);
   GHAssertNil(reply.jsonRpcFormatError, nil);
 
    
-  reply =  [[[LjsJsonRpcReply alloc]
-             initWithJsonReply:NoErrorOrResult] autorelease];
+  reply =  [[LjsJsonRpcReply alloc]
+             initWithJsonReply:NoErrorOrResult];
   result = [reply replyWasValidRpc];
   
   GHAssertFalse(result, nil);
@@ -180,8 +180,8 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
             [reply.jsonRpcFormatError localizedDescription],
             [reply.jsonRpcFormatError localizedFailureReason]);
   
-  reply =  [[[LjsJsonRpcReply alloc]
-             initWithJsonReply:ErrorAndResult] autorelease];
+  reply =  [[LjsJsonRpcReply alloc]
+             initWithJsonReply:ErrorAndResult];
   result = [reply replyWasValidRpc];
   GHAssertFalse(result, nil);
   GHAssertNotNil(reply.jsonRpcFormatError, nil);
@@ -189,8 +189,8 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
             [reply.jsonRpcFormatError localizedDescription],
             [reply.jsonRpcFormatError localizedFailureReason]);
   
-  reply =  [[[LjsJsonRpcReply alloc]
-             initWithJsonReply:NoId] autorelease];
+  reply =  [[LjsJsonRpcReply alloc]
+             initWithJsonReply:NoId];
   result = [reply replyWasValidRpc];
   GHAssertFalse(result, nil);
   GHAssertNotNil(reply.jsonRpcFormatError, nil);
@@ -198,8 +198,8 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
             [reply.jsonRpcFormatError localizedDescription],
             [reply.jsonRpcFormatError localizedFailureReason]);
 
-  reply =  [[[LjsJsonRpcReply alloc]
-             initWithJsonReply:CorrectWithError] autorelease];
+  reply =  [[LjsJsonRpcReply alloc]
+             initWithJsonReply:CorrectWithError];
   result = [reply replyWasValidRpc];
   GHAssertTrue(result, nil);
    GHAssertNil(reply.jsonRpcFormatError, nil);
@@ -207,15 +207,15 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
 #ifdef JSON_RPC_10
   // nop
 #else
-  reply =  [[[LjsJsonRpcReply alloc]
-             initWithJsonReply:CorrectWithErrorAndData] autorelease];
+  reply =  [[LjsJsonRpcReply alloc]
+             initWithJsonReply:CorrectWithErrorAndData];
   result = [reply replyWasValidRpc];
   GHAssertTrue(result, nil);
   GHAssertNil(reply.jsonRpcFormatError, nil);
 #endif
   
-  reply =  [[[LjsJsonRpcReply alloc]
-             initWithJsonReply:IncorrectErrorCodeOrName] autorelease];
+  reply =  [[LjsJsonRpcReply alloc]
+             initWithJsonReply:IncorrectErrorCodeOrName];
   result = [reply replyWasValidRpc];
   GHAssertFalse(result, nil);
   GHAssertNotNil(reply.jsonRpcFormatError, nil);
@@ -223,8 +223,8 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
             [reply.jsonRpcFormatError localizedDescription],
             [reply.jsonRpcFormatError localizedFailureReason]);
 
-  reply =  [[[LjsJsonRpcReply alloc]
-             initWithJsonReply:IncorrectErrorMessage] autorelease];
+  reply =  [[LjsJsonRpcReply alloc]
+             initWithJsonReply:IncorrectErrorMessage];
   result = [reply replyWasValidRpc];
   GHAssertFalse(result, nil);
   GHAssertNotNil(reply.jsonRpcFormatError, nil);
@@ -232,8 +232,8 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
             [reply.jsonRpcFormatError localizedDescription],
             [reply.jsonRpcFormatError localizedFailureReason]);
 
-  reply =  [[[LjsJsonRpcReply alloc]
-             initWithJsonReply:IncorrectErrorWithBadKey] autorelease];
+  reply =  [[LjsJsonRpcReply alloc]
+             initWithJsonReply:IncorrectErrorWithBadKey];
   result = [reply replyWasValidRpc];
   GHAssertFalse(result, nil);
   GHAssertNotNil(reply.jsonRpcFormatError, nil);
@@ -243,8 +243,8 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
   
   
   
-  reply = [[[LjsJsonRpcReply alloc]
-            initWithJsonReply:InvalidJson] autorelease];
+  reply = [[LjsJsonRpcReply alloc]
+            initWithJsonReply:InvalidJson];
   GHAssertFalse([reply replyWasValidJson], nil);
   GHAssertNotNil(reply.jsonParseError, nil);
   parseError = reply.jsonParseError;
@@ -254,8 +254,8 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
   // has escaped characters
   non20jsonRpcError = @"{\"id\":\"1\",\"error\":{\"name\":\"JSONRPCError\",\"message\":\"Value cannot be null or empty.\r\nParameter name: userName\",\"errors\":[{\"name\":\"ArgumentException\",\"message\":\"Value cannot be null or empty.\r\nParameter name: userName\"}]}}";
   
-  reply = [[[LjsJsonRpcReply alloc]
-            initWithJsonReply:non20jsonRpcError] autorelease];
+  reply = [[LjsJsonRpcReply alloc]
+            initWithJsonReply:non20jsonRpcError];
   parseError = reply.jsonParseError;
   GHAssertNotNil(parseError, nil);
   GHTestLog(@"error = %d : %@", [parseError code], [parseError localizedDescription]);
@@ -266,8 +266,8 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
 #else
   // has invalid error dictionary
   non20jsonRpcError = @"{\"id\":\"1\",\"error\":{\"name\":\"JSONRPCError\",\"message\":\"Value cannot be null or empty.  Parameter name: userName\",\"errors\":[{\"name\":\"ArgumentException\",\"message\":\"Value cannot be null or empty.  Parameter name: userName\"}]}}";
-  reply = [[[LjsJsonRpcReply alloc]
-            initWithJsonReply:non20jsonRpcError] autorelease];
+  reply = [[LjsJsonRpcReply alloc]
+            initWithJsonReply:non20jsonRpcError];
   jsonRpcFormatError = reply.jsonRpcFormatError;
   GHAssertNotNil(jsonRpcFormatError, nil);
   GHTestLog(@"error = %d : %@", [jsonRpcFormatError code], [jsonRpcFormatError localizedDescription]);
@@ -277,14 +277,14 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
 - (void) test_replyContainedRpcError {
   LjsJsonRpcReply *reply;
   BOOL result;
-  reply =  [[[LjsJsonRpcReply alloc]
-             initWithJsonReply:CorrectWithResult] autorelease];
+  reply =  [[LjsJsonRpcReply alloc]
+             initWithJsonReply:CorrectWithResult];
   result = [reply replyHasRpcError];
   GHAssertFalse(result, nil);
  
 
-  reply =  [[[LjsJsonRpcReply alloc]
-             initWithJsonReply:CorrectWithError] autorelease];
+  reply =  [[LjsJsonRpcReply alloc]
+             initWithJsonReply:CorrectWithError];
   result = [reply replyHasRpcError];
   GHAssertTrue(result, nil);
 }
@@ -292,13 +292,13 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
 - (void) test_replyContainedRpcResult {
   LjsJsonRpcReply *reply;
   BOOL result;
-  reply =  [[[LjsJsonRpcReply alloc]
-             initWithJsonReply:CorrectWithResult] autorelease];
+  reply =  [[LjsJsonRpcReply alloc]
+             initWithJsonReply:CorrectWithResult];
   result = [reply replyHasResult];
   GHAssertTrue(result, nil);
   
-  reply =  [[[LjsJsonRpcReply alloc]
-             initWithJsonReply:CorrectWithError] autorelease];
+  reply =  [[LjsJsonRpcReply alloc]
+             initWithJsonReply:CorrectWithError];
   result = [reply replyHasResult];
   GHAssertFalse(result, nil);
 }

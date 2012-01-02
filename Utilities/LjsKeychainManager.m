@@ -25,10 +25,6 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
 @synthesize reporter;
 
 
-- (void) dealloc {
-  self.reporter = nil;
-  [super dealloc];
-}
 
 - (id) init {
   self = [super init];

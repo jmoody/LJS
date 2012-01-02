@@ -22,12 +22,6 @@ static NSInteger const LjsTimePickerLargeInteger = 24000;
 #pragma mark Memory Management
 - (void) dealloc {
   DDLogDebug(@"deallocating LjsDatePickerDelegate");
-  [amPm release];
-  [minutes release];
-  [hours release];
-  [AM release];
-  [PM release];
-  [super dealloc];
 }
 
 
@@ -157,7 +151,7 @@ static NSInteger const LjsTimePickerLargeInteger = 24000;
  */
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
   CGFloat width = [self pickerView:pickerView widthForComponent:component];
-  UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, width, 45)] autorelease];
+  UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, width, 45)];
   
   label.textAlignment = UITextAlignmentCenter;
   

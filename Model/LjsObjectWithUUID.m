@@ -56,10 +56,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return self;
 }
 
-- (void) dealloc {
-  [uuid release];
-  [super dealloc];
-}
 
 - (NSString *) description {
   NSString *result = [NSString stringWithFormat:@"<#%@ %@ >", [self class],

@@ -128,7 +128,6 @@ static const float ARC4RANDOM_MAX = 0x100000000;
   }
 
   NSArray *result = [NSArray arrayWithArray:sampled];
-  [sampled release];
   return result;
 }
 

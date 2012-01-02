@@ -687,7 +687,7 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
  @return a date formatter for `H:mm a` format
  */
 + (NSDateFormatter *) hoursMinutesAmPmFormatter {
-  NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:@"H:mm a"];
   return formatter;
 }
@@ -696,7 +696,7 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
  @return a date formatter for `ccc MMM d HH:mm a` or Wed Sep 7 1:30 PM
  */
 + (NSDateFormatter *) briefDateAndTimeFormatter {
-  NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:@"ccc MMM d HH:mm a"];
   return formatter;
 }
@@ -708,7 +708,7 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:LjsHoursMinutesSecondsDateFormat];
   [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-  return [formatter autorelease];
+  return formatter;
 }
 
 /**
@@ -718,7 +718,7 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:LjsHoursMinutesSecondsMillisDateFormat];
   [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-  return [formatter autorelease];
+  return formatter;
 }
 
 /**
@@ -728,7 +728,7 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:LjsISO8601_DateFormat];
   //[formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-  return [formatter autorelease];  
+  return formatter;  
 }
 
 /**
@@ -738,7 +738,7 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:LjsISO8601_DateFormatWithMillis];
   //[formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-  return [formatter autorelease];  
+  return formatter;  
 }
 
 /**
@@ -747,7 +747,7 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 + (NSDateFormatter *) orderedDateFormatter {
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:LjsOrderedDateFormat];
-  return [formatter autorelease];  
+  return formatter;  
 }
 
 /**
@@ -756,7 +756,7 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 + (NSDateFormatter *) orderedDateFormatterWithMillis {
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:LjsOrderedDateFormatWithMillis];
-  return [formatter autorelease];  
+  return formatter;  
 }
 
 /** 
