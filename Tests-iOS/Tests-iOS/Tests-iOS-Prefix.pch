@@ -10,5 +10,4 @@
 #import <OCMock/OCMock.h>
 #import <GHUnitIOS/GHUnit.h>
 #include "TargetConditionals.h"
-#import "Lumberjack.h"
 #endif
