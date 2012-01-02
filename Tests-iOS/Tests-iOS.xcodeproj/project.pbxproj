@@ -33,6 +33,7 @@
 		F54009F514B22253001EF805 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009EA14B22253001EF805 /* DDTTYLogger.m */; };
 		F54009F614B22253001EF805 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009ED14B22253001EF805 /* ContextFilterLogFormatter.m */; };
 		F54009F714B22253001EF805 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009EF14B22253001EF805 /* DispatchQueueLogFormatter.m */; };
+		F54009FC14B227EA001EF805 /* LoremIpsum.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009FB14B227EA001EF805 /* LoremIpsum.m */; };
 		F5448ACB1450B63B0065E516 /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448ABB1450B63B0065E516 /* LjsDefaultFormatter.m */; };
 		F5448ACC1450B63B0065E516 /* LjsMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448ABE1450B63B0065E516 /* LjsMessageBuilder.m */; };
 		F5448ACF1450B63B0065E516 /* Reporter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AC61450B63B0065E516 /* Reporter.m */; };
@@ -157,6 +158,8 @@
 		F54009ED14B22253001EF805 /* ContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextFilterLogFormatter.m; sourceTree = "<group>"; };
 		F54009EE14B22253001EF805 /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
 		F54009EF14B22253001EF805 /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		F54009FA14B227EA001EF805 /* LoremIpsum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoremIpsum.h; sourceTree = "<group>"; };
+		F54009FB14B227EA001EF805 /* LoremIpsum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoremIpsum.m; sourceTree = "<group>"; };
 		F5448AB91450B63B0065E516 /* config-for-debug-and-release-block.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "config-for-debug-and-release-block.txt"; sourceTree = "<group>"; };
 		F5448ABA1450B63B0065E516 /* LjsDefaultFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultFormatter.h; sourceTree = "<group>"; };
 		F5448ABB1450B63B0065E516 /* LjsDefaultFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultFormatter.m; sourceTree = "<group>"; };
@@ -480,6 +483,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		F54009F914B227EA001EF805 /* LoremIpsum */ = {
+			isa = PBXGroup;
+			children = (
+				F54009FA14B227EA001EF805 /* LoremIpsum.h */,
+				F54009FB14B227EA001EF805 /* LoremIpsum.m */,
+			);
+			path = LoremIpsum;
+			sourceTree = "<group>";
+		};
 		F5448AB81450B63B0065E516 /* Logging */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,6 +514,7 @@
 		F5448AC31450B63B0065E516 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				F54009F914B227EA001EF805 /* LoremIpsum */,
 				F54009E014B22253001EF805 /* Lumberjack */,
 				F54E3A8E1450EA180059BF53 /* Reachability */,
 				F54E3A681450E6D20059BF53 /* SBJSON */,
@@ -1026,6 +1039,7 @@
 				F54009F514B22253001EF805 /* DDTTYLogger.m in Sources */,
 				F54009F614B22253001EF805 /* ContextFilterLogFormatter.m in Sources */,
 				F54009F714B22253001EF805 /* DispatchQueueLogFormatter.m in Sources */,
+				F54009FC14B227EA001EF805 /* LoremIpsum.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F5400A0014B2288A001EF805 /* LoremIpsum.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009FF14B2288A001EF805 /* LoremIpsum.m */; };
 		F5807029146C26F100EA4CFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5807028146C26F100EA4CFB /* Cocoa.framework */; };
 		F5807033146C26F100EA4CFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5807031146C26F100EA4CFB /* InfoPlist.strings */; };
 		F5807035146C26F100EA4CFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807034146C26F100EA4CFB /* main.m */; };
@@ -125,6 +126,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F54009FE14B2288A001EF805 /* LoremIpsum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoremIpsum.h; sourceTree = "<group>"; };
+		F54009FF14B2288A001EF805 /* LoremIpsum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoremIpsum.m; sourceTree = "<group>"; };
 		F5807024146C26F100EA4CFB /* Tests-MacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tests-MacOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5807028146C26F100EA4CFB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F580702B146C26F100EA4CFB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -332,6 +335,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F54009FD14B2288A001EF805 /* LoremIpsum */ = {
+			isa = PBXGroup;
+			children = (
+				F54009FE14B2288A001EF805 /* LoremIpsum.h */,
+				F54009FF14B2288A001EF805 /* LoremIpsum.m */,
+			);
+			name = LoremIpsum;
+			path = ../ThirdParty/LoremIpsum;
+			sourceTree = "<group>";
+		};
 		F5807019146C26F100EA4CFB = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +414,7 @@
 		F5807047146C281400EA4CFB /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				F54009FD14B2288A001EF805 /* LoremIpsum */,
 				F59635EF14966B9600CDB27E /* ukkqueue */,
 				F580711C146C291100EA4CFB /* ocmock */,
 				F58070E5146C288C00EA4CFB /* SBJSON */,
@@ -984,6 +998,7 @@
 				F5B2844114AD0B6700E48908 /* LjsGestalt.m in Sources */,
 				F5B2844414AD0E6700E48908 /* LjsGestaltTests.m in Sources */,
 				F5B2844E14AD1B5E00E48908 /* LjsRestartFinderOperation.m in Sources */,
+				F5400A0014B2288A001EF805 /* LoremIpsum.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,6 +5,10 @@
 //  Public domain where appropriate; free for everyone, for all usages, elsewhere.
 //
 
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
+
 #import "LoremIpsum.h"
 
 @interface LoremIpsum ()
@@ -1017,20 +1021,15 @@
     [wordsArray addObject:@"vestibulum"];
     [wordsArray addObject:@"elit"];
     _words = [wordsArray copy];
-    [wordsArray release];
   }
   return self;
 }
 
-- (void) dealloc {
-  [_words release];
-  [super dealloc];
-}
 
 #pragma mark -
 
 - (NSString*) randomWord {
-  int randomIndex = random() % [_words count];
+  NSUInteger randomIndex = random() % [_words count];
   return [_words objectAtIndex:randomIndex];
 }
 
@@ -1039,7 +1038,6 @@
 - (NSString*) words:(NSUInteger)count {
   if (count==0) return @"";
   
-  NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
   NSString* collectedWords = [self randomWord];
   for (NSUInteger i=0; i<count; i++) {
     collectedWords = [collectedWords stringByAppendingString:@" "];
@@ -1047,9 +1045,8 @@
   }
   
   NSString* words = [collectedWords copy];
-  [pool release];
-  
-  return [words autorelease];
+
+  return words;
 }
 
 - (NSString*) sentences:(NSUInteger)count {
@@ -1061,7 +1058,7 @@
         firstChar = [firstChar uppercaseString];
         [sentence replaceCharactersInRange:NSMakeRange(0, 1) withString:firstChar];
         [result appendString:sentence];
-        [sentence release];
+       
         
         if (i+1 == count) { //last sentence
             [result appendString:@"."];
