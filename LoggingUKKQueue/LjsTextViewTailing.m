@@ -55,9 +55,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [self stopAndReleaseRepeatingTimers];
   [[UKKQueue sharedFileWatcher] removePathFromQueue:[self.logger currentFilePath]];
   [DDLog removeLogger:self.logger];
-  self.logView = nil;
-  self.logger = nil;
-  [super dealloc];
 }
 
 /**
@@ -68,8 +65,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   self = [super init];
   if (self != nil) {
     self.logView = aLogView;
-    LjsDefaultFormatter *formatter = [[[LjsDefaultFormatter alloc] init] autorelease];
-    self.logger = [[[DDFileLogger alloc] init] autorelease];
+    LjsDefaultFormatter *formatter = [[LjsDefaultFormatter alloc] init];
+    self.logger = [[DDFileLogger alloc] init];
     [self.logger setLogFormatter:formatter];
     self.logger.logFileManager.maximumNumberOfLogFiles = 1;
     [DDLog addLogger:self.logger];

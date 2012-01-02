@@ -43,7 +43,6 @@ NSString *LjsRestartFinderOperationFinishedNotification = @"com.littlejoysoftwar
 #pragma mark Memory Management
 - (void) dealloc {
    DDLogDebug(@"deallocating LjsRestartFinderOperation");
-  [super dealloc];
 }
 
 - (id) init {
@@ -60,44 +59,44 @@ NSString *LjsRestartFinderOperationFinishedNotification = @"com.littlejoysoftwar
  Required method for NSOperation subclasses.
  */
 - (void) main {
-  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-  if (![self isCancelled]) {
-    NSAppleScript *script = [[[NSAppleScript alloc] initWithSource:@"tell application \"Finder\" to quit"] autorelease];
-    NSDictionary *errorDictionary = nil;
-    [script executeAndReturnError:&errorDictionary];
-    if (errorDictionary != nil && [errorDictionary count] != 0) {
-      DDLogError(@"finder could not be stopped: %@", errorDictionary);
-    } else {
-      DDLogDebug(@"finder successfully stopped");
-      
-      if (![self isCancelled]) {
-        NSAppleScript *delay = [[[NSAppleScript alloc] initWithSource:@"delay 2.0"] autorelease];
-        [delay executeAndReturnError:&errorDictionary];
-        if (errorDictionary != nil && [errorDictionary count] != 0) {
-          DDLogError(@"delay could not be executed %@", errorDictionary);
-          errorDictionary = nil;
-        } else {
-          DDLogDebug(@"successfully delayed");
-        }
+  @autoreleasepool {
+    if (![self isCancelled]) {
+      NSAppleScript *script = [[NSAppleScript alloc] initWithSource:@"tell application \"Finder\" to quit"];
+      NSDictionary *errorDictionary = nil;
+      [script executeAndReturnError:&errorDictionary];
+      if (errorDictionary != nil && [errorDictionary count] != 0) {
+        DDLogError(@"finder could not be stopped: %@", errorDictionary);
+      } else {
+        DDLogDebug(@"finder successfully stopped");
         
         if (![self isCancelled]) {
-          
-          NSAppleScript *activate = [[[NSAppleScript alloc] initWithSource:@"tell application \"Finder\" to activate"] autorelease];
-          [activate executeAndReturnError:&errorDictionary];
+          NSAppleScript *delay = [[NSAppleScript alloc] initWithSource:@"delay 2.0"];
+          [delay executeAndReturnError:&errorDictionary];
           if (errorDictionary != nil && [errorDictionary count] != 0) {
-            DDLogError(@"activate finder could not be executed %@", errorDictionary);
+            DDLogError(@"delay could not be executed %@", errorDictionary);
             errorDictionary = nil;
           } else {
-            DDLogDebug(@"finder activated");
+            DDLogDebug(@"successfully delayed");
+          }
+          
+          if (![self isCancelled]) {
+            
+            NSAppleScript *activate = [[NSAppleScript alloc] initWithSource:@"tell application \"Finder\" to activate"];
+            [activate executeAndReturnError:&errorDictionary];
+            if (errorDictionary != nil && [errorDictionary count] != 0) {
+              DDLogError(@"activate finder could not be executed %@", errorDictionary);
+              errorDictionary = nil;
+            } else {
+              DDLogDebug(@"finder activated");
+            }
           }
         }
       }
     }
-  }
-  [[NSNotificationCenter defaultCenter]
-   postNotificationName:LjsRestartFinderOperationFinishedNotification
-   object:nil];
-   [pool release];
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:LjsRestartFinderOperationFinishedNotification
+     object:nil];
+   }
 }
 
 

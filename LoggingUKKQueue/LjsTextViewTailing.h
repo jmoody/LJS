@@ -30,19 +30,19 @@
 /**
  the log view
  */
-@property (nonatomic, retain) NSTextView *logView;
+@property (nonatomic, strong) NSTextView *logView;
 
 /**
  the logger
  */
-@property (nonatomic, retain) DDFileLogger *logger;
+@property (nonatomic, strong) DDFileLogger *logger;
 
 
 /**
  the file search timer - watches for the log file and stops once the file is
  acquired
  */
-@property (nonatomic, retain) NSTimer *logFileSearchTimer;
+@property (nonatomic, strong) NSTimer *logFileSearchTimer;
 
 /** @name Initialization */
 - (id) initWithTextView:(NSTextView *) aLogView;

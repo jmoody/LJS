@@ -104,7 +104,7 @@
 }  
 
 - (void) test_init {
-  LjsGestalt *gestalt = [[[LjsGestalt alloc] init] autorelease];
+  LjsGestalt *gestalt = [[LjsGestalt alloc] init];
   GHTestLog(@"gestalt = %@", gestalt);
   GHAssertNotNil(gestalt, nil);
 }
