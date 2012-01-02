@@ -112,6 +112,12 @@
 @interface LjsVariates : NSObject {}
 
 /**
+ @return a random BOOL value
+ */
++ (BOOL) flip;
+ 
+
+/**
  Generates a random double from 0.0 to 1.0 inclusive - (0.0, 1.0) 
  @return a random double on (0.0, 1.0)
  */

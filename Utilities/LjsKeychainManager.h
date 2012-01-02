@@ -7,7 +7,8 @@ typedef enum {
   // a sublime number
   LjsKeychainManagerBadKeyError = 4390116,
   LjsKeychainManagerBadUsernameError,
-  LjsKeychainManagerBadPasswordError
+  LjsKeychainManagerBadPasswordError,
+  LjsKeychainManagerBadServiceNameError
 } LjsKeychainManagerErrorCodes;
 
 @interface LjsKeychainManager : NSObject 
@@ -22,6 +23,7 @@ typedef enum {
 /** @name Username and Password Validity */
 - (BOOL) isValidUsername:(NSString *) username;
 - (BOOL) isValidPassword:(NSString *) password;
+- (BOOL) isValidServiceName:(NSString *) serviceName;
 - (BOOL) isValidKey:(NSString *) key;
 
 /** @name Managing Username in Defaults */
@@ -33,9 +35,9 @@ typedef enum {
 #pragma mark Should Use Key Chain in Defaults
 
 /** @name Managing Whether the Keychain Should be Used in Defaults */
-- (BOOL) shouldUseKeyChainWithKey:(NSString  *) key error:(NSError **) error;
-- (BOOL) deleteShouldUseKeyChainInDefaults:(NSString *) key error:(NSError **) error;
-- (BOOL) setDefaultsShouldUseKeyChain:(BOOL) shouldUse key:(NSString *) key error:(NSError **) error;
+- (BOOL) shouldUseKeychainWithKey:(NSString  *) key error:(NSError **) error;
+- (BOOL) deleteShouldUseKeychainInDefaults:(NSString *) key error:(NSError **) error;
+- (BOOL) setDefaultsShouldUseKeychain:(BOOL) shouldUse key:(NSString *) key error:(NSError **) error;
 
 
 
@@ -73,9 +75,8 @@ typedef enum {
 /** @name Utility */
 - (void) ljsKeychainManagerErrorWithCode:(NSUInteger) code
                                    error:(NSError **) error;
-
-
 - (void) logKeychainError:(NSError *) error;
+- (BOOL) isValidString:(NSString *) string;
 
 
 

@@ -50,6 +50,10 @@ static const float ARC4RANDOM_MAX = 0x100000000;
 
 @implementation LjsVariates
 
++ (BOOL) flip {
+  return [LjsVariates randomIntegerWithMin:0 max:1];
+}
+
 
 + (double) randomDouble {
   // why floorf?

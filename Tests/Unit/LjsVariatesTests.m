@@ -97,6 +97,10 @@
   // Run after each test method
 }  
 
+- (void) test_flip {
+  [LjsVariates flip];
+}
+
 - (void) testRandomDouble {
   int passes = 1000000;
   int index = 0;

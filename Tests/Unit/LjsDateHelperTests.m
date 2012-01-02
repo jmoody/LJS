@@ -265,6 +265,8 @@
   Method mockPm = class_getInstanceMethod([self class], @selector(swizzledLjsDateHelperCanonicalPmWithString:));
   method_exchangeImplementations(orignialPm, mockPm);
   
+
+  
   amOrPm = @"am";
   expected = nil;
   actual = [LjsDateHelper canonicalAmPmWithString:amOrPm];

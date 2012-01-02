@@ -62,10 +62,11 @@ static NSError *dummyError = nil;
 - (NSError*) errorWithCode: (int) code description: (NSString*) msg
 {
   
-  NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                            msg, NSLocalizedDescriptionKey,
-                            NSUTF8StringEncoding, NSStringEncodingErrorKey,
-                            nil];
+  NSDictionary *userInfo = 
+  [NSDictionary dictionaryWithObjectsAndKeys:
+   msg, NSLocalizedDescriptionKey,
+   [NSNumber numberWithInteger:NSUTF8StringEncoding], NSStringEncodingErrorKey,
+   nil];
  
   
   return [NSError errorWithDomain:domain 

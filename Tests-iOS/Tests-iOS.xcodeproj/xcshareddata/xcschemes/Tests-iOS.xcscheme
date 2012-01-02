@@ -73,7 +73,7 @@
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "GHUNIT_AUTOEXIT"
-            value = "YES"
+            value = "NO"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
