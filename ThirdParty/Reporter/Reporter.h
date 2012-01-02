@@ -67,7 +67,7 @@
  @return an autoreleased error with code and the error domain that was set in 
  the init method
  */
-- (NSError *) errorWithCode: (int) code;
+- (NSError *) errorWithCode: (NSInteger) code;
  
 /**
  A error with code and description and the error domain that was set in the 
@@ -77,6 +77,6 @@
  @return an autoreleased error with code, description and error domain that was
  set in the init method
  */
-- (NSError *) errorWithCode: (int) code description: (NSString* ) msg;
+- (NSError *) errorWithCode: (NSInteger) code description: (NSString* ) msg;
 
 @end

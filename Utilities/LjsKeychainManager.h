@@ -73,7 +73,7 @@ typedef enum {
 
 
 /** @name Utility */
-- (void) ljsKeychainManagerErrorWithCode:(NSUInteger) code
+- (void) ljsKeychainManagerErrorWithCode:(NSInteger) code
                                    error:(NSError **) error;
 - (void) logKeychainError:(NSError *) error;
 - (BOOL) isValidString:(NSString *) string;
