@@ -38,6 +38,7 @@
 #import "LjsKeychainManager.h"
 #import "LjsTestCase.h"
 #import "LjsVariates.h"
+#import "Lumberjack.h"
 #import <objc/runtime.h>
 
 #ifdef LOG_CONFIGURATION_DEBUG

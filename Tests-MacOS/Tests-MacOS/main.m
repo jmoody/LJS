@@ -30,6 +30,13 @@
 #import <Foundation/Foundation.h>
 #import <GHUnit/GHUnit.h>
 #import <GHUnit/GHTestApp.h>
+#import "Lumberjack.h"
+
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
 
 void exceptionHandler(NSException *exception);
 
@@ -77,6 +84,10 @@ int main(int argc, char *argv[]) {
     } else {
       // To run all tests (from ENV)
       GHTestApp *app = [[GHTestApp alloc] init];
+      // suppresses compile warning
+      NSLog(@"app = %@", app);
+      //[[GHTestApp alloc] init];
+      
       // To run a different test suite:
       //GHTestSuite *suite = [GHTestSuite suiteWithTestFilter:@"GHSlowTest,GHAsyncTestCaseTest"];
       //GHTestApp *app = [[GHTestApp alloc] initWithSuite:suite];

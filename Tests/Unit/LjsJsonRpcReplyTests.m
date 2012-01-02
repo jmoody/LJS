@@ -36,7 +36,7 @@
 
 #import "LjsTestCase.h"
 #import "LjsJsonRpcReply.h"
-
+#import "Lumberjack.h"
 #import "SBJson.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG

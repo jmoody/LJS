@@ -41,10 +41,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  */
 @implementation ASIHTTPResponseUtils
 
-- (void) dealloc {
-  [super dealloc];
-}
-
 /**
  Simply calls the super init method.
  

@@ -21,27 +21,27 @@
 		F5807060146C283400EA4CFB /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5807058146C283400EA4CFB /* README.txt */; };
 		F580706B146C284C00EA4CFB /* Reporter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807066146C284C00EA4CFB /* Reporter.m */; };
 		F580706C146C284C00EA4CFB /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807069146C284C00EA4CFB /* SFHFKeychainUtils.m */; };
-		F58070C1146C287200EA4CFB /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807072146C287200EA4CFB /* ASIDataCompressor.m */; };
-		F58070C2146C287200EA4CFB /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807074146C287200EA4CFB /* ASIDataDecompressor.m */; };
-		F58070C3146C287200EA4CFB /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807076146C287200EA4CFB /* ASIDownloadCache.m */; };
-		F58070C4146C287200EA4CFB /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807078146C287200EA4CFB /* ASIFormDataRequest.m */; };
-		F58070C5146C287200EA4CFB /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580707A146C287200EA4CFB /* ASIHTTPRequest.m */; };
-		F58070C6146C287200EA4CFB /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = F580707E146C287200EA4CFB /* ASIInputStream.m */; };
-		F58070C7146C287200EA4CFB /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807080146C287200EA4CFB /* ASINetworkQueue.m */; };
-		F58070C8146C287200EA4CFB /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807084146C287200EA4CFB /* ASIWebPageRequest.m */; };
-		F58070C9146C287200EA4CFB /* ASICloudFilesCDNRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807087146C287200EA4CFB /* ASICloudFilesCDNRequest.m */; };
-		F58070CA146C287200EA4CFB /* ASICloudFilesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807089146C287200EA4CFB /* ASICloudFilesContainer.m */; };
-		F58070CB146C287200EA4CFB /* ASICloudFilesContainerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580708B146C287200EA4CFB /* ASICloudFilesContainerRequest.m */; };
-		F58070CC146C287200EA4CFB /* ASICloudFilesContainerXMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F580708D146C287200EA4CFB /* ASICloudFilesContainerXMLParserDelegate.m */; };
-		F58070CD146C287200EA4CFB /* ASICloudFilesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F580708F146C287200EA4CFB /* ASICloudFilesObject.m */; };
-		F58070CE146C287200EA4CFB /* ASICloudFilesObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807091146C287200EA4CFB /* ASICloudFilesObjectRequest.m */; };
-		F58070CF146C287200EA4CFB /* ASICloudFilesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807093146C287200EA4CFB /* ASICloudFilesRequest.m */; };
-		F58070D0146C287200EA4CFB /* ASIS3Bucket.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807097146C287200EA4CFB /* ASIS3Bucket.m */; };
-		F58070D1146C287200EA4CFB /* ASIS3BucketObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807099146C287200EA4CFB /* ASIS3BucketObject.m */; };
-		F58070D2146C287200EA4CFB /* ASIS3BucketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580709B146C287200EA4CFB /* ASIS3BucketRequest.m */; };
-		F58070D3146C287200EA4CFB /* ASIS3ObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580709D146C287200EA4CFB /* ASIS3ObjectRequest.m */; };
-		F58070D4146C287200EA4CFB /* ASIS3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F580709F146C287200EA4CFB /* ASIS3Request.m */; };
-		F58070D5146C287200EA4CFB /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070A1146C287200EA4CFB /* ASIS3ServiceRequest.m */; };
+		F58070C1146C287200EA4CFB /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807072146C287200EA4CFB /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070C2146C287200EA4CFB /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807074146C287200EA4CFB /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070C3146C287200EA4CFB /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807076146C287200EA4CFB /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070C4146C287200EA4CFB /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807078146C287200EA4CFB /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070C5146C287200EA4CFB /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580707A146C287200EA4CFB /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070C6146C287200EA4CFB /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = F580707E146C287200EA4CFB /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070C7146C287200EA4CFB /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807080146C287200EA4CFB /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070C8146C287200EA4CFB /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807084146C287200EA4CFB /* ASIWebPageRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070C9146C287200EA4CFB /* ASICloudFilesCDNRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807087146C287200EA4CFB /* ASICloudFilesCDNRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070CA146C287200EA4CFB /* ASICloudFilesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807089146C287200EA4CFB /* ASICloudFilesContainer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070CB146C287200EA4CFB /* ASICloudFilesContainerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580708B146C287200EA4CFB /* ASICloudFilesContainerRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070CC146C287200EA4CFB /* ASICloudFilesContainerXMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F580708D146C287200EA4CFB /* ASICloudFilesContainerXMLParserDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070CD146C287200EA4CFB /* ASICloudFilesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F580708F146C287200EA4CFB /* ASICloudFilesObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070CE146C287200EA4CFB /* ASICloudFilesObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807091146C287200EA4CFB /* ASICloudFilesObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070CF146C287200EA4CFB /* ASICloudFilesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807093146C287200EA4CFB /* ASICloudFilesRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070D0146C287200EA4CFB /* ASIS3Bucket.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807097146C287200EA4CFB /* ASIS3Bucket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070D1146C287200EA4CFB /* ASIS3BucketObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807099146C287200EA4CFB /* ASIS3BucketObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070D2146C287200EA4CFB /* ASIS3BucketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580709B146C287200EA4CFB /* ASIS3BucketRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070D3146C287200EA4CFB /* ASIS3ObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580709D146C287200EA4CFB /* ASIS3ObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070D4146C287200EA4CFB /* ASIS3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F580709F146C287200EA4CFB /* ASIS3Request.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070D5146C287200EA4CFB /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070A1146C287200EA4CFB /* ASIS3ServiceRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F58070FF146C288C00EA4CFB /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070E7146C288C00EA4CFB /* NSObject+SBJson.m */; };
 		F5807100146C288C00EA4CFB /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070EA146C288C00EA4CFB /* SBJsonParser.m */; };
 		F5807101146C288C00EA4CFB /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070EC146C288C00EA4CFB /* SBJsonStreamParser.m */; };
@@ -91,10 +91,10 @@
 		F5963585149640BA00CDB27E /* LjsObjectWithUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = F5963584149640BA00CDB27E /* LjsObjectWithUUID.m */; };
 		F5963589149655E800CDB27E /* LjsTextViewTailing.m in Sources */ = {isa = PBXBuildFile; fileRef = F5963588149655E800CDB27E /* LjsTextViewTailing.m */; };
 		F59635F914966B9600CDB27E /* README in Resources */ = {isa = PBXBuildFile; fileRef = F59635F014966B9600CDB27E /* README */; };
-		F59635FA14966B9600CDB27E /* UKFileWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F214966B9600CDB27E /* UKFileWatcher.m */; };
-		F59635FB14966B9600CDB27E /* UKFNSubscribeFileWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F414966B9600CDB27E /* UKFNSubscribeFileWatcher.m */; };
-		F59635FC14966B9600CDB27E /* UKKQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F614966B9600CDB27E /* UKKQueue.m */; };
-		F59635FD14966B9600CDB27E /* UKMainThreadProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F814966B9600CDB27E /* UKMainThreadProxy.m */; };
+		F59635FA14966B9600CDB27E /* UKFileWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F214966B9600CDB27E /* UKFileWatcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F59635FB14966B9600CDB27E /* UKFNSubscribeFileWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F414966B9600CDB27E /* UKFNSubscribeFileWatcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F59635FC14966B9600CDB27E /* UKKQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F614966B9600CDB27E /* UKKQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F59635FD14966B9600CDB27E /* UKMainThreadProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F814966B9600CDB27E /* UKMainThreadProxy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F5B2844114AD0B6700E48908 /* LjsGestalt.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844014AD0B6700E48908 /* LjsGestalt.m */; };
 		F5B2844414AD0E6700E48908 /* LjsGestaltTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844314AD0E6700E48908 /* LjsGestaltTests.m */; };
 		F5B2844E14AD1B5E00E48908 /* LjsRestartFinderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844D14AD1B5E00E48908 /* LjsRestartFinderOperation.m */; };
@@ -1074,6 +1074,8 @@
 		F5807043146C26F200EA4CFB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-MacOS\"",
@@ -1081,6 +1083,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-MacOS/Tests-MacOS-Prefix.pch";
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				INFOPLIST_FILE = "Tests-MacOS/Tests-MacOS-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
@@ -1097,6 +1101,8 @@
 		F5807044146C26F200EA4CFB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-MacOS\"",
@@ -1104,6 +1110,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-MacOS/Tests-MacOS-Prefix.pch";
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				INFOPLIST_FILE = "Tests-MacOS/Tests-MacOS-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
