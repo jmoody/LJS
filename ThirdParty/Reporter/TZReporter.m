@@ -22,7 +22,7 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "Reporter.h"
+#import "TZReporter.h"
 
 /**
   The dummyError trick is here to safely initialize
@@ -32,7 +32,7 @@
 */
 static NSError *dummyError = nil;
 
-@implementation Reporter
+@implementation TZReporter
 
 @synthesize domain;
 

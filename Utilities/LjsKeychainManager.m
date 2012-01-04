@@ -466,7 +466,7 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
  */
 - (void) ljsKeychainManagerErrorWithCode:(NSInteger) code
                                    error:(NSError **) error {
-  self.reporter = [Reporter reporterWithDomain:LjsKeychainManagerErrorDomain
+  self.reporter = [TZReporter reporterWithDomain:LjsKeychainManagerErrorDomain
                                          error:error];
   NSString *message;
   switch (code) {

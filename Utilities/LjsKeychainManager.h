@@ -26,7 +26,7 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #import <Foundation/Foundation.h>
-#import "Reporter.h"
+#import "TZReporter.h"
 
 extern NSString *LjsKeychainManagerErrorDomain;
 
@@ -43,7 +43,7 @@ typedef enum {
 /**
  helps generate NSError instances
  */
-@property (nonatomic, strong) Reporter *reporter;
+@property (nonatomic, strong) TZReporter *reporter;
 
 #pragma mark Username Stored in Defaults
 

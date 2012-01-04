@@ -62,7 +62,7 @@
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
 #import "LjsTestCase.h"
-#import "Reporter.h"
+#import "TZReporter.h"
 
 @interface ReporterTests : LjsTestCase {}
 @end
@@ -105,11 +105,11 @@
 
 - (void) test_init {
   NSError *error;
-  Reporter *rep;
+  TZReporter *rep;
   NSString *domain = @"domain";
   NSInteger code = -1;
   
-  rep = [[Reporter alloc] initWithDomain:@"domain" error:&error];
+  rep = [[TZReporter alloc] initWithDomain:@"domain" error:&error];
   
   NSError *newError = [rep errorWithCode:-1];
   GHAssertNotNil(newError, nil);
