@@ -25,33 +25,33 @@
 		F5302D2614557BD900FDD946 /* LjsWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F5302D2514557BD900FDD946 /* LjsWebSocket.m */; };
 		F590BEA614542E5C00E5B89B /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BEA314542E5C00E5B89B /* DDFileLogger+CurrentFile.m */; };
 		F590BEA714542E5C00E5B89B /* LjsFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BEA514542E5C00E5B89B /* LjsFileManager.m */; };
-		F5B0E9801461981E00CA24F5 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9711461981E00CA24F5 /* DDAbstractDatabaseLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		F5B0E9811461981E00CA24F5 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9731461981E00CA24F5 /* DDASLLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		F5B0E9821461981E00CA24F5 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9751461981E00CA24F5 /* DDFileLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		F5B0E9831461981E00CA24F5 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9771461981E00CA24F5 /* DDLog.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		F5B0E9841461981E00CA24F5 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9791461981E00CA24F5 /* DDTTYLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		F5B0E9851461981E00CA24F5 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E97C1461981E00CA24F5 /* ContextFilterLogFormatter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		F5B0E9861461981E00CA24F5 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E97E1461981E00CA24F5 /* DispatchQueueLogFormatter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		F5B0E9801461981E00CA24F5 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9711461981E00CA24F5 /* DDAbstractDatabaseLogger.m */; };
+		F5B0E9811461981E00CA24F5 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9731461981E00CA24F5 /* DDASLLogger.m */; };
+		F5B0E9821461981E00CA24F5 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9751461981E00CA24F5 /* DDFileLogger.m */; };
+		F5B0E9831461981E00CA24F5 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9771461981E00CA24F5 /* DDLog.m */; };
+		F5B0E9841461981E00CA24F5 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9791461981E00CA24F5 /* DDTTYLogger.m */; };
+		F5B0E9851461981E00CA24F5 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E97C1461981E00CA24F5 /* ContextFilterLogFormatter.m */; };
+		F5B0E9861461981E00CA24F5 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E97E1461981E00CA24F5 /* DispatchQueueLogFormatter.m */; };
 		F5B0E9871461981E00CA24F5 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5B0E97F1461981E00CA24F5 /* README.txt */; };
 		F5B0E9C214619B3800CA24F5 /* WebSocketLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9C114619B3800CA24F5 /* WebSocketLogger.m */; };
 		F5B0E9C414619B6E00CA24F5 /* Web in Resources */ = {isa = PBXBuildFile; fileRef = F5B0E9C314619B6E00CA24F5 /* Web */; };
 		F5B0E9C714619BBA00CA24F5 /* LjsHttpLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9C614619BBA00CA24F5 /* LjsHttpLogManager.m */; };
-		F5C4EC2114B43FD500F7FE1D /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC0514B43FD500F7FE1D /* DDData.m */; };
-		F5C4EC2214B43FD500F7FE1D /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC0714B43FD500F7FE1D /* DDNumber.m */; };
-		F5C4EC2314B43FD500F7FE1D /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC0914B43FD500F7FE1D /* DDRange.m */; };
-		F5C4EC2414B43FD500F7FE1D /* HTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC0B14B43FD500F7FE1D /* HTTPAuthenticationRequest.m */; };
-		F5C4EC2514B43FD500F7FE1D /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC0D14B43FD500F7FE1D /* HTTPConnection.m */; };
-		F5C4EC2614B43FD500F7FE1D /* HTTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC1014B43FD500F7FE1D /* HTTPMessage.m */; };
-		F5C4EC2714B43FD500F7FE1D /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC1314B43FD500F7FE1D /* HTTPServer.m */; };
-		F5C4EC2814B43FD500F7FE1D /* HTTPAsyncFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC1614B43FD500F7FE1D /* HTTPAsyncFileResponse.m */; };
-		F5C4EC2914B43FD500F7FE1D /* HTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC1814B43FD500F7FE1D /* HTTPDataResponse.m */; };
-		F5C4EC2A14B43FD500F7FE1D /* HTTPDynamicFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC1A14B43FD500F7FE1D /* HTTPDynamicFileResponse.m */; };
-		F5C4EC2B14B43FD500F7FE1D /* HTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC1C14B43FD500F7FE1D /* HTTPFileResponse.m */; };
-		F5C4EC2C14B43FD500F7FE1D /* HTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC1E14B43FD500F7FE1D /* HTTPRedirectResponse.m */; };
-		F5C4EC2D14B43FD500F7FE1D /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC2014B43FD500F7FE1D /* WebSocket.m */; };
+		F5C4EC2114B43FD500F7FE1D /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC0514B43FD500F7FE1D /* DDData.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5C4EC2214B43FD500F7FE1D /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC0714B43FD500F7FE1D /* DDNumber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5C4EC2314B43FD500F7FE1D /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC0914B43FD500F7FE1D /* DDRange.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5C4EC2414B43FD500F7FE1D /* HTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC0B14B43FD500F7FE1D /* HTTPAuthenticationRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5C4EC2514B43FD500F7FE1D /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC0D14B43FD500F7FE1D /* HTTPConnection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5C4EC2614B43FD500F7FE1D /* HTTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC1014B43FD500F7FE1D /* HTTPMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5C4EC2714B43FD500F7FE1D /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC1314B43FD500F7FE1D /* HTTPServer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5C4EC2814B43FD500F7FE1D /* HTTPAsyncFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC1614B43FD500F7FE1D /* HTTPAsyncFileResponse.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5C4EC2914B43FD500F7FE1D /* HTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC1814B43FD500F7FE1D /* HTTPDataResponse.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5C4EC2A14B43FD500F7FE1D /* HTTPDynamicFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC1A14B43FD500F7FE1D /* HTTPDynamicFileResponse.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5C4EC2B14B43FD500F7FE1D /* HTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC1C14B43FD500F7FE1D /* HTTPFileResponse.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5C4EC2C14B43FD500F7FE1D /* HTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC1E14B43FD500F7FE1D /* HTTPRedirectResponse.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5C4EC2D14B43FD500F7FE1D /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC2014B43FD500F7FE1D /* WebSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F5C4ECFB14B4401E00F7FE1D /* Documentation.html in Resources */ = {isa = PBXBuildFile; fileRef = F5C4EC2F14B4401D00F7FE1D /* Documentation.html */; };
-		F5C4ECFC14B4401E00F7FE1D /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC3114B4401D00F7FE1D /* GCDAsyncSocket.m */; };
-		F5C4ECFD14B4401E00F7FE1D /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC3314B4401D00F7FE1D /* GCDAsyncUdpSocket.m */; };
+		F5C4ECFC14B4401E00F7FE1D /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC3114B4401D00F7FE1D /* GCDAsyncSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5C4ECFD14B4401E00F7FE1D /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EC3314B4401D00F7FE1D /* GCDAsyncUdpSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F5E6C13D1451E5D100A164BF /* LjsWebSocketLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E6C13C1451E5D100A164BF /* LjsWebSocketLogger.m */; };
 		F5E6C1411451E89800A164BF /* LjsWebSocketFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E6C1401451E89800A164BF /* LjsWebSocketFormatter.m */; };
 /* End PBXBuildFile section */
@@ -570,11 +570,12 @@
 		F50185BC145196340053A064 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Test-LumberjackHTTPLogging/Test-LumberjackHTTPLogging-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = LOG_CONFIGURATION_DEBUG;
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Test-LumberjackHTTPLogging/Test-LumberjackHTTPLogging-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -586,10 +587,11 @@
 		F50185BD145196340053A064 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Test-LumberjackHTTPLogging/Test-LumberjackHTTPLogging-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = LOG_CONFIGURATION_DEBUG;
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Test-LumberjackHTTPLogging/Test-LumberjackHTTPLogging-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";

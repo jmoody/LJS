@@ -43,15 +43,11 @@ static NSString * const SOME_LOG  = @"  LOG";
 @synthesize formatter;
 
 #pragma mark Memory Management
-- (void) dealloc {
-  [formatter release];
-  [super dealloc];
-}
 
 - (id) init {
 	self = [super init];
 	if (self != nil) {
-		self.formatter = [[[NSDateFormatter alloc] init] autorelease];
+		self.formatter = [[NSDateFormatter alloc] init];
     //[self.formatter setFormatterBehavior:NSDateFormatterBehavior10_4];
     [self.formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
   }

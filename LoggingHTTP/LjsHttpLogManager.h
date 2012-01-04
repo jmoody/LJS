@@ -28,15 +28,14 @@
 
 
 #import <Foundation/Foundation.h>
+#import "HTTPServer.h"
 
-@class LjsHTTPLogServer;
+//@class LjsHTTPLogServer;
 
-@interface LjsHttpLogManager : NSObject {
-    
-}
+@interface LjsHttpLogManager : NSObject
 
-@property (nonatomic, retain) LjsHTTPLogServer *httpLogServer;
-@property (nonatomic, retain) NSTimer *heartBeatTimer;
+@property (nonatomic, strong) HTTPServer *httpLogServer;
+@property (nonatomic, strong) NSTimer *heartBeatTimer;
 @property (nonatomic, assign) BOOL shouldPrintLogMessage;
 
 #pragma mark Memory Management

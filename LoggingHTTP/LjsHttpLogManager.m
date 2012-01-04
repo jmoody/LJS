@@ -58,7 +58,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (void) stopAndReleaseLogHeartBeatTimer {
   if (self.heartBeatTimer != nil) {
     [self.heartBeatTimer invalidate];
-    [heartBeatTimer release];
     heartBeatTimer = nil;
   }
 }
@@ -89,7 +88,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [DDLog addLogger:fileLogger];
   
   // looks like a leak, but it is not
-  self.httpLogServer = [(LjsHTTPLogServer *)[HTTPServer alloc] init];
+  self.httpLogServer = [[HTTPServer alloc] init];
   [self.httpLogServer setConnectionClass:[LjsHTTPLogConnection class]];
   [self.httpLogServer setType:@"_http._tcp."];
   [self.httpLogServer setPort:3030];
@@ -100,7 +99,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   if (![self.httpLogServer start:&error]) {
     DDLogError(@"Error starting HTTP Server: %@", error);
   }
-  [formatter release];
 }
 
 - (void) stopAndReleaseLogServer {
@@ -118,7 +116,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (void) dealloc {
   DDLogDebug(@"deallocating LjsHttpLogManager");
   
-  [super dealloc];
 }
 
 

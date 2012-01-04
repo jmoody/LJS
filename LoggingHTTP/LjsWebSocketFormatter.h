@@ -35,7 +35,7 @@
     
 }
 
-@property (nonatomic, retain) NSDateFormatter *formatter;
+@property (nonatomic, strong) NSDateFormatter *formatter;
 
 - (NSString *)stringFromLogFlag:(int)logFlag;
 
