@@ -59,12 +59,12 @@
          <EnvironmentVariable
             key = "GHUNIT_CLI"
             value = "YES"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "GHUNIT_RERAISE"
             value = "YES"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "GHUNIT_AUTORUN"
@@ -74,7 +74,7 @@
          <EnvironmentVariable
             key = "GHUNIT_AUTOEXIT"
             value = "NO"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "NSDebugEnabled"

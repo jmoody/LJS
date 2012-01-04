@@ -791,6 +791,21 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 }
 
 
+/**
+ @return a locale based on en_US_POSIX which uses a 12-hour clock
+ */
++ (NSLocale *) twelveHourLocale {
+  return [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]; 
+}
+
+/**
+ @return a locale based on en_GB which uses a 24-hour clock
+ */
++ (NSLocale *) twentyFourHourLocale {
+  return [[NSLocale alloc] initWithLocaleIdentifier:@"en_GB"];
+}
+
+
 #pragma mark DEAD SEA
 
 

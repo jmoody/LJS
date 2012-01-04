@@ -388,6 +388,7 @@
 				F5018596145196340053A064 /* Sources */,
 				F5018597145196340053A064 /* Frameworks */,
 				F5018598145196340053A064 /* Resources */,
+				F5C4ED7314B4593200F7FE1D /* Run Script bundle version <== git short version */,
 			);
 			buildRules = (
 			);
@@ -441,6 +442,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F5C4ED7314B4593200F7FE1D /* Run Script bundle version <== git short version */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script bundle version <== git short version";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\n# requires that you seed the CFBundleVersion in the Info.plist\n# with a value (an value will do)\ngitpath=`which git`\nbuildNumber=`$gitpath rev-parse --short HEAD`\necho $buildNumber\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F5018596145196340053A064 /* Sources */ = {

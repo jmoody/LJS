@@ -638,7 +638,10 @@
   actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
   GHAssertTrue(actual, nil);
 
+  NSLocale *twelveHourLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+  [formatter setLocale:twelveHourLocale];
   time = [formatter stringFromDate:[NSDate date]];
+  GHTestLog(@"time = %@", time);
   a24clock = NO;
   actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
   GHAssertTrue(actual, nil);

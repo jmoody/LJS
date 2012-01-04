@@ -1169,7 +1169,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "Tests-iOS";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F196ACE9-4861-4E90-9E5F-CA9BD75CC47F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1179,6 +1179,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-iOS\"",
@@ -1202,6 +1203,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "Tests-iOS";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
