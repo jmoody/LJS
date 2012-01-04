@@ -99,7 +99,9 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
                                    andServiceName:(NSString *) aIgnored1
                                             error:(NSError **) aError {
   NSError __autoreleasing *error = nil;
+  // known analyzer warning - not sure what to do here
   aError = &error;
+    
   return LjsKeychainTestsDefaultPassword;
 }
 
@@ -703,7 +705,6 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
   
   error = nil;
   name = @"inform test username";
-  password = @"inform test password";
   domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
 
   fetcehedPwd = [SFHFKeychainUtils getPasswordForUsername:name andServiceName:domain error:&error];
@@ -716,7 +717,6 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
 
   error = nil;
   name = @"inform test username";
-  password = @"inform test password";
   domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
   [SFHFKeychainUtils deleteItemForUsername:name andServiceName:domain error:&error];
   
@@ -728,7 +728,6 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
 
   error = nil;
   name = @"inform test username";
-  password = @"inform test password";
   domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
   fetcehedPwd = [SFHFKeychainUtils getPasswordForUsername:name andServiceName:domain error:&error];
   

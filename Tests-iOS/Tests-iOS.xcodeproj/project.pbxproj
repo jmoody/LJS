@@ -25,7 +25,7 @@
 		F50FE7351410D3160051FC7E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE7331410D30D0051FC7E /* Security.framework */; };
 		F529524514232EB5009C67EE /* LjsValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524414232EB5009C67EE /* LjsValidator.m */; };
 		F529524814232F47009C67EE /* LjsValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524714232F47009C67EE /* LjsValidatorTests.m */; };
-		F532AD2014AB62D800E48707 /* ReporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F532AD1F14AB62D800E48707 /* ReporterTests.m */; };
+		F532AD2014AB62D800E48707 /* TZReporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F532AD1F14AB62D800E48707 /* TZReporterTests.m */; };
 		F54009F114B22253001EF805 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E214B22253001EF805 /* DDAbstractDatabaseLogger.m */; };
 		F54009F214B22253001EF805 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E414B22253001EF805 /* DDASLLogger.m */; };
 		F54009F314B22253001EF805 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E614B22253001EF805 /* DDFileLogger.m */; };
@@ -143,7 +143,7 @@
 		F529524314232EB5009C67EE /* LjsValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsValidator.h; sourceTree = "<group>"; };
 		F529524414232EB5009C67EE /* LjsValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidator.m; sourceTree = "<group>"; };
 		F529524714232F47009C67EE /* LjsValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidatorTests.m; sourceTree = "<group>"; };
-		F532AD1F14AB62D800E48707 /* ReporterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReporterTests.m; sourceTree = "<group>"; };
+		F532AD1F14AB62D800E48707 /* TZReporterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZReporterTests.m; sourceTree = "<group>"; };
 		F54009E114B22253001EF805 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
 		F54009E214B22253001EF805 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
 		F54009E314B22253001EF805 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
@@ -423,7 +423,7 @@
 				F50FE6DD1410CC250051FC7E /* LjsKeychainTests.m */,
 				F50FE6DE1410CC250051FC7E /* LjsVariatesTests.m */,
 				F529524714232F47009C67EE /* LjsValidatorTests.m */,
-				F532AD1F14AB62D800E48707 /* ReporterTests.m */,
+				F532AD1F14AB62D800E48707 /* TZReporterTests.m */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -1031,7 +1031,7 @@
 				F59635EE149665CC00CDB27E /* UIViewController+ParentOrPresenting.m in Sources */,
 				F58013AB149E06F100692073 /* LjsLocationManager.m in Sources */,
 				F5724970149F9AD6006C62A2 /* LjsButton.m in Sources */,
-				F532AD2014AB62D800E48707 /* ReporterTests.m in Sources */,
+				F532AD2014AB62D800E48707 /* TZReporterTests.m in Sources */,
 				F54009F114B22253001EF805 /* DDAbstractDatabaseLogger.m in Sources */,
 				F54009F214B22253001EF805 /* DDASLLogger.m in Sources */,
 				F54009F314B22253001EF805 /* DDFileLogger.m in Sources */,

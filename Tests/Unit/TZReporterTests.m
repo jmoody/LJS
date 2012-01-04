@@ -64,11 +64,11 @@
 #import "LjsTestCase.h"
 #import "TZReporter.h"
 
-@interface ReporterTests : LjsTestCase {}
+@interface TZReporterTests : LjsTestCase {}
 @end
 
 
-@implementation ReporterTests
+@implementation TZReporterTests
 
 //- (id) init {
 //  self = [super init];
@@ -115,6 +115,23 @@
   GHAssertNotNil(newError, nil);
   GHAssertEqualStrings([newError domain], domain, nil);
   GHAssertEquals((NSInteger)[newError code], (NSInteger)code, nil);
+  
+
+  rep = [[TZReporter alloc] initWithDomain:@"domain" error:nil];
+  
+  newError = [rep errorWithCode:-1];
+  GHAssertNotNil(newError, nil);
+  GHAssertEqualStrings([newError domain], domain, nil);
+  GHAssertEquals((NSInteger)[newError code], (NSInteger)code, nil);
+
+  
+  rep = [[TZReporter alloc] initWithDomain:@"domain" error:NULL];
+  
+  newError = [rep errorWithCode:-1];
+  GHAssertNotNil(newError, nil);
+  GHAssertEqualStrings([newError domain], domain, nil);
+  GHAssertEquals((NSInteger)[newError code], (NSInteger)code, nil);
+
 }
 
 @end

@@ -463,8 +463,9 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
  Sets the error using Reporter API
  @param code the error code use
  @param error the error to populate
+ @return always returns YES - return is include to suppress analyzer warnings
  */
-- (void) ljsKeychainManagerErrorWithCode:(NSInteger) code
+- (BOOL) ljsKeychainManagerErrorWithCode:(NSInteger) code
                                    error:(NSError **) error {
   self.reporter = [TZReporter reporterWithDomain:LjsKeychainManagerErrorDomain
                                          error:error];
@@ -493,9 +494,12 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
       message = @"META ERROR:  fell through switch statement with is not allowed";
       break;
   }
-  
+  // safe to ingnore "Potential null dereference" analyzer message because
+  // of the way TZReporter works
+  // check TZReporterTests.m to see the tests
   *error = [self.reporter errorWithCode:code description:message];
   [self logKeychainError:*error];
+  return YES;
 }
 
 

@@ -99,6 +99,7 @@
 		F5B2844114AD0B6700E48908 /* LjsGestalt.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844014AD0B6700E48908 /* LjsGestalt.m */; };
 		F5B2844414AD0E6700E48908 /* LjsGestaltTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844314AD0E6700E48908 /* LjsGestaltTests.m */; };
 		F5B2844E14AD1B5E00E48908 /* LjsRestartFinderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844D14AD1B5E00E48908 /* LjsRestartFinderOperation.m */; };
+		F5C4ED7114B4584B00F7FE1D /* TZReporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4ED7014B4584B00F7FE1D /* TZReporterTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,7 +154,7 @@
 		F5807056146C283400EA4CFB /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
 		F5807057146C283400EA4CFB /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
 		F5807058146C283400EA4CFB /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		F5807065146C284C00EA4CFB /* TZReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TZReporter.h; sourceTree = "<group>"; };
+		F5807065146C284C00EA4CFB /* TZReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZReporter.h; sourceTree = "<group>"; };
 		F5807066146C284C00EA4CFB /* TZReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZReporter.m; sourceTree = "<group>"; };
 		F5807068146C284C00EA4CFB /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		F5807069146C284C00EA4CFB /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
@@ -271,7 +272,6 @@
 		F5807173146C2AAC00EA4CFB /* LjsIdGeneratorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsIdGeneratorTests.m; sourceTree = "<group>"; };
 		F5807174146C2AAC00EA4CFB /* LjsJsonRpcReplyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsJsonRpcReplyTests.m; sourceTree = "<group>"; };
 		F5807175146C2AAC00EA4CFB /* LjsKeychainTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsKeychainTests.m; sourceTree = "<group>"; };
-		F5807176146C2AAC00EA4CFB /* LjsSecurityManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsSecurityManagerTests.m; sourceTree = "<group>"; };
 		F5807177146C2AAC00EA4CFB /* LjsValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidatorTests.m; sourceTree = "<group>"; };
 		F5807178146C2AAC00EA4CFB /* LjsVariatesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariatesTests.m; sourceTree = "<group>"; };
 		F5807182146C2AF500EA4CFB /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -306,6 +306,7 @@
 		F5B2844314AD0E6700E48908 /* LjsGestaltTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestaltTests.m; sourceTree = "<group>"; };
 		F5B2844C14AD1B5E00E48908 /* LjsRestartFinderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRestartFinderOperation.h; sourceTree = "<group>"; };
 		F5B2844D14AD1B5E00E48908 /* LjsRestartFinderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsRestartFinderOperation.m; sourceTree = "<group>"; };
+		F5C4ED7014B4584B00F7FE1D /* TZReporterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZReporterTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -718,12 +719,12 @@
 		F5807170146C2AAC00EA4CFB /* Unit */ = {
 			isa = PBXGroup;
 			children = (
+				F5C4ED7014B4584B00F7FE1D /* TZReporterTests.m */,
 				F5807171146C2AAC00EA4CFB /* LjsDateHelperTests.m */,
 				F5807172146C2AAC00EA4CFB /* LjsDecimalAideTests.m */,
 				F5807173146C2AAC00EA4CFB /* LjsIdGeneratorTests.m */,
 				F5807174146C2AAC00EA4CFB /* LjsJsonRpcReplyTests.m */,
 				F5807175146C2AAC00EA4CFB /* LjsKeychainTests.m */,
-				F5807176146C2AAC00EA4CFB /* LjsSecurityManagerTests.m */,
 				F5807177146C2AAC00EA4CFB /* LjsValidatorTests.m */,
 				F5807178146C2AAC00EA4CFB /* LjsVariatesTests.m */,
 				F5B2844314AD0E6700E48908 /* LjsGestaltTests.m */,
@@ -999,6 +1000,7 @@
 				F5B2844414AD0E6700E48908 /* LjsGestaltTests.m in Sources */,
 				F5B2844E14AD1B5E00E48908 /* LjsRestartFinderOperation.m in Sources */,
 				F5400A0014B2288A001EF805 /* LoremIpsum.m in Sources */,
+				F5C4ED7114B4584B00F7FE1D /* TZReporterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

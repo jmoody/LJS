@@ -30,7 +30,6 @@
   that use the Reporter class. Discussion here:
   http://google.com/search?q=should+method+set+nserror
 */
-static NSError *dummyError = nil;
 
 @implementation TZReporter
 
@@ -41,9 +40,10 @@ static NSError *dummyError = nil;
 - (id) initWithDomain: (NSString*) errDomain error: (NSError**) error {
   self = [super init];
   if (self != nil) {
+    NSError __autoreleasing *dummyError = nil;
     self.domain = errDomain;
     if (error == NULL) {
-      *error = dummyError;
+      error = &dummyError;
     }
   }
   return self;
