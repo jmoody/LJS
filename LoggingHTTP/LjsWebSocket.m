@@ -1,5 +1,6 @@
 #import "LjsWebSocket.h"
 #import "Lumberjack.h"
+#import "LjsHTTPLog.h"
 #import "GCDAsyncSocket.h"
 #import "HTTPMessage.h"
 #import "HTTPLogging.h"

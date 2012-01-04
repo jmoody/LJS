@@ -77,6 +77,7 @@
 #define LOG_FLAG_NOTICE  (1 << 3)  // 0...001000
 #define LOG_FLAG_INFO    (1 << 4)  // 0...010000
 #define LOG_FLAG_DEBUG   (1 << 5)  // 0...100000
+#define LOG_FLAG_TRACE   (1 << 6)  
 
 #define LOG_LEVEL_FATAL   (LOG_FLAG_FATAL)                     // 0...000001
 #define LOG_LEVEL_ERROR   (LOG_FLAG_ERROR  | LOG_LEVEL_FATAL ) // 0...000011
@@ -84,6 +85,7 @@
 #define LOG_LEVEL_NOTICE  (LOG_FLAG_NOTICE | LOG_LEVEL_WARN  ) // 0...001111
 #define LOG_LEVEL_INFO    (LOG_FLAG_INFO   | LOG_LEVEL_NOTICE) // 0...011111
 #define LOG_LEVEL_DEBUG   (LOG_FLAG_DEBUG  | LOG_LEVEL_INFO  ) // 0...111111
+#define LOG_LEVEL_TRACE   (LOG_FLAG_TRACE  | LOG_FLAG_TRACE  )
 
 #define LOG_FATAL   (ddLogLevel & LOG_FLAG_FATAL )
 #define LOG_ERROR   (ddLogLevel & LOG_FLAG_ERROR )
@@ -91,6 +93,7 @@
 #define LOG_NOTICE  (ddLogLevel & LOG_FLAG_NOTICE)
 #define LOG_INFO    (ddLogLevel & LOG_FLAG_INFO  )
 #define LOG_DEBUG   (ddLogLevel & LOG_FLAG_DEBUG )
+#define LOG_TRACE   (ddLogLevel & LOG_FLAG_TRACE )
 
 #define DDLogFatal(frmt, ...)    SYNC_LOG_OBJC_MAYBE(ddLogLevel, LOG_FLAG_FATAL,  0, frmt, ##__VA_ARGS__)
 #define DDLogError(frmt, ...)    SYNC_LOG_OBJC_MAYBE(ddLogLevel, LOG_FLAG_ERROR,  0, frmt, ##__VA_ARGS__)
