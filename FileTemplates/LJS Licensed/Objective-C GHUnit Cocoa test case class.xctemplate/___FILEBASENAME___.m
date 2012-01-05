@@ -61,11 +61,15 @@
 // GHAssertNoThrowSpecific(expr, specificException, description, ...)
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
+
 #import <GHUnit/GHUnit.h>
+#import "LjsTestCase.h"
 
-@interface ___FILEBASENAMEASIDENTIFIER___ : GHTestCase {}
+@interface ___FILEBASENAMEASIDENTIFIER___ : LjsTestCase {}
 @end
-
 
 @implementation ___FILEBASENAMEASIDENTIFIER___
 
@@ -78,7 +82,6 @@
 //}
 //
 //- (void) dealloc {
-//  [super dealloc];
 //}
 
 - (BOOL)shouldRunOnMainThread {

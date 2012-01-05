@@ -597,7 +597,7 @@
 				INFOPLIST_FILE = "Test-LumberjackHTTPLogging/Test-LumberjackHTTPLogging-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C9350E76-9459-463D-BEEE-A00CE9EE1BE3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

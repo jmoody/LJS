@@ -27,7 +27,8 @@
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "LjsHttpLogManager.h"
-
+#import "Lumberjack.h"
+#import "LjsHTTPLog.h"
 #import "LjsHTTPLogConnection.h"
 #import "HTTPServer.h"
 #import "LjsHTTPFileLogger.h"
