@@ -78,11 +78,6 @@ static NSString *LjsConnectivityStatusStringNoInternet = @"Reachability:  Intern
   DDLogDebug(@"deallocating LjsReachabilityObserver");
   [[NSNotificationCenter defaultCenter] removeObserver:self];
   [self stopAndReleaseRepeatingTimers];
-  self.internetReachability = nil;
-  self.hostReachability = nil;
-  self.hostName = nil;
-  self.reachabilityUrl = nil;
-  [super dealloc];
 }
 
 
@@ -160,7 +155,7 @@ static NSString *LjsConnectivityStatusStringNoInternet = @"Reachability:  Intern
 - (void) doRepeatedAction:(NSTimer *)aTimer {
   if (self.repeatCount < self.numberOfTimesToRepeat) {
     if (self.reachabilityRequest == nil) {
-      ASIHTTPRequest *request = [[[ASIHTTPRequest alloc] initWithURL:self.reachabilityUrl] autorelease];
+      ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:self.reachabilityUrl];
       [request setRequestMethod:@"GET"]; 
       [request setDelegate:self];
       [request setDidFailSelector:@selector(handleHostReachabilityRequest:)];

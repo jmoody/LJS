@@ -221,10 +221,16 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
 	// One likely way such an incorrect item could have come about is due to the previous (incorrect)
 	// version of this code (which set the password as a generic attribute instead of password data).
   
+
 	NSMutableDictionary *attributeQuery = [query mutableCopy];
 	[attributeQuery setObject: (id) kCFBooleanTrue forKey:(__bridge_transfer id) kSecReturnAttributes];
+  CFDictionaryRef cfAttributeQuery = (__bridge_retained CFDictionaryRef) attributeQuery;  
   CFTypeRef attrResult = NULL;
-	OSStatus status = SecItemCopyMatching((__bridge_retained CFDictionaryRef) attributeQuery, &attrResult);
+	OSStatus status = SecItemCopyMatching(cfAttributeQuery, &attrResult);
+  CFRelease(cfAttributeQuery);
+  CFRelease(attrResult);
+
+  
 	//NSDictionary *attributeResult = (__bridge_transfer NSDictionary *)attrResult;
   
 	if (status != noErr) {
@@ -240,10 +246,15 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
 	// We have an existing item, now query for the password data associated with it.
   
 	NSMutableDictionary *passwordQuery = [query mutableCopy];
-	[passwordQuery setObject: (id) kCFBooleanTrue forKey: (__bridge_transfer id) kSecReturnData];
-  CFTypeRef resData = NULL;
-	status = SecItemCopyMatching((__bridge_retained CFDictionaryRef) passwordQuery, (CFTypeRef *) &resData);
-	NSData *resultData = (__bridge_transfer NSData *)resData;
+	[passwordQuery setObject: (id) kCFBooleanTrue forKey: (__bridge_transfer  id) kSecReturnData];
+  CFDictionaryRef cfPasswordQuery = (__bridge_retained CFDictionaryRef) passwordQuery;
+  CFTypeRef cfResData = NULL;
+	status = SecItemCopyMatching(cfPasswordQuery, &cfResData);
+	NSData *resultData = (__bridge_transfer NSData *)cfResData;
+  CFRelease(cfPasswordQuery);
+  CFRelease(cfResData);
+
+  
   
 	if (status != noErr) {
 		if (status == errSecItemNotFound) {

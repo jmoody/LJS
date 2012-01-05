@@ -81,12 +81,6 @@ static NSString *LjsCurrentWeatherApiKeyKey = @"free.worldweatheronline.com.LJS 
 #pragma mark Memory Management
 - (void) dealloc {
    DDLogDebug(@"deallocating LjsCurrentWeather");
-  self.latitude = nil;
-  self.longitude = nil;
-  self.responseUtils = nil;
-  self.currentConditions = nil;
-  self.requestURL = nil;
-  [super dealloc];
 }
 
 - (id) initWithLatitude:(NSDecimalNumber *)aLatitude longitude:(NSDecimalNumber *)aLongitude {
@@ -99,7 +93,7 @@ static NSString *LjsCurrentWeatherApiKeyKey = @"free.worldweatheronline.com.LJS 
     
     self.latitude = aLatitude;
     self.longitude = aLongitude;
-    self.responseUtils = [[[ASIHTTPResponseUtils alloc] init] autorelease];
+    self.responseUtils = [[ASIHTTPResponseUtils alloc] init];
     self.currentConditions = nil;
   }
   return self;
@@ -122,8 +116,8 @@ static NSString *LjsCurrentWeatherApiKeyKey = @"free.worldweatheronline.com.LJS 
       NSString *path = [NSString stringWithFormat:LjsCurrentWeatherUrlFormatString,
                         self.latitude, self.longitude, apiKey];
       self.requestURL = [NSURL URLWithString:[path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-      ASIHTTPRequest *request = [[[ASIHTTPRequest alloc]
-                                  initWithURL:self.requestURL] autorelease];
+      ASIHTTPRequest *request = [[ASIHTTPRequest alloc]
+                                  initWithURL:self.requestURL];
       [request setRequestMethod:@"GET"]; 
       [request setDelegate:self];
       [request setDidFailSelector:@selector(handleWeatherRequestDidFail:)];
@@ -153,7 +147,7 @@ static NSString *LjsCurrentWeatherApiKeyKey = @"free.worldweatheronline.com.LJS 
     DDLogError(@"request finished but was not 200 or 201 successful: %@", 
                [self.responseUtils responseDescriptionForRequest:aRequest]);
   } else {
-    SBJsonParser *parser = [[[SBJsonParser alloc] init] autorelease];
+    SBJsonParser *parser = [[SBJsonParser alloc] init];
     NSError *error = nil;
     NSDictionary *dict = [parser objectWithString:aRequest.responseString error:&error];
     if (error != nil) {
