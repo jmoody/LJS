@@ -228,7 +228,10 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
   CFTypeRef cfAttrResult = NULL;
 	OSStatus status = SecItemCopyMatching(cfAttributeQuery, &cfAttrResult);
   CFRelease(cfAttributeQuery);
-  CFRelease(cfAttrResult);
+  // ugh - faking out ARC
+  NSData *attrData;
+  attrData = (__bridge_transfer NSData *)cfAttrResult;
+  
 
 	if (status != noErr) {
 		// No existing item found--simply return nil for the password
@@ -383,8 +386,10 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
                         nil];
     
 		NSDictionary *query = [[NSDictionary alloc] initWithObjects: objects forKeys: keys];			
+    CFDictionaryRef cfQuery = (__bridge_retained CFDictionaryRef)query;
     
-		status = SecItemAdd((__bridge_retained CFDictionaryRef) query, NULL);
+		status = SecItemAdd(cfQuery, NULL);
+    CFRelease(cfQuery);
 	}
   
 	if (error != nil && status != noErr) 
@@ -417,9 +422,12 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
 	NSArray *keys = [[NSArray alloc] initWithObjects: (__bridge_transfer NSString *) kSecClass, kSecAttrAccount, kSecAttrService, kSecReturnAttributes, nil];
 	NSArray *objects = [[NSArray alloc] initWithObjects: (__bridge_transfer NSString *) kSecClassGenericPassword, username, serviceName, kCFBooleanTrue, nil];
   
-	NSDictionary *query = [[NSDictionary alloc] initWithObjects: objects forKeys: keys];
-  
-	OSStatus status = SecItemDelete((__bridge_retained CFDictionaryRef) query);
+	
+
+  NSDictionary *query = [[NSDictionary alloc] initWithObjects: objects forKeys: keys];
+  CFDictionaryRef cfQuery = (__bridge_retained CFDictionaryRef)query;
+	OSStatus status = SecItemDelete(cfQuery);
+  CFRelease(cfQuery);
   
 	if (error != nil && status != noErr) 
   {

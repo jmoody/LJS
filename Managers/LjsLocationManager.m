@@ -57,6 +57,7 @@ static CGFloat const LjsLocationManagerLatitudeMax = 90.0;
 #ifdef LJS_LOCATION_SERVICES_DEBUG
 static NSString *LjsLocationManagerMercury = @"mercury";
 static NSString *LjsLocationManagerPluto = @"pluto";
+static NSstring *LjsLocationManagerNeptune = @"neptune";
 #endif
 
 static NSString *LjsLocationManagerZurichLongitude = @"42.22";
