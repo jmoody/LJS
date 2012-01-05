@@ -44,9 +44,8 @@
     self.domain = errDomain;
     if (error == NULL) {
       error = &dummyError;
-    }
+    } 
     NSAssert(error != NULL, @"error should not be nil");
-    //NSAssert(*error != NULL, @"error should not be nil");
   }
   return self;
 }

@@ -36,13 +36,13 @@
 #import "LjsVariates.h"
 #import "Lumberjack.h"
 
-static const int ddLogLevel = LOG_LEVEL_WARN;
+//static const int ddLogLevel = LOG_LEVEL_WARN;
 
-//#ifdef LOG_CONFIGURATION_DEBUG
-//static const int ddLogLevel = LOG_LEVEL_DEBUG;
-//#else
-//
-//#endif
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
 
 static CGFloat const LjsLocationManagerLocationHeadingNotFound = -999.0;
 
@@ -129,7 +129,7 @@ static LjsLocationManager *singleton = nil;
     
 #ifdef LJS_LOCATION_SERVICES_DEBUG
     self.debugDevices = [NSArray arrayWithObjects:LjsLocationManagerMercury,
-                         LjsLocationManagerPluto, nil];
+                         LjsLocationManagerPluto, LjsLocationManagerNeptune, nil];
 #endif
     double random = [LjsVariates randomDoubleWithMin:0.0 max:360.0];
     self.debugLastHeading = [LjsDecimalAide dnWithDouble:random];
@@ -170,8 +170,15 @@ static LjsLocationManager *singleton = nil;
     }
   }
 #endif
-
-
+  
+#ifdef LJS_LOCATION_SERVICES_SIMULATOR_DEBUG
+  if (result == NO && locationServiceEnabled == YES) {
+    DDLogDebug(@"LJS_LOCATION_SERVICES_SIMULATOR_DEBUG is on - will return YES");
+    result = YES;
+  } else if (result == NO && locationServiceEnabled == NO) {
+    DDLogNotice(@"declining to override returning NO even though LJS_LOCATION_SERVICES_SIMULATOR_DEBUG is defined - turn on location services in the Settings.app");
+  }
+#endif
   return result;
 }
 
