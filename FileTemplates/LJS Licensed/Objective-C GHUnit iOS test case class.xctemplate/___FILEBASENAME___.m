@@ -61,11 +61,11 @@
 // GHAssertNoThrowSpecific(expr, specificException, description, ...)
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
-#import <GHUnitIOS/GHUnit.h>
+#import <GHUnit/GHUnit.h>
+#import "LjsTestCase.h"
 
-@interface ___FILEBASENAMEASIDENTIFIER___ : GHTestCase {}
+@interface ___FILEBASENAMEASIDENTIFIER___ : LjsTestCase {}
 @end
-
 
 @implementation ___FILEBASENAMEASIDENTIFIER___
 
@@ -78,7 +78,7 @@
 //}
 //
 //- (void) dealloc {
-//  [super dealloc];
+//
 //}
 
 - (BOOL)shouldRunOnMainThread {

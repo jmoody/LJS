@@ -27,6 +27,8 @@
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "LjsWebSocketLogger.h"
+#import "Lumberjack.h"
+#import "LjsHTTPLog.h"
 
 
 @implementation LjsWebSocketLogger
