@@ -11,13 +11,14 @@ export VISUAL=less
 export EDITOR=emacs
 export GIT_EDITOR=emacs
 
-
 # Cli Colors
 export CLICOLOR=1
 # use yellow for dir’s
 export LSCOLORS=dxfxcxdxbxegedabagacad
 
-export PATH=/opt/local/bin:/opt/local/sbin:~/bin:$PATH
+export POSTGRES_PATH=/Library/PostgreSQL/9.0/bin
+export DEVELOPER_PATH=/Developer/usr/bin
+export PATH=/opt/local/bin:/opt/local/sbin:$DEVELOPER_PATH:$POSTGRES_PATH:~/bin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
 
 export RUBYMINE_HOME="/Applications/RubyMine 3.2.4.app/"

@@ -20,11 +20,11 @@
 {
 	NSArray *sortedLogFileInfos = [[self logFileManager] sortedLogFileInfos];
 	
-	NSDateFormatter *df = [[[NSDateFormatter alloc] init] autorelease];
+	NSDateFormatter *df = [[NSDateFormatter alloc] init];
 	[df setFormatterBehavior:NSDateFormatterBehavior10_4];
 	[df setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
 	
-	NSNumberFormatter *nf = [[[NSNumberFormatter alloc] init] autorelease];
+	NSNumberFormatter *nf = [[NSNumberFormatter alloc] init];
 	[nf setFormatterBehavior:NSNumberFormatterBehavior10_4];
 	[nf setNumberStyle:NSNumberFormatterDecimalStyle];
 	[nf setMinimumFractionDigits:2];
@@ -113,7 +113,7 @@
 	if ([path isEqualToString:@"/logs.html"])
 	{
 		NSData *indexData = [self generateIndexData];
-		return [[[HTTPDataResponse alloc] initWithData:indexData] autorelease];
+		return [[HTTPDataResponse alloc] initWithData:indexData];
 	}
 	else if ([path isEqualToString:@"/socket.html"])
 	{
@@ -129,10 +129,10 @@
 		NSString *loc = [self wsLocation];
 		NSDictionary *replacementDict = [NSDictionary dictionaryWithObject:loc forKey:@"WEBSOCKET_URL"];
 		
-		return [[[HTTPDynamicFileResponse alloc] initWithFilePath:[self filePathForURI:path]
+		return [[HTTPDynamicFileResponse alloc] initWithFilePath:[self filePathForURI:path]
 		                                            forConnection:self
 		                                                separator:@"%%"
-		                                    replacementDictionary:replacementDict] autorelease];
+		                                    replacementDictionary:replacementDict];
 	}
 	else
 	{
@@ -148,15 +148,15 @@
 		WebSocket *ws = [[WebSocket alloc] initWithRequest:request socket:asyncSocket];
 		
 		// Create the WebSocketLogger
-		LjsWebSocketLogger *wsLogger = [[LjsWebSocketLogger alloc] initWithWebSocket:ws];
+		LjsWebSocketLogger *wsLogger; 
+    wsLogger = [[LjsWebSocketLogger alloc] initWithWebSocket:ws];
 		
 		// Memory management:
 		// The WebSocket will be retained by the HTTPServer and the WebSocketLogger.
 		// The WebSocketLogger will be retained by the logging framework,
 		// as it adds itself to the list of active loggers from within its init method.
 		
-		[wsLogger release];
-		return [ws autorelease];
+		return ws;
 	}
 	
 	return [super webSocketForURI:path];

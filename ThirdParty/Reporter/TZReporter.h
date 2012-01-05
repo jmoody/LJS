@@ -34,9 +34,9 @@
  
  Joshua Moody added the documentation.
  */
-@interface Reporter : NSObject {
-  NSString *domain;
-}
+@interface TZReporter : NSObject
+
+@property (nonatomic, copy) NSString *domain;
 
 /** @name Creating and Initializing a Reporter*/
 

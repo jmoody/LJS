@@ -5,7 +5,7 @@
     
 }
 
-@property (nonatomic, retain) HTTPMessage *wsResponse;
+@property (nonatomic, strong) HTTPMessage *wsResponse;
 
 // overriding super class
 - (NSString *)originResponseHeaderValue;

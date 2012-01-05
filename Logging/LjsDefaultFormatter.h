@@ -36,12 +36,12 @@
 /**
  the date formatter
  */
-@property (nonatomic, retain) NSDateFormatter *dateFormatter;
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
 /**
  the log format string
  */
-@property (nonatomic, retain) NSString *formatString;
+@property (nonatomic, strong) NSString *formatString;
 
 
 @end

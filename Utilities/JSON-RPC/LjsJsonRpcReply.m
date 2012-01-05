@@ -25,6 +25,9 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
 
 #import "LjsJsonRpcReply.h"
 #import "Lumberjack.h"
@@ -72,12 +75,6 @@ NSString *LjsJsonRpcReplyErrorDataUserInfoKey = @"com.littlejoysoftware.ljs.Json
 #pragma mark Memory Management
 - (void) dealloc {
   DDLogDebug(@"deallocating LjsJsonRpcReply");
-  [errorFoundInReply release];
-  [jsonParseError release];
-  [jsonRpcFormatError release];
-  [parser release];
-  [replyDict release];
-  [super dealloc];
 }
 
 - (id) initWithJsonReply:(NSString *)json {
@@ -85,7 +82,6 @@ NSString *LjsJsonRpcReplyErrorDataUserInfoKey = @"com.littlejoysoftware.ljs.Json
   if (self != nil) {
     SBJsonParser *aParser = [[SBJsonParser alloc] init];
     self.parser = aParser;
-    [aParser release];
 
     NSError *tmpParseError = nil;
     self.replyDict = [self.parser objectWithString:json error:&tmpParseError];

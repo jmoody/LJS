@@ -18,7 +18,11 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
 
-#import "Reporter.h"
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
+
+#import "TZReporter.h"
 
 /**
   The dummyError trick is here to safely initialize
@@ -26,31 +30,30 @@
   that use the Reporter class. Discussion here:
   http://google.com/search?q=should+method+set+nserror
 */
-static NSError *dummyError = nil;
 
-@implementation Reporter
+@implementation TZReporter
+
+@synthesize domain;
 
 #pragma mark Initialization
 
-- (id) initWithDomain: (NSString*) errDomain error: (NSError**) error
-{
-    [super init];
-    domain = [errDomain retain];
-    if (error == NULL)
-        error = &dummyError;
-    return self;
+- (id) initWithDomain: (NSString*) errDomain error: (NSError**) error {
+  self = [super init];
+  if (self != nil) {
+    NSError __autoreleasing *dummyError = nil;
+    self.domain = errDomain;
+    if (error == NULL) {
+      error = &dummyError;
+    }
+  }
+  return self;
 }
 
 + (id) reporterWithDomain: (NSString*) errDomain error: (NSError**) error
 {
-    return [[[self alloc] initWithDomain:errDomain error:error] autorelease];
+    return [[self alloc] initWithDomain:errDomain error:error];
 }
 
-- (void) dealloc
-{
-    [domain release];
-    [super dealloc];
-}
 
 #pragma mark Error Reporting
 
@@ -62,10 +65,11 @@ static NSError *dummyError = nil;
 - (NSError*) errorWithCode: (NSInteger) code description: (NSString*) msg
 {
   
-  NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                            msg, NSLocalizedDescriptionKey,
-                            NSUTF8StringEncoding, NSStringEncodingErrorKey,
-                            nil];
+  NSDictionary *userInfo = 
+  [NSDictionary dictionaryWithObjectsAndKeys:
+   msg, NSLocalizedDescriptionKey,
+   [NSNumber numberWithInteger:NSUTF8StringEncoding], NSStringEncodingErrorKey,
+   nil];
  
   
   return [NSError errorWithDomain:domain 

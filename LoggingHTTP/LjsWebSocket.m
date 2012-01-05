@@ -1,5 +1,6 @@
 #import "LjsWebSocket.h"
 #import "Lumberjack.h"
+#import "LjsHTTPLog.h"
 #import "GCDAsyncSocket.h"
 #import "HTTPMessage.h"
 #import "HTTPLogging.h"
@@ -30,8 +31,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #pragma mark Memory Management
 - (void) dealloc {
   DDLogDebug(@"deallocating LjsWebSocket");
-  [wsResponse release];
-  [super dealloc];
 }
 
 - (id)initWithRequest:(HTTPMessage *)aRequest socket:(GCDAsyncSocket *)socket {
@@ -135,9 +134,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 	// 8jKS'y:G*Co,Wxa-
   
 	
-	self.wsResponse = [[[HTTPMessage alloc] initResponseWithStatusCode:101
+	self.wsResponse = [[HTTPMessage alloc] initResponseWithStatusCode:101
                                                          description:@"Web Socket Protocol Handshake"
-                                                             version:HTTPVersion1_1] autorelease];
+                                                             version:HTTPVersion1_1];
 	
 	[self.wsResponse setHeaderField:@"Upgrade" value:@"WebSocket"];
 	[self.wsResponse setHeaderField:@"Connection" value:@"Upgrade"];
@@ -166,7 +165,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 	{
 		NSString *temp = [[NSString alloc] initWithData:responseHeaders encoding:NSUTF8StringEncoding];
 		HTTPLogVerbose(@"%@[%p] Response Headers:\n%@", THIS_FILE, self, temp);
-		[temp release];
 	}
 	
 	[asyncSocket writeData:responseHeaders withTimeout:TIMEOUT_NONE tag:TAG_HTTP_RESPONSE_HEADERS];

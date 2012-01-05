@@ -1,3 +1,31 @@
+// Copyright (c) 2010, Little Joy Software
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//     * Redistributions of source code must retain the above copyright
+//       notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above copyright
+//       notice, this list of conditions and the following disclaimer in
+//       the documentation and/or other materials provided with the
+//       distribution.
+//     * Neither the name of the Little Joy Software nor the names of its
+//       contributors may be used to endorse or promote products derived
+//       from this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY LITTLE JOY SOFTWARE ''AS IS'' AND ANY
+// EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+// PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL LITTLE JOY SOFTWARE BE
+// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+// BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+// OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+// IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 #import "DDLog.h"
 
 /**
@@ -49,6 +77,7 @@
 #define LOG_FLAG_NOTICE  (1 << 3)  // 0...001000
 #define LOG_FLAG_INFO    (1 << 4)  // 0...010000
 #define LOG_FLAG_DEBUG   (1 << 5)  // 0...100000
+#define LOG_FLAG_TRACE   (1 << 6)  
 
 #define LOG_LEVEL_FATAL   (LOG_FLAG_FATAL)                     // 0...000001
 #define LOG_LEVEL_ERROR   (LOG_FLAG_ERROR  | LOG_LEVEL_FATAL ) // 0...000011
@@ -56,6 +85,7 @@
 #define LOG_LEVEL_NOTICE  (LOG_FLAG_NOTICE | LOG_LEVEL_WARN  ) // 0...001111
 #define LOG_LEVEL_INFO    (LOG_FLAG_INFO   | LOG_LEVEL_NOTICE) // 0...011111
 #define LOG_LEVEL_DEBUG   (LOG_FLAG_DEBUG  | LOG_LEVEL_INFO  ) // 0...111111
+#define LOG_LEVEL_TRACE   (LOG_FLAG_TRACE  | LOG_FLAG_TRACE  )
 
 #define LOG_FATAL   (ddLogLevel & LOG_FLAG_FATAL )
 #define LOG_ERROR   (ddLogLevel & LOG_FLAG_ERROR )
@@ -63,6 +93,7 @@
 #define LOG_NOTICE  (ddLogLevel & LOG_FLAG_NOTICE)
 #define LOG_INFO    (ddLogLevel & LOG_FLAG_INFO  )
 #define LOG_DEBUG   (ddLogLevel & LOG_FLAG_DEBUG )
+#define LOG_TRACE   (ddLogLevel & LOG_FLAG_TRACE )
 
 #define DDLogFatal(frmt, ...)    SYNC_LOG_OBJC_MAYBE(ddLogLevel, LOG_FLAG_FATAL,  0, frmt, ##__VA_ARGS__)
 #define DDLogError(frmt, ...)    SYNC_LOG_OBJC_MAYBE(ddLogLevel, LOG_FLAG_ERROR,  0, frmt, ##__VA_ARGS__)

@@ -97,6 +97,10 @@
   // Run after each test method
 }  
 
+- (void) test_flip {
+  [LjsVariates flip];
+}
+
 - (void) testRandomDouble {
   int passes = 1000000;
   int index = 0;
@@ -191,7 +195,6 @@
   GHAssertEquals([[NSNumber numberWithInteger:[sampled count]] intValue],
                  [[NSNumber numberWithInteger:100] intValue], nil);
   // GHTestLog(@"%@", sampled);
-  [toSample release];
 }
 
 

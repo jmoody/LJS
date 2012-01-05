@@ -14,3 +14,9 @@
 [submodule "appledoc"]
 	path = appledoc
 	url = https://github.com/tomaz/appledoc.git
+[submodule "CocoaAsyncSocket"]
+	path = CocoaAsyncSocket
+	url = https://github.com/robbiehanson/CocoaAsyncSocket
+[submodule "CocoaHTTPServer"]
+	path = CocoaHTTPServer
+	url = https://github.com/robbiehanson/CocoaHTTPServer.git

@@ -26,6 +26,10 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
+
 #import "LjsButton.h"
 #import "Lumberjack.h"
 
@@ -41,13 +45,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @synthesize _lowColor;
 @synthesize gradientLayer;
 
-- (void)dealloc {
-  // Release our gradient layer
-  [gradientLayer release];
-  [_highColor release];
-  [_lowColor release];
-  [super dealloc];
-}
 
 - (id) initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
@@ -61,7 +58,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   // Initialize the gradient layer
   CAGradientLayer *aGradientLayer = [[CAGradientLayer alloc] init];
   self.gradientLayer = aGradientLayer;
-  [aGradientLayer release];
   
   // Set its bounds to be the same of its parent
   [gradientLayer setBounds:[self bounds]];

@@ -35,10 +35,10 @@
 
 - (id)initWithWebSocket:(WebSocket *)ws {
 	if ((self = [super init])) {
-		websocket = [ws retain];
+		websocket = ws;
 		websocket.delegate = self;
 		
-		self.logFormatter = [[[LjsWebSocketFormatter alloc] init] autorelease];
+		self.logFormatter = [[LjsWebSocketFormatter alloc] init];
 		
 		// Add our logger
 		// 
@@ -52,8 +52,6 @@
 
 - (void)dealloc {
 	[websocket setDelegate:nil];
-	[websocket release];
-	[super dealloc];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -101,11 +99,11 @@
 			
 			if (isWebSocketOpen)
 			{
-				NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+				@autoreleasepool {
 				
-				[websocket sendMessage:logMsg];
+					[websocket sendMessage:logMsg];
 				
-				[pool release];
+				}
 			}
 		});
 	}

@@ -13,9 +13,9 @@
 
 @interface LJSAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (nonatomic, retain) UIWindow *window;
-@property (nonatomic, retain) LJSViewController *viewController;
-@property (nonatomic, retain) LjsHttpLogManager *httpLogManager;
+@property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong) LJSViewController *viewController;
+@property (nonatomic, strong) LjsHttpLogManager *httpLogManager;
 
 
 @end

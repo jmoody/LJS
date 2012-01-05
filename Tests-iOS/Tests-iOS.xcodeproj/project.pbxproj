@@ -25,37 +25,45 @@
 		F50FE7351410D3160051FC7E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE7331410D30D0051FC7E /* Security.framework */; };
 		F529524514232EB5009C67EE /* LjsValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524414232EB5009C67EE /* LjsValidator.m */; };
 		F529524814232F47009C67EE /* LjsValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524714232F47009C67EE /* LjsValidatorTests.m */; };
+		F532AD2014AB62D800E48707 /* TZReporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F532AD1F14AB62D800E48707 /* TZReporterTests.m */; };
+		F54009F114B22253001EF805 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E214B22253001EF805 /* DDAbstractDatabaseLogger.m */; };
+		F54009F214B22253001EF805 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E414B22253001EF805 /* DDASLLogger.m */; };
+		F54009F314B22253001EF805 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E614B22253001EF805 /* DDFileLogger.m */; };
+		F54009F414B22253001EF805 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E814B22253001EF805 /* DDLog.m */; };
+		F54009F514B22253001EF805 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009EA14B22253001EF805 /* DDTTYLogger.m */; };
+		F54009F614B22253001EF805 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009ED14B22253001EF805 /* ContextFilterLogFormatter.m */; };
+		F54009F714B22253001EF805 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009EF14B22253001EF805 /* DispatchQueueLogFormatter.m */; };
+		F54009FC14B227EA001EF805 /* LoremIpsum.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009FB14B227EA001EF805 /* LoremIpsum.m */; };
 		F5448ACB1450B63B0065E516 /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448ABB1450B63B0065E516 /* LjsDefaultFormatter.m */; };
 		F5448ACC1450B63B0065E516 /* LjsMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448ABE1450B63B0065E516 /* LjsMessageBuilder.m */; };
-		F5448ACF1450B63B0065E516 /* Reporter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AC61450B63B0065E516 /* Reporter.m */; };
+		F5448ACF1450B63B0065E516 /* TZReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AC61450B63B0065E516 /* TZReporter.m */; };
 		F5448AD01450B63B0065E516 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AC91450B63B0065E516 /* SFHFKeychainUtils.m */; };
 		F5448AD31450B6590065E516 /* LjsKeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AD21450B6590065E516 /* LjsKeychainManager.m */; };
-		F5448AD71450B6FB0065E516 /* FTSWAbstractSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AD61450B6FB0065E516 /* FTSWAbstractSingleton.m */; };
 		F54E39761450E22C0059BF53 /* LjsJsonRpcReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E39751450E22C0059BF53 /* LjsJsonRpcReply.m */; };
 		F54E39781450E2530059BF53 /* LjsJsonRpcReplyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E39771450E2530059BF53 /* LjsJsonRpcReplyTests.m */; };
 		F54E39A21450E4570059BF53 /* ASIHTTPResponseUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E39A11450E4570059BF53 /* ASIHTTPResponseUtils.m */; };
-		F54E3A521450E6C90059BF53 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A1F1450E6C90059BF53 /* ASIAuthenticationDialog.m */; };
-		F54E3A531450E6C90059BF53 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A221450E6C90059BF53 /* ASIDataCompressor.m */; };
-		F54E3A541450E6C90059BF53 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A241450E6C90059BF53 /* ASIDataDecompressor.m */; };
-		F54E3A551450E6C90059BF53 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A261450E6C90059BF53 /* ASIDownloadCache.m */; };
-		F54E3A561450E6C90059BF53 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A281450E6C90059BF53 /* ASIFormDataRequest.m */; };
-		F54E3A571450E6C90059BF53 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A2A1450E6C90059BF53 /* ASIHTTPRequest.m */; };
-		F54E3A581450E6C90059BF53 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A2E1450E6C90059BF53 /* ASIInputStream.m */; };
-		F54E3A591450E6C90059BF53 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A301450E6C90059BF53 /* ASINetworkQueue.m */; };
-		F54E3A5A1450E6C90059BF53 /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A341450E6C90059BF53 /* ASIWebPageRequest.m */; };
-		F54E3A5B1450E6C90059BF53 /* ASICloudFilesCDNRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A371450E6C90059BF53 /* ASICloudFilesCDNRequest.m */; };
-		F54E3A5C1450E6C90059BF53 /* ASICloudFilesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A391450E6C90059BF53 /* ASICloudFilesContainer.m */; };
-		F54E3A5D1450E6C90059BF53 /* ASICloudFilesContainerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A3B1450E6C90059BF53 /* ASICloudFilesContainerRequest.m */; };
-		F54E3A5E1450E6C90059BF53 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A3D1450E6C90059BF53 /* ASICloudFilesContainerXMLParserDelegate.m */; };
-		F54E3A5F1450E6C90059BF53 /* ASICloudFilesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A3F1450E6C90059BF53 /* ASICloudFilesObject.m */; };
-		F54E3A601450E6C90059BF53 /* ASICloudFilesObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A411450E6C90059BF53 /* ASICloudFilesObjectRequest.m */; };
-		F54E3A611450E6C90059BF53 /* ASICloudFilesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A431450E6C90059BF53 /* ASICloudFilesRequest.m */; };
-		F54E3A621450E6C90059BF53 /* ASIS3Bucket.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A471450E6C90059BF53 /* ASIS3Bucket.m */; };
-		F54E3A631450E6C90059BF53 /* ASIS3BucketObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A491450E6C90059BF53 /* ASIS3BucketObject.m */; };
-		F54E3A641450E6C90059BF53 /* ASIS3BucketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A4B1450E6C90059BF53 /* ASIS3BucketRequest.m */; };
-		F54E3A651450E6C90059BF53 /* ASIS3ObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A4D1450E6C90059BF53 /* ASIS3ObjectRequest.m */; };
-		F54E3A661450E6C90059BF53 /* ASIS3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A4F1450E6C90059BF53 /* ASIS3Request.m */; };
-		F54E3A671450E6C90059BF53 /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A511450E6C90059BF53 /* ASIS3ServiceRequest.m */; };
+		F54E3A521450E6C90059BF53 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A1F1450E6C90059BF53 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A531450E6C90059BF53 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A221450E6C90059BF53 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A541450E6C90059BF53 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A241450E6C90059BF53 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A551450E6C90059BF53 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A261450E6C90059BF53 /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A561450E6C90059BF53 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A281450E6C90059BF53 /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A571450E6C90059BF53 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A2A1450E6C90059BF53 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A581450E6C90059BF53 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A2E1450E6C90059BF53 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A591450E6C90059BF53 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A301450E6C90059BF53 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A5A1450E6C90059BF53 /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A341450E6C90059BF53 /* ASIWebPageRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A5B1450E6C90059BF53 /* ASICloudFilesCDNRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A371450E6C90059BF53 /* ASICloudFilesCDNRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A5C1450E6C90059BF53 /* ASICloudFilesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A391450E6C90059BF53 /* ASICloudFilesContainer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A5D1450E6C90059BF53 /* ASICloudFilesContainerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A3B1450E6C90059BF53 /* ASICloudFilesContainerRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A5E1450E6C90059BF53 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A3D1450E6C90059BF53 /* ASICloudFilesContainerXMLParserDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A5F1450E6C90059BF53 /* ASICloudFilesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A3F1450E6C90059BF53 /* ASICloudFilesObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A601450E6C90059BF53 /* ASICloudFilesObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A411450E6C90059BF53 /* ASICloudFilesObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A611450E6C90059BF53 /* ASICloudFilesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A431450E6C90059BF53 /* ASICloudFilesRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A621450E6C90059BF53 /* ASIS3Bucket.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A471450E6C90059BF53 /* ASIS3Bucket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A631450E6C90059BF53 /* ASIS3BucketObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A491450E6C90059BF53 /* ASIS3BucketObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A641450E6C90059BF53 /* ASIS3BucketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A4B1450E6C90059BF53 /* ASIS3BucketRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A651450E6C90059BF53 /* ASIS3ObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A4D1450E6C90059BF53 /* ASIS3ObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A661450E6C90059BF53 /* ASIS3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A4F1450E6C90059BF53 /* ASIS3Request.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A671450E6C90059BF53 /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A511450E6C90059BF53 /* ASIS3ServiceRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F54E3A821450E6E80059BF53 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A6A1450E6E80059BF53 /* NSObject+SBJson.m */; };
 		F54E3A831450E6E80059BF53 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A6D1450E6E80059BF53 /* SBJsonParser.m */; };
 		F54E3A841450E6E80059BF53 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A6F1450E6E80059BF53 /* SBJsonStreamParser.m */; };
@@ -68,7 +76,7 @@
 		F54E3A8B1450E6E80059BF53 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A7D1450E6E80059BF53 /* SBJsonTokeniser.m */; };
 		F54E3A8C1450E6E80059BF53 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A7F1450E6E80059BF53 /* SBJsonUTF8Stream.m */; };
 		F54E3A8D1450E6E80059BF53 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A811450E6E80059BF53 /* SBJsonWriter.m */; };
-		F54E3A911450EA340059BF53 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A901450EA340059BF53 /* Reachability.m */; };
+		F54E3A911450EA340059BF53 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A901450EA340059BF53 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F54E3A991450EAD40059BF53 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54E3A981450EAD40059BF53 /* CFNetwork.framework */; };
 		F54E3A9B1450EAE10059BF53 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54E3A9A1450EAE10059BF53 /* SystemConfiguration.framework */; };
 		F54E3A9D1450EAEA0059BF53 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54E3A9C1450EAEA0059BF53 /* MobileCoreServices.framework */; };
@@ -76,28 +84,18 @@
 		F54E3AA11450EB080059BF53 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F54E3AA01450EB080059BF53 /* libxml2.dylib */; };
 		F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F56147B81450C72A00D2653A /* libOCMock.a */; };
 		F56147BB1450C86700D2653A /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F56147BA1450C86700D2653A /* OCMockWorkingTest.m */; };
-		F56147BD1450CCC700D2653A /* LjsSecurityManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F56147BC1450CCC700D2653A /* LjsSecurityManagerTests.m */; };
 		F5724970149F9AD6006C62A2 /* LjsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F572496F149F9AD6006C62A2 /* LjsButton.m */; };
 		F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5724971149F9C00006C62A2 /* QuartzCore.framework */; };
 		F58013AB149E06F100692073 /* LjsLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F58013AA149E06F100692073 /* LjsLocationManager.m */; };
 		F58013AD149E080E00692073 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58013AC149E080E00692073 /* CoreLocation.framework */; };
 		F580719F146C33AC00EA4CFB /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F580719E146C33AC00EA4CFB /* LjsTestCase.m */; };
-		F5831B2814A90B4D00667D4D /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5831B2714A90B4C00667D4D /* GHUnitIOS.framework */; };
-		F5831B3514A90B6300667D4D /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5831B3314A90B6300667D4D /* libOCMock.a */; };
 		F590BE9F14542E4900E5B89B /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */; };
 		F590BEA014542E4900E5B89B /* LjsFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9E14542E4900E5B89B /* LjsFileManager.m */; };
 		F59635D11496632000CDB27E /* LjsObjectWithUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635D01496632000CDB27E /* LjsObjectWithUUID.m */; };
 		F59635EC149665CC00CDB27E /* LjsModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635E7149665CC00CDB27E /* LjsModalViewController.m */; };
 		F59635ED149665CC00CDB27E /* LjsTimePickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635E9149665CC00CDB27E /* LjsTimePickerDelegate.m */; };
 		F59635EE149665CC00CDB27E /* UIViewController+ParentOrPresenting.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635EB149665CC00CDB27E /* UIViewController+ParentOrPresenting.m */; };
-		F5B0E95E1461970500CA24F5 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E94F1461970500CA24F5 /* DDAbstractDatabaseLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		F5B0E95F1461970500CA24F5 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9511461970500CA24F5 /* DDASLLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		F5B0E9601461970500CA24F5 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9531461970500CA24F5 /* DDFileLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		F5B0E9611461970500CA24F5 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9551461970500CA24F5 /* DDLog.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		F5B0E9621461970500CA24F5 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9571461970500CA24F5 /* DDTTYLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		F5B0E9631461970500CA24F5 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E95A1461970500CA24F5 /* ContextFilterLogFormatter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		F5B0E9641461970500CA24F5 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E95C1461970500CA24F5 /* DispatchQueueLogFormatter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		F5B0E96C146197E800CA24F5 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		F5B03A6714AA64E70015D59B /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B03A6614AA64E70015D59B /* GHUnitIOS.framework */; };
 		F5C112731496715900948605 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE69F1410C6F60051FC7E /* UIKit.framework */; };
 		F5C112741496715900948605 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE6A11410C6F60051FC7E /* Foundation.framework */; };
 		F5C112751496715900948605 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE6A31410C6F60051FC7E /* CoreGraphics.framework */; };
@@ -145,6 +143,23 @@
 		F529524314232EB5009C67EE /* LjsValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsValidator.h; sourceTree = "<group>"; };
 		F529524414232EB5009C67EE /* LjsValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidator.m; sourceTree = "<group>"; };
 		F529524714232F47009C67EE /* LjsValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidatorTests.m; sourceTree = "<group>"; };
+		F532AD1F14AB62D800E48707 /* TZReporterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZReporterTests.m; sourceTree = "<group>"; };
+		F54009E114B22253001EF805 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		F54009E214B22253001EF805 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		F54009E314B22253001EF805 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		F54009E414B22253001EF805 /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
+		F54009E514B22253001EF805 /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		F54009E614B22253001EF805 /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
+		F54009E714B22253001EF805 /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		F54009E814B22253001EF805 /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
+		F54009E914B22253001EF805 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		F54009EA14B22253001EF805 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
+		F54009EC14B22253001EF805 /* ContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		F54009ED14B22253001EF805 /* ContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		F54009EE14B22253001EF805 /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		F54009EF14B22253001EF805 /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		F54009FA14B227EA001EF805 /* LoremIpsum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoremIpsum.h; sourceTree = "<group>"; };
+		F54009FB14B227EA001EF805 /* LoremIpsum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoremIpsum.m; sourceTree = "<group>"; };
 		F5448AB91450B63B0065E516 /* config-for-debug-and-release-block.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "config-for-debug-and-release-block.txt"; sourceTree = "<group>"; };
 		F5448ABA1450B63B0065E516 /* LjsDefaultFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultFormatter.h; sourceTree = "<group>"; };
 		F5448ABB1450B63B0065E516 /* LjsDefaultFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultFormatter.m; sourceTree = "<group>"; };
@@ -152,15 +167,12 @@
 		F5448ABD1450B63B0065E516 /* LjsMessageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsMessageBuilder.h; sourceTree = "<group>"; };
 		F5448ABE1450B63B0065E516 /* LjsMessageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsMessageBuilder.m; sourceTree = "<group>"; };
 		F5448AC11450B63B0065E516 /* Lumberjack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lumberjack.h; sourceTree = "<group>"; };
-		F5448AC21450B63B0065E516 /* main.m-for-cocoa-app.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "main.m-for-cocoa-app.txt"; sourceTree = "<group>"; };
-		F5448AC51450B63B0065E516 /* Reporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reporter.h; sourceTree = "<group>"; };
-		F5448AC61450B63B0065E516 /* Reporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reporter.m; sourceTree = "<group>"; };
+		F5448AC51450B63B0065E516 /* TZReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZReporter.h; sourceTree = "<group>"; };
+		F5448AC61450B63B0065E516 /* TZReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZReporter.m; sourceTree = "<group>"; };
 		F5448AC81450B63B0065E516 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		F5448AC91450B63B0065E516 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		F5448AD11450B6590065E516 /* LjsKeychainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsKeychainManager.h; sourceTree = "<group>"; };
 		F5448AD21450B6590065E516 /* LjsKeychainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsKeychainManager.m; sourceTree = "<group>"; };
-		F5448AD51450B6FB0065E516 /* FTSWAbstractSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTSWAbstractSingleton.h; sourceTree = "<group>"; };
-		F5448AD61450B6FB0065E516 /* FTSWAbstractSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTSWAbstractSingleton.m; sourceTree = "<group>"; };
 		F54E39741450E22C0059BF53 /* LjsJsonRpcReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsJsonRpcReply.h; sourceTree = "<group>"; };
 		F54E39751450E22C0059BF53 /* LjsJsonRpcReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsJsonRpcReply.m; sourceTree = "<group>"; };
 		F54E39771450E2530059BF53 /* LjsJsonRpcReplyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsJsonRpcReplyTests.m; sourceTree = "<group>"; };
@@ -256,7 +268,6 @@
 		F56147B71450C72A00D2653A /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		F56147B81450C72A00D2653A /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		F56147BA1450C86700D2653A /* OCMockWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockWorkingTest.m; sourceTree = "<group>"; };
-		F56147BC1450CCC700D2653A /* LjsSecurityManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsSecurityManagerTests.m; sourceTree = "<group>"; };
 		F572496E149F9AD6006C62A2 /* LjsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsButton.h; sourceTree = "<group>"; };
 		F572496F149F9AD6006C62A2 /* LjsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsButton.m; sourceTree = "<group>"; };
 		F5724971149F9C00006C62A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -265,14 +276,6 @@
 		F58013AC149E080E00692073 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F580719D146C33AC00EA4CFB /* LjsTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsTestCase.h; path = ../../Tests/LjsTestCase.h; sourceTree = "<group>"; };
 		F580719E146C33AC00EA4CFB /* LjsTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsTestCase.m; path = ../../Tests/LjsTestCase.m; sourceTree = "<group>"; };
-		F5831B2714A90B4C00667D4D /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../../../bikecount/xcode/LJS/Tests-iOS/Tests-iOS/GHUnitIOS.framework"; sourceTree = "<group>"; };
-		F5831B2D14A90B6300667D4D /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
-		F5831B2E14A90B6300667D4D /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
-		F5831B2F14A90B6300667D4D /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
-		F5831B3014A90B6300667D4D /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
-		F5831B3114A90B6300667D4D /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
-		F5831B3214A90B6300667D4D /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
-		F5831B3314A90B6300667D4D /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		F590BE9B14542E4900E5B89B /* DDFileLogger+CurrentFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDFileLogger+CurrentFile.h"; sourceTree = "<group>"; };
 		F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
 		F590BE9D14542E4900E5B89B /* LjsFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFileManager.h; sourceTree = "<group>"; };
@@ -285,21 +288,14 @@
 		F59635E9149665CC00CDB27E /* LjsTimePickerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsTimePickerDelegate.m; sourceTree = "<group>"; };
 		F59635EA149665CC00CDB27E /* UIViewController+ParentOrPresenting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ParentOrPresenting.h"; sourceTree = "<group>"; };
 		F59635EB149665CC00CDB27E /* UIViewController+ParentOrPresenting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ParentOrPresenting.m"; sourceTree = "<group>"; };
-		F5B0E94E1461970500CA24F5 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
-		F5B0E94F1461970500CA24F5 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
-		F5B0E9501461970500CA24F5 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
-		F5B0E9511461970500CA24F5 /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
-		F5B0E9521461970500CA24F5 /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
-		F5B0E9531461970500CA24F5 /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
-		F5B0E9541461970500CA24F5 /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
-		F5B0E9551461970500CA24F5 /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
-		F5B0E9561461970500CA24F5 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
-		F5B0E9571461970500CA24F5 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
-		F5B0E9591461970500CA24F5 /* ContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextFilterLogFormatter.h; sourceTree = "<group>"; };
-		F5B0E95A1461970500CA24F5 /* ContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextFilterLogFormatter.m; sourceTree = "<group>"; };
-		F5B0E95B1461970500CA24F5 /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
-		F5B0E95C1461970500CA24F5 /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
-		F5B0E95D1461970500CA24F5 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		F5B03A6614AA64E70015D59B /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnitIOS.framework; sourceTree = "<group>"; };
+		F5B03A6E14AA67620015D59B /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		F5B03A6F14AA67620015D59B /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		F5B03A7014AA67620015D59B /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		F5B03A7114AA67620015D59B /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		F5B03A7214AA67620015D59B /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		F5B03A7314AA67620015D59B /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
+		F5B03A7414AA67620015D59B /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		F5C112711496715900948605 /* Documentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Documentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C112781496715900948605 /* Documentation-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Documentation-Info.plist"; sourceTree = "<group>"; };
 		F5C1127A1496715900948605 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -319,16 +315,14 @@
 				F54E3A9D1450EAEA0059BF53 /* MobileCoreServices.framework in Frameworks */,
 				F54E3A9B1450EAE10059BF53 /* SystemConfiguration.framework in Frameworks */,
 				F54E3A991450EAD40059BF53 /* CFNetwork.framework in Frameworks */,
-				F50FE6A01410C6F60051FC7E /* UIKit.framework in Frameworks */,
 				F50FE6A21410C6F60051FC7E /* Foundation.framework in Frameworks */,
 				F58013AD149E080E00692073 /* CoreLocation.framework in Frameworks */,
 				F50FE6A41410C6F60051FC7E /* CoreGraphics.framework in Frameworks */,
 				F50FE7351410D3160051FC7E /* Security.framework in Frameworks */,
 				F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */,
-				F5B0E96C146197E800CA24F5 /* (null) in Frameworks */,
+				F50FE6A01410C6F60051FC7E /* UIKit.framework in Frameworks */,
 				F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */,
-				F5831B2814A90B4D00667D4D /* GHUnitIOS.framework in Frameworks */,
-				F5831B3514A90B6300667D4D /* libOCMock.a in Frameworks */,
+				F5B03A6714AA64E70015D59B /* GHUnitIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,8 +393,8 @@
 		F50FE6A61410C6F60051FC7E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F5831B2A14A90B6300667D4D /* Library */,
-				F5831B2714A90B4C00667D4D /* GHUnitIOS.framework */,
+				F5B03A6A14AA67620015D59B /* ocmock */,
+				F5B03A6614AA64E70015D59B /* GHUnitIOS.framework */,
 				F50FE6A71410C6F60051FC7E /* Tests-iOS-Info.plist */,
 				F50FE6A81410C6F60051FC7E /* InfoPlist.strings */,
 				F50FE6AB1410C6F60051FC7E /* main.m */,
@@ -412,7 +406,6 @@
 		F50FE6D71410CC250051FC7E /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				F58013BA149E257E00692073 /* Managers */,
 				F50FE6D81410CC250051FC7E /* Unit */,
 				F56147BA1450C86700D2653A /* OCMockWorkingTest.m */,
 			);
@@ -424,13 +417,13 @@
 			isa = PBXGroup;
 			children = (
 				F54E39771450E2530059BF53 /* LjsJsonRpcReplyTests.m */,
-				F56147BC1450CCC700D2653A /* LjsSecurityManagerTests.m */,
 				F50FE6D91410CC250051FC7E /* LjsDateHelperTests.m */,
 				F50FE6DA1410CC250051FC7E /* LjsDecimalAideTests.m */,
 				F50FE6DC1410CC250051FC7E /* LjsIdGeneratorTests.m */,
 				F50FE6DD1410CC250051FC7E /* LjsKeychainTests.m */,
 				F50FE6DE1410CC250051FC7E /* LjsVariatesTests.m */,
 				F529524714232F47009C67EE /* LjsValidatorTests.m */,
+				F532AD1F14AB62D800E48707 /* TZReporterTests.m */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -460,6 +453,45 @@
 			path = ../Utilities;
 			sourceTree = "<group>";
 		};
+		F54009E014B22253001EF805 /* Lumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				F54009E114B22253001EF805 /* DDAbstractDatabaseLogger.h */,
+				F54009E214B22253001EF805 /* DDAbstractDatabaseLogger.m */,
+				F54009E314B22253001EF805 /* DDASLLogger.h */,
+				F54009E414B22253001EF805 /* DDASLLogger.m */,
+				F54009E514B22253001EF805 /* DDFileLogger.h */,
+				F54009E614B22253001EF805 /* DDFileLogger.m */,
+				F54009E714B22253001EF805 /* DDLog.h */,
+				F54009E814B22253001EF805 /* DDLog.m */,
+				F54009E914B22253001EF805 /* DDTTYLogger.h */,
+				F54009EA14B22253001EF805 /* DDTTYLogger.m */,
+				F54009EB14B22253001EF805 /* Extensions */,
+			);
+			name = Lumberjack;
+			path = ../CocoaLumberjack/Lumberjack;
+			sourceTree = "<group>";
+		};
+		F54009EB14B22253001EF805 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F54009EC14B22253001EF805 /* ContextFilterLogFormatter.h */,
+				F54009ED14B22253001EF805 /* ContextFilterLogFormatter.m */,
+				F54009EE14B22253001EF805 /* DispatchQueueLogFormatter.h */,
+				F54009EF14B22253001EF805 /* DispatchQueueLogFormatter.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F54009F914B227EA001EF805 /* LoremIpsum */ = {
+			isa = PBXGroup;
+			children = (
+				F54009FA14B227EA001EF805 /* LoremIpsum.h */,
+				F54009FB14B227EA001EF805 /* LoremIpsum.m */,
+			);
+			path = LoremIpsum;
+			sourceTree = "<group>";
+		};
 		F5448AB81450B63B0065E516 /* Logging */ = {
 			isa = PBXGroup;
 			children = (
@@ -474,7 +506,6 @@
 				F5448ABD1450B63B0065E516 /* LjsMessageBuilder.h */,
 				F5448ABE1450B63B0065E516 /* LjsMessageBuilder.m */,
 				F5448AC11450B63B0065E516 /* Lumberjack.h */,
-				F5448AC21450B63B0065E516 /* main.m-for-cocoa-app.txt */,
 			);
 			name = Logging;
 			path = ../Logging;
@@ -483,12 +514,12 @@
 		F5448AC31450B63B0065E516 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				F5B0E94D1461970500CA24F5 /* Lumberjack */,
+				F54009F914B227EA001EF805 /* LoremIpsum */,
+				F54009E014B22253001EF805 /* Lumberjack */,
 				F54E3A8E1450EA180059BF53 /* Reachability */,
 				F54E3A681450E6D20059BF53 /* SBJSON */,
 				F54E3A1D1450E6A90059BF53 /* ASIHTTPRequest */,
 				F56147AE1450C72A00D2653A /* ocmock */,
-				F5448AD41450B6FB0065E516 /* FTSW */,
 				F5448AC41450B63B0065E516 /* Reporter */,
 				F5448AC71450B63B0065E516 /* Security */,
 			);
@@ -499,8 +530,8 @@
 		F5448AC41450B63B0065E516 /* Reporter */ = {
 			isa = PBXGroup;
 			children = (
-				F5448AC51450B63B0065E516 /* Reporter.h */,
-				F5448AC61450B63B0065E516 /* Reporter.m */,
+				F5448AC51450B63B0065E516 /* TZReporter.h */,
+				F5448AC61450B63B0065E516 /* TZReporter.m */,
 			);
 			path = Reporter;
 			sourceTree = "<group>";
@@ -512,15 +543,6 @@
 				F5448AC91450B63B0065E516 /* SFHFKeychainUtils.m */,
 			);
 			path = Security;
-			sourceTree = "<group>";
-		};
-		F5448AD41450B6FB0065E516 /* FTSW */ = {
-			isa = PBXGroup;
-			children = (
-				F5448AD51450B6FB0065E516 /* FTSWAbstractSingleton.h */,
-				F5448AD61450B6FB0065E516 /* FTSWAbstractSingleton.m */,
-			);
-			path = FTSW;
 			sourceTree = "<group>";
 		};
 		F54E39731450E22C0059BF53 /* JSON-RPC */ = {
@@ -724,14 +746,6 @@
 			path = ../Managers;
 			sourceTree = "<group>";
 		};
-		F58013BA149E257E00692073 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Managers;
-			path = Unit/Managers;
-			sourceTree = "<group>";
-		};
 		F5807168146C298100EA4CFB /* LJS */ = {
 			isa = PBXGroup;
 			children = (
@@ -743,37 +757,6 @@
 				F5448AB81450B63B0065E516 /* Logging */,
 			);
 			name = LJS;
-			sourceTree = "<group>";
-		};
-		F5831B2A14A90B6300667D4D /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				F5831B2B14A90B6300667D4D /* Headers */,
-				F5831B3314A90B6300667D4D /* libOCMock.a */,
-			);
-			name = Library;
-			path = ../../../bikecount/xcode/LJS/ocmock/Library;
-			sourceTree = "<group>";
-		};
-		F5831B2B14A90B6300667D4D /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				F5831B2C14A90B6300667D4D /* OCMock */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		F5831B2C14A90B6300667D4D /* OCMock */ = {
-			isa = PBXGroup;
-			children = (
-				F5831B2D14A90B6300667D4D /* NSNotificationCenter+OCMAdditions.h */,
-				F5831B2E14A90B6300667D4D /* OCMArg.h */,
-				F5831B2F14A90B6300667D4D /* OCMConstraint.h */,
-				F5831B3014A90B6300667D4D /* OCMock.h */,
-				F5831B3114A90B6300667D4D /* OCMockObject.h */,
-				F5831B3214A90B6300667D4D /* OCMockRecorder.h */,
-			);
-			path = OCMock;
 			sourceTree = "<group>";
 		};
 		F59635CE1496632000CDB27E /* Model */ = {
@@ -800,35 +783,43 @@
 			path = "../Controllers-iOS";
 			sourceTree = "<group>";
 		};
-		F5B0E94D1461970500CA24F5 /* Lumberjack */ = {
+		F5B03A6A14AA67620015D59B /* ocmock */ = {
 			isa = PBXGroup;
 			children = (
-				F5B0E94E1461970500CA24F5 /* DDAbstractDatabaseLogger.h */,
-				F5B0E94F1461970500CA24F5 /* DDAbstractDatabaseLogger.m */,
-				F5B0E9501461970500CA24F5 /* DDASLLogger.h */,
-				F5B0E9511461970500CA24F5 /* DDASLLogger.m */,
-				F5B0E9521461970500CA24F5 /* DDFileLogger.h */,
-				F5B0E9531461970500CA24F5 /* DDFileLogger.m */,
-				F5B0E9541461970500CA24F5 /* DDLog.h */,
-				F5B0E9551461970500CA24F5 /* DDLog.m */,
-				F5B0E9561461970500CA24F5 /* DDTTYLogger.h */,
-				F5B0E9571461970500CA24F5 /* DDTTYLogger.m */,
-				F5B0E9581461970500CA24F5 /* Extensions */,
+				F5B03A6B14AA67620015D59B /* Library */,
 			);
-			name = Lumberjack;
-			path = ../CocoaLumberjack/Lumberjack;
+			name = ocmock;
+			path = ../../ocmock;
 			sourceTree = "<group>";
 		};
-		F5B0E9581461970500CA24F5 /* Extensions */ = {
+		F5B03A6B14AA67620015D59B /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				F5B0E9591461970500CA24F5 /* ContextFilterLogFormatter.h */,
-				F5B0E95A1461970500CA24F5 /* ContextFilterLogFormatter.m */,
-				F5B0E95B1461970500CA24F5 /* DispatchQueueLogFormatter.h */,
-				F5B0E95C1461970500CA24F5 /* DispatchQueueLogFormatter.m */,
-				F5B0E95D1461970500CA24F5 /* README.txt */,
+				F5B03A6C14AA67620015D59B /* Headers */,
+				F5B03A7414AA67620015D59B /* libOCMock.a */,
 			);
-			path = Extensions;
+			path = Library;
+			sourceTree = "<group>";
+		};
+		F5B03A6C14AA67620015D59B /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				F5B03A6D14AA67620015D59B /* OCMock */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		F5B03A6D14AA67620015D59B /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				F5B03A6E14AA67620015D59B /* NSNotificationCenter+OCMAdditions.h */,
+				F5B03A6F14AA67620015D59B /* OCMArg.h */,
+				F5B03A7014AA67620015D59B /* OCMConstraint.h */,
+				F5B03A7114AA67620015D59B /* OCMock.h */,
+				F5B03A7214AA67620015D59B /* OCMockObject.h */,
+				F5B03A7314AA67620015D59B /* OCMockRecorder.h */,
+			);
+			path = OCMock;
 			sourceTree = "<group>";
 		};
 		F5C112761496715900948605 /* Documentation */ = {
@@ -989,15 +980,13 @@
 				F529524814232F47009C67EE /* LjsValidatorTests.m in Sources */,
 				F5448ACB1450B63B0065E516 /* LjsDefaultFormatter.m in Sources */,
 				F5448ACC1450B63B0065E516 /* LjsMessageBuilder.m in Sources */,
-				F5448ACF1450B63B0065E516 /* Reporter.m in Sources */,
+				F5448ACF1450B63B0065E516 /* TZReporter.m in Sources */,
+				F54E39A21450E4570059BF53 /* ASIHTTPResponseUtils.m in Sources */,
 				F5448AD01450B63B0065E516 /* SFHFKeychainUtils.m in Sources */,
 				F5448AD31450B6590065E516 /* LjsKeychainManager.m in Sources */,
-				F5448AD71450B6FB0065E516 /* FTSWAbstractSingleton.m in Sources */,
 				F56147BB1450C86700D2653A /* OCMockWorkingTest.m in Sources */,
-				F56147BD1450CCC700D2653A /* LjsSecurityManagerTests.m in Sources */,
 				F54E39761450E22C0059BF53 /* LjsJsonRpcReply.m in Sources */,
 				F54E39781450E2530059BF53 /* LjsJsonRpcReplyTests.m in Sources */,
-				F54E39A21450E4570059BF53 /* ASIHTTPResponseUtils.m in Sources */,
 				F54E3A521450E6C90059BF53 /* ASIAuthenticationDialog.m in Sources */,
 				F54E3A531450E6C90059BF53 /* ASIDataCompressor.m in Sources */,
 				F54E3A541450E6C90059BF53 /* ASIDataDecompressor.m in Sources */,
@@ -1035,13 +1024,6 @@
 				F54E3A911450EA340059BF53 /* Reachability.m in Sources */,
 				F590BE9F14542E4900E5B89B /* DDFileLogger+CurrentFile.m in Sources */,
 				F590BEA014542E4900E5B89B /* LjsFileManager.m in Sources */,
-				F5B0E95E1461970500CA24F5 /* DDAbstractDatabaseLogger.m in Sources */,
-				F5B0E95F1461970500CA24F5 /* DDASLLogger.m in Sources */,
-				F5B0E9601461970500CA24F5 /* DDFileLogger.m in Sources */,
-				F5B0E9611461970500CA24F5 /* DDLog.m in Sources */,
-				F5B0E9621461970500CA24F5 /* DDTTYLogger.m in Sources */,
-				F5B0E9631461970500CA24F5 /* ContextFilterLogFormatter.m in Sources */,
-				F5B0E9641461970500CA24F5 /* DispatchQueueLogFormatter.m in Sources */,
 				F580719F146C33AC00EA4CFB /* LjsTestCase.m in Sources */,
 				F59635D11496632000CDB27E /* LjsObjectWithUUID.m in Sources */,
 				F59635EC149665CC00CDB27E /* LjsModalViewController.m in Sources */,
@@ -1049,6 +1031,15 @@
 				F59635EE149665CC00CDB27E /* UIViewController+ParentOrPresenting.m in Sources */,
 				F58013AB149E06F100692073 /* LjsLocationManager.m in Sources */,
 				F5724970149F9AD6006C62A2 /* LjsButton.m in Sources */,
+				F532AD2014AB62D800E48707 /* TZReporterTests.m in Sources */,
+				F54009F114B22253001EF805 /* DDAbstractDatabaseLogger.m in Sources */,
+				F54009F214B22253001EF805 /* DDASLLogger.m in Sources */,
+				F54009F314B22253001EF805 /* DDFileLogger.m in Sources */,
+				F54009F414B22253001EF805 /* DDLog.m in Sources */,
+				F54009F514B22253001EF805 /* DDTTYLogger.m in Sources */,
+				F54009F614B22253001EF805 /* ContextFilterLogFormatter.m in Sources */,
+				F54009F714B22253001EF805 /* DispatchQueueLogFormatter.m in Sources */,
+				F54009FC14B227EA001EF805 /* LoremIpsum.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1149,11 +1140,11 @@
 		F50FE6C21410C6F60051FC7E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-iOS\"",
-					"\"$(SRCROOT)/../../bikecount/xcode/LJS/Tests-iOS/Tests-iOS\"",
-					"\"$(SRCROOT)/../../bikecount/xcode/LJS/ocmock\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-iOS/Tests-iOS-Prefix.pch";
@@ -1172,13 +1163,13 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../ocmock/Library\"",
-					"\"$(SRCROOT)/../../bikecount/xcode/LJS/ocmock/Library\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
 				PRODUCT_NAME = "Tests-iOS";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1187,11 +1178,11 @@
 		F50FE6C31410C6F60051FC7E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-iOS\"",
-					"\"$(SRCROOT)/../../bikecount/xcode/LJS/Tests-iOS/Tests-iOS\"",
-					"\"$(SRCROOT)/../../bikecount/xcode/LJS/ocmock\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-iOS/Tests-iOS-Prefix.pch";
@@ -1206,13 +1197,13 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../ocmock/Library\"",
-					"\"$(SRCROOT)/../../bikecount/xcode/LJS/ocmock/Library\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
 				PRODUCT_NAME = "Tests-iOS";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};

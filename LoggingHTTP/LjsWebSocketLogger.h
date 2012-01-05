@@ -37,7 +37,7 @@
   BOOL isWebSocketOpen;
 }
 
-@property (nonatomic, retain) LjsWebSocketFormatter *logFormatter;
+@property (nonatomic, strong) LjsWebSocketFormatter *logFormatter;
 
 - (id)initWithWebSocket:(WebSocket *)ws;
 

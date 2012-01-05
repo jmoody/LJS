@@ -49,6 +49,13 @@ extern NSString *LjsHoursMinutesSecondsMillisDateFormat;
  override explicit date formatting and locale conventions.  LjsDateHelper 
  wrangles dates into a predictable format.  It also provides methods for
  date comparison and deducing intervals.
+ 
+ @warn It appears that some, if not all all, of the 12-hour and 24-hour
+ conversion stuff could be handled by using formatters with their locales
+ set appropriately.
+ 
+       NSLocale *twelveHourLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+       [formatter setLocale:twelveHourLocale];
  */
 @interface LjsDateHelper : NSObject
 
@@ -97,6 +104,10 @@ extern NSString *LjsHoursMinutesSecondsMillisDateFormat;
 + (NSDateFormatter *) isoDateWithMillisFormatter;
 + (NSDateFormatter *) orderedDateFormatter;
 + (NSDateFormatter *) orderedDateFormatterWithMillis;
+
+/** @name Handy Locales for 12 and 24 hour formats */
++ (NSLocale *) twelveHourLocale;
++ (NSLocale *) twentyFourHourLocale;
 
 /** @name Converting Intervals to Strings */
 + (NSString *) stringWithTimeInterval:(NSTimeInterval) interval;

@@ -26,6 +26,10 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+//#if ! __has_feature(objc_arc)
+//#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+//#endif
+
 #import "LjsDefaultFormatter.h"
 #import "LjsLog.h"
 
@@ -63,18 +67,13 @@ static NSString * const SOME_LOG  = @"  LOG";
 - (id) init {
 	self = [super init];
 	if (self != nil) {
-		self.dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+		self.dateFormatter = [[NSDateFormatter alloc] init];
     [self.dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
     self.formatString = @"%@ %@ %@: %s %i - %@";
   }
 	return self;
 }
 
-- (void) dealloc {
-	[dateFormatter release];
-  [formatString release];
-	[super dealloc];
-}
 
 /** @name Format Log Message */
 /**

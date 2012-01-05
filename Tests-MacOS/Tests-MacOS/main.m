@@ -30,6 +30,13 @@
 #import <Foundation/Foundation.h>
 #import <GHUnit/GHUnit.h>
 #import <GHUnit/GHTestApp.h>
+#import "Lumberjack.h"
+
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
 
 void exceptionHandler(NSException *exception);
 
@@ -58,34 +65,36 @@ int main(int argc, char *argv[]) {
    */
   NSSetUncaughtExceptionHandler(&exceptionHandler);
   
-  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+  @autoreleasepool {
   
 
-  LjsDefaultFormatter *formatter = [[LjsDefaultFormatter alloc] init];
-  DDTTYLogger *tty = [DDTTYLogger sharedInstance];
-  [tty setLogFormatter:formatter];
-  [DDLog addLogger:tty];
-  [formatter release];
+    LjsDefaultFormatter *formatter = [[LjsDefaultFormatter alloc] init];
+    DDTTYLogger *tty = [DDTTYLogger sharedInstance];
+    [tty setLogFormatter:formatter];
+    [DDLog addLogger:tty];
 
-  // Register any special test case classes
-  //[[GHTesting sharedInstance] registerClassName:@"GHSpecialTestCase"];  
-  
-  int retVal = 0;
-  // If GHUNIT_CLI is set we are using the command line interface and run the tests
-  // Otherwise load the GUI app
-  if (getenv("GHUNIT_CLI")) {
-    retVal = [GHTestRunner run];
-  } else {
-    // To run all tests (from ENV)
-    GHTestApp *app = [[GHTestApp alloc] init];
-    // To run a different test suite:
-    //GHTestSuite *suite = [GHTestSuite suiteWithTestFilter:@"GHSlowTest,GHAsyncTestCaseTest"];
-    //GHTestApp *app = [[GHTestApp alloc] initWithSuite:suite];
-    // Or set global:
-    //GHUnitTest = @"GHSlowTest";
-    [NSApp run];
-    [app release];    
+    // Register any special test case classes
+    //[[GHTesting sharedInstance] registerClassName:@"GHSpecialTestCase"];  
+    
+    int retVal = 0;
+    // If GHUNIT_CLI is set we are using the command line interface and run the tests
+    // Otherwise load the GUI app
+    if (getenv("GHUNIT_CLI")) {
+      retVal = [GHTestRunner run];
+    } else {
+      // To run all tests (from ENV)
+      GHTestApp *app = [[GHTestApp alloc] init];
+      // suppresses compile warning
+      NSLog(@"app = %@", app);
+      //[[GHTestApp alloc] init];
+      
+      // To run a different test suite:
+      //GHTestSuite *suite = [GHTestSuite suiteWithTestFilter:@"GHSlowTest,GHAsyncTestCaseTest"];
+      //GHTestApp *app = [[GHTestApp alloc] initWithSuite:suite];
+      // Or set global:
+      //GHUnitTest = @"GHSlowTest";
+      [NSApp run];
+    }
+    return retVal;
   }
-  [pool release];
-  return retVal;
 }

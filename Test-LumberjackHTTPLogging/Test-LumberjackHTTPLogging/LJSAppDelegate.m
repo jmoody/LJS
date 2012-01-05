@@ -22,14 +22,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @synthesize httpLogManager;
 
 - (void)dealloc {
-  [_window release];
-  [_viewController release];
   if (self.httpLogManager != nil) {
     [self.httpLogManager stopAndReleaseLogServer];
     [self.httpLogManager stopAndReleaseLogHeartBeatTimer];
-    self.httpLogManager = nil;
   }
-  [super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -39,15 +35,15 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [tty setLogFormatter:formatter];
   [DDLog addLogger:tty];
 
-  self.httpLogManager = [[[LjsHttpLogManager alloc] initWithShouldPrintLogMessage:YES] autorelease];
+  self.httpLogManager = [[LjsHttpLogManager alloc] initWithShouldPrintLogMessage:YES];
   [self.httpLogManager startLogServer:YES];
   
-  self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-      self.viewController = [[[LJSViewController alloc] initWithNibName:@"LJSViewController_iPhone" bundle:nil] autorelease];
+      self.viewController = [[LJSViewController alloc] initWithNibName:@"LJSViewController_iPhone" bundle:nil];
   } else {
-      self.viewController = [[[LJSViewController alloc] initWithNibName:@"LJSViewController_iPad" bundle:nil] autorelease];
+      self.viewController = [[LJSViewController alloc] initWithNibName:@"LJSViewController_iPad" bundle:nil];
   }
   
 

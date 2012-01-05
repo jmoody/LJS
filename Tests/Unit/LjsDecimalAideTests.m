@@ -67,9 +67,9 @@
 
 @interface LjsDecimalAideTests : LjsTestCase {}
 
-@property (nonatomic, retain) NSDecimalNumber *zero;
-@property (nonatomic, retain) NSDecimalNumber *one;
-@property (nonatomic, retain) NSDecimalNumber *minusOne;
+@property (nonatomic, strong) NSDecimalNumber *zero;
+@property (nonatomic, strong) NSDecimalNumber *one;
+@property (nonatomic, strong) NSDecimalNumber *minusOne;
 
 @end
 
@@ -86,12 +86,6 @@
 //  return self;
 //}
 //
-- (void) dealloc {
-  [zero release];
-  [one release];
-  [minusOne release];
-  [super dealloc];
-}
 
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES

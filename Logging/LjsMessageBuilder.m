@@ -26,6 +26,10 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+//#if ! __has_feature(objc_arc)
+//#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+//#endif
+
 #import "LjsMessageBuilder.h"
 #import "Lumberjack.h"
 
@@ -64,20 +68,16 @@ NSString *LjsMessageBuilderMethodCouldUseMoreTesting = @"METHOD COULD USE MORE T
 }
 
 + (id) messageBuilderWith:(NSString *) aMessage {
-  return [[[self alloc] initWithMessage:aMessage] autorelease];
+  return [[self alloc] initWithMessage:aMessage];
 }
 
 + (id) failedToCreateMessage:(Class) aClass {
   NSString *msg = [NSString stringWithFormat:@"Failed to create instance of %@ because:\n",
                    aClass];
-  return [[[self alloc] initWithMessage:msg] autorelease];                   
+  return [[self alloc] initWithMessage:msg];                   
 }
 
 
-- (void) dealloc {
-  [message release];
-  [super dealloc];
-}
 
 - (NSString *) description {
   NSString *result = [NSString stringWithFormat:@"<#%@ >", [self class]];

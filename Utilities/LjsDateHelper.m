@@ -25,6 +25,9 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
 
 #import "LjsDateHelper.h"
 #import "LjsValidator.h"
@@ -687,7 +690,7 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
  @return a date formatter for `H:mm a` format
  */
 + (NSDateFormatter *) hoursMinutesAmPmFormatter {
-  NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:@"H:mm a"];
   return formatter;
 }
@@ -696,7 +699,7 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
  @return a date formatter for `ccc MMM d HH:mm a` or Wed Sep 7 1:30 PM
  */
 + (NSDateFormatter *) briefDateAndTimeFormatter {
-  NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:@"ccc MMM d HH:mm a"];
   return formatter;
 }
@@ -708,7 +711,7 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:LjsHoursMinutesSecondsDateFormat];
   [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-  return [formatter autorelease];
+  return formatter;
 }
 
 /**
@@ -718,7 +721,7 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:LjsHoursMinutesSecondsMillisDateFormat];
   [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-  return [formatter autorelease];
+  return formatter;
 }
 
 /**
@@ -728,7 +731,7 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:LjsISO8601_DateFormat];
   //[formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-  return [formatter autorelease];  
+  return formatter;  
 }
 
 /**
@@ -738,7 +741,7 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:LjsISO8601_DateFormatWithMillis];
   //[formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-  return [formatter autorelease];  
+  return formatter;  
 }
 
 /**
@@ -747,7 +750,7 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 + (NSDateFormatter *) orderedDateFormatter {
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:LjsOrderedDateFormat];
-  return [formatter autorelease];  
+  return formatter;  
 }
 
 /**
@@ -756,7 +759,7 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 + (NSDateFormatter *) orderedDateFormatterWithMillis {
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:LjsOrderedDateFormatWithMillis];
-  return [formatter autorelease];  
+  return formatter;  
 }
 
 /** 
@@ -785,6 +788,21 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
   NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:interval];
   NSString *result = [formatter stringFromDate:date];
   return result;
+}
+
+
+/**
+ @return a locale based on en_US_POSIX which uses a 12-hour clock
+ */
++ (NSLocale *) twelveHourLocale {
+  return [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]; 
+}
+
+/**
+ @return a locale based on en_GB which uses a 24-hour clock
+ */
++ (NSLocale *) twentyFourHourLocale {
+  return [[NSLocale alloc] initWithLocaleIdentifier:@"en_GB"];
 }
 
 
