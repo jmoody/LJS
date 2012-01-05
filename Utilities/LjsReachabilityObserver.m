@@ -41,6 +41,10 @@ NSString *LjsReachabilityObserverStatusUserInfoKey = @"com.littlejoysoftware.LJS
 
 static NSString *LjsReachabilityObserverDefaultHost = @"www.google.com";
 
+static NSString *LjsConnectivityStatusStringInternetAndHost = @"Reachability:  Internet = YES and Host = YES";
+static NSString *LjsConnectivityStatusStringInternetNoHost = @"Reachability:  Internet = YES and Host = NO";
+static NSString *LjsConnectivityStatusStringNoInternet = @"Reachability:  Internet = NO and Host = NO";
+
 @implementation LjsReachabilityObserver
 
 @synthesize internetReachability;
@@ -247,5 +251,23 @@ static NSString *LjsReachabilityObserverDefaultHost = @"www.google.com";
                                      forKey:LjsReachabilityObserverStatusUserInfoKey];
 }
 
-
++ (NSString *) stringWithStatus:(LjsConnectivityStatus) aStatus {
+  NSString *result;
+  switch (aStatus) {
+    case LjsConnectivityStatusNoInternet:
+      result = LjsConnectivityStatusStringNoInternet; 
+      break;
+    case LjsConnectivityStatusInternetAndNoHost:
+      result = LjsConnectivityStatusStringInternetNoHost;
+      break;
+    case LjsConnectivityStatusInternetAndHost:
+      result = LjsConnectivityStatusStringInternetAndHost;
+      break;
+    default:
+      NSAssert1(NO, @"fell through switch statement with: %d", aStatus);
+      result = nil;
+      break;
+  }
+  return result;
+}
 @end

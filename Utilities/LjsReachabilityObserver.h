@@ -63,5 +63,6 @@ typedef enum {
 - (void) handleHostReachabilityRequest:(ASIHTTPRequest *) aRequest;
 - (void) handleReachabilityStatusChanged:(NSNotification *) aNotification;
 - (NSDictionary *) userInfoWithConnectivityStatus:(LjsConnectivityStatus) aStatus;
++ (NSString *) stringWithStatus:(LjsConnectivityStatus) aStatus;
 
 @end

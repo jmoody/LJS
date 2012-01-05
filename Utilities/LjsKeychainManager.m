@@ -293,8 +293,9 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
                       password:(NSString *) password
                          error:(NSError **) error {
 
-  return [SFHFKeychainUtils storeUsername:username andPassword:password
-                    forServiceName:serviceName
+  return [SFHFKeychainUtils storeUsername:username 
+                              andPassword:password
+                           forServiceName:serviceName
                            updateExisting:YES 
                                     error:error];
 }
