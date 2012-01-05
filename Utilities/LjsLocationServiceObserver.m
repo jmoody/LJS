@@ -1,5 +1,7 @@
 #import "LjsLocationServiceObserver.h"
+#import "Lumberjack.h"
 #import "LjsLocationManager.h"
+
 
 NSString *LjsLocationServicesStatusTimedOutNotification = @"com.littlejoysoftware.LJS Location Services Status Timed Out Notification";
 NSString *LjsLocationServicesStatusChangedNotification = @"com.littlejoysoftware.LJS Location Services Status Changed Notification";
