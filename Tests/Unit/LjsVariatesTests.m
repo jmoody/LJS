@@ -102,7 +102,7 @@
 }
 
 - (void) testRandomDouble {
-  int passes = 1000000;
+  int passes = 100;
   int index = 0;
   for (index = 0; index < passes; index++) {
     double result = [LjsVariates randomDouble];
@@ -114,7 +114,7 @@
 - (void) testRandomDoubleWithRange {
   double max = 10.0;
   double min = 1.0;
-  int passes = 10000000;
+  int passes = 100;
   int index = 0;
   double maxGenerated = min;
   double minGenerated = max;
@@ -140,7 +140,7 @@
 - (void) testRandomInteger {
 //  int max = pow(2,32) - 1;
 //  int min = -max;
-  int passes = 1000;
+  int passes = 100;
   int index = 0;
   for (index = 0; index < passes; index++) {
     [LjsVariates randomInteger];
@@ -153,7 +153,7 @@
 - (void) testRandomIntegerWithRange {
   NSInteger max = 10;
   NSInteger min = 1;
-  int passes = 1000;
+  int passes = 100;
   int index = 0;
   NSInteger maxGenerated = min;
   NSInteger minGenerated = max;
