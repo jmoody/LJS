@@ -225,12 +225,11 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
 	NSMutableDictionary *attributeQuery = [query mutableCopy];
 	[attributeQuery setObject: (id) kCFBooleanTrue forKey:(__bridge_transfer id) kSecReturnAttributes];
   CFDictionaryRef cfAttributeQuery = (__bridge_retained CFDictionaryRef) attributeQuery;  
-  CFTypeRef attrResult = NULL;
-	OSStatus status = SecItemCopyMatching(cfAttributeQuery, &attrResult);
+  CFTypeRef cfAttrResult = NULL;
+	OSStatus status = SecItemCopyMatching(cfAttributeQuery, &cfAttrResult);
   CFRelease(cfAttributeQuery);
-  
-	//NSDictionary *attributeResult = (__bridge_transfer NSDictionary *)attrResult;
-  
+  CFRelease(cfAttrResult);
+
 	if (status != noErr) {
 		// No existing item found--simply return nil for the password
 		if (error != nil && status != errSecItemNotFound) {
