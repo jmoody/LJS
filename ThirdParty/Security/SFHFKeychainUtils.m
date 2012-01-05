@@ -228,8 +228,6 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
   CFTypeRef attrResult = NULL;
 	OSStatus status = SecItemCopyMatching(cfAttributeQuery, &attrResult);
   CFRelease(cfAttributeQuery);
-  CFRelease(attrResult);
-
   
 	//NSDictionary *attributeResult = (__bridge_transfer NSDictionary *)attrResult;
   
@@ -252,10 +250,7 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
 	status = SecItemCopyMatching(cfPasswordQuery, &cfResData);
 	NSData *resultData = (__bridge_transfer NSData *)cfResData;
   CFRelease(cfPasswordQuery);
-  CFRelease(cfResData);
 
-  
-  
 	if (status != noErr) {
 		if (status == errSecItemNotFound) {
 			// We found attributes for the item previously, but no password now, so return a special error.
@@ -291,7 +286,6 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
 			*error = [NSError errorWithDomain: SFHFKeychainUtilsErrorDomain code: -1999 userInfo: nil];
 		}
 	}
-  
 	return password;
 }
 
