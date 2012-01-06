@@ -42,5 +42,51 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [[current objectForKey:NSLocaleUsesMetricSystem] boolValue];
 }
 
++ (NSString *) groupSepForCurrentLocale {
+  return [LjsLocaleUtils groupSepForLocale:[NSLocale currentLocale]];
+}
+
++ (NSString *) groupSepForLocale:(NSLocale *) aLocale {
+  return [aLocale objectForKey:NSLocaleGroupingSeparator];
+}
+
++ (NSString *) decimalSepForCurrentLocale {
+  return [LjsLocaleUtils decimalSepForLocale:[NSLocale currentLocale]];
+}
+
++ (NSString *) decimalSepForLocale:(NSLocale *) aLocale {
+  return [aLocale objectForKey:NSLocaleDecimalSeparator];
+}
+
+
++ (NSNumberFormatter *) numberFormatterForCurrentLocale {
+  return [LjsLocaleUtils numberFormatterWithLocale:[NSLocale currentLocale]];
+}
+
++ (NSNumberFormatter *) numberFormatterWithLocale:(NSLocale *) aLocale {
+  NSString *groupSep = [LjsLocaleUtils groupSepForLocale:aLocale];
+  NSString *decimalSep = [LjsLocaleUtils decimalSepForLocale:aLocale];
+  return [LjsLocaleUtils numberFormatterWithGroupingSep:groupSep
+                                             demicalSep:decimalSep];
+}
+
+
++ (NSNumberFormatter *) numberFormatterWithGroupingSep:(NSString *) groupingSep
+                                            demicalSep:(NSString *) decimalSep {
+  NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+  [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+  
+  [formatter setGroupingSeparator:groupingSep];
+  [formatter setGroupingSize:3];
+  [formatter setUsesGroupingSeparator:YES];
+  
+  [formatter setDecimalSeparator:decimalSep];
+  [formatter setAlwaysShowsDecimalSeparator:YES];
+  
+  [formatter setMinimumFractionDigits:2];
+  [formatter setMaximumFractionDigits:2];
+  [formatter setRoundingMode:NSNumberFormatterRoundFloor];
+  return formatter;
+}
 
 @end
