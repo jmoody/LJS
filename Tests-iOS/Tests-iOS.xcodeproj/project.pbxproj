@@ -23,6 +23,8 @@
 		F50FE7041410CC420051FC7E /* LjsIdGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F41410CC420051FC7E /* LjsIdGenerator.m */; };
 		F50FE7061410CC420051FC7E /* LjsVariates.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F81410CC420051FC7E /* LjsVariates.m */; };
 		F50FE7351410D3160051FC7E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE7331410D30D0051FC7E /* Security.framework */; };
+		F51C63FD14B7917100F1841B /* LjsTextAndFont.m in Sources */ = {isa = PBXBuildFile; fileRef = F51C63FC14B7917100F1841B /* LjsTextAndFont.m */; };
+		F51C63FE14B7917100F1841B /* LjsTextAndFont.m in Sources */ = {isa = PBXBuildFile; fileRef = F51C63FC14B7917100F1841B /* LjsTextAndFont.m */; };
 		F529524514232EB5009C67EE /* LjsValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524414232EB5009C67EE /* LjsValidator.m */; };
 		F529524814232F47009C67EE /* LjsValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524714232F47009C67EE /* LjsValidatorTests.m */; };
 		F532AD2014AB62D800E48707 /* TZReporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F532AD1F14AB62D800E48707 /* TZReporterTests.m */; };
@@ -174,6 +176,8 @@
 		F50FE6F81410CC420051FC7E /* LjsVariates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariates.m; sourceTree = "<group>"; };
 		F50FE7331410D30D0051FC7E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F515E6DD148279A000526041 /* LjsRepeatingTimerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRepeatingTimerProtocol.h; sourceTree = "<group>"; };
+		F51C63FB14B7917100F1841B /* LjsTextAndFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsTextAndFont.h; sourceTree = "<group>"; };
+		F51C63FC14B7917100F1841B /* LjsTextAndFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsTextAndFont.m; sourceTree = "<group>"; };
 		F529524314232EB5009C67EE /* LjsValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsValidator.h; sourceTree = "<group>"; };
 		F529524414232EB5009C67EE /* LjsValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidator.m; sourceTree = "<group>"; };
 		F529524714232F47009C67EE /* LjsValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidatorTests.m; sourceTree = "<group>"; };
@@ -339,6 +343,8 @@
 		F58013AC149E080E00692073 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F580719D146C33AC00EA4CFB /* LjsTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsTestCase.h; path = ../../Tests/LjsTestCase.h; sourceTree = "<group>"; };
 		F580719E146C33AC00EA4CFB /* LjsTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsTestCase.m; path = ../../Tests/LjsTestCase.m; sourceTree = "<group>"; };
+		F58342B314B74CD900026932 /* tableview-datasource.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "tableview-datasource.txt"; path = "../../../../ljs/Views-iOS/tableview-datasource.txt"; sourceTree = "<group>"; };
+		F58342B414B74CD900026932 /* tableview-delegate.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "tableview-delegate.txt"; path = "../../../../ljs/Views-iOS/tableview-delegate.txt"; sourceTree = "<group>"; };
 		F590BE9B14542E4900E5B89B /* DDFileLogger+CurrentFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDFileLogger+CurrentFile.h"; sourceTree = "<group>"; };
 		F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
 		F590BE9D14542E4900E5B89B /* LjsFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFileManager.h; sourceTree = "<group>"; };
@@ -506,6 +512,8 @@
 		F50FE6E81410CC420051FC7E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F54E399F1450E4570059BF53 /* ASIHTTP */,
+				F54E39731450E22C0059BF53 /* JSON-RPC */,
 				F54FA3CB14B676B40080CC9A /* LjsCurrentWeather.h */,
 				F54FA3CC14B676B40080CC9A /* LjsCurrentWeather.m */,
 				F54FA3CD14B676B40080CC9A /* LjsLocaleUtils.h */,
@@ -517,8 +525,6 @@
 				F54FA3D314B676B40080CC9A /* LjsServiceObserver.h */,
 				F54FA3D414B676B40080CC9A /* LjsServiceObserver.m */,
 				F515E6DD148279A000526041 /* LjsRepeatingTimerProtocol.h */,
-				F54E399F1450E4570059BF53 /* ASIHTTP */,
-				F54E39731450E22C0059BF53 /* JSON-RPC */,
 				F5448AD11450B6590065E516 /* LjsKeychainManager.h */,
 				F5448AD21450B6590065E516 /* LjsKeychainManager.m */,
 				F50FE6E91410CC420051FC7E /* LjsDateHelper.h */,
@@ -533,6 +539,8 @@
 				F50FE6F81410CC420051FC7E /* LjsVariates.m */,
 				F529524314232EB5009C67EE /* LjsValidator.h */,
 				F529524414232EB5009C67EE /* LjsValidator.m */,
+				F51C63FB14B7917100F1841B /* LjsTextAndFont.h */,
+				F51C63FC14B7917100F1841B /* LjsTextAndFont.m */,
 			);
 			name = Utilities;
 			path = ../Utilities;
@@ -853,6 +861,8 @@
 		F5724964149F9A1E006C62A2 /* Views-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				F58342B314B74CD900026932 /* tableview-datasource.txt */,
+				F58342B414B74CD900026932 /* tableview-delegate.txt */,
 				F54FA3C714B6732C0080CC9A /* LjsNumericPickerDelegate.h */,
 				F54FA3C814B6732C0080CC9A /* LjsNumericPickerDelegate.m */,
 				F572496E149F9AD6006C62A2 /* LjsButton.h */,
@@ -1219,6 +1229,7 @@
 				F54FA3D714B676B40080CC9A /* LjsLocationServiceObserver.m in Sources */,
 				F54FA3D814B676B40080CC9A /* LjsReachabilityObserver.m in Sources */,
 				F54FA3D914B676B40080CC9A /* LjsServiceObserver.m in Sources */,
+				F51C63FD14B7917100F1841B /* LjsTextAndFont.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1244,6 +1255,7 @@
 				F54FA42114B708D40080CC9A /* LjsMessageBuilder.m in Sources */,
 				F54FA42314B725C00080CC9A /* LjsValidator.m in Sources */,
 				F54FA42414B725F30080CC9A /* LjsDecimalAide.m in Sources */,
+				F51C63FE14B7917100F1841B /* LjsTextAndFont.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
