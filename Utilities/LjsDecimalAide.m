@@ -83,6 +83,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [NSDecimalNumber decimalNumberWithString:aString];
 }
 
+/**
+ @return a decimal number from aNumber
+ @param aNumber a number
+ */
++ (NSDecimalNumber *) dnWithNumber:(NSNumber *) aNumber {
+  return [NSDecimalNumber decimalNumberWithDecimal:[aNumber decimalValue]];
+}
+
 
 /**
  @return true iff a = b
