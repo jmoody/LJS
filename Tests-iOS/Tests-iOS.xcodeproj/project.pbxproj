@@ -138,6 +138,8 @@
 		F5C1127B1496715900948605 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5C112791496715900948605 /* InfoPlist.strings */; };
 		F5C1127D1496715900948605 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1127C1496715900948605 /* main.m */; };
 		F5C112811496715900948605 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C112801496715900948605 /* AppDelegate.m */; };
+		F5D3581F14B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
+		F5D3582014B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -372,6 +374,9 @@
 		F5C1127E1496715900948605 /* Documentation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Documentation-Prefix.pch"; sourceTree = "<group>"; };
 		F5C1127F1496715900948605 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F5C112801496715900948605 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F5D3581B14B805B50022E24E /* LjsBackingStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsBackingStore.h; sourceTree = "<group>"; };
+		F5D3581D14B8065E0022E24E /* LjsUserDefaultsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsUserDefaultsStore.h; sourceTree = "<group>"; };
+		F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsUserDefaultsStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -877,6 +882,9 @@
 			children = (
 				F58013A9149E06F100692073 /* LjsLocationManager.h */,
 				F58013AA149E06F100692073 /* LjsLocationManager.m */,
+				F5D3581B14B805B50022E24E /* LjsBackingStore.h */,
+				F5D3581D14B8065E0022E24E /* LjsUserDefaultsStore.h */,
+				F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */,
 			);
 			name = Managers;
 			path = ../Managers;
@@ -1230,6 +1238,7 @@
 				F54FA3D814B676B40080CC9A /* LjsReachabilityObserver.m in Sources */,
 				F54FA3D914B676B40080CC9A /* LjsServiceObserver.m in Sources */,
 				F51C63FD14B7917100F1841B /* LjsTextAndFont.m in Sources */,
+				F5D3581F14B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1256,6 +1265,7 @@
 				F54FA42314B725C00080CC9A /* LjsValidator.m in Sources */,
 				F54FA42414B725F30080CC9A /* LjsDecimalAide.m in Sources */,
 				F51C63FE14B7917100F1841B /* LjsTextAndFont.m in Sources */,
+				F5D3582014B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

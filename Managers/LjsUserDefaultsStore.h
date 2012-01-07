@@ -1,4 +1,4 @@
-// Copyright 2011 The Little Joy Software Company. All rights reserved.
+// Copyright 2012 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -28,35 +28,19 @@
 
 
 #import <Foundation/Foundation.h>
+#import "LjsBackingStore.h"
 
+/**
+ Documentation
+ */
+@interface LjsUserDefaultsStore : NSObject <LjsBackingStore>
 
-@interface LjsDecimalAide : NSObject
+/** @name Properties */
 
-/** @name NSDecimalNumber creation */
-+ (NSDecimalNumber *) dnWithInteger:(NSInteger) aInteger;
-+ (NSDecimalNumber *) dnWithUInteger:(NSUInteger) aUInteger;
-+ (NSDecimalNumber *) dnWithDouble:(double) aDouble;
-+ (NSDecimalNumber *) dnWithString:(NSString *) aString;
-+ (NSDecimalNumber *) dnWithNumber:(NSNumber *) aNumber;
+/** @name Initializing Objects */
 
-/** @name NSDecimalNumber comparison */
-+ (BOOL) dn:(NSDecimalNumber *) a e:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a lt:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a gt:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a lte:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a gte:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a 
-    isOnMin:(NSDecimalNumber *) min
-        max:(NSDecimalNumber *) max;
+/** @name Handling Notifications, Requests, and Events */
 
-/** @name NSDecimalNumber rounding */
-+ (NSDecimalNumber *) round:(NSDecimalNumber *) number 
-                withHandler:(NSDecimalNumberHandler *) handler;
-
-/** @name common NSDecimalNumberHandler */
-+ (NSDecimalNumberHandler *) statisticsHandlerWithRoundMode:(NSRoundingMode) aMode
-                                                      scale:(NSUInteger) aInteger;
-+ (NSDecimalNumberHandler *) locationHandlerWithRoundMode:(NSRoundingMode) aMode
-                                                    scale:(NSUInteger) aInteger;
+/** @name Utility */
 
 @end

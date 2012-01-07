@@ -1,4 +1,4 @@
-// Copyright 2011 The Little Joy Software Company. All rights reserved.
+// Copyright 2012 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,37 +26,37 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
 #import <Foundation/Foundation.h>
 
+/**
+ Documentation
+ */
+@protocol LjsBackingStore <NSObject>
 
-@interface LjsDecimalAide : NSObject
+/** @name Required Methods */
+@required
+- (void) removeKeys:(NSArray *) keys;
+- (NSString *) stringForKey:(NSString *) aKey 
+               defaultValue:(NSString *) aDefault 
+             storeIfMissing:(BOOL) aPersistMissing;
+- (NSNumber *) numberForKey:(NSString *) aKey 
+               defaultValue:(NSNumber *) aDefault
+             storeIfMissing:(BOOL) aPersistMissing;
+- (BOOL) boolForKey:(NSString *) aKey 
+       defaultValue:(BOOL) aDefault
+     storeIfMissing:(BOOL) aPersistMissing;
 
-/** @name NSDecimalNumber creation */
-+ (NSDecimalNumber *) dnWithInteger:(NSInteger) aInteger;
-+ (NSDecimalNumber *) dnWithUInteger:(NSUInteger) aUInteger;
-+ (NSDecimalNumber *) dnWithDouble:(double) aDouble;
-+ (NSDecimalNumber *) dnWithString:(NSString *) aString;
-+ (NSDecimalNumber *) dnWithNumber:(NSNumber *) aNumber;
+- (void) storeObject:(id) object forKey:(NSString *) aKey;
+- (void) storeBool:(BOOL) aBool forKey:(NSString *) aKey;
+- (void) removeObjectForKey:(NSString *) aKey;
 
-/** @name NSDecimalNumber comparison */
-+ (BOOL) dn:(NSDecimalNumber *) a e:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a lt:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a gt:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a lte:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a gte:(NSDecimalNumber *) b;
-+ (BOOL) dn:(NSDecimalNumber *) a 
-    isOnMin:(NSDecimalNumber *) min
-        max:(NSDecimalNumber *) max;
+/** @name Optional Methods */
+@optional
 
-/** @name NSDecimalNumber rounding */
-+ (NSDecimalNumber *) round:(NSDecimalNumber *) number 
-                withHandler:(NSDecimalNumberHandler *) handler;
+@end
+@protocol BcDefaultManagerBackingStore <NSObject>
 
-/** @name common NSDecimalNumberHandler */
-+ (NSDecimalNumberHandler *) statisticsHandlerWithRoundMode:(NSRoundingMode) aMode
-                                                      scale:(NSUInteger) aInteger;
-+ (NSDecimalNumberHandler *) locationHandlerWithRoundMode:(NSRoundingMode) aMode
-                                                    scale:(NSUInteger) aInteger;
+@required
+
 
 @end
