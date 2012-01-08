@@ -28,22 +28,23 @@
 
 
 #import <Foundation/Foundation.h>
+#import "LjsRepeatingTimerProtocol.h"
 #import "HTTPServer.h"
 
 //@class LjsHTTPLogServer;
 
-@interface LjsHttpLogManager : NSObject
+@interface LjsHttpLogManager : NSObject <LjsRepeatingTimerProtocol>
 
 @property (nonatomic, strong) HTTPServer *httpLogServer;
 @property (nonatomic, strong) NSTimer *heartBeatTimer;
 @property (nonatomic, assign) BOOL shouldPrintLogMessage;
+@property (nonatomic, assign) NSTimeInterval heartbeatRate;
 
 #pragma mark Memory Management
 
-- (id) initWithShouldPrintLogMessage:(BOOL) aShouldPrintLogMessage;
+- (id) initWithShouldPrintLogMessage:(BOOL) aShouldPrintLogMessage
+                            howOften:(NSTimeInterval) aHowOften;
 
-- (void) stopAndReleaseLogHeartBeatTimer;
-- (void) startAndRetainLogHeartBeatTimer;
 - (void) startAndRetainLogServer;
 - (void) stopAndReleaseLogServer;
 

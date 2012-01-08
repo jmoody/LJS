@@ -345,8 +345,6 @@
 		F58013AC149E080E00692073 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F580719D146C33AC00EA4CFB /* LjsTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsTestCase.h; path = ../../Tests/LjsTestCase.h; sourceTree = "<group>"; };
 		F580719E146C33AC00EA4CFB /* LjsTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsTestCase.m; path = ../../Tests/LjsTestCase.m; sourceTree = "<group>"; };
-		F58342B314B74CD900026932 /* tableview-datasource.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "tableview-datasource.txt"; path = "../../../../ljs/Views-iOS/tableview-datasource.txt"; sourceTree = "<group>"; };
-		F58342B414B74CD900026932 /* tableview-delegate.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "tableview-delegate.txt"; path = "../../../../ljs/Views-iOS/tableview-delegate.txt"; sourceTree = "<group>"; };
 		F590BE9B14542E4900E5B89B /* DDFileLogger+CurrentFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDFileLogger+CurrentFile.h"; sourceTree = "<group>"; };
 		F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
 		F590BE9D14542E4900E5B89B /* LjsFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFileManager.h; sourceTree = "<group>"; };
@@ -866,8 +864,6 @@
 		F5724964149F9A1E006C62A2 /* Views-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				F58342B314B74CD900026932 /* tableview-datasource.txt */,
-				F58342B414B74CD900026932 /* tableview-delegate.txt */,
 				F54FA3C714B6732C0080CC9A /* LjsNumericPickerDelegate.h */,
 				F54FA3C814B6732C0080CC9A /* LjsNumericPickerDelegate.m */,
 				F572496E149F9AD6006C62A2 /* LjsButton.h */,

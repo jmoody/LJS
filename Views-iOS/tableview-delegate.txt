@@ -4,21 +4,28 @@
 #pragma mark UITableViewDelegate  Providing Table Cells for the Table View
 
 - (CGFloat) tableView:(UITableView *) aTableView heightForRowAtIndexPath:(NSIndexPath *) aIndexPath {
-
-}
-
-- (NSInteger) tableView:(UITableView *) aTableView indentationLevelForRowAtIndexPath:(NSIndexPath *) aIndexPath {
-
+  
 }
 
 - (void) tableView:(UITableView *) aTableView willDisplayCell:(UITableViewCell *) aCell 
                                             forRowAtIndexPath:(NSIndexPath *) aIndexPath {
+}
+
+#pragma mark UITableViewDelegate Modifying the Header and Footer of Sections
+
+- (UIView *) tableView:(UITableView *) aTableView viewForHeaderInSection:(NSInteger) aSection {
 
 }
 
-#pragma mark UITableViewDelegate Managing Accessory Views
+- (UIView *) tableView:(UITableView *) aTableView viewForFooterInSection:(NSInteger) aSection {
 
-- (void) tableView:(UITableView *) aTableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *) aIndexPath {
+}
+
+- (CGFloat) tableView:(UITableView *) aTableView heightForHeaderInSection:(NSInteger) aSection {
+
+}
+
+- (CGFloat) tableView:(UITableView *) aTableView heightForFooterInSection:(NSInteger) aSection {
 
 }
 
@@ -40,25 +47,19 @@
 
 }
 
-#pragma mark UITableViewDelegate Modifying the Header and Footer of Sections
+#pragma mark UITableViewDelegate Managing Accessory Views
 
-- (UIView *) tableView:(UITableView *) aTableView viewForHeaderInSection:(NSInteger) aSection {
-
-}
-
-- (UIView *) tableView:(UITableView *) aTableView viewForFooterInSection:(NSInteger) aSection {
+- (void) tableView:(UITableView *) aTableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *) aIndexPath {
 
 }
 
-- (CGFloat) tableView:(UITableView *) aTableView heightForHeaderInSection:(NSInteger) aSection {
-
-}
-
-- (CGFloat) tableView:(UITableView *) aTableView heightForFooterInSection:(NSInteger) aSection {
-
-}
 
 #pragma mark UITableViewDelegate Editing Table Rows
+
+
+- (NSInteger) tableView:(UITableView *) aTableView indentationLevelForRowAtIndexPath:(NSIndexPath *) aIndexPath {
+
+}
 
 - (void) tableView:(UITableView *) aTableView willBeginEditingRowAtIndexPath:(NSIndexPath *) aIndexPath {
 

@@ -1,16 +1,11 @@
 #pragma mark UITableViewDateSource
 
-#pragma mark UITableViewDateSource Required
+#pragma mark UITableViewDateSource Common
 - (NSInteger) tableView:(UITableView *) aTableView numberOfRowsInSection:(NSInteger) aSection {
  
 }
 
-- (UITableViewCell *) tableView:(UITableView *) aTableView cellForRowAtIndexPath:(NSIndexPath *) aIndexPath {
- 
-}
-
-#pragma mark UITableViewDateSource Common
-- (NSInteger) numberOfSectionsIntableView:(UITableView *) aTableView {
+- (NSInteger) numberOfSectionsInTableView:(UITableView *) aTableView {
  
 }
 
@@ -19,6 +14,10 @@
 }
 
 - (NSString *) tableView:(UITableView *) aTableView titleForFooterInSection:(NSInteger) aSection {  
+ 
+}
+
+- (UITableViewCell *) tableView:(UITableView *) aTableView cellForRowAtIndexPath:(NSIndexPath *) aIndexPath {
  
 }
 
