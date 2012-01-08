@@ -36,13 +36,13 @@
 #import "LjsVariates.h"
 #import "Lumberjack.h"
 
-//static const int ddLogLevel = LOG_LEVEL_WARN;
-
-#ifdef LOG_CONFIGURATION_DEBUG
-static const int ddLogLevel = LOG_LEVEL_DEBUG;
-#else
 static const int ddLogLevel = LOG_LEVEL_WARN;
-#endif
+
+//#ifdef LOG_CONFIGURATION_DEBUG
+//static const int ddLogLevel = LOG_LEVEL_DEBUG;
+//#else
+//static const int ddLogLevel = LOG_LEVEL_WARN;
+//#endif
 
 static CGFloat const LjsLocationManagerLocationHeadingNotFound = -999.0;
 
@@ -57,7 +57,7 @@ static CGFloat const LjsLocationManagerLatitudeMax = 90.0;
 #ifdef LJS_LOCATION_SERVICES_DEBUG
 static NSString *LjsLocationManagerMercury = @"mercury";
 static NSString *LjsLocationManagerPluto = @"pluto";
-static NSstring *LjsLocationManagerNeptune = @"neptune";
+static NSString *LjsLocationManagerNeptune = @"neptune";
 #endif
 
 static NSString *LjsLocationManagerZurichLongitude = @"42.22";
