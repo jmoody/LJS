@@ -61,10 +61,9 @@ static NSUInteger LjsServiceAvailableMaxNumberOfTimesToPoll = UINT_MAX;
   if (self.repeatingTimer != nil) {
     [self.repeatingTimer invalidate];
     self.repeatingTimer = nil;
-    self.shouldRefuseToRestart = YES;
     self.stateVariable = NO;
   } else {
-    DDLogWarn(@"called stop and release before the timer has been started - ignoring");
+    DDLogNotice(@"called stop and release before the timer has been started - ignoring");
   }
 }
 
