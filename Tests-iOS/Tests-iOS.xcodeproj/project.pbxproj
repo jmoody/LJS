@@ -26,6 +26,7 @@
 		F529524514232EB5009C67EE /* LjsValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524414232EB5009C67EE /* LjsValidator.m */; };
 		F529524814232F47009C67EE /* LjsValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524714232F47009C67EE /* LjsValidatorTests.m */; };
 		F532AD2014AB62D800E48707 /* TZReporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F532AD1F14AB62D800E48707 /* TZReporterTests.m */; };
+		F534EC1214B4A32C00FFC67F /* LjsRemotePlist.m in Sources */ = {isa = PBXBuildFile; fileRef = F534EC1114B4A32C00FFC67F /* LjsRemotePlist.m */; };
 		F54009F114B22253001EF805 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E214B22253001EF805 /* DDAbstractDatabaseLogger.m */; };
 		F54009F214B22253001EF805 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E414B22253001EF805 /* DDASLLogger.m */; };
 		F54009F314B22253001EF805 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E614B22253001EF805 /* DDFileLogger.m */; };
@@ -144,6 +145,8 @@
 		F529524414232EB5009C67EE /* LjsValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidator.m; sourceTree = "<group>"; };
 		F529524714232F47009C67EE /* LjsValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidatorTests.m; sourceTree = "<group>"; };
 		F532AD1F14AB62D800E48707 /* TZReporterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZReporterTests.m; sourceTree = "<group>"; };
+		F534EC1014B4A32C00FFC67F /* LjsRemotePlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRemotePlist.h; sourceTree = "<group>"; };
+		F534EC1114B4A32C00FFC67F /* LjsRemotePlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsRemotePlist.m; sourceTree = "<group>"; };
 		F54009E114B22253001EF805 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
 		F54009E214B22253001EF805 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
 		F54009E314B22253001EF805 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
@@ -764,6 +767,8 @@
 			children = (
 				F59635CF1496632000CDB27E /* LjsObjectWithUUID.h */,
 				F59635D01496632000CDB27E /* LjsObjectWithUUID.m */,
+				F534EC1014B4A32C00FFC67F /* LjsRemotePlist.h */,
+				F534EC1114B4A32C00FFC67F /* LjsRemotePlist.m */,
 			);
 			name = Model;
 			path = ../Model;
@@ -1040,6 +1045,7 @@
 				F54009F614B22253001EF805 /* ContextFilterLogFormatter.m in Sources */,
 				F54009F714B22253001EF805 /* DispatchQueueLogFormatter.m in Sources */,
 				F54009FC14B227EA001EF805 /* LoremIpsum.m in Sources */,
+				F534EC1214B4A32C00FFC67F /* LjsRemotePlist.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
