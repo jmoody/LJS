@@ -38,11 +38,11 @@ extern NSString *LjsCurrentWeatherRequestDidFinishNotification;
 
 @interface LjsCurrentWeather : NSObject 
 
-@property (nonatomic, retain) NSDecimalNumber *latitude;
-@property (nonatomic, retain) NSDecimalNumber *longitude;
-@property (nonatomic, retain) ASIHTTPResponseUtils *responseUtils;
-@property (nonatomic, retain) NSDictionary *currentConditions;
-@property (nonatomic, retain) NSURL *requestURL;
+@property (nonatomic, strong) NSDecimalNumber *latitude;
+@property (nonatomic, strong) NSDecimalNumber *longitude;
+@property (nonatomic, strong) ASIHTTPResponseUtils *responseUtils;
+@property (nonatomic, strong) NSDictionary *currentConditions;
+@property (nonatomic, strong) NSURL *requestURL;
 
 - (id) initWithLatitude:(NSDecimalNumber *) aLatitude
               longitude:(NSDecimalNumber *) aLongitude;

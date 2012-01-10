@@ -32,4 +32,16 @@
 @interface LjsLocaleUtils : NSObject 
 
 + (BOOL) currentLocaleUsesMetricSystem;
+
++ (NSString *) groupSepForCurrentLocale;
++ (NSString *) groupSepForLocale:(NSLocale *) aLocale;
++ (NSString *) decimalSepForCurrentLocale;
++ (NSString *) decimalSepForLocale:(NSLocale *) aLocale;
+
++ (NSNumberFormatter *) numberFormatterForCurrentLocale;
++ (NSNumberFormatter *) numberFormatterWithLocale:(NSLocale *) aLocale;
++ (NSNumberFormatter *) numberFormatterWithGroupingSep:(NSString *) groupingSep
+                                      demicalSep:(NSString *) decimalSep;
+
+
 @end

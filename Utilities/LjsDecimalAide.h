@@ -33,9 +33,11 @@
 @interface LjsDecimalAide : NSObject
 
 /** @name NSDecimalNumber creation */
-+ (NSDecimalNumber *) dnWithInteger:(NSUInteger) aInteger;
++ (NSDecimalNumber *) dnWithInteger:(NSInteger) aInteger;
++ (NSDecimalNumber *) dnWithUInteger:(NSUInteger) aUInteger;
 + (NSDecimalNumber *) dnWithDouble:(double) aDouble;
 + (NSDecimalNumber *) dnWithString:(NSString *) aString;
++ (NSDecimalNumber *) dnWithNumber:(NSNumber *) aNumber;
 
 /** @name NSDecimalNumber comparison */
 + (BOOL) dn:(NSDecimalNumber *) a e:(NSDecimalNumber *) b;

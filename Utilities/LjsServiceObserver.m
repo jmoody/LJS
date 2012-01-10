@@ -24,7 +24,6 @@ static NSUInteger LjsServiceAvailableMaxNumberOfTimesToPoll = UINT_MAX;
   // a little strange, but we do nothing here because we manage in the stop
   // and start methods. 
   DDLogDebug(@"deallocating LjsServiceObserver");
-  [super dealloc];
 }
 
 - (id) initWithTimerFrequency:(NSTimeInterval)aTimerFrequency {
@@ -62,10 +61,9 @@ static NSUInteger LjsServiceAvailableMaxNumberOfTimesToPoll = UINT_MAX;
   if (self.repeatingTimer != nil) {
     [self.repeatingTimer invalidate];
     self.repeatingTimer = nil;
-    self.shouldRefuseToRestart = YES;
     self.stateVariable = NO;
   } else {
-    DDLogWarn(@"called stop and release before the timer has been started - ignoring");
+    DDLogNotice(@"called stop and release before the timer has been started - ignoring");
   }
 }
 

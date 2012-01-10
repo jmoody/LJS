@@ -5,7 +5,7 @@
     
 }
 
-@property (nonatomic, retain) NSTimer *repeatingTimer;
+@property (nonatomic, strong) NSTimer *repeatingTimer;
 @property (nonatomic, assign) NSTimeInterval timerFrequency;
 @property (nonatomic, assign) NSUInteger numberOfTimesToRepeat;
 @property (nonatomic, assign) NSUInteger repeatCount;

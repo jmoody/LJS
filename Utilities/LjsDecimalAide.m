@@ -63,8 +63,16 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  @return a decimal number with the integer value
  @param aInteger an integer
  */
-+ (NSDecimalNumber *) dnWithInteger:(NSUInteger) aInteger {
++ (NSDecimalNumber *) dnWithInteger:(NSInteger) aInteger {
   return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInteger:aInteger] decimalValue]];
+}
+
+/**
+ @return a decimal number with the uinteger value
+ @param aUInteger a uinteger
+ */
++ (NSDecimalNumber *) dnWithUInteger:(NSUInteger) aUInteger {
+  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithUnsignedInteger:aUInteger] decimalValue]];
 }
 
 /**
@@ -81,6 +89,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  */
 + (NSDecimalNumber *) dnWithString:(NSString *) aString {
   return [NSDecimalNumber decimalNumberWithString:aString];
+}
+
+/**
+ @return a decimal number from aNumber
+ @param aNumber a number
+ */
++ (NSDecimalNumber *) dnWithNumber:(NSNumber *) aNumber {
+  return [NSDecimalNumber decimalNumberWithDecimal:[aNumber decimalValue]];
 }
 
 

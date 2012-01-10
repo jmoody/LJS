@@ -20,12 +20,32 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @synthesize window = _window;
 @synthesize viewController = _viewController;
 @synthesize httpLogManager;
+@synthesize logTimer;
 
+- (void) stopAndReleaseRepeatingTimers {
+  if (self.logTimer != nil) {
+    [self.logTimer invalidate];
+    self.logTimer = nil;
+  }
+}
+
+
+- (void) startAndRetainRepeatingTimers {
+  [self stopAndReleaseRepeatingTimers];
+  DDLogDebug(@"starting log heart beat timer");
+  self.logTimer = 
+  [NSTimer scheduledTimerWithTimeInterval:0.1
+                                   target:self
+                                 selector:@selector(handleLogTimerEvent:)
+                                 userInfo:nil
+                                  repeats:YES];
+  
+}
 - (void)dealloc {
   if (self.httpLogManager != nil) {
     [self.httpLogManager stopAndReleaseLogServer];
-    [self.httpLogManager stopAndReleaseLogHeartBeatTimer];
   }
+  [self stopAndReleaseRepeatingTimers];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -35,7 +55,17 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [tty setLogFormatter:formatter];
   [DDLog addLogger:tty];
 
-  self.httpLogManager = [[LjsHttpLogManager alloc] initWithShouldPrintLogMessage:YES];
+  LjsFileManager *fileManager = [[LjsFileManager alloc] init];
+  DDFileLogger *fileLogger = [[DDFileLogger alloc] initWithLogFileManager:fileManager];
+  [fileLogger setLogFormatter:formatter];
+  fileLogger.logFileManager.maximumNumberOfLogFiles = 1;
+  [DDLog addLogger:fileLogger];
+
+  
+  [self startAndRetainRepeatingTimers];
+  
+  self.httpLogManager = [[LjsHttpLogManager alloc] initWithShouldPrintLogMessage:YES
+                                                                        howOften:0.1];
   [self.httpLogManager startLogServer:YES];
   
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -51,6 +81,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   self.window.rootViewController = self.viewController;
   [self.window makeKeyAndVisible];
   return YES;
+}
+
+- (void) handleLogTimerEvent:(NSTimer *)aTimer {
+  DDLogDebug(@"handling log timer event");
 }
 
 

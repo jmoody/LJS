@@ -1,0 +1,54 @@
+#pragma mark UITableViewDateSource
+
+#pragma mark UITableViewDateSource Common
+- (NSInteger) tableView:(UITableView *) aTableView numberOfRowsInSection:(NSInteger) aSection {
+ 
+}
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView *) aTableView {
+ 
+}
+
+- (NSString *) tableView:(UITableView *) aTableView titleForHeaderInSection:(NSInteger) aSection { 
+ 
+}
+
+- (NSString *) tableView:(UITableView *) aTableView titleForFooterInSection:(NSInteger) aSection {  
+ 
+}
+
+- (UITableViewCell *) tableView:(UITableView *) aTableView cellForRowAtIndexPath:(NSIndexPath *) aIndexPath {
+ 
+}
+
+#pragma mark UITableViewDateSource Inserting or Deleting Table Rows
+
+- (void) tableView:(UITableView *) aTableView commitEditingStyle:(UITableViewCellEditingStyle) editingStyle 
+                                               forRowAtIndexPath:(NSIndexPath *) aIndexPath {
+}
+
+- (BOOL) tableView:(UITableView *) aTableView canEditRowAtIndexPath:(NSIndexPath *) aIndexPath {
+
+}
+
+#pragma mark UITableViewDateSource Reordering Table Rows
+
+- (BOOL) tableView:(UITableView *) aTableView canMoveRowAtIndexPath:(NSIndexPath *) aIndexPath {
+
+}
+
+- (void) tableView:(UITableView *) aTableView moveRowAtIndexPath:(NSIndexPath *) atIndexPath 
+                                                     toIndexPath:(NSIndexPath *) toIndexPath {
+
+}
+
+#pragma mark  UITableViewDateSource Uncommon 
+
+- (NSArray *) sectionIndexTitlesForTableView:(UITableView *) aTableView {
+
+}
+
+- (NSInteger) tableView:(UITableView *) aTableView sectionForSectionIndexTitle:(NSString *) aTitle 
+                                                                       atIndex:(NSIndexPath *) aIndexPath {
+
+}

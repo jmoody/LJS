@@ -56,8 +56,6 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
 
 @synthesize reporter;
 
-
-
 - (id) init {
   self = [super init];
   if (self) {
@@ -355,8 +353,9 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
                       password:(NSString *) password
                          error:(NSError **) error {
 
-  return [SFHFKeychainUtils storeUsername:username andPassword:password
-                    forServiceName:serviceName
+  return [SFHFKeychainUtils storeUsername:username 
+                              andPassword:password
+                           forServiceName:serviceName
                            updateExisting:YES 
                                     error:error];
 }
@@ -494,11 +493,14 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
       message = @"META ERROR:  fell through switch statement with is not allowed";
       break;
   }
-  // safe to ingnore "Potential null dereference" analyzer message because
-  // of the way TZReporter works
-  // check TZReporterTests.m to see the tests
-  *error = [self.reporter errorWithCode:code description:message];
-  [self logKeychainError:*error];
+
+  if (error != nil) {
+    *error = [self.reporter errorWithCode:code description:message];
+    [self logKeychainError:*error];
+  } else {
+    NSError __autoreleasing *local = [self.reporter errorWithCode:code description:message];
+    [self logKeychainError:local];
+  }
   return YES;
 }
 

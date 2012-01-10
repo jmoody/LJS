@@ -1,0 +1,88 @@
+#pragma mark UITableViewDelegate 
+
+
+#pragma mark UITableViewDelegate  Providing Table Cells for the Table View
+
+- (CGFloat) tableView:(UITableView *) aTableView heightForRowAtIndexPath:(NSIndexPath *) aIndexPath {
+  
+}
+
+- (void) tableView:(UITableView *) aTableView willDisplayCell:(UITableViewCell *) aCell 
+                                            forRowAtIndexPath:(NSIndexPath *) aIndexPath {
+}
+
+#pragma mark UITableViewDelegate Modifying the Header and Footer of Sections
+
+- (UIView *) tableView:(UITableView *) aTableView viewForHeaderInSection:(NSInteger) aSection {
+
+}
+
+- (UIView *) tableView:(UITableView *) aTableView viewForFooterInSection:(NSInteger) aSection {
+
+}
+
+- (CGFloat) tableView:(UITableView *) aTableView heightForHeaderInSection:(NSInteger) aSection {
+
+}
+
+- (CGFloat) tableView:(UITableView *) aTableView heightForFooterInSection:(NSInteger) aSection {
+
+}
+
+#pragma mark UITableViewDelegate Managing Selections
+
+- (NSIndexPath *) tableView:(UITableView *) aTableView willSelectRowAtIndexPath:(NSIndexPath *) aIndexPath {
+
+}
+
+- (void) tableView:(UITableView *) aTableView didSelectRowAtIndexPath:(NSIndexPath *) aIndexPath {
+
+}
+
+- (NSIndexPath *) tableView:(UITableView *) aTableView willDeselectRowAtIndexPath:(NSIndexPath *) aIndexPath {
+
+}
+
+- (void) tableView:(UITableView *) aTableView didDeselectRowAtIndexPath:(NSIndexPath *) aIndexPath {
+
+}
+
+#pragma mark UITableViewDelegate Managing Accessory Views
+
+- (void) tableView:(UITableView *) aTableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *) aIndexPath {
+
+}
+
+
+#pragma mark UITableViewDelegate Editing Table Rows
+
+
+- (NSInteger) tableView:(UITableView *) aTableView indentationLevelForRowAtIndexPath:(NSIndexPath *) aIndexPath {
+
+}
+
+- (void) tableView:(UITableView *) aTableView willBeginEditingRowAtIndexPath:(NSIndexPath *) aIndexPath {
+
+}
+
+- (void) tableView:(UITableView *) aTableView didEndEditingRowAtIndexPath:(NSIndexPath *) aIndexPath {
+
+}
+
+- (UITableViewCellEditingStyle) tableView:(UITableView *) aTableView editingStyleForRowAtIndexPath:(NSIndexPath *) aIndexPath {
+
+}
+
+- (NSString *) tableView:(UITableView *) aTableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *) aIndexPath {
+
+}
+
+- (BOOL) tableView:(UITableView *) aTableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *) aIndexPath {
+
+}
+
+#pragma mark UITableViewDelegate Reordering Table Rows
+- (NSIndexPath *) tableView:(UITableView *) aTableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *) atIndexPath
+                                                                            toProposedIndexPath:(NSIndexPath *) toIndexPath {
+
+}

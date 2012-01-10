@@ -27,7 +27,8 @@
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "LjsHttpLogManager.h"
-
+#import "Lumberjack.h"
+#import "LjsHTTPLog.h"
 #import "LjsHTTPLogConnection.h"
 #import "HTTPServer.h"
 #import "LjsHTTPFileLogger.h"
@@ -43,32 +44,35 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @synthesize httpLogServer;
 @synthesize heartBeatTimer;
 @synthesize shouldPrintLogMessage;
+@synthesize heartbeatRate;
 
 #pragma mark Memory Management
 
-- (id) initWithShouldPrintLogMessage:(BOOL) aShouldPrintLogMessage {
+- (id) initWithShouldPrintLogMessage:(BOOL) aShouldPrintLogMessage
+                            howOften:(NSTimeInterval) aHowOften {
   self = [super init];
   if (self != nil) {
     self.shouldPrintLogMessage = aShouldPrintLogMessage;
+    self.heartbeatRate = aHowOften;
   }
   return self;
 }
 
 
-- (void) stopAndReleaseLogHeartBeatTimer {
+- (void) stopAndReleaseRepeatingTimers {
   if (self.heartBeatTimer != nil) {
     [self.heartBeatTimer invalidate];
     heartBeatTimer = nil;
   }
 }
 
-- (void) startAndRetainLogHeartBeatTimer {
+- (void) startAndRetainRepeatingTimers {
   if (self.heartBeatTimer != nil) {
-    [self stopAndReleaseLogHeartBeatTimer];
+    [self stopAndReleaseRepeatingTimers];
   }
   DDLogDebug(@"starting log heart beat timer");
   self.heartBeatTimer = 
-  [NSTimer scheduledTimerWithTimeInterval:10.0
+  [NSTimer scheduledTimerWithTimeInterval:self.heartbeatRate
                                    target:self
                                  selector:@selector(logServerHeartBeat:)
                                  userInfo:nil
@@ -87,7 +91,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [fileLogger setLogFormatter:formatter];
   [DDLog addLogger:fileLogger];
   
-  // looks like a leak, but it is not
   self.httpLogServer = [[HTTPServer alloc] init];
   [self.httpLogServer setConnectionClass:[LjsHTTPLogConnection class]];
   [self.httpLogServer setType:@"_http._tcp."];
@@ -115,6 +118,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 - (void) dealloc {
   DDLogDebug(@"deallocating LjsHttpLogManager");
+  [self stopAndReleaseLogServer];
+  [self stopAndReleaseRepeatingTimers];
   
 }
 
@@ -122,11 +127,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (void) startLogServer:(BOOL) aShouldPrintLogMessage {
   self.shouldPrintLogMessage = aShouldPrintLogMessage;
   [self startAndRetainLogServer];
-  [self startAndRetainLogHeartBeatTimer];
+  [self startAndRetainRepeatingTimers];
 }
 
 - (void) stopLogServer {
-  [self stopAndReleaseLogHeartBeatTimer];
+  [self stopAndReleaseRepeatingTimers];
   [self stopAndReleaseLogServer];
 }
 

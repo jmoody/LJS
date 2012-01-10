@@ -1,5 +1,7 @@
 #import "LjsLocationServiceObserver.h"
+#import "Lumberjack.h"
 #import "LjsLocationManager.h"
+
 
 NSString *LjsLocationServicesStatusTimedOutNotification = @"com.littlejoysoftware.LJS Location Services Status Timed Out Notification";
 NSString *LjsLocationServicesStatusChangedNotification = @"com.littlejoysoftware.LJS Location Services Status Changed Notification";
@@ -18,7 +20,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #pragma mark Memory Management
 - (void) dealloc {
   DDLogDebug(@"deallocating LjsLocationServiceObserver");
-  [super dealloc];
 }
 
 - (id) initWithTimerFrequency:(NSTimeInterval)aTimerFrequency {

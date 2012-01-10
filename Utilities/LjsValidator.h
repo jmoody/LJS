@@ -153,4 +153,5 @@
  */
 + (BOOL) isValidEmail:(NSString *)checkString;
 
+
 @end

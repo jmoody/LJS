@@ -41,6 +41,10 @@ NSString *LjsReachabilityObserverStatusUserInfoKey = @"com.littlejoysoftware.LJS
 
 static NSString *LjsReachabilityObserverDefaultHost = @"www.google.com";
 
+static NSString *LjsConnectivityStatusStringInternetAndHost = @"Reachability:  Internet = YES and Host = YES";
+static NSString *LjsConnectivityStatusStringInternetNoHost = @"Reachability:  Internet = YES and Host = NO";
+static NSString *LjsConnectivityStatusStringNoInternet = @"Reachability:  Internet = NO and Host = NO";
+
 @implementation LjsReachabilityObserver
 
 @synthesize internetReachability;
@@ -74,11 +78,6 @@ static NSString *LjsReachabilityObserverDefaultHost = @"www.google.com";
   DDLogDebug(@"deallocating LjsReachabilityObserver");
   [[NSNotificationCenter defaultCenter] removeObserver:self];
   [self stopAndReleaseRepeatingTimers];
-  self.internetReachability = nil;
-  self.hostReachability = nil;
-  self.hostName = nil;
-  self.reachabilityUrl = nil;
-  [super dealloc];
 }
 
 
@@ -156,7 +155,7 @@ static NSString *LjsReachabilityObserverDefaultHost = @"www.google.com";
 - (void) doRepeatedAction:(NSTimer *)aTimer {
   if (self.repeatCount < self.numberOfTimesToRepeat) {
     if (self.reachabilityRequest == nil) {
-      ASIHTTPRequest *request = [[[ASIHTTPRequest alloc] initWithURL:self.reachabilityUrl] autorelease];
+      ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:self.reachabilityUrl];
       [request setRequestMethod:@"GET"]; 
       [request setDelegate:self];
       [request setDidFailSelector:@selector(handleHostReachabilityRequest:)];
@@ -247,5 +246,23 @@ static NSString *LjsReachabilityObserverDefaultHost = @"www.google.com";
                                      forKey:LjsReachabilityObserverStatusUserInfoKey];
 }
 
-
++ (NSString *) stringWithStatus:(LjsConnectivityStatus) aStatus {
+  NSString *result;
+  switch (aStatus) {
+    case LjsConnectivityStatusNoInternet:
+      result = LjsConnectivityStatusStringNoInternet; 
+      break;
+    case LjsConnectivityStatusInternetAndNoHost:
+      result = LjsConnectivityStatusStringInternetNoHost;
+      break;
+    case LjsConnectivityStatusInternetAndHost:
+      result = LjsConnectivityStatusStringInternetAndHost;
+      break;
+    default:
+      NSAssert1(NO, @"fell through switch statement with: %d", aStatus);
+      result = nil;
+      break;
+  }
+  return result;
+}
 @end

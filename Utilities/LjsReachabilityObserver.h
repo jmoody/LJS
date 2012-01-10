@@ -44,11 +44,11 @@ typedef enum {
 
 @interface LjsReachabilityObserver : LjsServiceObserver
 
-@property (nonatomic, retain) Reachability *internetReachability;
-@property (nonatomic, retain) Reachability *hostReachability;
-@property (nonatomic, retain) ASIHTTPRequest *reachabilityRequest;
+@property (nonatomic, strong) Reachability *internetReachability;
+@property (nonatomic, strong) Reachability *hostReachability;
+@property (nonatomic, strong) ASIHTTPRequest *reachabilityRequest;
 @property (nonatomic, copy) NSString *hostName;
-@property (nonatomic, retain) NSURL *reachabilityUrl;
+@property (nonatomic, strong) NSURL *reachabilityUrl;
 @property (nonatomic, assign) LjsConnectivityStatus connectivityStatus;
 
 - (id) initWithTimerFrequency:(NSTimeInterval)aTimerFrequency
@@ -63,5 +63,6 @@ typedef enum {
 - (void) handleHostReachabilityRequest:(ASIHTTPRequest *) aRequest;
 - (void) handleReachabilityStatusChanged:(NSNotification *) aNotification;
 - (NSDictionary *) userInfoWithConnectivityStatus:(LjsConnectivityStatus) aStatus;
++ (NSString *) stringWithStatus:(LjsConnectivityStatus) aStatus;
 
 @end

@@ -86,6 +86,7 @@
 		F501864C1451A4C20053A064 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		F5302D2414557BD900FDD946 /* LjsWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsWebSocket.h; sourceTree = "<group>"; };
 		F5302D2514557BD900FDD946 /* LjsWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsWebSocket.m; sourceTree = "<group>"; };
+		F548B6E414BA40D2005BF2AC /* LjsRepeatingTimerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsRepeatingTimerProtocol.h; path = ../../Utilities/LjsRepeatingTimerProtocol.h; sourceTree = "<group>"; };
 		F590BEA214542E5C00E5B89B /* DDFileLogger+CurrentFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDFileLogger+CurrentFile.h"; sourceTree = "<group>"; };
 		F590BEA314542E5C00E5B89B /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
 		F590BEA414542E5C00E5B89B /* LjsFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFileManager.h; sourceTree = "<group>"; };
@@ -198,6 +199,7 @@
 		F50185A4145196340053A064 /* Test-LumberjackHTTPLogging */ = {
 			isa = PBXGroup;
 			children = (
+				F548B6E414BA40D2005BF2AC /* LjsRepeatingTimerProtocol.h */,
 				F50185AD145196340053A064 /* LJSAppDelegate.h */,
 				F50185AE145196340053A064 /* LJSAppDelegate.m */,
 				F50185B0145196340053A064 /* LJSViewController.h */,
@@ -597,7 +599,7 @@
 				INFOPLIST_FILE = "Test-LumberjackHTTPLogging/Test-LumberjackHTTPLogging-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C9350E76-9459-463D-BEEE-A00CE9EE1BE3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

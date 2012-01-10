@@ -48,6 +48,7 @@
 #undef LOG_FLAG_WARN 
 #undef LOG_FLAG_INFO
 #undef LOG_FLAG_VERBOSE
+#undef LOG_FLAG_TRACE
 
 #undef LOG_LEVEL_ERROR
 #undef LOG_LEVEL_WARN
