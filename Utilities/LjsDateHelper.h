@@ -54,8 +54,14 @@ extern NSString *LjsHoursMinutesSecondsMillisDateFormat;
  conversion stuff could be handled by using formatters with their locales
  set appropriately.
  
-       NSLocale *twelveHourLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-       [formatter setLocale:twelveHourLocale];
+ */
+
+/*
+ appledoc is bailing on this:
+ 
+      NSLocale *twelveHourLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+      [formatter setLocale:twelveHourLocale];
+ 
  */
 @interface LjsDateHelper : NSObject
 
