@@ -26,32 +26,26 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+
 #import <Foundation/Foundation.h>
+#import "LjsBackingStore.h"
 
 /**
  Documentation
  */
-@protocol LjsBackingStore <NSObject>
+@interface LjsFileBackedStore : NSObject <LjsBackingStore>
 
-/** @name Required Methods */
-@required
-- (void) removeKeys:(NSArray *) keys;
-- (NSString *) stringForKey:(NSString *) aKey 
-               defaultValue:(NSString *) aDefault 
-             storeIfMissing:(BOOL) aPersistMissing;
-- (NSNumber *) numberForKey:(NSString *) aKey 
-               defaultValue:(NSNumber *) aDefault
-             storeIfMissing:(BOOL) aPersistMissing;
-- (BOOL) boolForKey:(NSString *) aKey 
-       defaultValue:(BOOL) aDefault
-     storeIfMissing:(BOOL) aPersistMissing;
+/** @name Properties */
+@property (nonatomic, copy) NSString *filepath;
+@property (nonatomic, strong) NSDictionary *store;
 
-- (void) storeObject:(id) object forKey:(NSString *) aKey;
-- (void) storeBool:(BOOL) aBool forKey:(NSString *) aKey;
-- (void) removeObjectForKey:(NSString *) aKey;
+/** @name Initializing Objects */
+- (id) initWithFileName:(NSString *) aFilename
+          directoryPath:(NSString *) aDirectoryPath;
 
+/** @name Handling Notifications, Requests, and Events */
 
-/** @name Optional Methods */
-@optional
-
+/** @name Utility */
+- (BOOL) writeStore:(NSDictionary *) aStore error:(NSError **) error;
+- (NSDictionary *) readStoreFromPath:(NSString *) aPath error:(NSError **) error;
 @end
