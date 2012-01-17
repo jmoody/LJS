@@ -30,6 +30,6 @@
 #import "DDFileLogger.h"
 
 
-@interface LjsFileManager : DDLogFileManagerDefault
+@interface LjsLogFileManager : DDLogFileManagerDefault
 
 @end
