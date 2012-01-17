@@ -16,15 +16,14 @@
 		F50185B2145196340053A064 /* LJSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F50185B1145196340053A064 /* LJSViewController.m */; };
 		F50185B5145196340053A064 /* LJSViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = F50185B3145196340053A064 /* LJSViewController_iPhone.xib */; };
 		F50185B8145196340053A064 /* LJSViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F50185B6145196340053A064 /* LJSViewController_iPad.xib */; };
-		F5018633145198760053A064 /* config-for-debug-and-release-block.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5018627145198760053A064 /* config-for-debug-and-release-block.txt */; };
 		F5018634145198760053A064 /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5018629145198760053A064 /* LjsDefaultFormatter.m */; };
 		F5018635145198760053A064 /* LjsMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F501862C145198760053A064 /* LjsMessageBuilder.m */; };
 		F5018649145199400053A064 /* LjsHTTPFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5018643145199400053A064 /* LjsHTTPFileLogger.m */; };
 		F501864A145199400053A064 /* LjsHTTPLogConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = F5018646145199400053A064 /* LjsHTTPLogConnection.m */; };
 		F501864D1451A4C20053A064 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F501864C1451A4C20053A064 /* CFNetwork.framework */; };
+		F525D49E14C605FC000A4D5C /* LjsLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F525D49D14C605FC000A4D5C /* LjsLogFileManager.m */; };
 		F5302D2614557BD900FDD946 /* LjsWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F5302D2514557BD900FDD946 /* LjsWebSocket.m */; };
 		F590BEA614542E5C00E5B89B /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BEA314542E5C00E5B89B /* DDFileLogger+CurrentFile.m */; };
-		F590BEA714542E5C00E5B89B /* LjsFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BEA514542E5C00E5B89B /* LjsFileManager.m */; };
 		F5B0E9801461981E00CA24F5 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9711461981E00CA24F5 /* DDAbstractDatabaseLogger.m */; };
 		F5B0E9811461981E00CA24F5 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9731461981E00CA24F5 /* DDASLLogger.m */; };
 		F5B0E9821461981E00CA24F5 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0E9751461981E00CA24F5 /* DDFileLogger.m */; };
@@ -71,7 +70,6 @@
 		F50185B1145196340053A064 /* LJSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJSViewController.m; sourceTree = "<group>"; };
 		F50185B4145196340053A064 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LJSViewController_iPhone.xib; sourceTree = "<group>"; };
 		F50185B7145196340053A064 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LJSViewController_iPad.xib; sourceTree = "<group>"; };
-		F5018627145198760053A064 /* config-for-debug-and-release-block.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "config-for-debug-and-release-block.txt"; sourceTree = "<group>"; };
 		F5018628145198760053A064 /* LjsDefaultFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultFormatter.h; sourceTree = "<group>"; };
 		F5018629145198760053A064 /* LjsDefaultFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultFormatter.m; sourceTree = "<group>"; };
 		F501862A145198760053A064 /* LjsLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLog.h; sourceTree = "<group>"; };
@@ -84,13 +82,13 @@
 		F5018645145199400053A064 /* LjsHTTPLogConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsHTTPLogConnection.h; sourceTree = "<group>"; };
 		F5018646145199400053A064 /* LjsHTTPLogConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsHTTPLogConnection.m; sourceTree = "<group>"; };
 		F501864C1451A4C20053A064 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		F525D49C14C605FC000A4D5C /* LjsLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLogFileManager.h; sourceTree = "<group>"; };
+		F525D49D14C605FC000A4D5C /* LjsLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLogFileManager.m; sourceTree = "<group>"; };
 		F5302D2414557BD900FDD946 /* LjsWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsWebSocket.h; sourceTree = "<group>"; };
 		F5302D2514557BD900FDD946 /* LjsWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsWebSocket.m; sourceTree = "<group>"; };
 		F548B6E414BA40D2005BF2AC /* LjsRepeatingTimerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsRepeatingTimerProtocol.h; path = ../../Utilities/LjsRepeatingTimerProtocol.h; sourceTree = "<group>"; };
 		F590BEA214542E5C00E5B89B /* DDFileLogger+CurrentFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDFileLogger+CurrentFile.h"; sourceTree = "<group>"; };
 		F590BEA314542E5C00E5B89B /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
-		F590BEA414542E5C00E5B89B /* LjsFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFileManager.h; sourceTree = "<group>"; };
-		F590BEA514542E5C00E5B89B /* LjsFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileManager.m; sourceTree = "<group>"; };
 		F5B0E9701461981E00CA24F5 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
 		F5B0E9711461981E00CA24F5 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
 		F5B0E9721461981E00CA24F5 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
@@ -247,11 +245,10 @@
 		F5018626145198760053A064 /* Logging */ = {
 			isa = PBXGroup;
 			children = (
+				F525D49C14C605FC000A4D5C /* LjsLogFileManager.h */,
+				F525D49D14C605FC000A4D5C /* LjsLogFileManager.m */,
 				F590BEA214542E5C00E5B89B /* DDFileLogger+CurrentFile.h */,
 				F590BEA314542E5C00E5B89B /* DDFileLogger+CurrentFile.m */,
-				F590BEA414542E5C00E5B89B /* LjsFileManager.h */,
-				F590BEA514542E5C00E5B89B /* LjsFileManager.m */,
-				F5018627145198760053A064 /* config-for-debug-and-release-block.txt */,
 				F5018628145198760053A064 /* LjsDefaultFormatter.h */,
 				F5018629145198760053A064 /* LjsDefaultFormatter.m */,
 				F501862A145198760053A064 /* LjsLog.h */,
@@ -390,7 +387,7 @@
 				F5018596145196340053A064 /* Sources */,
 				F5018597145196340053A064 /* Frameworks */,
 				F5018598145196340053A064 /* Resources */,
-				F5C4ED7314B4593200F7FE1D /* Run Script bundle version <== git short version */,
+				F5C4ED7314B4593200F7FE1D /* Run Script version */,
 			);
 			buildRules = (
 			);
@@ -436,7 +433,6 @@
 				F50185A9145196340053A064 /* InfoPlist.strings in Resources */,
 				F50185B5145196340053A064 /* LJSViewController_iPhone.xib in Resources */,
 				F50185B8145196340053A064 /* LJSViewController_iPad.xib in Resources */,
-				F5018633145198760053A064 /* config-for-debug-and-release-block.txt in Resources */,
 				F5B0E9871461981E00CA24F5 /* README.txt in Resources */,
 				F5B0E9C414619B6E00CA24F5 /* Web in Resources */,
 				F5C4ECFB14B4401E00F7FE1D /* Documentation.html in Resources */,
@@ -446,19 +442,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		F5C4ED7314B4593200F7FE1D /* Run Script bundle version <== git short version */ = {
+		F5C4ED7314B4593200F7FE1D /* Run Script version */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Run Script bundle version <== git short version";
+			name = "Run Script version";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\n# requires that you seed the CFBundleVersion in the Info.plist\n# with a value (an value will do)\ngitpath=`which git`\nbuildNumber=`$gitpath rev-parse --short HEAD`\necho $buildNumber\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
+			shellPath = /bin/bash;
+			shellScript = "#!/bin/bash\n# This is a build phase run script to set various properties in the info plist \n# of an Xcode project.  The values that are set are:\n# CFBuildNumber - an incrementing counter to keep track of the number of App Store\n#                 Distribution builds have been created\n# CFBundleGetInfoString - verbose details about current build\n#   !App Store Configuration: MyApp 1.0.5 ee168e1 De\n#    App Store Configuration: MyApp 1.2 1.2.1\n# CFBundleVersion - the current bundle version\n#   !App Store Distribution:  <git short rev> e.g. ee168e1\n#    App Store Distribution:  <short version>.<build number>\n#\n# You must manage the CFBundleShortVersionString manually!\n# You must reset the CFBuildNumber manually for each new short version string!\n#\n# Rules\n# 1. depends on a build configuration \"App Store Distribution\"\n# 2. you must manage your short version string manually\n# 3. keep your app store distribution short version string to *.* \n# 4. the build number is used to create bundle version for App Store distributions which\n#    only allows *.*.* bundle version\n\nPlistBuddyPath=/usr/libexec/PlistBuddy\nLjsAppStoreDistributionConfiguration=\"App Store Distribution\"\n\nCFBuildNumber=$(\"$PlistBuddyPath\" -c \"Print CFBuildNumber\" \"$INFOPLIST_FILE\")\n# if the build number property does not exist, create it and set it to 0\nif [ `echo $?` != 0 ]\nthen\necho \"No entry for CFBuildNumber in Plist, so we create it\"\nCFBuildNumber=0\n\"$PlistBuddyPath\" -c \"Add :CFBuildNumber integer $CFBuildNumber\" \"$INFOPLIST_FILE\"\nfi\n\n# if this is an app store release, then increment the build number\nif [ \"$CONFIGURATION\" = \"$LjsAppStoreDistributionConfiguration\" ] \nthen \nCFBuildNumber=$(($CFBuildNumber + 1))\n\"$PlistBuddyPath\" -c \"Set :CFBuildNumber $CFBuildNumber\" \"$INFOPLIST_FILE\"\nfi\n\n\n# if the get info string property does not exist, create it\nCFBundleGetInfoString=$(\"$PlistBuddyPath\" -c \"Print CFBundleGetInfoString\" \"$INFOPLIST_FILE\")\nif [ `echo $?` != 0 ]\nthen\necho \"No entry for CFBundleGetInfoString in Plist, so we create it\"\U0013\n\"$PlistBuddyPath\" -c \"Add :CFBundleGetInfoString string \\\"NEWLY CREATED\\\"\" \"$INFOPLIST_FILE\"\nfi\n\n\n\n# use the git revision for the bunlde version, except when building for the app store\ngitpath=`which git`\nCFBundleVersion=`$gitpath rev-parse --short HEAD`\nCFBundleShortVersionString=$(\"$PlistBuddyPath\" -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\n\n\nif [ \"$CONFIGURATION\" != \"$LjsAppStoreDistributionConfiguration\" ] \nthen\nCFBundleVersion_CURRENT=$(\"$PlistBuddyPath\" -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nif [ \"$CFBundleVersion\" != \"$CFBundleVersion_CURRENT\" ]\nthen\necho \"Bundle version has changed:  $CFBundleVersion_CURRENT ==> $CFBundleVersion - updating plist\"\n\"$PlistBuddyPath\" -c \"Set :CFBundleVersion $CFBundleVersion\" \"$INFOPLIST_FILE\"\nelse\necho \"CFBundleVersion has not changed, no need to update plist\"  \nfi\nBUILD_CONFIGURATION_ABBR=${CONFIGURATION:0:2} \nCFBundleGetInfoString=\"$PRODUCT_NAME $CFBundleShortVersionString $CFBundleVersion $BUILD_CONFIGURATION_ABBR\"\nCFBundleGetInfoString_CURRENT=$(\"$PlistBuddyPath\" -c \"Print CFBundleGetInfoString\" \"$INFOPLIST_FILE\")\nif [ \"$CFBundleGetInfoString\" != \"$CFBundleGetInfoString_CURRENT\" ]\nthen\necho \"Info String has changed:  $CFBundleGetInfoString_CURRENT ==> $CFBundleGetInfoString - updating plist\"\n\"$PlistBuddyPath\" -c \"Set :CFBundleGetInfoString $CFBundleGetInfoString\" \"$INFOPLIST_FILE\"\nelse\necho \"CFBundleGetInfoString has not changed, no need to update plist\"\nfi\nelse\n# no need to check if the get info string has changed, but it necessarily will have because\n# the build number is incremented\n\"$PlistBuddyPath\" -c \"Set :CFBundleVersion $CFBundleShortVersionString.$CFBuildNumber\" \"$INFOPLIST_FILE\"\nCFBundleGetInfoString=\"$PROJECT_NAME $CFBundleShortVersionString.$CFBuildNumber\"\n\"$PlistBuddyPath\" -c \"Set :CFBundleGetInfoString $CFBundleGetInfoString\" \"$INFOPLIST_FILE\"\nfi\n\n\n\necho CONFIGURATION = \"$CONFIGURATION\"\necho build number = $(\"$PlistBuddyPath\" -c \"Print CFBuildNumber\" \"$INFOPLIST_FILE\")\necho bundle version = $(\"$PlistBuddyPath\" -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\necho bundle short version = $(\"$PlistBuddyPath\" -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\necho bundle info string = $(\"$PlistBuddyPath\" -c \"Print CFBundleGetInfoString\" \"$INFOPLIST_FILE\")\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -471,13 +467,13 @@
 				F50185AF145196340053A064 /* LJSAppDelegate.m in Sources */,
 				F50185B2145196340053A064 /* LJSViewController.m in Sources */,
 				F5018634145198760053A064 /* LjsDefaultFormatter.m in Sources */,
+				F525D49E14C605FC000A4D5C /* LjsLogFileManager.m in Sources */,
 				F5018635145198760053A064 /* LjsMessageBuilder.m in Sources */,
 				F5018649145199400053A064 /* LjsHTTPFileLogger.m in Sources */,
 				F501864A145199400053A064 /* LjsHTTPLogConnection.m in Sources */,
 				F5E6C13D1451E5D100A164BF /* LjsWebSocketLogger.m in Sources */,
 				F5E6C1411451E89800A164BF /* LjsWebSocketFormatter.m in Sources */,
 				F590BEA614542E5C00E5B89B /* DDFileLogger+CurrentFile.m in Sources */,
-				F590BEA714542E5C00E5B89B /* LjsFileManager.m in Sources */,
 				F5302D2614557BD900FDD946 /* LjsWebSocket.m in Sources */,
 				F5B0E9801461981E00CA24F5 /* DDAbstractDatabaseLogger.m in Sources */,
 				F5B0E9811461981E00CA24F5 /* DDASLLogger.m in Sources */,

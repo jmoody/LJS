@@ -23,28 +23,29 @@
 PlistBuddyPath=/usr/libexec/PlistBuddy
 LjsAppStoreDistributionConfiguration="App Store Distribution"
 
+CFBuildNumber=$("$PlistBuddyPath" -c "Print CFBuildNumber" "$INFOPLIST_FILE")
+# if the build number property does not exist, create it and set it to 0
+if [ `echo $?` != 0 ]
+then
+echo "No entry for CFBuildNumber in Plist, so we create it"
+CFBuildNumber=0
+"$PlistBuddyPath" -c "Add :CFBuildNumber integer $CFBuildNumber" "$INFOPLIST_FILE"
+fi
+
 # if this is an app store release, then increment the build number
 if [ "$CONFIGURATION" = "$LjsAppStoreDistributionConfiguration" ] 
 then 
-  CFBuildNumber=$("$PlistBuddyPath" -c "Print CFBuildNumber" "$INFOPLIST_FILE")
-  # if the build number property does not exist, create it and set it to 0
-  if [ `echo $?` != 0 ]
-  then
-    echo "No entry for CFBuildNumber in Plist, so we create it"
-    CFBuildNumber=0
-    "$PlistBuddyPath" -c "Add :CFBuildNumber integer $CFBuildNumber" "$INFOPLIST_FILE"
-    else
-    CFBuildNumber=$(($CFBuildNumber + 1))
-    "$PlistBuddyPath" -c "Set :CFBuildNumber $CFBuildNumber" "$INFOPLIST_FILE"
-   fi
+CFBuildNumber=$(($CFBuildNumber + 1))
+"$PlistBuddyPath" -c "Set :CFBuildNumber $CFBuildNumber" "$INFOPLIST_FILE"
 fi
+
 
 # if the get info string property does not exist, create it
 CFBundleGetInfoString=$("$PlistBuddyPath" -c "Print CFBundleGetInfoString" "$INFOPLIST_FILE")
 if [ `echo $?` != 0 ]
 then
-  echo "No entry for CFBundleGetInfoString in Plist, so we create it"
-  "$PlistBuddyPath" -c "Add :CFBundleGetInfoString string \"FIXME\"" "$INFOPLIST_FILE"
+echo "No entry for CFBundleGetInfoString in Plist, so we create it"
+"$PlistBuddyPath" -c "Add :CFBundleGetInfoString string \"NEWLY CREATED\"" "$INFOPLIST_FILE"
 fi
 
 
@@ -57,30 +58,30 @@ CFBundleShortVersionString=$("$PlistBuddyPath" -c "Print CFBundleShortVersionStr
 
 if [ "$CONFIGURATION" != "$LjsAppStoreDistributionConfiguration" ] 
 then
-  CFBundleVersion_CURRENT=$("$PlistBuddyPath" -c "Print CFBundleVersion" "$INFOPLIST_FILE")
-  if [ "$CFBundleVersion" != "$CFBundleVersion_CURRENT" ]
-  then
-     echo "Bundle version has changed:  $CFBundleVersion ==> $CFBundleVersion_CURRENT - updating plist"
-     "$PlistBuddyPath" -c "Set :CFBundleVersion $CFBundleVersion" "$INFOPLIST_FILE"
-  else
-     echo "CFBundleVersion has not changed, no need to update plist"  
-  fi
-  BUILD_CONFIGURATION_ABBR=${CONFIGURATION:0:2} 
-  CFBundleGetInfoString="$PRODUCT_NAME $CFBundleShortVersionString $CFBundleVersion $BUILD_CONFIGURATION_ABBR"
-  CFBundleGetInfoString_CURRENT=$("$PlistBuddyPath" -c "Print CFBundleGetInfoString" "$INFOPLIST_FILE")
-  if [ "$CFBundleGetInfoString" != "$CFBundleGetInfoString_CURRENT" ]
-  then
-    echo "Info String has changed:   $CFBundleGetInfoString ==> $CFBundleGetInfoString_CURRENT - updating plist"
-    "$PlistBuddyPath" -c "Set :CFBundleGetInfoString $CFBundleGetInfoString" "$INFOPLIST_FILE"
-  else
-    echo "CFBundleGetInfoString has not changed, no need to update plist"
-  fi
+CFBundleVersion_CURRENT=$("$PlistBuddyPath" -c "Print CFBundleVersion" "$INFOPLIST_FILE")
+if [ "$CFBundleVersion" != "$CFBundleVersion_CURRENT" ]
+then
+echo "Bundle version has changed:  $CFBundleVersion_CURRENT ==> $CFBundleVersion - updating plist"
+"$PlistBuddyPath" -c "Set :CFBundleVersion $CFBundleVersion" "$INFOPLIST_FILE"
 else
-  # no need to check if the get info string has changed, but it necessarily will have because
-  # the build number is incremented
-  "$PlistBuddyPath" -c "Set :CFBundleVersion $CFBundleShortVersionString.$CFBuildNumber" "$INFOPLIST_FILE"
-   CFBundleGetInfoString="$PROJECT_NAME $CFBundleShortVersionString.$CFBuildNumber"
-  "$PlistBuddyPath" -c "Set :CFBundleGetInfoString $CFBundleGetInfoString" "$INFOPLIST_FILE"
+echo "CFBundleVersion has not changed, no need to update plist"  
+fi
+BUILD_CONFIGURATION_ABBR=${CONFIGURATION:0:2} 
+CFBundleGetInfoString="$PRODUCT_NAME $CFBundleShortVersionString $CFBundleVersion $BUILD_CONFIGURATION_ABBR"
+CFBundleGetInfoString_CURRENT=$("$PlistBuddyPath" -c "Print CFBundleGetInfoString" "$INFOPLIST_FILE")
+if [ "$CFBundleGetInfoString" != "$CFBundleGetInfoString_CURRENT" ]
+then
+echo "Info String has changed:  $CFBundleGetInfoString_CURRENT ==> $CFBundleGetInfoString - updating plist"
+"$PlistBuddyPath" -c "Set :CFBundleGetInfoString $CFBundleGetInfoString" "$INFOPLIST_FILE"
+else
+echo "CFBundleGetInfoString has not changed, no need to update plist"
+fi
+else
+# no need to check if the get info string has changed, but it necessarily will have because
+# the build number is incremented
+"$PlistBuddyPath" -c "Set :CFBundleVersion $CFBundleShortVersionString.$CFBuildNumber" "$INFOPLIST_FILE"
+CFBundleGetInfoString="$PROJECT_NAME $CFBundleShortVersionString.$CFBuildNumber"
+"$PlistBuddyPath" -c "Set :CFBundleGetInfoString $CFBundleGetInfoString" "$INFOPLIST_FILE"
 fi
 
 

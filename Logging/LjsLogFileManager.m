@@ -30,7 +30,7 @@
 //#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 //#endif
 
-#import "LjsFileManager.h"
+#import "LjsLogFileManager.h"
 #import "Lumberjack.h"
 
 
@@ -48,7 +48,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  application run and with a more meaningful name than the one that 
  CocoaLumberjackLogging provides.
  */
-@implementation LjsFileManager
+@implementation LjsLogFileManager
 
 /** @name Initialization */
 /**

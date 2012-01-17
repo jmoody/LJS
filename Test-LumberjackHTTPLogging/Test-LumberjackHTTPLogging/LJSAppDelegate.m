@@ -55,7 +55,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [tty setLogFormatter:formatter];
   [DDLog addLogger:tty];
 
-  LjsFileManager *fileManager = [[LjsFileManager alloc] init];
+  LjsLogFileManager *fileManager = [[LjsLogFileManager alloc] init];
   DDFileLogger *fileLogger = [[DDFileLogger alloc] initWithLogFileManager:fileManager];
   [fileLogger setLogFormatter:formatter];
   fileLogger.logFileManager.maximumNumberOfLogFiles = 1;
