@@ -43,7 +43,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 - (void)dealloc {
   if (self.httpLogManager != nil) {
-    [self.httpLogManager stopAndReleaseLogServer];
+    [self.httpLogManager stopLogServer];
   }
   [self stopAndReleaseRepeatingTimers];
 }

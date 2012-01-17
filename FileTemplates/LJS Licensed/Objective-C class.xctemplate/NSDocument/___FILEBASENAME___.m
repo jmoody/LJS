@@ -42,7 +42,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @implementation ___FILEBASENAMEASIDENTIFIER___
 
 - (void) dealloc {
-  DDLogDebug(@"deallocating ___FILEBASENAMEASIDENTIFIER___");
+  DDLogDebug(@"deallocating %@", [self class]);
 }
 
 - (id) init {
