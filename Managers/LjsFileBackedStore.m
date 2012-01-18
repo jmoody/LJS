@@ -32,7 +32,8 @@
 
 #import "LjsFileBackedStore.h"
 #import "Lumberjack.h"
-#import "LjsFileManager.h"
+#import "LjsFileUtilities.h"
+#import "LjsValidator.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -44,72 +45,151 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @synthesize filepath;
 @synthesize store;
+@synthesize reporter;
 
 #pragma mark Memory Management
 - (void) dealloc {
    DDLogDebug(@"deallocating %@", [self class]);
 }
 
-- (id) initWithFilepath:(NSString *) aFilepath {
+- (id) initWithFileName:(NSString *) aFilename
+          directoryPath:(NSString *) aDirectoryPath 
+           defaultStore:(NSDictionary *) aStore
+      overwriteExisting:(BOOL) shouldOverwrite
+                  error:(NSError **) error {
   self = [super init];
   if (self) {
+    NSAssert1([LjsValidator stringIsNonNilOrEmpty:aFilename],
+              @"filename must not be nil or empty - < %@ >", aFilename);
+    NSAssert1([LjsValidator stringIsNonNilOrEmpty:aDirectoryPath] != 0, 
+              @"directory path must be non-nil and non-empty - < %@ >", aDirectoryPath);
+    NSAssert1(aStore != nil && [aStore count] != 0, 
+              @"the default store must not be nil or empty: < %@ >", aStore);
     
-/*
- NSFileManager *fm = [NSFileManager defaultManager];
- 
- NSString *documentPath = [LjsFileUtilities findDocumentDirectoryPath];
- NSString *scheduleItemsDirectoryPath =
- [documentPath stringByAppendingPathComponent:AgChoiceScheduleItemsDirectory];
- 
- BOOL directoryExists = [LjsFileUtilities ensureSaveDirectory:scheduleItemsDirectoryPath
- existsWithManager:fm];
- if (directoryExists == NO) {
- DDLogError(@"could not create directory \n%@", scheduleItemsDirectoryPath);
- } 
- 
- self.pathToScheduleItemsPlist = 
- [scheduleItemsDirectoryPath stringByAppendingPathComponent:AgChoiceScheduleItemsPlistName];
- 
- BOOL plistExists = [fm fileExistsAtPath:self.pathToScheduleItemsPlist];
- 
- if (plistExists == YES) {
- 
- NSError *readError = nil;
- 
- self.scheduleItems = [self readScheduleItemsFromPath:self.pathToScheduleItemsPlist
- error:&readError];
- 
- if (self.scheduleItems == nil) {
- DDLogError(@"could not read plist at: %@ : %@ - initializing an empty array", self.pathToScheduleItemsPlist, readError);
- self.scheduleItems = [NSMutableArray arrayWithCapacity:4];
- NSError *writeError = nil;
- BOOL writeSuccess = [self writeScheduleItems:self.scheduleItems toPath:self.pathToScheduleItemsPlist
- error:&writeError];
- if (writeSuccess == NO) {
- DDLogError(@"could not write to plist at: %@ :%@ - we have some serious problems; possibly fatal",
- self.pathToScheduleItemsPlist, writeError);
- }
- }
- 
- } else {
- self.scheduleItems = [NSMutableArray arrayWithCapacity:4];
- NSError *writeError = nil;
- BOOL writeSuccess = [self writeScheduleItems:self.scheduleItems
- toPath:self.pathToScheduleItemsPlist
- error:&writeError];
- if (writeSuccess == NO) {
- DDLogError(@"could not write empty plist to %@ : %@", 
- self.pathToScheduleItemsPlist, writeError);
- }
- }
- [self postScheduleItemsChangedNotification];
- }
+      
+    NSFileManager *fm = [NSFileManager defaultManager];
+    
+    BOOL directoryExists = [LjsFileUtilities ensureSaveDirectory:aDirectoryPath
+                                               existsWithManager:fm];
+    if (directoryExists == NO) {
+      NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aDirectoryPath
+                                                           forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
+      NSString *message = NSLocalizedString(@"Could not create directory", nil);
+      DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
+                         message, aDirectoryPath]);
+      *error = [self.reporter errorWithCode:LjsFileUtilitiesFileDoesNotExistErrorCode
+                                description:message
+                                   userInfo:userInfo];
+      return nil;
+    }
+    
+    self.filepath = [aDirectoryPath stringByAppendingPathComponent:aFilename];
 
- */
+    BOOL fileExists = [fm fileExistsAtPath:self.filepath];
     
-    
+    if (fileExists == NO) {
+      BOOL writeSucceeded = [LjsFileUtilities writeDictionary:aStore
+                                                       toFile:self.filepath
+                                                        error:error];
+      if (writeSucceeded == NO) {
+        // writing failed - bail out (error and messages handled in write selector)
+        return nil;
+      } 
+    } else {
+      if (shouldOverwrite == YES) {
+        BOOL writeSucceeded = [LjsFileUtilities writeDictionary:aStore
+                                                         toFile:self.filepath
+                                                          error:error];
+        if (writeSucceeded == NO) {
+          // writing failed - bail out (error and messages handled in write selector)
+          return nil;
+        } 
+        self.store = [NSMutableDictionary dictionaryWithDictionary:aStore];
+      } else {
+        NSDictionary *dict = [LjsFileUtilities readDictionaryFromFile:self.filepath
+                                                                error:error];
+        if (self.store == nil) {
+          // reading failed - bail out (error and messages handled in read selector)
+          return nil;
+        }
+        self.store = [NSMutableDictionary dictionaryWithDictionary:dict];
+      }
+    }
   }
   return self;
 }
+
+
+- (void) removeKeys:(NSArray *) keys {
+  [self.store removeObjectsForKeys:keys];
+  [LjsFileUtilities writeDictionary:self.store toFile:self.filepath error:nil];
+}
+
+- (NSString *) stringForKey:(NSString *) aKey 
+               defaultValue:(NSString *) aDefault 
+             storeIfMissing:(BOOL) aPersistMissing {
+  NSString *result = (NSString *) [self.store objectForKey:aKey];
+  if (result == nil && aPersistMissing && aDefault != nil) {
+    [self storeObject:aDefault forKey:aKey];
+  }
+  if (result == nil) {
+    result = aDefault;
+  }
+  return result;
+}
+
+- (NSNumber *) numberForKey:(NSString *) aKey 
+               defaultValue:(NSNumber *) aDefault
+             storeIfMissing:(BOOL) aPersistMissing {
+  NSNumber *result = (NSNumber *) [self.store objectForKey:aKey];
+  if (result == nil && aPersistMissing && aDefault != nil) {
+    [self storeObject:aDefault forKey:aKey];
+  }
+  
+  if (result == nil) {
+    result = aDefault;
+  }
+  return result;
+}
+
+- (BOOL) boolForKey:(NSString *) aKey 
+       defaultValue:(BOOL) aDefault
+     storeIfMissing:(BOOL) aPersistMissing {
+  NSNumber *number = [self numberForKey:aKey
+                           defaultValue:nil
+                         storeIfMissing:NO];
+  
+  if (number == nil && aPersistMissing) {
+    number = [NSNumber numberWithBool:aDefault];
+    [self storeObject:number forKey:aKey];
+  }
+  BOOL result;
+  
+  if (number == nil) {
+    result = aDefault;
+  } else {
+    result = [number boolValue];
+  }
+  return result;
+}
+
+- (void) storeObject:(id) object forKey:(NSString *) aKey {
+  [self.store setObject:object forKey:aKey];
+  [LjsFileUtilities writeDictionary:self.store toFile:self.filepath error:nil];
+}
+
+- (void) storeBool:(BOOL) aBool forKey:(NSString *) aKey {
+  NSNumber *number = [NSNumber numberWithBool:aBool];
+  [self storeObject:number forKey:aKey];
+}
+
+- (void) removeObjectForKey:(NSString *) aKey {
+  [self.store removeObjectForKey:aKey];
+  [LjsFileUtilities writeDictionary:self.store toFile:self.filepath error:nil];
+}
+
+
+
+
 
 @end

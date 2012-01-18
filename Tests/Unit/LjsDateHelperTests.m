@@ -63,6 +63,7 @@
 
 #import "LjsTestCase.h"
 #import "LjsDateHelper.h"
+#import "LjsLocaleUtils.h"
 #import <objc/runtime.h>
 
 @interface LjsDateHelperTests : LjsTestCase {}
@@ -631,17 +632,16 @@
   actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
   GHAssertFalse(actual, nil);
 
-  
+
   NSDateFormatter *formatter = [LjsDateHelper hoursMinutesAmPmFormatter];
+  [formatter setLocale:[LjsLocaleUtils localeWith24hourClock]];
   time = [formatter stringFromDate:[NSDate date]];
   a24clock = YES;
   actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
   GHAssertTrue(actual, nil);
 
-  NSLocale *twelveHourLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-  [formatter setLocale:twelveHourLocale];
+  [formatter setLocale:[LjsLocaleUtils localeWith12hourClock]];
   time = [formatter stringFromDate:[NSDate date]];
-  GHTestLog(@"time = %@", time);
   a24clock = NO;
   actual = [LjsDateHelper timeStringHasCorrectLength:time using24HourClock:a24clock];
   GHAssertTrue(actual, nil);
@@ -899,10 +899,9 @@
 
   NSDateFormatter *formatter = [LjsDateHelper hoursMinutesAmPmFormatter];
   timeString = [formatter stringFromDate:[NSDate date]];
-//  GHTestLog(@"time string = %@", timeString);
-  
   components = [LjsDateHelper componentsWithTimeString:timeString];
-  GHAssertNotNil(components, nil);
+  // fails DE_CH
+  GHAssertNotNil(components, @"failure is ok here - I am trying to catch errors for different locales. Time was: %@", timeString); 
 
 }
 

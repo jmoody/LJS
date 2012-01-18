@@ -1,4 +1,4 @@
-// Copyright ___YEAR___ ___ORGANIZATIONNAME___. All rights reserved.
+// Copyright 2012 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -61,13 +61,14 @@
 // GHAssertNoThrowSpecific(expr, specificException, description, ...)
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
-#import <GHUnit/GHUnit.h>
 #import "LjsTestCase.h"
+#import "LjsFileBackedStore.h"
+#import "LjsFileUtilities.h"
 
-@interface ___FILEBASENAMEASIDENTIFIER___ : LjsTestCase {}
+@interface LjsFileBackedStoreTests : LjsTestCase {}
 @end
 
-@implementation ___FILEBASENAMEASIDENTIFIER___
+@implementation LjsFileBackedStoreTests
 
 //- (id) init {
 //  self = [super init];
@@ -100,10 +101,49 @@
 
 - (void) tearDown {
   // Run after each test method
+  
+  
 }  
 
-//- (void)testGHLog {
-//  GHTestLog(@"GH test logging is working");
-//}
+- (void) test_initWithFilepathDirectoryStore {
+  LjsFileBackedStore *store;
+  NSString *filename, *directory;
+  NSDictionary *dict;
+  BOOL overwrite;
+  NSError *error = nil;
+
+  NSArray *values = [NSArray arrayWithObjects:
+                     @"string",
+                     [NSNumber numberWithInteger:0],
+                     [NSArray arrayWithObject:@"foo"],
+                     [NSDate date],
+                     [@"string" dataUsingEncoding:NSUTF8StringEncoding],
+                     [NSDictionary dictionaryWithObject:@"value" forKey:@"key"],
+                     nil];
+  NSArray *keys = [NSArray arrayWithObjects:
+                   @"string",
+                   @"number",
+                   @"array",
+                   @"date",
+                   @"data",
+                   @"dictionary",
+                   nil];
+  
+  dict = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+  directory = [LjsFileUtilities findDocumentDirectoryPath];
+  filename = @"test-name.plist";
+  overwrite = NO;
+  
+  store = [[LjsFileBackedStore alloc]
+           initWithFileName:filename
+           directoryPath:directory
+           defaultStore:dict
+           overwriteExisting:overwrite
+           error:&error];
+  
+
+
+  GHTestLog(@"store = %@", store);
+}
 
 @end

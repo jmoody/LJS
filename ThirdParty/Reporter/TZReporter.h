@@ -46,7 +46,7 @@
  @param error the error to populate
  @return an initialized reporter
  */
-- (id) initWithDomain: (NSString *) errDomain error: (NSError **) error;
+- (id) initWithDomain: (NSString *) errDomain error: (NSError *__autoreleasing *)  error;
 
 /**
  Initializes a new reporter with an error domain and an error
@@ -57,7 +57,7 @@
  @param error the error to populate
  @return an autoreleased initialized reporter
  */
-+ (id) reporterWithDomain: (NSString *) errDomain error: (NSError **) error;
++ (id) reporterWithDomain: (NSString *) errDomain error: (NSError *__autoreleasing *)  error;
 
 /** @name Creating Errors */
 
@@ -78,5 +78,17 @@
  set in the init method
  */
 - (NSError *) errorWithCode: (NSInteger) code description: (NSString* ) msg;
+
+
+/**
+ @return an error
+ @param code the error code
+ @param msg a description of the error
+ @param ui additional user info
+ */
+- (NSError*) errorWithCode: (NSInteger) code 
+               description: (NSString*) msg
+                  userInfo:(NSDictionary *) ui;
+
 
 @end

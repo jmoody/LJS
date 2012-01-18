@@ -79,6 +79,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return result;
 }
 
++ (BOOL) stringIsNonNilOrEmpty:(NSString *) aString {
+  return aString != nil && [aString length] != 0;
+}
+
 + (BOOL) isDictionary:(id) value {
   return [value respondsToSelector:@selector(objectForKey:)];
 }

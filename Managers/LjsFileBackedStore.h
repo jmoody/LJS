@@ -29,6 +29,9 @@
 
 #import <Foundation/Foundation.h>
 #import "LjsBackingStore.h"
+#import "TZReporter.h"
+
+
 
 /**
  Documentation
@@ -37,15 +40,19 @@
 
 /** @name Properties */
 @property (nonatomic, copy) NSString *filepath;
-@property (nonatomic, strong) NSDictionary *store;
+@property (nonatomic, strong) NSMutableDictionary *store;
+@property (nonatomic, strong) TZReporter *reporter;
 
 /** @name Initializing Objects */
 - (id) initWithFileName:(NSString *) aFilename
-          directoryPath:(NSString *) aDirectoryPath;
+          directoryPath:(NSString *) aDirectoryPath
+           defaultStore:(NSDictionary *) aStore
+      overwriteExisting:(BOOL) shouldOverwrite
+                  error:(NSError **) error;
+;
 
 /** @name Handling Notifications, Requests, and Events */
 
 /** @name Utility */
-- (BOOL) writeStore:(NSDictionary *) aStore error:(NSError **) error;
-- (NSDictionary *) readStoreFromPath:(NSString *) aPath error:(NSError **) error;
+
 @end

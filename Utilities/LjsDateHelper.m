@@ -146,7 +146,13 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
     result = nil;
   } else {
     NSString *upcased = [anAmOrPmString uppercaseString];
-    result = [upcased stringByReplacingOccurrencesOfString:@"." withString:@""];
+    if ([@"VORM." isEqualToString:upcased]) {
+      result = LjsDateHelperCanonicalAM;
+    } else if ([@"NACHM." isEqualToString:upcased]) {
+      result = LjsDateHelperCanonicalPM;
+    } else {
+      result = [upcased stringByReplacingOccurrencesOfString:@"." withString:@""];
+    }
   }
   return result;
 }
@@ -270,7 +276,7 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
  either a `H:mm a` string for 12-hour clocks and `HH:mm` for 24-hour clocks.
  
  handles the (annoying) case there a 24-hour time string contains AM/PM.
- 
+
  @param timeString a string
  @param a24Clock should use a 24-hour clock if YES, 12-hour otherwise
  @return true iff the time string has a valid length for a 12-hour or 24-hour
@@ -691,6 +697,7 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
  */
 + (NSDateFormatter *) hoursMinutesAmPmFormatter {
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  
   [formatter setDateFormat:@"H:mm a"];
   return formatter;
 }

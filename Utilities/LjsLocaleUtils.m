@@ -89,4 +89,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return formatter;
 }
 
++ (NSLocale *) localeWith12hourClock {
+  return  [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+
+}
+
++ (NSLocale *) localeWith24hourClock {
+  return  [[NSLocale alloc] initWithLocaleIdentifier:@"en_GB"];
+}
+
+
 @end

@@ -37,7 +37,7 @@
 
 #pragma mark Initialization
 
-- (id) initWithDomain: (NSString*) errDomain error: (NSError**) error {
+- (id) initWithDomain: (NSString*) errDomain error:(NSError *__autoreleasing *) error {
   self = [super init];
   if (self != nil) {
     NSError __autoreleasing *dummyError = nil;
@@ -50,7 +50,7 @@
   return self;
 }
 
-+ (id) reporterWithDomain: (NSString*) errDomain error: (NSError**) error
++ (id) reporterWithDomain: (NSString*) errDomain error: (NSError *__autoreleasing *)  error
 {
     return [[self alloc] initWithDomain:errDomain error:error];
 }
@@ -60,7 +60,7 @@
 
 - (NSError*) errorWithCode: (NSInteger) code
 {
-    return [NSError errorWithDomain:domain code:code userInfo:nil];
+    return [NSError errorWithDomain:self.domain code:code userInfo:nil];
 }
 
 - (NSError*) errorWithCode: (NSInteger) code description: (NSString*) msg
@@ -73,9 +73,22 @@
    nil];
  
   
-  return [NSError errorWithDomain:domain 
+  return [NSError errorWithDomain:self.domain 
                              code:code
                          userInfo:userInfo];
 }
+
+- (NSError*) errorWithCode: (NSInteger) code 
+               description: (NSString*) msg
+                  userInfo:(NSDictionary *) ui {
+  NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:ui];
+  [userInfo setObject:msg forKey:NSLocalizedDescriptionKey];
+  [userInfo setObject:[NSNumber numberWithInteger:NSUTF8StringEncoding]
+               forKey:NSStringEncodingErrorKey];
+  return [NSError errorWithDomain:self.domain
+                             code:code
+                         userInfo:[NSDictionary dictionaryWithDictionary:userInfo]];
+}
+
 
 @end

@@ -65,7 +65,6 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import <GHUnit/GHUnit.h>
 #import "LjsTestCase.h"
 
 @interface ___FILEBASENAMEASIDENTIFIER___ : LjsTestCase {}

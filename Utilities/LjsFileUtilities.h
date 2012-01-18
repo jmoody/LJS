@@ -29,6 +29,15 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString *LjsFileUtilitiesErrorDomain;
+extern NSString *LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey;
+
+typedef enum {
+  LjsFileUtilitiesReadErrorCode = 911,
+  LjsFileUtilitiesWriteErrorCode,
+  LjsFileUtilitiesFileDoesNotExistErrorCode,
+} LjsFileUtilitiesErrorCode;
+
 @interface LjsFileUtilities : NSObject 
 
 + (NSString *) findDocumentDirectoryPath;
@@ -47,7 +56,10 @@
                               fallbackDirectory:(NSString *) aFallbackDirectory;
 
 
-
++ (BOOL) writeDictionary:(NSDictionary *) aDict toFile:(NSString *) aPath error:(NSError *__autoreleasing *) error;
++ (NSDictionary *) readDictionaryFromFile:(NSString *) aPath error:(NSError *__autoreleasing *) error;
++ (BOOL) writeArray:(NSArray *) aArray toFile:(NSString *) aPath error:(NSError *__autoreleasing *) error;
++ (NSArray *) readArrayFromFile:(NSString *) aPath error:(NSError *__autoreleasing *) error;
 
 
 @end

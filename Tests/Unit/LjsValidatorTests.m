@@ -35,6 +35,7 @@
 
 #import "LjsTestCase.h"
 #import "LjsValidator.h"
+#import "LjsVariates.h"
 
 @interface LjsValidatorTests : LjsTestCase {}
 @end
@@ -339,6 +340,24 @@
   set = [NSSet setWithObjects:@"foo", @"bar", @"foobar", nil];
   actual = [LjsValidator array:array containsStrings:set allowsOthers:allowsOthers];
   GHAssertTrue(actual, nil);
+}
+
+- (void) test_stringNonNilOrEmpty {
+  NSString *string;
+  BOOL actual;
+  
+  string = nil;
+  actual = [LjsValidator stringIsNonNilOrEmpty:string];
+  GHAssertFalse(actual, nil);
+  
+  string = @"";
+  actual = [LjsValidator stringIsNonNilOrEmpty:string];
+  GHAssertFalse(actual, nil);
+
+  string = [LjsVariates randomStringWithLength:3];
+  actual = [LjsValidator stringIsNonNilOrEmpty:string];
+  GHAssertTrue(actual, nil);
+  
 }
 
 @end

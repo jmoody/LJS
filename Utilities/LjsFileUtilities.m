@@ -31,6 +31,7 @@
 
 #import "LjsFileUtilities.h"
 #import "Lumberjack.h"
+#import "TZReporter.h"
 #include "TargetConditionals.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -38,6 +39,10 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 #else
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
+
+NSString *LjsFileUtilitiesErrorDomain = @"com.littlejoysoftware.ljs LjsFileUtilities Error";
+NSString *LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey = @"com.littlejoysoftware.ljs LjsFileUtilities File or Directory Error User Info Key";
+
 
 /**
  LjsFileUtilities provides class methods to help with common file operations.
@@ -187,6 +192,91 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     result = lastDirectoryPath;
   } 
   return result;
+}
+
++ (BOOL) writeDictionary:(NSDictionary *) aDict toFile:(NSString *) aPath error:(NSError *__autoreleasing *) error {
+  DDLogDebug(@"write dictionary to file: %@", aPath);
+  BOOL result = [aDict writeToFile:aPath atomically:YES];
+  if (result == NO) {
+    TZReporter *reporter = [TZReporter reporterWithDomain:LjsFileUtilitiesErrorDomain
+                                                    error:error];
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aPath
+                                                         forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
+    
+    NSString *message = NSLocalizedString(@"Could not write file.", nil);
+    DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
+                       message, aPath]);
+    *error = [reporter errorWithCode:LjsFileUtilitiesReadErrorCode
+                         description:message
+                            userInfo:userInfo];
+    
+  }
+  return result;
+}
+
++ (NSDictionary *) readDictionaryFromFile:(NSString *) aPath error:(NSError *__autoreleasing *) error {
+  DDLogDebug(@"reading dictionary from path: %@", aPath);
+  
+  NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:aPath];
+  if (dict == nil) {
+    TZReporter *reporter = [TZReporter reporterWithDomain:LjsFileUtilitiesErrorDomain
+                                                    error:error];
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aPath
+                                                         forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
+    
+    NSString *message = NSLocalizedString(@"Could not read file.", nil);
+    DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
+                       message, aPath]);
+    *error = [reporter errorWithCode:LjsFileUtilitiesReadErrorCode
+                         description:message
+                            userInfo:userInfo];
+    
+    return nil;
+  }
+  
+  return dict;
+}
+
++ (BOOL) writeArray:(NSArray *) aArray toFile:(NSString *) aPath error:(NSError *__autoreleasing *) error {
+  DDLogDebug(@"write array to file: %@", aPath);
+  BOOL result = [aArray writeToFile:aPath atomically:YES];
+  if (result == NO) {
+    TZReporter *reporter = [TZReporter reporterWithDomain:LjsFileUtilitiesErrorDomain
+                                                    error:error];
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aPath
+                                                         forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
+    
+    NSString *message = NSLocalizedString(@"Could not write file.", nil);
+    DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
+                       message, aPath]);
+    *error = [reporter errorWithCode:LjsFileUtilitiesReadErrorCode
+                         description:message
+                            userInfo:userInfo];
+    
+  }
+  return result; 
+}
+
++ (NSArray *) readArrayFromFile:(NSString *) aPath error:(NSError *__autoreleasing *) error {
+  DDLogDebug(@"reading dictionary from path: %@", aPath);
+  
+  NSArray *array = [NSArray arrayWithContentsOfFile:aPath];
+  if (array == nil) {
+    TZReporter *reporter = [TZReporter reporterWithDomain:LjsFileUtilitiesErrorDomain
+                                                    error:error];
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aPath
+                                                         forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
+    
+    NSString *message = NSLocalizedString(@"Could not read file.", nil);
+    DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
+                       message, aPath]);
+    *error = [reporter errorWithCode:LjsFileUtilitiesReadErrorCode
+                         description:message
+                            userInfo:userInfo];
+    
+    return nil;
+  }
+  return array;
 }
 
 
