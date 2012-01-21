@@ -30,7 +30,7 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsFileBackedStore.h"
+#import "LjsFileBackedKeyStore.h"
 #import "Lumberjack.h"
 #import "LjsFileUtilities.h"
 #import "LjsValidator.h"
@@ -41,7 +41,7 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-@implementation LjsFileBackedStore
+@implementation LjsFileBackedKeyStore
 
 @synthesize filepath;
 @synthesize store;

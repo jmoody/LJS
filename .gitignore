@@ -3,13 +3,12 @@
 
 # my idea
 scratch/*
+Scratch/*
+private/*
 private/*
 
-private/*
-
-## Mac OS X
-# bug in Xcode 4.2 prevents snapshots
-.DS_Store 
+# Mac
+.DS_Store*
 
 # Xcode 3.*
 *~

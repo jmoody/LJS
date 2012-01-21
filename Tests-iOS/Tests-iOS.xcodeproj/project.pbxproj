@@ -42,8 +42,8 @@
 		F5448ACF1450B63B0065E516 /* TZReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AC61450B63B0065E516 /* TZReporter.m */; };
 		F5448AD01450B63B0065E516 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AC91450B63B0065E516 /* SFHFKeychainUtils.m */; };
 		F5448AD31450B6590065E516 /* LjsKeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AD21450B6590065E516 /* LjsKeychainManager.m */; };
-		F548505014C5AF0700B7824F /* LjsFileBackedStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F548504F14C5AF0700B7824F /* LjsFileBackedStore.m */; };
-		F548505114C5AF0700B7824F /* LjsFileBackedStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F548504F14C5AF0700B7824F /* LjsFileBackedStore.m */; };
+		F548505014C5AF0700B7824F /* LjsFileBackedKeyStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F548504F14C5AF0700B7824F /* LjsFileBackedKeyStore.m */; };
+		F548505114C5AF0700B7824F /* LjsFileBackedKeyStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F548504F14C5AF0700B7824F /* LjsFileBackedKeyStore.m */; };
 		F54E39761450E22C0059BF53 /* LjsJsonRpcReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E39751450E22C0059BF53 /* LjsJsonRpcReply.m */; };
 		F54E39781450E2530059BF53 /* LjsJsonRpcReplyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E39771450E2530059BF53 /* LjsJsonRpcReplyTests.m */; };
 		F54E39A21450E4570059BF53 /* ASIHTTPResponseUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E39A11450E4570059BF53 /* ASIHTTPResponseUtils.m */; };
@@ -219,8 +219,8 @@
 		F5448AC91450B63B0065E516 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		F5448AD11450B6590065E516 /* LjsKeychainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsKeychainManager.h; sourceTree = "<group>"; };
 		F5448AD21450B6590065E516 /* LjsKeychainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsKeychainManager.m; sourceTree = "<group>"; };
-		F548504E14C5AF0700B7824F /* LjsFileBackedStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFileBackedStore.h; sourceTree = "<group>"; };
-		F548504F14C5AF0700B7824F /* LjsFileBackedStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileBackedStore.m; sourceTree = "<group>"; };
+		F548504E14C5AF0700B7824F /* LjsFileBackedKeyStore.h */ = {isa = PBXFileReference; fileEncoding = 4; path = LjsFileBackedKeyStore.h; sourceTree = "<group>"; };
+		F548504F14C5AF0700B7824F /* LjsFileBackedKeyStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileBackedKeyStore.m; sourceTree = "<group>"; };
 		F54E39741450E22C0059BF53 /* LjsJsonRpcReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsJsonRpcReply.h; sourceTree = "<group>"; };
 		F54E39751450E22C0059BF53 /* LjsJsonRpcReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsJsonRpcReply.m; sourceTree = "<group>"; };
 		F54E39771450E2530059BF53 /* LjsJsonRpcReplyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsJsonRpcReplyTests.m; sourceTree = "<group>"; };
@@ -890,8 +890,8 @@
 				F5D3581B14B805B50022E24E /* LjsBackingStore.h */,
 				F5D3581D14B8065E0022E24E /* LjsUserDefaultsStore.h */,
 				F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */,
-				F548504E14C5AF0700B7824F /* LjsFileBackedStore.h */,
-				F548504F14C5AF0700B7824F /* LjsFileBackedStore.m */,
+				F548504E14C5AF0700B7824F /* LjsFileBackedKeyStore.h */,
+				F548504F14C5AF0700B7824F /* LjsFileBackedKeyStore.m */,
 			);
 			name = Managers;
 			path = ../Managers;
@@ -1248,7 +1248,7 @@
 				F54FA3D914B676B40080CC9A /* LjsServiceObserver.m in Sources */,
 				F51C63FD14B7917100F1841B /* LjsTextAndFont.m in Sources */,
 				F5D3581F14B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */,
-				F548505014C5AF0700B7824F /* LjsFileBackedStore.m in Sources */,
+				F548505014C5AF0700B7824F /* LjsFileBackedKeyStore.m in Sources */,
 				F515BF5114C629E2007052FF /* LjsFileBackedStoreTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1277,7 +1277,7 @@
 				F54FA42414B725F30080CC9A /* LjsDecimalAide.m in Sources */,
 				F51C63FE14B7917100F1841B /* LjsTextAndFont.m in Sources */,
 				F5D3582014B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */,
-				F548505114C5AF0700B7824F /* LjsFileBackedStore.m in Sources */,
+				F548505114C5AF0700B7824F /* LjsFileBackedKeyStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
