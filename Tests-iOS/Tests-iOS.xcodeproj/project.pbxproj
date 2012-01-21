@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F50BD4F714CB78810037227B /* LjsRecessedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F50BD4F614CB78810037227B /* LjsRecessedButton.m */; };
+		F50BD4F814CB78810037227B /* LjsRecessedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F50BD4F614CB78810037227B /* LjsRecessedButton.m */; };
 		F50FE6A01410C6F60051FC7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE69F1410C6F60051FC7E /* UIKit.framework */; };
 		F50FE6A21410C6F60051FC7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE6A11410C6F60051FC7E /* Foundation.framework */; };
 		F50FE6A41410C6F60051FC7E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE6A31410C6F60051FC7E /* CoreGraphics.framework */; };
@@ -156,6 +158,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F50BD4F514CB78810037227B /* LjsRecessedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRecessedButton.h; sourceTree = "<group>"; };
+		F50BD4F614CB78810037227B /* LjsRecessedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsRecessedButton.m; sourceTree = "<group>"; };
 		F50FE69B1410C6F60051FC7E /* Tests-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tests-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50FE69F1410C6F60051FC7E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F50FE6A11410C6F60051FC7E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -219,7 +223,7 @@
 		F5448AC91450B63B0065E516 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		F5448AD11450B6590065E516 /* LjsKeychainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsKeychainManager.h; sourceTree = "<group>"; };
 		F5448AD21450B6590065E516 /* LjsKeychainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsKeychainManager.m; sourceTree = "<group>"; };
-		F548504E14C5AF0700B7824F /* LjsFileBackedKeyStore.h */ = {isa = PBXFileReference; fileEncoding = 4; path = LjsFileBackedKeyStore.h; sourceTree = "<group>"; };
+		F548504E14C5AF0700B7824F /* LjsFileBackedKeyStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFileBackedKeyStore.h; sourceTree = "<group>"; };
 		F548504F14C5AF0700B7824F /* LjsFileBackedKeyStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileBackedKeyStore.m; sourceTree = "<group>"; };
 		F54E39741450E22C0059BF53 /* LjsJsonRpcReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsJsonRpcReply.h; sourceTree = "<group>"; };
 		F54E39751450E22C0059BF53 /* LjsJsonRpcReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsJsonRpcReply.m; sourceTree = "<group>"; };
@@ -877,6 +881,8 @@
 				F54FA3C814B6732C0080CC9A /* LjsNumericPickerDelegate.m */,
 				F572496E149F9AD6006C62A2 /* LjsButton.h */,
 				F572496F149F9AD6006C62A2 /* LjsButton.m */,
+				F50BD4F514CB78810037227B /* LjsRecessedButton.h */,
+				F50BD4F614CB78810037227B /* LjsRecessedButton.m */,
 			);
 			name = "Views-iOS";
 			path = "../Views-iOS";
@@ -1250,6 +1256,7 @@
 				F5D3581F14B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */,
 				F548505014C5AF0700B7824F /* LjsFileBackedKeyStore.m in Sources */,
 				F515BF5114C629E2007052FF /* LjsFileBackedStoreTests.m in Sources */,
+				F50BD4F714CB78810037227B /* LjsRecessedButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1278,6 +1285,7 @@
 				F51C63FE14B7917100F1841B /* LjsTextAndFont.m in Sources */,
 				F5D3582014B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */,
 				F548505114C5AF0700B7824F /* LjsFileBackedKeyStore.m in Sources */,
+				F50BD4F814CB78810037227B /* LjsRecessedButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
