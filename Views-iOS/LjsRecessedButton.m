@@ -52,7 +52,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   result.segmentedControlStyle = UISegmentedControlStyleBar;
   result.tintColor = aColor;
   [result insertSegmentWithTitle:aTitle atIndex:0 animated:NO];
-  [result addTarget:aTarget action:action forControlEvents:UIControlEventValueChanged];
+  [result addTarget:aTarget action:aAction forControlEvents:UIControlEventValueChanged];
   return result;
 }
 
@@ -66,7 +66,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   result.segmentedControlStyle = UISegmentedControlStyleBar;
   result.tintColor = aColor;
   [result insertSegmentWithImage:aImage atIndex:0 animated:NO];
-  [result addTarget:aTarget action:action forControlEvents:UIControlEventValueChanged];
+  [result addTarget:aTarget action:aAction forControlEvents:UIControlEventValueChanged];
   return result;
 }
 
