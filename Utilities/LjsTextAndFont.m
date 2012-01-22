@@ -55,6 +55,54 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return result;
 }
 
++ (CGFloat) heightWithString:(NSString *) aString
+                        font:(UIFont *) aFont {
+  CGSize size = [aString sizeWithFont:aFont];
+  return size.height;
+}
+
++ (CGRect) frameWithFont:(UIFont *) aFont 
+                       x:(CGFloat) x 
+                       y:(CGFloat) y 
+                       w:(CGFloat) w {
+  return CGRectMake(x, y, w, [LjsTextAndFont heightWithString:@"ABC"
+                                                         font:aFont]);
+}
 
 
 @end
+
+@implementation LjsLabelAttributes
+
+@synthesize lineHeight;
+@synthesize labelHeight;
+@synthesize numberOfLines;
+
+- (id) initWithString:(NSString *) aString
+                 font:(UIFont *) aFont
+           labelWidth:(CGFloat) aLabelWidth {
+  self = [super init];
+  if (self != nil) {
+    CGSize oneLineSize = [aString sizeWithFont:aFont];
+    self.lineHeight = oneLineSize.height;
+    CGSize labelSize = [aString sizeWithFont:aFont
+                           constrainedToSize:CGSizeMake(aLabelWidth, CGFLOAT_MAX)
+                               lineBreakMode:UILineBreakModeCharacterWrap];
+    self.labelHeight = labelSize.height;
+    self.numberOfLines = (NSUInteger) self.labelHeight / self.lineHeight;
+    
+  }
+  return self;
+}
+
+@end
+
+
+
+
+
+
+
+
+
+

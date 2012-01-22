@@ -52,6 +52,60 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
    DDLogDebug(@"deallocating %@", [self class]);
 }
 
+- (id) initWithFileName:(NSString *)aFilename 
+          directoryPath:(NSString *)aDirectoryPath 
+                  error:(NSError *__autoreleasing *)error {
+  self = [super init];
+  if (self != nil) {
+    NSAssert1([LjsValidator stringIsNonNilOrEmpty:aFilename],
+              @"filename must not be nil or empty - < %@ >", aFilename);
+    NSAssert1([LjsValidator stringIsNonNilOrEmpty:aDirectoryPath] != 0, 
+              @"directory path must be non-nil and non-empty - < %@ >", aDirectoryPath);
+    
+    NSFileManager *fm = [NSFileManager defaultManager];
+    
+    BOOL directoryExists = [LjsFileUtilities ensureSaveDirectory:aDirectoryPath
+                                               existsWithManager:fm];
+    if (directoryExists == NO) {
+      NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aDirectoryPath
+                                                           forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
+      NSString *message = NSLocalizedString(@"Could not create directory", nil);
+      DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
+                         message, aDirectoryPath]);
+      *error = [self.reporter errorWithCode:LjsFileUtilitiesFileDoesNotExistErrorCode
+                                description:message
+                                   userInfo:userInfo];
+      return nil;
+    }
+    
+    self.filepath = [aDirectoryPath stringByAppendingPathComponent:aFilename];
+    
+    BOOL fileExists = [fm fileExistsAtPath:self.filepath];
+    if (fileExists == NO) {
+      self.store = [NSMutableDictionary dictionary];
+      BOOL writeSucceeded = [LjsFileUtilities writeDictionary:self.store
+                                                       toFile:self.filepath
+                                                        error:error];
+      if (writeSucceeded == NO) {
+        // writing failed - bail out (error and messages handled in write selector)
+        return nil;
+      } 
+    } else {
+
+      NSDictionary *dict = [LjsFileUtilities readDictionaryFromFile:self.filepath
+                                                              error:error];
+      if (dict == nil) {
+        // reading failed - bail out (error and messages handled in read selector)
+        return nil;
+      }
+      self.store = [NSMutableDictionary dictionaryWithDictionary:dict];
+      
+    }
+  }
+  return self;
+}
+
+
 - (id) initWithFileName:(NSString *) aFilename
           directoryPath:(NSString *) aDirectoryPath 
            defaultStore:(NSDictionary *) aStore
@@ -108,7 +162,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
       } else {
         NSDictionary *dict = [LjsFileUtilities readDictionaryFromFile:self.filepath
                                                                 error:error];
-        if (self.store == nil) {
+        if (dict == nil) {
           // reading failed - bail out (error and messages handled in read selector)
           return nil;
         }

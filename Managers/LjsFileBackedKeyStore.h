@@ -44,12 +44,18 @@
 @property (nonatomic, strong) TZReporter *reporter;
 
 /** @name Initializing Objects */
+
+- (id) initWithFileName:(NSString *)aFilename 
+          directoryPath:(NSString *)aDirectoryPath 
+                  error:(NSError *__autoreleasing *)error;
+
 - (id) initWithFileName:(NSString *) aFilename
           directoryPath:(NSString *) aDirectoryPath
            defaultStore:(NSDictionary *) aStore
       overwriteExisting:(BOOL) shouldOverwrite
                   error:(NSError **) error;
-;
+
+
 
 /** @name Handling Notifications, Requests, and Events */
 

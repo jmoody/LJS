@@ -39,4 +39,30 @@
                               width:(CGFloat) aWidth
                           minHeight:(CGFloat) aMinHeight;
 
++ (CGFloat) heightWithString:(NSString *) aString
+                        font:(UIFont *) aFont;
+
++ (CGRect) frameWithFont:(UIFont *) aFont 
+                       x:(CGFloat) x 
+                       y:(CGFloat) y 
+                       w:(CGFloat) w;
+
+
+
+
 @end
+
+@interface LjsLabelAttributes : NSObject
+
+@property (nonatomic, assign) CGFloat lineHeight;
+@property (nonatomic, assign) CGFloat labelHeight;
+@property (nonatomic, assign) NSUInteger numberOfLines;
+
+- (id) initWithString:(NSString *) aString
+                 font:(UIFont *) aFont
+           labelWidth:(CGFloat) aLabelWidth;
+
+
+
+@end
+
