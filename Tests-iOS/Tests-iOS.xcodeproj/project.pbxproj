@@ -145,6 +145,14 @@
 		F5C112811496715900948605 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C112801496715900948605 /* AppDelegate.m */; };
 		F5D3581F14B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
 		F5D3582014B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
+		F5F7BBB714D3E90800669FE6 /* LjsGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */; };
+		F5F7BBB914D3EA3300669FE6 /* LjsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F572496F149F9AD6006C62A2 /* LjsButton.m */; };
+		F5F7BBBA14D3EA3700669FE6 /* LjsGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */; };
+		F5F7BBBB14D3EAA800669FE6 /* LjsFileUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F01410CC420051FC7E /* LjsFileUtilities.m */; };
+		F5F7BBBC14D3EABF00669FE6 /* TZReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AC61450B63B0065E516 /* TZReporter.m */; };
+		F5F7BBBD14D3EAE700669FE6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5724971149F9C00006C62A2 /* QuartzCore.framework */; };
+		F5F7BBC114D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */; };
+		F5F7BBC214D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -387,6 +395,10 @@
 		F5D3581B14B805B50022E24E /* LjsBackingStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsBackingStore.h; sourceTree = "<group>"; };
 		F5D3581D14B8065E0022E24E /* LjsUserDefaultsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsUserDefaultsStore.h; sourceTree = "<group>"; };
 		F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsUserDefaultsStore.m; sourceTree = "<group>"; };
+		F5F7BBB514D3E90800669FE6 /* LjsGlassButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGlassButton.h; sourceTree = "<group>"; };
+		F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGlassButton.m; sourceTree = "<group>"; };
+		F5F7BBBF14D3EDDE00669FE6 /* UIColor+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LjsAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,6 +429,7 @@
 				F54FA3EF14B7060B0080CC9A /* UIKit.framework in Frameworks */,
 				F54FA3F014B7060B0080CC9A /* Foundation.framework in Frameworks */,
 				F54FA3F114B7060B0080CC9A /* CoreGraphics.framework in Frameworks */,
+				F5F7BBBD14D3EAE700669FE6 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -883,6 +896,8 @@
 				F572496F149F9AD6006C62A2 /* LjsButton.m */,
 				F50BD4F514CB78810037227B /* LjsRecessedButton.h */,
 				F50BD4F614CB78810037227B /* LjsRecessedButton.m */,
+				F5F7BBB514D3E90800669FE6 /* LjsGlassButton.h */,
+				F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */,
 			);
 			name = "Views-iOS";
 			path = "../Views-iOS";
@@ -906,6 +921,7 @@
 		F5807168146C298100EA4CFB /* LJS */ = {
 			isa = PBXGroup;
 			children = (
+				F5F7BBBE14D3ED5100669FE6 /* Categories */,
 				F5724964149F9A1E006C62A2 /* Views-iOS */,
 				F58013A8149E06F100692073 /* Managers */,
 				F59635E5149665CC00CDB27E /* Controllers-iOS */,
@@ -1000,6 +1016,16 @@
 				F5C1127E1496715900948605 /* Documentation-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F5F7BBBE14D3ED5100669FE6 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				F5F7BBBF14D3EDDE00669FE6 /* UIColor+LjsAdditions.h */,
+				F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */,
+			);
+			name = Categories;
+			path = ../Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1257,6 +1283,8 @@
 				F548505014C5AF0700B7824F /* LjsFileBackedKeyStore.m in Sources */,
 				F515BF5114C629E2007052FF /* LjsFileBackedStoreTests.m in Sources */,
 				F50BD4F714CB78810037227B /* LjsRecessedButton.m in Sources */,
+				F5F7BBB714D3E90800669FE6 /* LjsGlassButton.m in Sources */,
+				F5F7BBC114D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1286,6 +1314,11 @@
 				F5D3582014B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */,
 				F548505114C5AF0700B7824F /* LjsFileBackedKeyStore.m in Sources */,
 				F50BD4F814CB78810037227B /* LjsRecessedButton.m in Sources */,
+				F5F7BBB914D3EA3300669FE6 /* LjsButton.m in Sources */,
+				F5F7BBBA14D3EA3700669FE6 /* LjsGlassButton.m in Sources */,
+				F5F7BBBB14D3EAA800669FE6 /* LjsFileUtilities.m in Sources */,
+				F5F7BBBC14D3EABF00669FE6 /* TZReporter.m in Sources */,
+				F5F7BBC214D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

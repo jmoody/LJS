@@ -1,5 +1,6 @@
 #import "LjsFirstViewController.h"
 #import "Lumberjack.h"
+#import "UIColor+LjsAdditions.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -12,6 +13,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @synthesize picker;
 @synthesize pickerDelegate;
 @synthesize label;
+@synthesize glass;
+@synthesize ljs;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -49,6 +52,19 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [self.picker setDelegate:self.pickerDelegate];
   [self.picker setDataSource:self.pickerDelegate];
   [self.pickerDelegate pickerView:self.picker setSelectedWithInteger:current];
+  
+  /*
+   [self.checkInButton setBackgroundColor:[RuColors colorWithRawR:58 g:41 b:73 a:1.0]];
+   [self.checkInButton setHighColor:[RuColors colorWithRawR:80 g:100 b:244 a:1.0]];
+   [self.checkInButton setLowColor:[RuColors colorWithRawR:58 g:41 b:73 a:1.0]];
+   */
+  
+  [self.glass setHighColor:[UIColor colorWithR:80 g:100 b:244]];
+  [self.glass setLowColor:[UIColor colorWithR:58 g:41 b:73]];
+
+  
+  [self.ljs setHighColor:[UIColor colorWithR:80 g:100 b:244]];
+  [self.ljs setLowColor:[UIColor colorWithR:58 g:41 b:73]];
   
 }
 

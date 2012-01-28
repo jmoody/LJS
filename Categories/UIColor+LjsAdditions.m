@@ -1,4 +1,4 @@
-// Copyright 2011 Little Joy Software. All rights reserved.
+// Copyright 2012 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,27 +26,28 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-/*
- Cribbed from http://www.cimgf.com/2010/01/28/fun-with-uibuttons-and-core-animation-layers/
- 
- Many thanks.
- */
-#import <Foundation/Foundation.h>
-#import <QuartzCore/QuartzCore.h>
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
 
-@interface LjsButton : UIButton
+#import "UIColor+LjsAdditions.h"
+#import "Lumberjack.h"
 
-@property (nonatomic, strong) UIColor *_highColor;
-@property (nonatomic, strong) UIColor *_lowColor;
-@property (nonatomic, strong) CAGradientLayer *gradientLayer;
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
 
-- (void) setHighColor:(UIColor *) aColor;
-- (void) setLowColor:(UIColor * ) aColor;
-- (void) setHighColor:(UIColor *) highColor
-             lowColor:(UIColor *) lowColor;
-- (void) setBorderColor:(UIColor *) color 
-            borderWidth:(CGFloat) width 
-           cornerRadius:(CGFloat) radius;
+@implementation UIColor (UIColor_LjsAdditions)
+
++ (UIColor *) colorWithR:(CGFloat) r g:(CGFloat) g b:(CGFloat) b a:(CGFloat) a {
+  return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a];
+}
+
++ (UIColor *) colorWithR:(CGFloat) r g:(CGFloat) g b:(CGFloat) b {
+  return [UIColor colorWithR:r g:g b:b a:1.0];
+}
 
 
 @end

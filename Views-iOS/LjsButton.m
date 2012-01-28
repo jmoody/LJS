@@ -74,7 +74,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   // Turn on masking
   [[self layer] setMasksToBounds:YES];
   // Display a border around the button 
-  [[self layer] setBorderWidth:0.0];
+  [[self layer] setBorderWidth:2.0];
+  
 
   self.showsTouchWhenHighlighted = YES;
 }
@@ -100,5 +101,22 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   self._lowColor = aColor;
   [[self layer] setNeedsDisplay];
 }
+
+- (void) setHighColor:(UIColor *) highColor
+             lowColor:(UIColor *) lowColor {
+  self._highColor = highColor;
+  self._lowColor = lowColor;
+  [[self layer] setNeedsDisplay];
+}
+
+- (void) setBorderColor:(UIColor *) color
+            borderWidth:(CGFloat) width 
+           cornerRadius:(CGFloat) radius {
+  self.layer.borderColor = color.CGColor;
+  self.layer.borderWidth = width;
+  self.layer.cornerRadius = radius;
+  [[self layer] setNeedsDisplay];
+}
+
 
 @end
