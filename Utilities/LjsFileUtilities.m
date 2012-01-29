@@ -31,8 +31,9 @@
 
 #import "LjsFileUtilities.h"
 #import "Lumberjack.h"
-#import "TZReporter.h"
+#import "NSError+LjsAdditions.h"
 #include "TargetConditionals.h"
+
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -54,6 +55,7 @@ NSString *LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey = @"com.littlejoysoftw
  @return true iff directory was created or exists
  @param path the directory path
  @param fileManager the file manager to use
+ @deprecated
  */
 + (BOOL) ensureSaveDirectory:(NSString *) path existsWithManager:(NSFileManager *) fileManager {
   NSError *error = nil;
@@ -76,6 +78,41 @@ NSString *LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey = @"com.littlejoysoftw
   }
   return result;
 }
+
++ (BOOL) ensureDirectory:(NSString *) directoryPath error:(NSError *__autoreleasing *) error {
+  BOOL fileExists, result;
+  NSFileManager *fm = [NSFileManager defaultManager];
+  
+  fileExists = [fm fileExistsAtPath:directoryPath];
+  if (fileExists == NO) {
+    result = [fm createDirectoryAtPath:directoryPath
+                    withIntermediateDirectories:YES 
+                                     attributes:nil
+                                          error:error];
+    if (result == YES) {
+      DDLogDebug(@"successfully created: %@", directoryPath);
+    } else {
+      NSString *message = NSLocalizedString(@"Could create directory.", nil);
+      DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
+                         message, directoryPath]);
+      if (error != NULL) {
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:directoryPath
+                                                             forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
+        
+        *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
+                                     code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+                     localizedDescription:message
+                            otherUserInfo:userInfo];
+      }
+    }
+  } else {
+    DDLogDebug(@"save directory exists: %@", directoryPath);
+    result = YES;
+  }
+  return result;
+}
+
+
 
 /**
  wrapper around the NSSearchPathDirectoriesInDomains - works for both iOS and
@@ -198,38 +235,63 @@ NSString *LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey = @"com.littlejoysoftw
   DDLogDebug(@"write dictionary to file: %@", aPath);
   BOOL result = [aDict writeToFile:aPath atomically:YES];
   if (result == NO) {
-    TZReporter *reporter = [TZReporter reporterWithDomain:LjsFileUtilitiesErrorDomain
-                                                    error:error];
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aPath
-                                                         forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
-    
     NSString *message = NSLocalizedString(@"Could not write file.", nil);
     DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
                        message, aPath]);
-    *error = [reporter errorWithCode:LjsFileUtilitiesReadErrorCode
-                         description:message
-                            userInfo:userInfo];
+    if (error != NULL) {
+      NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aPath
+                                                           forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
+      
+      *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
+                                   code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+                   localizedDescription:message
+                          otherUserInfo:userInfo];
+    }
     
   }
   return result;
 }
+
++ (BOOL) writeDictionary:(NSDictionary *) aDict 
+                  toFile:(NSString *) aPath 
+       ensureDirectories:(BOOL) aShouldCreateDirectories
+                   error:(NSError *__autoreleasing *) error {
+  if (aShouldCreateDirectories == YES) {
+    NSString *directory = [aPath stringByDeletingLastPathComponent];
+    BOOL exists = [LjsFileUtilities ensureDirectory:directory error:error];
+    if (exists == NO) {
+      return exists;
+    } else {
+      return [LjsFileUtilities writeDictionary:aDict
+                                        toFile:aPath
+                                         error:error];
+    }
+  } else {
+    return [LjsFileUtilities writeDictionary:aDict
+                                      toFile:aPath
+                                       error:error];
+  }
+}
+
+
 
 + (NSDictionary *) readDictionaryFromFile:(NSString *) aPath error:(NSError *__autoreleasing *) error {
   DDLogDebug(@"reading dictionary from path: %@", aPath);
   
   NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:aPath];
   if (dict == nil) {
-    TZReporter *reporter = [TZReporter reporterWithDomain:LjsFileUtilitiesErrorDomain
-                                                    error:error];
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aPath
-                                                         forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
-    
     NSString *message = NSLocalizedString(@"Could not read file.", nil);
     DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
                        message, aPath]);
-    *error = [reporter errorWithCode:LjsFileUtilitiesReadErrorCode
-                         description:message
-                            userInfo:userInfo];
+    if (error != NULL) {
+      NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aPath
+                                                           forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
+      
+      *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
+                                   code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+                   localizedDescription:message
+                          otherUserInfo:userInfo];
+    }
     
     return nil;
   }
@@ -241,39 +303,60 @@ NSString *LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey = @"com.littlejoysoftw
   DDLogDebug(@"write array to file: %@", aPath);
   BOOL result = [aArray writeToFile:aPath atomically:YES];
   if (result == NO) {
-    TZReporter *reporter = [TZReporter reporterWithDomain:LjsFileUtilitiesErrorDomain
-                                                    error:error];
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aPath
-                                                         forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
-    
     NSString *message = NSLocalizedString(@"Could not write file.", nil);
     DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
                        message, aPath]);
-    *error = [reporter errorWithCode:LjsFileUtilitiesReadErrorCode
-                         description:message
-                            userInfo:userInfo];
-    
+    if (error != NULL) {
+      NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aPath
+                                                           forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
+      
+      *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
+                                   code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+                   localizedDescription:message
+                          otherUserInfo:userInfo];
+    }
   }
   return result; 
 }
 
++ (BOOL) writeArray:(NSArray *) aArray 
+             toFile:(NSString *) aPath 
+  ensureDirectories:(BOOL) aShouldCreateDirectories
+              error:(NSError *__autoreleasing *) error {
+  if (aShouldCreateDirectories == YES) {
+    NSString *directory = [aPath stringByDeletingLastPathComponent];
+    BOOL exists = [LjsFileUtilities ensureDirectory:directory error:error];
+    if (exists == NO) {
+      return exists;
+    } else {
+      return [LjsFileUtilities writeArray:aArray
+                                   toFile:aPath
+                                    error:error];
+    }
+  } else {
+    return [LjsFileUtilities writeArray:aArray
+                                 toFile:aPath
+                                  error:error];
+  }
+}
+
 + (NSArray *) readArrayFromFile:(NSString *) aPath error:(NSError *__autoreleasing *) error {
-  DDLogDebug(@"reading dictionary from path: %@", aPath);
+  DDLogDebug(@"reading array from path: %@", aPath);
   
   NSArray *array = [NSArray arrayWithContentsOfFile:aPath];
   if (array == nil) {
-    TZReporter *reporter = [TZReporter reporterWithDomain:LjsFileUtilitiesErrorDomain
-                                                    error:error];
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aPath
-                                                         forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
-    
     NSString *message = NSLocalizedString(@"Could not read file.", nil);
     DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
                        message, aPath]);
-    *error = [reporter errorWithCode:LjsFileUtilitiesReadErrorCode
-                         description:message
-                            userInfo:userInfo];
-    
+    if (error != NULL) {
+      NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aPath
+                                                           forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
+      
+      *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
+                                   code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+                   localizedDescription:message
+                          otherUserInfo:userInfo];
+    }
     return nil;
   }
   return array;

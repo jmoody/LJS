@@ -30,7 +30,6 @@
 		F51C63FE14B7917100F1841B /* LjsTextAndFont.m in Sources */ = {isa = PBXBuildFile; fileRef = F51C63FC14B7917100F1841B /* LjsTextAndFont.m */; };
 		F529524514232EB5009C67EE /* LjsValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524414232EB5009C67EE /* LjsValidator.m */; };
 		F529524814232F47009C67EE /* LjsValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524714232F47009C67EE /* LjsValidatorTests.m */; };
-		F532AD2014AB62D800E48707 /* TZReporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F532AD1F14AB62D800E48707 /* TZReporterTests.m */; };
 		F54009F114B22253001EF805 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E214B22253001EF805 /* DDAbstractDatabaseLogger.m */; };
 		F54009F214B22253001EF805 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E414B22253001EF805 /* DDASLLogger.m */; };
 		F54009F314B22253001EF805 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E614B22253001EF805 /* DDFileLogger.m */; };
@@ -41,7 +40,6 @@
 		F54009FC14B227EA001EF805 /* LoremIpsum.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009FB14B227EA001EF805 /* LoremIpsum.m */; };
 		F5448ACB1450B63B0065E516 /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448ABB1450B63B0065E516 /* LjsDefaultFormatter.m */; };
 		F5448ACC1450B63B0065E516 /* LjsMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448ABE1450B63B0065E516 /* LjsMessageBuilder.m */; };
-		F5448ACF1450B63B0065E516 /* TZReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AC61450B63B0065E516 /* TZReporter.m */; };
 		F5448AD01450B63B0065E516 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AC91450B63B0065E516 /* SFHFKeychainUtils.m */; };
 		F5448AD31450B6590065E516 /* LjsKeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AD21450B6590065E516 /* LjsKeychainManager.m */; };
 		F548505014C5AF0700B7824F /* LjsFileBackedKeyStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F548504F14C5AF0700B7824F /* LjsFileBackedKeyStore.m */; };
@@ -136,6 +134,8 @@
 		F59635EC149665CC00CDB27E /* LjsModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635E7149665CC00CDB27E /* LjsModalViewController.m */; };
 		F59635ED149665CC00CDB27E /* LjsTimePickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635E9149665CC00CDB27E /* LjsTimePickerDelegate.m */; };
 		F59635EE149665CC00CDB27E /* UIViewController+ParentOrPresenting.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635EB149665CC00CDB27E /* UIViewController+ParentOrPresenting.m */; };
+		F59B5C0414D49628005D41E0 /* NSError+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F59B5C0314D49628005D41E0 /* NSError+LjsAdditions.m */; };
+		F59B5C0514D49628005D41E0 /* NSError+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F59B5C0314D49628005D41E0 /* NSError+LjsAdditions.m */; };
 		F5B03A6714AA64E70015D59B /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B03A6614AA64E70015D59B /* GHUnitIOS.framework */; };
 		F5C112731496715900948605 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE69F1410C6F60051FC7E /* UIKit.framework */; };
 		F5C112741496715900948605 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE6A11410C6F60051FC7E /* Foundation.framework */; };
@@ -149,7 +149,6 @@
 		F5F7BBB914D3EA3300669FE6 /* LjsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F572496F149F9AD6006C62A2 /* LjsButton.m */; };
 		F5F7BBBA14D3EA3700669FE6 /* LjsGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */; };
 		F5F7BBBB14D3EAA800669FE6 /* LjsFileUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F01410CC420051FC7E /* LjsFileUtilities.m */; };
-		F5F7BBBC14D3EABF00669FE6 /* TZReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AC61450B63B0065E516 /* TZReporter.m */; };
 		F5F7BBBD14D3EAE700669FE6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5724971149F9C00006C62A2 /* QuartzCore.framework */; };
 		F5F7BBC114D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */; };
 		F5F7BBC214D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */; };
@@ -199,7 +198,6 @@
 		F529524314232EB5009C67EE /* LjsValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsValidator.h; sourceTree = "<group>"; };
 		F529524414232EB5009C67EE /* LjsValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidator.m; sourceTree = "<group>"; };
 		F529524714232F47009C67EE /* LjsValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidatorTests.m; sourceTree = "<group>"; };
-		F532AD1F14AB62D800E48707 /* TZReporterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZReporterTests.m; sourceTree = "<group>"; };
 		F534EC1014B4A32C00FFC67F /* LjsRemotePlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRemotePlist.h; sourceTree = "<group>"; };
 		F534EC1114B4A32C00FFC67F /* LjsRemotePlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsRemotePlist.m; sourceTree = "<group>"; };
 		F54009E114B22253001EF805 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
@@ -225,8 +223,6 @@
 		F5448ABD1450B63B0065E516 /* LjsMessageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsMessageBuilder.h; sourceTree = "<group>"; };
 		F5448ABE1450B63B0065E516 /* LjsMessageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsMessageBuilder.m; sourceTree = "<group>"; };
 		F5448AC11450B63B0065E516 /* Lumberjack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lumberjack.h; sourceTree = "<group>"; };
-		F5448AC51450B63B0065E516 /* TZReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZReporter.h; sourceTree = "<group>"; };
-		F5448AC61450B63B0065E516 /* TZReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZReporter.m; sourceTree = "<group>"; };
 		F5448AC81450B63B0065E516 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		F5448AC91450B63B0065E516 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		F5448AD11450B6590065E516 /* LjsKeychainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsKeychainManager.h; sourceTree = "<group>"; };
@@ -377,6 +373,8 @@
 		F59635E9149665CC00CDB27E /* LjsTimePickerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsTimePickerDelegate.m; sourceTree = "<group>"; };
 		F59635EA149665CC00CDB27E /* UIViewController+ParentOrPresenting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ParentOrPresenting.h"; sourceTree = "<group>"; };
 		F59635EB149665CC00CDB27E /* UIViewController+ParentOrPresenting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ParentOrPresenting.m"; sourceTree = "<group>"; };
+		F59B5C0214D49628005D41E0 /* NSError+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+LjsAdditions.h"; sourceTree = "<group>"; };
+		F59B5C0314D49628005D41E0 /* NSError+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5B03A6614AA64E70015D59B /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnitIOS.framework; sourceTree = "<group>"; };
 		F5B03A6E14AA67620015D59B /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		F5B03A6F14AA67620015D59B /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -532,7 +530,6 @@
 				F50FE6DD1410CC250051FC7E /* LjsKeychainTests.m */,
 				F50FE6DE1410CC250051FC7E /* LjsVariatesTests.m */,
 				F529524714232F47009C67EE /* LjsValidatorTests.m */,
-				F532AD1F14AB62D800E48707 /* TZReporterTests.m */,
 				F515BF4E14C627EE007052FF /* LjsFileBackedStoreTests.m */,
 			);
 			path = Unit;
@@ -642,20 +639,10 @@
 				F54E3A681450E6D20059BF53 /* SBJSON */,
 				F54E3A1D1450E6A90059BF53 /* ASIHTTPRequest */,
 				F56147AE1450C72A00D2653A /* ocmock */,
-				F5448AC41450B63B0065E516 /* Reporter */,
 				F5448AC71450B63B0065E516 /* Security */,
 			);
 			name = ThirdParty;
 			path = ../ThirdParty;
-			sourceTree = "<group>";
-		};
-		F5448AC41450B63B0065E516 /* Reporter */ = {
-			isa = PBXGroup;
-			children = (
-				F5448AC51450B63B0065E516 /* TZReporter.h */,
-				F5448AC61450B63B0065E516 /* TZReporter.m */,
-			);
-			path = Reporter;
 			sourceTree = "<group>";
 		};
 		F5448AC71450B63B0065E516 /* Security */ = {
@@ -1023,6 +1010,8 @@
 			children = (
 				F5F7BBBF14D3EDDE00669FE6 /* UIColor+LjsAdditions.h */,
 				F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */,
+				F59B5C0214D49628005D41E0 /* NSError+LjsAdditions.h */,
+				F59B5C0314D49628005D41E0 /* NSError+LjsAdditions.m */,
 			);
 			name = Categories;
 			path = ../Categories;
@@ -1212,7 +1201,6 @@
 				F529524814232F47009C67EE /* LjsValidatorTests.m in Sources */,
 				F5448ACB1450B63B0065E516 /* LjsDefaultFormatter.m in Sources */,
 				F5448ACC1450B63B0065E516 /* LjsMessageBuilder.m in Sources */,
-				F5448ACF1450B63B0065E516 /* TZReporter.m in Sources */,
 				F54E39A21450E4570059BF53 /* ASIHTTPResponseUtils.m in Sources */,
 				F5448AD01450B63B0065E516 /* SFHFKeychainUtils.m in Sources */,
 				F5448AD31450B6590065E516 /* LjsKeychainManager.m in Sources */,
@@ -1263,7 +1251,6 @@
 				F59635EE149665CC00CDB27E /* UIViewController+ParentOrPresenting.m in Sources */,
 				F58013AB149E06F100692073 /* LjsLocationManager.m in Sources */,
 				F5724970149F9AD6006C62A2 /* LjsButton.m in Sources */,
-				F532AD2014AB62D800E48707 /* TZReporterTests.m in Sources */,
 				F54009F114B22253001EF805 /* DDAbstractDatabaseLogger.m in Sources */,
 				F54009F214B22253001EF805 /* DDASLLogger.m in Sources */,
 				F54009F314B22253001EF805 /* DDFileLogger.m in Sources */,
@@ -1285,6 +1272,7 @@
 				F50BD4F714CB78810037227B /* LjsRecessedButton.m in Sources */,
 				F5F7BBB714D3E90800669FE6 /* LjsGlassButton.m in Sources */,
 				F5F7BBC114D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */,
+				F59B5C0414D49628005D41E0 /* NSError+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1317,8 +1305,8 @@
 				F5F7BBB914D3EA3300669FE6 /* LjsButton.m in Sources */,
 				F5F7BBBA14D3EA3700669FE6 /* LjsGlassButton.m in Sources */,
 				F5F7BBBB14D3EAA800669FE6 /* LjsFileUtilities.m in Sources */,
-				F5F7BBBC14D3EABF00669FE6 /* TZReporter.m in Sources */,
 				F5F7BBC214D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */,
+				F59B5C0514D49628005D41E0 /* NSError+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -62,7 +62,7 @@
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
 #import "LjsTestCase.h"
-#import "LjsFileBackedStore.h"
+#import "LjsFileBackedKeyStore.h"
 #import "LjsFileUtilities.h"
 
 @interface LjsFileBackedStoreTests : LjsTestCase {}
@@ -106,7 +106,7 @@
 }  
 
 - (void) test_initWithFilepathDirectoryStore {
-  LjsFileBackedStore *store;
+  LjsFileBackedKeyStore *store;
   NSString *filename, *directory;
   NSDictionary *dict;
   BOOL overwrite;
@@ -134,7 +134,7 @@
   filename = @"test-name.plist";
   overwrite = NO;
   
-  store = [[LjsFileBackedStore alloc]
+  store = [[LjsFileBackedKeyStore alloc]
            initWithFileName:filename
            directoryPath:directory
            defaultStore:dict

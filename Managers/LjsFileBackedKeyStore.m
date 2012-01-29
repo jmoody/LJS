@@ -45,7 +45,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @synthesize filepath;
 @synthesize store;
-@synthesize reporter;
 
 #pragma mark Memory Management
 - (void) dealloc {
@@ -67,14 +66,18 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     BOOL directoryExists = [LjsFileUtilities ensureSaveDirectory:aDirectoryPath
                                                existsWithManager:fm];
     if (directoryExists == NO) {
-      NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aDirectoryPath
-                                                           forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
       NSString *message = NSLocalizedString(@"Could not create directory", nil);
       DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
                          message, aDirectoryPath]);
-      *error = [self.reporter errorWithCode:LjsFileUtilitiesFileDoesNotExistErrorCode
-                                description:message
-                                   userInfo:userInfo];
+      if (error != NULL) {
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aDirectoryPath
+                                                             forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
+
+        *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
+                                     code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+                     localizedDescription:message
+                            otherUserInfo:userInfo];
+      }
       return nil;
     }
     
@@ -126,14 +129,18 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     BOOL directoryExists = [LjsFileUtilities ensureSaveDirectory:aDirectoryPath
                                                existsWithManager:fm];
     if (directoryExists == NO) {
-      NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aDirectoryPath
-                                                           forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
       NSString *message = NSLocalizedString(@"Could not create directory", nil);
       DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
                          message, aDirectoryPath]);
-      *error = [self.reporter errorWithCode:LjsFileUtilitiesFileDoesNotExistErrorCode
-                                description:message
-                                   userInfo:userInfo];
+      if (error != NULL) {
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aDirectoryPath
+                                                             forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
+        *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
+                                     code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+                     localizedDescription:message
+                            otherUserInfo:userInfo];
+      }
+
       return nil;
     }
     

@@ -29,8 +29,7 @@
 
 #import <Foundation/Foundation.h>
 #import "LjsBackingStore.h"
-#import "TZReporter.h"
-
+#import "NSError+LjsAdditions.h"
 
 
 /**
@@ -41,7 +40,6 @@
 /** @name Properties */
 @property (nonatomic, copy) NSString *filepath;
 @property (nonatomic, strong) NSMutableDictionary *store;
-@property (nonatomic, strong) TZReporter *reporter;
 
 /** @name Initializing Objects */
 

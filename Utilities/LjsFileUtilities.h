@@ -42,6 +42,8 @@ typedef enum {
 
 + (NSString *) findDocumentDirectoryPath;
 + (BOOL) ensureSaveDirectory:(NSString *) path existsWithManager:(NSFileManager *) fileManager;
++ (BOOL) ensureDirectory:(NSString *) directoryPath error:(NSError *__autoreleasing *) error;
+
 + (NSString *) parentDirectoryForPath:(NSString *) childPath;
 
 #if !TARGET_OS_IPHONE
@@ -57,8 +59,20 @@ typedef enum {
 
 
 + (BOOL) writeDictionary:(NSDictionary *) aDict toFile:(NSString *) aPath error:(NSError *__autoreleasing *) error;
++ (BOOL) writeDictionary:(NSDictionary *) aDict 
+                  toFile:(NSString *) aPath 
+       ensureDirectories:(BOOL) aShouldCreateDirectories
+                   error:(NSError *__autoreleasing *) error;
+
 + (NSDictionary *) readDictionaryFromFile:(NSString *) aPath error:(NSError *__autoreleasing *) error;
 + (BOOL) writeArray:(NSArray *) aArray toFile:(NSString *) aPath error:(NSError *__autoreleasing *) error;
+
++ (BOOL) writeArray:(NSArray *) aArray 
+             toFile:(NSString *) aPath 
+  ensureDirectories:(BOOL) aShouldCreateDirectories
+              error:(NSError *__autoreleasing *) error;
+
+
 + (NSArray *) readArrayFromFile:(NSString *) aPath error:(NSError *__autoreleasing *) error;
 
 
