@@ -44,6 +44,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 NSString *LjsFileUtilitiesErrorDomain = @"com.littlejoysoftware.ljs LjsFileUtilities Error";
 NSString *LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey = @"com.littlejoysoftware.ljs LjsFileUtilities File or Directory Error User Info Key";
 
+static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
 
 /**
  LjsFileUtilities provides class methods to help with common file operations.
@@ -125,6 +126,26 @@ NSString *LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey = @"com.littlejoysoftw
                                       NSUserDomainMask, 
                                       YES);
   return [dirPaths objectAtIndex:0];
+}
+
+
++ (NSString *) findLibraryDirectoryPath:(BOOL) forUser {
+  NSSearchPathDomainMask mask;
+  if (forUser == YES) {
+    mask = NSUserDomainMask;
+  } else {
+    mask = NSLocalDomainMask;
+  }
+  NSArray *dirPaths = 
+  NSSearchPathForDirectoriesInDomains(NSLibraryDirectory,
+                                      mask, 
+                                      YES);
+  return [dirPaths objectAtIndex:0];
+}
+
++ (NSString *) findLibraryPreferencesPath:(BOOL) forUser {
+  NSString *library = [LjsFileUtilities findLibraryDirectoryPath:forUser];
+  return [library stringByAppendingPathComponent:LjsFileUtilitiesPreferencesDirectory];
 }
 
 

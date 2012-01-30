@@ -41,6 +41,9 @@ typedef enum {
 @interface LjsFileUtilities : NSObject 
 
 + (NSString *) findDocumentDirectoryPath;
++ (NSString *) findLibraryDirectoryPath:(BOOL) forUser;
++ (NSString *) findLibraryPreferencesPath:(BOOL) forUser;
+
 + (BOOL) ensureSaveDirectory:(NSString *) path existsWithManager:(NSFileManager *) fileManager;
 + (BOOL) ensureDirectory:(NSString *) directoryPath error:(NSError *__autoreleasing *) error;
 

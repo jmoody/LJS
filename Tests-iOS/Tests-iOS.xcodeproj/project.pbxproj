@@ -143,6 +143,8 @@
 		F5C1127B1496715900948605 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5C112791496715900948605 /* InfoPlist.strings */; };
 		F5C1127D1496715900948605 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1127C1496715900948605 /* main.m */; };
 		F5C112811496715900948605 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C112801496715900948605 /* AppDelegate.m */; };
+		F5CA979914D6B3BE00745622 /* UIView+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CA979814D6B3BE00745622 /* UIView+LjsAdditions.m */; };
+		F5CA979A14D6B3BE00745622 /* UIView+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CA979814D6B3BE00745622 /* UIView+LjsAdditions.m */; };
 		F5D3581F14B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
 		F5D3582014B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
 		F5F7BBB714D3E90800669FE6 /* LjsGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */; };
@@ -390,6 +392,8 @@
 		F5C1127E1496715900948605 /* Documentation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Documentation-Prefix.pch"; sourceTree = "<group>"; };
 		F5C1127F1496715900948605 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F5C112801496715900948605 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F5CA979714D6B3BE00745622 /* UIView+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5CA979814D6B3BE00745622 /* UIView+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5D3581B14B805B50022E24E /* LjsBackingStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsBackingStore.h; sourceTree = "<group>"; };
 		F5D3581D14B8065E0022E24E /* LjsUserDefaultsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsUserDefaultsStore.h; sourceTree = "<group>"; };
 		F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsUserDefaultsStore.m; sourceTree = "<group>"; };
@@ -1012,6 +1016,8 @@
 				F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */,
 				F59B5C0214D49628005D41E0 /* NSError+LjsAdditions.h */,
 				F59B5C0314D49628005D41E0 /* NSError+LjsAdditions.m */,
+				F5CA979714D6B3BE00745622 /* UIView+LjsAdditions.h */,
+				F5CA979814D6B3BE00745622 /* UIView+LjsAdditions.m */,
 			);
 			name = Categories;
 			path = ../Categories;
@@ -1273,6 +1279,7 @@
 				F5F7BBB714D3E90800669FE6 /* LjsGlassButton.m in Sources */,
 				F5F7BBC114D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */,
 				F59B5C0414D49628005D41E0 /* NSError+LjsAdditions.m in Sources */,
+				F5CA979914D6B3BE00745622 /* UIView+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1307,6 +1314,7 @@
 				F5F7BBBB14D3EAA800669FE6 /* LjsFileUtilities.m in Sources */,
 				F5F7BBC214D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */,
 				F59B5C0514D49628005D41E0 /* NSError+LjsAdditions.m in Sources */,
+				F5CA979A14D6B3BE00745622 /* UIView+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
