@@ -10,12 +10,76 @@
 #endif
 
 #import "LoremIpsum.h"
+#import "LjsVariates.h"
 
 @interface LoremIpsum ()
 - (NSString*) randomWord;
 @end
 
 @implementation LoremIpsum
+
+
+
+#pragma mark -
+
+- (NSString*) randomWord {
+  return [LjsVariates randomElement:_words];
+}
+
+
+#pragma mark -
+
+- (NSString*) words:(NSUInteger)count {
+  if (count==0) return @"";
+  
+  NSString* collectedWords = [self randomWord];
+  for (NSUInteger i=0; i<count; i++) {
+    collectedWords = [collectedWords stringByAppendingString:@" "];
+    collectedWords = [collectedWords stringByAppendingString:[self randomWord]];
+  }
+  
+  NSString* words = [collectedWords copy];
+
+  return words;
+}
+
+- (NSString *) characters:(NSUInteger) count {
+  NSMutableString *accumulator = [NSMutableString string];
+  
+  [accumulator appendString:[self randomWord]];
+  
+  while ([accumulator length] < count) {
+    [accumulator appendFormat:@" %@", [self randomWord]];
+  }
+    
+  NSString *result = [accumulator substringToIndex:count];
+  result = [accumulator stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+  if ([result length] != count) {
+    result = [result stringByAppendingString:@"."];
+  }
+  
+  return result;
+}
+
+- (NSString*) sentences:(NSUInteger)count {
+    NSMutableString *result = [NSMutableString string];
+    for (NSUInteger i = 0; i < count; i++) {
+      long numberOfWords = [LjsVariates randomIntegerWithMin:10 max:20];
+      NSMutableString *sentence = [[self words:numberOfWords] mutableCopy];
+      NSString *firstChar = [sentence substringWithRange:NSMakeRange(0, 1)];
+      firstChar = [firstChar uppercaseString];
+      [sentence replaceCharactersInRange:NSMakeRange(0, 1) withString:firstChar];
+      [result appendString:sentence];
+      
+      
+      if (i+1 == count) { //last sentence
+        [result appendString:@"."];
+      } else {            
+        [result appendString:@". "];
+      }
+    }
+  return  result;
+}
 
 - (id) init {
   if ((self = [super init]))  {
@@ -1025,48 +1089,5 @@
   return self;
 }
 
-
-#pragma mark -
-
-- (NSString*) randomWord {
-  NSUInteger randomIndex = random() % [_words count];
-  return [_words objectAtIndex:randomIndex];
-}
-
-#pragma mark -
-
-- (NSString*) words:(NSUInteger)count {
-  if (count==0) return @"";
-  
-  NSString* collectedWords = [self randomWord];
-  for (NSUInteger i=0; i<count; i++) {
-    collectedWords = [collectedWords stringByAppendingString:@" "];
-    collectedWords = [collectedWords stringByAppendingString:[self randomWord]];
-  }
-  
-  NSString* words = [collectedWords copy];
-
-  return words;
-}
-
-- (NSString*) sentences:(NSUInteger)count {
-    NSMutableString *result = [NSMutableString string];
-    for (NSUInteger i = 0; i < count; i++) {
-        long numberOfWords = random() % 10 + 10; //range from 10-20 words
-        NSMutableString *sentence = [[self words:numberOfWords] mutableCopy];
-        NSString *firstChar = [sentence substringWithRange:NSMakeRange(0, 1)];
-        firstChar = [firstChar uppercaseString];
-        [sentence replaceCharactersInRange:NSMakeRange(0, 1) withString:firstChar];
-        [result appendString:sentence];
-       
-        
-        if (i+1 == count) { //last sentence
-            [result appendString:@"."];
-        } else {            
-            [result appendString:@". "];
-        }
-    }
-    return  result;
-}
 
 @end

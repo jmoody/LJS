@@ -173,6 +173,12 @@ static const float ARC4RANDOM_MAX = 0x100000000;
   return NO;
 }
 
++ (id) randomElement:(NSArray *) array {
+  NSInteger max = [array count] - 1;
+  NSInteger index = [LjsVariates randomIntegerWithMin:0 max:max];
+  return [array objectAtIndex:index];
+}
+
 + (NSString *) randomStringWithLength:(NSUInteger) length {
   
   NSString *result = @"";
