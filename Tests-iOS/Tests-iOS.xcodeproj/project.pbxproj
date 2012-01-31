@@ -30,6 +30,8 @@
 		F51C63FE14B7917100F1841B /* LjsTextAndFont.m in Sources */ = {isa = PBXBuildFile; fileRef = F51C63FC14B7917100F1841B /* LjsTextAndFont.m */; };
 		F529524514232EB5009C67EE /* LjsValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524414232EB5009C67EE /* LjsValidator.m */; };
 		F529524814232F47009C67EE /* LjsValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524714232F47009C67EE /* LjsValidatorTests.m */; };
+		F5314A3314D88E8A007FC70C /* LoremIpsumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5314A3214D88E8A007FC70C /* LoremIpsumTests.m */; };
+		F5314A3414D88E8A007FC70C /* LoremIpsumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5314A3214D88E8A007FC70C /* LoremIpsumTests.m */; };
 		F54009F114B22253001EF805 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E214B22253001EF805 /* DDAbstractDatabaseLogger.m */; };
 		F54009F214B22253001EF805 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E414B22253001EF805 /* DDASLLogger.m */; };
 		F54009F314B22253001EF805 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E614B22253001EF805 /* DDFileLogger.m */; };
@@ -200,6 +202,7 @@
 		F529524314232EB5009C67EE /* LjsValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsValidator.h; sourceTree = "<group>"; };
 		F529524414232EB5009C67EE /* LjsValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidator.m; sourceTree = "<group>"; };
 		F529524714232F47009C67EE /* LjsValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidatorTests.m; sourceTree = "<group>"; };
+		F5314A3214D88E8A007FC70C /* LoremIpsumTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoremIpsumTests.m; sourceTree = "<group>"; };
 		F534EC1014B4A32C00FFC67F /* LjsRemotePlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRemotePlist.h; sourceTree = "<group>"; };
 		F534EC1114B4A32C00FFC67F /* LjsRemotePlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsRemotePlist.m; sourceTree = "<group>"; };
 		F54009E114B22253001EF805 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
@@ -535,6 +538,7 @@
 				F50FE6DE1410CC250051FC7E /* LjsVariatesTests.m */,
 				F529524714232F47009C67EE /* LjsValidatorTests.m */,
 				F515BF4E14C627EE007052FF /* LjsFileBackedStoreTests.m */,
+				F5314A3214D88E8A007FC70C /* LoremIpsumTests.m */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -1280,6 +1284,7 @@
 				F5F7BBC114D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */,
 				F59B5C0414D49628005D41E0 /* NSError+LjsAdditions.m in Sources */,
 				F5CA979914D6B3BE00745622 /* UIView+LjsAdditions.m in Sources */,
+				F5314A3314D88E8A007FC70C /* LoremIpsumTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1315,6 +1320,7 @@
 				F5F7BBC214D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */,
 				F59B5C0514D49628005D41E0 /* NSError+LjsAdditions.m in Sources */,
 				F5CA979A14D6B3BE00745622 /* UIView+LjsAdditions.m in Sources */,
+				F5314A3414D88E8A007FC70C /* LoremIpsumTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -53,7 +53,7 @@
   }
     
   NSString *result = [accumulator substringToIndex:count];
-  result = [accumulator stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+  result = [result stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
   if ([result length] != count) {
     result = [result stringByAppendingString:@"."];
   }
