@@ -12,11 +12,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (void) centerWithX:(CGFloat) x {
   CGFloat selfy = self.center.y;
   self.center = CGPointMake(x, selfy);
+  [self setNeedsDisplay];
 }
 
 - (void) centerWithY:(CGFloat) y {
   CGFloat selfx = self.center.x;
   self.center = CGPointMake(selfx, y);
+  [self setNeedsDisplay];
 }
 
 - (void) centerXToView:(UIView *) aView {
