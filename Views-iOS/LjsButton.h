@@ -42,11 +42,20 @@
 
 - (void) setHighColor:(UIColor *) aColor;
 - (void) setLowColor:(UIColor * ) aColor;
+
 - (void) setHighColor:(UIColor *) highColor
              lowColor:(UIColor *) lowColor;
+
 - (void) setBorderColor:(UIColor *) color 
             borderWidth:(CGFloat) width 
            cornerRadius:(CGFloat) radius;
+
+- (void) resetBounds;
+
+- (void) setNormalAndHiglightedTitleWithFont:(UIFont *) aFont
+                                       color:(UIColor *) aColor
+                                       title:(NSString *) aTitle;
+
 
 
 @end

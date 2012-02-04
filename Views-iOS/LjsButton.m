@@ -118,5 +118,24 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [[self layer] setNeedsDisplay];
 }
 
+- (void) resetBounds {
+  self.gradientLayer.bounds = self.bounds;
+  CGFloat width = self.bounds.size.width/2;
+  CGFloat height = self.bounds.size.height/2;
+  [self.gradientLayer setPosition:CGPointMake(width, height)];
+}
+
+
+- (void) setNormalAndHiglightedTitleWithFont:(UIFont *) aFont
+                                       color:(UIColor *) aColor
+                                       title:(NSString *) aTitle {
+  self.titleLabel.font = aFont;
+  [self setTitle:aTitle forState:UIControlStateNormal];
+  [self setTitle:aTitle forState:UIControlStateHighlighted];
+  [self setTitleColor:aColor forState:UIControlStateNormal];
+  [self setTitleColor:aColor forState:UIControlStateHighlighted];
+}
+
+
 
 @end
