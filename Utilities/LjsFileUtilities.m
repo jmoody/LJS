@@ -35,11 +35,12 @@
 #include "TargetConditionals.h"
 
 
-#ifdef LOG_CONFIGURATION_DEBUG
-static const int ddLogLevel = LOG_LEVEL_DEBUG;
-#else
 static const int ddLogLevel = LOG_LEVEL_WARN;
-#endif
+//#ifdef LOG_CONFIGURATION_DEBUG
+//static const int ddLogLevel = LOG_LEVEL_DEBUG;
+//#else
+//static const int ddLogLevel = LOG_LEVEL_WARN;
+//#endif
 
 NSString *LjsFileUtilitiesErrorDomain = @"com.littlejoysoftware.ljs LjsFileUtilities Error";
 NSString *LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey = @"com.littlejoysoftware.ljs LjsFileUtilities File or Directory Error User Info Key";
