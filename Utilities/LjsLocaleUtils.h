@@ -45,5 +45,6 @@
 
 + (NSLocale *) localeWith12hourClock;
 + (NSLocale *) localeWith24hourClock;
++ (NSLocale *) localeWithMondayAsFirstDayOfWeek;
 
 @end

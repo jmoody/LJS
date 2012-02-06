@@ -44,6 +44,13 @@ extern NSString *LjsDateHelperMinutesNumberKey;
 extern NSString *LjsHoursMinutesSecondsDateFormat;
 extern NSString *LjsHoursMinutesSecondsMillisDateFormat;
 
+extern NSTimeInterval const LjsSecondsInMinute;
+extern NSTimeInterval const LjsSecondsInHour;
+extern NSTimeInterval const LjsSecondsInDay;
+extern NSTimeInterval const LjsSecondsInWeek;
+extern NSTimeInterval const LjsSecondsInTropicalYear;
+extern NSTimeInterval const LjsSecondsInYear;
+
 /**
  Date handling is a pain, especially on iOS devices where user settings can 
  override explicit date formatting and locale conventions.  LjsDateHelper 
@@ -62,6 +69,16 @@ extern NSString *LjsHoursMinutesSecondsMillisDateFormat;
       NSLocale *twelveHourLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
       [formatter setLocale:twelveHourLocale];
  
+ */
+
+/*
+ Have a look at this:
+ 
+ Managing AM and PM Symbols
+ – AMSymbol
+ – setAMSymbol:
+ – PMSymbol
+ – setPMSymbol:
  */
 @interface LjsDateHelper : NSObject
 
@@ -119,6 +136,14 @@ extern NSString *LjsHoursMinutesSecondsMillisDateFormat;
 + (NSString *) stringWithTimeInterval:(NSTimeInterval) interval;
 + (NSString *) stringWithTimeInterval:(NSTimeInterval)interval 
                             formatter:(NSDateFormatter *) formatter;
+
++ (NSUInteger) weekOfYearWithDate:(NSDate *) aDate;
++ (NSUInteger) weekOfMonthWithDate:(NSDate *) aDate;
++ (NSUInteger) dayOfMonthWithDate:(NSDate *) aDate;
++ (NSDate *) lastDayOfMonthWithDate:(NSDate *) aDate;
++ (NSDate *) firstDayOfMonthWithDate:(NSDate *) aDate;
+
+
 
 
 #pragma mark DEAD SEA

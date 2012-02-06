@@ -905,94 +905,119 @@
 
 }
 
+- (void) test_weekOfYearWithDate {
+  NSDate *date;
+  NSInteger actual, expected;
+  
+  date = [NSDate dateWithTimeIntervalSince1970:0];
+  expected = 1;
+  actual = [LjsDateHelper weekOfYearWithDate:date];
+  GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil);
+  
+
+  NSTimeInterval secondsInYear = LjsSecondsInTropicalYear;
+
+  date = [NSDate dateWithTimeIntervalSince1970:secondsInYear];
+  expected = 53;
+  actual = [LjsDateHelper weekOfYearWithDate:date];
+  GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil);
+
+  
+  NSUInteger jan1st2012 = 2012 - 1970;
+  
+  date = [NSDate dateWithTimeIntervalSince1970:secondsInYear * jan1st2012];
+  expected = 52;
+  actual = [LjsDateHelper weekOfYearWithDate:date];
+  GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil);
+
+  NSTimeInterval secondsInWeek = LjsSecondsInWeek;
+  date = [NSDate dateWithTimeIntervalSince1970:(secondsInYear * jan1st2012) + secondsInWeek + 1];
+  expected = 1;
+  actual = [LjsDateHelper weekOfYearWithDate:date];
+  GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil);  
+
+  date = [NSDate dateWithTimeIntervalSince1970:(secondsInYear * jan1st2012) + (secondsInWeek * 2)+ 1];
+  expected = 2;
+  actual = [LjsDateHelper weekOfYearWithDate:date];
+  GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil);  
+
+}
+
+- (void) test_weekOfMonth {
+  NSDate *date;
+  NSInteger actual, expected;
+
+  // a sunday
+  NSUInteger yearsBetween = 2012 - 1970;
+  NSTimeInterval secondsInYear = LjsSecondsInTropicalYear;
+  // a sunday
+  NSDate *jan1st2012 = [NSDate dateWithTimeIntervalSince1970:secondsInYear * yearsBetween];
+  date = jan1st2012;
+  expected = 1;
+  actual = [LjsDateHelper weekOfMonthWithDate:date];
+  GHTestLog(@"actual week = %d : %@", actual, date);
+  GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil);  
+  
+  NSTimeInterval secondsInADay = LjsSecondsInDay;
+  date = [jan1st2012 dateByAddingTimeInterval:secondsInADay];
+  expected = 2;
+  actual = [LjsDateHelper weekOfMonthWithDate:date];
+  GHTestLog(@"actual week = %d : %@", actual, date);
+  GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil);  
+
+  date = [jan1st2012 dateByAddingTimeInterval:secondsInADay * 2];
+  expected = 2;
+  actual = [LjsDateHelper weekOfMonthWithDate:date];
+  GHTestLog(@"actual week = %d : %@", actual, date);
+  GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil); 
+
+  date = [jan1st2012 dateByAddingTimeInterval:secondsInADay * 7];
+  expected = 2;
+  actual = [LjsDateHelper weekOfMonthWithDate:date];
+  GHTestLog(@"actual week = %d : %@", actual, date);
+  GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil); 
+
+  date = [jan1st2012 dateByAddingTimeInterval:secondsInADay * 8];
+  expected = 3;
+  actual = [LjsDateHelper weekOfMonthWithDate:date];
+  GHTestLog(@"actual week = %d : %@", actual, date);
+  GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil); 
+
+  
+  date = [jan1st2012 dateByAddingTimeInterval:secondsInADay * 30];
+  expected = 6;
+  actual = [LjsDateHelper weekOfMonthWithDate:date];
+  GHTestLog(@"actual week = %d : %@", actual, date);
+  GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil); 
+
+  date = [jan1st2012 dateByAddingTimeInterval:secondsInADay * 31];
+  expected = 1;
+  actual = [LjsDateHelper weekOfMonthWithDate:date];
+  GHTestLog(@"actual week = %d : %@", actual, date);
+  GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil); 
+
+}
+
+- (void) test_lastDayOfMonthWithDate {
+  NSDate *date, *actual;
+  
+  date = [NSDate date];
+  actual = [LjsDateHelper lastDayOfMonthWithDate:date];
+  GHTestLog(@"last day of month = %@", [actual descriptionWithLocale:[NSLocale currentLocale]]);
+}
+
+- (void) test_firstDayOfMonthWithDate {
+  NSDate *date, *actual;
+  
+  date = [NSDate date];
+  actual = [LjsDateHelper firstDayOfMonthWithDate:date];
+  GHTestLog(@"first day of month = %@", [actual descriptionWithLocale:[NSLocale currentLocale]]);
+}
+
+
+
 
 #pragma mark DEAD SEA 
-
-//- (void) test_hourMinutesWithDateAndDateWithHourMinutesString {
-//  NSDateFormatter *longFormatter = [[[NSDateFormatter alloc]
-//                                 init] autorelease];
-//  NSString *longFormatString = @"yyyy-MM-dd HH:mm a";
-//  [longFormatter setDateFormat:longFormatString];
-//  
-//  NSDate *dateResult = [LjsDateHelper dateWithHourMinutesString:@"11:14 PM"];
-//  NSString *dateString = [longFormatter stringFromDate:dateResult];
-//  NSString *hoursMinutesString = [LjsDateHelper hourMinutesWithDate:dateResult];
-//#if TARGET_IPHONE_SIMULATOR
-//  NSString *expectedDate = @"1970-01-01 23:14 PM";
-//  NSString *expectedString = @"11:14";
-//#else
-//  NSString *expectedDate = @"1970-01-01 23:14";
-//  NSString *expectedString = @"23:14";
-//#endif
-//  GHAssertEqualStrings(dateString, expectedDate, nil);
-//  GHAssertEqualStrings(hoursMinutesString, expectedString, nil);
-//  
-//  
-//  dateResult = [LjsDateHelper dateWithHourMinutesString:@"10:14 AM"];
-//  dateString = [longFormatter stringFromDate:dateResult];
-//  hoursMinutesString = [LjsDateHelper hourMinutesWithDate:dateResult];
-//#if TARGET_IPHONE_SIMULATOR
-//  expectedDate = @"1970-01-01 10:14 AM";
-//#else
-//  expectedDate = @"1970-01-01 10:14";
-//#endif
-//  GHAssertEqualStrings(dateString, expectedDate, nil);
-//  GHAssertEqualStrings(hoursMinutesString, expectedString, nil);
-//
-//  
-//  dateResult = [LjsDateHelper dateWithHourMinutesString:@"1:14 AM"];
-//  dateString = [longFormatter stringFromDate:dateResult];
-//  hoursMinutesString = [LjsDateHelper hourMinutesWithDate:dateResult];
-//#if TARGET_IPHONE_SIMULATOR
-//  expectedDate = @"1970-01-01 01:14 AM";
-//  expectedString = @"1:14 AM";
-//#else
-//  expectedDate = @"1970-01-01 01:14";
-//  expectedString = @"1:14";
-//#endif
-//  GHAssertEqualStrings(dateString, expectedDate, nil);
-//  GHAssertEqualStrings(hoursMinutesString, expectedString, nil);
-//  
-//  
-//  dateResult = [LjsDateHelper dateWithHourMinutesString:@"7:14 PM"];
-//  dateString = [longFormatter stringFromDate:dateResult];
-//  hoursMinutesString = [LjsDateHelper hourMinutesWithDate:dateResult];
-//#if TARGET_IPHONE_SIMULATOR
-//  expectedDate = @"1970-01-01 19:14 PM";
-//  expectedString = @"7:14 PM";
-//#else
-//  expectedDate = @"1970-01-01 19:14";
-//  expectedString = @"19:14";
-//#endif
-//  GHAssertEqualStrings(dateString, expectedDate, nil);
-//  GHAssertEqualStrings(hoursMinutesString, expectedString, nil);
-//
-//  dateResult = [LjsDateHelper dateWithHourMinutesString:@"17:14"];
-//  dateString = [longFormatter stringFromDate:dateResult];
-//  hoursMinutesString = [LjsDateHelper hourMinutesWithDate:dateResult];
-//#if TARGET_IPHONE_SIMULATOR
-//  expectedDate = @"1970-01-01 17:14 PM";
-//  expectedString = @"5:14 PM";
-//#else
-//  expectedDate = @"1970-01-01 17:14";
-//  expectedString = @"17:14";
-//#endif
-//  GHAssertEqualStrings(dateString, expectedDate, nil);
-//  GHAssertEqualStrings(hoursMinutesString, expectedString, nil);
-//
-//  dateResult = [LjsDateHelper dateWithHourMinutesString:@"2:14"];
-//  dateString = [longFormatter stringFromDate:dateResult];
-//  hoursMinutesString = [LjsDateHelper hourMinutesWithDate:dateResult];
-//#if TARGET_IPHONE_SIMULATOR
-//  expectedDate = @"1970-01-01 02:14 AM";
-//  expectedString = @"2:14 AM";
-//#else
-//  expectedDate = @"1970-01-01 02:14";
-//  expectedString = @"2:14";
-//#endif
-//  GHAssertEqualStrings(dateString, expectedDate, nil);
-//  GHAssertEqualStrings(hoursMinutesString, expectedString, nil);
-//}
 
 
 

@@ -31,6 +31,7 @@
 
 #import "LjsDateHelper.h"
 #import "LjsValidator.h"
+#import "LjsLocaleUtils.h"
 #import "Lumberjack.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -38,6 +39,14 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 #else
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
+
+NSTimeInterval const LjsSecondsInMinute = 60;
+NSTimeInterval const LjsSecondsInHour = 3600;
+NSTimeInterval const LjsSecondsInDay = 86400;
+NSTimeInterval const LjsSecondsInWeek = 604800;
+NSTimeInterval const LjsSecondsInTropicalYear = 31556925.9936;
+NSTimeInterval const LjsSecondsInYear = 31556926;
+
 
 NSString *LjsDateHelperCanonicalAM = @"AM";
 NSString *LjsDateHelperCanonicalPM = @"PM";
@@ -811,6 +820,114 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 + (NSLocale *) twentyFourHourLocale {
   return [[NSLocale alloc] initWithLocaleIdentifier:@"en_GB"];
 }
+
+/*
+ http://stackoverflow.com/questions/8037897/how-to-get-a-week-number-from-nsdate-consistently-in-all-ios-versions
+ */
++ (NSUInteger) weekOfYearWithDate:(NSDate *)aDate {
+  // indicates something is amiss
+  NSUInteger result = 0;
+  
+  NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+  // iOS 5 and 10.7
+  [calendar setMinimumDaysInFirstWeek:4];
+  // monday
+  [calendar setFirstWeekday:2];
+  
+  NSUInteger flags;
+  NSDateComponents *components = [[NSDateComponents alloc] init];
+  // iOS 5.0 and 10.7 - strangely weekOfYear did not work here
+  if ([components respondsToSelector:@selector(setWeekOfYear:)]) {
+       flags = NSWeekOfYearCalendarUnit;
+  } else {
+    flags = NSWeekCalendarUnit;
+  }
+  
+  components = [calendar components:flags fromDate:aDate];
+  // iOS 5.0 and 10.7
+  if ([components respondsToSelector:@selector(weekOfYear)]) {
+    result = (NSUInteger) [components weekOfYear];
+  } else {
+    result = (NSUInteger) [components week];
+  }  
+  return result;
+}
+
+
++ (NSUInteger) weekOfMonthWithDate:(NSDate *) aDate {
+  // indicates something is amiss
+  NSUInteger result = 0;
+
+  NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+  NSDateComponents *components = [[NSDateComponents alloc] init];
+
+  if ([components respondsToSelector:@selector(setWeekOfMonth:)]) {
+    // setting this causes Sun Jan 1 2012 to return 0
+    //[calendar setMinimumDaysInFirstWeek:4];
+    // Monday
+    [calendar setFirstWeekday:2];
+    components = [calendar components:NSWeekOfMonthCalendarUnit fromDate:aDate];
+    result = (NSUInteger) [components weekOfMonth];
+    
+    
+    
+  } else {
+    [calendar setFirstWeekday:2];
+    [calendar setMinimumDaysInFirstWeek:1];
+ 
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setCalendar:calendar];
+    [formatter setLocale:[LjsLocaleUtils localeWithMondayAsFirstDayOfWeek]];
+    [formatter setDateFormat:@"W"];
+    NSString *dateStr = [formatter stringFromDate:aDate];
+    result = (NSUInteger) [dateStr integerValue];
+  }
+  return result;
+}
+
++ (NSUInteger) dayOfMonthWithDate:(NSDate *) aDate {
+  NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+  NSUInteger dayOfMonth = [calendar ordinalityOfUnit:NSDayCalendarUnit
+                                              inUnit:NSMonthCalendarUnit
+                                             forDate:aDate];
+  return dayOfMonth;
+}
+
++ (NSDate *) lastDayOfMonthWithDate:(NSDate *) aDate {
+  NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+  [calendar setTimeZone:[NSTimeZone localTimeZone]];
+  NSInteger flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+  
+	NSDateComponents *components;
+  components = [calendar components:flags fromDate:aDate];
+	NSInteger month = [components month] + 1;
+  [components setMonth:month];
+  [components setDay:0];
+  [components setHour:0];
+  [components setMinute:0];
+  [components setSecond:0];
+  NSDate *result = [calendar dateFromComponents:components];
+  result = [result dateByAddingTimeInterval:LjsSecondsInDay - 1];
+  return result;
+}
+
++ (NSDate *) firstDayOfMonthWithDate:(NSDate *) aDate {
+  NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+  [calendar setTimeZone:[NSTimeZone localTimeZone]];
+  NSInteger flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+  
+	NSDateComponents *components;
+  components = [calendar components:flags fromDate:aDate];
+  [components setDay:1];
+  [components setHour:0];
+  [components setMinute:0];
+  [components setSecond:0];
+  NSDate *result = [calendar dateFromComponents:components];
+  return result;
+
+}
+
+
 
 
 #pragma mark DEAD SEA

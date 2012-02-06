@@ -17,4 +17,5 @@
 - (NSString *) centerToString;
 - (NSString *) boundsToString;
 
+- (BOOL) containsSubviewWithTag:(NSInteger) aTag;
 @end

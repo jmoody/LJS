@@ -98,5 +98,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return  [[NSLocale alloc] initWithLocaleIdentifier:@"en_GB"];
 }
 
++ (NSLocale *) localeWithMondayAsFirstDayOfWeek {
+  return [[NSLocale alloc] initWithLocaleIdentifier:@"en_AU"];
+}
+
+
 
 @end
