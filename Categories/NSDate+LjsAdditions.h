@@ -122,6 +122,38 @@ typedef struct LjsDateComps LjsDateComps;
 + (NSDate *) dateWithComponents:(LjsDateComps) aComponents
                        calendar:(NSCalendar *) aCalendar;
 
++ (NSDate *) dateWithYear:(NSUInteger) aYear
+                    month:(NSUInteger) aMonth
+                      day:(NSUInteger) aDay
+                     hour:(NSUInteger) aHour
+                   minute:(NSUInteger) aMinute
+                   second:(NSUInteger) aSecond;
+
++ (NSDate *) dateWithYear:(NSUInteger) aYear
+                    month:(NSUInteger) aMonth
+                      day:(NSUInteger) aDay
+                     hour:(NSUInteger) aHour
+                   minute:(NSUInteger) aMinute
+                   second:(NSUInteger) aSecond
+                 timeZone:(NSTimeZone *) aTimeZone;
+
++ (NSDate *) dateWithYear:(NSUInteger) aYear
+                    month:(NSUInteger) aMonth
+                      day:(NSUInteger) aDay
+                     hour:(NSUInteger) aHour
+                   minute:(NSUInteger) aMinute
+                   second:(NSUInteger) aSecond
+                 calendar:(NSCalendar *) aCalendar;
+
+
++ (NSDate *) dateWithYear:(NSUInteger) aYear
+                    month:(NSUInteger) aMonth
+                      day:(NSUInteger) aDay
+                     hour:(NSUInteger) aHour
+                   minute:(NSUInteger) aMinute
+                   second:(NSUInteger) aSecond
+                 timeZone:(NSTimeZone *) aTimeZone
+                 calendar:(NSCalendar *) aCalendar;
 
 
 

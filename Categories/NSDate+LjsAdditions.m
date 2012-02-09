@@ -268,6 +268,68 @@ NSSecondCalendarUnit);
   return [aCalendar dateFromComponents:comps];
 }
 
++ (NSDate *) dateWithYear:(NSUInteger) aYear
+                    month:(NSUInteger) aMonth
+                      day:(NSUInteger) aDay
+                     hour:(NSUInteger) aHour
+                   minute:(NSUInteger) aMinute
+                   second:(NSUInteger) aSecond {
+  return [self dateWithYear:aYear month:aMonth 
+                        day:aDay hour:aHour
+                     minute:aMonth second:aSecond
+                   timeZone:[NSTimeZone localTimeZone]
+                   calendar:[NSCalendar currentCalendar]];
+}
+
++ (NSDate *) dateWithYear:(NSUInteger) aYear
+                    month:(NSUInteger) aMonth
+                      day:(NSUInteger) aDay
+                     hour:(NSUInteger) aHour
+                   minute:(NSUInteger) aMinute
+                   second:(NSUInteger) aSecond
+                 timeZone:(NSTimeZone *) aTimeZone {
+  return [self dateWithYear:aYear month:aMonth 
+                        day:aDay hour:aHour
+                     minute:aMonth second:aSecond
+                   timeZone:aTimeZone
+                   calendar:[NSCalendar currentCalendar]];
+}
+
++ (NSDate *) dateWithYear:(NSUInteger) aYear
+                    month:(NSUInteger) aMonth
+                      day:(NSUInteger) aDay
+                     hour:(NSUInteger) aHour
+                   minute:(NSUInteger) aMinute
+                   second:(NSUInteger) aSecond
+                 calendar:(NSCalendar *) aCalendar {
+  return [self dateWithYear:aYear month:aMonth 
+                        day:aDay hour:aHour
+                     minute:aMonth second:aSecond
+                   timeZone:[aCalendar timeZone]
+                   calendar:[NSCalendar currentCalendar]];
+}
+
+
++ (NSDate *) dateWithYear:(NSUInteger) aYear
+                    month:(NSUInteger) aMonth
+                      day:(NSUInteger) aDay
+                     hour:(NSUInteger) aHour
+                   minute:(NSUInteger) aMinute
+                   second:(NSUInteger) aSecond
+                 timeZone:(NSTimeZone *) aTimeZone
+                 calendar:(NSCalendar *) aCalendar {
+  NSDate *date = [NSDate date];
+  LjsDateComps comps = [date dateComponents];
+  comps.year = aYear;
+  comps.month = aMonth;
+  comps.day = aDay;
+  comps.hour = aHour;
+  comps.minute = aMinute;
+  comps.second = aSecond;
+  
+  date = [self dateWithComponents:comps timeZone:aTimeZone calendar:aCalendar];
+  return date;
+}
 
 
 @end
