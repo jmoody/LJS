@@ -98,6 +98,7 @@ NSSecondCalendarUnit);
 - (BOOL) isToday {
   return [self isSameDay:[NSDate date]];
 }
+
 - (BOOL) isSameDay:(NSDate *) aDate {
   LjsDateComps selfComps = [self dateComponents];
   LjsDateComps aDateComps = [aDate dateComponents];
@@ -106,7 +107,6 @@ NSSecondCalendarUnit);
   selfComps.year == aDateComps.year &&
   selfComps.month == aDateComps.month &&
   selfComps.day == aDateComps.day;
-  
 }
 
 - (NSUInteger) daysBetweenDate:(NSDate*) aDate {
@@ -126,17 +126,39 @@ NSSecondCalendarUnit);
   return abs(difference.day);
 }
 
-- (NSDate *) dateByAddingDays:(NSUInteger) aNumberOfDays {
-  return [self dateByAddingDays:aNumberOfDays calendar:[NSCalendar currentCalendar]];
+- (NSDate *) dateByAddingDays:(NSInteger) aNumberOfDays {
+  return [self dateByAddingDays:aNumberOfDays
+                   withTimeZone:[NSTimeZone localTimeZone]
+                       calendar:[NSCalendar currentCalendar]];
 }
 
-- (NSDate *) dateByAddingDays:(NSUInteger) aNumberOfDays 
+- (NSDate *) dateByAddingDays:(NSInteger)aNumberOfDays
+                 withTimeZone:(NSTimeZone *) aTimeZone {
+  return [self dateByAddingDays:aNumberOfDays
+                   withTimeZone:aTimeZone
+                       calendar:[NSCalendar currentCalendar]];
+}
+
+- (NSDate *) dateByAddingDays:(NSInteger) aNumberOfDays 
+                 withCalendar:(NSCalendar *) aCalendar {
+  return [self dateByAddingDays:aNumberOfDays
+                   withTimeZone:aCalendar.timeZone
+                       calendar:aCalendar];
+}
+
+- (NSDate *) dateByAddingDays:(NSInteger)aNumberOfDays
+                 withTimeZone:(NSTimeZone *) aTimeZone
                      calendar:(NSCalendar *) aCalendar {
+  NSDate *result;
+  NSTimeZone *oldTimeZone = [aCalendar timeZone];
+  aCalendar.timeZone = aTimeZone;
+  
   NSDateComponents *comps = [[NSDateComponents alloc] init];
   comps.day = aNumberOfDays;
-  return [aCalendar dateByAddingComponents:comps toDate:self options:0];
+  result =[aCalendar dateByAddingComponents:comps toDate:self options:0];
+  aCalendar.timeZone = oldTimeZone;
+  return result;
 }
-
 
 
 - (LjsDateComps) dateComponents {
@@ -175,16 +197,31 @@ NSSecondCalendarUnit);
 
 
 - (NSInteger) dayOfYear {
-  return [self dayOfYearWithCalendar:[NSCalendar currentCalendar]];
+  return [self dayOfYearWithTimeZone:[NSTimeZone localTimeZone]
+                            calendar:[NSCalendar currentCalendar]];
+}
+
+- (NSInteger) dayOfYearWithTimeZone:(NSTimeZone *) aTimeZone {
+  return [self dayOfYearWithTimeZone:aTimeZone
+                            calendar:[NSCalendar currentCalendar]];
 }
 
 - (NSInteger) dayOfYearWithCalendar:(NSCalendar *) aCalendar {
-  NSUInteger dayOfYear =
-  [aCalendar ordinalityOfUnit:NSDayCalendarUnit
-                       inUnit:NSYearCalendarUnit forDate:self];
+  return [self dayOfYearWithTimeZone:[aCalendar timeZone]
+                            calendar:aCalendar];
+}
 
+- (NSInteger) dayOfYearWithTimeZone:(NSTimeZone *) aTimeZone
+                           calendar:(NSCalendar *) aCalendar {
+  NSTimeZone *oldTimeZone = [aCalendar timeZone];
+  [aCalendar setTimeZone:aTimeZone];
+  NSInteger dayOfYear =  [aCalendar ordinalityOfUnit:NSDayCalendarUnit
+                                              inUnit:NSYearCalendarUnit 
+                                             forDate:self];
+  [aCalendar setTimeZone:oldTimeZone];
   return dayOfYear;
 }
+
 
 + (NSDate *) dateWithComponents:(LjsDateComps) aComponents {
   return [self dateWithComponents:aComponents

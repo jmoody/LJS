@@ -90,8 +90,13 @@ typedef struct LjsDateComps LjsDateComps;
 - (NSUInteger) daysBetweenDate:(NSDate *) aDate 
                       calendar:(NSCalendar *) aCalendar;
 
-- (NSDate *) dateByAddingDays:(NSUInteger) aNumberOfDays;
-- (NSDate *) dateByAddingDays:(NSUInteger) aNumberOfDays 
+- (NSDate *) dateByAddingDays:(NSInteger) aNumberOfDays;
+- (NSDate *) dateByAddingDays:(NSInteger)aNumberOfDays
+                 withTimeZone:(NSTimeZone *) aTimeZone;
+- (NSDate *) dateByAddingDays:(NSInteger) aNumberOfDays 
+                 withCalendar:(NSCalendar *) aCalendar;
+- (NSDate *) dateByAddingDays:(NSInteger)aNumberOfDays
+                 withTimeZone:(NSTimeZone *) aTimeZone
                      calendar:(NSCalendar *) aCalendar;
 
 
@@ -102,7 +107,10 @@ typedef struct LjsDateComps LjsDateComps;
 - (LjsDateComps) dateComponentsWithCalendar:(NSCalendar *) aCalendar;
 
 - (NSInteger) dayOfYear;
+- (NSInteger) dayOfYearWithTimeZone:(NSTimeZone *) aTimeZone;
 - (NSInteger) dayOfYearWithCalendar:(NSCalendar *) aCalendar;
+- (NSInteger) dayOfYearWithTimeZone:(NSTimeZone *) aTimeZone
+                           calendar:(NSCalendar *) aCalendar;
 
 
 + (NSDate *) dateWithComponents:(LjsDateComps) aComponents;
