@@ -155,6 +155,19 @@ typedef struct LjsDateComps LjsDateComps;
                  timeZone:(NSTimeZone *) aTimeZone
                  calendar:(NSCalendar *) aCalendar;
 
+- (NSDate *) midnight;
+- (NSDate *) midnightWithTimeZone:(NSTimeZone *) aTimeZone;
+- (NSDate *) midnightWithCalendar:(NSCalendar *) aCalendar;
+- (NSDate *) midnightWithTimeZone:(NSTimeZone *)aTimeZone
+                         calendar:(NSCalendar *) aCalendar;
+
+
+- (NSDate *) lastSecond;
+- (NSDate *) lastSecondWithTimeZone:(NSTimeZone *) aTimeZone;
+- (NSDate *) lastSecondWithCalendar:(NSCalendar *) aCalendar;
+- (NSDate *) lastSecondWithTimeZone:(NSTimeZone *)aTimeZone
+                           calendar:(NSCalendar *) aCalendar;
+
 
 
 @end

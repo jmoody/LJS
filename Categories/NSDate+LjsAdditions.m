@@ -127,9 +127,11 @@ NSSecondCalendarUnit);
 }
 
 - (NSDate *) dateByAddingDays:(NSInteger) aNumberOfDays {
+  NSCalendar *current = [NSCalendar currentCalendar];
+  NSTimeZone *local = [current timeZone];
   return [self dateByAddingDays:aNumberOfDays
-                   withTimeZone:[NSTimeZone localTimeZone]
-                       calendar:[NSCalendar currentCalendar]];
+                   withTimeZone:local
+                       calendar:current];
 }
 
 - (NSDate *) dateByAddingDays:(NSInteger)aNumberOfDays
@@ -162,8 +164,10 @@ NSSecondCalendarUnit);
 
 
 - (LjsDateComps) dateComponents {
-  return [self dateComponentsWithTimeZone:[NSTimeZone localTimeZone]
-                                 calendar:[NSCalendar currentCalendar]];
+  NSCalendar *current = [NSCalendar currentCalendar];
+  NSTimeZone *local = [current timeZone];
+  return [self dateComponentsWithTimeZone:local
+                                 calendar:current];
 }
 
 - (LjsDateComps) dateComponentsWithTimeZone:(NSTimeZone *) aTimeZone {
@@ -197,8 +201,10 @@ NSSecondCalendarUnit);
 
 
 - (NSInteger) dayOfYear {
-  return [self dayOfYearWithTimeZone:[NSTimeZone localTimeZone]
-                            calendar:[NSCalendar currentCalendar]];
+  NSCalendar *current = [NSCalendar currentCalendar];
+  NSTimeZone *local = [current timeZone];
+  return [self dayOfYearWithTimeZone:local
+                            calendar:current];
 }
 
 - (NSInteger) dayOfYearWithTimeZone:(NSTimeZone *) aTimeZone {
@@ -224,9 +230,11 @@ NSSecondCalendarUnit);
 
 
 + (NSDate *) dateWithComponents:(LjsDateComps) aComponents {
+  NSCalendar *current = [NSCalendar currentCalendar];
+  NSTimeZone *local = [current timeZone];
   return [self dateWithComponents:aComponents
-                         timeZone:[NSTimeZone localTimeZone]
-                         calendar:[NSCalendar currentCalendar]];
+                         timeZone:local
+                         calendar:current];
 }
 
 + (NSDate *) dateWithComponents:(LjsDateComps) aComponents
@@ -274,11 +282,13 @@ NSSecondCalendarUnit);
                      hour:(NSUInteger) aHour
                    minute:(NSUInteger) aMinute
                    second:(NSUInteger) aSecond {
+  NSCalendar *current = [NSCalendar currentCalendar];
+  NSTimeZone *local = [current timeZone];
   return [self dateWithYear:aYear month:aMonth 
                         day:aDay hour:aHour
                      minute:aMonth second:aSecond
-                   timeZone:[NSTimeZone localTimeZone]
-                   calendar:[NSCalendar currentCalendar]];
+                   timeZone:local
+                   calendar:current];
 }
 
 + (NSDate *) dateWithYear:(NSUInteger) aYear
@@ -329,6 +339,66 @@ NSSecondCalendarUnit);
   
   date = [self dateWithComponents:comps timeZone:aTimeZone calendar:aCalendar];
   return date;
+}
+
+- (NSDate *) midnight {
+  NSCalendar *current = [NSCalendar currentCalendar];
+  NSTimeZone *local = [current timeZone];
+  return [self midnightWithTimeZone:local
+                           calendar:current];
+}
+
+- (NSDate *) midnightWithTimeZone:(NSTimeZone *) aTimeZone {
+  return [self midnightWithTimeZone:aTimeZone
+                           calendar:[NSCalendar currentCalendar]];
+}
+
+- (NSDate *) midnightWithCalendar:(NSCalendar *) aCalendar {
+  return [self midnightWithTimeZone:[aCalendar timeZone]
+                           calendar:aCalendar];
+  
+}
+
+- (NSDate *) midnightWithTimeZone:(NSTimeZone *)aTimeZone 
+                         calendar:(NSCalendar *) aCalendar {
+
+  LjsDateComps comps = [self dateComponents];
+  comps.hour = 0;
+  comps.minute = 0;
+  comps.second = 0;
+  return [NSDate dateWithComponents:comps 
+                           timeZone:aTimeZone 
+                           calendar:aCalendar];
+}
+
+- (NSDate *) lastSecond {
+  NSCalendar *current = [NSCalendar currentCalendar];
+  NSTimeZone *local = [current timeZone];
+  return [self lastSecondWithTimeZone:local
+                           calendar:current];
+}
+
+- (NSDate *) lastSecondWithTimeZone:(NSTimeZone *) aTimeZone {
+  return [self lastSecondWithTimeZone:aTimeZone
+                           calendar:[NSCalendar currentCalendar]];
+}
+
+- (NSDate *) lastSecondWithCalendar:(NSCalendar *) aCalendar {
+  return [self lastSecondWithTimeZone:[aCalendar timeZone]
+                           calendar:aCalendar];
+  
+}
+
+- (NSDate *) lastSecondWithTimeZone:(NSTimeZone *)aTimeZone 
+                         calendar:(NSCalendar *) aCalendar {
+  
+  LjsDateComps comps = [self dateComponents];
+  comps.hour = 23;
+  comps.minute = 59;
+  comps.second = 59;
+  return [NSDate dateWithComponents:comps 
+                           timeZone:aTimeZone 
+                           calendar:aCalendar];
 }
 
 

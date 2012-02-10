@@ -162,6 +162,24 @@
   
 }
 
+- (void) test_midnight {
+  NSDate *date, *midnight;
+  
+  date = [NSDate date];
+  midnight = [date midnight];
+  GHTestLog(@"midnight = %@", [midnight descriptionWithCurrentLocale]);
+  
+  date = [date midnightWithTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:3600]];
+  midnight = [date midnight];
+  GHTestLog(@"midnight = %@", [midnight descriptionWithCurrentLocale]);
+
+  date = [date midnightWithTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:3600 * 2]];
+  midnight = [date midnight];
+  GHTestLog(@"midnight = %@", [midnight descriptionWithCurrentLocale]);
+
+  
+  
+}
 
 
 @end
