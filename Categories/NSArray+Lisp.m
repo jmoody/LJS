@@ -39,4 +39,19 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
 }
 
+- (NSArray *) reverse {
+  return [[self reverseObjectEnumerator] allObjects];
+}
+
+- (NSArray *) append:(id) object {
+  if ([object isMemberOfClass:[NSArray class]]) {
+    NSArray *other = (NSArray *) object;
+    return [self arrayByAddingObjectsFromArray:other];
+  } else {
+    return [self arrayByAddingObject:object];
+  }
+}
+
+
+
 @end

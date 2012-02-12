@@ -36,7 +36,7 @@
 /** @name Required Methods */
 @required
 - (void) scrollTableViewToIndexPath:(NSIndexPath *) aIndexPath
-                   atScrollPosition:(UITableViewStyle) aPostion;
+                   atScrollPosition:(UITableViewScrollPosition) aPostion;
 - (void) reloadTableView;
 - (UITableViewCell *) cellForIndexPath:(NSIndexPath *) aIndexPath;
 

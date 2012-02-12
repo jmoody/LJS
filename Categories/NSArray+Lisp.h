@@ -11,5 +11,7 @@
 - (id) second;
 - (id) last;
 - (NSArray *) rest;
+- (NSArray *) reverse;
+- (NSArray *) append:(id) object;
 
 @end
