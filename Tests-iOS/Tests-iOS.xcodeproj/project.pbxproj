@@ -166,6 +166,8 @@
 		F5F7BBBD14D3EAE700669FE6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5724971149F9C00006C62A2 /* QuartzCore.framework */; };
 		F5F7BBC114D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */; };
 		F5F7BBC214D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */; };
+		F5FF5AA114E85D820091D283 /* LjsTextAndFontTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF5AA014E85D820091D283 /* LjsTextAndFontTests.m */; };
+		F5FF5AA314E85D880091D283 /* LjsTextAndFontTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF5AA014E85D820091D283 /* LjsTextAndFontTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -419,6 +421,7 @@
 		F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGlassButton.m; sourceTree = "<group>"; };
 		F5F7BBBF14D3EDDE00669FE6 /* UIColor+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LjsAdditions.h"; sourceTree = "<group>"; };
 		F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5FF5AA014E85D820091D283 /* LjsTextAndFontTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsTextAndFontTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -556,6 +559,7 @@
 				F515BF4E14C627EE007052FF /* LjsFileBackedStoreTests.m */,
 				F5314A3214D88E8A007FC70C /* LoremIpsumTests.m */,
 				F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */,
+				F5FF5AA014E85D820091D283 /* LjsTextAndFontTests.m */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -1309,6 +1313,7 @@
 				F5F6209814E3E3B600D6C4A1 /* NSArray+Lisp.m in Sources */,
 				F5F6209A14E3E3B600D6C4A1 /* NSDate+LjsAdditions.m in Sources */,
 				F5F620A214E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m in Sources */,
+				F5FF5AA314E85D880091D283 /* LjsTextAndFontTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1351,6 +1356,7 @@
 				F5F6209914E3E3B600D6C4A1 /* NSArray+Lisp.m in Sources */,
 				F5F6209B14E3E3B600D6C4A1 /* NSDate+LjsAdditions.m in Sources */,
 				F5F620A314E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m in Sources */,
+				F5FF5AA114E85D820091D283 /* LjsTextAndFontTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

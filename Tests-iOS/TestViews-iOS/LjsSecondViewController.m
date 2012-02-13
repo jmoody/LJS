@@ -1,5 +1,7 @@
 #import "LjsSecondViewController.h"
 #import "Lumberjack.h"
+#import "LoremIpsum.h"
+#import "LjsTextAndFont.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -8,6 +10,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
 @implementation LjsSecondViewController
+@synthesize label;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,6 +34,37 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+  LoremIpsum *li = [[LoremIpsum alloc] init];
+  NSString *text = [li characters:164];
+  DDLogDebug(@"text = %@", text);
+  UIFont *font = [UIFont fontWithName:@"ArialMT" size:14]; 
+  CGFloat labelWidth = 250;
+  //UIFont *font = [UIFont systemFontOfSize:14];
+  LjsLabelAttributes *attrs = [[LjsLabelAttributes alloc]
+                               initWithString:text
+                               font:font
+                               labelWidth:labelWidth];
+  DDLogDebug(@"attributes = %@", attrs);
+  CGRect frame = CGRectMake(0, 0, labelWidth, attrs.labelHeight);
+  self.label.text = text;
+  self.label.frame = frame;
+  self.label.font = font;
+  self.label.lineBreakMode = UILineBreakModeWordWrap;
+  self.label.textAlignment = UITextAlignmentLeft;
+  self.label.numberOfLines = attrs.numberOfLines;
+    
+  frame = CGRectMake(0, 0, labelWidth, 0);
+  UITextView *tv = [[UITextView alloc] initWithFrame:frame];
+  tv.text = text;
+  tv.font = font;
+  tv.alpha = 0;
+  [tv sizeToFit];
+  CGFloat height = tv.contentSize.height;
+  DDLogDebug(@"height of tv = %f", height);
+  [self.view addSubview:tv];
+  height = tv.contentSize.height;
+  DDLogDebug(@"height of tv = %f", height);
+
 }
 
 - (void)viewDidUnload

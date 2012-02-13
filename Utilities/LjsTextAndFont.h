@@ -27,28 +27,12 @@
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 /**
  Documentation
  */
 @interface LjsTextAndFont : NSObject 
-
-+ (CGFloat) heightWithMessageString:(NSString *) aMessage
-                           withFont:(UIFont *) aFont
-                              width:(CGFloat) aWidth
-                          minHeight:(CGFloat) aMinHeight;
-
-+ (CGFloat) heightWithString:(NSString *) aString
-                        font:(UIFont *) aFont;
-
-+ (CGRect) frameWithFont:(UIFont *) aFont 
-                       x:(CGFloat) x 
-                       y:(CGFloat) y 
-                       w:(CGFloat) w;
-
-
-
 
 @end
 

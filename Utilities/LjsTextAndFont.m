@@ -42,34 +42,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @implementation LjsTextAndFont
 
 
-+ (CGFloat) heightWithMessageString:(NSString *) aMessage
-                           withFont:(UIFont *) aFont
-                              width:(CGFloat) aWidth
-                          minHeight:(CGFloat) aMinHeight {
-  CGSize textSize = CGSizeMake(aWidth, CGFLOAT_MAX);
-  CGSize size = [aMessage sizeWithFont:aFont
-                     constrainedToSize:textSize
-                         lineBreakMode:UILineBreakModeWordWrap];
-  
-  CGFloat result = MAX(size.height, aMinHeight);
-  return result;
-}
-
-+ (CGFloat) heightWithString:(NSString *) aString
-                        font:(UIFont *) aFont {
-  CGSize size = [aString sizeWithFont:aFont];
-  return size.height;
-}
-
-+ (CGRect) frameWithFont:(UIFont *) aFont 
-                       x:(CGFloat) x 
-                       y:(CGFloat) y 
-                       w:(CGFloat) w {
-  return CGRectMake(x, y, w, [LjsTextAndFont heightWithString:@"ABC"
-                                                         font:aFont]);
-}
-
-
 @end
 
 @implementation LjsLabelAttributes
@@ -85,14 +57,19 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   if (self != nil) {
     CGSize oneLineSize = [aString sizeWithFont:aFont];
     self.lineHeight = oneLineSize.height;
+        
     CGSize labelSize = [aString sizeWithFont:aFont
-                           constrainedToSize:CGSizeMake(aLabelWidth, CGFLOAT_MAX)
-                               lineBreakMode:UILineBreakModeCharacterWrap];
+                           constrainedToSize:CGSizeMake(aLabelWidth, CGFLOAT_MAX) 
+                               lineBreakMode:UILineBreakModeWordWrap];
     self.labelHeight = labelSize.height;
     self.numberOfLines = (NSUInteger) self.labelHeight / self.lineHeight;
-    
   }
   return self;
+}
+
+- (NSString *) description {
+  return [NSString stringWithFormat:@"#<LjsLabelAttributs line: %.2f height: %.2f lines: %d>",
+          self.lineHeight, self.labelHeight, self.numberOfLines];
 }
 
 @end
