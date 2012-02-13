@@ -894,7 +894,8 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 + (NSDate *) lastDayOfMonthWithDate:(NSDate *) aDate {
   NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
   [calendar setTimeZone:[NSTimeZone localTimeZone]];
-  NSInteger flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+  NSInteger flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit 
+  | NSWeekdayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
   
 	NSDateComponents *components;
   components = [calendar components:flags fromDate:aDate];
@@ -912,7 +913,8 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 + (NSDate *) firstDayOfMonthWithDate:(NSDate *) aDate {
   NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
   [calendar setTimeZone:[NSTimeZone localTimeZone]];
-  NSInteger flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+  NSInteger flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit
+  | NSWeekdayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
   
 	NSDateComponents *components;
   components = [calendar components:flags fromDate:aDate];
