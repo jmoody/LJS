@@ -168,6 +168,8 @@
 		F5F7BBC214D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */; };
 		F5FF5AA114E85D820091D283 /* LjsTextAndFontTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF5AA014E85D820091D283 /* LjsTextAndFontTests.m */; };
 		F5FF5AA314E85D880091D283 /* LjsTextAndFontTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF5AA014E85D820091D283 /* LjsTextAndFontTests.m */; };
+		F5FF5AB114E96F630091D283 /* LjsGlassView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF5AB014E96F630091D283 /* LjsGlassView.m */; };
+		F5FF5AB414E971C30091D283 /* LjsGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF5AB314E971C30091D283 /* LjsGradientView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -422,6 +424,10 @@
 		F5F7BBBF14D3EDDE00669FE6 /* UIColor+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LjsAdditions.h"; sourceTree = "<group>"; };
 		F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5FF5AA014E85D820091D283 /* LjsTextAndFontTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsTextAndFontTests.m; sourceTree = "<group>"; };
+		F5FF5AAF14E96F620091D283 /* LjsGlassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGlassView.h; sourceTree = "<group>"; };
+		F5FF5AB014E96F630091D283 /* LjsGlassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGlassView.m; sourceTree = "<group>"; };
+		F5FF5AB214E971C30091D283 /* LjsGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGradientView.h; sourceTree = "<group>"; };
+		F5FF5AB314E971C30091D283 /* LjsGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGradientView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -914,6 +920,10 @@
 				F50BD4F614CB78810037227B /* LjsRecessedButton.m */,
 				F5F7BBB514D3E90800669FE6 /* LjsGlassButton.h */,
 				F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */,
+				F5FF5AAF14E96F620091D283 /* LjsGlassView.h */,
+				F5FF5AB014E96F630091D283 /* LjsGlassView.m */,
+				F5FF5AB214E971C30091D283 /* LjsGradientView.h */,
+				F5FF5AB314E971C30091D283 /* LjsGradientView.m */,
 			);
 			name = "Views-iOS";
 			path = "../Views-iOS";
@@ -1357,6 +1367,8 @@
 				F5F6209B14E3E3B600D6C4A1 /* NSDate+LjsAdditions.m in Sources */,
 				F5F620A314E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m in Sources */,
 				F5FF5AA114E85D820091D283 /* LjsTextAndFontTests.m in Sources */,
+				F5FF5AB114E96F630091D283 /* LjsGlassView.m in Sources */,
+				F5FF5AB414E971C30091D283 /* LjsGradientView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
