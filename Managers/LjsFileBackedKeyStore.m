@@ -180,6 +180,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return self;
 }
 
+- (NSArray *) allKeys {
+  return [self.store allKeys];
+}
 
 - (void) removeKeys:(NSArray *) keys {
   [self.store removeObjectsForKeys:keys];
@@ -233,6 +236,64 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
   return result;
 }
+
+
+- (NSDate *) dateForKey:(NSString *) aKey
+           defaultValue:(NSDate *) aDefault
+         storeIfMissing:(BOOL) aPersistMissing {
+  NSDate *result = (NSDate *) [self.store objectForKey:aKey];
+  if (result == nil && aPersistMissing && aDefault != nil) {
+    [self storeObject:aDefault forKey:aKey];
+  }
+  
+  if (result == nil) {
+    result = aDefault;
+  }
+  return result;
+}
+
+- (NSData *) dataForKey:(NSString *) aKey
+           defaultValue:(NSData *) aDefault
+         storeIfMissing:(BOOL) aPersistMissing {
+  NSData *result = (NSData *) [self.store objectForKey:aKey];
+  if (result == nil && aPersistMissing && aDefault != nil) {
+    [self storeObject:aDefault forKey:aKey];
+  }
+  
+  if (result == nil) {
+    result = aDefault;
+  }
+  return result;
+}
+
+- (NSArray *) arrayForKey:(NSString *) aKey
+             defaultValue:(NSArray *) aDefault
+           storeIfMissing:(BOOL) aPersistMissing {
+  NSArray *result = (NSArray *) [self.store objectForKey:aKey];
+  if (result == nil && aPersistMissing && aDefault != nil) {
+    [self storeObject:aDefault forKey:aKey];
+  }
+  
+  if (result == nil) {
+    result = aDefault;
+  }
+  return result;
+}
+
+- (NSDictionary *) dictionaryForKey:(NSString *) aKey
+                       defaultValue:(NSDictionary *) aDefault
+                     storeIfMissing:(BOOL) aPersistMissing {
+  NSDictionary *result = (NSDictionary *) [self.store objectForKey:aKey];
+  if (result == nil && aPersistMissing && aDefault != nil) {
+    [self storeObject:aDefault forKey:aKey];
+  }
+  
+  if (result == nil) {
+    result = aDefault;
+  }
+  return result;
+}
+
 
 - (void) storeObject:(id) object forKey:(NSString *) aKey {
   [self.store setObject:object forKey:aKey];
