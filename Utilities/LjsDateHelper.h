@@ -143,6 +143,7 @@ extern NSTimeInterval const LjsSecondsInYear;
 + (NSDate *) lastDayOfMonthWithDate:(NSDate *) aDate;
 + (NSDate *) firstDayOfMonthWithDate:(NSDate *) aDate;
 
++ (NSString *) audioTimeStringWithInterval:(NSTimeInterval) aInterval;
 
 
 

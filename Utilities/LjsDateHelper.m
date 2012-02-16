@@ -928,6 +928,21 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 }
 
 
++ (NSString *) audioTimeStringWithInterval:(NSTimeInterval) aInterval {
+  NSUInteger hours = aInterval / LjsSecondsInHour;
+  NSTimeInterval minutesLessHours = aInterval - (hours * LjsSecondsInHour);
+  NSUInteger minutes = minutesLessHours / LjsSecondsInMinute;
+  NSTimeInterval secondsLessMinutes = minutesLessHours - (minutes * LjsSecondsInMinute);
+  NSUInteger seconds = secondsLessMinutes / 1;
+  NSString *result = @"";
+  if (hours > 0) {
+    result = [result stringByAppendingFormat:@"%d:%02d:", hours, minutes];
+  } else {
+    result = [result stringByAppendingFormat:@"%d:", minutes];
+  } 
+  result = [result stringByAppendingFormat:@"%02d", seconds];
+  return result;
+}
 
 
 #pragma mark DEAD SEA
