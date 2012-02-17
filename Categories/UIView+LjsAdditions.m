@@ -31,6 +31,72 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [self centerWithY:aviewy];
 }
 
+
+- (void) setHeightWithHeight:(CGFloat) h {
+  CGFloat w = self.frame.size.width;
+  [self setSizeWithWidth:w andHeight:h];
+}
+
+- (void) setWidthWithWidth:(CGFloat) w {
+  CGFloat h = self.frame.size.height;
+  [self setSizeWithWidth:w andHeight:h];
+}
+
+- (void) setSizeWithWidth:(CGFloat) w 
+                andHeight:(CGFloat) h {
+  CGRect frame = self.frame;
+  self.frame = CGRectMake(frame.origin.x,
+                          frame.origin.y,
+                          w, h);
+}
+
+- (void) setXWithX:(CGFloat) x {
+  CGFloat y = self.frame.origin.y;
+  [self setOriginWithX:x andY:y];
+}
+
+- (void) setYWithY:(CGFloat) y {
+  CGFloat x = self.frame.origin.x;
+  [self setOriginWithX:x andY:y];
+}
+
+- (void) setOriginWithX:(CGFloat) x
+                   andY:(CGFloat) y {
+  CGRect frame = self.frame;
+  self.frame = CGRectMake(x, y, 
+                          frame.size.width, 
+                          frame.size.height);
+}
+
+- (void) adjustX:(CGFloat) scale {
+  self.frame = CGRectMake(self.frame.origin.x + scale,
+                          self.frame.origin.y,
+                          self.frame.size.width,
+                          self.frame.size.height);
+}
+
+- (void) adjustY:(CGFloat) scale {
+  self.frame = CGRectMake(self.frame.origin.x,
+                          self.frame.origin.y + scale,
+                          self.frame.size.width,
+                          self.frame.size.height);
+}
+
+- (void) adjustW:(CGFloat) scale {
+  self.frame = CGRectMake(self.frame.origin.x,
+                          self.frame.origin.y,
+                          self.frame.size.width + scale,
+                          self.frame.size.height);
+}
+
+- (void) adjustH:(CGFloat) scale {
+  self.frame = CGRectMake(self.frame.origin.x,
+                          self.frame.origin.y,
+                          self.frame.size.width,
+                          self.frame.size.height + scale);
+}
+
+
 - (NSString *) frameToString {
   return NSStringFromCGRect(self.frame);
 }

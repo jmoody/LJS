@@ -6,6 +6,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+LjsAdditions.h"
 #import "LjsGradientView.h"
+#import "UIView+LjsAdditions.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -64,10 +65,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   tv.alpha = 0;
   [tv sizeToFit];
   CGFloat height = tv.contentSize.height;
-  DDLogDebug(@"height of tv = %f", height);
+  DDLogDebug(@"content height: %f frame height: %f", height,
+             tv.frame.size.height);
   [self.view addSubview:tv];
   height = tv.contentSize.height;
-  DDLogDebug(@"height of tv = %f", height);
+  DDLogDebug(@"content height: %f frame height: %f", height,
+             tv.frame.size.height);
+  
+  DDLogDebug(@"%@", [self.label frameToString]);
   
   UIColor *highColor = [UIColor colorWithR:80 g:100 b:244];
   UIColor *lowColor = [UIColor colorWithR:58 g:41 b:73];
