@@ -41,8 +41,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @implementation LjsGradientView
 
-@synthesize _highColor;
-@synthesize _lowColor;
+@synthesize highColor;
+@synthesize middleColor;
+@synthesize lowColor;
 @synthesize gradientLayer;
 
 #pragma mark Memory Management
@@ -74,58 +75,26 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [[self layer] insertSublayer:gradientLayer atIndex:0];
   
   // Set the layer's corner radius
-  [[self layer] setCornerRadius:8.0f];
+  [[self layer] setCornerRadius:6.0f];
   // Turn on masking
   [[self layer] setMasksToBounds:YES];
   // Display a border around the button 
-  [[self layer] setBorderWidth:2.0];
+  [[self layer] setBorderWidth:0.0];
   
   
 }
 
 - (void)drawRect:(CGRect)rect {
-  if (_highColor && _lowColor) {
+  if (self.highColor && self.lowColor && self.middleColor) {
     // Set the colors for the gradient to the 
     // two colors specified for high and low
-    [gradientLayer setColors:[NSArray arrayWithObjects:(id)[_highColor CGColor], 
-                              (id)[_lowColor CGColor], nil]];
+    [gradientLayer setColors:[NSArray arrayWithObjects:
+                              (id)[self.highColor CGColor], 
+                              (id)[self.middleColor CGColor],
+                              (id)[self.lowColor CGColor], 
+                              nil]];
   }
   [super drawRect:rect];
-}
-
-- (void) setHighColor:(UIColor *) aColor {
-  // Set the high color and repaint
-  self._highColor = aColor;
-  [[self layer] setNeedsDisplay];
-}
-
-- (void) setLowColor:(UIColor * ) aColor {
-  // Set the low color and repaint
-  self._lowColor = aColor;
-  [[self layer] setNeedsDisplay];
-}
-
-- (void) setHighColor:(UIColor *) highColor
-             lowColor:(UIColor *) lowColor {
-  self._highColor = highColor;
-  self._lowColor = lowColor;
-  [[self layer] setNeedsDisplay];
-}
-
-- (void) setBorderColor:(UIColor *) color
-            borderWidth:(CGFloat) width 
-           cornerRadius:(CGFloat) radius {
-  self.layer.borderColor = color.CGColor;
-  self.layer.borderWidth = width;
-  self.layer.cornerRadius = radius;
-  [[self layer] setNeedsDisplay];
-}
-
-- (void) resetBounds {
-  self.gradientLayer.bounds = self.bounds;
-  CGFloat width = self.bounds.size.width/2;
-  CGFloat height = self.bounds.size.height/2;
-  [self.gradientLayer setPosition:CGPointMake(width, height)];
 }
 
 

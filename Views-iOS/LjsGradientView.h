@@ -36,8 +36,9 @@
 @interface LjsGradientView : UIView 
 
 /** @name Properties */
-@property (nonatomic, strong) UIColor *_highColor;
-@property (nonatomic, strong) UIColor *_lowColor;
+@property (nonatomic, strong) UIColor *highColor;
+@property (nonatomic, strong) UIColor *middleColor;
+@property (nonatomic, strong) UIColor *lowColor;
 @property (nonatomic, strong) CAGradientLayer *gradientLayer;
 
 
@@ -46,17 +47,9 @@
 /** @name Handling Notifications, Requests, and Events */
 
 /** @name Utility */
-- (void) setHighColor:(UIColor *) aColor;
-- (void) setLowColor:(UIColor * ) aColor;
 
-- (void) setHighColor:(UIColor *) highColor
-             lowColor:(UIColor *) lowColor;
 
-- (void) setBorderColor:(UIColor *) color 
-            borderWidth:(CGFloat) width 
-           cornerRadius:(CGFloat) radius;
 
-- (void) resetBounds;
 
 
 

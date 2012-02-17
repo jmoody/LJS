@@ -72,10 +72,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   UIColor *highColor = [UIColor colorWithR:80 g:100 b:244];
   UIColor *lowColor = [UIColor colorWithR:58 g:41 b:73];
   
-  LjsGradientView *top = [[LjsGradientView alloc] initWithFrame:CGRectMake(0, 202, 320, 104)];
-  [top setHighColor:highColor lowColor:lowColor];
-  [top setBorderColor:[UIColor clearColor] borderWidth:0 cornerRadius:0];
-  [self.view addSubview:top];
+//  LjsGradientView *top = [[LjsGradientView alloc] initWithFrame:CGRectMake(0, 202, 320, 104)];
+//  [top setHighColor:highColor lowColor:lowColor];
+//  [top setBorderColor:[UIColor clearColor] borderWidth:0 cornerRadius:0];
+//  [self.view addSubview:top];
   
   LjsGlassView *transport = [[LjsGlassView alloc] initWithFrame:CGRectMake(0, 308, 320, 103)];
 //  UIColor *highColor = [UIColor colorWithR:80 g:100 b:244];

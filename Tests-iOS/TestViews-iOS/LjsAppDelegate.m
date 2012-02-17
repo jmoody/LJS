@@ -31,7 +31,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   self.tabBarController = [[UITabBarController alloc] init];
   self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, nil];
   self.window.rootViewController = self.tabBarController;
-  [self.tabBarController setSelectedIndex:1];
+  [self.tabBarController setSelectedIndex:0];
   [self.window makeKeyAndVisible];
   return YES;
 }

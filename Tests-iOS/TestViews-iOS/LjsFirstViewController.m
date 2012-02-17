@@ -12,9 +12,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @synthesize picker;
 @synthesize pickerDelegate;
+@synthesize progress;
 @synthesize label;
 @synthesize glass;
 @synthesize ljs;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -53,11 +55,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [self.picker setDataSource:self.pickerDelegate];
   [self.pickerDelegate pickerView:self.picker setSelectedWithInteger:current];
   
-  /*
-   [self.checkInButton setBackgroundColor:[RuColors colorWithRawR:58 g:41 b:73 a:1.0]];
-   [self.checkInButton setHighColor:[RuColors colorWithRawR:80 g:100 b:244 a:1.0]];
-   [self.checkInButton setLowColor:[RuColors colorWithRawR:58 g:41 b:73 a:1.0]];
-   */
+
   
   [self.glass setHighColor:[UIColor colorWithR:80 g:100 b:244]];
   [self.glass setLowColor:[UIColor colorWithR:58 g:41 b:73]];
@@ -66,9 +64,30 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [self.ljs setHighColor:[UIColor colorWithR:80 g:100 b:244]];
   [self.ljs setLowColor:[UIColor colorWithR:58 g:41 b:73]];
   
+  UIImage *image = [UIImage imageNamed:@"white-channel-300x24.png"];
+  UIColor *texture = [UIColor colorWithPatternImage:image];
+  self.progress.backgroundColor = texture;
+//  self.progress.backgroundColor = [UIColor clearColor];
+  
+  self.progress.lowColor = [UIColor colorWithR:0 g:0 b:127];
+  self.progress.highColor = [UIColor colorWithR:72 g:146 b:255];
+  self.progress.middleColor = [UIColor colorWithR:11 g:84 b:235];
+  [[self.progress layer] setNeedsDisplay];
+  self.progress.gradientLayer.bounds = CGRectZero;
+  self.progress.gradientLayer.position = CGPointMake(0, 12);
+  
+//  CGRect frame = CGRectMake(10, 145, 300, 20);
+//  UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:frame
+//                                                  cornerRadius:6];
+//  [[UIColor blackColor] setStroke];
+//  [[UIColor redColor] setFill];
+//  [path fill];
+//  [path stroke];
+  
 }
 
 - (void)viewDidUnload {
+  [self setProgress:nil];
   [super viewDidUnload];
   // Release any retained subviews of the main view.
   // e.g. self.myOutlet = nil;
@@ -79,6 +98,30 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 - (void) pickerView:(UIPickerView *)pickerView didChangeString:(NSString *)newString didChangeInteger:(NSUInteger)newInteger {
   self.label.text = newString;
+}
+
+
+- (IBAction)progressTouched:(id)sender {
+  DDLogDebug(@"progress button touched");
+  CGRect bounds = self.progress.gradientLayer.bounds;
+  CGFloat x = bounds.origin.x;
+  CGFloat y = bounds.origin.y;
+  CGFloat w = bounds.size.width + 30;
+  CGFloat h = self.progress.frame.size.height;
+  CGRect newBounds = CGRectMake(x, y, w, h);
+  self.progress.gradientLayer.bounds = newBounds;
+  self.progress.gradientLayer.position = CGPointMake(w/2, h/2);
+  [[self.progress layer] setNeedsDisplay];
+
+//  CGFloat width = (bounds.size.width + 30)/2;
+//  CGFloat height = 24/2;
+//  CGRect newBounds = CGRectMake(bounds.origin.x, 
+//                                bounds.origin.y, 
+//                                bounds.size.width + 30,
+//                                24);
+//  self.progress.gradientLayer.bounds = newBounds;
+//  [self.progress.gradientLayer setPosition:CGPointMake(width, height)];
+//  [[self.progress layer] setNeedsDisplay];
 }
 @end
 

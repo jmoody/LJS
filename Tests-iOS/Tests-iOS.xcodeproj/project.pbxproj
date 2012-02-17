@@ -32,6 +32,7 @@
 		F515BF5114C629E2007052FF /* LjsFileBackedStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F515BF4E14C627EE007052FF /* LjsFileBackedStoreTests.m */; };
 		F51C63FD14B7917100F1841B /* LjsTextAndFont.m in Sources */ = {isa = PBXBuildFile; fileRef = F51C63FC14B7917100F1841B /* LjsTextAndFont.m */; };
 		F51C63FE14B7917100F1841B /* LjsTextAndFont.m in Sources */ = {isa = PBXBuildFile; fileRef = F51C63FC14B7917100F1841B /* LjsTextAndFont.m */; };
+		F51D49C514ED548800734C25 /* white-channel-300x24.png in Resources */ = {isa = PBXBuildFile; fileRef = F51D49C414ED548800734C25 /* white-channel-300x24.png */; };
 		F529524514232EB5009C67EE /* LjsValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524414232EB5009C67EE /* LjsValidator.m */; };
 		F529524814232F47009C67EE /* LjsValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524714232F47009C67EE /* LjsValidatorTests.m */; };
 		F5314A3314D88E8A007FC70C /* LoremIpsumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5314A3214D88E8A007FC70C /* LoremIpsumTests.m */; };
@@ -213,6 +214,7 @@
 		F515E6DD148279A000526041 /* LjsRepeatingTimerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRepeatingTimerProtocol.h; sourceTree = "<group>"; };
 		F51C63FB14B7917100F1841B /* LjsTextAndFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsTextAndFont.h; sourceTree = "<group>"; };
 		F51C63FC14B7917100F1841B /* LjsTextAndFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsTextAndFont.m; sourceTree = "<group>"; };
+		F51D49C414ED548800734C25 /* white-channel-300x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-channel-300x24.png"; sourceTree = "<group>"; };
 		F529524314232EB5009C67EE /* LjsValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsValidator.h; sourceTree = "<group>"; };
 		F529524414232EB5009C67EE /* LjsValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidator.m; sourceTree = "<group>"; };
 		F529524714232F47009C67EE /* LjsValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidatorTests.m; sourceTree = "<group>"; };
@@ -834,6 +836,7 @@
 		F54FA3F214B7060B0080CC9A /* TestViews-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				F51D49C414ED548800734C25 /* white-channel-300x24.png */,
 				F54FA3FB14B7060B0080CC9A /* LjsAppDelegate.h */,
 				F54FA3FC14B7060B0080CC9A /* LjsAppDelegate.m */,
 				F54FA3FE14B7060B0080CC9A /* LjsFirstViewController.h */,
@@ -1168,6 +1171,7 @@
 				F54FA40B14B7060B0080CC9A /* second@2x.png in Resources */,
 				F54FA40E14B7060B0080CC9A /* LjsFirstViewController.xib in Resources */,
 				F54FA41114B7060B0080CC9A /* LjsSecondViewController.xib in Resources */,
+				F51D49C514ED548800734C25 /* white-channel-300x24.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
