@@ -108,6 +108,63 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return result;
 }
 
+- (NSDate *) dateForKey:(NSString *) aKey
+           defaultValue:(NSDate *) aDefault
+         storeIfMissing:(BOOL) aPersistMissing {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSDate *result = (NSDate *) [defaults objectForKey:aKey];
+  if (result == nil && aPersistMissing && aDefault != nil) {
+    [defaults setObject:aDefault forKey:aKey];
+  }
+  if (result == nil) {
+    result = aDefault;
+  }
+  return result;
+}
+
+- (NSData *) dataForKey:(NSString *) aKey
+           defaultValue:(NSData *) aDefault
+         storeIfMissing:(BOOL) aPersistMissing {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSData *result = (NSData *) [defaults objectForKey:aKey];
+  if (result == nil && aPersistMissing && aDefault != nil) {
+    [defaults setObject:aDefault forKey:aKey];
+  }
+  if (result == nil) {
+    result = aDefault;
+  }
+  return result;
+}
+
+- (NSArray *) arrayForKey:(NSString *) aKey
+             defaultValue:(NSArray *) aDefault
+           storeIfMissing:(BOOL) aPersistMissing {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSArray *result = (NSArray *) [defaults objectForKey:aKey];
+  if (result == nil && aPersistMissing && aDefault != nil) {
+    [defaults setObject:aDefault forKey:aKey];
+  }
+  if (result == nil) {
+    result = aDefault;
+  }
+  return result;
+}
+
+- (NSDictionary *) dictionaryForKey:(NSString *) aKey
+                       defaultValue:(NSDictionary *) aDefault
+                     storeIfMissing:(BOOL) aPersistMissing {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSDictionary *result = (NSDictionary *) [defaults objectForKey:aKey];
+  if (result == nil && aPersistMissing && aDefault != nil) {
+    [defaults setObject:aDefault forKey:aKey];
+  }
+  if (result == nil) {
+    result = aDefault;
+  }
+  return result;
+}
+
+
 - (void) storeObject:(id) object forKey:(NSString *) aKey {
   [[NSUserDefaults standardUserDefaults] setObject:object
                                             forKey:aKey];

@@ -12,6 +12,7 @@
 }
 
 - (NSString*) words:(NSUInteger)count;
+- (NSString *) characters:(NSUInteger) count;
 - (NSString*) sentences:(NSUInteger)count;
 
 @end

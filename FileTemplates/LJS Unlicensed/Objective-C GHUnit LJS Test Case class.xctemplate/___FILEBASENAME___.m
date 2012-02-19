@@ -33,7 +33,6 @@
 // GHAssertNoThrowSpecific(expr, specificException, description, ...)
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
-#import <GHUnit/GHUnit.h>
 #import "LjsTestCase.h"
 
 @interface ___FILEBASENAMEASIDENTIFIER___ : LjsTestCase {}

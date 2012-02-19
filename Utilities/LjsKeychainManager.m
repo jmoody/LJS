@@ -54,7 +54,6 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
  */
 @implementation LjsKeychainManager
 
-@synthesize reporter;
 
 - (id) init {
   self = [super init];
@@ -63,7 +62,6 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
     // NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     // NSDictionary *dict = [defaults dictionaryRepresentation];
     // DDLogDebug(@"dict = %@", dict);
-    self.reporter = nil;
   }
   return self;
 }
@@ -466,8 +464,7 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
  */
 - (BOOL) ljsKeychainManagerErrorWithCode:(NSInteger) code
                                    error:(NSError **) error {
-  self.reporter = [TZReporter reporterWithDomain:LjsKeychainManagerErrorDomain
-                                         error:error];
+
   NSString *message;
   switch (code) {
     case LjsKeychainManagerBadKeyError:
@@ -494,12 +491,14 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
       break;
   }
 
-  if (error != nil) {
-    *error = [self.reporter errorWithCode:code description:message];
-    [self logKeychainError:*error];
-  } else {
-    NSError __autoreleasing *local = [self.reporter errorWithCode:code description:message];
-    [self logKeychainError:local];
+  NSError *local = [NSError errorWithDomain:LjsKeychainManagerErrorDomain
+                                       code:code
+                       localizedDescription:message];
+                              
+  [self logKeychainError:local];
+  
+  if (error != NULL) {
+    *error = local;
   }
   return YES;
 }

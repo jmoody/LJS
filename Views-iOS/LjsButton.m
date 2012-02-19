@@ -74,7 +74,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   // Turn on masking
   [[self layer] setMasksToBounds:YES];
   // Display a border around the button 
-  [[self layer] setBorderWidth:0.0];
+  [[self layer] setBorderWidth:2.0];
+  
 
   self.showsTouchWhenHighlighted = YES;
 }
@@ -100,5 +101,41 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   self._lowColor = aColor;
   [[self layer] setNeedsDisplay];
 }
+
+- (void) setHighColor:(UIColor *) highColor
+             lowColor:(UIColor *) lowColor {
+  self._highColor = highColor;
+  self._lowColor = lowColor;
+  [[self layer] setNeedsDisplay];
+}
+
+- (void) setBorderColor:(UIColor *) color
+            borderWidth:(CGFloat) width 
+           cornerRadius:(CGFloat) radius {
+  self.layer.borderColor = color.CGColor;
+  self.layer.borderWidth = width;
+  self.layer.cornerRadius = radius;
+  [[self layer] setNeedsDisplay];
+}
+
+- (void) resetBounds {
+  self.gradientLayer.bounds = self.bounds;
+  CGFloat width = self.bounds.size.width/2;
+  CGFloat height = self.bounds.size.height/2;
+  [self.gradientLayer setPosition:CGPointMake(width, height)];
+}
+
+
+- (void) setNormalAndHiglightedTitleWithFont:(UIFont *) aFont
+                                       color:(UIColor *) aColor
+                                       title:(NSString *) aTitle {
+  self.titleLabel.font = aFont;
+  [self setTitle:aTitle forState:UIControlStateNormal];
+  [self setTitle:aTitle forState:UIControlStateHighlighted];
+  [self setTitleColor:aColor forState:UIControlStateNormal];
+  [self setTitleColor:aColor forState:UIControlStateHighlighted];
+}
+
+
 
 @end

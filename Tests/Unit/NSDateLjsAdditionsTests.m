@@ -1,4 +1,4 @@
-// Copyright ___YEAR___ ___ORGANIZATIONNAME___. All rights reserved.
+// Copyright 2012 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -65,13 +65,13 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import <GHUnit/GHUnit.h>
 #import "LjsTestCase.h"
+#import "NSDate+LjsAdditions.h"
 
-@interface ___FILEBASENAMEASIDENTIFIER___ : LjsTestCase {}
+@interface NSDateLjsAdditionsTests : LjsTestCase {}
 @end
 
-@implementation ___FILEBASENAMEASIDENTIFIER___
+@implementation NSDateLjsAdditionsTests
 
 //- (id) init {
 //  self = [super init];
@@ -105,8 +105,81 @@
   // Run after each test method
 }  
 
-//- (void)testGHLog {
-//  GHTestLog(@"GH test logging is working");
-//}
+
+- (void) test_dateByAddingDays {
+  NSInteger daysToAdd;
+  NSDate *date, *newDate;
+  LjsDateComps newComps, expectedComps;
+  NSInteger actualDay, expectedDay;
+  
+  newComps = [[NSDate date] dateComponents];
+  newComps.year = 2012;
+  newComps.month = 2;
+  newComps.day = 8;
+  newComps.hour = 12;
+  newComps.minute = 30;
+  newComps.second = 0;
+  date = [NSDate dateWithComponents:newComps];
+  
+  
+  daysToAdd = 3;
+  newDate = [date dateByAddingDays:daysToAdd];
+  expectedComps = [newDate dateComponents];
+  actualDay = expectedComps.day;
+  expectedDay = 11;
+  GHAssertEquals((NSInteger)actualDay, (NSInteger)expectedDay, nil);
+  
+
+  daysToAdd = -3;
+  newDate = [date dateByAddingDays:daysToAdd];
+  expectedComps = [newDate dateComponents];
+  actualDay = expectedComps.day;
+  expectedDay = 5;
+  GHAssertEquals((NSInteger)actualDay, (NSInteger)expectedDay, nil);
+
+
+  daysToAdd = -8;
+  newDate = [date dateByAddingDays:daysToAdd];
+  expectedComps = [newDate dateComponents];
+  actualDay = expectedComps.day;
+  expectedDay = 31;
+  GHAssertEquals((NSInteger)actualDay, (NSInteger)expectedDay, nil);
+
+  daysToAdd = 21;
+  newDate = [date dateByAddingDays:daysToAdd];
+  expectedComps = [newDate dateComponents];
+  actualDay = expectedComps.day;
+  expectedDay = 29;
+  GHAssertEquals((NSInteger)actualDay, (NSInteger)expectedDay, nil);
+  
+
+  daysToAdd = 22;
+  newDate = [date dateByAddingDays:daysToAdd];
+  expectedComps = [newDate dateComponents];
+  actualDay = expectedComps.day;
+  expectedDay = 1;
+  GHAssertEquals((NSInteger)actualDay, (NSInteger)expectedDay, nil);
+  
+}
+
+- (void) test_midnight {
+  NSDate *date, *midnight;
+  
+  date = [NSDate date];
+  midnight = [date midnight];
+  GHTestLog(@"midnight = %@", [midnight descriptionWithCurrentLocale]);
+  
+  date = [date midnightWithTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:3600]];
+  midnight = [date midnight];
+  GHTestLog(@"midnight = %@", [midnight descriptionWithCurrentLocale]);
+
+  date = [date midnightWithTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:3600 * 2]];
+  midnight = [date midnight];
+  GHTestLog(@"midnight = %@", [midnight descriptionWithCurrentLocale]);
+
+  
+  
+}
+
 
 @end

@@ -42,19 +42,44 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @implementation LjsTextAndFont
 
 
-+ (CGFloat) heightWithMessageString:(NSString *) aMessage
-                           withFont:(UIFont *) aFont
-                              width:(CGFloat) aWidth
-                          minHeight:(CGFloat) aMinHeight {
-  CGSize textSize = CGSizeMake(aWidth, CGFLOAT_MAX);
-  CGSize size = [aMessage sizeWithFont:aFont
-                     constrainedToSize:textSize
-                         lineBreakMode:UILineBreakModeWordWrap];
-  
-  CGFloat result = MAX(size.height, aMinHeight);
-  return result;
+@end
+
+@implementation LjsLabelAttributes
+
+@synthesize lineHeight;
+@synthesize labelHeight;
+@synthesize numberOfLines;
+
+- (id) initWithString:(NSString *) aString
+                 font:(UIFont *) aFont
+           labelWidth:(CGFloat) aLabelWidth {
+  self = [super init];
+  if (self != nil) {
+    CGSize oneLineSize = [aString sizeWithFont:aFont];
+    self.lineHeight = oneLineSize.height;
+        
+    CGSize labelSize = [aString sizeWithFont:aFont
+                           constrainedToSize:CGSizeMake(aLabelWidth, CGFLOAT_MAX) 
+                               lineBreakMode:UILineBreakModeWordWrap];
+    self.labelHeight = labelSize.height;
+    self.numberOfLines = (NSUInteger) self.labelHeight / self.lineHeight;
+  }
+  return self;
 }
 
-
+- (NSString *) description {
+  return [NSString stringWithFormat:@"#<LjsLabelAttributs line: %.2f height: %.2f lines: %d>",
+          self.lineHeight, self.labelHeight, self.numberOfLines];
+}
 
 @end
+
+
+
+
+
+
+
+
+
+

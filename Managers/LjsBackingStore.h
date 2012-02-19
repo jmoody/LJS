@@ -35,28 +35,49 @@
 
 /** @name Required Methods */
 @required
+
 - (void) removeKeys:(NSArray *) keys;
+
 - (NSString *) stringForKey:(NSString *) aKey 
                defaultValue:(NSString *) aDefault 
              storeIfMissing:(BOOL) aPersistMissing;
+
 - (NSNumber *) numberForKey:(NSString *) aKey 
                defaultValue:(NSNumber *) aDefault
              storeIfMissing:(BOOL) aPersistMissing;
+
 - (BOOL) boolForKey:(NSString *) aKey 
        defaultValue:(BOOL) aDefault
      storeIfMissing:(BOOL) aPersistMissing;
 
+- (NSDate *) dateForKey:(NSString *) aKey
+           defaultValue:(NSDate *) aDefault
+         storeIfMissing:(BOOL) aPersistMissing;
+
+- (NSData *) dataForKey:(NSString *) aKey
+           defaultValue:(NSData *) aDefault
+         storeIfMissing:(BOOL) aPersistMissing;
+
+- (NSArray *) arrayForKey:(NSString *) aKey
+             defaultValue:(NSArray *) aDefault
+           storeIfMissing:(BOOL) aPersistMissing;
+
+- (NSDictionary *) dictionaryForKey:(NSString *) aKey
+                  defaultValue:(NSDictionary *) aDefault
+                storeIfMissing:(BOOL) aPersistMissing;
+
+
+
+@optional
+
+
+- (NSArray *) allKeys;
 - (void) storeObject:(id) object forKey:(NSString *) aKey;
 - (void) storeBool:(BOOL) aBool forKey:(NSString *) aKey;
 - (void) removeObjectForKey:(NSString *) aKey;
 
+
 /** @name Optional Methods */
 @optional
-
-@end
-@protocol BcDefaultManagerBackingStore <NSObject>
-
-@required
-
 
 @end

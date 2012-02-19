@@ -43,5 +43,8 @@
 + (NSNumberFormatter *) numberFormatterWithGroupingSep:(NSString *) groupingSep
                                       demicalSep:(NSString *) decimalSep;
 
++ (NSLocale *) localeWith12hourClock;
++ (NSLocale *) localeWith24hourClock;
++ (NSLocale *) localeWithMondayAsFirstDayOfWeek;
 
 @end

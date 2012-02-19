@@ -27,16 +27,26 @@
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 /**
  Documentation
  */
 @interface LjsTextAndFont : NSObject 
 
-+ (CGFloat) heightWithMessageString:(NSString *) aMessage
-                           withFont:(UIFont *) aFont
-                              width:(CGFloat) aWidth
-                          minHeight:(CGFloat) aMinHeight;
+@end
+
+@interface LjsLabelAttributes : NSObject
+
+@property (nonatomic, assign) CGFloat lineHeight;
+@property (nonatomic, assign) CGFloat labelHeight;
+@property (nonatomic, assign) NSUInteger numberOfLines;
+
+- (id) initWithString:(NSString *) aString
+                 font:(UIFont *) aFont
+           labelWidth:(CGFloat) aLabelWidth;
+
+
 
 @end
+

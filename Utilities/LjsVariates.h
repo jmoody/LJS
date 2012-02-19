@@ -223,6 +223,8 @@
  */
 + (BOOL) _arrayOfNSNumbers:(NSArray *) array containsInt:(NSUInteger) number;
   
++ (id) randomElement:(NSArray *) array;
+
 /**
  returns a string of random alpha-numeric characters
  @param length the number of characters in the created string
