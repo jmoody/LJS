@@ -26,27 +26,55 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
 
-#import <UIKit/UIKit.h>
+#import "LjsLabelAttributes.h"
+#import "Lumberjack.h"
 
-/**
- Documentation
- */
-@interface LjsTextAndFont : NSObject 
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
 
-@end
+@implementation LjsLabelAttributes
 
-@interface LjsLabelAttributes : NSObject
-
-@property (nonatomic, assign) CGFloat lineHeight;
-@property (nonatomic, assign) CGFloat labelHeight;
-@property (nonatomic, assign) NSUInteger numberOfLines;
+@synthesize lineHeight;
+@synthesize labelHeight;
+@synthesize numberOfLines;
 
 - (id) initWithString:(NSString *) aString
                  font:(UIFont *) aFont
-           labelWidth:(CGFloat) aLabelWidth;
+           labelWidth:(CGFloat) aLabelWidth {
+  self = [super init];
+  if (self != nil) {
+    CGSize oneLineSize = [aString sizeWithFont:aFont];
+    self.lineHeight = oneLineSize.height;
+        
+    CGSize labelSize = [aString sizeWithFont:aFont
+                           constrainedToSize:CGSizeMake(aLabelWidth, CGFLOAT_MAX) 
+                               lineBreakMode:UILineBreakModeWordWrap];
+    self.labelHeight = labelSize.height;
+    self.numberOfLines = (NSUInteger) self.labelHeight / self.lineHeight;
+  }
+  return self;
+}
 
-
+- (NSString *) description {
+  return [NSString stringWithFormat:@"#<LjsLabelAttributs line: %.2f height: %.2f lines: %d>",
+          self.lineHeight, self.labelHeight, self.numberOfLines];
+}
 
 @end
+
+
+
+
+
+
+
+
+
 

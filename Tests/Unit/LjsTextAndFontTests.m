@@ -68,7 +68,7 @@
 #import "LjsTestCase.h"
 #import "LoremIpsum.h"
 #import "LjsVariates.h"
-#import "LjsTextAndFont.h"
+#import "LjsLabelAttributes.h"
 
 @interface LjsTextAndFontTests : LjsTestCase {}
 @property (strong) LoremIpsum *li;

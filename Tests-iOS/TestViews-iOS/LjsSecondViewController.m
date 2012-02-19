@@ -1,7 +1,7 @@
 #import "LjsSecondViewController.h"
 #import "Lumberjack.h"
 #import "LoremIpsum.h"
-#import "LjsTextAndFont.h"
+#import "LjsLabelAttributes.h"
 #import "LjsGlassView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+LjsAdditions.h"
@@ -74,8 +74,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   
   DDLogDebug(@"%@", [self.label frameToString]);
   
-  UIColor *highColor = [UIColor colorWithR:80 g:100 b:244];
-  UIColor *lowColor = [UIColor colorWithR:58 g:41 b:73];
+//  UIColor *highColor = [UIColor colorWithR:80 g:100 b:244];
+//  UIColor *lowColor = [UIColor colorWithR:58 g:41 b:73];
   
 //  LjsGradientView *top = [[LjsGradientView alloc] initWithFrame:CGRectMake(0, 202, 320, 104)];
 //  [top setHighColor:highColor lowColor:lowColor];
