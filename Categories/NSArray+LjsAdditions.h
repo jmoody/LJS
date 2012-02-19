@@ -2,11 +2,13 @@
 
 /**
  NSArray on NSArray_Lisp category.
+ 
+ It is a start.
  */
-@interface NSArray (NSArray_Lisp)
+@interface NSArray (NSArray_LjsAdditions)
+
 
 - (id) nth:(NSUInteger) index;
-
 - (id) first;
 - (id) second;
 - (id) last;

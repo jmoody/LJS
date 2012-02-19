@@ -26,26 +26,15 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import <Foundation/Foundation.h>
-
 /**
- NSCalendar on NSCalendar_LjsAdditions category.
- */
-@interface NSCalendar (NSCalendar_LjsAdditions)
+ Ljs Categories
+*/
+#import "NSCalendar+LjsAdditions.h"
+#import "NSArray+LjsAdditions.h"
+#import "NSDate+LjsAdditions.h"
+#import "NSError+LjsAdditions.h"
 
-/** @name Task Section */
-
-/**
- returns a gregorian calendar
- */
-+ (NSCalendar *) gregorianCalendar;
-
-/**
- returns a gregorian calendar with monday as the first day of the week (as
- opposed to sunday
- */
-+ (NSCalendar *) gregorianCalendarWithMondayAsFirstDayOfWeek;
-
-
-
-@end
+#if TARGET_OS_IPHONE
+#import "UIView+LjsAdditions.h"
+#import "UIColor+LjsAdditions.h"
+#endif

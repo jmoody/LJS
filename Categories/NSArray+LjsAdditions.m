@@ -1,4 +1,4 @@
-#import "NSArray+Lisp.h"
+#import "NSArray+LjsAdditions.h"
 #import "Lumberjack.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -7,7 +7,7 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-@implementation NSArray (NSArray_Lisp)
+@implementation NSArray (NSArray_LjsAdditions)
 
 - (id) nth:(NSUInteger) index {
   NSUInteger count = [self count];
@@ -44,7 +44,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (NSArray *) append:(id) object {
-  if ([object isMemberOfClass:[NSArray class]]) {
+  if (object == nil) {
+    return [NSArray arrayWithArray:self];
+  }
+  
+  if ([object isKindOfClass:[NSArray class]]) {
     NSArray *other = (NSArray *) object;
     return [self arrayByAddingObjectsFromArray:other];
   } else {
