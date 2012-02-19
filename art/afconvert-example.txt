@@ -1,1 +1,3 @@
 afconvert -v -f caff -d ima4 -c 1 <file>
+
+afconvert -v -f mp3 -d m4a beethoven-op56.m4a

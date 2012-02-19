@@ -200,7 +200,6 @@
 		F54009EF14B22253001EF805 /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
 		F54009FA14B227EA001EF805 /* LoremIpsum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoremIpsum.h; sourceTree = "<group>"; };
 		F54009FB14B227EA001EF805 /* LoremIpsum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoremIpsum.m; sourceTree = "<group>"; };
-		F5448AB91450B63B0065E516 /* config-for-debug-and-release-block.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "config-for-debug-and-release-block.txt"; sourceTree = "<group>"; };
 		F5448ABA1450B63B0065E516 /* LjsDefaultFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultFormatter.h; sourceTree = "<group>"; };
 		F5448ABB1450B63B0065E516 /* LjsDefaultFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultFormatter.m; sourceTree = "<group>"; };
 		F5448ABC1450B63B0065E516 /* LjsLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLog.h; sourceTree = "<group>"; };
@@ -595,7 +594,6 @@
 				F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */,
 				F590BE9D14542E4900E5B89B /* LjsLogFileManager.h */,
 				F590BE9E14542E4900E5B89B /* LjsLogFileManager.m */,
-				F5448AB91450B63B0065E516 /* config-for-debug-and-release-block.txt */,
 				F5448ABA1450B63B0065E516 /* LjsDefaultFormatter.h */,
 				F5448ABB1450B63B0065E516 /* LjsDefaultFormatter.m */,
 				F5448ABC1450B63B0065E516 /* LjsLog.h */,
