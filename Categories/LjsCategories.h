@@ -35,6 +35,6 @@
 #import "NSError+LjsAdditions.h"
 
 #if TARGET_OS_IPHONE
-#import "UIView+LjsAdditions.h"
 #import "UIColor+LjsAdditions.h"
+#import "UIView+LjsAdditions.h"
 #endif
