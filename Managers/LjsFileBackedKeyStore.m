@@ -102,7 +102,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
         return nil;
       }
       self.store = [NSMutableDictionary dictionaryWithDictionary:dict];
-      
     }
   }
   return self;
@@ -156,6 +155,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
         // writing failed - bail out (error and messages handled in write selector)
         return nil;
       } 
+      self.store = [NSMutableDictionary dictionaryWithDictionary:aStore];
     } else {
       if (shouldOverwrite == YES) {
         BOOL writeSucceeded = [LjsFileUtilities writeDictionary:aStore
