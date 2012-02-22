@@ -28,6 +28,9 @@
 - (void) adjustW:(CGFloat) scale;
 - (void) adjustH:(CGFloat) scale;
 
+- (CGFloat) endX;
+- (CGFloat) endY;
+
 - (NSString *) frameToString;
 - (NSString *) centerToString;
 - (NSString *) boundsToString;
