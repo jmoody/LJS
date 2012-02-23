@@ -74,6 +74,34 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   
   DDLogDebug(@"%@", [self.label frameToString]);
   
+  NSUInteger accumulator = 0;
+  NSUInteger max = 0;
+  NSUInteger runs = 1000;
+  font = [UIFont fontWithName:@"ArialMT" size:18]; 
+  tv.font = font;
+  frame = CGRectMake(0, 0, 290, 0);
+  tv.frame = frame;
+  
+  UIEdgeInsets existing = tv.contentInset;
+  
+  UIEdgeInsets insets = UIEdgeInsetsMake(12, 12, existing.bottom, existing.right);
+  
+  for (NSInteger index = 0;  index < runs; index++) {
+    text = [li characters:150];
+    tv = [[UITextView alloc] initWithFrame:frame];
+    tv.font = font;
+    tv.text = text;
+    tv.contentInset = insets;
+    [tv sizeToFit];
+    height = tv.contentSize.height;
+    accumulator = accumulator + height;
+    
+    max = MAX(max, height);
+  }
+  
+  DDLogDebug(@"mean = %.2f", accumulator/(1.0 * runs));
+  DDLogDebug(@"max = %d", max);
+  
 //  UIColor *highColor = [UIColor colorWithR:80 g:100 b:244];
 //  UIColor *lowColor = [UIColor colorWithR:58 g:41 b:73];
   
