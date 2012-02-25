@@ -33,6 +33,7 @@
 #import "NSArray+LjsAdditions.h"
 #import "NSDate+LjsAdditions.h"
 #import "NSError+LjsAdditions.h"
+#import "NSSet+LjsAdditions.h"
 
 #if TARGET_OS_IPHONE
 #import "UIColor+LjsAdditions.h"
