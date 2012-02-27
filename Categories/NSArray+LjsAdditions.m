@@ -61,5 +61,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [self sortedArrayUsingDescriptors:array];
 }
 
+- (NSArray *) push:(id) object {
+  if (object == nil) {
+    return [NSArray arrayWithArray:self];
+  }
+  NSArray *array = [NSArray arrayWithObject:object];
+  return [array arrayByAddingObjectsFromArray:self];
+}
+
+
 
 @end
