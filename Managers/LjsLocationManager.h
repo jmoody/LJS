@@ -92,7 +92,7 @@
 /**
  available iff LJS_LOCATION_SERVICES_DEBUG Preprocessor Macro is defined
  */
-@property (nonatomic, retain) NSArray *debugDevices;
+@property (nonatomic, strong) NSArray *debugDevices;
 #endif
 
 /**
