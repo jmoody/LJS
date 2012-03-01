@@ -52,7 +52,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 static NSString *Ljs_UIKeyboardFrameChangedByUserInteraction = @"UIKeyboardFrameChangedByUserInteraction";
 #pragma mark Memory Management
 - (void) dealloc {
-   DDLogDebug(@"deallocating %@", [self class]);
+   //DDLogDebug(@"deallocating %@", [self class]);
 }
 
 - (id) initWithNotification:(NSNotification *) aNotification {

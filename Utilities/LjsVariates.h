@@ -111,11 +111,28 @@
  */
 @interface LjsVariates : NSObject {}
 
++ (NSUInteger) factorial:(NSUInteger) n;
++ (NSUInteger) _factorialHelperWithN:(NSUInteger) n
+                         accumulator:(NSUInteger) accumulator;
+
+
 /**
  @return a random BOOL value
  */
 + (BOOL) flip;
+
++ (BOOL) flipWithProbilityOfYes:(double) aProbability;
  
+/*
+ e is the base of the natural logarithm (e = 2.71828...)
+ k is the number of occurrences of an event — the probability of which is given by the function
+ k! is the factorial of k
+ λ is a positive real number, equal to the expected number of occurrences during the given interval. For instance, if the events occur on average 4 times per minute, and one is interested in the probability of an event occurring k times in a 10 minute interval, one would use a Poisson distribution as the model with λ = 10×4 = 40.
+ As a function of k, this is the probability mass function. The Poisson distribution can be derived as a limiting case of the binomial distribution.
+ */
+
++ (double) possionWithK:(NSUInteger) aK
+                     lambda:(double) aLambda;
 
 /**
  Generates a random double from 0.0 to 1.0 inclusive - (0.0, 1.0) 
