@@ -166,5 +166,7 @@
  */
 + (BOOL) isValidEmail:(NSString *)checkString;
 
-
++ (BOOL) isFloat:(CGFloat) aFloat
+   onIntervalMin:(CGFloat) aMin
+             max:(CGFloat) aMax;
 @end

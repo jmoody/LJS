@@ -177,4 +177,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [emailTest evaluateWithObject:checkString];
 }
 
++ (BOOL) isFloat:(CGFloat) aFloat
+   onIntervalMin:(CGFloat) aMin
+             max:(CGFloat) aMax {
+  return ((aFloat >= aMin) && (aFloat <= aMax));
+}
+
 @end
