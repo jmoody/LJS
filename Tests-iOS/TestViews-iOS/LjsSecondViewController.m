@@ -82,16 +82,15 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   frame = CGRectMake(0, 0, 290, 0);
   tv.frame = frame;
   
-  UIEdgeInsets existing = tv.contentInset;
-  
-  UIEdgeInsets insets = UIEdgeInsetsMake(12, 12, existing.bottom, existing.right);
+//  UIEdgeInsets existing = tv.contentInset;
+//  
+//  UIEdgeInsets insets = UIEdgeInsetsMake(12, 12, existing.bottom, existing.right);
   
   for (NSInteger index = 0;  index < runs; index++) {
-    text = [li characters:150];
+    text = [li characters:125];
     tv = [[UITextView alloc] initWithFrame:frame];
     tv.font = font;
     tv.text = text;
-    tv.contentInset = insets;
     [tv sizeToFit];
     height = tv.contentSize.height;
     accumulator = accumulator + height;
