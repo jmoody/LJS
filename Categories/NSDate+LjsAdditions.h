@@ -81,6 +81,9 @@ typedef struct LjsDateComps LjsDateComps;
 /** @name Task Section */
 - (NSString *) descriptionWithCurrentLocale;
 
++ (NSDate *) LjsDateNotFound;
+- (BOOL) isNotFound;
+
 + (NSDate *) yesterday;
 + (NSDate *) tomorrow;
 - (BOOL) isToday;

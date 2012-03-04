@@ -83,6 +83,14 @@ NSSecondCalendarUnit);
   return [self descriptionWithLocale:[NSLocale currentLocale]];
 }
 
++ (NSDate *) LjsDateNotFound {
+  return [NSDate dateWithTimeIntervalSince1970:0.0];
+}
+
+- (BOOL) isNotFound {
+  return [[NSDate LjsDateNotFound] compare:self] == NSOrderedSame;
+}
+
 + (NSDate *) yesterday {
   LjsDateComps comps = [[NSDate date] dateComponents];
   comps.day--;
