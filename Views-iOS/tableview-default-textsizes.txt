@@ -14,3 +14,6 @@ UITableViewCellStyleValue2:
 
 textLabel: Helvetica Bold, size: smallSystemFontSize (12 px)
 detailsLabel: Helvetica, size: labelFontSize (17 px)
+
+text label = {{10, 8}, {153, 22}}
+details label = {{10, 30}, {282, 18}}
