@@ -165,47 +165,23 @@ static double const LjsE = 2.71828;
 }
 
 + (NSArray *) sampleWithoutReplacement:(NSArray *) array number:(NSUInteger) number {
-  NSMutableArray *sampled = [NSMutableArray array];
+  NSMutableArray *sampled = [NSMutableArray arrayWithArray:array];
   NSArray *result;
   NSInteger arraySize = [array count];
   if (arraySize < number) {
     // not possible to generate enough samples with out replacement
     result = nil;
   } else {
-    NSInteger loopVar;
-    NSInteger randomIndex;
-    NSInteger maxArrayIndex = arraySize - 1;
-    NSMutableArray *indexes = [NSMutableArray arrayWithCapacity:number];
+    NSUInteger remainingCount, index, randomIndex;
     
-    for (loopVar = 0; loopVar < number; loopVar++) {
-      
-      randomIndex = [LjsVariates randomIntegerWithMin:0 max:maxArrayIndex];
-      //DDLogDebug(@"randomIndex == %d", randomIndex);
-      while ([LjsVariates _arrayOfNSNumbers:indexes containsInt:randomIndex]) {
-        //DDLogDebug(@"randomIndex %d was found in %@ - regenerating", randomIndex, indexes);
-        randomIndex = [LjsVariates randomIntegerWithMin:0 max:maxArrayIndex];
-      }
-      //DDLogDebug(@"adding randomIndex %d to indexes - %@", randomIndex, indexes);
-      [indexes addObject:[NSNumber numberWithInteger:randomIndex]];
+    for (index = 0; index < arraySize; index++) {
+      remainingCount = arraySize - index;
+      randomIndex = ([LjsVariates randomInteger] % remainingCount) + index;
+      [sampled exchangeObjectAtIndex:index withObjectAtIndex:randomIndex];
     }
-    
-    for (NSNumber *index in indexes) {
-      id object = [array objectAtIndex:[index intValue]];
-      [sampled addObject:object];
-    }
-    result = [NSArray arrayWithArray:sampled];
+    result = [sampled subarrayWithRange:NSMakeRange(0, number)];
   }
   return result;
-}
-
-+ (BOOL) _arrayOfNSNumbers:(NSArray *) array containsInt:(NSUInteger) number {
-  
-  for (NSNumber *num in array) {
-    if ([num intValue] == number) {
-      return YES;
-    }
-  }
-  return NO;
 }
 
 + (id) randomElement:(NSArray *) array {
@@ -222,6 +198,13 @@ static double const LjsE = 2.71828;
   NSInteger index = [LjsVariates randomIntegerWithMin:0 max:max];
   return [array objectAtIndex:index];
 }
+
++ (NSArray *) shuffle:(NSArray *) array {
+  NSUInteger count = [array count];
+  NSArray *shuffled = [self sampleWithoutReplacement:array number:count];
+  return shuffled;
+}
+
 
 + (NSString *) randomStringWithLength:(NSUInteger) length {
   

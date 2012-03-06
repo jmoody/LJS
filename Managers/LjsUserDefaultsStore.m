@@ -164,6 +164,50 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return result;
 }
 
+- (id) valueForDictionaryNamed:(NSString *) aDictName
+                  withValueKey:(NSString *) aValueKey
+                  defaultValue:(id) aDefaultValue
+                storeIfMissing:(BOOL) aPersistMissing {
+  id result = nil;
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSDictionary *dict = (NSDictionary *) [defaults objectForKey:aDictName];
+  
+  if (dict == nil && aPersistMissing && aDefaultValue != nil) {
+    dict = [NSDictionary dictionaryWithObject:aDefaultValue forKey:aValueKey];
+    [defaults setObject:dict forKey:aDictName];
+  } else {
+    result = [dict objectForKey:aValueKey];
+    if (result == nil && aPersistMissing && aDefaultValue != nil) {
+      NSMutableDictionary *mdict = [NSMutableDictionary dictionaryWithDictionary:dict];
+      [mdict setObject:aDefaultValue forKey:aValueKey];
+      [defaults setObject:mdict forKey:aDictName];
+    } 
+  }
+  if (result == nil) {
+    result = aDefaultValue;
+  }
+  return result;
+}
+
+- (void) updateValueInDictionaryNamed:(NSString *) aDictName
+                         withValueKey:(NSString *) aValueKey
+                                value:(id) aValue {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSDictionary *dict = (NSDictionary *) [defaults objectForKey:aDictName];
+  if (dict == nil) {
+    if (aValue != nil) {
+      dict = [NSDictionary dictionaryWithObject:aValue forKey:aValueKey];
+      [defaults setObject:dict forKey:aDictName];
+    } else {
+      // nothing to do - dict is nil and value is nil
+    }
+  } else {
+    NSMutableDictionary *mdict = [NSMutableDictionary dictionaryWithDictionary:dict];
+    [mdict setObject:aValue forKey:aValueKey];
+    [defaults setObject:mdict forKey:aDictName];
+  }
+}
+
 
 - (void) storeObject:(id) object forKey:(NSString *) aKey {
   [[NSUserDefaults standardUserDefaults] setObject:object
