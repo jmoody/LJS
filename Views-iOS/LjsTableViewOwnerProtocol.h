@@ -39,6 +39,13 @@
                    atScrollPosition:(UITableViewScrollPosition) aPostion;
 - (void) reloadTableView;
 - (UITableViewCell *) cellForIndexPath:(NSIndexPath *) aIndexPath;
+- (UITableViewCell *) cellForSelectedRow;
+- (NSIndexPath *) indexPathForSelectedRow;
+- (void) deselectSelectedRow:(BOOL) animated;
+- (void) selectCellAtIndexPath:(NSIndexPath *) aIndexPath
+                      animated:(BOOL) animated 
+                scrollPosition:(UITableViewScrollPosition) scrollPosition;
+- (NSArray *) visibleCells;
 
 /** @name Optional Methods */
 @optional

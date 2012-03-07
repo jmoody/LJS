@@ -65,6 +65,7 @@
 
 #import "NSDate+LjsAdditions.h"
 #import "Lumberjack.h"
+#import "LjsVariates.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -409,5 +410,35 @@ NSSecondCalendarUnit);
                            calendar:aCalendar];
 }
 
++ (NSDate *) randomDateBetweenStart:(NSDate *) aStart end:(NSDate *) aEnd {
+  NSUInteger daysBtw = [aStart daysBetweenDate:aEnd];
+  LjsDateComps fromComps = [aStart dateComponents];
+  
+  fromComps.hour = [LjsVariates randomIntegerWithMin:fromComps.hour max:23];
+  fromComps.minute = [LjsVariates randomIntegerWithMin:0 max:59];
+  fromComps.second = [LjsVariates randomIntegerWithMin:0 max:59];
+  
+  NSDate *date = [NSDate dateWithComponents:fromComps];
+  
+  date = [date dateByAddingDays:[LjsVariates randomIntegerWithMin:0 max:daysBtw]];
+  
+  
+  if ([date compare:aEnd] != NSOrderedAscending) {
+    LjsDateComps endComps = [aEnd dateComponents];
+    endComps.hour = [LjsVariates randomIntegerWithMin:0 max:endComps.hour - 1];
+    endComps.minute = [LjsVariates randomIntegerWithMin:0 max:endComps.minute];
+    endComps.second = [LjsVariates randomIntegerWithMin:0 max:endComps.second];
+    
+    date = [NSDate dateWithComponents:endComps];
+  }
+  
+  if ([date compare:aEnd] != NSOrderedAscending) {
+    DDLogWarn(@"could not make a correct end date");
+    DDLogWarn(@"start: %@", [aStart descriptionWithCurrentLocale]);
+    DDLogWarn(@"date:  %@", [date descriptionWithCurrentLocale]);
+    DDLogWarn(@"end:   %@", [aEnd descriptionWithCurrentLocale]);
+  }
+  return date;
+}
 
 @end

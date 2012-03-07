@@ -26,17 +26,13 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-/**
- Ljs Categories
-*/
-#import "NSCalendar+LjsAdditions.h"
-#import "NSArray+LjsAdditions.h"
-#import "NSDate+LjsAdditions.h"
-#import "NSError+LjsAdditions.h"
-#import "NSSet+LjsAdditions.h"
+#import <Foundation/Foundation.h>
 
-#if TARGET_OS_IPHONE
-#import "UIColor+LjsAdditions.h"
-#import "UIView+LjsAdditions.h"
-#import "UILabel+LjsAdditions.h"
-#endif
+/**
+ UIButton on UIButton_LjsAdditions category.
+ */
+@interface UIButton (UIButton_LjsAdditions)
+
+/** @name Task Section */
+
+@end

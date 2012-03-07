@@ -171,6 +171,7 @@ typedef struct LjsDateComps LjsDateComps;
 - (NSDate *) lastSecondWithTimeZone:(NSTimeZone *)aTimeZone
                            calendar:(NSCalendar *) aCalendar;
 
++ (NSDate *) randomDateBetweenStart:(NSDate *) aStart end:(NSDate *) aEnd;
 
 
 @end
