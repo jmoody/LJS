@@ -85,7 +85,15 @@ NSSecondCalendarUnit);
 }
 
 + (NSDate *) LjsDateNotFound {
-  return [NSDate dateWithTimeIntervalSince1970:0.0];
+  // voyager 1 will pass within 1.7 light years of star AC+79 3888 which is in
+  // Ursa Minor 
+  NSDate *date = [NSDate dateWithYear:40272
+                                month:1
+                                  day:1
+                                 hour:0
+                               minute:0
+                               second:1];
+  return date;
 }
 
 - (BOOL) isNotFound {
