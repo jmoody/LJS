@@ -34,6 +34,7 @@
 #import "NSDate+LjsAdditions.h"
 #import "NSError+LjsAdditions.h"
 #import "NSSet+LjsAdditions.h"
+#import "NSLocale+LjsAdditions.h"
 
 #if TARGET_OS_IPHONE
 #import "UIColor+LjsAdditions.h"

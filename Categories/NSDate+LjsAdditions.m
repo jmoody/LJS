@@ -81,7 +81,7 @@ NSSecondCalendarUnit);
 @implementation NSDate (NSDate_LjsAdditions)
 
 - (NSString *) descriptionWithCurrentLocale {
-  return [self descriptionWithLocale:[NSLocale currentLocale]];
+  return [self descriptionWithLocale:[NSLocale autoupdatingCurrentLocale]];
 }
 
 + (NSDate *) LjsDateNotFound {

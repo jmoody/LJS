@@ -38,12 +38,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @implementation LjsLocaleUtils
 
 + (BOOL) currentLocaleUsesMetricSystem {
-  NSLocale *current = [NSLocale currentLocale];
+  NSLocale *current = [NSLocale autoupdatingCurrentLocale];
   return [[current objectForKey:NSLocaleUsesMetricSystem] boolValue];
 }
 
 + (NSString *) groupSepForCurrentLocale {
-  return [LjsLocaleUtils groupSepForLocale:[NSLocale currentLocale]];
+  return [LjsLocaleUtils groupSepForLocale:[NSLocale autoupdatingCurrentLocale]];
 }
 
 + (NSString *) groupSepForLocale:(NSLocale *) aLocale {
@@ -51,7 +51,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 + (NSString *) decimalSepForCurrentLocale {
-  return [LjsLocaleUtils decimalSepForLocale:[NSLocale currentLocale]];
+  return [LjsLocaleUtils decimalSepForLocale:[NSLocale autoupdatingCurrentLocale]];
 }
 
 + (NSString *) decimalSepForLocale:(NSLocale *) aLocale {
@@ -60,7 +60,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 
 + (NSNumberFormatter *) numberFormatterForCurrentLocale {
-  return [LjsLocaleUtils numberFormatterWithLocale:[NSLocale currentLocale]];
+  return [LjsLocaleUtils numberFormatterWithLocale:[NSLocale autoupdatingCurrentLocale]];
 }
 
 + (NSNumberFormatter *) numberFormatterWithLocale:(NSLocale *) aLocale {
