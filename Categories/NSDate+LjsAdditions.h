@@ -88,6 +88,13 @@ typedef struct LjsDateComps LjsDateComps;
 + (NSDate *) tomorrow;
 - (BOOL) isToday;
 
+
+- (NSDate *) firstOfMonth;
+- (NSDate *) nextMonth;
+- (NSDate *) previousMonth;
+
+
+
 - (BOOL) isSameDay:(NSDate *) aDate;
 - (NSUInteger) daysBetweenDate:(NSDate *) aDate;
 - (NSUInteger) daysBetweenDate:(NSDate *) aDate 

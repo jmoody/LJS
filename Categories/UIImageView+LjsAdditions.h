@@ -26,19 +26,30 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-/**
- Ljs Categories
-*/
-#import "NSCalendar+LjsAdditions.h"
-#import "NSArray+LjsAdditions.h"
-#import "NSDate+LjsAdditions.h"
-#import "NSError+LjsAdditions.h"
-#import "NSSet+LjsAdditions.h"
-#import "NSLocale+LjsAdditions.h"
+#import <Foundation/Foundation.h>
 
-#if TARGET_OS_IPHONE
-#import "UIColor+LjsAdditions.h"
-#import "UIView+LjsAdditions.h"
-#import "UILabel+LjsAdditions.h"
-#import "UIImageView+LjsAdditions.h"
-#endif
+/**
+ UIImageView on UIImageView_LjsAdditions category.
+ */
+@interface UIImageView (UIImageView_LjsAdditions)
+
+/** @name Task Section */
++ (UIImageView *) imageViewWithFrame:(CGRect) aFrame
+                               image:(UIImage *) aImage;
+
++ (UIImageView *) imageViewWithImage:(UIImage *) aImage
+              centeredInRectWithSize:(CGSize) aSize;
+
++ (UIImageView *) imageViewWithImage:(UIImage *) aImage
+             centeredInRectWithWidth:(CGFloat) aWidth
+                              height:(CGFloat) aHeight;
+
++ (UIImageView *) imageViewWithImage:(UIImage *) aImage
+                         withOriginX:(CGFloat) aOriginX
+            centeredInRectWithHeight:(CGFloat) aHeight;
+
++ (UIImageView *) imageViewWithImage:(UIImage *) aImage
+                         withOriginY:(CGFloat) aOriginY
+             centeredInRectWithWidth:(CGFloat) aWidth;
+
+@end

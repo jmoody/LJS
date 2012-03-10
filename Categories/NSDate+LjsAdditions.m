@@ -126,6 +126,46 @@ NSSecondCalendarUnit);
   selfComps.day == aDateComps.day;
 }
 
+- (NSDate *) firstOfMonth {
+  LjsDateComps comps = [self dateComponents];
+  comps.day = 1;
+	comps.minute = 0;
+	comps.second = 0;
+	comps.hour = 0;
+  return [NSDate dateWithComponents:comps];
+}
+
+- (NSDate *) nextMonth {
+  LjsDateComps comps = [self dateComponents];
+	comps.month++;
+	if(comps.month>12){
+		comps.month = 1;
+		comps.year++;
+	}
+	comps.minute = 0;
+	comps.second = 0;
+	comps.hour = 0;
+	
+  return [NSDate dateWithComponents:comps];
+}
+
+- (NSDate *) previousMonth {
+  LjsDateComps comps = [self dateComponents];
+	comps.month--;
+	if(comps.month<1){
+		comps.month = 12;
+		comps.year--;
+	}
+	
+	comps.minute = 0;
+	comps.second = 0;
+	comps.hour = 0;
+  return [NSDate dateWithComponents:comps];
+}
+
+
+
+
 - (NSUInteger) daysBetweenDate:(NSDate*) aDate {
   return [self daysBetweenDate:aDate calendar:[NSCalendar currentCalendar]];
 }
