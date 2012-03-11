@@ -112,10 +112,45 @@
 @interface LjsVariates : NSObject {}
 
 /**
+ uses tail recursion to compute factorial of n
+ @return the factorial of n (n!)
+ @param n n
+ */
++ (NSUInteger) factorial:(NSUInteger) n;
+
+/**
+ the helper for factorial function 
+ @return accumulated n
+ @param n n
+ @param accumulator the accumulated value
+ */
++ (NSUInteger) _factorialHelperWithN:(NSUInteger) n
+                         accumulator:(NSUInteger) accumulator;
+
+/**
  @return a random BOOL value
  */
 + (BOOL) flip;
+
+/**
+ @return a random BOOL with aProbabilty of YES
+ @param aProbability the probability of a YES
+ */
++ (BOOL) flipWithProbilityOfYes:(double) aProbability;
  
+/**
+ Discussion 
+ e is the base of the natural logarithm (e = 2.71828...)
+ k is the number of occurrences of an event — the probability of which is given by the function
+ k! is the factorial of k
+ λ is a positive real number, equal to the expected number of occurrences during the given interval. For instance, if the events occur on average 4 times per minute, and one is interested in the probability of an event occurring k times in a 10 minute interval, one would use a Poisson distribution as the model with λ = 10×4 = 40.
+ As a function of k, this is the probability mass function. The Poisson distribution can be derived as a limiting case of the binomial distribution.
+ @return a poission random value
+ @param aK is the number of occurrences of an event — the probability of which is given by the function
+ @param aLambda s a positive real number, equal to the expected number of occurrences during the given interval. For instance, if the events occur on average 4 times per minute, and one is interested in the probability of an event occurring k times in a 10 minute interval, one would use a Poisson distribution as the model with λ = 10×4 = 40.
+ */
++ (double) possionWithK:(NSUInteger) aK
+                 lambda:(double) aLambda;
 
 /**
  Generates a random double from 0.0 to 1.0 inclusive - (0.0, 1.0) 
@@ -214,16 +249,19 @@
  */
 + (NSArray *) sampleWithoutReplacement:(NSArray *) array number:(NSUInteger) number;
 
-/**
- a helper function for sampleWithoutReplacement.
- scans an array of NSNumbers to determine if 'number' is present.
- @param array the array to scan
- @param number the number to detect
- @return true iff number appears in the array as an NSNumber
- */
-+ (BOOL) _arrayOfNSNumbers:(NSArray *) array containsInt:(NSUInteger) number;
   
+/**
+ @return a random element from the array
+ @param array the array to sample
+ */
 + (id) randomElement:(NSArray *) array;
+
+/**
+ @return a shuffled array
+ @param array the array to shuffle
+ */
++ (NSArray *) shuffle:(NSArray *) array;
+
 
 /**
  returns a string of random alpha-numeric characters

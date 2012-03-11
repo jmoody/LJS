@@ -48,7 +48,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 #pragma mark Memory Management
 - (void) dealloc {
-   DDLogDebug(@"deallocating %@", [self class]);
+   //DDLogDebug(@"deallocating %@", [self class]);
 }
 
 - (id) initWithFileName:(NSString *)aFilename 
@@ -102,7 +102,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
         return nil;
       }
       self.store = [NSMutableDictionary dictionaryWithDictionary:dict];
-      
     }
   }
   return self;
@@ -156,6 +155,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
         // writing failed - bail out (error and messages handled in write selector)
         return nil;
       } 
+      self.store = [NSMutableDictionary dictionaryWithDictionary:aStore];
     } else {
       if (shouldOverwrite == YES) {
         BOOL writeSucceeded = [LjsFileUtilities writeDictionary:aStore
@@ -293,6 +293,60 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
   return result;
 }
+
+
+
+
+- (id) valueForDictionaryNamed:(NSString *) aDictName
+                  withValueKey:(NSString *) aValueKey
+                  defaultValue:(id) aDefaultValue
+                storeIfMissing:(BOOL) aPersistMissing {
+  id result = nil;
+  
+  NSDictionary *dict = [self dictionaryForKey:aDictName
+                                 defaultValue:nil
+                               storeIfMissing:NO];  
+  if (dict == nil) {
+    if (aPersistMissing == YES && aDefaultValue != nil) {
+      dict = [NSDictionary dictionaryWithObject:aDefaultValue forKey:aValueKey];
+      [self storeObject:dict forKey:aDictName];
+    } 
+  } else {
+    result = [dict objectForKey:aValueKey];
+    if (result == nil && aPersistMissing && aDefaultValue != nil) {
+      NSMutableDictionary *mdict = [NSMutableDictionary dictionaryWithDictionary:dict];
+      [mdict setObject:aDefaultValue forKey:aValueKey];
+      [self storeObject:mdict forKey:aDictName];
+    }
+  }
+  
+  if (result == nil) {
+    result = aDefaultValue;
+  }
+  
+  return result;
+}
+
+- (void) updateValueInDictionaryNamed:(NSString *) aDictName
+                         withValueKey:(NSString *) aValueKey
+                                value:(id) aValue {
+  NSDictionary *dict = [self dictionaryForKey:aDictName
+                                 defaultValue:nil
+                               storeIfMissing:NO];
+  if (dict == nil) {
+    if (aValue != nil) {
+      dict = [NSDictionary dictionaryWithObject:aValue forKey:aValueKey];
+      [self storeObject:dict forKey:aDictName];
+    } else {
+      // nothing to do - dict is nil and value is nil
+    }
+  } else {
+    NSMutableDictionary *mdict = [NSMutableDictionary dictionaryWithDictionary:dict];
+    [mdict setObject:aValue forKey:aValueKey];
+    [self storeObject:mdict forKey:aDictName];
+  }
+}
+
 
 
 - (void) storeObject:(id) object forKey:(NSString *) aKey {

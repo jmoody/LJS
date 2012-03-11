@@ -32,20 +32,7 @@ To clone:
 1. % git clone --recursive git@github.com:jmoody/LJS.git
 2. % cd LJS
 3. % git submodule update --recursive --init
-4. % cd CocoaLumberjack
-5. % git checkout master
-6. % cd ../asi-http-request
-7. % git checkout master
-8. % cd ../json-framework
-9. % git checkout master
-10. % cd ../gh-unit
-11. % git checkout master
-12. % cd ../appledoc
-13. % git checkout master
-14. % cd ../CocoaHTTPServer
-15. % git checkout master
-16. % cd ../CocoaAsyncSocket
-17. % git checkout master
+4. % git submodule foreach git checkout master
 
 License
 --------------------

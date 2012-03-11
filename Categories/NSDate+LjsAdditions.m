@@ -65,6 +65,7 @@
 
 #import "NSDate+LjsAdditions.h"
 #import "Lumberjack.h"
+#import "LjsVariates.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -80,7 +81,23 @@ NSSecondCalendarUnit);
 @implementation NSDate (NSDate_LjsAdditions)
 
 - (NSString *) descriptionWithCurrentLocale {
-  return [self descriptionWithLocale:[NSLocale currentLocale]];
+  return [self descriptionWithLocale:[NSLocale autoupdatingCurrentLocale]];
+}
+
++ (NSDate *) LjsDateNotFound {
+  // voyager 1 will pass within 1.7 light years of star AC+79 3888 which is in
+  // Ursa Minor 
+  NSDate *date = [NSDate dateWithYear:40272
+                                month:1
+                                  day:1
+                                 hour:0
+                               minute:0
+                               second:1];
+  return date;
+}
+
+- (BOOL) isNotFound {
+  return [[NSDate LjsDateNotFound] compare:self] == NSOrderedSame;
 }
 
 + (NSDate *) yesterday {
@@ -108,6 +125,46 @@ NSSecondCalendarUnit);
   selfComps.month == aDateComps.month &&
   selfComps.day == aDateComps.day;
 }
+
+- (NSDate *) firstOfMonth {
+  LjsDateComps comps = [self dateComponents];
+  comps.day = 1;
+	comps.minute = 0;
+	comps.second = 0;
+	comps.hour = 0;
+  return [NSDate dateWithComponents:comps];
+}
+
+- (NSDate *) nextMonth {
+  LjsDateComps comps = [self dateComponents];
+	comps.month++;
+	if(comps.month>12){
+		comps.month = 1;
+		comps.year++;
+	}
+	comps.minute = 0;
+	comps.second = 0;
+	comps.hour = 0;
+	
+  return [NSDate dateWithComponents:comps];
+}
+
+- (NSDate *) previousMonth {
+  LjsDateComps comps = [self dateComponents];
+	comps.month--;
+	if(comps.month<1){
+		comps.month = 12;
+		comps.year--;
+	}
+	
+	comps.minute = 0;
+	comps.second = 0;
+	comps.hour = 0;
+  return [NSDate dateWithComponents:comps];
+}
+
+
+
 
 - (NSUInteger) daysBetweenDate:(NSDate*) aDate {
   return [self daysBetweenDate:aDate calendar:[NSCalendar currentCalendar]];
@@ -401,5 +458,35 @@ NSSecondCalendarUnit);
                            calendar:aCalendar];
 }
 
++ (NSDate *) randomDateBetweenStart:(NSDate *) aStart end:(NSDate *) aEnd {
+  NSUInteger daysBtw = [aStart daysBetweenDate:aEnd];
+  LjsDateComps fromComps = [aStart dateComponents];
+  
+  fromComps.hour = [LjsVariates randomIntegerWithMin:fromComps.hour max:23];
+  fromComps.minute = [LjsVariates randomIntegerWithMin:0 max:59];
+  fromComps.second = [LjsVariates randomIntegerWithMin:0 max:59];
+  
+  NSDate *date = [NSDate dateWithComponents:fromComps];
+  
+  date = [date dateByAddingDays:[LjsVariates randomIntegerWithMin:0 max:daysBtw]];
+  
+  
+  if ([date compare:aEnd] != NSOrderedAscending) {
+    LjsDateComps endComps = [aEnd dateComponents];
+    endComps.hour = [LjsVariates randomIntegerWithMin:0 max:endComps.hour - 1];
+    endComps.minute = [LjsVariates randomIntegerWithMin:0 max:endComps.minute];
+    endComps.second = [LjsVariates randomIntegerWithMin:0 max:endComps.second];
+    
+    date = [NSDate dateWithComponents:endComps];
+  }
+  
+  if ([date compare:aEnd] != NSOrderedAscending) {
+    DDLogWarn(@"could not make a correct end date");
+    DDLogWarn(@"start: %@", [aStart descriptionWithCurrentLocale]);
+    DDLogWarn(@"date:  %@", [date descriptionWithCurrentLocale]);
+    DDLogWarn(@"end:   %@", [aEnd descriptionWithCurrentLocale]);
+  }
+  return date;
+}
 
 @end

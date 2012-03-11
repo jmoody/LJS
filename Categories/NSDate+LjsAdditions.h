@@ -81,9 +81,19 @@ typedef struct LjsDateComps LjsDateComps;
 /** @name Task Section */
 - (NSString *) descriptionWithCurrentLocale;
 
++ (NSDate *) LjsDateNotFound;
+- (BOOL) isNotFound;
+
 + (NSDate *) yesterday;
 + (NSDate *) tomorrow;
 - (BOOL) isToday;
+
+
+- (NSDate *) firstOfMonth;
+- (NSDate *) nextMonth;
+- (NSDate *) previousMonth;
+
+
 
 - (BOOL) isSameDay:(NSDate *) aDate;
 - (NSUInteger) daysBetweenDate:(NSDate *) aDate;
@@ -168,6 +178,7 @@ typedef struct LjsDateComps LjsDateComps;
 - (NSDate *) lastSecondWithTimeZone:(NSTimeZone *)aTimeZone
                            calendar:(NSCalendar *) aCalendar;
 
++ (NSDate *) randomDateBetweenStart:(NSDate *) aStart end:(NSDate *) aEnd;
 
 
 @end

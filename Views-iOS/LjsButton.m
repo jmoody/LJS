@@ -44,6 +44,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @synthesize _highColor;
 @synthesize _lowColor;
 @synthesize gradientLayer;
+@synthesize isOn;
 
 
 - (id) initWithFrame:(CGRect)frame {
@@ -78,6 +79,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   
 
   self.showsTouchWhenHighlighted = YES;
+  self.isOn = NO;
 }
 
 - (void)drawRect:(CGRect)rect {

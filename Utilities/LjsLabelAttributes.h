@@ -37,11 +37,21 @@
 @property (nonatomic, assign) CGFloat lineHeight;
 @property (nonatomic, assign) CGFloat labelHeight;
 @property (nonatomic, assign) NSUInteger numberOfLines;
+@property (nonatomic, copy) NSString *string;
+@property (nonatomic, assign) CGFloat labelWidth;
 
 - (id) initWithString:(NSString *) aString
                  font:(UIFont *) aFont
            labelWidth:(CGFloat) aLabelWidth;
 
++ (CGSize) sizeOfDetailsCellTitleLabel;
++ (CGSize) sizeOfDetailsCellDetailsLabel;
++ (CGFloat) heightOfDetailsCellTitleLabel;
++ (CGFloat) widthOfDetailsCellTitleLabel;
++ (CGFloat) heightOfDetailsCellDetailsLabel;
++ (CGFloat) widthOfDetailsCellDetailsLabel;
++ (CGRect) frameForDetailsCellTitleLabelWithX:(CGFloat) aX;
++ (CGRect) frameForDetailsCellDetailsLabelWithX:(CGFloat) aX;
 
 
 @end

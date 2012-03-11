@@ -44,6 +44,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @synthesize lineHeight;
 @synthesize labelHeight;
 @synthesize numberOfLines;
+@synthesize string;
+@synthesize labelWidth;
 
 - (id) initWithString:(NSString *) aString
                  font:(UIFont *) aFont
@@ -58,13 +60,55 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                                lineBreakMode:UILineBreakModeWordWrap];
     self.labelHeight = labelSize.height;
     self.numberOfLines = (NSUInteger) self.labelHeight / self.lineHeight;
+    self.string = aString;
+    self.labelWidth = aLabelWidth;
   }
   return self;
 }
 
 - (NSString *) description {
-  return [NSString stringWithFormat:@"#<LjsLabelAttributs line: %.2f height: %.2f lines: %d>",
-          self.lineHeight, self.labelHeight, self.numberOfLines];
+  return [NSString stringWithFormat:@"#<LjsLabelAttributes line: %.2f height: %.2f lines: %d width: %.2f>",
+          self.lineHeight, self.labelHeight, self.numberOfLines, self.labelWidth];
+}
+
+//text label = {{10, 8}, {153, 22}}
+//details label = {{10, 30}, {282, 18}}
++ (CGSize) sizeOfDetailsCellTitleLabel {
+  return CGSizeMake(153, 22);
+}
+
++ (CGSize) sizeOfDetailsCellDetailsLabel {
+  return CGSizeMake(282, 18);
+}
+
++ (CGFloat) heightOfDetailsCellTitleLabel {
+  return [LjsLabelAttributes sizeOfDetailsCellTitleLabel].height;
+}
+
++ (CGFloat) widthOfDetailsCellTitleLabel {
+  return [LjsLabelAttributes sizeOfDetailsCellTitleLabel].width;
+}
+
++ (CGFloat) heightOfDetailsCellDetailsLabel {
+  return [LjsLabelAttributes sizeOfDetailsCellDetailsLabel].width;
+}
+
++ (CGFloat) widthOfDetailsCellDetailsLabel {
+  return [LjsLabelAttributes sizeOfDetailsCellDetailsLabel].width;
+}
+
++ (CGRect) frameForDetailsCellTitleLabelWithX:(CGFloat) aX {
+  CGSize size = [LjsLabelAttributes sizeOfDetailsCellTitleLabel];
+  CGFloat w = MIN(size.width + aX, 316);
+  CGFloat h = size.height;
+  return CGRectMake(aX, 8, w, h);
+}
+
++ (CGRect) frameForDetailsCellDetailsLabelWithX:(CGFloat) aX {
+  CGSize size = [LjsLabelAttributes sizeOfDetailsCellDetailsLabel];
+  CGFloat w = MIN(size.width + aX, 316);
+  CGFloat h = size.height;
+  return CGRectMake(aX, 30, w, h);
 }
 
 @end

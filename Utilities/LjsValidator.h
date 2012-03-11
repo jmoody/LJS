@@ -61,8 +61,15 @@
 /**
  @return true iff aString is non-nil and non-empty
  @param aString the string to test
+ @deprecated Use stringIsNonNilAndNotEmpty: instead
  */
 + (BOOL) stringIsNonNilOrEmpty:(NSString *) aString;
+
+/**
+ @return true iff aString is non-nil and non-empty
+ @param aString the string to test
+ */
++ (BOOL) stringIsNonNilAndNotEmpty:(NSString *) aString;
 
 /**
  Method for checking if a value is an NSDictionary
@@ -159,5 +166,7 @@
  */
 + (BOOL) isValidEmail:(NSString *)checkString;
 
-
++ (BOOL) isFloat:(CGFloat) aFloat
+   onIntervalMin:(CGFloat) aMin
+             max:(CGFloat) aMax;
 @end

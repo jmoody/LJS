@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0430"
-   version = "1.7">
+   version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -14,17 +13,17 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F50FE69A1410C6F60051FC7E"
-               BuildableName = "Tests-iOS.app"
-               BlueprintName = "Tests-iOS"
+               BlueprintIdentifier = "F54FA3EC14B7060A0080CC9A"
+               BuildableName = "TestViews-iOS.app"
+               BlueprintName = "TestViews-iOS"
                ReferencedContainer = "container:Tests-iOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
@@ -32,9 +31,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F50FE69A1410C6F60051FC7E"
-            BuildableName = "Tests-iOS.app"
-            BlueprintName = "Tests-iOS"
+            BlueprintIdentifier = "F54FA3EC14B7060A0080CC9A"
+            BuildableName = "TestViews-iOS.app"
+            BlueprintName = "TestViews-iOS"
             ReferencedContainer = "container:Tests-iOS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -51,60 +50,14 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F50FE69A1410C6F60051FC7E"
-            BuildableName = "Tests-iOS.app"
-            BlueprintName = "Tests-iOS"
+            BlueprintIdentifier = "F54FA3EC14B7060A0080CC9A"
+            BuildableName = "TestViews-iOS.app"
+            BlueprintName = "TestViews-iOS"
             ReferencedContainer = "container:Tests-iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "GHUNIT_CLI"
-            value = "YES"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "GHUNIT_RERAISE"
-            value = "YES"
-            isEnabled = "NO">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "GHUNIT_AUTORUN"
-            value = "YES"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "GHUNIT_AUTOEXIT"
-            value = "NO"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "NSDebugEnabled"
-            value = "YES"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "NSZombieEnabled"
-            value = "YES"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "NSDeallocateZombies"
-            value = "NO"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "NSAutoreleaseFreedObjectCheckEnabled"
-            value = "YES"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
-      <LocationScenarioReference
-         identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
-         referenceType = "1">
-      </LocationScenarioReference>
    </LaunchAction>
    <ProfileAction
       shouldUseLaunchSchemeArgsEnv = "YES"
@@ -115,9 +68,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F50FE69A1410C6F60051FC7E"
-            BuildableName = "Tests-iOS.app"
-            BlueprintName = "Tests-iOS"
+            BlueprintIdentifier = "F54FA3EC14B7060A0080CC9A"
+            BuildableName = "TestViews-iOS.app"
+            BlueprintName = "TestViews-iOS"
             ReferencedContainer = "container:Tests-iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -979,6 +979,32 @@
 			name = LJS;
 			sourceTree = "<group>";
 		};
+		F5878DBA14F26C0600F22FDD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F573B8F514F1341B00E6F5CF /* NSCalendar+LjsAdditions.h */,
+				F573B8F614F1341B00E6F5CF /* NSCalendar+LjsAdditions.m */,
+				F5F6209414E3E3B600D6C4A1 /* NSArray+LjsAdditions.h */,
+				F5F6209514E3E3B600D6C4A1 /* NSArray+LjsAdditions.m */,
+				F5F6209614E3E3B600D6C4A1 /* NSDate+LjsAdditions.h */,
+				F5F6209714E3E3B600D6C4A1 /* NSDate+LjsAdditions.m */,
+				F59B5C0214D49628005D41E0 /* NSError+LjsAdditions.h */,
+				F59B5C0314D49628005D41E0 /* NSError+LjsAdditions.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		F5878DBC14F26C2D00F22FDD /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				F5CA979714D6B3BE00745622 /* UIView+LjsAdditions.h */,
+				F5CA979814D6B3BE00745622 /* UIView+LjsAdditions.m */,
+				F5F7BBBF14D3EDDE00669FE6 /* UIColor+LjsAdditions.h */,
+				F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */,
+			);
+			name = UIKit;
+			sourceTree = "<group>";
+		};
 		F59635CE1496632000CDB27E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1068,19 +1094,9 @@
 		F5F7BBBE14D3ED5100669FE6 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				F573B8F514F1341B00E6F5CF /* NSCalendar+LjsAdditions.h */,
-				F573B8F614F1341B00E6F5CF /* NSCalendar+LjsAdditions.m */,
-				F5F6209414E3E3B600D6C4A1 /* NSArray+LjsAdditions.h */,
-				F5F6209514E3E3B600D6C4A1 /* NSArray+LjsAdditions.m */,
-				F5F6209614E3E3B600D6C4A1 /* NSDate+LjsAdditions.h */,
-				F5F6209714E3E3B600D6C4A1 /* NSDate+LjsAdditions.m */,
-				F5F7BBBF14D3EDDE00669FE6 /* UIColor+LjsAdditions.h */,
-				F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */,
-				F59B5C0214D49628005D41E0 /* NSError+LjsAdditions.h */,
-				F59B5C0314D49628005D41E0 /* NSError+LjsAdditions.m */,
-				F5CA979714D6B3BE00745622 /* UIView+LjsAdditions.h */,
-				F5CA979814D6B3BE00745622 /* UIView+LjsAdditions.m */,
 				F573B8FC14F1363D00E6F5CF /* LjsCategories.h */,
+				F5878DBC14F26C2D00F22FDD /* UIKit */,
+				F5878DBA14F26C0600F22FDD /* Common */,
 			);
 			name = Categories;
 			path = ../Categories;

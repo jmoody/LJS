@@ -42,7 +42,7 @@ static NSInteger const LjsNumericPickerLargeInteger = 24000;
 
 #pragma mark Memory Management
 - (void) dealloc {
-  DDLogDebug(@"deallocating %@", [self class]);
+  //DDLogDebug(@"deallocating %@", [self class]);
   self.callbackDelegate = nil;
 }
 

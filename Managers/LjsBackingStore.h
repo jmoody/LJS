@@ -66,6 +66,15 @@
                   defaultValue:(NSDictionary *) aDefault
                 storeIfMissing:(BOOL) aPersistMissing;
 
+- (id) valueForDictionaryNamed:(NSString *) aDictName
+                  withValueKey:(NSString *) aValueKey
+                  defaultValue:(id) aDefaultValue
+                storeIfMissing:(BOOL) aPersistMissing;
+
+- (void) updateValueInDictionaryNamed:(NSString *) aDictName
+                         withValueKey:(NSString *) aValueKey
+                                value:(id) aValue;
+
 
 
 @optional

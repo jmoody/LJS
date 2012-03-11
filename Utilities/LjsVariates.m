@@ -32,6 +32,7 @@
 #import "LjsVariates.h"
 #import "Lumberjack.h"
 #include <stdlib.h>
+#include "math.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -44,13 +45,47 @@ static const NSString *_alphanumeric = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLM
 static const NSUInteger _max_index = 26 + 26 + 10 - 1;
 
 static const float ARC4RANDOM_MAX = 0x100000000;
-
+static double const LjsE = 2.71828;
 
 @implementation LjsVariates
+
++ (NSUInteger) factorial:(NSUInteger) n {
+  return [LjsVariates _factorialHelperWithN:n accumulator:1];
+}
+
++ (NSUInteger) _factorialHelperWithN:(NSUInteger) n
+                         accumulator:(NSUInteger) accumulator {
+  return n < 1 ? accumulator : [LjsVariates _factorialHelperWithN:n - 1 accumulator:accumulator * n];
+}
+
 
 + (BOOL) flip {
   return [LjsVariates randomIntegerWithMin:0 max:1];
 }
+
++ (BOOL) flipWithProbilityOfYes:(double) aProbability {
+  return [LjsVariates randomDoubleWithMin:0.0 max:1.0] <= aProbability;
+}
+
+
+
+/*
+ e is the base of the natural logarithm (e = 2.71828...)
+ k is the number of occurrences of an event — the probability of which is given by the function
+ k! is the factorial of k
+ λ is a positive real number, equal to the expected number of occurrences during the given interval. For instance, if the events occur on average 4 times per minute, and one is interested in the probability of an event occurring k times in a 10 minute interval, one would use a Poisson distribution as the model with λ = 10×4 = 40.
+ As a function of k, this is the probability mass function. The Poisson distribution can be derived as a limiting case of the binomial distribution.
+ */
+
++ (double) possionWithK:(NSUInteger) aK
+                     lambda:(double) aLambda {
+  NSUInteger denomiator = [LjsVariates factorial:aK];
+  double lambdaToK = pow(aLambda, aK);
+  double eToNegLambda = pow(LjsE, -1.0 * aLambda);
+  double numerator = lambdaToK * eToNegLambda;
+  return (numerator/denomiator) * 1.0;
+}
+
 
 
 + (double) randomDouble {
@@ -130,47 +165,23 @@ static const float ARC4RANDOM_MAX = 0x100000000;
 }
 
 + (NSArray *) sampleWithoutReplacement:(NSArray *) array number:(NSUInteger) number {
-  NSMutableArray *sampled = [NSMutableArray array];
+  NSMutableArray *sampled = [NSMutableArray arrayWithArray:array];
   NSArray *result;
   NSInteger arraySize = [array count];
   if (arraySize < number) {
     // not possible to generate enough samples with out replacement
     result = nil;
   } else {
-    NSInteger loopVar;
-    NSInteger randomIndex;
-    NSInteger maxArrayIndex = arraySize - 1;
-    NSMutableArray *indexes = [NSMutableArray arrayWithCapacity:number];
+    NSUInteger remainingCount, index, randomIndex;
     
-    for (loopVar = 0; loopVar < number; loopVar++) {
-      
-      randomIndex = [LjsVariates randomIntegerWithMin:0 max:maxArrayIndex];
-      //DDLogDebug(@"randomIndex == %d", randomIndex);
-      while ([LjsVariates _arrayOfNSNumbers:indexes containsInt:randomIndex]) {
-        //DDLogDebug(@"randomIndex %d was found in %@ - regenerating", randomIndex, indexes);
-        randomIndex = [LjsVariates randomIntegerWithMin:0 max:maxArrayIndex];
-      }
-      //DDLogDebug(@"adding randomIndex %d to indexes - %@", randomIndex, indexes);
-      [indexes addObject:[NSNumber numberWithInteger:randomIndex]];
+    for (index = 0; index < arraySize; index++) {
+      remainingCount = arraySize - index;
+      randomIndex = ([LjsVariates randomInteger] % remainingCount) + index;
+      [sampled exchangeObjectAtIndex:index withObjectAtIndex:randomIndex];
     }
-    
-    for (NSNumber *index in indexes) {
-      id object = [array objectAtIndex:[index intValue]];
-      [sampled addObject:object];
-    }
-    result = [NSArray arrayWithArray:sampled];
+    result = [sampled subarrayWithRange:NSMakeRange(0, number)];
   }
   return result;
-}
-
-+ (BOOL) _arrayOfNSNumbers:(NSArray *) array containsInt:(NSUInteger) number {
-  
-  for (NSNumber *num in array) {
-    if ([num intValue] == number) {
-      return YES;
-    }
-  }
-  return NO;
 }
 
 + (id) randomElement:(NSArray *) array {
@@ -187,6 +198,13 @@ static const float ARC4RANDOM_MAX = 0x100000000;
   NSInteger index = [LjsVariates randomIntegerWithMin:0 max:max];
   return [array objectAtIndex:index];
 }
+
++ (NSArray *) shuffle:(NSArray *) array {
+  NSUInteger count = [array count];
+  NSArray *shuffled = [self sampleWithoutReplacement:array number:count];
+  return shuffled;
+}
+
 
 + (NSString *) randomStringWithLength:(NSUInteger) length {
   

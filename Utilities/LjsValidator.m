@@ -80,8 +80,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 + (BOOL) stringIsNonNilOrEmpty:(NSString *) aString {
+  return [LjsValidator stringIsNonNilAndNotEmpty:aString];
+}
+
+
++ (BOOL) stringIsNonNilAndNotEmpty:(NSString *) aString {
   return aString != nil && [aString length] != 0;
 }
+
 
 + (BOOL) isDictionary:(id) value {
   return [value respondsToSelector:@selector(objectForKey:)];
@@ -169,6 +175,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
   NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
   return [emailTest evaluateWithObject:checkString];
+}
+
++ (BOOL) isFloat:(CGFloat) aFloat
+   onIntervalMin:(CGFloat) aMin
+             max:(CGFloat) aMax {
+  return ((aFloat >= aMin) && (aFloat <= aMax));
 }
 
 @end

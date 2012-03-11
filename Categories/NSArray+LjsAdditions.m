@@ -56,6 +56,19 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
 }
 
+- (NSArray *) sortedArrayUsingDescriptor:(NSSortDescriptor *) aSorter {
+  NSArray *array = [NSArray arrayWithObject:aSorter];
+  return [self sortedArrayUsingDescriptors:array];
+}
+
+- (NSArray *) push:(id) object {
+  if (object == nil) {
+    return [NSArray arrayWithArray:self];
+  }
+  NSArray *array = [NSArray arrayWithObject:object];
+  return [array arrayByAddingObjectsFromArray:self];
+}
+
 
 
 @end
