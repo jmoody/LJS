@@ -220,4 +220,16 @@ static double const LjsE = 2.71828;
 }
 
 
++ (NSString *) randomAsciiWithLengthMin:(NSUInteger) aMin
+                              lenghtMax:(NSUInteger) aMax {
+  NSUInteger count = [LjsVariates randomIntegerWithMin:aMin max:aMax];
+  NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
+  for (NSUInteger index = 0; index < count; index++) {
+    NSUInteger code = [LjsVariates randomIntegerWithMin:32 max:126];
+    [array addObject:[NSString stringWithFormat:@"%c", code]];
+  }
+return [array componentsJoinedByString:@""];
+}
+
+
 @end

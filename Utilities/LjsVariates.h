@@ -270,4 +270,6 @@
  */
 + (NSString *) randomStringWithLength:(NSUInteger) length;
 
++ (NSString *) randomAsciiWithLengthMin:(NSUInteger) aMin
+                              lenghtMax:(NSUInteger) aMax;
 @end
