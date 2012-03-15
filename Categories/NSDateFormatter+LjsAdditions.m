@@ -26,20 +26,26 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-/**
- Ljs Categories
-*/
-#import "NSCalendar+LjsAdditions.h"
-#import "NSArray+LjsAdditions.h"
-#import "NSDate+LjsAdditions.h"
-#import "NSError+LjsAdditions.h"
-#import "NSSet+LjsAdditions.h"
-#import "NSLocale+LjsAdditions.h"
-#import "NSDateFormatter+LjsAdditions.h"
-
-#if TARGET_OS_IPHONE
-#import "UIColor+LjsAdditions.h"
-#import "UIView+LjsAdditions.h"
-#import "UILabel+LjsAdditions.h"
-#import "UIImageView+LjsAdditions.h"
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
+
+#import "NSDateFormatter+LjsAdditions.h"
+#import "Lumberjack.h"
+
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
+
+@implementation NSDateFormatter (NSDateFormatter_LjsAdditions)
+
++ (NSDateFormatter *) formatterWithFormatString:(NSString *) aFormatString {
+  NSDateFormatter *result = [[NSDateFormatter alloc]
+                             init];
+  [result setDateFormat:aFormatString];
+  return result;
+}
+
+@end
