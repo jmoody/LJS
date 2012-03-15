@@ -218,22 +218,6 @@
   GHAssertNotNil(sampled, nil);
   GHAssertEquals([[NSNumber numberWithInteger:[sampled count]] intValue],
                  [[NSNumber numberWithInteger:10] intValue], nil);
-  
-  
-  
-}
-
-
-- (void) test_ArrayOfNSNumberContainsInt {
-  // + (BOOL) _arrayOfNSNumbers:(NSArray *) array containsInt:(int) number;
-  NSArray *indexes = [NSArray arrayWithObjects:[NSNumber numberWithInt:0],
-                      [NSNumber numberWithInt:1], [NSNumber numberWithInt:2],
-                      [NSNumber numberWithInt:3], nil];
-  GHAssertTrue([LjsVariates _arrayOfNSNumbers:indexes containsInt:0], nil);
-  GHAssertTrue([LjsVariates _arrayOfNSNumbers:indexes containsInt:1], nil);
-  GHAssertTrue([LjsVariates _arrayOfNSNumbers:indexes containsInt:2], nil);
-  GHAssertTrue([LjsVariates _arrayOfNSNumbers:indexes containsInt:3], nil);
-  GHAssertFalse([LjsVariates _arrayOfNSNumbers:indexes containsInt:4], nil);
 }
 
 

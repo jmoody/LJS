@@ -128,6 +128,7 @@
 		F54FA42114B708D40080CC9A /* LjsMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448ABE1450B63B0065E516 /* LjsMessageBuilder.m */; };
 		F54FA42314B725C00080CC9A /* LjsValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524414232EB5009C67EE /* LjsValidator.m */; };
 		F54FA42414B725F30080CC9A /* LjsDecimalAide.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6EC1410CC420051FC7E /* LjsDecimalAide.m */; };
+		F55CDEEA150F881600D9B906 /* LjsCaesarCipherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F55CDEE9150F881600D9B906 /* LjsCaesarCipherTests.m */; };
 		F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F56147B81450C72A00D2653A /* libOCMock.a */; };
 		F56147BB1450C86700D2653A /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F56147BA1450C86700D2653A /* OCMockWorkingTest.m */; };
 		F5724970149F9AD6006C62A2 /* LjsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F572496F149F9AD6006C62A2 /* LjsButton.m */; };
@@ -137,6 +138,7 @@
 		F573B8FB14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F573B8FA14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m */; };
 		F573B90014F14E8D00E6F5CF /* LjsKeyboardInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F573B8FE14F14E8D00E6F5CF /* LjsKeyboardInfo.m */; };
 		F573B90314F14F0000E6F5CF /* LjsFaker.m in Sources */ = {isa = PBXBuildFile; fileRef = F573B90214F14F0000E6F5CF /* LjsFaker.m */; };
+		F573CBFB1510C7A600277794 /* LjsCaesarCipher.m in Sources */ = {isa = PBXBuildFile; fileRef = F573CBFA1510C7A600277794 /* LjsCaesarCipher.m */; };
 		F58013AB149E06F100692073 /* LjsLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F58013AA149E06F100692073 /* LjsLocationManager.m */; };
 		F58013AD149E080E00692073 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58013AC149E080E00692073 /* CoreLocation.framework */; };
 		F580719F146C33AC00EA4CFB /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F580719E146C33AC00EA4CFB /* LjsTestCase.m */; };
@@ -369,6 +371,7 @@
 		F54FA40A14B7060B0080CC9A /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		F54FA40D14B7060B0080CC9A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LjsFirstViewController.xib; sourceTree = "<group>"; };
 		F54FA41014B7060B0080CC9A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LjsSecondViewController.xib; sourceTree = "<group>"; };
+		F55CDEE9150F881600D9B906 /* LjsCaesarCipherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsCaesarCipherTests.m; sourceTree = "<group>"; };
 		F56147AC1450BFB800D2653A /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../gh-unit/Project-iOS/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
 		F56147B21450C72A00D2653A /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		F56147B31450C72A00D2653A /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -390,6 +393,8 @@
 		F573B8FF14F14E8D00E6F5CF /* LjsTableViewOwnerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsTableViewOwnerProtocol.h; sourceTree = "<group>"; };
 		F573B90114F14F0000E6F5CF /* LjsFaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFaker.h; sourceTree = "<group>"; };
 		F573B90214F14F0000E6F5CF /* LjsFaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFaker.m; sourceTree = "<group>"; };
+		F573CBF91510C7A600277794 /* LjsCaesarCipher.h */ = {isa = PBXFileReference; fileEncoding = 4; path = LjsCaesarCipher.h; sourceTree = "<group>"; };
+		F573CBFA1510C7A600277794 /* LjsCaesarCipher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsCaesarCipher.m; sourceTree = "<group>"; };
 		F58013A9149E06F100692073 /* LjsLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLocationManager.h; sourceTree = "<group>"; };
 		F58013AA149E06F100692073 /* LjsLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLocationManager.m; sourceTree = "<group>"; };
 		F58013AC149E080E00692073 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -582,6 +587,7 @@
 				F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */,
 				F5FF5AA014E85D820091D283 /* LjsTextAndFontTests.m */,
 				F573B8FA14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m */,
+				F55CDEE9150F881600D9B906 /* LjsCaesarCipherTests.m */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -950,6 +956,16 @@
 			path = "../Views-iOS";
 			sourceTree = "<group>";
 		};
+		F573CBF81510C7A600277794 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				F573CBF91510C7A600277794 /* LjsCaesarCipher.h */,
+				F573CBFA1510C7A600277794 /* LjsCaesarCipher.m */,
+			);
+			name = Security;
+			path = ../Security;
+			sourceTree = "<group>";
+		};
 		F58013A8149E06F100692073 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -968,6 +984,7 @@
 		F5807168146C298100EA4CFB /* LJS */ = {
 			isa = PBXGroup;
 			children = (
+				F573CBF81510C7A600277794 /* Security */,
 				F5F7BBBE14D3ED5100669FE6 /* Categories */,
 				F5724964149F9A1E006C62A2 /* Views-iOS */,
 				F58013A8149E06F100692073 /* Managers */,
@@ -1369,6 +1386,8 @@
 				F573B8FB14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m in Sources */,
 				F573B90014F14E8D00E6F5CF /* LjsKeyboardInfo.m in Sources */,
 				F573B90314F14F0000E6F5CF /* LjsFaker.m in Sources */,
+				F55CDEEA150F881600D9B906 /* LjsCaesarCipherTests.m in Sources */,
+				F573CBFB1510C7A600277794 /* LjsCaesarCipher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1504,6 +1523,7 @@
 					LJS_LOCATION_SERVICES_DEBUG,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1531,6 +1551,7 @@
 					LJS_LOCATION_SERVICES_SIMULATOR_DEBUG,
 					LJS_LOCATION_SERVICES_DEBUG,
 				);
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1560,6 +1581,7 @@
 					LOG_CONFIGURATION_DEBUG,
 					LOCATION_SERVICES_DEBUG,
 				);
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"${SDK_DIR}/usr/include/libxml2",
@@ -1594,6 +1616,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-iOS/Tests-iOS-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"${SDK_DIR}/usr/include/libxml2",
@@ -1633,6 +1656,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestViews-iOS/TestViews-iOS-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = LOG_CONFIGURATION_DEBUG;
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "TestViews-iOS/TestViews-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1657,6 +1681,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestViews-iOS/TestViews-iOS-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "TestViews-iOS/TestViews-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
