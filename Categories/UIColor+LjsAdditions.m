@@ -49,5 +49,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [UIColor colorWithR:r g:g b:b a:1.0];
 }
 
++ (UIColor *) colorWithImageNamed:(NSString *) aImageName {
+  UIImage *image = [UIImage imageNamed:aImageName];
+  return [UIColor colorWithPatternImage:image];
+}
 
 @end

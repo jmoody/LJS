@@ -29,15 +29,10 @@
 #import <Foundation/Foundation.h>
 
 /**
- UIColor on UIColor_LjsAdditions category.
+ UIImage on UIImage_LjsCategory category.
  */
-@interface UIColor (UIColor_LjsAdditions)
+@interface UIImage (UIImage_LjsCategory)
 
-/** @name Making Colors */
-+ (UIColor *) colorWithR:(CGFloat) r g:(CGFloat) g b:(CGFloat) b a:(CGFloat) a;
-+ (UIColor *) colorWithR:(CGFloat) r g:(CGFloat) g b:(CGFloat) b;
-+ (UIColor *) colorWithImageNamed:(NSString *) aImageName;
-
-
-
+/** @name Task Section */
+- (UIImage *) imageByReszingWithSize:(CGSize) aSize;
 @end

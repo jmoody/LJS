@@ -46,12 +46,16 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @synthesize numberOfLines;
 @synthesize string;
 @synthesize labelWidth;
+@synthesize linebreakMode;
+@synthesize font;
 
 - (id) initWithString:(NSString *) aString
                  font:(UIFont *) aFont
            labelWidth:(CGFloat) aLabelWidth {
   self = [super init];
   if (self != nil) {
+    self.linebreakMode = UILineBreakModeWordWrap;
+    self.font = aFont;
     CGSize oneLineSize = [aString sizeWithFont:aFont];
     self.lineHeight = oneLineSize.height;
         
@@ -65,6 +69,34 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
   return self;
 }
+
+- (id) initWithString:(NSString *) aString
+                 font:(UIFont *) aFont
+           labelWidth:(CGFloat) aLabelWidth
+        linebreakMode:(UILineBreakMode)aLinebreakMode 
+          minFontSize:(CGFloat)aMinFontSize {
+  self = [super init];
+  if (self != nil) {
+    self.linebreakMode = aLinebreakMode;
+    CGFloat discovered = 0;
+    
+    CGSize size = [aString sizeWithFont:aFont
+                            minFontSize:aMinFontSize
+                         actualFontSize:&discovered
+                               forWidth:aLabelWidth
+                          lineBreakMode:aLinebreakMode];
+    self.lineHeight = size.height;
+    self.labelHeight = size.height;
+    self.labelWidth = size.width;
+    self.numberOfLines = 1;
+    self.string = aString;
+    self.labelWidth = aLabelWidth;
+    self.font = [UIFont fontWithName:aFont.fontName size:discovered];
+  }
+  return self;
+}
+
+
 
 - (NSString *) description {
   return [NSString stringWithFormat:@"#<LjsLabelAttributes line: %.2f height: %.2f lines: %d width: %.2f>",
