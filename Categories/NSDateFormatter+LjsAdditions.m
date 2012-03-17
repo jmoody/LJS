@@ -26,18 +26,26 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import <Foundation/Foundation.h>
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
 
-/**
- UIColor on UIColor_LjsAdditions category.
- */
-@interface UIColor (UIColor_LjsAdditions)
+#import "NSDateFormatter+LjsAdditions.h"
+#import "Lumberjack.h"
 
-/** @name Making Colors */
-+ (UIColor *) colorWithR:(CGFloat) r g:(CGFloat) g b:(CGFloat) b a:(CGFloat) a;
-+ (UIColor *) colorWithR:(CGFloat) r g:(CGFloat) g b:(CGFloat) b;
-+ (UIColor *) colorWithImageNamed:(NSString *) aImageName;
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
 
+@implementation NSDateFormatter (NSDateFormatter_LjsAdditions)
 
++ (NSDateFormatter *) formatterWithFormatString:(NSString *) aFormatString {
+  NSDateFormatter *result = [[NSDateFormatter alloc]
+                             init];
+  [result setDateFormat:aFormatString];
+  return result;
+}
 
 @end

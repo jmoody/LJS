@@ -1,0 +1,47 @@
+#-F notify=True -F distribution_lists='<Your TestFlight Distribution List>'
+
+API_TOKEN="15203052b273c6236094c900e30537f9_MjM5NjIwMjAxMS0xMi0wNiAwMzo1NDozMy45NzUzNzk"
+TEAM_TOKEN="72ac5ded8cc78498e87b81252685e070_NTAwNjEyMDExLTEyLTI4IDEyOjIyOjU0LjQ0NzI2MQ"
+SIGNING_IDENTITY="RiseUp RW iOS AdHoc Distribution Profile"
+PROVISIONING_PROFILE="${HOME}/Library/MobileDevice/Provisioning Profiles/B61657BE-2BAF-439B-B01C-F0BE96EC1453.mobileprovision"
+LOG="${HOME}/tmp/testflight.log"
+GROWL="/opt/local/bin/growlnotify -a Xcode -w"
+
+DATE=$( /bin/date +"%Y-%m-%d" )
+ARCHIVE=$( /bin/ls -t "${HOME}/Library/Developer/Xcode/Archives/${DATE}" | /usr/bin/grep xcarchive | /usr/bin/sed -n 1p )
+DSYM="${HOME}/Library/Developer/Xcode/Archives/${DATE}/${ARCHIVE}/dSYMs/${PRODUCT_NAME}.app.dSYM"
+APP="${HOME}/Library/Developer/Xcode/Archives/${DATE}/${ARCHIVE}/Products/Applications/${PRODUCT_NAME}.app"
+
+touch $LOG
+/usr/bin/open -a /Applications/Utilities/Console.app $LOG
+
+echo -n "Creating .ipa for ${PRODUCT_NAME}... " > $LOG
+echo "Creating .ipa for ${PRODUCT_NAME}" | ${GROWL}
+
+/bin/rm "/tmp/${PRODUCT_NAME}.ipa"
+/usr/bin/xcrun -sdk iphoneos PackageApplication -v "${APP}" -o "/tmp/${PRODUCT_NAME}.ipa" --sign "${SIGNING_IDENTITY}" --embed "${PROVISIONING_PROFILE}" >> $LOG
+
+echo "done." >> $LOG
+echo "Created .ipa for ${PRODUCT_NAME}" | ${GROWL}
+
+echo -n "Zipping .dSYM for ${PRODUCT_NAME}..." >> $LOG
+echo "Zipping .dSYM for ${PRODUCT_NAME}" | ${GROWL}
+
+/bin/rm "/tmp/${PRODUCT_NAME}.dSYM.zip"
+/usr/bin/zip -r "/tmp/${PRODUCT_NAME}.dSYM.zip" "${DSYM}"
+
+echo "done." >> $LOG
+echo "Created .dSYM for ${PRODUCT_NAME}" | ${GROWL}
+
+echo -n "Uploading to TestFlight... " >> $LOG
+echo "Uploading to TestFlight" | ${GROWL}
+
+/usr/bin/curl "http://testflightapp.com/api/builds.json" \
+-F file=@"/tmp/${PRODUCT_NAME}.ipa" \
+-F dsym=@"/tmp/${PRODUCT_NAME}.dSYM.zip" \
+-F api_token="${API_TOKEN}" \
+-F team_token="${TEAM_TOKEN}" \
+-F notes="Build uploaded automatically from Xcode - ignore." >> $LOG
+
+echo "done." >> $LOG
+echo "Uploaded to TestFlight" | ${GROWL} -s && /usr/bin/open "https://testflightapp.com/dashboard/builds/"
