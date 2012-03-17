@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F50A034F14E008B900AA0912 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56147AC1450BFB800D2653A /* GHUnitIOS.framework */; };
 		F50A035014E008D900AA0912 /* LoremIpsum.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009FB14B227EA001EF805 /* LoremIpsum.m */; };
-		F50A035114E008EB00AA0912 /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F580719E146C33AC00EA4CFB /* LjsTestCase.m */; };
 		F50A035214E0090700AA0912 /* LjsVariates.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F81410CC420051FC7E /* LjsVariates.m */; };
 		F50BD4F714CB78810037227B /* LjsRecessedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F50BD4F614CB78810037227B /* LjsRecessedButton.m */; };
 		F50BD4F814CB78810037227B /* LjsRecessedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F50BD4F614CB78810037227B /* LjsRecessedButton.m */; };
@@ -36,7 +34,12 @@
 		F529524514232EB5009C67EE /* LjsValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524414232EB5009C67EE /* LjsValidator.m */; };
 		F529524814232F47009C67EE /* LjsValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524714232F47009C67EE /* LjsValidatorTests.m */; };
 		F5314A3314D88E8A007FC70C /* LoremIpsumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5314A3214D88E8A007FC70C /* LoremIpsumTests.m */; };
-		F5314A3414D88E8A007FC70C /* LoremIpsumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5314A3214D88E8A007FC70C /* LoremIpsumTests.m */; };
+		F538F2421514AC81005D15D3 /* LjsPanAndZoomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F538F2411514AC81005D15D3 /* LjsPanAndZoomImageView.m */; };
+		F538F2431514AC81005D15D3 /* LjsPanAndZoomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F538F2411514AC81005D15D3 /* LjsPanAndZoomImageView.m */; };
+		F538F2471514B270005D15D3 /* LjsPanZoomController.m in Sources */ = {isa = PBXBuildFile; fileRef = F538F2461514B270005D15D3 /* LjsPanZoomController.m */; };
+		F538F24A1514B28E005D15D3 /* LjsPanZoomController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F538F2481514B28E005D15D3 /* LjsPanZoomController.xib */; };
+		F538F24D1514B496005D15D3 /* third.png in Resources */ = {isa = PBXBuildFile; fileRef = F538F24B1514B496005D15D3 /* third.png */; };
+		F538F24E1514B496005D15D3 /* third@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F538F24C1514B496005D15D3 /* third@2x.png */; };
 		F54009F114B22253001EF805 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E214B22253001EF805 /* DDAbstractDatabaseLogger.m */; };
 		F54009F214B22253001EF805 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E414B22253001EF805 /* DDASLLogger.m */; };
 		F54009F314B22253001EF805 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E614B22253001EF805 /* DDFileLogger.m */; };
@@ -166,7 +169,6 @@
 		F5F6209A14E3E3B600D6C4A1 /* NSDate+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F6209714E3E3B600D6C4A1 /* NSDate+LjsAdditions.m */; };
 		F5F6209B14E3E3B600D6C4A1 /* NSDate+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F6209714E3E3B600D6C4A1 /* NSDate+LjsAdditions.m */; };
 		F5F620A214E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */; };
-		F5F620A314E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */; };
 		F5F7BBB714D3E90800669FE6 /* LjsGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */; };
 		F5F7BBB914D3EA3300669FE6 /* LjsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F572496F149F9AD6006C62A2 /* LjsButton.m */; };
 		F5F7BBBA14D3EA3700669FE6 /* LjsGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */; };
@@ -174,7 +176,6 @@
 		F5F7BBBD14D3EAE700669FE6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5724971149F9C00006C62A2 /* QuartzCore.framework */; };
 		F5F7BBC114D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */; };
 		F5F7BBC214D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */; };
-		F5FF5AA114E85D820091D283 /* LjsTextAndFontTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF5AA014E85D820091D283 /* LjsTextAndFontTests.m */; };
 		F5FF5AA314E85D880091D283 /* LjsTextAndFontTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF5AA014E85D820091D283 /* LjsTextAndFontTests.m */; };
 		F5FF5AB114E96F630091D283 /* LjsGlassView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF5AB014E96F630091D283 /* LjsGlassView.m */; };
 		F5FF5AB414E971C30091D283 /* LjsGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF5AB314E971C30091D283 /* LjsGradientView.m */; };
@@ -228,6 +229,13 @@
 		F5314A3214D88E8A007FC70C /* LoremIpsumTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoremIpsumTests.m; sourceTree = "<group>"; };
 		F534EC1014B4A32C00FFC67F /* LjsRemotePlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRemotePlist.h; sourceTree = "<group>"; };
 		F534EC1114B4A32C00FFC67F /* LjsRemotePlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsRemotePlist.m; sourceTree = "<group>"; };
+		F538F2401514AC81005D15D3 /* LjsPanAndZoomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsPanAndZoomImageView.h; sourceTree = "<group>"; };
+		F538F2411514AC81005D15D3 /* LjsPanAndZoomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsPanAndZoomImageView.m; sourceTree = "<group>"; };
+		F538F2451514B270005D15D3 /* LjsPanZoomController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsPanZoomController.h; sourceTree = "<group>"; };
+		F538F2461514B270005D15D3 /* LjsPanZoomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsPanZoomController.m; sourceTree = "<group>"; };
+		F538F2491514B28E005D15D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LjsPanZoomController.xib; sourceTree = "<group>"; };
+		F538F24B1514B496005D15D3 /* third.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = third.png; sourceTree = "<group>"; };
+		F538F24C1514B496005D15D3 /* third@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "third@2x.png"; sourceTree = "<group>"; };
 		F54009E114B22253001EF805 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
 		F54009E214B22253001EF805 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
 		F54009E314B22253001EF805 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
@@ -393,7 +401,7 @@
 		F573B8FF14F14E8D00E6F5CF /* LjsTableViewOwnerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsTableViewOwnerProtocol.h; sourceTree = "<group>"; };
 		F573B90114F14F0000E6F5CF /* LjsFaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFaker.h; sourceTree = "<group>"; };
 		F573B90214F14F0000E6F5CF /* LjsFaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFaker.m; sourceTree = "<group>"; };
-		F573CBF91510C7A600277794 /* LjsCaesarCipher.h */ = {isa = PBXFileReference; fileEncoding = 4; path = LjsCaesarCipher.h; sourceTree = "<group>"; };
+		F573CBF91510C7A600277794 /* LjsCaesarCipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsCaesarCipher.h; sourceTree = "<group>"; };
 		F573CBFA1510C7A600277794 /* LjsCaesarCipher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsCaesarCipher.m; sourceTree = "<group>"; };
 		F58013A9149E06F100692073 /* LjsLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLocationManager.h; sourceTree = "<group>"; };
 		F58013AA149E06F100692073 /* LjsLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLocationManager.m; sourceTree = "<group>"; };
@@ -477,7 +485,6 @@
 			files = (
 				F54FA3EF14B7060B0080CC9A /* UIKit.framework in Frameworks */,
 				F54FA3F014B7060B0080CC9A /* Foundation.framework in Frameworks */,
-				F50A034F14E008B900AA0912 /* GHUnitIOS.framework in Frameworks */,
 				F54FA3F114B7060B0080CC9A /* CoreGraphics.framework in Frameworks */,
 				F5F7BBBD14D3EAE700669FE6 /* QuartzCore.framework in Frameworks */,
 			);
@@ -862,10 +869,13 @@
 				F54FA3FC14B7060B0080CC9A /* LjsAppDelegate.m */,
 				F54FA3FE14B7060B0080CC9A /* LjsFirstViewController.h */,
 				F54FA3FF14B7060B0080CC9A /* LjsFirstViewController.m */,
+				F54FA40C14B7060B0080CC9A /* LjsFirstViewController.xib */,
 				F54FA40514B7060B0080CC9A /* LjsSecondViewController.h */,
 				F54FA40614B7060B0080CC9A /* LjsSecondViewController.m */,
-				F54FA40C14B7060B0080CC9A /* LjsFirstViewController.xib */,
 				F54FA40F14B7060B0080CC9A /* LjsSecondViewController.xib */,
+				F538F2451514B270005D15D3 /* LjsPanZoomController.h */,
+				F538F2461514B270005D15D3 /* LjsPanZoomController.m */,
+				F538F2481514B28E005D15D3 /* LjsPanZoomController.xib */,
 				F54FA3F314B7060B0080CC9A /* Supporting Files */,
 			);
 			path = "TestViews-iOS";
@@ -886,6 +896,8 @@
 		F54FA42214B7092A0080CC9A /* artwork */ = {
 			isa = PBXGroup;
 			children = (
+				F538F24B1514B496005D15D3 /* third.png */,
+				F538F24C1514B496005D15D3 /* third@2x.png */,
 				F54FA40114B7060B0080CC9A /* first.png */,
 				F54FA40314B7060B0080CC9A /* first@2x.png */,
 				F54FA40814B7060B0080CC9A /* second.png */,
@@ -951,6 +963,8 @@
 				F5FF5AB014E96F630091D283 /* LjsGlassView.m */,
 				F5FF5AB214E971C30091D283 /* LjsGradientView.h */,
 				F5FF5AB314E971C30091D283 /* LjsGradientView.m */,
+				F538F2401514AC81005D15D3 /* LjsPanAndZoomImageView.h */,
+				F538F2411514AC81005D15D3 /* LjsPanAndZoomImageView.m */,
 			);
 			name = "Views-iOS";
 			path = "../Views-iOS";
@@ -1226,6 +1240,9 @@
 				F54FA40E14B7060B0080CC9A /* LjsFirstViewController.xib in Resources */,
 				F54FA41114B7060B0080CC9A /* LjsSecondViewController.xib in Resources */,
 				F51D49C514ED548800734C25 /* white-channel-300x24.png in Resources */,
+				F538F24A1514B28E005D15D3 /* LjsPanZoomController.xib in Resources */,
+				F538F24D1514B496005D15D3 /* third.png in Resources */,
+				F538F24E1514B496005D15D3 /* third@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1388,6 +1405,7 @@
 				F573B90314F14F0000E6F5CF /* LjsFaker.m in Sources */,
 				F55CDEEA150F881600D9B906 /* LjsCaesarCipherTests.m in Sources */,
 				F573CBFB1510C7A600277794 /* LjsCaesarCipher.m in Sources */,
+				F538F2421514AC81005D15D3 /* LjsPanAndZoomImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1423,17 +1441,15 @@
 				F5F7BBC214D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */,
 				F59B5C0514D49628005D41E0 /* NSError+LjsAdditions.m in Sources */,
 				F5CA979A14D6B3BE00745622 /* UIView+LjsAdditions.m in Sources */,
-				F5314A3414D88E8A007FC70C /* LoremIpsumTests.m in Sources */,
 				F50A035014E008D900AA0912 /* LoremIpsum.m in Sources */,
-				F50A035114E008EB00AA0912 /* LjsTestCase.m in Sources */,
 				F50A035214E0090700AA0912 /* LjsVariates.m in Sources */,
 				F5F6209914E3E3B600D6C4A1 /* NSArray+LjsAdditions.m in Sources */,
 				F5F6209B14E3E3B600D6C4A1 /* NSDate+LjsAdditions.m in Sources */,
-				F5F620A314E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m in Sources */,
-				F5FF5AA114E85D820091D283 /* LjsTextAndFontTests.m in Sources */,
 				F5FF5AB114E96F630091D283 /* LjsGlassView.m in Sources */,
 				F5FF5AB414E971C30091D283 /* LjsGradientView.m in Sources */,
 				F573B8F814F1341B00E6F5CF /* NSCalendar+LjsAdditions.m in Sources */,
+				F538F2431514AC81005D15D3 /* LjsPanAndZoomImageView.m in Sources */,
+				F538F2471514B270005D15D3 /* LjsPanZoomController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1463,6 +1479,14 @@
 				F50FE6A91410C6F60051FC7E /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F538F2481514B28E005D15D3 /* LjsPanZoomController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F538F2491514B28E005D15D3 /* en */,
+			);
+			name = LjsPanZoomController.xib;
 			sourceTree = "<group>";
 		};
 		F54FA3F514B7060B0080CC9A /* InfoPlist.strings */ = {
