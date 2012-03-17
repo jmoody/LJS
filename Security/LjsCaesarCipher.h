@@ -26,18 +26,23 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+
 #import <Foundation/Foundation.h>
 
 /**
- UIColor on UIColor_LjsAdditions category.
+ Documentation
  */
-@interface UIColor (UIColor_LjsAdditions)
+@interface LjsCaesarCipher : NSObject 
 
-/** @name Making Colors */
-+ (UIColor *) colorWithR:(CGFloat) r g:(CGFloat) g b:(CGFloat) b a:(CGFloat) a;
-+ (UIColor *) colorWithR:(CGFloat) r g:(CGFloat) g b:(CGFloat) b;
-+ (UIColor *) colorWithImageNamed:(NSString *) aImageName;
+/** @name Properties */
 
+/** @name Initializing Objects */
+- (id) initWithRotate:(NSUInteger) aRotate;
 
+/** @name Handling Notifications, Requests, and Events */
+
+/** @name Utility */
+- (NSString *) stringByEncodingString:(NSString *) aString;
+- (NSString *) stringByDecodingString:(NSString *) aString;
 
 @end

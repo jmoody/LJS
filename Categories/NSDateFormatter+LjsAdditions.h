@@ -29,15 +29,11 @@
 #import <Foundation/Foundation.h>
 
 /**
- UIColor on UIColor_LjsAdditions category.
+ NSDateFormatter on NSDateFormatter_LjsAdditions category.
  */
-@interface UIColor (UIColor_LjsAdditions)
+@interface NSDateFormatter (NSDateFormatter_LjsAdditions)
 
-/** @name Making Colors */
-+ (UIColor *) colorWithR:(CGFloat) r g:(CGFloat) g b:(CGFloat) b a:(CGFloat) a;
-+ (UIColor *) colorWithR:(CGFloat) r g:(CGFloat) g b:(CGFloat) b;
-+ (UIColor *) colorWithImageNamed:(NSString *) aImageName;
-
-
++ (NSDateFormatter *) formatterWithFormatString:(NSString *) aFormatString;
+/** @name Task Section */
 
 @end

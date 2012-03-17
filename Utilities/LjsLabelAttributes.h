@@ -39,10 +39,19 @@
 @property (nonatomic, assign) NSUInteger numberOfLines;
 @property (nonatomic, copy) NSString *string;
 @property (nonatomic, assign) CGFloat labelWidth;
+@property (nonatomic, assign) UILineBreakMode linebreakMode;
+@property (nonatomic, strong) UIFont *font;
 
 - (id) initWithString:(NSString *) aString
                  font:(UIFont *) aFont
            labelWidth:(CGFloat) aLabelWidth;
+
+- (id) initWithString:(NSString *) aString
+                 font:(UIFont *) aFont
+           labelWidth:(CGFloat) aLabelWidth
+        linebreakMode:(UILineBreakMode) aLinebreakMode
+          minFontSize:(CGFloat) aMinFontSize;
+
 
 + (CGSize) sizeOfDetailsCellTitleLabel;
 + (CGSize) sizeOfDetailsCellDetailsLabel;
