@@ -40,6 +40,20 @@
 		F538F24A1514B28E005D15D3 /* LjsPanZoomController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F538F2481514B28E005D15D3 /* LjsPanZoomController.xib */; };
 		F538F24D1514B496005D15D3 /* third.png in Resources */ = {isa = PBXBuildFile; fileRef = F538F24B1514B496005D15D3 /* third.png */; };
 		F538F24E1514B496005D15D3 /* third@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F538F24C1514B496005D15D3 /* third@2x.png */; };
+		F538F25B1514BBD5005D15D3 /* bamboo-green-320x460.png in Resources */ = {isa = PBXBuildFile; fileRef = F538F2591514BBD5005D15D3 /* bamboo-green-320x460.png */; };
+		F538F25C1514BBD5005D15D3 /* bamboo-green-320x460@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F538F25A1514BBD5005D15D3 /* bamboo-green-320x460@2x.png */; };
+		F538F2611514EEC3005D15D3 /* bamboo-320x480.png in Resources */ = {isa = PBXBuildFile; fileRef = F538F25D1514EEC3005D15D3 /* bamboo-320x480.png */; };
+		F538F2621514EEC3005D15D3 /* bamboo-320x480@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F538F25E1514EEC3005D15D3 /* bamboo-320x480@2x.png */; };
+		F538F2631514EEC3005D15D3 /* bamboo-green-320x411.png in Resources */ = {isa = PBXBuildFile; fileRef = F538F25F1514EEC3005D15D3 /* bamboo-green-320x411.png */; };
+		F538F2641514EEC3005D15D3 /* bamboo-green-320x411@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F538F2601514EEC3005D15D3 /* bamboo-green-320x411@2x.png */; };
+		F538F26E1515007D005D15D3 /* body-tat.png in Resources */ = {isa = PBXBuildFile; fileRef = F538F2661515007D005D15D3 /* body-tat.png */; };
+		F538F26F1515007D005D15D3 /* brad-pit.png in Resources */ = {isa = PBXBuildFile; fileRef = F538F2671515007D005D15D3 /* brad-pit.png */; };
+		F538F2701515007D005D15D3 /* cilo.png in Resources */ = {isa = PBXBuildFile; fileRef = F538F2681515007D005D15D3 /* cilo.png */; };
+		F538F2711515007D005D15D3 /* double-rainbow.png in Resources */ = {isa = PBXBuildFile; fileRef = F538F2691515007D005D15D3 /* double-rainbow.png */; };
+		F538F2721515007D005D15D3 /* gameofthrones.png in Resources */ = {isa = PBXBuildFile; fileRef = F538F26A1515007D005D15D3 /* gameofthrones.png */; };
+		F538F2731515007D005D15D3 /* guyfawkes.png in Resources */ = {isa = PBXBuildFile; fileRef = F538F26B1515007D005D15D3 /* guyfawkes.png */; };
+		F538F2741515007D005D15D3 /* seed-balls.png in Resources */ = {isa = PBXBuildFile; fileRef = F538F26C1515007D005D15D3 /* seed-balls.png */; };
+		F538F2751515007D005D15D3 /* stream-in-flood.png in Resources */ = {isa = PBXBuildFile; fileRef = F538F26D1515007D005D15D3 /* stream-in-flood.png */; };
 		F54009F114B22253001EF805 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E214B22253001EF805 /* DDAbstractDatabaseLogger.m */; };
 		F54009F214B22253001EF805 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E414B22253001EF805 /* DDASLLogger.m */; };
 		F54009F314B22253001EF805 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009E614B22253001EF805 /* DDFileLogger.m */; };
@@ -236,6 +250,20 @@
 		F538F2491514B28E005D15D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LjsPanZoomController.xib; sourceTree = "<group>"; };
 		F538F24B1514B496005D15D3 /* third.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = third.png; sourceTree = "<group>"; };
 		F538F24C1514B496005D15D3 /* third@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "third@2x.png"; sourceTree = "<group>"; };
+		F538F2591514BBD5005D15D3 /* bamboo-green-320x460.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bamboo-green-320x460.png"; path = "../../art/backgrounds/bamboo-green-320x460.png"; sourceTree = "<group>"; };
+		F538F25A1514BBD5005D15D3 /* bamboo-green-320x460@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bamboo-green-320x460@2x.png"; path = "../../art/backgrounds/bamboo-green-320x460@2x.png"; sourceTree = "<group>"; };
+		F538F25D1514EEC3005D15D3 /* bamboo-320x480.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bamboo-320x480.png"; path = "../../art/backgrounds/bamboo-320x480.png"; sourceTree = "<group>"; };
+		F538F25E1514EEC3005D15D3 /* bamboo-320x480@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bamboo-320x480@2x.png"; path = "../../art/backgrounds/bamboo-320x480@2x.png"; sourceTree = "<group>"; };
+		F538F25F1514EEC3005D15D3 /* bamboo-green-320x411.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bamboo-green-320x411.png"; path = "../../art/backgrounds/bamboo-green-320x411.png"; sourceTree = "<group>"; };
+		F538F2601514EEC3005D15D3 /* bamboo-green-320x411@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bamboo-green-320x411@2x.png"; path = "../../art/backgrounds/bamboo-green-320x411@2x.png"; sourceTree = "<group>"; };
+		F538F2661515007D005D15D3 /* body-tat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "body-tat.png"; sourceTree = "<group>"; };
+		F538F2671515007D005D15D3 /* brad-pit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "brad-pit.png"; sourceTree = "<group>"; };
+		F538F2681515007D005D15D3 /* cilo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cilo.png; sourceTree = "<group>"; };
+		F538F2691515007D005D15D3 /* double-rainbow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "double-rainbow.png"; sourceTree = "<group>"; };
+		F538F26A1515007D005D15D3 /* gameofthrones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameofthrones.png; sourceTree = "<group>"; };
+		F538F26B1515007D005D15D3 /* guyfawkes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guyfawkes.png; sourceTree = "<group>"; };
+		F538F26C1515007D005D15D3 /* seed-balls.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seed-balls.png"; sourceTree = "<group>"; };
+		F538F26D1515007D005D15D3 /* stream-in-flood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stream-in-flood.png"; sourceTree = "<group>"; };
 		F54009E114B22253001EF805 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
 		F54009E214B22253001EF805 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
 		F54009E314B22253001EF805 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
@@ -638,6 +666,21 @@
 			path = ../Utilities;
 			sourceTree = "<group>";
 		};
+		F538F2651515007D005D15D3 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				F538F2661515007D005D15D3 /* body-tat.png */,
+				F538F2671515007D005D15D3 /* brad-pit.png */,
+				F538F2681515007D005D15D3 /* cilo.png */,
+				F538F2691515007D005D15D3 /* double-rainbow.png */,
+				F538F26A1515007D005D15D3 /* gameofthrones.png */,
+				F538F26B1515007D005D15D3 /* guyfawkes.png */,
+				F538F26C1515007D005D15D3 /* seed-balls.png */,
+				F538F26D1515007D005D15D3 /* stream-in-flood.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		F54009E014B22253001EF805 /* Lumberjack */ = {
 			isa = PBXGroup;
 			children = (
@@ -896,6 +939,13 @@
 		F54FA42214B7092A0080CC9A /* artwork */ = {
 			isa = PBXGroup;
 			children = (
+				F538F2651515007D005D15D3 /* images */,
+				F538F25D1514EEC3005D15D3 /* bamboo-320x480.png */,
+				F538F25E1514EEC3005D15D3 /* bamboo-320x480@2x.png */,
+				F538F25F1514EEC3005D15D3 /* bamboo-green-320x411.png */,
+				F538F2601514EEC3005D15D3 /* bamboo-green-320x411@2x.png */,
+				F538F2591514BBD5005D15D3 /* bamboo-green-320x460.png */,
+				F538F25A1514BBD5005D15D3 /* bamboo-green-320x460@2x.png */,
 				F538F24B1514B496005D15D3 /* third.png */,
 				F538F24C1514B496005D15D3 /* third@2x.png */,
 				F54FA40114B7060B0080CC9A /* first.png */,
@@ -1243,6 +1293,20 @@
 				F538F24A1514B28E005D15D3 /* LjsPanZoomController.xib in Resources */,
 				F538F24D1514B496005D15D3 /* third.png in Resources */,
 				F538F24E1514B496005D15D3 /* third@2x.png in Resources */,
+				F538F25B1514BBD5005D15D3 /* bamboo-green-320x460.png in Resources */,
+				F538F25C1514BBD5005D15D3 /* bamboo-green-320x460@2x.png in Resources */,
+				F538F2611514EEC3005D15D3 /* bamboo-320x480.png in Resources */,
+				F538F2621514EEC3005D15D3 /* bamboo-320x480@2x.png in Resources */,
+				F538F2631514EEC3005D15D3 /* bamboo-green-320x411.png in Resources */,
+				F538F2641514EEC3005D15D3 /* bamboo-green-320x411@2x.png in Resources */,
+				F538F26E1515007D005D15D3 /* body-tat.png in Resources */,
+				F538F26F1515007D005D15D3 /* brad-pit.png in Resources */,
+				F538F2701515007D005D15D3 /* cilo.png in Resources */,
+				F538F2711515007D005D15D3 /* double-rainbow.png in Resources */,
+				F538F2721515007D005D15D3 /* gameofthrones.png in Resources */,
+				F538F2731515007D005D15D3 /* guyfawkes.png in Resources */,
+				F538F2741515007D005D15D3 /* seed-balls.png in Resources */,
+				F538F2751515007D005D15D3 /* stream-in-flood.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

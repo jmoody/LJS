@@ -46,6 +46,10 @@
                image:(UIImage *) aImage;
 
 
-
+- (void) updateWithImage:(UIImage *) aImage;
+- (void) centerScrollViewContents;
+- (void) configureScrollViewScales;
+- (void) zoomTo1x;
+- (BOOL) isAt1xZoom;
 
 @end
