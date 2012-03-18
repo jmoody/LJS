@@ -42,4 +42,5 @@
 #import "UIView+LjsAdditions.h"
 #import "UILabel+LjsAdditions.h"
 #import "UIImageView+LjsAdditions.h"
+#import "UIImage+LjsCategory.h"
 #endif
