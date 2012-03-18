@@ -248,7 +248,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (void) scrollViewDidZoom:(UIScrollView *) scrollView {
-  DDLogDebug(@"scroll view did zoom: %.2f", self.zoomScale);
+  //DDLogDebug(@"scroll view did zoom: %.2f", self.zoomScale);
 //  if (self.zoomScale != 1.0) {
 //    self.scrollEnabled = NO;
 //  } else {
