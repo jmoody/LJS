@@ -31,6 +31,7 @@
 #endif
 
 #import "LjsLabelAttributes.h"
+#import "UILabel+LjsAdditions.h"
 #import "Lumberjack.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -96,6 +97,35 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return self;
 }
 
+- (void) applyAttributesToLabel:(UILabel *) aLabel {
+  aLabel.font = self.font;
+  aLabel.text = self.string;
+  aLabel.lineBreakMode = self.linebreakMode;
+  aLabel.numberOfLines = self.numberOfLines;
+}
+
+
+- (UILabel *) labelWithFrame:(CGRect) aFrame
+                   alignment:(UITextAlignment) aAlignemnt
+                    textColor:(UIColor *) aTextColor
+              highlightColor:(UIColor *) aHighlightColor
+             backgroundColor:(UIColor *) aBackgroundColor {
+  return [UILabel labelWithFrame:aFrame
+                            text:self.string
+                            font:self.font
+                       alignment:aAlignemnt
+                       textColor:aTextColor
+                highlightedColor:aHighlightColor
+                 backgroundColor:aBackgroundColor
+                   lineBreakMode:self.linebreakMode
+                   numberOfLines:self.numberOfLines];
+ 
+}
+
+
+/*
+  UILabel labelWithText:<#(NSString *)#> font:<#(UIFont *)#> alignment:<#(UITextAlignment)#> textColor:<#(UIColor *)#> highlightedColor:<#(UIColor *)#> backgroundColor:<#(UIColor *)#> lineBreakMode:<#(UILineBreakMode)#> numberOfLines:<#(NSUInteger)#> originX:<#(CGFloat)#> centeredToRectWithHeight:<#(CGFloat)#> width:<#(CGFloat)#>
+ */
 
 
 - (NSString *) description {

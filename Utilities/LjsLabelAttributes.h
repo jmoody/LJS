@@ -52,6 +52,13 @@
         linebreakMode:(UILineBreakMode) aLinebreakMode
           minFontSize:(CGFloat) aMinFontSize;
 
+- (void) applyAttributesToLabel:(UILabel *) aLabel;
+- (UILabel *) labelWithFrame:(CGRect) aFrame
+                   alignment:(UITextAlignment) aAlignemnt
+                   textColor:(UIColor *) aTextColor
+              highlightColor:(UIColor *) aHighlightColor
+             backgroundColor:(UIColor *) aBackgroundColor;
+
 
 + (CGSize) sizeOfDetailsCellTitleLabel;
 + (CGSize) sizeOfDetailsCellDetailsLabel;

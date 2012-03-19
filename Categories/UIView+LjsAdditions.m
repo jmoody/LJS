@@ -58,6 +58,23 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [self setOriginWithX:x andY:y];
 }
 
+- (void) setEndXWithXInset:(CGFloat) xInset
+                  withView:(UIView *) aView {
+  CGFloat endX = [aView endX];
+  CGFloat w = self.frame.size.width;
+  CGFloat x = endX - w - xInset;
+  [self setXWithX:x];
+}
+
+- (void) setEndYWithYInset:(CGFloat) yInset
+                  withView:(UIView *) aView {
+  CGFloat endY = [aView endY];
+  CGFloat h = self.frame.size.height;
+  CGFloat y = endY - h - yInset;
+  [self setYWithY:y];
+}
+
+
 - (void) setOriginWithX:(CGFloat) x
                    andY:(CGFloat) y {
   CGRect frame = self.frame;

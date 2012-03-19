@@ -22,6 +22,10 @@
 - (void) setYWithY:(CGFloat) y;
 - (void) setOriginWithX:(CGFloat) x
                    andY:(CGFloat) y;
+- (void) setEndXWithXInset:(CGFloat) xInset
+             withView:(UIView *) aView;
+- (void) setEndYWithYInset:(CGFloat) yInset
+             withView:(UIView *) aView;
 
 - (void) adjustX:(CGFloat) scale;
 - (void) adjustY:(CGFloat) scale;
