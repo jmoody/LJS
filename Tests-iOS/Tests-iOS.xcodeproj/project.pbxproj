@@ -178,6 +178,25 @@
 		F5CA979A14D6B3BE00745622 /* UIView+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CA979814D6B3BE00745622 /* UIView+LjsAdditions.m */; };
 		F5D3581F14B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
 		F5D3582014B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
+		F5D6C8DA1518F2FF006FF6FC /* LjsScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8D91518F2FF006FF6FC /* LjsScrollView.m */; };
+		F5D6C8DE1518F58F006FF6FC /* LjsScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8DD1518F58F006FF6FC /* LjsScrollViewController.m */; };
+		F5D6C8E11518F63B006FF6FC /* LjsScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5D6C8DF1518F63B006FF6FC /* LjsScrollViewController.xib */; };
+		F5D6C8E41518F738006FF6FC /* fourth.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D6C8E21518F738006FF6FC /* fourth.png */; };
+		F5D6C8E51518F738006FF6FC /* fourth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D6C8E31518F738006FF6FC /* fourth@2x.png */; };
+		F5D6C8F41518F7CA006FF6FC /* NSDateFormatter+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8E71518F7CA006FF6FC /* NSDateFormatter+LjsAdditions.m */; };
+		F5D6C8F51518F7CA006FF6FC /* NSDateFormatter+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8E71518F7CA006FF6FC /* NSDateFormatter+LjsAdditions.m */; };
+		F5D6C8F61518F7CA006FF6FC /* NSLocale+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8E91518F7CA006FF6FC /* NSLocale+LjsAdditions.m */; };
+		F5D6C8F71518F7CA006FF6FC /* NSLocale+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8E91518F7CA006FF6FC /* NSLocale+LjsAdditions.m */; };
+		F5D6C8F81518F7CA006FF6FC /* NSSet+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8EB1518F7CA006FF6FC /* NSSet+LjsAdditions.m */; };
+		F5D6C8F91518F7CA006FF6FC /* NSSet+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8EB1518F7CA006FF6FC /* NSSet+LjsAdditions.m */; };
+		F5D6C8FA1518F7CA006FF6FC /* UIButton+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8ED1518F7CA006FF6FC /* UIButton+LjsAdditions.m */; };
+		F5D6C8FB1518F7CA006FF6FC /* UIButton+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8ED1518F7CA006FF6FC /* UIButton+LjsAdditions.m */; };
+		F5D6C8FC1518F7CA006FF6FC /* UIImage+LjsCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8EF1518F7CA006FF6FC /* UIImage+LjsCategory.m */; };
+		F5D6C8FD1518F7CA006FF6FC /* UIImage+LjsCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8EF1518F7CA006FF6FC /* UIImage+LjsCategory.m */; };
+		F5D6C8FE1518F7CA006FF6FC /* UIImageView+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8F11518F7CA006FF6FC /* UIImageView+LjsAdditions.m */; };
+		F5D6C8FF1518F7CA006FF6FC /* UIImageView+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8F11518F7CA006FF6FC /* UIImageView+LjsAdditions.m */; };
+		F5D6C9001518F7CA006FF6FC /* UILabel+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8F31518F7CA006FF6FC /* UILabel+LjsAdditions.m */; };
+		F5D6C9011518F7CA006FF6FC /* UILabel+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8F31518F7CA006FF6FC /* UILabel+LjsAdditions.m */; };
 		F5F6209814E3E3B600D6C4A1 /* NSArray+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F6209514E3E3B600D6C4A1 /* NSArray+LjsAdditions.m */; };
 		F5F6209914E3E3B600D6C4A1 /* NSArray+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F6209514E3E3B600D6C4A1 /* NSArray+LjsAdditions.m */; };
 		F5F6209A14E3E3B600D6C4A1 /* NSDate+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F6209714E3E3B600D6C4A1 /* NSDate+LjsAdditions.m */; };
@@ -470,6 +489,27 @@
 		F5D3581B14B805B50022E24E /* LjsBackingStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsBackingStore.h; sourceTree = "<group>"; };
 		F5D3581D14B8065E0022E24E /* LjsUserDefaultsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsUserDefaultsStore.h; sourceTree = "<group>"; };
 		F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsUserDefaultsStore.m; sourceTree = "<group>"; };
+		F5D6C8D81518F2FF006FF6FC /* LjsScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsScrollView.h; sourceTree = "<group>"; };
+		F5D6C8D91518F2FF006FF6FC /* LjsScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsScrollView.m; sourceTree = "<group>"; };
+		F5D6C8DC1518F58F006FF6FC /* LjsScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsScrollViewController.h; sourceTree = "<group>"; };
+		F5D6C8DD1518F58F006FF6FC /* LjsScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsScrollViewController.m; sourceTree = "<group>"; };
+		F5D6C8E01518F63B006FF6FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LjsScrollViewController.xib; sourceTree = "<group>"; };
+		F5D6C8E21518F738006FF6FC /* fourth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fourth.png; sourceTree = "<group>"; };
+		F5D6C8E31518F738006FF6FC /* fourth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fourth@2x.png"; sourceTree = "<group>"; };
+		F5D6C8E61518F7CA006FF6FC /* NSDateFormatter+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5D6C8E71518F7CA006FF6FC /* NSDateFormatter+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5D6C8E81518F7CA006FF6FC /* NSLocale+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLocale+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5D6C8E91518F7CA006FF6FC /* NSLocale+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLocale+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5D6C8EA1518F7CA006FF6FC /* NSSet+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5D6C8EB1518F7CA006FF6FC /* NSSet+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5D6C8EC1518F7CA006FF6FC /* UIButton+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5D6C8ED1518F7CA006FF6FC /* UIButton+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5D6C8EE1518F7CA006FF6FC /* UIImage+LjsCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LjsCategory.h"; sourceTree = "<group>"; };
+		F5D6C8EF1518F7CA006FF6FC /* UIImage+LjsCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LjsCategory.m"; sourceTree = "<group>"; };
+		F5D6C8F01518F7CA006FF6FC /* UIImageView+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5D6C8F11518F7CA006FF6FC /* UIImageView+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5D6C8F21518F7CA006FF6FC /* UILabel+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5D6C8F31518F7CA006FF6FC /* UILabel+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5F6209414E3E3B600D6C4A1 /* NSArray+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LjsAdditions.h"; sourceTree = "<group>"; };
 		F5F6209514E3E3B600D6C4A1 /* NSArray+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5F6209614E3E3B600D6C4A1 /* NSDate+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+LjsAdditions.h"; sourceTree = "<group>"; };
@@ -919,6 +959,10 @@
 				F538F2451514B270005D15D3 /* LjsPanZoomController.h */,
 				F538F2461514B270005D15D3 /* LjsPanZoomController.m */,
 				F538F2481514B28E005D15D3 /* LjsPanZoomController.xib */,
+				F5D6C8DC1518F58F006FF6FC /* LjsScrollViewController.h */,
+				F5D6C8DD1518F58F006FF6FC /* LjsScrollViewController.m */,
+				F5D6C8DF1518F63B006FF6FC /* LjsScrollViewController.xib */,
+				F54FA42214B7092A0080CC9A /* artwork */,
 				F54FA3F314B7060B0080CC9A /* Supporting Files */,
 			);
 			path = "TestViews-iOS";
@@ -927,7 +971,6 @@
 		F54FA3F314B7060B0080CC9A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F54FA42214B7092A0080CC9A /* artwork */,
 				F54FA3F414B7060B0080CC9A /* TestViews-iOS-Info.plist */,
 				F54FA3F514B7060B0080CC9A /* InfoPlist.strings */,
 				F54FA3F814B7060B0080CC9A /* main.m */,
@@ -939,6 +982,8 @@
 		F54FA42214B7092A0080CC9A /* artwork */ = {
 			isa = PBXGroup;
 			children = (
+				F5D6C8E21518F738006FF6FC /* fourth.png */,
+				F5D6C8E31518F738006FF6FC /* fourth@2x.png */,
 				F538F2651515007D005D15D3 /* images */,
 				F538F25D1514EEC3005D15D3 /* bamboo-320x480.png */,
 				F538F25E1514EEC3005D15D3 /* bamboo-320x480@2x.png */,
@@ -1015,6 +1060,8 @@
 				F5FF5AB314E971C30091D283 /* LjsGradientView.m */,
 				F538F2401514AC81005D15D3 /* LjsPanAndZoomImageView.h */,
 				F538F2411514AC81005D15D3 /* LjsPanAndZoomImageView.m */,
+				F5D6C8D81518F2FF006FF6FC /* LjsScrollView.h */,
+				F5D6C8D91518F2FF006FF6FC /* LjsScrollView.m */,
 			);
 			name = "Views-iOS";
 			path = "../Views-iOS";
@@ -1063,6 +1110,12 @@
 		F5878DBA14F26C0600F22FDD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F5D6C8EA1518F7CA006FF6FC /* NSSet+LjsAdditions.h */,
+				F5D6C8EB1518F7CA006FF6FC /* NSSet+LjsAdditions.m */,
+				F5D6C8E61518F7CA006FF6FC /* NSDateFormatter+LjsAdditions.h */,
+				F5D6C8E71518F7CA006FF6FC /* NSDateFormatter+LjsAdditions.m */,
+				F5D6C8E81518F7CA006FF6FC /* NSLocale+LjsAdditions.h */,
+				F5D6C8E91518F7CA006FF6FC /* NSLocale+LjsAdditions.m */,
 				F573B8F514F1341B00E6F5CF /* NSCalendar+LjsAdditions.h */,
 				F573B8F614F1341B00E6F5CF /* NSCalendar+LjsAdditions.m */,
 				F5F6209414E3E3B600D6C4A1 /* NSArray+LjsAdditions.h */,
@@ -1078,6 +1131,14 @@
 		F5878DBC14F26C2D00F22FDD /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				F5D6C8EC1518F7CA006FF6FC /* UIButton+LjsAdditions.h */,
+				F5D6C8ED1518F7CA006FF6FC /* UIButton+LjsAdditions.m */,
+				F5D6C8EE1518F7CA006FF6FC /* UIImage+LjsCategory.h */,
+				F5D6C8EF1518F7CA006FF6FC /* UIImage+LjsCategory.m */,
+				F5D6C8F01518F7CA006FF6FC /* UIImageView+LjsAdditions.h */,
+				F5D6C8F11518F7CA006FF6FC /* UIImageView+LjsAdditions.m */,
+				F5D6C8F21518F7CA006FF6FC /* UILabel+LjsAdditions.h */,
+				F5D6C8F31518F7CA006FF6FC /* UILabel+LjsAdditions.m */,
 				F5CA979714D6B3BE00745622 /* UIView+LjsAdditions.h */,
 				F5CA979814D6B3BE00745622 /* UIView+LjsAdditions.m */,
 				F5F7BBBF14D3EDDE00669FE6 /* UIColor+LjsAdditions.h */,
@@ -1307,6 +1368,9 @@
 				F538F2731515007D005D15D3 /* guyfawkes.png in Resources */,
 				F538F2741515007D005D15D3 /* seed-balls.png in Resources */,
 				F538F2751515007D005D15D3 /* stream-in-flood.png in Resources */,
+				F5D6C8E11518F63B006FF6FC /* LjsScrollViewController.xib in Resources */,
+				F5D6C8E41518F738006FF6FC /* fourth.png in Resources */,
+				F5D6C8E51518F738006FF6FC /* fourth@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1470,6 +1534,13 @@
 				F55CDEEA150F881600D9B906 /* LjsCaesarCipherTests.m in Sources */,
 				F573CBFB1510C7A600277794 /* LjsCaesarCipher.m in Sources */,
 				F538F2421514AC81005D15D3 /* LjsPanAndZoomImageView.m in Sources */,
+				F5D6C8F41518F7CA006FF6FC /* NSDateFormatter+LjsAdditions.m in Sources */,
+				F5D6C8F61518F7CA006FF6FC /* NSLocale+LjsAdditions.m in Sources */,
+				F5D6C8F81518F7CA006FF6FC /* NSSet+LjsAdditions.m in Sources */,
+				F5D6C8FA1518F7CA006FF6FC /* UIButton+LjsAdditions.m in Sources */,
+				F5D6C8FC1518F7CA006FF6FC /* UIImage+LjsCategory.m in Sources */,
+				F5D6C8FE1518F7CA006FF6FC /* UIImageView+LjsAdditions.m in Sources */,
+				F5D6C9001518F7CA006FF6FC /* UILabel+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1514,6 +1585,15 @@
 				F573B8F814F1341B00E6F5CF /* NSCalendar+LjsAdditions.m in Sources */,
 				F538F2431514AC81005D15D3 /* LjsPanAndZoomImageView.m in Sources */,
 				F538F2471514B270005D15D3 /* LjsPanZoomController.m in Sources */,
+				F5D6C8DA1518F2FF006FF6FC /* LjsScrollView.m in Sources */,
+				F5D6C8DE1518F58F006FF6FC /* LjsScrollViewController.m in Sources */,
+				F5D6C8F51518F7CA006FF6FC /* NSDateFormatter+LjsAdditions.m in Sources */,
+				F5D6C8F71518F7CA006FF6FC /* NSLocale+LjsAdditions.m in Sources */,
+				F5D6C8F91518F7CA006FF6FC /* NSSet+LjsAdditions.m in Sources */,
+				F5D6C8FB1518F7CA006FF6FC /* UIButton+LjsAdditions.m in Sources */,
+				F5D6C8FD1518F7CA006FF6FC /* UIImage+LjsCategory.m in Sources */,
+				F5D6C8FF1518F7CA006FF6FC /* UIImageView+LjsAdditions.m in Sources */,
+				F5D6C9011518F7CA006FF6FC /* UILabel+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1583,6 +1663,14 @@
 				F5C1127A1496715900948605 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F5D6C8DF1518F63B006FF6FC /* LjsScrollViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5D6C8E01518F63B006FF6FC /* en */,
+			);
+			name = LjsScrollViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
