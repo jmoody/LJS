@@ -2,6 +2,7 @@
 #import "LjsFirstViewController.h"
 #import "LjsSecondViewController.h"
 #import "LjsPanZoomController.h"
+#import "LjsScrollViewController.h"
 #import "Lumberjack.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -30,11 +31,19 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   UIViewController *viewController1 = [[LjsFirstViewController alloc] initWithNibName:@"LjsFirstViewController" bundle:nil];
   UIViewController *viewController2 = [[LjsSecondViewController alloc] initWithNibName:@"LjsSecondViewController" bundle:nil];
   UIViewController *panZoomController = [[LjsPanZoomController alloc] initWithNibName:@"LjsPanZoomController" bundle:nil];
+  
+  UIViewController *scrollController =
+  [[LjsScrollViewController alloc]
+   initWithNibName:@"LjsScrollViewController" bundle:nil];
   self.tabBarController = [[UITabBarController alloc] init];
-  self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2,
-                                           panZoomController, nil];
+  
+  self.tabBarController.viewControllers = [NSArray arrayWithObjects:
+                                           viewController1, 
+                                           viewController2,
+                                           panZoomController,
+                                           scrollController, nil];
   self.window.rootViewController = self.tabBarController;
-  [self.tabBarController setSelectedIndex:2];
+  [self.tabBarController setSelectedIndex:3];
   [self.window makeKeyAndVisible];
   return YES;
 }

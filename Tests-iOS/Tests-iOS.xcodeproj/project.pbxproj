@@ -195,6 +195,9 @@
 		F58D234F151A4BAC0043DB52 /* com.littlejoysoftware.faker.street-addresses.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D233C151A4BAC0043DB52 /* com.littlejoysoftware.faker.street-addresses.us.plist */; };
 		F58D2350151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D233D151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist */; };
 		F58D2351151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D233D151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist */; };
+		F5903F02151A6BB700995AF1 /* LjsScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8D91518F2FF006FF6FC /* LjsScrollView.m */; };
+		F5903F03151A6BDD00995AF1 /* LjsScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8D91518F2FF006FF6FC /* LjsScrollView.m */; };
+		F5903F04151A6C0700995AF1 /* LjsScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8DD1518F58F006FF6FC /* LjsScrollViewController.m */; };
 		F590BE9F14542E4900E5B89B /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */; };
 		F590BEA014542E4900E5B89B /* LjsLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9E14542E4900E5B89B /* LjsLogFileManager.m */; };
 		F59635D11496632000CDB27E /* LjsObjectWithUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635D01496632000CDB27E /* LjsObjectWithUUID.m */; };
@@ -532,6 +535,13 @@
 		F5D3581B14B805B50022E24E /* LjsBackingStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsBackingStore.h; sourceTree = "<group>"; };
 		F5D3581D14B8065E0022E24E /* LjsUserDefaultsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsUserDefaultsStore.h; sourceTree = "<group>"; };
 		F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsUserDefaultsStore.m; sourceTree = "<group>"; };
+		F5D6C8D81518F2FF006FF6FC /* LjsScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsScrollView.h; sourceTree = "<group>"; };
+		F5D6C8D91518F2FF006FF6FC /* LjsScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsScrollView.m; sourceTree = "<group>"; };
+		F5D6C8DC1518F58F006FF6FC /* LjsScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsScrollViewController.h; sourceTree = "<group>"; };
+		F5D6C8DD1518F58F006FF6FC /* LjsScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsScrollViewController.m; sourceTree = "<group>"; };
+		F5D6C8E01518F63B006FF6FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LjsScrollViewController.xib; sourceTree = "<group>"; };
+		F5D6C8E21518F738006FF6FC /* fourth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fourth.png; sourceTree = "<group>"; };
+		F5D6C8E31518F738006FF6FC /* fourth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fourth@2x.png"; sourceTree = "<group>"; };
 		F5F6209414E3E3B600D6C4A1 /* NSArray+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LjsAdditions.h"; sourceTree = "<group>"; };
 		F5F6209514E3E3B600D6C4A1 /* NSArray+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5F6209614E3E3B600D6C4A1 /* NSDate+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+LjsAdditions.h"; sourceTree = "<group>"; };
@@ -981,6 +991,10 @@
 				F538F2451514B270005D15D3 /* LjsPanZoomController.h */,
 				F538F2461514B270005D15D3 /* LjsPanZoomController.m */,
 				F538F2481514B28E005D15D3 /* LjsPanZoomController.xib */,
+				F5D6C8DC1518F58F006FF6FC /* LjsScrollViewController.h */,
+				F5D6C8DD1518F58F006FF6FC /* LjsScrollViewController.m */,
+				F5D6C8DF1518F63B006FF6FC /* LjsScrollViewController.xib */,
+				F54FA42214B7092A0080CC9A /* artwork */,
 				F54FA3F314B7060B0080CC9A /* Supporting Files */,
 			);
 			path = "TestViews-iOS";
@@ -989,7 +1003,6 @@
 		F54FA3F314B7060B0080CC9A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F54FA42214B7092A0080CC9A /* artwork */,
 				F54FA3F414B7060B0080CC9A /* TestViews-iOS-Info.plist */,
 				F54FA3F514B7060B0080CC9A /* InfoPlist.strings */,
 				F54FA3F814B7060B0080CC9A /* main.m */,
@@ -1001,6 +1014,8 @@
 		F54FA42214B7092A0080CC9A /* artwork */ = {
 			isa = PBXGroup;
 			children = (
+				F5D6C8E21518F738006FF6FC /* fourth.png */,
+				F5D6C8E31518F738006FF6FC /* fourth@2x.png */,
 				F538F2651515007D005D15D3 /* images */,
 				F538F25D1514EEC3005D15D3 /* bamboo-320x480.png */,
 				F538F25E1514EEC3005D15D3 /* bamboo-320x480@2x.png */,
@@ -1077,6 +1092,8 @@
 				F5FF5AB314E971C30091D283 /* LjsGradientView.m */,
 				F538F2401514AC81005D15D3 /* LjsPanAndZoomImageView.h */,
 				F538F2411514AC81005D15D3 /* LjsPanAndZoomImageView.m */,
+				F5D6C8D81518F2FF006FF6FC /* LjsScrollView.h */,
+				F5D6C8D91518F2FF006FF6FC /* LjsScrollView.m */,
 			);
 			name = "Views-iOS";
 			path = "../Views-iOS";
@@ -1601,6 +1618,7 @@
 				F58D230C151A42D90043DB52 /* UIImageView+LjsAdditions.m in Sources */,
 				F58D230E151A42D90043DB52 /* UILabel+LjsAdditions.m in Sources */,
 				F58D233E151A4BAC0043DB52 /* LjsFaker.m in Sources */,
+				F5903F03151A6BDD00995AF1 /* LjsScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1654,6 +1672,8 @@
 				F58D230D151A42D90043DB52 /* UIImageView+LjsAdditions.m in Sources */,
 				F58D230F151A42D90043DB52 /* UILabel+LjsAdditions.m in Sources */,
 				F58D233F151A4BAC0043DB52 /* LjsFaker.m in Sources */,
+				F5903F02151A6BB700995AF1 /* LjsScrollView.m in Sources */,
+				F5903F04151A6C0700995AF1 /* LjsScrollViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1723,6 +1743,14 @@
 				F5C1127A1496715900948605 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F5D6C8DF1518F63B006FF6FC /* LjsScrollViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5D6C8E01518F63B006FF6FC /* en */,
+			);
+			name = LjsScrollViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1877,10 +1905,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../gh-unit/Project-iOS/build/Framework\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestViews-iOS/TestViews-iOS-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = LOG_CONFIGURATION_DEBUG;
@@ -1903,10 +1928,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../gh-unit/Project-iOS/build/Framework\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestViews-iOS/TestViews-iOS-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
