@@ -26,22 +26,34 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-/**
- Ljs Categories
-*/
-#import "NSCalendar+LjsAdditions.h"
-#import "NSArray+LjsAdditions.h"
-#import "NSMutableArray+LjsAdditions.h"
-#import "NSDate+LjsAdditions.h"
-#import "NSError+LjsAdditions.h"
-#import "NSSet+LjsAdditions.h"
-#import "NSLocale+LjsAdditions.h"
-#import "NSDateFormatter+LjsAdditions.h"
 
-#if TARGET_OS_IPHONE
-#import "UIColor+LjsAdditions.h"
-#import "UIView+LjsAdditions.h"
-#import "UILabel+LjsAdditions.h"
-#import "UIImageView+LjsAdditions.h"
-#import "UIImage+LjsCategory.h"
-#endif
+#import <Foundation/Foundation.h>
+
+/**
+ Documentation
+ */
+@interface LjsFaker : NSObject 
+
+/** @name Properties */
+
+/** @name Initializing Objects */
+
+/** @name Handling Notifications, Requests, and Events */
+
+/** @name Utility */
+
+- (NSString *) firstName;
+- (NSString *) lastName;
+- (NSString *) name;
+- (NSString *) websiteWithHttp:(BOOL) aIncludeHttp
+                       escaped:(BOOL) aPercentEscape;
+
+- (NSString *) company;
+- (NSString *) city;
+- (NSString *) streetAddress;
+- (NSString *) state:(BOOL) abbrevated;
+
+
+
+
+@end

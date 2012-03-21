@@ -1,4 +1,4 @@
-// Copyright 2012 Little Joy Software. All rights reserved.
+// Copyright 2012 nUCROSOFT. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,22 +26,49 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-/**
- Ljs Categories
-*/
-#import "NSCalendar+LjsAdditions.h"
-#import "NSArray+LjsAdditions.h"
-#import "NSMutableArray+LjsAdditions.h"
-#import "NSDate+LjsAdditions.h"
-#import "NSError+LjsAdditions.h"
-#import "NSSet+LjsAdditions.h"
-#import "NSLocale+LjsAdditions.h"
-#import "NSDateFormatter+LjsAdditions.h"
-
-#if TARGET_OS_IPHONE
-#import "UIColor+LjsAdditions.h"
-#import "UIView+LjsAdditions.h"
-#import "UILabel+LjsAdditions.h"
-#import "UIImageView+LjsAdditions.h"
-#import "UIImage+LjsCategory.h"
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
+
+#import "NSMutableArray+LjsAdditions.h"
+#import "Lumberjack.h"
+
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
+
+@implementation NSMutableArray (NSMutableArray_LjsAdditions)
+
+
+- (void) append:(id) object {
+  if (object == nil) {
+    return;
+  }
+  
+  if ([object isKindOfClass:[NSArray class]]) {
+    NSArray *other = (NSArray *) object;
+    [self addObjectsFromArray:other];
+  } else {
+    [self addObject:object];
+  }
+}
+
+
+- (void) push:(id) object {
+  if (object == nil) {
+    return;
+  }
+  [self insertObject:object atIndex:0];
+}
+
+- (id) pop {
+  id object = [self objectAtIndex:0];
+  [self removeObjectAtIndex:0];
+  return object;
+}
+
+
+
+@end

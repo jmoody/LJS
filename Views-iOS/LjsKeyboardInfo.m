@@ -86,6 +86,50 @@ static NSString *Ljs_UIKeyboardFrameChangedByUserInteraction = @"UIKeyboardFrame
   return self;
 }
 
++ (void) registerObserver:(id) aObserver 
+ forKeyboardNotificationsWithWillShowSel:(SEL) aWillShowSel
+               didShowSel:(SEL) aDidShowSel
+              willHideSel:(SEL) aWillHideSel
+               didHideSel:(SEL) aDidHideSel 
+                   object:(id) aObject {
+  NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+  
+  DDLogDebug(@"will show: %d", aWillShowSel != nil);
+  DDLogDebug(@" did show: %d", aDidShowSel != nil);
+  DDLogDebug(@"will hide: %d", aWillHideSel != nil);
+  DDLogDebug(@" did hide: %d", aDidHideSel != nil);
+  
+
+  if (aWillShowSel != nil) {
+    [nc addObserver:aObserver
+           selector:aWillShowSel
+               name:UIKeyboardWillShowNotification
+             object:aObject];
+  }
+  
+  if (aDidShowSel != nil) {
+    [nc addObserver:aObserver
+           selector:aDidShowSel
+               name:UIKeyboardDidShowNotification
+             object:aObject];
+  }
+  
+  if (aWillHideSel != nil) {
+    [nc addObserver:aObserver
+           selector:aWillHideSel
+               name:UIKeyboardWillHideNotification
+             object:aObject];
+  }
+  
+  if (aDidHideSel != nil) {
+    [nc addObserver:aObserver
+           selector:aDidHideSel
+               name:UIKeyboardDidHideNotification
+             object:aObject];  
+  }
+}
+
+
 - (NSString *) description {
   NSString *begin =  NSStringFromCGRect(self.frameBegin);
   NSString *end =   NSStringFromCGRect(self.frameEnd);

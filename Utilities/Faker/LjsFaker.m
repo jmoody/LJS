@@ -32,6 +32,8 @@
 
 #import "LjsFaker.h"
 #import "Lumberjack.h"
+#import "NSArray+LjsAdditions.h"
+#import "LjsFileUtilities.h"
 #import "LjsVariates.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -40,14 +42,56 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+
+/*
+ com.littlejoysoftware.faker.addresses.us.plist
+ com.littlejoysoftware.faker.cities.us.plist
+ 
+ com.littlejoysoftware.faker.given-names.us.plist
+ com.littlejoysoftware.faker.occupations.us.plist
+ com.littlejoysoftware.faker.phone-numbers.us.plist
+ com.littlejoysoftware.faker.postal-codes.us.plist
+ com.littlejoysoftware.faker.surnames-names.us.plist
+ */
+
+static NSString *LjsFakerCompaniesUSplist = @"com.littlejoysoftware.faker.companies.us.plist";
+static NSString *LjsFakerStreetAddressesUSplist = @"com.littlejoysoftware.faker.street-addresses.us.plist";
+static NSString *LjsFakerCitiesUSplist = @"com.littlejoysoftware.faker.cities.us.plist";
+
+
+@interface LjsFaker ()
+
+@property (nonatomic, strong) NSArray *firstNames;
+@property (nonatomic, strong) NSArray *lastNames;
+@property (nonatomic, strong) NSArray *domainNames;
+
+@property (nonatomic, strong) NSArray *companiesUS;
+@property (nonatomic, strong) NSArray *streetAddresesUS;
+@property (nonatomic, strong) NSArray *citiesUS;
+@property (nonatomic, strong) NSDictionary *statesDictUS;
+
+- (NSString *) pathWithFilename:(NSString *) aFilename;
+- (NSString *) capitialize:(NSString *) aString;
++ (NSArray *) lastNamesArray;
++ (NSArray *) firstNamesArray;
++ (NSArray *) domainNamesArray;
++ (NSDictionary *) dictionaryOfStatesToAbbreviations;
+
+@end
+
 @implementation LjsFaker
+
 @synthesize firstNames;
 @synthesize lastNames;
-@synthesize  domainNames;
+@synthesize domainNames;
+@synthesize companiesUS;
+@synthesize streetAddresesUS;
+@synthesize citiesUS;
+@synthesize statesDictUS;
 
 #pragma mark Memory Management
 - (void) dealloc {
-   DDLogDebug(@"deallocating %@", [self class]);
+  DDLogDebug(@"deallocating %@", [self class]);
 }
 
 - (id) init {
@@ -56,9 +100,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     self.firstNames = [LjsFaker firstNamesArray];
     self.lastNames = [LjsFaker lastNamesArray];
     self.domainNames = [LjsFaker domainNamesArray];
+    self.companiesUS = nil;
+    self.streetAddresesUS = nil;
+    self.citiesUS = nil;
+    self.statesDictUS = [LjsFaker dictionaryOfStatesToAbbreviations];
   }
   return self;
 }
+
 
 - (NSString *) capitialize:(NSString *)aString {
   return [[aString lowercaseString] capitalizedString];
@@ -90,6 +139,105 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     random = [random stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
   }
   return random;
+}
+
+- (NSString *) pathWithFilename:(NSString *) aFilename {
+  NSBundle *main = [NSBundle mainBundle];
+  NSString *resourcePath = [main resourcePath];
+  return [resourcePath stringByAppendingPathComponent:aFilename];
+}
+
+
+- (NSString *) company {
+  if (self.companiesUS == nil) {
+    NSString *path = [self pathWithFilename:LjsFakerCompaniesUSplist];
+    self.companiesUS = [LjsFileUtilities readArrayFromFile:path
+                                                     error:nil];
+  }
+  return [LjsVariates randomElement:self.companiesUS];
+}
+
+- (NSString *) city {
+  if (self.citiesUS == nil) {
+    NSString *path = [self pathWithFilename:LjsFakerCitiesUSplist];
+    self.citiesUS = [LjsFileUtilities readArrayFromFile:path
+                                                  error:nil];
+    
+  }
+  return [LjsVariates randomElement:self.citiesUS];
+}
+
+- (NSString *) streetAddress {
+  if (self.streetAddresesUS == nil) {
+    NSString *path = [self pathWithFilename:LjsFakerStreetAddressesUSplist];
+    self.streetAddresesUS = [LjsFileUtilities readArrayFromFile:path
+                                                          error:nil];
+  }
+  return [LjsVariates randomElement:self.streetAddresesUS];
+}
+
+- (NSString *) state:(BOOL) abbrevated {
+  NSString *state = [LjsVariates randomElement:[self.statesDictUS allKeys]];
+  if (abbrevated == YES) {
+    state = [self.statesDictUS objectForKey:state];
+  }
+  return state;
+}
+
+
++ (NSDictionary *) dictionaryOfStatesToAbbreviations {
+  return [NSDictionary dictionaryWithObjectsAndKeys:
+          @"Alabama",@"AL"
+          @"Alaska",@"AK"
+          @"Arizona",@"AZ"
+          @"Arkansas",@"AR"
+          @"California",@"CA"
+          @"Colorado",@"CO"
+          @"Connecticut",@"CT"
+          @"Delaware",@"DE"
+          @"District of Columbia",@"DC"
+          @"Florida",@"FL"
+          @"Georgia",@"GA"
+          @"Hawaii",@"HI"
+          @"Idaho",@"ID"
+          @"Illinois",@"IL"
+          @"Indiana",@"IN"
+          @"Iowa",@"IA"
+          @"Kansas",@"KS"
+          @"Kentucky",@"KY"
+          @"Louisiana",@"LA"
+          @"Maine",@"ME"
+          @"Montana",@"MT"
+          @"Nebraska",@"NE"
+          @"Nevada",@"NV"
+          @"New Hampshire",@"NH"
+          @"New Jersey",@"NJ"
+          @"New Mexico",@"NM"
+          @"New York",@"NY"
+          @"North Carolina",@"NC"
+          @"North Dakota",@"ND"
+          @"Ohio",@"OH"
+          @"Oklahoma",@"OK"
+          @"Oregon",@"OR"
+          @"Maryland",@"MD"
+          @"Massachusetts",@"MA"
+          @"Michigan",@"MI"
+          @"Minnesota",@"MN"
+          @"Mississippi",@"MS"
+          @"Missouri",@"MO"
+          @"Pennsylvania",@"PA"
+          @"Rhode Island",@"RI"
+          @"South Carolina",@"SC"
+          @"South Dakota",@"SD"
+          @"Tennessee",@"TN"
+          @"Texas",@"TX"
+          @"Utah",@"UT"
+          @"Vermont",@"VT"
+          @"Virginia",@"VA"
+          @"Washington",@"WA"
+          @"West Virginia",@"WV"
+          @"Wisconsin",@"WI"
+          @"Wyoming",@"WY", nil];
 }
 
 + (NSArray *) domainNamesArray {
@@ -294,7 +442,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
           @"willitbewindy.com",
           @"malcolmgladwellbookgenerator.com",
           @"islhcworking.com",
-           nil];
+          nil];
 }
 
 + (NSArray *) lastNamesArray {
@@ -5059,7 +5207,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
           @"ZINK",
           @"ZOOK",
           @"ZUNIGA",
-           nil];
+          nil];
 }
 
 + (NSArray *) firstNamesArray {

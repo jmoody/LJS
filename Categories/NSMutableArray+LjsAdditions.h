@@ -1,4 +1,4 @@
-// Copyright 2012 Little Joy Software. All rights reserved.
+// Copyright 2012 nUCROSOFT. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,33 +26,18 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
 #import <Foundation/Foundation.h>
 
 /**
- Documentation
+ NSMutableArray on NSMutableArray_LjsAdditions category.
  */
-@interface LjsFaker : NSObject 
+@interface NSMutableArray (NSMutableArray_LjsAdditions)
 
-/** @name Properties */
-@property (nonatomic, strong) NSArray *firstNames;
-@property (nonatomic, strong) NSArray *lastNames;
-@property (nonatomic, strong) NSArray *domainNames;
+/** @name Task Section */
 
-/** @name Initializing Objects */
+- (void) append:(id) object;
+- (void) push:(id) object;
+- (id) pop;
 
-/** @name Handling Notifications, Requests, and Events */
-
-/** @name Utility */
-- (NSString *) capitialize:(NSString *) aString;
-- (NSString *) firstName;
-- (NSString *) lastName;
-- (NSString *) name;
-- (NSString *) websiteWithHttp:(BOOL) aIncludeHttp
-                       escaped:(BOOL) aPercentEscape;
-
-+ (NSArray *) lastNamesArray;
-+ (NSArray *) firstNamesArray;
-+ (NSArray *) domainNamesArray;
 
 @end

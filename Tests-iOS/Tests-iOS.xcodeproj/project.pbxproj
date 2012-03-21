@@ -154,11 +154,47 @@
 		F573B8F814F1341B00E6F5CF /* NSCalendar+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F573B8F614F1341B00E6F5CF /* NSCalendar+LjsAdditions.m */; };
 		F573B8FB14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F573B8FA14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m */; };
 		F573B90014F14E8D00E6F5CF /* LjsKeyboardInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F573B8FE14F14E8D00E6F5CF /* LjsKeyboardInfo.m */; };
-		F573B90314F14F0000E6F5CF /* LjsFaker.m in Sources */ = {isa = PBXBuildFile; fileRef = F573B90214F14F0000E6F5CF /* LjsFaker.m */; };
 		F573CBFB1510C7A600277794 /* LjsCaesarCipher.m in Sources */ = {isa = PBXBuildFile; fileRef = F573CBFA1510C7A600277794 /* LjsCaesarCipher.m */; };
 		F58013AB149E06F100692073 /* LjsLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F58013AA149E06F100692073 /* LjsLocationManager.m */; };
 		F58013AD149E080E00692073 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58013AC149E080E00692073 /* CoreLocation.framework */; };
 		F580719F146C33AC00EA4CFB /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F580719E146C33AC00EA4CFB /* LjsTestCase.m */; };
+		F58D22EE151A42940043DB52 /* LjsFakerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22ED151A42940043DB52 /* LjsFakerTests.m */; };
+		F58D2300151A42D90043DB52 /* NSDateFormatter+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F1151A42D80043DB52 /* NSDateFormatter+LjsAdditions.m */; };
+		F58D2301151A42D90043DB52 /* NSDateFormatter+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F1151A42D80043DB52 /* NSDateFormatter+LjsAdditions.m */; };
+		F58D2302151A42D90043DB52 /* NSLocale+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F3151A42D80043DB52 /* NSLocale+LjsAdditions.m */; };
+		F58D2303151A42D90043DB52 /* NSLocale+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F3151A42D80043DB52 /* NSLocale+LjsAdditions.m */; };
+		F58D2304151A42D90043DB52 /* NSMutableArray+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F5151A42D90043DB52 /* NSMutableArray+LjsAdditions.m */; };
+		F58D2305151A42D90043DB52 /* NSMutableArray+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F5151A42D90043DB52 /* NSMutableArray+LjsAdditions.m */; };
+		F58D2306151A42D90043DB52 /* NSSet+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F7151A42D90043DB52 /* NSSet+LjsAdditions.m */; };
+		F58D2307151A42D90043DB52 /* NSSet+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F7151A42D90043DB52 /* NSSet+LjsAdditions.m */; };
+		F58D2308151A42D90043DB52 /* UIButton+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F9151A42D90043DB52 /* UIButton+LjsAdditions.m */; };
+		F58D2309151A42D90043DB52 /* UIButton+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F9151A42D90043DB52 /* UIButton+LjsAdditions.m */; };
+		F58D230A151A42D90043DB52 /* UIImage+LjsCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22FB151A42D90043DB52 /* UIImage+LjsCategory.m */; };
+		F58D230B151A42D90043DB52 /* UIImage+LjsCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22FB151A42D90043DB52 /* UIImage+LjsCategory.m */; };
+		F58D230C151A42D90043DB52 /* UIImageView+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22FD151A42D90043DB52 /* UIImageView+LjsAdditions.m */; };
+		F58D230D151A42D90043DB52 /* UIImageView+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22FD151A42D90043DB52 /* UIImageView+LjsAdditions.m */; };
+		F58D230E151A42D90043DB52 /* UILabel+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22FF151A42D90043DB52 /* UILabel+LjsAdditions.m */; };
+		F58D230F151A42D90043DB52 /* UILabel+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22FF151A42D90043DB52 /* UILabel+LjsAdditions.m */; };
+		F58D233E151A4BAC0043DB52 /* LjsFaker.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D2333151A4BAC0043DB52 /* LjsFaker.m */; };
+		F58D233F151A4BAC0043DB52 /* LjsFaker.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D2333151A4BAC0043DB52 /* LjsFaker.m */; };
+		F58D2340151A4BAC0043DB52 /* com.littlejoysoftware.faker.addresses.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D2335151A4BAC0043DB52 /* com.littlejoysoftware.faker.addresses.us.plist */; };
+		F58D2341151A4BAC0043DB52 /* com.littlejoysoftware.faker.addresses.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D2335151A4BAC0043DB52 /* com.littlejoysoftware.faker.addresses.us.plist */; };
+		F58D2342151A4BAC0043DB52 /* com.littlejoysoftware.faker.cities.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D2336151A4BAC0043DB52 /* com.littlejoysoftware.faker.cities.us.plist */; };
+		F58D2343151A4BAC0043DB52 /* com.littlejoysoftware.faker.cities.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D2336151A4BAC0043DB52 /* com.littlejoysoftware.faker.cities.us.plist */; };
+		F58D2344151A4BAC0043DB52 /* com.littlejoysoftware.faker.companies.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D2337151A4BAC0043DB52 /* com.littlejoysoftware.faker.companies.us.plist */; };
+		F58D2345151A4BAC0043DB52 /* com.littlejoysoftware.faker.companies.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D2337151A4BAC0043DB52 /* com.littlejoysoftware.faker.companies.us.plist */; };
+		F58D2346151A4BAC0043DB52 /* com.littlejoysoftware.faker.given-names.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D2338151A4BAC0043DB52 /* com.littlejoysoftware.faker.given-names.us.plist */; };
+		F58D2347151A4BAC0043DB52 /* com.littlejoysoftware.faker.given-names.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D2338151A4BAC0043DB52 /* com.littlejoysoftware.faker.given-names.us.plist */; };
+		F58D2348151A4BAC0043DB52 /* com.littlejoysoftware.faker.occupations.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D2339151A4BAC0043DB52 /* com.littlejoysoftware.faker.occupations.us.plist */; };
+		F58D2349151A4BAC0043DB52 /* com.littlejoysoftware.faker.occupations.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D2339151A4BAC0043DB52 /* com.littlejoysoftware.faker.occupations.us.plist */; };
+		F58D234A151A4BAC0043DB52 /* com.littlejoysoftware.faker.phone-numbers.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D233A151A4BAC0043DB52 /* com.littlejoysoftware.faker.phone-numbers.us.plist */; };
+		F58D234B151A4BAC0043DB52 /* com.littlejoysoftware.faker.phone-numbers.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D233A151A4BAC0043DB52 /* com.littlejoysoftware.faker.phone-numbers.us.plist */; };
+		F58D234C151A4BAC0043DB52 /* com.littlejoysoftware.faker.postal-codes.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D233B151A4BAC0043DB52 /* com.littlejoysoftware.faker.postal-codes.us.plist */; };
+		F58D234D151A4BAC0043DB52 /* com.littlejoysoftware.faker.postal-codes.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D233B151A4BAC0043DB52 /* com.littlejoysoftware.faker.postal-codes.us.plist */; };
+		F58D234E151A4BAC0043DB52 /* com.littlejoysoftware.faker.street-addresses.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D233C151A4BAC0043DB52 /* com.littlejoysoftware.faker.street-addresses.us.plist */; };
+		F58D234F151A4BAC0043DB52 /* com.littlejoysoftware.faker.street-addresses.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D233C151A4BAC0043DB52 /* com.littlejoysoftware.faker.street-addresses.us.plist */; };
+		F58D2350151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D233D151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist */; };
+		F58D2351151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D233D151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist */; };
 		F590BE9F14542E4900E5B89B /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */; };
 		F590BEA014542E4900E5B89B /* LjsLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9E14542E4900E5B89B /* LjsLogFileManager.m */; };
 		F59635D11496632000CDB27E /* LjsObjectWithUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635D01496632000CDB27E /* LjsObjectWithUUID.m */; };
@@ -427,8 +463,6 @@
 		F573B8FD14F14E8D00E6F5CF /* LjsKeyboardInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsKeyboardInfo.h; sourceTree = "<group>"; };
 		F573B8FE14F14E8D00E6F5CF /* LjsKeyboardInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsKeyboardInfo.m; sourceTree = "<group>"; };
 		F573B8FF14F14E8D00E6F5CF /* LjsTableViewOwnerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsTableViewOwnerProtocol.h; sourceTree = "<group>"; };
-		F573B90114F14F0000E6F5CF /* LjsFaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFaker.h; sourceTree = "<group>"; };
-		F573B90214F14F0000E6F5CF /* LjsFaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFaker.m; sourceTree = "<group>"; };
 		F573CBF91510C7A600277794 /* LjsCaesarCipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsCaesarCipher.h; sourceTree = "<group>"; };
 		F573CBFA1510C7A600277794 /* LjsCaesarCipher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsCaesarCipher.m; sourceTree = "<group>"; };
 		F58013A9149E06F100692073 /* LjsLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLocationManager.h; sourceTree = "<group>"; };
@@ -436,6 +470,34 @@
 		F58013AC149E080E00692073 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F580719D146C33AC00EA4CFB /* LjsTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsTestCase.h; path = ../../Tests/LjsTestCase.h; sourceTree = "<group>"; };
 		F580719E146C33AC00EA4CFB /* LjsTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsTestCase.m; path = ../../Tests/LjsTestCase.m; sourceTree = "<group>"; };
+		F58D22ED151A42940043DB52 /* LjsFakerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFakerTests.m; sourceTree = "<group>"; };
+		F58D22F0151A42D80043DB52 /* NSDateFormatter+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+LjsAdditions.h"; sourceTree = "<group>"; };
+		F58D22F1151A42D80043DB52 /* NSDateFormatter+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+LjsAdditions.m"; sourceTree = "<group>"; };
+		F58D22F2151A42D80043DB52 /* NSLocale+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLocale+LjsAdditions.h"; sourceTree = "<group>"; };
+		F58D22F3151A42D80043DB52 /* NSLocale+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLocale+LjsAdditions.m"; sourceTree = "<group>"; };
+		F58D22F4151A42D90043DB52 /* NSMutableArray+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+LjsAdditions.h"; sourceTree = "<group>"; };
+		F58D22F5151A42D90043DB52 /* NSMutableArray+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+LjsAdditions.m"; sourceTree = "<group>"; };
+		F58D22F6151A42D90043DB52 /* NSSet+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+LjsAdditions.h"; sourceTree = "<group>"; };
+		F58D22F7151A42D90043DB52 /* NSSet+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+LjsAdditions.m"; sourceTree = "<group>"; };
+		F58D22F8151A42D90043DB52 /* UIButton+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LjsAdditions.h"; sourceTree = "<group>"; };
+		F58D22F9151A42D90043DB52 /* UIButton+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LjsAdditions.m"; sourceTree = "<group>"; };
+		F58D22FA151A42D90043DB52 /* UIImage+LjsCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LjsCategory.h"; sourceTree = "<group>"; };
+		F58D22FB151A42D90043DB52 /* UIImage+LjsCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LjsCategory.m"; sourceTree = "<group>"; };
+		F58D22FC151A42D90043DB52 /* UIImageView+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+LjsAdditions.h"; sourceTree = "<group>"; };
+		F58D22FD151A42D90043DB52 /* UIImageView+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+LjsAdditions.m"; sourceTree = "<group>"; };
+		F58D22FE151A42D90043DB52 /* UILabel+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+LjsAdditions.h"; sourceTree = "<group>"; };
+		F58D22FF151A42D90043DB52 /* UILabel+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LjsAdditions.m"; sourceTree = "<group>"; };
+		F58D2332151A4BAC0043DB52 /* LjsFaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFaker.h; sourceTree = "<group>"; };
+		F58D2333151A4BAC0043DB52 /* LjsFaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFaker.m; sourceTree = "<group>"; };
+		F58D2335151A4BAC0043DB52 /* com.littlejoysoftware.faker.addresses.us.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.littlejoysoftware.faker.addresses.us.plist; sourceTree = "<group>"; };
+		F58D2336151A4BAC0043DB52 /* com.littlejoysoftware.faker.cities.us.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.littlejoysoftware.faker.cities.us.plist; sourceTree = "<group>"; };
+		F58D2337151A4BAC0043DB52 /* com.littlejoysoftware.faker.companies.us.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.littlejoysoftware.faker.companies.us.plist; sourceTree = "<group>"; };
+		F58D2338151A4BAC0043DB52 /* com.littlejoysoftware.faker.given-names.us.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.littlejoysoftware.faker.given-names.us.plist"; sourceTree = "<group>"; };
+		F58D2339151A4BAC0043DB52 /* com.littlejoysoftware.faker.occupations.us.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.littlejoysoftware.faker.occupations.us.plist; sourceTree = "<group>"; };
+		F58D233A151A4BAC0043DB52 /* com.littlejoysoftware.faker.phone-numbers.us.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.littlejoysoftware.faker.phone-numbers.us.plist"; sourceTree = "<group>"; };
+		F58D233B151A4BAC0043DB52 /* com.littlejoysoftware.faker.postal-codes.us.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.littlejoysoftware.faker.postal-codes.us.plist"; sourceTree = "<group>"; };
+		F58D233C151A4BAC0043DB52 /* com.littlejoysoftware.faker.street-addresses.us.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.littlejoysoftware.faker.street-addresses.us.plist"; sourceTree = "<group>"; };
+		F58D233D151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.littlejoysoftware.faker.surnames-names.us.plist"; sourceTree = "<group>"; };
 		F590BE9B14542E4900E5B89B /* DDFileLogger+CurrentFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDFileLogger+CurrentFile.h"; sourceTree = "<group>"; };
 		F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
 		F590BE9D14542E4900E5B89B /* LjsLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLogFileManager.h; sourceTree = "<group>"; };
@@ -623,6 +685,7 @@
 				F5FF5AA014E85D820091D283 /* LjsTextAndFontTests.m */,
 				F573B8FA14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m */,
 				F55CDEE9150F881600D9B906 /* LjsCaesarCipherTests.m */,
+				F58D22ED151A42940043DB52 /* LjsFakerTests.m */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -630,10 +693,9 @@
 		F50FE6E81410CC420051FC7E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F58D2331151A4BAC0043DB52 /* Faker */,
 				F54E399F1450E4570059BF53 /* ASIHTTP */,
 				F54E39731450E22C0059BF53 /* JSON-RPC */,
-				F573B90114F14F0000E6F5CF /* LjsFaker.h */,
-				F573B90214F14F0000E6F5CF /* LjsFaker.m */,
 				F54FA3CB14B676B40080CC9A /* LjsCurrentWeather.h */,
 				F54FA3CC14B676B40080CC9A /* LjsCurrentWeather.m */,
 				F54FA3CD14B676B40080CC9A /* LjsLocaleUtils.h */,
@@ -1063,6 +1125,14 @@
 		F5878DBA14F26C0600F22FDD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F58D22F0151A42D80043DB52 /* NSDateFormatter+LjsAdditions.h */,
+				F58D22F1151A42D80043DB52 /* NSDateFormatter+LjsAdditions.m */,
+				F58D22F2151A42D80043DB52 /* NSLocale+LjsAdditions.h */,
+				F58D22F3151A42D80043DB52 /* NSLocale+LjsAdditions.m */,
+				F58D22F4151A42D90043DB52 /* NSMutableArray+LjsAdditions.h */,
+				F58D22F5151A42D90043DB52 /* NSMutableArray+LjsAdditions.m */,
+				F58D22F6151A42D90043DB52 /* NSSet+LjsAdditions.h */,
+				F58D22F7151A42D90043DB52 /* NSSet+LjsAdditions.m */,
 				F573B8F514F1341B00E6F5CF /* NSCalendar+LjsAdditions.h */,
 				F573B8F614F1341B00E6F5CF /* NSCalendar+LjsAdditions.m */,
 				F5F6209414E3E3B600D6C4A1 /* NSArray+LjsAdditions.h */,
@@ -1078,12 +1148,46 @@
 		F5878DBC14F26C2D00F22FDD /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				F58D22F8151A42D90043DB52 /* UIButton+LjsAdditions.h */,
+				F58D22F9151A42D90043DB52 /* UIButton+LjsAdditions.m */,
+				F58D22FA151A42D90043DB52 /* UIImage+LjsCategory.h */,
+				F58D22FB151A42D90043DB52 /* UIImage+LjsCategory.m */,
+				F58D22FC151A42D90043DB52 /* UIImageView+LjsAdditions.h */,
+				F58D22FD151A42D90043DB52 /* UIImageView+LjsAdditions.m */,
+				F58D22FE151A42D90043DB52 /* UILabel+LjsAdditions.h */,
+				F58D22FF151A42D90043DB52 /* UILabel+LjsAdditions.m */,
 				F5CA979714D6B3BE00745622 /* UIView+LjsAdditions.h */,
 				F5CA979814D6B3BE00745622 /* UIView+LjsAdditions.m */,
 				F5F7BBBF14D3EDDE00669FE6 /* UIColor+LjsAdditions.h */,
 				F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */,
 			);
 			name = UIKit;
+			sourceTree = "<group>";
+		};
+		F58D2331151A4BAC0043DB52 /* Faker */ = {
+			isa = PBXGroup;
+			children = (
+				F58D2332151A4BAC0043DB52 /* LjsFaker.h */,
+				F58D2333151A4BAC0043DB52 /* LjsFaker.m */,
+				F58D2334151A4BAC0043DB52 /* plists */,
+			);
+			path = Faker;
+			sourceTree = "<group>";
+		};
+		F58D2334151A4BAC0043DB52 /* plists */ = {
+			isa = PBXGroup;
+			children = (
+				F58D2335151A4BAC0043DB52 /* com.littlejoysoftware.faker.addresses.us.plist */,
+				F58D2336151A4BAC0043DB52 /* com.littlejoysoftware.faker.cities.us.plist */,
+				F58D2337151A4BAC0043DB52 /* com.littlejoysoftware.faker.companies.us.plist */,
+				F58D2338151A4BAC0043DB52 /* com.littlejoysoftware.faker.given-names.us.plist */,
+				F58D2339151A4BAC0043DB52 /* com.littlejoysoftware.faker.occupations.us.plist */,
+				F58D233A151A4BAC0043DB52 /* com.littlejoysoftware.faker.phone-numbers.us.plist */,
+				F58D233B151A4BAC0043DB52 /* com.littlejoysoftware.faker.postal-codes.us.plist */,
+				F58D233C151A4BAC0043DB52 /* com.littlejoysoftware.faker.street-addresses.us.plist */,
+				F58D233D151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist */,
+			);
+			path = plists;
 			sourceTree = "<group>";
 		};
 		F59635CE1496632000CDB27E /* Model */ = {
@@ -1275,6 +1379,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F50FE6AA1410C6F60051FC7E /* InfoPlist.strings in Resources */,
+				F58D2340151A4BAC0043DB52 /* com.littlejoysoftware.faker.addresses.us.plist in Resources */,
+				F58D2342151A4BAC0043DB52 /* com.littlejoysoftware.faker.cities.us.plist in Resources */,
+				F58D2344151A4BAC0043DB52 /* com.littlejoysoftware.faker.companies.us.plist in Resources */,
+				F58D2346151A4BAC0043DB52 /* com.littlejoysoftware.faker.given-names.us.plist in Resources */,
+				F58D2348151A4BAC0043DB52 /* com.littlejoysoftware.faker.occupations.us.plist in Resources */,
+				F58D234A151A4BAC0043DB52 /* com.littlejoysoftware.faker.phone-numbers.us.plist in Resources */,
+				F58D234C151A4BAC0043DB52 /* com.littlejoysoftware.faker.postal-codes.us.plist in Resources */,
+				F58D234E151A4BAC0043DB52 /* com.littlejoysoftware.faker.street-addresses.us.plist in Resources */,
+				F58D2350151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1307,6 +1420,15 @@
 				F538F2731515007D005D15D3 /* guyfawkes.png in Resources */,
 				F538F2741515007D005D15D3 /* seed-balls.png in Resources */,
 				F538F2751515007D005D15D3 /* stream-in-flood.png in Resources */,
+				F58D2341151A4BAC0043DB52 /* com.littlejoysoftware.faker.addresses.us.plist in Resources */,
+				F58D2343151A4BAC0043DB52 /* com.littlejoysoftware.faker.cities.us.plist in Resources */,
+				F58D2345151A4BAC0043DB52 /* com.littlejoysoftware.faker.companies.us.plist in Resources */,
+				F58D2347151A4BAC0043DB52 /* com.littlejoysoftware.faker.given-names.us.plist in Resources */,
+				F58D2349151A4BAC0043DB52 /* com.littlejoysoftware.faker.occupations.us.plist in Resources */,
+				F58D234B151A4BAC0043DB52 /* com.littlejoysoftware.faker.phone-numbers.us.plist in Resources */,
+				F58D234D151A4BAC0043DB52 /* com.littlejoysoftware.faker.postal-codes.us.plist in Resources */,
+				F58D234F151A4BAC0043DB52 /* com.littlejoysoftware.faker.street-addresses.us.plist in Resources */,
+				F58D2351151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1466,10 +1588,19 @@
 				F573B8F714F1341B00E6F5CF /* NSCalendar+LjsAdditions.m in Sources */,
 				F573B8FB14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m in Sources */,
 				F573B90014F14E8D00E6F5CF /* LjsKeyboardInfo.m in Sources */,
-				F573B90314F14F0000E6F5CF /* LjsFaker.m in Sources */,
 				F55CDEEA150F881600D9B906 /* LjsCaesarCipherTests.m in Sources */,
 				F573CBFB1510C7A600277794 /* LjsCaesarCipher.m in Sources */,
 				F538F2421514AC81005D15D3 /* LjsPanAndZoomImageView.m in Sources */,
+				F58D22EE151A42940043DB52 /* LjsFakerTests.m in Sources */,
+				F58D2300151A42D90043DB52 /* NSDateFormatter+LjsAdditions.m in Sources */,
+				F58D2302151A42D90043DB52 /* NSLocale+LjsAdditions.m in Sources */,
+				F58D2304151A42D90043DB52 /* NSMutableArray+LjsAdditions.m in Sources */,
+				F58D2306151A42D90043DB52 /* NSSet+LjsAdditions.m in Sources */,
+				F58D2308151A42D90043DB52 /* UIButton+LjsAdditions.m in Sources */,
+				F58D230A151A42D90043DB52 /* UIImage+LjsCategory.m in Sources */,
+				F58D230C151A42D90043DB52 /* UIImageView+LjsAdditions.m in Sources */,
+				F58D230E151A42D90043DB52 /* UILabel+LjsAdditions.m in Sources */,
+				F58D233E151A4BAC0043DB52 /* LjsFaker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1514,6 +1645,15 @@
 				F573B8F814F1341B00E6F5CF /* NSCalendar+LjsAdditions.m in Sources */,
 				F538F2431514AC81005D15D3 /* LjsPanAndZoomImageView.m in Sources */,
 				F538F2471514B270005D15D3 /* LjsPanZoomController.m in Sources */,
+				F58D2301151A42D90043DB52 /* NSDateFormatter+LjsAdditions.m in Sources */,
+				F58D2303151A42D90043DB52 /* NSLocale+LjsAdditions.m in Sources */,
+				F58D2305151A42D90043DB52 /* NSMutableArray+LjsAdditions.m in Sources */,
+				F58D2307151A42D90043DB52 /* NSSet+LjsAdditions.m in Sources */,
+				F58D2309151A42D90043DB52 /* UIButton+LjsAdditions.m in Sources */,
+				F58D230B151A42D90043DB52 /* UIImage+LjsCategory.m in Sources */,
+				F58D230D151A42D90043DB52 /* UIImageView+LjsAdditions.m in Sources */,
+				F58D230F151A42D90043DB52 /* UILabel+LjsAdditions.m in Sources */,
+				F58D233F151A4BAC0043DB52 /* LjsFaker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
