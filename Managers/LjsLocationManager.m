@@ -112,13 +112,14 @@ static LjsLocationManager *singleton = nil;
     self.coreLocationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
 
     [self.coreLocationManager startUpdatingLocation];
-    
+#if TARGET_OS_IPHONE    
     if ([CLLocationManager headingAvailable]) {
       DDLogDebug(@"heading service available, starting orientation tracking.");
       [self.coreLocationManager startUpdatingHeading];
     } else {
       DDLogDebug(@"heading service unavailable");
     }
+#endif
 
     self.handler = [LjsDecimalAide locationHandlerWithRoundMode:NSRoundPlain
                                                           scale:5];

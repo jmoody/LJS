@@ -1,12 +1,11 @@
-//
-//  LjsGoogleMacOSAppDelegate.m
-//  Test-Google-MacOS
-//
-//  Created by Joshua Moody on 3/22/12.
-//  Copyright (c) 2012 Little Joy Software. All rights reserved.
-//
-
 #import "LjsGoogleMacOSAppDelegate.h"
+#import "Lumberjack.h"
+
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
 
 @implementation LjsGoogleMacOSAppDelegate
 
@@ -15,22 +14,31 @@
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize managedObjectContext = __managedObjectContext;
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-  // Insert code here to initialize your application
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+  // kick off the logger
+  LjsDefaultFormatter *formatter = [[LjsDefaultFormatter alloc] init];
+  [[DDTTYLogger sharedInstance] setLogFormatter:formatter];
+  [DDLog addLogger:[DDTTYLogger sharedInstance]];
+  
+  
+  DDFileLogger *fileLogger = [[DDFileLogger alloc] init];
+  fileLogger.maximumFileSize = 1024 * 1024;
+  fileLogger.rollingFrequency = 60 * 60 * 24;
+  fileLogger.logFileManager.maximumNumberOfLogFiles = 10;
+  [DDLog addLogger:fileLogger];
+  DDLogDebug(@"logging initialized");
+
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.littlejoysoftware.Test_Google_MacOS" in the user's Application Support directory.
-- (NSURL *)applicationFilesDirectory
-{
+- (NSURL *)applicationFilesDirectory {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *appSupportURL = [[fileManager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject];
     return [appSupportURL URLByAppendingPathComponent:@"com.littlejoysoftware.Test_Google_MacOS"];
 }
 
 // Creates if necessary and returns the managed object model for the application.
-- (NSManagedObjectModel *)managedObjectModel
-{
+- (NSManagedObjectModel *)managedObjectModel {
     if (__managedObjectModel) {
         return __managedObjectModel;
     }
@@ -41,8 +49,7 @@
 }
 
 // Returns the persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. (The directory for the store is created, if necessary.)
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
-{
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
     if (__persistentStoreCoordinator) {
         return __persistentStoreCoordinator;
     }
@@ -94,8 +101,7 @@
 }
 
 // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) 
-- (NSManagedObjectContext *)managedObjectContext
-{
+- (NSManagedObjectContext *)managedObjectContext {
     if (__managedObjectContext) {
         return __managedObjectContext;
     }
@@ -122,8 +128,7 @@
 }
 
 // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
-- (IBAction)saveAction:(id)sender
-{
+- (IBAction)saveAction:(id)sender {
     NSError *error = nil;
     
     if (![[self managedObjectContext] commitEditing]) {
@@ -135,8 +140,7 @@
     }
 }
 
-- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender
-{
+- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
     // Save changes in the application's managed object context before the application terminates.
     
     if (!__managedObjectContext) {
