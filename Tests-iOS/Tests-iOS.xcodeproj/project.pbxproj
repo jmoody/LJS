@@ -150,8 +150,6 @@
 		F56147BB1450C86700D2653A /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F56147BA1450C86700D2653A /* OCMockWorkingTest.m */; };
 		F5724970149F9AD6006C62A2 /* LjsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F572496F149F9AD6006C62A2 /* LjsButton.m */; };
 		F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5724971149F9C00006C62A2 /* QuartzCore.framework */; };
-		F573B8F714F1341B00E6F5CF /* NSCalendar+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F573B8F614F1341B00E6F5CF /* NSCalendar+LjsAdditions.m */; };
-		F573B8F814F1341B00E6F5CF /* NSCalendar+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F573B8F614F1341B00E6F5CF /* NSCalendar+LjsAdditions.m */; };
 		F573B8FB14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F573B8FA14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m */; };
 		F573B90014F14E8D00E6F5CF /* LjsKeyboardInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F573B8FE14F14E8D00E6F5CF /* LjsKeyboardInfo.m */; };
 		F573CBFB1510C7A600277794 /* LjsCaesarCipher.m in Sources */ = {isa = PBXBuildFile; fileRef = F573CBFA1510C7A600277794 /* LjsCaesarCipher.m */; };
@@ -159,22 +157,6 @@
 		F58013AD149E080E00692073 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58013AC149E080E00692073 /* CoreLocation.framework */; };
 		F580719F146C33AC00EA4CFB /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F580719E146C33AC00EA4CFB /* LjsTestCase.m */; };
 		F58D22EE151A42940043DB52 /* LjsFakerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22ED151A42940043DB52 /* LjsFakerTests.m */; };
-		F58D2300151A42D90043DB52 /* NSDateFormatter+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F1151A42D80043DB52 /* NSDateFormatter+LjsAdditions.m */; };
-		F58D2301151A42D90043DB52 /* NSDateFormatter+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F1151A42D80043DB52 /* NSDateFormatter+LjsAdditions.m */; };
-		F58D2302151A42D90043DB52 /* NSLocale+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F3151A42D80043DB52 /* NSLocale+LjsAdditions.m */; };
-		F58D2303151A42D90043DB52 /* NSLocale+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F3151A42D80043DB52 /* NSLocale+LjsAdditions.m */; };
-		F58D2304151A42D90043DB52 /* NSMutableArray+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F5151A42D90043DB52 /* NSMutableArray+LjsAdditions.m */; };
-		F58D2305151A42D90043DB52 /* NSMutableArray+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F5151A42D90043DB52 /* NSMutableArray+LjsAdditions.m */; };
-		F58D2306151A42D90043DB52 /* NSSet+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F7151A42D90043DB52 /* NSSet+LjsAdditions.m */; };
-		F58D2307151A42D90043DB52 /* NSSet+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F7151A42D90043DB52 /* NSSet+LjsAdditions.m */; };
-		F58D2308151A42D90043DB52 /* UIButton+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F9151A42D90043DB52 /* UIButton+LjsAdditions.m */; };
-		F58D2309151A42D90043DB52 /* UIButton+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22F9151A42D90043DB52 /* UIButton+LjsAdditions.m */; };
-		F58D230A151A42D90043DB52 /* UIImage+LjsCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22FB151A42D90043DB52 /* UIImage+LjsCategory.m */; };
-		F58D230B151A42D90043DB52 /* UIImage+LjsCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22FB151A42D90043DB52 /* UIImage+LjsCategory.m */; };
-		F58D230C151A42D90043DB52 /* UIImageView+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22FD151A42D90043DB52 /* UIImageView+LjsAdditions.m */; };
-		F58D230D151A42D90043DB52 /* UIImageView+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22FD151A42D90043DB52 /* UIImageView+LjsAdditions.m */; };
-		F58D230E151A42D90043DB52 /* UILabel+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22FF151A42D90043DB52 /* UILabel+LjsAdditions.m */; };
-		F58D230F151A42D90043DB52 /* UILabel+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D22FF151A42D90043DB52 /* UILabel+LjsAdditions.m */; };
 		F58D233E151A4BAC0043DB52 /* LjsFaker.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D2333151A4BAC0043DB52 /* LjsFaker.m */; };
 		F58D233F151A4BAC0043DB52 /* LjsFaker.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D2333151A4BAC0043DB52 /* LjsFaker.m */; };
 		F58D2340151A4BAC0043DB52 /* com.littlejoysoftware.faker.addresses.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D2335151A4BAC0043DB52 /* com.littlejoysoftware.faker.addresses.us.plist */; };
@@ -198,37 +180,81 @@
 		F5903F02151A6BB700995AF1 /* LjsScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8D91518F2FF006FF6FC /* LjsScrollView.m */; };
 		F5903F03151A6BDD00995AF1 /* LjsScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8D91518F2FF006FF6FC /* LjsScrollView.m */; };
 		F5903F04151A6C0700995AF1 /* LjsScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8DD1518F58F006FF6FC /* LjsScrollViewController.m */; };
+		F5903F68151B515000995AF1 /* NSArray+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F4B151B515000995AF1 /* NSArray+LjsAdditions.m */; };
+		F5903F69151B515000995AF1 /* NSArray+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F4B151B515000995AF1 /* NSArray+LjsAdditions.m */; };
+		F5903F6A151B515000995AF1 /* NSCalendar+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F4D151B515000995AF1 /* NSCalendar+LjsAdditions.m */; };
+		F5903F6B151B515000995AF1 /* NSCalendar+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F4D151B515000995AF1 /* NSCalendar+LjsAdditions.m */; };
+		F5903F6C151B515000995AF1 /* NSDate+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F4F151B515000995AF1 /* NSDate+LjsAdditions.m */; };
+		F5903F6D151B515000995AF1 /* NSDate+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F4F151B515000995AF1 /* NSDate+LjsAdditions.m */; };
+		F5903F6E151B515000995AF1 /* NSDateFormatter+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F51151B515000995AF1 /* NSDateFormatter+LjsAdditions.m */; };
+		F5903F6F151B515000995AF1 /* NSDateFormatter+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F51151B515000995AF1 /* NSDateFormatter+LjsAdditions.m */; };
+		F5903F70151B515000995AF1 /* NSError+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F53151B515000995AF1 /* NSError+LjsAdditions.m */; };
+		F5903F71151B515000995AF1 /* NSError+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F53151B515000995AF1 /* NSError+LjsAdditions.m */; };
+		F5903F72151B515000995AF1 /* NSLocale+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F55151B515000995AF1 /* NSLocale+LjsAdditions.m */; };
+		F5903F73151B515000995AF1 /* NSLocale+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F55151B515000995AF1 /* NSLocale+LjsAdditions.m */; };
+		F5903F74151B515000995AF1 /* NSMutableArray+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F57151B515000995AF1 /* NSMutableArray+LjsAdditions.m */; };
+		F5903F75151B515000995AF1 /* NSMutableArray+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F57151B515000995AF1 /* NSMutableArray+LjsAdditions.m */; };
+		F5903F76151B515000995AF1 /* NSSet+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F59151B515000995AF1 /* NSSet+LjsAdditions.m */; };
+		F5903F77151B515000995AF1 /* NSSet+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F59151B515000995AF1 /* NSSet+LjsAdditions.m */; };
+		F5903F78151B515000995AF1 /* UIButton+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F5D151B515000995AF1 /* UIButton+LjsAdditions.m */; };
+		F5903F79151B515000995AF1 /* UIButton+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F5D151B515000995AF1 /* UIButton+LjsAdditions.m */; };
+		F5903F7A151B515000995AF1 /* UIColor+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F5F151B515000995AF1 /* UIColor+LjsAdditions.m */; };
+		F5903F7B151B515000995AF1 /* UIColor+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F5F151B515000995AF1 /* UIColor+LjsAdditions.m */; };
+		F5903F7C151B515000995AF1 /* UIImage+LjsCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F61151B515000995AF1 /* UIImage+LjsCategory.m */; };
+		F5903F7D151B515000995AF1 /* UIImage+LjsCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F61151B515000995AF1 /* UIImage+LjsCategory.m */; };
+		F5903F7E151B515000995AF1 /* UIImageView+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F63151B515000995AF1 /* UIImageView+LjsAdditions.m */; };
+		F5903F7F151B515000995AF1 /* UIImageView+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F63151B515000995AF1 /* UIImageView+LjsAdditions.m */; };
+		F5903F80151B515000995AF1 /* UILabel+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F65151B515000995AF1 /* UILabel+LjsAdditions.m */; };
+		F5903F81151B515000995AF1 /* UILabel+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F65151B515000995AF1 /* UILabel+LjsAdditions.m */; };
+		F5903F82151B515000995AF1 /* UIView+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F67151B515000995AF1 /* UIView+LjsAdditions.m */; };
+		F5903F83151B515000995AF1 /* UIView+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F67151B515000995AF1 /* UIView+LjsAdditions.m */; };
+		F5903F86151B517D00995AF1 /* ASIHTTPRequest+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F85151B517D00995AF1 /* ASIHTTPRequest+LjsAdditions.m */; };
+		F5903F8C151B646800995AF1 /* LjsGooglePlacesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F8B151B646800995AF1 /* LjsGooglePlacesManager.m */; };
+		F5903F8D151B646800995AF1 /* LjsGooglePlacesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903F8B151B646800995AF1 /* LjsGooglePlacesManager.m */; };
+		F5903F8F151B64A900995AF1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5903F8E151B64A900995AF1 /* CoreData.framework */; };
+		F5903F90151B64B300995AF1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5903F8E151B64A900995AF1 /* CoreData.framework */; };
+		F5903FB3151B68DA00995AF1 /* LjsGooglePlacesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5903FB1151B68DA00995AF1 /* LjsGooglePlacesModel.xcdatamodeld */; };
+		F5903FB4151B68DA00995AF1 /* LjsGooglePlacesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5903FB1151B68DA00995AF1 /* LjsGooglePlacesModel.xcdatamodeld */; };
+		F5903FBB151B6DFC00995AF1 /* LjsGoogleGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903FBA151B6DFC00995AF1 /* LjsGoogleGlobals.m */; };
+		F5903FBC151B6DFC00995AF1 /* LjsGoogleGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903FBA151B6DFC00995AF1 /* LjsGoogleGlobals.m */; };
+		F5903FBE151B6F4A00995AF1 /* LjsGooglePlacesManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903FBD151B6F4A00995AF1 /* LjsGooglePlacesManagerTests.m */; };
 		F590BE9F14542E4900E5B89B /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */; };
 		F590BEA014542E4900E5B89B /* LjsLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9E14542E4900E5B89B /* LjsLogFileManager.m */; };
 		F59635D11496632000CDB27E /* LjsObjectWithUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635D01496632000CDB27E /* LjsObjectWithUUID.m */; };
 		F59635EC149665CC00CDB27E /* LjsModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635E7149665CC00CDB27E /* LjsModalViewController.m */; };
 		F59635ED149665CC00CDB27E /* LjsTimePickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635E9149665CC00CDB27E /* LjsTimePickerDelegate.m */; };
 		F59635EE149665CC00CDB27E /* UIViewController+ParentOrPresenting.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635EB149665CC00CDB27E /* UIViewController+ParentOrPresenting.m */; };
-		F59B5C0414D49628005D41E0 /* NSError+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F59B5C0314D49628005D41E0 /* NSError+LjsAdditions.m */; };
-		F59B5C0514D49628005D41E0 /* NSError+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F59B5C0314D49628005D41E0 /* NSError+LjsAdditions.m */; };
 		F5B03A6714AA64E70015D59B /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B03A6614AA64E70015D59B /* GHUnitIOS.framework */; };
+		F5BB1EB3151B79B600BFDDA0 /* LjsGooglePlacesPredictiveReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EB2151B79B600BFDDA0 /* LjsGooglePlacesPredictiveReply.m */; };
+		F5BB1EB4151B79B600BFDDA0 /* LjsGooglePlacesPredictiveReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EB2151B79B600BFDDA0 /* LjsGooglePlacesPredictiveReply.m */; };
+		F5BB1EB7151B7F4E00BFDDA0 /* LjsGooglePlacesPredictiveReplyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EB6151B7F4E00BFDDA0 /* LjsGooglePlacesPredictiveReplyTests.m */; };
+		F5BB1EB8151B7F4E00BFDDA0 /* LjsGooglePlacesPredictiveReplyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EB6151B7F4E00BFDDA0 /* LjsGooglePlacesPredictiveReplyTests.m */; };
+		F5BB1EBC151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
+		F5BB1EBD151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
+		F5BB1EC0151B83AC00BFDDA0 /* LjsGooglePlacesPrediction.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EBF151B83AC00BFDDA0 /* LjsGooglePlacesPrediction.m */; };
+		F5BB1EC1151B83AC00BFDDA0 /* LjsGooglePlacesPrediction.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EBF151B83AC00BFDDA0 /* LjsGooglePlacesPrediction.m */; };
+		F5BB1EC3151B8BFC00BFDDA0 /* LjsGooglePlacesPredictionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EC2151B8BFC00BFDDA0 /* LjsGooglePlacesPredictionTests.m */; };
+		F5BB1EC4151B8BFC00BFDDA0 /* LjsGooglePlacesPredictionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EC2151B8BFC00BFDDA0 /* LjsGooglePlacesPredictionTests.m */; };
+		F5BB1EC7151B9A9400BFDDA0 /* LjsGooglePlacesRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EC6151B9A9300BFDDA0 /* LjsGooglePlacesRequestManager.m */; };
+		F5BB1EC8151B9A9400BFDDA0 /* LjsGooglePlacesRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EC6151B9A9300BFDDA0 /* LjsGooglePlacesRequestManager.m */; };
+		F5BB1ED3151BA0E500BFDDA0 /* LjsWebCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1ED2151BA0E500BFDDA0 /* LjsWebCategories.m */; };
+		F5BB1ED4151BA0E500BFDDA0 /* LjsWebCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1ED2151BA0E500BFDDA0 /* LjsWebCategories.m */; };
+		F5BB1ED6151BA7B300BFDDA0 /* LjsGooglePlacesRequestManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1ED5151BA7B300BFDDA0 /* LjsGooglePlacesRequestManagerTests.m */; };
+		F5BB1ED7151BA7B300BFDDA0 /* LjsGooglePlacesRequestManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1ED5151BA7B300BFDDA0 /* LjsGooglePlacesRequestManagerTests.m */; };
 		F5C112731496715900948605 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE69F1410C6F60051FC7E /* UIKit.framework */; };
 		F5C112741496715900948605 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE6A11410C6F60051FC7E /* Foundation.framework */; };
 		F5C112751496715900948605 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE6A31410C6F60051FC7E /* CoreGraphics.framework */; };
 		F5C1127B1496715900948605 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5C112791496715900948605 /* InfoPlist.strings */; };
 		F5C1127D1496715900948605 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1127C1496715900948605 /* main.m */; };
 		F5C112811496715900948605 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C112801496715900948605 /* AppDelegate.m */; };
-		F5CA979914D6B3BE00745622 /* UIView+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CA979814D6B3BE00745622 /* UIView+LjsAdditions.m */; };
-		F5CA979A14D6B3BE00745622 /* UIView+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CA979814D6B3BE00745622 /* UIView+LjsAdditions.m */; };
 		F5D3581F14B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
 		F5D3582014B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
-		F5F6209814E3E3B600D6C4A1 /* NSArray+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F6209514E3E3B600D6C4A1 /* NSArray+LjsAdditions.m */; };
-		F5F6209914E3E3B600D6C4A1 /* NSArray+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F6209514E3E3B600D6C4A1 /* NSArray+LjsAdditions.m */; };
-		F5F6209A14E3E3B600D6C4A1 /* NSDate+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F6209714E3E3B600D6C4A1 /* NSDate+LjsAdditions.m */; };
-		F5F6209B14E3E3B600D6C4A1 /* NSDate+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F6209714E3E3B600D6C4A1 /* NSDate+LjsAdditions.m */; };
 		F5F620A214E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */; };
 		F5F7BBB714D3E90800669FE6 /* LjsGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */; };
 		F5F7BBB914D3EA3300669FE6 /* LjsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F572496F149F9AD6006C62A2 /* LjsButton.m */; };
 		F5F7BBBA14D3EA3700669FE6 /* LjsGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */; };
 		F5F7BBBB14D3EAA800669FE6 /* LjsFileUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F01410CC420051FC7E /* LjsFileUtilities.m */; };
 		F5F7BBBD14D3EAE700669FE6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5724971149F9C00006C62A2 /* QuartzCore.framework */; };
-		F5F7BBC114D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */; };
-		F5F7BBC214D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */; };
 		F5FF5AA314E85D880091D283 /* LjsTextAndFontTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF5AA014E85D820091D283 /* LjsTextAndFontTests.m */; };
 		F5FF5AB114E96F630091D283 /* LjsGlassView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF5AB014E96F630091D283 /* LjsGlassView.m */; };
 		F5FF5AB414E971C30091D283 /* LjsGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF5AB314E971C30091D283 /* LjsGradientView.m */; };
@@ -459,8 +485,6 @@
 		F572496E149F9AD6006C62A2 /* LjsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsButton.h; sourceTree = "<group>"; };
 		F572496F149F9AD6006C62A2 /* LjsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsButton.m; sourceTree = "<group>"; };
 		F5724971149F9C00006C62A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		F573B8F514F1341B00E6F5CF /* NSCalendar+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+LjsAdditions.h"; sourceTree = "<group>"; };
-		F573B8F614F1341B00E6F5CF /* NSCalendar+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+LjsAdditions.m"; sourceTree = "<group>"; };
 		F573B8FA14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayLjsAdditionsTests.m; sourceTree = "<group>"; };
 		F573B8FC14F1363D00E6F5CF /* LjsCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsCategories.h; sourceTree = "<group>"; };
 		F573B8FD14F14E8D00E6F5CF /* LjsKeyboardInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsKeyboardInfo.h; sourceTree = "<group>"; };
@@ -474,22 +498,6 @@
 		F580719D146C33AC00EA4CFB /* LjsTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsTestCase.h; path = ../../Tests/LjsTestCase.h; sourceTree = "<group>"; };
 		F580719E146C33AC00EA4CFB /* LjsTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsTestCase.m; path = ../../Tests/LjsTestCase.m; sourceTree = "<group>"; };
 		F58D22ED151A42940043DB52 /* LjsFakerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFakerTests.m; sourceTree = "<group>"; };
-		F58D22F0151A42D80043DB52 /* NSDateFormatter+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+LjsAdditions.h"; sourceTree = "<group>"; };
-		F58D22F1151A42D80043DB52 /* NSDateFormatter+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+LjsAdditions.m"; sourceTree = "<group>"; };
-		F58D22F2151A42D80043DB52 /* NSLocale+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLocale+LjsAdditions.h"; sourceTree = "<group>"; };
-		F58D22F3151A42D80043DB52 /* NSLocale+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLocale+LjsAdditions.m"; sourceTree = "<group>"; };
-		F58D22F4151A42D90043DB52 /* NSMutableArray+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+LjsAdditions.h"; sourceTree = "<group>"; };
-		F58D22F5151A42D90043DB52 /* NSMutableArray+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+LjsAdditions.m"; sourceTree = "<group>"; };
-		F58D22F6151A42D90043DB52 /* NSSet+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+LjsAdditions.h"; sourceTree = "<group>"; };
-		F58D22F7151A42D90043DB52 /* NSSet+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+LjsAdditions.m"; sourceTree = "<group>"; };
-		F58D22F8151A42D90043DB52 /* UIButton+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LjsAdditions.h"; sourceTree = "<group>"; };
-		F58D22F9151A42D90043DB52 /* UIButton+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LjsAdditions.m"; sourceTree = "<group>"; };
-		F58D22FA151A42D90043DB52 /* UIImage+LjsCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LjsCategory.h"; sourceTree = "<group>"; };
-		F58D22FB151A42D90043DB52 /* UIImage+LjsCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LjsCategory.m"; sourceTree = "<group>"; };
-		F58D22FC151A42D90043DB52 /* UIImageView+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+LjsAdditions.h"; sourceTree = "<group>"; };
-		F58D22FD151A42D90043DB52 /* UIImageView+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+LjsAdditions.m"; sourceTree = "<group>"; };
-		F58D22FE151A42D90043DB52 /* UILabel+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+LjsAdditions.h"; sourceTree = "<group>"; };
-		F58D22FF151A42D90043DB52 /* UILabel+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LjsAdditions.m"; sourceTree = "<group>"; };
 		F58D2332151A4BAC0043DB52 /* LjsFaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFaker.h; sourceTree = "<group>"; };
 		F58D2333151A4BAC0043DB52 /* LjsFaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFaker.m; sourceTree = "<group>"; };
 		F58D2335151A4BAC0043DB52 /* com.littlejoysoftware.faker.addresses.us.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.littlejoysoftware.faker.addresses.us.plist; sourceTree = "<group>"; };
@@ -501,6 +509,43 @@
 		F58D233B151A4BAC0043DB52 /* com.littlejoysoftware.faker.postal-codes.us.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.littlejoysoftware.faker.postal-codes.us.plist"; sourceTree = "<group>"; };
 		F58D233C151A4BAC0043DB52 /* com.littlejoysoftware.faker.street-addresses.us.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.littlejoysoftware.faker.street-addresses.us.plist"; sourceTree = "<group>"; };
 		F58D233D151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.littlejoysoftware.faker.surnames-names.us.plist"; sourceTree = "<group>"; };
+		F5903F4A151B515000995AF1 /* NSArray+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5903F4B151B515000995AF1 /* NSArray+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5903F4C151B515000995AF1 /* NSCalendar+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5903F4D151B515000995AF1 /* NSCalendar+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5903F4E151B515000995AF1 /* NSDate+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5903F4F151B515000995AF1 /* NSDate+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5903F50151B515000995AF1 /* NSDateFormatter+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5903F51151B515000995AF1 /* NSDateFormatter+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5903F52151B515000995AF1 /* NSError+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5903F53151B515000995AF1 /* NSError+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5903F54151B515000995AF1 /* NSLocale+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLocale+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5903F55151B515000995AF1 /* NSLocale+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLocale+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5903F56151B515000995AF1 /* NSMutableArray+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5903F57151B515000995AF1 /* NSMutableArray+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5903F58151B515000995AF1 /* NSSet+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5903F59151B515000995AF1 /* NSSet+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5903F5C151B515000995AF1 /* UIButton+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5903F5D151B515000995AF1 /* UIButton+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5903F5E151B515000995AF1 /* UIColor+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5903F5F151B515000995AF1 /* UIColor+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5903F60151B515000995AF1 /* UIImage+LjsCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LjsCategory.h"; sourceTree = "<group>"; };
+		F5903F61151B515000995AF1 /* UIImage+LjsCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LjsCategory.m"; sourceTree = "<group>"; };
+		F5903F62151B515000995AF1 /* UIImageView+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5903F63151B515000995AF1 /* UIImageView+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5903F64151B515000995AF1 /* UILabel+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5903F65151B515000995AF1 /* UILabel+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5903F66151B515000995AF1 /* UIView+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5903F67151B515000995AF1 /* UIView+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5903F84151B517D00995AF1 /* ASIHTTPRequest+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASIHTTPRequest+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5903F85151B517D00995AF1 /* ASIHTTPRequest+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ASIHTTPRequest+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5903F8A151B646800995AF1 /* LjsGooglePlacesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesManager.h; sourceTree = "<group>"; };
+		F5903F8B151B646800995AF1 /* LjsGooglePlacesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesManager.m; sourceTree = "<group>"; };
+		F5903F8E151B64A900995AF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F5903FB2151B68DA00995AF1 /* LjsGooglePlacesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LjsGooglePlacesModel.xcdatamodel; sourceTree = "<group>"; };
+		F5903FB9151B6DFC00995AF1 /* LjsGoogleGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleGlobals.h; sourceTree = "<group>"; };
+		F5903FBA151B6DFC00995AF1 /* LjsGoogleGlobals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleGlobals.m; sourceTree = "<group>"; };
+		F5903FBD151B6F4A00995AF1 /* LjsGooglePlacesManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesManagerTests.m; sourceTree = "<group>"; };
 		F590BE9B14542E4900E5B89B /* DDFileLogger+CurrentFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDFileLogger+CurrentFile.h"; sourceTree = "<group>"; };
 		F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
 		F590BE9D14542E4900E5B89B /* LjsLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLogFileManager.h; sourceTree = "<group>"; };
@@ -513,8 +558,6 @@
 		F59635E9149665CC00CDB27E /* LjsTimePickerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsTimePickerDelegate.m; sourceTree = "<group>"; };
 		F59635EA149665CC00CDB27E /* UIViewController+ParentOrPresenting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ParentOrPresenting.h"; sourceTree = "<group>"; };
 		F59635EB149665CC00CDB27E /* UIViewController+ParentOrPresenting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ParentOrPresenting.m"; sourceTree = "<group>"; };
-		F59B5C0214D49628005D41E0 /* NSError+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+LjsAdditions.h"; sourceTree = "<group>"; };
-		F59B5C0314D49628005D41E0 /* NSError+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5B03A6614AA64E70015D59B /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnitIOS.framework; sourceTree = "<group>"; };
 		F5B03A6E14AA67620015D59B /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		F5B03A6F14AA67620015D59B /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -523,6 +566,18 @@
 		F5B03A7214AA67620015D59B /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
 		F5B03A7314AA67620015D59B /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		F5B03A7414AA67620015D59B /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		F5BB1EB1151B79B600BFDDA0 /* LjsGooglePlacesPredictiveReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesPredictiveReply.h; sourceTree = "<group>"; };
+		F5BB1EB2151B79B600BFDDA0 /* LjsGooglePlacesPredictiveReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesPredictiveReply.m; sourceTree = "<group>"; };
+		F5BB1EB6151B7F4E00BFDDA0 /* LjsGooglePlacesPredictiveReplyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesPredictiveReplyTests.m; sourceTree = "<group>"; };
+		F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "google-places-autocomplete-sample.json"; sourceTree = "<group>"; };
+		F5BB1EBE151B83AC00BFDDA0 /* LjsGooglePlacesPrediction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesPrediction.h; sourceTree = "<group>"; };
+		F5BB1EBF151B83AC00BFDDA0 /* LjsGooglePlacesPrediction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesPrediction.m; sourceTree = "<group>"; };
+		F5BB1EC2151B8BFC00BFDDA0 /* LjsGooglePlacesPredictionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesPredictionTests.m; sourceTree = "<group>"; };
+		F5BB1EC5151B9A9300BFDDA0 /* LjsGooglePlacesRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesRequestManager.h; sourceTree = "<group>"; };
+		F5BB1EC6151B9A9300BFDDA0 /* LjsGooglePlacesRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesRequestManager.m; sourceTree = "<group>"; };
+		F5BB1ED1151BA0E500BFDDA0 /* LjsWebCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsWebCategories.h; sourceTree = "<group>"; };
+		F5BB1ED2151BA0E500BFDDA0 /* LjsWebCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsWebCategories.m; sourceTree = "<group>"; };
+		F5BB1ED5151BA7B300BFDDA0 /* LjsGooglePlacesRequestManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesRequestManagerTests.m; sourceTree = "<group>"; };
 		F5C112711496715900948605 /* Documentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Documentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C112781496715900948605 /* Documentation-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Documentation-Info.plist"; sourceTree = "<group>"; };
 		F5C1127A1496715900948605 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -530,8 +585,6 @@
 		F5C1127E1496715900948605 /* Documentation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Documentation-Prefix.pch"; sourceTree = "<group>"; };
 		F5C1127F1496715900948605 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F5C112801496715900948605 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F5CA979714D6B3BE00745622 /* UIView+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LjsAdditions.h"; sourceTree = "<group>"; };
-		F5CA979814D6B3BE00745622 /* UIView+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5D3581B14B805B50022E24E /* LjsBackingStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsBackingStore.h; sourceTree = "<group>"; };
 		F5D3581D14B8065E0022E24E /* LjsUserDefaultsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsUserDefaultsStore.h; sourceTree = "<group>"; };
 		F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsUserDefaultsStore.m; sourceTree = "<group>"; };
@@ -542,15 +595,9 @@
 		F5D6C8E01518F63B006FF6FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LjsScrollViewController.xib; sourceTree = "<group>"; };
 		F5D6C8E21518F738006FF6FC /* fourth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fourth.png; sourceTree = "<group>"; };
 		F5D6C8E31518F738006FF6FC /* fourth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fourth@2x.png"; sourceTree = "<group>"; };
-		F5F6209414E3E3B600D6C4A1 /* NSArray+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LjsAdditions.h"; sourceTree = "<group>"; };
-		F5F6209514E3E3B600D6C4A1 /* NSArray+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LjsAdditions.m"; sourceTree = "<group>"; };
-		F5F6209614E3E3B600D6C4A1 /* NSDate+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+LjsAdditions.h"; sourceTree = "<group>"; };
-		F5F6209714E3E3B600D6C4A1 /* NSDate+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateLjsAdditionsTests.m; sourceTree = "<group>"; };
 		F5F7BBB514D3E90800669FE6 /* LjsGlassButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGlassButton.h; sourceTree = "<group>"; };
 		F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGlassButton.m; sourceTree = "<group>"; };
-		F5F7BBBF14D3EDDE00669FE6 /* UIColor+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LjsAdditions.h"; sourceTree = "<group>"; };
-		F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5FF5AA014E85D820091D283 /* LjsTextAndFontTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsTextAndFontTests.m; sourceTree = "<group>"; };
 		F5FF5AAF14E96F620091D283 /* LjsGlassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGlassView.h; sourceTree = "<group>"; };
 		F5FF5AB014E96F630091D283 /* LjsGlassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGlassView.m; sourceTree = "<group>"; };
@@ -563,6 +610,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5903F8F151B64A900995AF1 /* CoreData.framework in Frameworks */,
 				F54E3AA11450EB080059BF53 /* libxml2.dylib in Frameworks */,
 				F54E3A9F1450EB000059BF53 /* libz.dylib in Frameworks */,
 				F54E3A9D1450EAEA0059BF53 /* MobileCoreServices.framework in Frameworks */,
@@ -587,6 +635,7 @@
 				F54FA3F014B7060B0080CC9A /* Foundation.framework in Frameworks */,
 				F54FA3F114B7060B0080CC9A /* CoreGraphics.framework in Frameworks */,
 				F5F7BBBD14D3EAE700669FE6 /* QuartzCore.framework in Frameworks */,
+				F5903F90151B64B300995AF1 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,6 +678,7 @@
 		F50FE69E1410C6F60051FC7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5903F8E151B64A900995AF1 /* CoreData.framework */,
 				F5724971149F9C00006C62A2 /* QuartzCore.framework */,
 				F58013AC149E080E00692073 /* CoreLocation.framework */,
 				F54E3AA01450EB080059BF53 /* libxml2.dylib */,
@@ -648,6 +698,7 @@
 		F50FE6A51410C6F60051FC7E /* Tests-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				F5BB1EB9151B7F5D00BFDDA0 /* resources */,
 				F580719D146C33AC00EA4CFB /* LjsTestCase.h */,
 				F580719E146C33AC00EA4CFB /* LjsTestCase.m */,
 				F50FE6D71410CC250051FC7E /* Tests */,
@@ -696,6 +747,10 @@
 				F573B8FA14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m */,
 				F55CDEE9150F881600D9B906 /* LjsCaesarCipherTests.m */,
 				F58D22ED151A42940043DB52 /* LjsFakerTests.m */,
+				F5903FBD151B6F4A00995AF1 /* LjsGooglePlacesManagerTests.m */,
+				F5BB1EB6151B7F4E00BFDDA0 /* LjsGooglePlacesPredictiveReplyTests.m */,
+				F5BB1EC2151B8BFC00BFDDA0 /* LjsGooglePlacesPredictionTests.m */,
+				F5BB1ED5151BA7B300BFDDA0 /* LjsGooglePlacesRequestManagerTests.m */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -1127,6 +1182,7 @@
 		F5807168146C298100EA4CFB /* LJS */ = {
 			isa = PBXGroup;
 			children = (
+				F5903F88151B52F000995AF1 /* Google */,
 				F573CBF81510C7A600277794 /* Security */,
 				F5F7BBBE14D3ED5100669FE6 /* Categories */,
 				F5724964149F9A1E006C62A2 /* Views-iOS */,
@@ -1137,48 +1193,6 @@
 				F5448AB81450B63B0065E516 /* Logging */,
 			);
 			name = LJS;
-			sourceTree = "<group>";
-		};
-		F5878DBA14F26C0600F22FDD /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				F58D22F0151A42D80043DB52 /* NSDateFormatter+LjsAdditions.h */,
-				F58D22F1151A42D80043DB52 /* NSDateFormatter+LjsAdditions.m */,
-				F58D22F2151A42D80043DB52 /* NSLocale+LjsAdditions.h */,
-				F58D22F3151A42D80043DB52 /* NSLocale+LjsAdditions.m */,
-				F58D22F4151A42D90043DB52 /* NSMutableArray+LjsAdditions.h */,
-				F58D22F5151A42D90043DB52 /* NSMutableArray+LjsAdditions.m */,
-				F58D22F6151A42D90043DB52 /* NSSet+LjsAdditions.h */,
-				F58D22F7151A42D90043DB52 /* NSSet+LjsAdditions.m */,
-				F573B8F514F1341B00E6F5CF /* NSCalendar+LjsAdditions.h */,
-				F573B8F614F1341B00E6F5CF /* NSCalendar+LjsAdditions.m */,
-				F5F6209414E3E3B600D6C4A1 /* NSArray+LjsAdditions.h */,
-				F5F6209514E3E3B600D6C4A1 /* NSArray+LjsAdditions.m */,
-				F5F6209614E3E3B600D6C4A1 /* NSDate+LjsAdditions.h */,
-				F5F6209714E3E3B600D6C4A1 /* NSDate+LjsAdditions.m */,
-				F59B5C0214D49628005D41E0 /* NSError+LjsAdditions.h */,
-				F59B5C0314D49628005D41E0 /* NSError+LjsAdditions.m */,
-			);
-			name = Common;
-			sourceTree = "<group>";
-		};
-		F5878DBC14F26C2D00F22FDD /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				F58D22F8151A42D90043DB52 /* UIButton+LjsAdditions.h */,
-				F58D22F9151A42D90043DB52 /* UIButton+LjsAdditions.m */,
-				F58D22FA151A42D90043DB52 /* UIImage+LjsCategory.h */,
-				F58D22FB151A42D90043DB52 /* UIImage+LjsCategory.m */,
-				F58D22FC151A42D90043DB52 /* UIImageView+LjsAdditions.h */,
-				F58D22FD151A42D90043DB52 /* UIImageView+LjsAdditions.m */,
-				F58D22FE151A42D90043DB52 /* UILabel+LjsAdditions.h */,
-				F58D22FF151A42D90043DB52 /* UILabel+LjsAdditions.m */,
-				F5CA979714D6B3BE00745622 /* UIView+LjsAdditions.h */,
-				F5CA979814D6B3BE00745622 /* UIView+LjsAdditions.m */,
-				F5F7BBBF14D3EDDE00669FE6 /* UIColor+LjsAdditions.h */,
-				F5F7BBC014D3EDDE00669FE6 /* UIColor+LjsAdditions.m */,
-			);
-			name = UIKit;
 			sourceTree = "<group>";
 		};
 		F58D2331151A4BAC0043DB52 /* Faker */ = {
@@ -1205,6 +1219,86 @@
 				F58D233D151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist */,
 			);
 			path = plists;
+			sourceTree = "<group>";
+		};
+		F5903F49151B515000995AF1 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				F5903F4A151B515000995AF1 /* NSArray+LjsAdditions.h */,
+				F5903F4B151B515000995AF1 /* NSArray+LjsAdditions.m */,
+				F5903F4C151B515000995AF1 /* NSCalendar+LjsAdditions.h */,
+				F5903F4D151B515000995AF1 /* NSCalendar+LjsAdditions.m */,
+				F5903F4E151B515000995AF1 /* NSDate+LjsAdditions.h */,
+				F5903F4F151B515000995AF1 /* NSDate+LjsAdditions.m */,
+				F5903F50151B515000995AF1 /* NSDateFormatter+LjsAdditions.h */,
+				F5903F51151B515000995AF1 /* NSDateFormatter+LjsAdditions.m */,
+				F5903F52151B515000995AF1 /* NSError+LjsAdditions.h */,
+				F5903F53151B515000995AF1 /* NSError+LjsAdditions.m */,
+				F5903F54151B515000995AF1 /* NSLocale+LjsAdditions.h */,
+				F5903F55151B515000995AF1 /* NSLocale+LjsAdditions.m */,
+				F5903F56151B515000995AF1 /* NSMutableArray+LjsAdditions.h */,
+				F5903F57151B515000995AF1 /* NSMutableArray+LjsAdditions.m */,
+				F5903F58151B515000995AF1 /* NSSet+LjsAdditions.h */,
+				F5903F59151B515000995AF1 /* NSSet+LjsAdditions.m */,
+				F5BB1ED1151BA0E500BFDDA0 /* LjsWebCategories.h */,
+				F5BB1ED2151BA0E500BFDDA0 /* LjsWebCategories.m */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		F5903F5A151B515000995AF1 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				F5903F84151B517D00995AF1 /* ASIHTTPRequest+LjsAdditions.h */,
+				F5903F85151B517D00995AF1 /* ASIHTTPRequest+LjsAdditions.m */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		F5903F5B151B515000995AF1 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				F5903F5C151B515000995AF1 /* UIButton+LjsAdditions.h */,
+				F5903F5D151B515000995AF1 /* UIButton+LjsAdditions.m */,
+				F5903F5E151B515000995AF1 /* UIColor+LjsAdditions.h */,
+				F5903F5F151B515000995AF1 /* UIColor+LjsAdditions.m */,
+				F5903F60151B515000995AF1 /* UIImage+LjsCategory.h */,
+				F5903F61151B515000995AF1 /* UIImage+LjsCategory.m */,
+				F5903F62151B515000995AF1 /* UIImageView+LjsAdditions.h */,
+				F5903F63151B515000995AF1 /* UIImageView+LjsAdditions.m */,
+				F5903F64151B515000995AF1 /* UILabel+LjsAdditions.h */,
+				F5903F65151B515000995AF1 /* UILabel+LjsAdditions.m */,
+				F5903F66151B515000995AF1 /* UIView+LjsAdditions.h */,
+				F5903F67151B515000995AF1 /* UIView+LjsAdditions.m */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		F5903F88151B52F000995AF1 /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				F5903F89151B52F000995AF1 /* GooglePlaces */,
+				F5903FB9151B6DFC00995AF1 /* LjsGoogleGlobals.h */,
+				F5903FBA151B6DFC00995AF1 /* LjsGoogleGlobals.m */,
+			);
+			name = Google;
+			path = ../Google;
+			sourceTree = "<group>";
+		};
+		F5903F89151B52F000995AF1 /* GooglePlaces */ = {
+			isa = PBXGroup;
+			children = (
+				F5903F8A151B646800995AF1 /* LjsGooglePlacesManager.h */,
+				F5903F8B151B646800995AF1 /* LjsGooglePlacesManager.m */,
+				F5903FB1151B68DA00995AF1 /* LjsGooglePlacesModel.xcdatamodeld */,
+				F5BB1EB1151B79B600BFDDA0 /* LjsGooglePlacesPredictiveReply.h */,
+				F5BB1EB2151B79B600BFDDA0 /* LjsGooglePlacesPredictiveReply.m */,
+				F5BB1EBE151B83AC00BFDDA0 /* LjsGooglePlacesPrediction.h */,
+				F5BB1EBF151B83AC00BFDDA0 /* LjsGooglePlacesPrediction.m */,
+				F5BB1EC5151B9A9300BFDDA0 /* LjsGooglePlacesRequestManager.h */,
+				F5BB1EC6151B9A9300BFDDA0 /* LjsGooglePlacesRequestManager.m */,
+			);
+			path = GooglePlaces;
 			sourceTree = "<group>";
 		};
 		F59635CE1496632000CDB27E /* Model */ = {
@@ -1272,6 +1366,23 @@
 			path = OCMock;
 			sourceTree = "<group>";
 		};
+		F5BB1EB9151B7F5D00BFDDA0 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				F5BB1EBA151B7F5D00BFDDA0 /* google */,
+			);
+			name = resources;
+			path = ../../Tests/resources;
+			sourceTree = "<group>";
+		};
+		F5BB1EBA151B7F5D00BFDDA0 /* google */ = {
+			isa = PBXGroup;
+			children = (
+				F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */,
+			);
+			path = google;
+			sourceTree = "<group>";
+		};
 		F5C112761496715900948605 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1296,9 +1407,10 @@
 		F5F7BBBE14D3ED5100669FE6 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				F5903F49151B515000995AF1 /* Foundation */,
+				F5903F5A151B515000995AF1 /* ThirdParty */,
+				F5903F5B151B515000995AF1 /* UIKit */,
 				F573B8FC14F1363D00E6F5CF /* LjsCategories.h */,
-				F5878DBC14F26C2D00F22FDD /* UIKit */,
-				F5878DBA14F26C0600F22FDD /* Common */,
 			);
 			name = Categories;
 			path = ../Categories;
@@ -1405,6 +1517,7 @@
 				F58D234C151A4BAC0043DB52 /* com.littlejoysoftware.faker.postal-codes.us.plist in Resources */,
 				F58D234E151A4BAC0043DB52 /* com.littlejoysoftware.faker.street-addresses.us.plist in Resources */,
 				F58D2350151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist in Resources */,
+				F5BB1EBC151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1446,6 +1559,7 @@
 				F58D234D151A4BAC0043DB52 /* com.littlejoysoftware.faker.postal-codes.us.plist in Resources */,
 				F58D234F151A4BAC0043DB52 /* com.littlejoysoftware.faker.street-addresses.us.plist in Resources */,
 				F58D2351151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist in Resources */,
+				F5BB1EBD151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1594,31 +1708,43 @@
 				F515BF5114C629E2007052FF /* LjsFileBackedStoreTests.m in Sources */,
 				F50BD4F714CB78810037227B /* LjsRecessedButton.m in Sources */,
 				F5F7BBB714D3E90800669FE6 /* LjsGlassButton.m in Sources */,
-				F5F7BBC114D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */,
-				F59B5C0414D49628005D41E0 /* NSError+LjsAdditions.m in Sources */,
-				F5CA979914D6B3BE00745622 /* UIView+LjsAdditions.m in Sources */,
 				F5314A3314D88E8A007FC70C /* LoremIpsumTests.m in Sources */,
-				F5F6209814E3E3B600D6C4A1 /* NSArray+LjsAdditions.m in Sources */,
-				F5F6209A14E3E3B600D6C4A1 /* NSDate+LjsAdditions.m in Sources */,
 				F5F620A214E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m in Sources */,
 				F5FF5AA314E85D880091D283 /* LjsTextAndFontTests.m in Sources */,
-				F573B8F714F1341B00E6F5CF /* NSCalendar+LjsAdditions.m in Sources */,
 				F573B8FB14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m in Sources */,
 				F573B90014F14E8D00E6F5CF /* LjsKeyboardInfo.m in Sources */,
 				F55CDEEA150F881600D9B906 /* LjsCaesarCipherTests.m in Sources */,
 				F573CBFB1510C7A600277794 /* LjsCaesarCipher.m in Sources */,
 				F538F2421514AC81005D15D3 /* LjsPanAndZoomImageView.m in Sources */,
 				F58D22EE151A42940043DB52 /* LjsFakerTests.m in Sources */,
-				F58D2300151A42D90043DB52 /* NSDateFormatter+LjsAdditions.m in Sources */,
-				F58D2302151A42D90043DB52 /* NSLocale+LjsAdditions.m in Sources */,
-				F58D2304151A42D90043DB52 /* NSMutableArray+LjsAdditions.m in Sources */,
-				F58D2306151A42D90043DB52 /* NSSet+LjsAdditions.m in Sources */,
-				F58D2308151A42D90043DB52 /* UIButton+LjsAdditions.m in Sources */,
-				F58D230A151A42D90043DB52 /* UIImage+LjsCategory.m in Sources */,
-				F58D230C151A42D90043DB52 /* UIImageView+LjsAdditions.m in Sources */,
-				F58D230E151A42D90043DB52 /* UILabel+LjsAdditions.m in Sources */,
 				F58D233E151A4BAC0043DB52 /* LjsFaker.m in Sources */,
 				F5903F03151A6BDD00995AF1 /* LjsScrollView.m in Sources */,
+				F5903F68151B515000995AF1 /* NSArray+LjsAdditions.m in Sources */,
+				F5903F6A151B515000995AF1 /* NSCalendar+LjsAdditions.m in Sources */,
+				F5903F6C151B515000995AF1 /* NSDate+LjsAdditions.m in Sources */,
+				F5903F6E151B515000995AF1 /* NSDateFormatter+LjsAdditions.m in Sources */,
+				F5903F70151B515000995AF1 /* NSError+LjsAdditions.m in Sources */,
+				F5903F72151B515000995AF1 /* NSLocale+LjsAdditions.m in Sources */,
+				F5903F74151B515000995AF1 /* NSMutableArray+LjsAdditions.m in Sources */,
+				F5903F76151B515000995AF1 /* NSSet+LjsAdditions.m in Sources */,
+				F5903F78151B515000995AF1 /* UIButton+LjsAdditions.m in Sources */,
+				F5903F7A151B515000995AF1 /* UIColor+LjsAdditions.m in Sources */,
+				F5903F7C151B515000995AF1 /* UIImage+LjsCategory.m in Sources */,
+				F5903F7E151B515000995AF1 /* UIImageView+LjsAdditions.m in Sources */,
+				F5903F80151B515000995AF1 /* UILabel+LjsAdditions.m in Sources */,
+				F5903F82151B515000995AF1 /* UIView+LjsAdditions.m in Sources */,
+				F5903F86151B517D00995AF1 /* ASIHTTPRequest+LjsAdditions.m in Sources */,
+				F5903F8C151B646800995AF1 /* LjsGooglePlacesManager.m in Sources */,
+				F5903FB3151B68DA00995AF1 /* LjsGooglePlacesModel.xcdatamodeld in Sources */,
+				F5903FBB151B6DFC00995AF1 /* LjsGoogleGlobals.m in Sources */,
+				F5903FBE151B6F4A00995AF1 /* LjsGooglePlacesManagerTests.m in Sources */,
+				F5BB1EB3151B79B600BFDDA0 /* LjsGooglePlacesPredictiveReply.m in Sources */,
+				F5BB1EB7151B7F4E00BFDDA0 /* LjsGooglePlacesPredictiveReplyTests.m in Sources */,
+				F5BB1EC0151B83AC00BFDDA0 /* LjsGooglePlacesPrediction.m in Sources */,
+				F5BB1EC3151B8BFC00BFDDA0 /* LjsGooglePlacesPredictionTests.m in Sources */,
+				F5BB1EC7151B9A9400BFDDA0 /* LjsGooglePlacesRequestManager.m in Sources */,
+				F5BB1ED3151BA0E500BFDDA0 /* LjsWebCategories.m in Sources */,
+				F5BB1ED6151BA7B300BFDDA0 /* LjsGooglePlacesRequestManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1651,29 +1777,39 @@
 				F5F7BBB914D3EA3300669FE6 /* LjsButton.m in Sources */,
 				F5F7BBBA14D3EA3700669FE6 /* LjsGlassButton.m in Sources */,
 				F5F7BBBB14D3EAA800669FE6 /* LjsFileUtilities.m in Sources */,
-				F5F7BBC214D3EDDE00669FE6 /* UIColor+LjsAdditions.m in Sources */,
-				F59B5C0514D49628005D41E0 /* NSError+LjsAdditions.m in Sources */,
-				F5CA979A14D6B3BE00745622 /* UIView+LjsAdditions.m in Sources */,
 				F50A035014E008D900AA0912 /* LoremIpsum.m in Sources */,
 				F50A035214E0090700AA0912 /* LjsVariates.m in Sources */,
-				F5F6209914E3E3B600D6C4A1 /* NSArray+LjsAdditions.m in Sources */,
-				F5F6209B14E3E3B600D6C4A1 /* NSDate+LjsAdditions.m in Sources */,
 				F5FF5AB114E96F630091D283 /* LjsGlassView.m in Sources */,
 				F5FF5AB414E971C30091D283 /* LjsGradientView.m in Sources */,
-				F573B8F814F1341B00E6F5CF /* NSCalendar+LjsAdditions.m in Sources */,
 				F538F2431514AC81005D15D3 /* LjsPanAndZoomImageView.m in Sources */,
 				F538F2471514B270005D15D3 /* LjsPanZoomController.m in Sources */,
-				F58D2301151A42D90043DB52 /* NSDateFormatter+LjsAdditions.m in Sources */,
-				F58D2303151A42D90043DB52 /* NSLocale+LjsAdditions.m in Sources */,
-				F58D2305151A42D90043DB52 /* NSMutableArray+LjsAdditions.m in Sources */,
-				F58D2307151A42D90043DB52 /* NSSet+LjsAdditions.m in Sources */,
-				F58D2309151A42D90043DB52 /* UIButton+LjsAdditions.m in Sources */,
-				F58D230B151A42D90043DB52 /* UIImage+LjsCategory.m in Sources */,
-				F58D230D151A42D90043DB52 /* UIImageView+LjsAdditions.m in Sources */,
-				F58D230F151A42D90043DB52 /* UILabel+LjsAdditions.m in Sources */,
 				F58D233F151A4BAC0043DB52 /* LjsFaker.m in Sources */,
 				F5903F02151A6BB700995AF1 /* LjsScrollView.m in Sources */,
 				F5903F04151A6C0700995AF1 /* LjsScrollViewController.m in Sources */,
+				F5903F69151B515000995AF1 /* NSArray+LjsAdditions.m in Sources */,
+				F5903F6B151B515000995AF1 /* NSCalendar+LjsAdditions.m in Sources */,
+				F5903F6D151B515000995AF1 /* NSDate+LjsAdditions.m in Sources */,
+				F5903F6F151B515000995AF1 /* NSDateFormatter+LjsAdditions.m in Sources */,
+				F5903F71151B515000995AF1 /* NSError+LjsAdditions.m in Sources */,
+				F5903F73151B515000995AF1 /* NSLocale+LjsAdditions.m in Sources */,
+				F5903F75151B515000995AF1 /* NSMutableArray+LjsAdditions.m in Sources */,
+				F5903F77151B515000995AF1 /* NSSet+LjsAdditions.m in Sources */,
+				F5903F79151B515000995AF1 /* UIButton+LjsAdditions.m in Sources */,
+				F5903F7B151B515000995AF1 /* UIColor+LjsAdditions.m in Sources */,
+				F5903F7D151B515000995AF1 /* UIImage+LjsCategory.m in Sources */,
+				F5903F7F151B515000995AF1 /* UIImageView+LjsAdditions.m in Sources */,
+				F5903F81151B515000995AF1 /* UILabel+LjsAdditions.m in Sources */,
+				F5903F83151B515000995AF1 /* UIView+LjsAdditions.m in Sources */,
+				F5903F8D151B646800995AF1 /* LjsGooglePlacesManager.m in Sources */,
+				F5903FB4151B68DA00995AF1 /* LjsGooglePlacesModel.xcdatamodeld in Sources */,
+				F5903FBC151B6DFC00995AF1 /* LjsGoogleGlobals.m in Sources */,
+				F5BB1EB4151B79B600BFDDA0 /* LjsGooglePlacesPredictiveReply.m in Sources */,
+				F5BB1EB8151B7F4E00BFDDA0 /* LjsGooglePlacesPredictiveReplyTests.m in Sources */,
+				F5BB1EC1151B83AC00BFDDA0 /* LjsGooglePlacesPrediction.m in Sources */,
+				F5BB1EC4151B8BFC00BFDDA0 /* LjsGooglePlacesPredictionTests.m in Sources */,
+				F5BB1EC8151B9A9400BFDDA0 /* LjsGooglePlacesRequestManager.m in Sources */,
+				F5BB1ED4151BA0E500BFDDA0 /* LjsWebCategories.m in Sources */,
+				F5BB1ED7151BA7B300BFDDA0 /* LjsGooglePlacesRequestManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2008,6 +2144,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F5903FB1151B68DA00995AF1 /* LjsGooglePlacesModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F5903FB2151B68DA00995AF1 /* LjsGooglePlacesModel.xcdatamodel */,
+			);
+			currentVersion = F5903FB2151B68DA00995AF1 /* LjsGooglePlacesModel.xcdatamodel */;
+			path = LjsGooglePlacesModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F50FE6921410C6F60051FC7E /* Project object */;
 }

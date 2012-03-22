@@ -1,0 +1,151 @@
+{
+    "predictions": [
+        {
+            "description": "Victoria, Australie",
+            "id": "0328fb981d48f228012b5d4b7ab0d0f404f439fd",
+            "matched_substrings": [
+                {
+                    "length": 4,
+                    "offset": 0
+                }
+            ],
+            "reference": "CjQrAAAAored3axDbETE1whmhmt5Bn9ER1qFapnIHjU1nJDOipDKuosKwXJZOZXTNUywJbPEEhBuoF1L_XlaA16rtyUofFVbGhQwkiYd9SQy6Fhg_4cg1nSsrUIung",
+            "terms": [
+                {
+                    "offset": 0,
+                    "value": "Victoria"
+                },
+                {
+                    "offset": 10,
+                    "value": "Australie"
+                }
+            ],
+            "types": [
+                "administrative_area_level_1",
+                "political",
+                "geocode"
+            ]
+        },
+        {
+            "description": "Victoria, BC, Canada",
+            "id": "d5892cffd777f0252b94ab2651fea7123d2aa34a",
+            "matched_substrings": [
+                {
+                    "length": 4,
+                    "offset": 0
+                }
+            ],
+            "reference": "CjQsAAAAc14Rvk0J8on8Vjoqxdq8FiHgL_P4yhofEfg47mY_QZNn6aZSG3CF1AKsREhG3eV1EhD92GaSaXJJlIOY3Y9BGAcyGhQQfmN5C6zvOAs2pGriWnpMhA5ygw",
+            "terms": [
+                {
+                    "offset": 0,
+                    "value": "Victoria"
+                },
+                {
+                    "offset": 10,
+                    "value": "BC"
+                },
+                {
+                    "offset": 14,
+                    "value": "Canada"
+                }
+            ],
+            "types": [
+                "locality",
+                "political",
+                "geocode"
+            ]
+        },
+        {
+            "description": "Victorville, Californie, États-Unis",
+            "id": "dd296d3fde2a539b9279cdd817c01183f69d07a7",
+            "matched_substrings": [
+                {
+                    "length": 4,
+                    "offset": 0
+                }
+            ],
+            "reference": "CkQ8AAAAuq3dH42Ky6ak3jnIOqtxfb92DIg054jVM4wDO4yf3Vyu4VfKGAJKUbKsMwNo65qHJhC9NLSWo_gj-bJXvd-kHhIQUf2yanxqkDO4kOt8xtS8MRoU4dlyKcXkC_kQQvbZ9i59dizR71k",
+            "terms": [
+                {
+                    "offset": 0,
+                    "value": "Victorville"
+                },
+                {
+                    "offset": 13,
+                    "value": "Californie"
+                },
+                {
+                    "offset": 25,
+                    "value": "États-Unis"
+                }
+            ],
+            "types": [
+                "locality",
+                "political",
+                "geocode"
+            ]
+        },
+        {
+            "description": "Victoriaville, QC, Canada",
+            "id": "ed3fa17b25b3bb8c55fe7a5c42e1f31abf481e85",
+            "matched_substrings": [
+                {
+                    "length": 4,
+                    "offset": 0
+                }
+            ],
+            "reference": "CkQxAAAA9cF-8DWbbPjGGBHus-leWhYp6h2zkyAhcQ0yGijdt1J_85EzV42vJu7zBvCQmfFMwQkwS7rtHLHrtPleiRsQLRIQDIxR4wz3P0_Lk0WOS9dlxRoUmkrn-ZcYNH2Jonx12FFDMiykpsA",
+            "terms": [
+                {
+                    "offset": 0,
+                    "value": "Victoriaville"
+                },
+                {
+                    "offset": 15,
+                    "value": "QC"
+                },
+                {
+                    "offset": 19,
+                    "value": "Canada"
+                }
+            ],
+            "types": [
+                "locality",
+                "political",
+                "geocode"
+            ]
+        },
+        {
+            "description": "Victor Harbor, Australie-Méridionale, Australie",
+            "id": "0fc62ebe073b3c9dc093f8191f8e022dce11d76e",
+            "matched_substrings": [
+                {
+                    "length": 4,
+                    "offset": 0
+                }
+            ],
+            "reference": "ClRIAAAA6byGFxWaD2-KmlIDTxCmsNloKlRtl1Knrt3jAWJl1S9VqnzN5F59w7nAuK0cHsfHXry9RbRAwWPXq-oNuyj7D6NOLspaSVGoo26OKLjQIZgSEOxa1PsthAV_3WGXa8RH4FsaFOvmTIYeTj-WAeGJC9b_Gf6XikWt",
+            "terms": [
+                {
+                    "offset": 0,
+                    "value": "Victor Harbor"
+                },
+                {
+                    "offset": 15,
+                    "value": "Australie-Méridionale"
+                },
+                {
+                    "offset": 38,
+                    "value": "Australie"
+                }
+            ],
+            "types": [
+                "locality",
+                "political",
+                "geocode"
+            ]
+        }
+    ],
+    "status": "OK"
+}

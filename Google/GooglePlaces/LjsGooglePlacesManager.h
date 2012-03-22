@@ -1,4 +1,4 @@
-// Copyright 2011 Little Joy Software. All rights reserved.
+// Copyright 2012 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -28,17 +28,32 @@
 
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-#if TARGET_OS_IPHONE
-#import <GHUnitIOS/GHUnit.h>
-#else
-#import <GHUnit/GHUnit.h>
-#endif
-#import "LjsVariates.h"
-#import "LjsValidator.h"
+/**
+ Documentation
+ */
+@interface LjsGooglePlacesManager : NSObject 
 
-@interface LjsTestCase : GHTestCase {
-    
-}
+/** @name Properties */
+@property (nonatomic, strong, readonly) NSManagedObjectContext *context; 
+@property (nonatomic, copy) NSString *apiToken;
+
+/** @name Initializing Objects */
+- (id) init;
+- (id) initWithApiToken:(NSString *) aApiToken;
+
+- (id) initWithStoreFilename:(NSString *) aFilename
+                    apiToken:(NSString *) aApiToken;
+          
+- (id) initWithStoreDirectory:(NSString *) aDirectory
+                storeFilename:(NSString *) aFilename
+                     apiToken:(NSString *) aApiToken;
+                 
+
+/** @name Handling Notifications, Requests, and Events */
+
+/** @name Utility */
+
 
 @end

@@ -1,4 +1,4 @@
-// Copyright 2011 Little Joy Software. All rights reserved.
+// Copyright 2012 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -29,16 +29,32 @@
 
 #import <Foundation/Foundation.h>
 
-#if TARGET_OS_IPHONE
-#import <GHUnitIOS/GHUnit.h>
-#else
-#import <GHUnit/GHUnit.h>
-#endif
-#import "LjsVariates.h"
-#import "LjsValidator.h"
+/**
+ Documentation
+ */
+@interface LjsGoogleGlobals : NSObject 
 
-@interface LjsTestCase : GHTestCase {
-    
-}
+extern NSString *LjsGoogleApiKey_joshuajmoody;
+
+extern NSString *LjsGoogleStatusOK;
+extern NSString *LjsGoogleStatusNotFound;
+extern NSString *LjsGoogleStatusOverQueryLimit;
+extern NSString *LjsGoogleStatusRequestDenied;
+extern NSString *LjsGoogleStatusInvalidRequest;
+// mine
+extern NSString *LjsGoogleStatusLocalParseError;
+
+extern NSString *LjsGooglePlacesKeyStatus;
+extern NSString *LjsGooglePlacesAutocompleteKeyPredictions;
+
+
+
+/** @name Properties */
+
+/** @name Initializing Objects */
+
+/** @name Handling Notifications, Requests, and Events */
+
+/** @name Utility */
 
 @end

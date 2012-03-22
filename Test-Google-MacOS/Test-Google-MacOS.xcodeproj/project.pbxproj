@@ -1,0 +1,314 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F5BB1F17151BB61D00BFDDA0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5BB1F16151BB61D00BFDDA0 /* Cocoa.framework */; };
+		F5BB1F21151BB61D00BFDDA0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1F1F151BB61D00BFDDA0 /* InfoPlist.strings */; };
+		F5BB1F23151BB61D00BFDDA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1F22151BB61D00BFDDA0 /* main.m */; };
+		F5BB1F27151BB61D00BFDDA0 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1F25151BB61D00BFDDA0 /* Credits.rtf */; };
+		F5BB1F2A151BB61D00BFDDA0 /* LjsGoogleMacOSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1F29151BB61D00BFDDA0 /* LjsGoogleMacOSAppDelegate.m */; };
+		F5BB1F2D151BB61D00BFDDA0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1F2B151BB61D00BFDDA0 /* MainMenu.xib */; };
+		F5BB1F30151BB61D00BFDDA0 /* Test_Google_MacOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1F2E151BB61D00BFDDA0 /* Test_Google_MacOS.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F5BB1F12151BB61D00BFDDA0 /* Test-Google-MacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test-Google-MacOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5BB1F16151BB61D00BFDDA0 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		F5BB1F19151BB61D00BFDDA0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		F5BB1F1A151BB61D00BFDDA0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F5BB1F1B151BB61D00BFDDA0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F5BB1F1E151BB61D00BFDDA0 /* Test-Google-MacOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Google-MacOS-Info.plist"; sourceTree = "<group>"; };
+		F5BB1F20151BB61D00BFDDA0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F5BB1F22151BB61D00BFDDA0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F5BB1F24151BB61D00BFDDA0 /* Test-Google-MacOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Test-Google-MacOS-Prefix.pch"; sourceTree = "<group>"; };
+		F5BB1F26151BB61D00BFDDA0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		F5BB1F28151BB61D00BFDDA0 /* LjsGoogleMacOSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LjsGoogleMacOSAppDelegate.h; sourceTree = "<group>"; };
+		F5BB1F29151BB61D00BFDDA0 /* LjsGoogleMacOSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleMacOSAppDelegate.m; sourceTree = "<group>"; };
+		F5BB1F2C151BB61D00BFDDA0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		F5BB1F2F151BB61D00BFDDA0 /* Test_Google_MacOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Test_Google_MacOS.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F5BB1F0F151BB61D00BFDDA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5BB1F17151BB61D00BFDDA0 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F5BB1F07151BB61D00BFDDA0 = {
+			isa = PBXGroup;
+			children = (
+				F5BB1F1C151BB61D00BFDDA0 /* Test-Google-MacOS */,
+				F5BB1F15151BB61D00BFDDA0 /* Frameworks */,
+				F5BB1F13151BB61D00BFDDA0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F5BB1F13151BB61D00BFDDA0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5BB1F12151BB61D00BFDDA0 /* Test-Google-MacOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F5BB1F15151BB61D00BFDDA0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5BB1F16151BB61D00BFDDA0 /* Cocoa.framework */,
+				F5BB1F18151BB61D00BFDDA0 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5BB1F18151BB61D00BFDDA0 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5BB1F19151BB61D00BFDDA0 /* AppKit.framework */,
+				F5BB1F1A151BB61D00BFDDA0 /* CoreData.framework */,
+				F5BB1F1B151BB61D00BFDDA0 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		F5BB1F1C151BB61D00BFDDA0 /* Test-Google-MacOS */ = {
+			isa = PBXGroup;
+			children = (
+				F5BB1F28151BB61D00BFDDA0 /* LjsGoogleMacOSAppDelegate.h */,
+				F5BB1F29151BB61D00BFDDA0 /* LjsGoogleMacOSAppDelegate.m */,
+				F5BB1F2B151BB61D00BFDDA0 /* MainMenu.xib */,
+				F5BB1F2E151BB61D00BFDDA0 /* Test_Google_MacOS.xcdatamodeld */,
+				F5BB1F1D151BB61D00BFDDA0 /* Supporting Files */,
+			);
+			path = "Test-Google-MacOS";
+			sourceTree = "<group>";
+		};
+		F5BB1F1D151BB61D00BFDDA0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F5BB1F1E151BB61D00BFDDA0 /* Test-Google-MacOS-Info.plist */,
+				F5BB1F1F151BB61D00BFDDA0 /* InfoPlist.strings */,
+				F5BB1F22151BB61D00BFDDA0 /* main.m */,
+				F5BB1F24151BB61D00BFDDA0 /* Test-Google-MacOS-Prefix.pch */,
+				F5BB1F25151BB61D00BFDDA0 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F5BB1F11151BB61D00BFDDA0 /* Test-Google-MacOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5BB1F33151BB61D00BFDDA0 /* Build configuration list for PBXNativeTarget "Test-Google-MacOS" */;
+			buildPhases = (
+				F5BB1F0E151BB61D00BFDDA0 /* Sources */,
+				F5BB1F0F151BB61D00BFDDA0 /* Frameworks */,
+				F5BB1F10151BB61D00BFDDA0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Test-Google-MacOS";
+			productName = "Test-Google-MacOS";
+			productReference = F5BB1F12151BB61D00BFDDA0 /* Test-Google-MacOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F5BB1F09151BB61D00BFDDA0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = LjsGoogleMacOS;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Little Joy Software";
+			};
+			buildConfigurationList = F5BB1F0C151BB61D00BFDDA0 /* Build configuration list for PBXProject "Test-Google-MacOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F5BB1F07151BB61D00BFDDA0;
+			productRefGroup = F5BB1F13151BB61D00BFDDA0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F5BB1F11151BB61D00BFDDA0 /* Test-Google-MacOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F5BB1F10151BB61D00BFDDA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5BB1F21151BB61D00BFDDA0 /* InfoPlist.strings in Resources */,
+				F5BB1F27151BB61D00BFDDA0 /* Credits.rtf in Resources */,
+				F5BB1F2D151BB61D00BFDDA0 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F5BB1F0E151BB61D00BFDDA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5BB1F23151BB61D00BFDDA0 /* main.m in Sources */,
+				F5BB1F2A151BB61D00BFDDA0 /* LjsGoogleMacOSAppDelegate.m in Sources */,
+				F5BB1F30151BB61D00BFDDA0 /* Test_Google_MacOS.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F5BB1F1F151BB61D00BFDDA0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5BB1F20151BB61D00BFDDA0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F5BB1F25151BB61D00BFDDA0 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5BB1F26151BB61D00BFDDA0 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		F5BB1F2B151BB61D00BFDDA0 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5BB1F2C151BB61D00BFDDA0 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F5BB1F31151BB61D00BFDDA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		F5BB1F32151BB61D00BFDDA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F5BB1F34151BB61D00BFDDA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Test-Google-MacOS/Test-Google-MacOS-Prefix.pch";
+				INFOPLIST_FILE = "Test-Google-MacOS/Test-Google-MacOS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F5BB1F35151BB61D00BFDDA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Test-Google-MacOS/Test-Google-MacOS-Prefix.pch";
+				INFOPLIST_FILE = "Test-Google-MacOS/Test-Google-MacOS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F5BB1F0C151BB61D00BFDDA0 /* Build configuration list for PBXProject "Test-Google-MacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5BB1F31151BB61D00BFDDA0 /* Debug */,
+				F5BB1F32151BB61D00BFDDA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5BB1F33151BB61D00BFDDA0 /* Build configuration list for PBXNativeTarget "Test-Google-MacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5BB1F34151BB61D00BFDDA0 /* Debug */,
+				F5BB1F35151BB61D00BFDDA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F5BB1F2E151BB61D00BFDDA0 /* Test_Google_MacOS.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F5BB1F2F151BB61D00BFDDA0 /* Test_Google_MacOS.xcdatamodel */,
+			);
+			currentVersion = F5BB1F2F151BB61D00BFDDA0 /* Test_Google_MacOS.xcdatamodel */;
+			path = Test_Google_MacOS.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F5BB1F09151BB61D00BFDDA0 /* Project object */;
+}

@@ -1,4 +1,4 @@
-// Copyright 2011 Little Joy Software. All rights reserved.
+// Copyright 2012 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,19 +26,34 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
-#import <Foundation/Foundation.h>
-
-#if TARGET_OS_IPHONE
-#import <GHUnitIOS/GHUnit.h>
-#else
-#import <GHUnit/GHUnit.h>
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
-#import "LjsVariates.h"
-#import "LjsValidator.h"
 
-@interface LjsTestCase : GHTestCase {
-    
-}
+#import "LjsGoogleGlobals.h"
+#import "Lumberjack.h"
+
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
+
+@implementation LjsGoogleGlobals
+
+NSString *LjsGoogleApiKey_joshuajmoody = @"hpB)zAhY7tY;h,0u4 _0!x}<9`~1\"0n0^Zi1':/";
+
+NSString *LjsGoogleStatusOK = @"OK";
+NSString *LjsGoogleStatusNotFound = @"ZERO_RESULTS";
+NSString *LjsGoogleStatusOverQueryLimit = @"OVER_QUERY_LIMIT";
+NSString *LjsGoogleStatusRequestDenied = @"REQUEST_DENIED";
+NSString *LjsGoogleStatusInvalidRequest = @"INVALID_REQUEST";
+NSString *LjsGoogleStatusLocalParseError = @"LOCAL_PARSE_ERROR";
+
+NSString *LjsGooglePlacesKeyStatus = @"status";
+NSString *LjsGooglePlacesAutocompleteKeyPredictions = @"predictions";
+
+
+
 
 @end

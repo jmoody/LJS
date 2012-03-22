@@ -1,4 +1,4 @@
-// Copyright 2011 Little Joy Software. All rights reserved.
+// Copyright 2012 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -29,16 +29,28 @@
 
 #import <Foundation/Foundation.h>
 
-#if TARGET_OS_IPHONE
-#import <GHUnitIOS/GHUnit.h>
-#else
-#import <GHUnit/GHUnit.h>
-#endif
-#import "LjsVariates.h"
-#import "LjsValidator.h"
+/**
+ Documentation
+ */
+@interface LjsGooglePlacesPredictiveReply : NSObject 
 
-@interface LjsTestCase : GHTestCase {
-    
-}
+/** @name Properties */
+
+/** @name Initializing Objects */
+- (id) initWithReply:(NSString *) aReply
+               error:(NSError *__autoreleasing *)error;
+
+/** @name Handling Notifications, Requests, and Events */
+
+/** @name Utility */
+- (NSString *) status;
+- (BOOL) statusHasPredictions;
+- (BOOL) statusNoResults;
+- (BOOL) statusOverQueryLimit;
+- (BOOL) statusRequestDenied;
+- (BOOL) statusInvalidRequest;
+- (BOOL) statusLocalParseError;
+- (NSUInteger) count;
+- (NSArray *) predictions;
 
 @end

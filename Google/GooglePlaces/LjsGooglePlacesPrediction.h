@@ -1,4 +1,4 @@
-// Copyright 2011 Little Joy Software. All rights reserved.
+// Copyright 2012 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -29,16 +29,25 @@
 
 #import <Foundation/Foundation.h>
 
-#if TARGET_OS_IPHONE
-#import <GHUnitIOS/GHUnit.h>
-#else
-#import <GHUnit/GHUnit.h>
-#endif
-#import "LjsVariates.h"
-#import "LjsValidator.h"
+/**
+ Documentation
+ */
+@interface LjsGooglePlacesPrediction : NSObject 
 
-@interface LjsTestCase : GHTestCase {
-    
-}
+/** @name Properties */
+@property (nonatomic, copy) NSString *prediction;
+@property (nonatomic, copy) NSString *stablePlaceId;
+@property (nonatomic, copy) NSString *searchReferenceId;
+@property (nonatomic, strong) NSArray *tokens;
+@property (nonatomic, strong) NSArray *types;
+@property (nonatomic, strong) NSArray *matchedRanges;
+
+/** @name Initializing Objects */
+- (id) initWithDictionary:(NSDictionary *) aDictionary;
+
+
+/** @name Handling Notifications, Requests, and Events */
+
+/** @name Utility */
 
 @end

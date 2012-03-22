@@ -1,4 +1,4 @@
-// Copyright 2011 Little Joy Software. All rights reserved.
+// Copyright 2012 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,19 +26,18 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
 #import <Foundation/Foundation.h>
+#import "ASIHTTPRequest.h"
+/**
+ ASIHTTPRequest on ASIHTTPRequest_LjsAdditions category.
+ */
+@interface ASIHTTPRequest (ASIHTTPRequest_LjsAdditions)
 
-#if TARGET_OS_IPHONE
-#import <GHUnitIOS/GHUnit.h>
-#else
-#import <GHUnit/GHUnit.h>
-#endif
-#import "LjsVariates.h"
-#import "LjsValidator.h"
-
-@interface LjsTestCase : GHTestCase {
-    
-}
+/** @name Task Section */
+- (NSInteger) responseCode;
+- (NSString *) errorMessage;
+- (NSString *) responseDescription;
+- (BOOL) requestDidTimeOut;
+- (BOOL) requestWas200or201Successful;
 
 @end

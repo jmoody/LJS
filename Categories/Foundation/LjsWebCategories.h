@@ -1,4 +1,4 @@
-// Copyright 2011 Little Joy Software. All rights reserved.
+// Copyright 2012 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -29,16 +29,27 @@
 
 #import <Foundation/Foundation.h>
 
-#if TARGET_OS_IPHONE
-#import <GHUnitIOS/GHUnit.h>
-#else
-#import <GHUnit/GHUnit.h>
-#endif
-#import "LjsVariates.h"
-#import "LjsValidator.h"
+/**
+ NSString on NSString_LjsAdditions category.
+ http://stackoverflow.com/questions/3423545/objective-c-iphone-percent-encode-a-string
+*/
+@interface NSString (NSString_LjsAdditions)
 
-@interface LjsTestCase : GHTestCase {
-    
-}
+/** @name Task Section */
+
+- (NSString *) stringByEncodingForUrl;
+
+@end
+
+
+/**
+ NSDictionary on NSDictionary_LjsAdditions category.
+ https://github.com/newsyc
+ */
+@interface NSDictionary (NSDictionary_LjsAdditions)
+
+/** @name Task Section */
+- (NSString *) stringByParameterizingForUrl;
+
 
 @end
