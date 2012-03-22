@@ -46,7 +46,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (NSString *) stringByEncodingForUrl {
   NSMutableString * output = [NSMutableString string];
   const unsigned char * source = (const unsigned char *)[self UTF8String];
-  int sourceLen = strlen((const char *)source);
+  unsigned long sourceLen = strlen((const char *)source);
   for (int i = 0; i < sourceLen; ++i) {
     const unsigned char thisChar = source[i];
     if (thisChar == ' '){

@@ -43,9 +43,9 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-static NSString *LjsGooglePlacesAutocompleteUrl = @"https://maps.googleapis.com/maps/api/place/autocomplete/json?";
-static NSString *LjsGooglePlacesDetailsUrl = @"https://maps.googleapis.com/maps/api/place/details/json?";
-static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/maps/api/place/search/json?";
+static NSString *LjsGooglePlacesAutocompleteUrl = @"https://maps.googleapis.com/maps/api/place/autocomplete/json";
+static NSString *LjsGooglePlacesDetailsUrl = @"https://maps.googleapis.com/maps/api/place/details/json";
+static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/maps/api/place/search/json";
 
 @interface LjsGooglePlacesRequestManager ()
 
@@ -69,6 +69,8 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
 
 - (void) handleRequestAutocompleteDidFinish:(ASIHTTPRequest *) aRequest;
 - (void) handleRequestAutocompleteDidFail:(ASIHTTPRequest *)aRequest;
+- (void) handleRequestDidStart:(ASIHTTPRequest *) aRequest;
+- (void) handleRequestDidReceiveData:(ASIHTTPRequest *) aRequest;
 
 
 @end
@@ -166,7 +168,9 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
   [request setResponseEncoding:NSUTF8StringEncoding];
   [request setDelegate:self];
   [request setDidFailSelector:@selector(handleRequestAutocompleteDidFail:)];
-  [request setDidFailSelector:@selector(handleRequestAutocompleteDidFinish:)];
+  [request setDidFinishSelector:@selector(handleRequestAutocompleteDidFinish:)];
+//  [request setDidStartSelector:@selector(handleRequestDidStart:)];
+//  [request setDidReceiveDataSelector:@selector(handleRequestDidReceiveData:)];
   return request;
 }
 
@@ -182,6 +186,8 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
                                            radius:aRadius
                                      languageCode:aLangCode
                                     establishment:aIsAnEstablishmentRequest];
+  DDLogDebug(@"starting request: %@", request);
+  DDLogDebug(@"url = %@", [request url]);
   [request startSynchronous];
 }
 
@@ -194,7 +200,27 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
 - (void) handleRequestAutocompleteDidFinish:(ASIHTTPRequest *) aRequest {
   DDLogDebug(@"autocomplete request did finish");
   
+  
+  NSData *data = [aRequest responseData];
+  NSString *response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+  DDLogDebug(@"response = %@", response);
 }
+
+- (void) handleRequestDidStart:(ASIHTTPRequest *) aRequest {
+  DDLogDebug(@"request did start");
+}
+
+- (void) handleRequestDidReceiveData:(ASIHTTPRequest *) aRequest {
+  DDLogDebug(@"request did receive data");
+  NSString *response = [aRequest responseString];
+  NSData *data = [aRequest responseData];
+  response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+  DDLogDebug(@"response = %@", response);
+  DDLogDebug(@"headers = %@", [aRequest responseHeaders]);
+  DDLogDebug(@"code = %d", [aRequest responseStatusCode]);
+  DDLogDebug(@"response = %@", [aRequest responseStatusMessage]);
+}
+
 
 
 

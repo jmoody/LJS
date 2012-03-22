@@ -1,5 +1,11 @@
 #import "LjsGoogleMacOSAppDelegate.h"
 #import "Lumberjack.h"
+#import "LjsCategories.h"
+#import "LjsCaesarCipher.h"
+#import "LjsGoogleGlobals.h"
+#import "LjsGooglePlacesRequestManager.h"
+#import "LjsDecimalAide.h"
+
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -7,12 +13,19 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+@interface LjsGoogleMacOSAppDelegate () 
+
+@property (nonatomic, strong) LjsGooglePlacesRequestManager *manager;
+
+@end
+
 @implementation LjsGoogleMacOSAppDelegate
 
 @synthesize window = _window;
-@synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
-@synthesize managedObjectModel = __managedObjectModel;
-@synthesize managedObjectContext = __managedObjectContext;
+@synthesize context = __moContext;
+@synthesize model = __moModel;
+@synthesize coordinator = __coordinator;
+@synthesize manager;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   // kick off the logger
@@ -27,162 +40,194 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   fileLogger.logFileManager.maximumNumberOfLogFiles = 10;
   [DDLog addLogger:fileLogger];
   DDLogDebug(@"logging initialized");
-
+  
+  
+  NSString *defaultKey = LjsGoogleApiKey_joshuajmoody;
+  NSUInteger len = [defaultKey length];
+  LjsCaesarCipher *cipher = [[LjsCaesarCipher alloc]
+                             initWithRotate:len];
+  NSString *apiToken = [cipher stringByDecodingString:defaultKey];
+  
+  
+  self.manager = [[LjsGooglePlacesRequestManager alloc]
+                  initWithApiToken:apiToken
+                  resultHandler:nil];
+  
+  NSString *input, *langCode;
+  NSDecimalNumber *radius;
+  BOOL establishment;
+  
+  input = @"Basel";
+  langCode = @"en";
+  radius = [LjsDecimalAide dnWithInteger:30000];
+  establishment = NO;
+  
+  [self.manager performPredictionRequestForCurrentLocationWithInput:input
+                                                        radius:radius
+                                                      language:langCode 
+                                          establishmentRequest:establishment];
+  
 }
 
-// Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.littlejoysoftware.Test_Google_MacOS" in the user's Application Support directory.
+// Returns the directory the application uses to store the Core Data store file. 
+// This code uses a directory named "com.littlejoysoftware.Test_Google_MacOS" 
+// in the user's Application Support directory.
 - (NSURL *)applicationFilesDirectory {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSURL *appSupportURL = [[fileManager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject];
-    return [appSupportURL URLByAppendingPathComponent:@"com.littlejoysoftware.Test_Google_MacOS"];
+  NSFileManager *fileManager = [NSFileManager defaultManager];
+  NSURL *appSupportURL = [[fileManager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject];
+  return [appSupportURL URLByAppendingPathComponent:@"com.littlejoysoftware.Test_Google_MacOS"];
 }
+
+
 
 // Creates if necessary and returns the managed object model for the application.
-- (NSManagedObjectModel *)managedObjectModel {
-    if (__managedObjectModel) {
-        return __managedObjectModel;
-    }
+- (NSManagedObjectModel *) model {
+  if (__moModel) {
+    return __moModel;
+  }
 	
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Test_Google_MacOS" withExtension:@"momd"];
-    __managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    return __managedObjectModel;
+  NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Test_Google_MacOS" withExtension:@"momd"];
+  __moModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+  return __moModel;
 }
 
-// Returns the persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. (The directory for the store is created, if necessary.)
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-    if (__persistentStoreCoordinator) {
-        return __persistentStoreCoordinator;
+
+// Returns the persistent store coordinator for the application. 
+// This implementation creates and return a coordinator, having added the store
+// for the application to it. (The directory for the store is created, 
+// if necessary.)
+- (NSPersistentStoreCoordinator *) coordinator {
+  if (__coordinator) {
+    return __coordinator;
+  }
+  
+  NSManagedObjectModel *mom = [self model];
+  if (!mom) {
+    NSLog(@"%@:%@ No model to generate a store from", [self class], NSStringFromSelector(_cmd));
+    return nil;
+  }
+  
+  NSFileManager *fileManager = [NSFileManager defaultManager];
+  NSURL *applicationFilesDirectory = [self applicationFilesDirectory];
+  NSError *error = nil;
+  
+  NSDictionary *properties = [applicationFilesDirectory resourceValuesForKeys:[NSArray arrayWithObject:NSURLIsDirectoryKey] error:&error];
+  
+  if (!properties) {
+    BOOL ok = NO;
+    if ([error code] == NSFileReadNoSuchFileError) {
+      ok = [fileManager createDirectoryAtPath:[applicationFilesDirectory path] withIntermediateDirectories:YES attributes:nil error:&error];
     }
-    
-    NSManagedObjectModel *mom = [self managedObjectModel];
-    if (!mom) {
-        NSLog(@"%@:%@ No model to generate a store from", [self class], NSStringFromSelector(_cmd));
-        return nil;
+    if (!ok) {
+      [[NSApplication sharedApplication] presentError:error];
+      return nil;
     }
-    
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSURL *applicationFilesDirectory = [self applicationFilesDirectory];
-    NSError *error = nil;
-    
-    NSDictionary *properties = [applicationFilesDirectory resourceValuesForKeys:[NSArray arrayWithObject:NSURLIsDirectoryKey] error:&error];
-    
-    if (!properties) {
-        BOOL ok = NO;
-        if ([error code] == NSFileReadNoSuchFileError) {
-            ok = [fileManager createDirectoryAtPath:[applicationFilesDirectory path] withIntermediateDirectories:YES attributes:nil error:&error];
-        }
-        if (!ok) {
-            [[NSApplication sharedApplication] presentError:error];
-            return nil;
-        }
-    } else {
-        if (![[properties objectForKey:NSURLIsDirectoryKey] boolValue]) {
-            // Customize and localize this error.
-            NSString *failureDescription = [NSString stringWithFormat:@"Expected a folder to store application data, found a file (%@).", [applicationFilesDirectory path]];
-            
-            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-            [dict setValue:failureDescription forKey:NSLocalizedDescriptionKey];
-            error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN" code:101 userInfo:dict];
-            
-            [[NSApplication sharedApplication] presentError:error];
-            return nil;
-        }
+  } else {
+    if (![[properties objectForKey:NSURLIsDirectoryKey] boolValue]) {
+      // Customize and localize this error.
+      NSString *failureDescription = [NSString stringWithFormat:@"Expected a folder to store application data, found a file (%@).", [applicationFilesDirectory path]];
+      
+      NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+      [dict setValue:failureDescription forKey:NSLocalizedDescriptionKey];
+      error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN" code:101 userInfo:dict];
+      
+      [[NSApplication sharedApplication] presentError:error];
+      return nil;
     }
-    
-    NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"Test_Google_MacOS.storedata"];
-    NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
-    if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:nil error:&error]) {
-        [[NSApplication sharedApplication] presentError:error];
-        return nil;
-    }
-    __persistentStoreCoordinator = coordinator;
-    
-    return __persistentStoreCoordinator;
+  }
+  
+  NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"Test_Google_MacOS.storedata"];
+  NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
+  if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:nil error:&error]) {
+    [[NSApplication sharedApplication] presentError:error];
+    return nil;
+  }
+  __coordinator = coordinator;
+  
+  return __coordinator;
 }
 
 // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) 
-- (NSManagedObjectContext *)managedObjectContext {
-    if (__managedObjectContext) {
-        return __managedObjectContext;
-    }
-    
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (!coordinator) {
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        [dict setValue:@"Failed to initialize the store" forKey:NSLocalizedDescriptionKey];
-        [dict setValue:@"There was an error building up the data file." forKey:NSLocalizedFailureReasonErrorKey];
-        NSError *error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN" code:9999 userInfo:dict];
-        [[NSApplication sharedApplication] presentError:error];
-        return nil;
-    }
-    __managedObjectContext = [[NSManagedObjectContext alloc] init];
-    [__managedObjectContext setPersistentStoreCoordinator:coordinator];
-
-    return __managedObjectContext;
+- (NSManagedObjectContext *) context {
+  if (__moContext) {
+    return __moContext;
+  }
+  
+  NSPersistentStoreCoordinator *coordinator = [self coordinator];
+  if (!coordinator) {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setValue:@"Failed to initialize the store" forKey:NSLocalizedDescriptionKey];
+    [dict setValue:@"There was an error building up the data file." forKey:NSLocalizedFailureReasonErrorKey];
+    NSError *error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN" code:9999 userInfo:dict];
+    [[NSApplication sharedApplication] presentError:error];
+    return nil;
+  }
+  __moContext = [[NSManagedObjectContext alloc] init];
+  [__moContext setPersistentStoreCoordinator:coordinator];
+  
+  return __moContext;
 }
 
 // Returns the NSUndoManager for the application. In this case, the manager returned is that of the managed object context for the application.
-- (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window
-{
-    return [[self managedObjectContext] undoManager];
+- (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window{
+  return [[self context] undoManager];
 }
 
-// Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
-- (IBAction)saveAction:(id)sender {
-    NSError *error = nil;
-    
-    if (![[self managedObjectContext] commitEditing]) {
-        NSLog(@"%@:%@ unable to commit editing before saving", [self class], NSStringFromSelector(_cmd));
-    }
-    
-    if (![[self managedObjectContext] save:&error]) {
-        [[NSApplication sharedApplication] presentError:error];
-    }
+- (void) saveContext {
+  NSError *error = nil;
+  
+  if (![[self context] commitEditing]) {
+    NSLog(@"%@:%@ unable to commit editing before saving", [self class], NSStringFromSelector(_cmd));
+  }
+  
+  if (![[self context] save:&error]) {
+    [[NSApplication sharedApplication] presentError:error];
+  }
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
-    // Save changes in the application's managed object context before the application terminates.
-    
-    if (!__managedObjectContext) {
-        return NSTerminateNow;
-    }
-    
-    if (![[self managedObjectContext] commitEditing]) {
-        NSLog(@"%@:%@ unable to commit editing to terminate", [self class], NSStringFromSelector(_cmd));
-        return NSTerminateCancel;
-    }
-    
-    if (![[self managedObjectContext] hasChanges]) {
-        return NSTerminateNow;
-    }
-    
-    NSError *error = nil;
-    if (![[self managedObjectContext] save:&error]) {
-
-        // Customize this code block to include application-specific recovery steps.              
-        BOOL result = [sender presentError:error];
-        if (result) {
-            return NSTerminateCancel;
-        }
-
-        NSString *question = NSLocalizedString(@"Could not save changes while quitting. Quit anyway?", @"Quit without saves error question message");
-        NSString *info = NSLocalizedString(@"Quitting now will lose any changes you have made since the last successful save", @"Quit without saves error question info");
-        NSString *quitButton = NSLocalizedString(@"Quit anyway", @"Quit anyway button title");
-        NSString *cancelButton = NSLocalizedString(@"Cancel", @"Cancel button title");
-        NSAlert *alert = [[NSAlert alloc] init];
-        [alert setMessageText:question];
-        [alert setInformativeText:info];
-        [alert addButtonWithTitle:quitButton];
-        [alert addButtonWithTitle:cancelButton];
-
-        NSInteger answer = [alert runModal];
-        
-        if (answer == NSAlertAlternateReturn) {
-            return NSTerminateCancel;
-        }
-    }
-
+  // Save changes in the application's managed object context before the application terminates.
+  
+  if (!__moContext) {
     return NSTerminateNow;
+  }
+  
+  if (![[self context] commitEditing]) {
+    NSLog(@"%@:%@ unable to commit editing to terminate", [self class], NSStringFromSelector(_cmd));
+    return NSTerminateCancel;
+  }
+  
+  if (![[self context] hasChanges]) {
+    return NSTerminateNow;
+  }
+  
+  NSError *error = nil;
+  if (![[self context] save:&error]) {
+    
+    // Customize this code block to include application-specific recovery steps.              
+    BOOL result = [sender presentError:error];
+    if (result) {
+      return NSTerminateCancel;
+    }
+    
+    NSString *question = NSLocalizedString(@"Could not save changes while quitting. Quit anyway?", @"Quit without saves error question message");
+    NSString *info = NSLocalizedString(@"Quitting now will lose any changes you have made since the last successful save", @"Quit without saves error question info");
+    NSString *quitButton = NSLocalizedString(@"Quit anyway", @"Quit anyway button title");
+    NSString *cancelButton = NSLocalizedString(@"Cancel", @"Cancel button title");
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setMessageText:question];
+    [alert setInformativeText:info];
+    [alert addButtonWithTitle:quitButton];
+    [alert addButtonWithTitle:cancelButton];
+    
+    NSInteger answer = [alert runModal];
+    
+    if (answer == NSAlertAlternateReturn) {
+      return NSTerminateCancel;
+    }
+  }
+  
+  return NSTerminateNow;
 }
 
 @end

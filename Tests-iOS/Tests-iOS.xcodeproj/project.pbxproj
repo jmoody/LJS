@@ -239,8 +239,6 @@
 		F5BB1EC8151B9A9400BFDDA0 /* LjsGooglePlacesRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EC6151B9A9300BFDDA0 /* LjsGooglePlacesRequestManager.m */; };
 		F5BB1ED3151BA0E500BFDDA0 /* LjsWebCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1ED2151BA0E500BFDDA0 /* LjsWebCategories.m */; };
 		F5BB1ED4151BA0E500BFDDA0 /* LjsWebCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1ED2151BA0E500BFDDA0 /* LjsWebCategories.m */; };
-		F5BB1ED6151BA7B300BFDDA0 /* LjsGooglePlacesRequestManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1ED5151BA7B300BFDDA0 /* LjsGooglePlacesRequestManagerTests.m */; };
-		F5BB1ED7151BA7B300BFDDA0 /* LjsGooglePlacesRequestManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1ED5151BA7B300BFDDA0 /* LjsGooglePlacesRequestManagerTests.m */; };
 		F5C112731496715900948605 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE69F1410C6F60051FC7E /* UIKit.framework */; };
 		F5C112741496715900948605 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE6A11410C6F60051FC7E /* Foundation.framework */; };
 		F5C112751496715900948605 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE6A31410C6F60051FC7E /* CoreGraphics.framework */; };
@@ -249,6 +247,7 @@
 		F5C112811496715900948605 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C112801496715900948605 /* AppDelegate.m */; };
 		F5D3581F14B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
 		F5D3582014B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
+		F5E3F77B151BDDD20076450F /* LjsGooglePlacesRequestManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E3F77A151BDDD20076450F /* LjsGooglePlacesRequestManagerTests.m */; };
 		F5F620A214E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */; };
 		F5F7BBB714D3E90800669FE6 /* LjsGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */; };
 		F5F7BBB914D3EA3300669FE6 /* LjsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F572496F149F9AD6006C62A2 /* LjsButton.m */; };
@@ -577,7 +576,6 @@
 		F5BB1EC6151B9A9300BFDDA0 /* LjsGooglePlacesRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesRequestManager.m; sourceTree = "<group>"; };
 		F5BB1ED1151BA0E500BFDDA0 /* LjsWebCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsWebCategories.h; sourceTree = "<group>"; };
 		F5BB1ED2151BA0E500BFDDA0 /* LjsWebCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsWebCategories.m; sourceTree = "<group>"; };
-		F5BB1ED5151BA7B300BFDDA0 /* LjsGooglePlacesRequestManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesRequestManagerTests.m; sourceTree = "<group>"; };
 		F5C112711496715900948605 /* Documentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Documentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C112781496715900948605 /* Documentation-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Documentation-Info.plist"; sourceTree = "<group>"; };
 		F5C1127A1496715900948605 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -595,6 +593,7 @@
 		F5D6C8E01518F63B006FF6FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LjsScrollViewController.xib; sourceTree = "<group>"; };
 		F5D6C8E21518F738006FF6FC /* fourth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fourth.png; sourceTree = "<group>"; };
 		F5D6C8E31518F738006FF6FC /* fourth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fourth@2x.png"; sourceTree = "<group>"; };
+		F5E3F77A151BDDD20076450F /* LjsGooglePlacesRequestManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesRequestManagerTests.m; sourceTree = "<group>"; };
 		F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateLjsAdditionsTests.m; sourceTree = "<group>"; };
 		F5F7BBB514D3E90800669FE6 /* LjsGlassButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGlassButton.h; sourceTree = "<group>"; };
 		F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGlassButton.m; sourceTree = "<group>"; };
@@ -733,6 +732,7 @@
 		F50FE6D81410CC250051FC7E /* Unit */ = {
 			isa = PBXGroup;
 			children = (
+				F5E3F77A151BDDD20076450F /* LjsGooglePlacesRequestManagerTests.m */,
 				F54E39771450E2530059BF53 /* LjsJsonRpcReplyTests.m */,
 				F50FE6D91410CC250051FC7E /* LjsDateHelperTests.m */,
 				F50FE6DA1410CC250051FC7E /* LjsDecimalAideTests.m */,
@@ -750,7 +750,6 @@
 				F5903FBD151B6F4A00995AF1 /* LjsGooglePlacesManagerTests.m */,
 				F5BB1EB6151B7F4E00BFDDA0 /* LjsGooglePlacesPredictiveReplyTests.m */,
 				F5BB1EC2151B8BFC00BFDDA0 /* LjsGooglePlacesPredictionTests.m */,
-				F5BB1ED5151BA7B300BFDDA0 /* LjsGooglePlacesRequestManagerTests.m */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -1744,7 +1743,7 @@
 				F5BB1EC3151B8BFC00BFDDA0 /* LjsGooglePlacesPredictionTests.m in Sources */,
 				F5BB1EC7151B9A9400BFDDA0 /* LjsGooglePlacesRequestManager.m in Sources */,
 				F5BB1ED3151BA0E500BFDDA0 /* LjsWebCategories.m in Sources */,
-				F5BB1ED6151BA7B300BFDDA0 /* LjsGooglePlacesRequestManagerTests.m in Sources */,
+				F5E3F77B151BDDD20076450F /* LjsGooglePlacesRequestManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1809,7 +1808,6 @@
 				F5BB1EC4151B8BFC00BFDDA0 /* LjsGooglePlacesPredictionTests.m in Sources */,
 				F5BB1EC8151B9A9400BFDDA0 /* LjsGooglePlacesRequestManager.m in Sources */,
 				F5BB1ED4151BA0E500BFDDA0 /* LjsWebCategories.m in Sources */,
-				F5BB1ED7151BA7B300BFDDA0 /* LjsGooglePlacesRequestManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
