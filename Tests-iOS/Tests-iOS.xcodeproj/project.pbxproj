@@ -254,6 +254,8 @@
 		F5F1A20C151CBF9400E23DD5 /* LjsGooglePlacesDetailsReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A1FF151CBF9400E23DD5 /* LjsGooglePlacesDetailsReply.m */; };
 		F5F1A20D151CBF9400E23DD5 /* LjsGooglePlacesPredictiveReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A201151CBF9400E23DD5 /* LjsGooglePlacesPredictiveReply.m */; };
 		F5F1A20E151CBF9400E23DD5 /* LjsGooglePlacesReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A203151CBF9400E23DD5 /* LjsGooglePlacesReply.m */; };
+		F5F1A249151CC1CE00E23DD5 /* LjsGoogleAttribution.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A248151CC1CE00E23DD5 /* LjsGoogleAttribution.m */; };
+		F5F1A24C151CC1CE00E23DD5 /* LjsGoogleAttribution.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A24B151CC1CE00E23DD5 /* LjsGoogleAttribution.m */; };
 		F5F620A214E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */; };
 		F5F7BBB714D3E90800669FE6 /* LjsGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */; };
 		F5F7BBB914D3EA3300669FE6 /* LjsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F572496F149F9AD6006C62A2 /* LjsButton.m */; };
@@ -620,6 +622,9 @@
 		F5F1A201151CBF9400E23DD5 /* LjsGooglePlacesPredictiveReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesPredictiveReply.m; sourceTree = "<group>"; };
 		F5F1A202151CBF9400E23DD5 /* LjsGooglePlacesReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesReply.h; sourceTree = "<group>"; };
 		F5F1A203151CBF9400E23DD5 /* LjsGooglePlacesReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesReply.m; sourceTree = "<group>"; };
+		F5F1A248151CC1CE00E23DD5 /* LjsGoogleAttribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsGoogleAttribution.m; path = ../Google/GooglePlaces/Models/Managed/LjsGoogleAttribution.m; sourceTree = "<group>"; };
+		F5F1A24A151CC1CE00E23DD5 /* LjsGoogleAttribution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsGoogleAttribution.h; path = ../Google/GooglePlaces/Models/Managed/LjsGoogleAttribution.h; sourceTree = "<group>"; };
+		F5F1A24B151CC1CE00E23DD5 /* LjsGoogleAttribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsGoogleAttribution.m; path = ../Google/GooglePlaces/Models/Managed/LjsGoogleAttribution.m; sourceTree = "<group>"; };
 		F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateLjsAdditionsTests.m; sourceTree = "<group>"; };
 		F5F7BBB514D3E90800669FE6 /* LjsGlassButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGlassButton.h; sourceTree = "<group>"; };
 		F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGlassButton.m; sourceTree = "<group>"; };
@@ -680,6 +685,9 @@
 		F50FE6901410C6F60051FC7E = {
 			isa = PBXGroup;
 			children = (
+				F5F1A24A151CC1CE00E23DD5 /* LjsGoogleAttribution.h */,
+				F5F1A24B151CC1CE00E23DD5 /* LjsGoogleAttribution.m */,
+				F5F1A248151CC1CE00E23DD5 /* LjsGoogleAttribution.m */,
 				F5448AC31450B63B0065E516 /* ThirdParty */,
 				F5807168146C298100EA4CFB /* LJS */,
 				F50FE6A51410C6F60051FC7E /* Tests-iOS */,
@@ -1859,6 +1867,8 @@
 				F5F1A20C151CBF9400E23DD5 /* LjsGooglePlacesDetailsReply.m in Sources */,
 				F5F1A20D151CBF9400E23DD5 /* LjsGooglePlacesPredictiveReply.m in Sources */,
 				F5F1A20E151CBF9400E23DD5 /* LjsGooglePlacesReply.m in Sources */,
+				F5F1A249151CC1CE00E23DD5 /* LjsGoogleAttribution.m in Sources */,
+				F5F1A24C151CC1CE00E23DD5 /* LjsGoogleAttribution.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
