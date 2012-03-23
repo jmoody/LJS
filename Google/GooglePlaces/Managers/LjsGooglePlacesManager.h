@@ -57,6 +57,10 @@
 /** @name Handling Notifications, Requests, and Events */
 
 /** @name Utility */
+- (NSArray *) arrayOfLocationsForCurrentLocationWithRadius:(CGFloat) aRadius
+                                              searchString:(NSString *) aSearchString
+                                                  language:(NSString *) aLangCode;
+
 
 
 @end

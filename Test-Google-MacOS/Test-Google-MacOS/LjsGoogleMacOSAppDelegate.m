@@ -44,13 +44,19 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                 
   
   NSString *input, *langCode;
-  NSDecimalNumber *radius;
+  NSNumber *radius;
   BOOL establishment;
   
   input = @"Basel";
   langCode = @"en";
-  radius = [LjsDecimalAide dnWithInteger:30000];
+  radius = [NSNumber numberWithDouble:5000];
   establishment = NO;
+  NSArray *results;
+  
+  results = [self.manager arrayOfLocationsForCurrentLocationWithRadius:radius
+                                                          searchString:input
+                                                              language:langCode];
+  DDLogDebug(@"results = %@", results);
   
 }
 

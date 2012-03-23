@@ -64,7 +64,7 @@ static NSString *LjsCurrentWeatherWindDegreeKey = @"winddirDegree";
 static NSString *LjsCurrentWeatherWindKmphKey = @"windspeedKmph";
 static NSString *LjsCurrentWeatherWindMphKey = @"windspeedMiles";
 
-static NSString *LjsCurrentWeatherUrlFormatString = @"http://free.worldweatheronline.com/feed/weather.ashx?q=%@,%@&format=json&num_of_days=1&key=%@";
+static NSString *LjsCurrentWeatherUrlFormatString = @"http://free.worldweatheronline.com/feed/weather.ashx?q=%f,%f&format=json&num_of_days=1&key=%@";
 static NSString *LjsCurrentWeatherApiKeyPlist = @"weather-api-key";
 static NSString *LjsCurrentWeatherApiKeyKey = @"free.worldweatheronline.com.LJS Key";
 
@@ -83,13 +83,11 @@ static NSString *LjsCurrentWeatherApiKeyKey = @"free.worldweatheronline.com.LJS 
    DDLogDebug(@"deallocating LjsCurrentWeather");
 }
 
-- (id) initWithLatitude:(NSDecimalNumber *)aLatitude longitude:(NSDecimalNumber *)aLongitude {
+- (id) initWithLatitude:(CGFloat)aLatitude longitude:(CGFloat)aLongitude {
   self = [super init];
   if (self != nil) {
-    NSAssert(aLatitude != nil, @"latitude must not be nil");
-    NSAssert(aLongitude != nil, @"longitude must not be nil");
-    NSAssert1([LjsLocationManager isValidLatitude:aLatitude], @"latitude < %@ > must be valid", aLatitude);
-    NSAssert1([LjsLocationManager isValidLongitude:aLongitude], @"longitude < %@ > must be valid", aLongitude);
+    NSAssert1([LjsLocationManager isValidLatitude:aLatitude], @"latitude < %.5f > must be valid", aLatitude);
+    NSAssert1([LjsLocationManager isValidLongitude:aLongitude], @"longitude < %.5f > must be valid", aLongitude);
     
     self.latitude = aLatitude;
     self.longitude = aLongitude;

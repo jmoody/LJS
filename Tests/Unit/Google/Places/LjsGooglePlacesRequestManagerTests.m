@@ -123,24 +123,7 @@
   // Run after each test method
 }  
 
-- (void) test_performautocompleteTest {
 
-  
-  NSString *input, *langCode;
-  NSDecimalNumber *radius;
-  BOOL establishment;
-  
-  input = @"Basel";
-  langCode = @"en";
-  radius = [LjsDecimalAide dnWithInteger:30000];
-  establishment = NO;
-  
-  [self.manager performPredictionRequestForCurrentLocationWithInput:input
-                                                        radius:radius
-                                                      language:langCode 
-                                          establishmentRequest:establishment];
-  
-}
 
 
 @end

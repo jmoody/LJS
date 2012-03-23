@@ -83,11 +83,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     }
     NSDictionary *geometry = [aDictionary objectForKey:@"geometry"];
     if (geometry == nil) {
-      location = CGPointMake(LjsLatitudeNotFound, LjsLongitudeNotFound);
+      location = CGPointMake(LjsLocationNotFound, LjsLocationNotFound);
     } else {
       NSDictionary *locDict = [geometry objectForKey:@"location"];
       if (locDict == nil) {
-        location = CGPointMake(LjsLatitudeNotFound, LjsLongitudeNotFound);
+        location = CGPointMake(LjsLocationNotFound, LjsLocationNotFound);
       } else {
         NSNumber *latNum = [locDict objectForKey:@"lat"];
         NSNumber *longNum = [locDict objectForKey:@"lng"];

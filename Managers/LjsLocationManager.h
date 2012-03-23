@@ -31,10 +31,7 @@
 
 //extern CGFloat const LjsLocationManagerLocationHeadingNotFound;
 
-extern CGFloat const LjsLatitudeNotFound;
-extern CGFloat const LjsLongitudeNotFound;
-extern CGFloat const LjsHeadingNotFound;
-
+extern CGFloat const LjsLocationNotFound;
 
 /**
  A singleton class wrapper around the Location Services.
@@ -77,7 +74,7 @@ extern CGFloat const LjsHeadingNotFound;
  used simulate the heading changing in environments where there is no heading
  available
  */
-@property (nonatomic, strong) NSDecimalNumber *debugLastHeading;
+@property (nonatomic, assign) CGFloat debugLastHeading;
 
 
 #pragma mark Singleton
@@ -102,19 +99,19 @@ extern CGFloat const LjsHeadingNotFound;
  @return true iff aHeading is on (0.0, 360.0)
  @param aHeading the heading to check
  */
-+ (BOOL) isValidHeading:(NSDecimalNumber *) aHeading;
++ (BOOL) isValidHeading:(CGFloat) aHeading;
 
 /**
  @return true if aLatitude is on (-90.0, 90.0)
  @param aLatitude the latitude to check
  */
-+ (BOOL) isValidLatitude:(NSDecimalNumber *) aLatitude;
++ (BOOL) isValidLatitude:(CGFloat) aLatitude;
 
 /**
  @return true if aLongitude is on (-180.0, 180.0)
  @param aLongitude the longitude to check  
  */
-+ (BOOL) isValidLongitude:(NSDecimalNumber *) aLongitude;
++ (BOOL) isValidLongitude:(CGFloat) aLongitude;
 
 /**
  @return true iff heading is available
@@ -129,7 +126,7 @@ extern CGFloat const LjsHeadingNotFound;
  location can be found then this method will return the longitude for 
  Zurich, CH
  */
-- (NSDecimalNumber *) longitude;
+- (CGFloat) longitude;
 
 /**
  @return the current latitude as a rounded NSDecimalNumber
@@ -137,7 +134,7 @@ extern CGFloat const LjsHeadingNotFound;
  location can be found then this method will return the latitude for 
  Zurich, CH
  */
-- (NSDecimalNumber *) latitude;
+- (CGFloat) latitude;
 
 
 /**
@@ -146,6 +143,6 @@ extern CGFloat const LjsHeadingNotFound;
  heading can be found then this method will return
  
  */
-- (NSDecimalNumber *) trueHeading;
+- (CGFloat) trueHeading;
 
 @end

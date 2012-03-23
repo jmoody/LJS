@@ -254,8 +254,12 @@
 		F5F1A20C151CBF9400E23DD5 /* LjsGooglePlacesDetailsReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A1FF151CBF9400E23DD5 /* LjsGooglePlacesDetailsReply.m */; };
 		F5F1A20D151CBF9400E23DD5 /* LjsGooglePlacesPredictiveReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A201151CBF9400E23DD5 /* LjsGooglePlacesPredictiveReply.m */; };
 		F5F1A20E151CBF9400E23DD5 /* LjsGooglePlacesReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A203151CBF9400E23DD5 /* LjsGooglePlacesReply.m */; };
-		F5F1A249151CC1CE00E23DD5 /* LjsGoogleAttribution.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A248151CC1CE00E23DD5 /* LjsGoogleAttribution.m */; };
-		F5F1A24C151CC1CE00E23DD5 /* LjsGoogleAttribution.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A24B151CC1CE00E23DD5 /* LjsGoogleAttribution.m */; };
+		F5F1A27C151D21FD00E23DD5 /* LjsGoogleAddressComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A273151D21FD00E23DD5 /* LjsGoogleAddressComponent.m */; };
+		F5F1A27D151D21FD00E23DD5 /* LjsGoogleAddressComponentType.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A275151D21FD00E23DD5 /* LjsGoogleAddressComponentType.m */; };
+		F5F1A27E151D21FD00E23DD5 /* LjsGooglePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A277151D21FD00E23DD5 /* LjsGooglePlace.m */; };
+		F5F1A27F151D21FD00E23DD5 /* LjsGooglePlacesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A278151D21FD00E23DD5 /* LjsGooglePlacesModel.xcdatamodeld */; };
+		F5F1A280151D21FD00E23DD5 /* LjsGooglePlaceType.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A27B151D21FD00E23DD5 /* LjsGooglePlaceType.m */; };
+		F5F1A290151D242A00E23DD5 /* LjsGoogleAttribution.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A287151D242A00E23DD5 /* LjsGoogleAttribution.m */; };
 		F5F620A214E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */; };
 		F5F7BBB714D3E90800669FE6 /* LjsGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */; };
 		F5F7BBB914D3EA3300669FE6 /* LjsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F572496F149F9AD6006C62A2 /* LjsButton.m */; };
@@ -625,6 +629,17 @@
 		F5F1A248151CC1CE00E23DD5 /* LjsGoogleAttribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsGoogleAttribution.m; path = ../Google/GooglePlaces/Models/Managed/LjsGoogleAttribution.m; sourceTree = "<group>"; };
 		F5F1A24A151CC1CE00E23DD5 /* LjsGoogleAttribution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsGoogleAttribution.h; path = ../Google/GooglePlaces/Models/Managed/LjsGoogleAttribution.h; sourceTree = "<group>"; };
 		F5F1A24B151CC1CE00E23DD5 /* LjsGoogleAttribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsGoogleAttribution.m; path = ../Google/GooglePlaces/Models/Managed/LjsGoogleAttribution.m; sourceTree = "<group>"; };
+		F5F1A272151D21FD00E23DD5 /* LjsGoogleAddressComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleAddressComponent.h; sourceTree = "<group>"; };
+		F5F1A273151D21FD00E23DD5 /* LjsGoogleAddressComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleAddressComponent.m; sourceTree = "<group>"; };
+		F5F1A274151D21FD00E23DD5 /* LjsGoogleAddressComponentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleAddressComponentType.h; sourceTree = "<group>"; };
+		F5F1A275151D21FD00E23DD5 /* LjsGoogleAddressComponentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleAddressComponentType.m; sourceTree = "<group>"; };
+		F5F1A276151D21FD00E23DD5 /* LjsGooglePlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlace.h; sourceTree = "<group>"; };
+		F5F1A277151D21FD00E23DD5 /* LjsGooglePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlace.m; sourceTree = "<group>"; };
+		F5F1A279151D21FD00E23DD5 /* LjsGooglePlacesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LjsGooglePlacesModel.xcdatamodel; sourceTree = "<group>"; };
+		F5F1A27A151D21FD00E23DD5 /* LjsGooglePlaceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlaceType.h; sourceTree = "<group>"; };
+		F5F1A27B151D21FD00E23DD5 /* LjsGooglePlaceType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlaceType.m; sourceTree = "<group>"; };
+		F5F1A286151D242A00E23DD5 /* LjsGoogleAttribution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleAttribution.h; sourceTree = "<group>"; };
+		F5F1A287151D242A00E23DD5 /* LjsGoogleAttribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleAttribution.m; sourceTree = "<group>"; };
 		F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateLjsAdditionsTests.m; sourceTree = "<group>"; };
 		F5F7BBB514D3E90800669FE6 /* LjsGlassButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGlassButton.h; sourceTree = "<group>"; };
 		F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGlassButton.m; sourceTree = "<group>"; };
@@ -1478,6 +1493,17 @@
 		F5F1A1EF151CBF9400E23DD5 /* Managed */ = {
 			isa = PBXGroup;
 			children = (
+				F5F1A272151D21FD00E23DD5 /* LjsGoogleAddressComponent.h */,
+				F5F1A273151D21FD00E23DD5 /* LjsGoogleAddressComponent.m */,
+				F5F1A274151D21FD00E23DD5 /* LjsGoogleAddressComponentType.h */,
+				F5F1A275151D21FD00E23DD5 /* LjsGoogleAddressComponentType.m */,
+				F5F1A286151D242A00E23DD5 /* LjsGoogleAttribution.h */,
+				F5F1A287151D242A00E23DD5 /* LjsGoogleAttribution.m */,
+				F5F1A276151D21FD00E23DD5 /* LjsGooglePlace.h */,
+				F5F1A277151D21FD00E23DD5 /* LjsGooglePlace.m */,
+				F5F1A278151D21FD00E23DD5 /* LjsGooglePlacesModel.xcdatamodeld */,
+				F5F1A27A151D21FD00E23DD5 /* LjsGooglePlaceType.h */,
+				F5F1A27B151D21FD00E23DD5 /* LjsGooglePlaceType.m */,
 				F5F1A1F0151CBF9400E23DD5 /* LjsGooglePlacesModel.xcdatamodeld */,
 			);
 			path = Managed;
@@ -1867,8 +1893,12 @@
 				F5F1A20C151CBF9400E23DD5 /* LjsGooglePlacesDetailsReply.m in Sources */,
 				F5F1A20D151CBF9400E23DD5 /* LjsGooglePlacesPredictiveReply.m in Sources */,
 				F5F1A20E151CBF9400E23DD5 /* LjsGooglePlacesReply.m in Sources */,
-				F5F1A249151CC1CE00E23DD5 /* LjsGoogleAttribution.m in Sources */,
-				F5F1A24C151CC1CE00E23DD5 /* LjsGoogleAttribution.m in Sources */,
+				F5F1A27C151D21FD00E23DD5 /* LjsGoogleAddressComponent.m in Sources */,
+				F5F1A27D151D21FD00E23DD5 /* LjsGoogleAddressComponentType.m in Sources */,
+				F5F1A27E151D21FD00E23DD5 /* LjsGooglePlace.m in Sources */,
+				F5F1A27F151D21FD00E23DD5 /* LjsGooglePlacesModel.xcdatamodeld in Sources */,
+				F5F1A280151D21FD00E23DD5 /* LjsGooglePlaceType.m in Sources */,
+				F5F1A290151D242A00E23DD5 /* LjsGoogleAttribution.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2268,6 +2298,16 @@
 				F5F1A1F1151CBF9400E23DD5 /* LjsGooglePlacesModel.xcdatamodel */,
 			);
 			currentVersion = F5F1A1F1151CBF9400E23DD5 /* LjsGooglePlacesModel.xcdatamodel */;
+			path = LjsGooglePlacesModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		F5F1A278151D21FD00E23DD5 /* LjsGooglePlacesModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F5F1A279151D21FD00E23DD5 /* LjsGooglePlacesModel.xcdatamodel */,
+			);
+			currentVersion = F5F1A279151D21FD00E23DD5 /* LjsGooglePlacesModel.xcdatamodel */;
 			path = LjsGooglePlacesModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

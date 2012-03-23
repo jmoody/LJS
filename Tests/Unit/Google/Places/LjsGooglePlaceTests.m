@@ -66,7 +66,7 @@
 #endif
 
 #import "LjsTestCase.h"
-#import "LjsGooglePlace.h"
+#import "LjsGoogleNmoPlace.h"
 
 @interface LjsGooglePlaceTests : LjsTestCase {}
 @end
@@ -110,14 +110,14 @@
   NSArray *values;
   NSArray *types;
   NSDictionary *dictionary;
-  LjsGooglePlace *place;
+  LjsGoogleNmoPlace *place;
   
   types = [NSArray arrayWithObjects:@"geocode", @"locality", nil];
   keys = [NSArray arrayWithObjects:@"id", @"reference", @"types", nil];
   values = [NSArray arrayWithObjects:@"123", @"456", types, nil];
   dictionary = [NSDictionary dictionaryWithObjects:values
                                            forKeys:keys];
-  place = [[LjsGooglePlace alloc] initWithDictionary:dictionary];
+  place = [[LjsGoogleNmoPlace alloc] initWithDictionary:dictionary];
   GHAssertNotNil(place, nil);
   
 }

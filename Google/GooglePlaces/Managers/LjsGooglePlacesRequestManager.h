@@ -37,14 +37,16 @@
 @protocol LjsGooglePlaceRequestManagerResultHandlerDelegate <NSObject>
 
 @required
-- (void) requestForPredictionsCompletedWithPredictions:(NSArray *) aPredictions;
+- (void) requestForPredictionsCompletedWithPredictions:(NSArray *) aPredictions
+                                              userInfo:(NSDictionary *) aUserInfo;
 - (void) requestForPredictionsFailedWithCode:(NSUInteger) aCode
                                      request:(ASIHTTPRequest *) aRequest;
 - (void) requestForPredictionsFailedWithCode:(NSString *) aStatusCode
                                        reply:(LjsGooglePlacesPredictiveReply *) aReply
                                        error:(NSError *) aError;
 
-- (void) requestForDetailsCompletedWithDetails:(LjsGooglePlacesDetails *) aDetails;
+- (void) requestForDetailsCompletedWithDetails:(LjsGooglePlacesDetails *) aDetails
+                                      userInfo:(NSDictionary *) aUserInfo;
 - (void) requestForDetailsFailedWithCode:(NSUInteger) aCode
                                  request:(ASIHTTPRequest *) aRequest;
 - (void) requestForDetailsFailedWithCode:(NSString *) aStatusCode
@@ -86,7 +88,7 @@
 /** @name Utility */
 
 - (void) performPredictionRequestForCurrentLocationWithInput:(NSString *) aInput
-                                                      radius:(NSDecimalNumber *) aRadius
+                                                      radius:(CGFloat) aRadius
                                                     language:(NSString *) aLangCode
                                         establishmentRequest:(BOOL) aIsAnEstablishmentRequest;
 

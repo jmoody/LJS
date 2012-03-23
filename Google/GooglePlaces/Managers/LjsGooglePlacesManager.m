@@ -39,6 +39,7 @@
 #import "LjsGooglePlacesPredictiveReply.h"
 #import "LjsGooglePlacesDetails.h"
 #import "LjsGooglePlacesPrediction.h"
+#import "LjsGooglePlace.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -59,6 +60,10 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 
 - (NSURL *) urlForSqlitePath;
 - (NSString *) decodeDefaultApiKey;
+
+- (BOOL) placeExistsForId:(NSString *) aId;
+- (NSArray *) fetchAllPlaces;
+
 
 @end
 
@@ -130,13 +135,59 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 }
 
 
+- (BOOL) placeExistsForId:(NSString *) aId {
+  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LjsGooglePlace"];
+  request.predicate = [NSPredicate predicateWithFormat:@"stableId LIKE %@", aId];
+  NSError *error = nil;
+  NSUInteger count = [self.context countForFetchRequest:request
+                                                  error:&error];
+  if (count == NSNotFound) {
+    DDLogFatal(@"error fetching place with id %@ - %@: %@", aId, [error localizedDescription], error);
+    abort();
+  } 
+  
+  if (count > 1) {
+    DDLogFatal(@"error fetching place with id: %@ - found multiple records: %d", aId, count);
+  } 
+  return count == 1;
+}
 
-- (void) requestForPredictionsCompletedWithPredictions:(NSArray *)aPredictions {
+- (NSArray *) fetchAllPlaces {
+  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LjsGooglePlace"];
+  NSError *error = nil;
+  NSArray *fetched = [self.context executeFetchRequest:request error:&error];
+  if (fetched == nil) {
+    DDLogFatal(@"error fetching places %@: %@", [error localizedDescription], error);
+    abort();
+  } 
+  
+  return fetched;
+}
+
+- (NSArray *) arrayOfLocationsForCurrentLocationWithRadius:(CGFloat) aRadius
+                                              searchString:(NSString *) aSearchString
+                                                  language:(NSString *) aLangCode {
+  [self.requestManager performPredictionRequestForCurrentLocationWithInput:aSearchString
+                                                                    radius:aRadius
+                                                                  language:aLangCode
+                                                      establishmentRequest:NO];
+  
+  return [self fetchAllPlaces];
+}
+
+#pragma mark Request Manager Callback Selectors
+
+- (void) requestForPredictionsCompletedWithPredictions:(NSArray *)aPredictions
+                                              userInfo:(NSDictionary *) aUserInfo {
   LjsGooglePlacesPrediction *prediction;
   for (prediction in aPredictions) {
-    DDLogDebug(@"starting request for details with prediction: %@", prediction);
-    [self.requestManager performDetailsRequestionForPrediction:prediction
-                                               language:@"en"];
+    NSString *placeId = prediction.stablePlaceId;
+    if ([self placeExistsForId:placeId] == NO) {
+      DDLogDebug(@"starting request for details with prediction: %@", prediction);
+      NSString *langCode = [aUserInfo objectForKey:@"language"];
+      [self.requestManager performDetailsRequestionForPrediction:prediction
+                                                        language:langCode];
+    }
   }
 }
 
@@ -151,8 +202,14 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
   DDLogDebug(@"request failed with code: %@", aStatusCode);
 }
 
-- (void) requestForDetailsCompletedWithDetails:(LjsGooglePlacesDetails *) aDetails {
-  DDLogDebug(@"details = %@", aDetails);
+- (void) requestForDetailsCompletedWithDetails:(LjsGooglePlacesDetails *) aDetails
+                                      userInfo:(NSDictionary *) aUserInfo {
+  NSString *placeId = aDetails.stablePlaceId;
+  if ([self placeExistsForId:placeId] == NO) {
+    [LjsGooglePlace initWithDetails:aDetails
+                            context:self.context];
+    [self saveContext];
+  }
 }
 
 - (void) requestForDetailsFailedWithCode:(NSUInteger) aCode

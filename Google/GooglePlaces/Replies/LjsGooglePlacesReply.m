@@ -69,7 +69,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
 }
 
-
 - (NSString *) status {
   if (self.dictionary == nil) {
     return LjsGoogleStatusLocalParseError; 
