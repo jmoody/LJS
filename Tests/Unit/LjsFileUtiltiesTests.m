@@ -109,11 +109,11 @@
 //  GHTestLog(@"GH test logging is working");
 //}
 
-#if TARGET_MACOS 
+#if !TARGET_IPHONE_SIMULATOR && !TARGET_IPHONE
 
 - (void) test_applicationFilesDirectory {
   NSString *result;
-  result = [LjsFileUtilities findApplicationFilesDirectory:YES];
+  result = [LjsFileUtilities findOrCreateApplicationFilesDirectory:YES];
   GHTestLog(@"application files directory: %@", result);
 }
 #endif

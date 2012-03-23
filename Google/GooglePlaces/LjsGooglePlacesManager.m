@@ -88,7 +88,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 
 - (id) init {
   NSString *decoded = [self decodeDefaultApiKey];
-  return [self initWithStoreDirectory:[LjsFileUtilities findLibraryDirectoryPath:YES]
+  return [self initWithStoreDirectory:[LjsFileUtilities findCoreDataLibraryPath:YES]
                         storeFilename:LjsGooglePlacesSqlLiteStore
                              apiToken:decoded];
                           
@@ -96,7 +96,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 
 
 - (id) initWithApiToken:(NSString *) aApiToken {
-  return [self initWithStoreDirectory:[LjsFileUtilities findLibraryDirectoryPath:YES]
+  return [self initWithStoreDirectory:[LjsFileUtilities findCoreDataLibraryPath:YES]
                         storeFilename:LjsGooglePlacesSqlLiteStore
                              apiToken:aApiToken];
                            
@@ -104,7 +104,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 
 - (id) initWithStoreFilename:(NSString *) aFilename 
                     apiToken:(NSString *) aApiToken {
-  return [self initWithStoreDirectory:[LjsFileUtilities findLibraryDirectoryPath:YES]
+  return [self initWithStoreDirectory:[LjsFileUtilities findCoreDataLibraryPath:YES]
                         storeFilename:aFilename
                              apiToken:aApiToken];
                           
@@ -115,6 +115,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
                      apiToken:(NSString *) aApiToken {
   self = [super init];
   if (self != nil) {
+    DDLogDebug(@"directory = %@", aDirectory);
     self.sqliteDirectory = aDirectory;
     self.sqliteFilename = aFilename;
     self.apiToken = aApiToken;

@@ -1,11 +1,8 @@
 #import "LjsGoogleMacOSAppDelegate.h"
 #import "Lumberjack.h"
 #import "LjsCategories.h"
-#import "LjsCaesarCipher.h"
-#import "LjsGoogleGlobals.h"
-#import "LjsGooglePlacesRequestManager.h"
 #import "LjsDecimalAide.h"
-#import "LjsGooglePlacesPrediction.h"
+#import "LjsGooglePlacesManager.h"
 
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -16,7 +13,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @interface LjsGoogleMacOSAppDelegate () 
 
-@property (nonatomic, strong) LjsGooglePlacesRequestManager *manager;
+@property (nonatomic, strong) LjsGooglePlacesManager *manager;
 
 @end
 
@@ -27,41 +24,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @synthesize model = __moModel;
 @synthesize coordinator = __coordinator;
 @synthesize manager;
-
-- (void) requestForPredictionsCompletedWithPredictions:(NSArray *)aPredictions {
-  LjsGooglePlacesPrediction *prediction;
-  for (prediction in aPredictions) {
-    DDLogDebug(@"starting request for details with prediction: %@", prediction);
-    [self.manager performDetailsRequestionForPrediction:prediction
-                                               language:@"en"];
-  }
-}
-
-- (void) requestForPredictionsFailedWithCode:(NSUInteger)aCode 
-                                     request:(ASIHTTPRequest *)aRequest {
-  DDLogDebug(@"request failed with code: %d", aCode);
-}
-
-- (void) requestForPredictionsFailedWithCode:(NSString *) aStatusCode
-                                       reply:(LjsGooglePlacesPredictiveReply *) aReply
-                                       error:(NSError *) aError {
-  DDLogDebug(@"request failed with code: %@", aStatusCode);
-}
-
-- (void) requestForDetailsCompletedWithDetails:(LjsGooglePlacesDetails *) aDetails {
-  DDLogDebug(@"details = %@", aDetails);
-}
-
-- (void) requestForDetailsFailedWithCode:(NSUInteger) aCode
-                                 request:(ASIHTTPRequest *) aRequest {
-  DDLogDebug(@"failed with code: %d", aCode);
-}
-
-- (void) requestForDetailsFailedWithCode:(NSString *) aStatusCode
-                                   reply:(LjsGooglePlacesDetailsReply *) aReply
-                                   error:(NSError *) aError {
-  DDLogDebug(@"failed with code : %@", aStatusCode);
-}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   // kick off the logger
@@ -77,17 +39,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [DDLog addLogger:fileLogger];
   DDLogDebug(@"logging initialized");
   
-  
-  NSString *defaultKey = LjsGoogleApiKey_joshuajmoody;
-  NSUInteger len = [defaultKey length];
-  LjsCaesarCipher *cipher = [[LjsCaesarCipher alloc]
-                             initWithRotate:len];
-  NSString *apiToken = [cipher stringByDecodingString:defaultKey];
-  
-  
-  self.manager = [[LjsGooglePlacesRequestManager alloc]
-                  initWithApiToken:apiToken
-                  resultHandler:self];
+
+  self.manager = [[LjsGooglePlacesManager alloc] init];
+                
   
   NSString *input, *langCode;
   NSDecimalNumber *radius;
@@ -97,11 +51,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   langCode = @"en";
   radius = [LjsDecimalAide dnWithInteger:30000];
   establishment = NO;
-  
-  [self.manager performPredictionRequestForCurrentLocationWithInput:input
-                                                        radius:radius
-                                                      language:langCode 
-                                          establishmentRequest:establishment];
   
 }
 

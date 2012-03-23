@@ -117,7 +117,7 @@
 		F512EAE9151C1176002E8E3A /* LjsGooglePlacesDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesDetails.m; sourceTree = "<group>"; };
 		F512EAEB151C129B002E8E3A /* LjsGooglePlacesAddressComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesAddressComponent.h; sourceTree = "<group>"; };
 		F512EAEC151C129B002E8E3A /* LjsGooglePlacesAddressComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesAddressComponent.m; sourceTree = "<group>"; };
-		F512EAEE151C1699002E8E3A /* LjsGooglePlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlace.h; sourceTree = "<group>"; };
+		F512EAEE151C1699002E8E3A /* LjsGooglePlace.h */ = {isa = PBXFileReference; fileEncoding = 4; path = LjsGooglePlace.h; sourceTree = "<group>"; };
 		F512EAEF151C1699002E8E3A /* LjsGooglePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlace.m; sourceTree = "<group>"; };
 		F512EAF1151C6B7E002E8E3A /* LjsGooglePlacesAttribution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesAttribution.h; sourceTree = "<group>"; };
 		F512EAF2151C6B7E002E8E3A /* LjsGooglePlacesAttribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesAttribution.m; sourceTree = "<group>"; };
@@ -339,6 +339,7 @@
 		F512EAE7151C1148002E8E3A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F5BB1FE7151BCC4300BFDDA0 /* LjsGooglePlacesModel.xcdatamodeld */,
 				F512EAEE151C1699002E8E3A /* LjsGooglePlace.h */,
 				F512EAEF151C1699002E8E3A /* LjsGooglePlace.m */,
 				F5BB1FE9151BCC4300BFDDA0 /* LjsGooglePlacesPrediction.h */,
@@ -617,7 +618,6 @@
 				F512EAE6151C10EE002E8E3A /* Replies */,
 				F5BB1FE5151BCC4300BFDDA0 /* LjsGooglePlacesManager.h */,
 				F5BB1FE6151BCC4300BFDDA0 /* LjsGooglePlacesManager.m */,
-				F5BB1FE7151BCC4300BFDDA0 /* LjsGooglePlacesModel.xcdatamodeld */,
 				F5BB1FED151BCC4300BFDDA0 /* LjsGooglePlacesRequestManager.h */,
 				F5BB1FEE151BCC4300BFDDA0 /* LjsGooglePlacesRequestManager.m */,
 			);

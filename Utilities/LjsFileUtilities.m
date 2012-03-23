@@ -146,10 +146,10 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
 
 + (NSString *) findCoreDataLibraryPath:(BOOL) forUser {
   NSString *result;
-#if TARGET_OS_IPHONE
+#if TARGET_IPHONE_SIMULATOR || TARGET_IPHONE
   result = [LjsFileUtilities findLibraryDirectoryPath:forUser];
 #else
-  result = [LjsFileUtilities findApplicationFilesDirectory:forUser];
+  result = [LjsFileUtilities findOrCreateApplicationFilesDirectory:forUser];
 #endif
   return result;
 }
@@ -183,7 +183,7 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
   return parentDirectory;
 }
 
-#if !TARGET_OS_IPHONE
+#if !TARGET_IPHONE_SIMULATOR && !TARGET_IPHONE
 /**
  creates a NSOpenPanel and returns the users selection as a path string.
  @return a string representing the path to the file or directory of the user's
@@ -235,7 +235,7 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
   return result;
 }
 
-+ (NSString *) findApplicationFilesDirectory:(BOOL) forUser {
++ (NSString *) findOrCreateApplicationFilesDirectory:(BOOL) forUser {
   NSSearchPathDomainMask mask;
   if (forUser == YES) {
     mask = NSUserDomainMask;
@@ -247,7 +247,12 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
   NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory,
                                       mask, 
                                       YES);
-  return [dirPaths objectAtIndex:0];
+  NSString *appSupDir = [dirPaths objectAtIndex:0];
+  NSBundle *main = [NSBundle mainBundle];
+  NSString *bundleName = [main.infoDictionary objectForKey:@"CFBundleName"];
+  NSString *result = [appSupDir stringByAppendingPathComponent:bundleName];
+  [LjsFileUtilities ensureDirectory:result error:nil];
+  return result;
 }
 #endif
 

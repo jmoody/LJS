@@ -307,7 +307,7 @@
 		F50FE6F71410CC420051FC7E /* LjsVariates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsVariates.h; sourceTree = "<group>"; };
 		F50FE6F81410CC420051FC7E /* LjsVariates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariates.m; sourceTree = "<group>"; };
 		F50FE7331410D30D0051FC7E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		F512EAF4151C72B5002E8E3A /* LjsGooglePlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlace.h; sourceTree = "<group>"; };
+		F512EAF4151C72B5002E8E3A /* LjsGooglePlace.h */ = {isa = PBXFileReference; fileEncoding = 4; path = LjsGooglePlace.h; sourceTree = "<group>"; };
 		F512EAF5151C72B5002E8E3A /* LjsGooglePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlace.m; sourceTree = "<group>"; };
 		F512EAF6151C72B5002E8E3A /* LjsGooglePlacesAddressComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesAddressComponent.h; sourceTree = "<group>"; };
 		F512EAF7151C72B5002E8E3A /* LjsGooglePlacesAddressComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesAddressComponent.m; sourceTree = "<group>"; };
