@@ -26,48 +26,32 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#if ! __has_feature(objc_arc)
-#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
-#endif
 
-#import "LjsGooglePlacesAttribution.h"
-#import "Lumberjack.h"
-#import "LjsValidator.h"
-#import "LjsGoogleGlobals.h"
+#import <Foundation/Foundation.h>
 
-#ifdef LOG_CONFIGURATION_DEBUG
-static const int ddLogLevel = LOG_LEVEL_DEBUG;
-#else
-static const int ddLogLevel = LOG_LEVEL_WARN;
-#endif
+/**
+ Documentation
+ */
+@interface LjsGooglePlacesNmoAddressComponent : NSObject 
 
-@implementation LjsGooglePlacesAttribution
-
-@synthesize html;
-
-#pragma mark Memory Management
-- (void) dealloc {
-   DDLogDebug(@"deallocating %@", [self class]);
-}
-
-- (id) initWithHtml:(NSString *)aHtml {
-  self = [super init];
-  if (self) {
-    BOOL valid = [LjsValidator stringIsNonNilAndNotEmpty:aHtml];
-    if (valid == NO) {
-      DDLogWarn(@"@<%@> must be non-nil and non-empty - returning nil", aHtml);
-      return nil;
-    }
-    self.html = aHtml;
-  }
-  return self;
-}
+/** @name Properties */
+@property (nonatomic, copy) NSString *longName;
+@property (nonatomic, copy) NSString *shortName;
+@property (nonatomic, strong) NSArray *types;
 
 
-- (NSString *) description {
-  return [NSString stringWithFormat:@"#<Attribution:  %@>",
-          self.html];
-}
+/** @name Initializing Objects */
+- (id) initWithDictionary:(NSDictionary *) aDictionary;
 
+/** @name Handling Notifications, Requests, and Events */
+
+/** @name Utility */
+- (BOOL) isStreetNumber;
+- (BOOL) isRoute;
+- (BOOL) isLocality;
+- (BOOL) isAdministrativeArea1;
+- (BOOL) isAdministrativeArea2;
+- (BOOL) isCountry;
+- (BOOL) isPostalCode;
 
 @end

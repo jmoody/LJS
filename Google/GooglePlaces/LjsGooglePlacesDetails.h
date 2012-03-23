@@ -28,12 +28,12 @@
 
 
 #import <Foundation/Foundation.h>
-#import "LjsGooglePlace.h"
+#import "LjsGoogleNmoPlace.h"
 
 /**
  Documentation
  */
-@interface LjsGooglePlacesDetails : LjsGooglePlace
+@interface LjsGooglePlacesDetails : LjsGoogleNmoPlace
 
 /** @name Properties */
 @property (nonatomic, strong) NSArray *addressComponents;

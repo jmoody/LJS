@@ -66,7 +66,7 @@
 #endif
 
 #import "LjsTestCase.h"
-#import "LjsGooglePlacesAttribution.h"
+#import "LjsGooglePlacesNmoAttribution.h"
 
 
 @interface LjsGooglePlacesAttributeTests : LjsTestCase {}
@@ -108,19 +108,19 @@
 
 - (void) test_init {
   NSString *html;
-  LjsGooglePlacesAttribution *attr;
+  LjsGooglePlacesNmoAttribution *attr;
 
   html = @"some html";
-  attr = [[LjsGooglePlacesAttribution alloc] initWithHtml:html];
+  attr = [[LjsGooglePlacesNmoAttribution alloc] initWithHtml:html];
   GHAssertNotNil(attr, nil);
   GHAssertEqualStrings(attr.html, html, nil);
   
   html = @"";
-  attr = [[LjsGooglePlacesAttribution alloc] initWithHtml:html];
+  attr = [[LjsGooglePlacesNmoAttribution alloc] initWithHtml:html];
   GHAssertNil(attr, nil);
 
   html = nil;
-  attr = [[LjsGooglePlacesAttribution alloc] initWithHtml:html];
+  attr = [[LjsGooglePlacesNmoAttribution alloc] initWithHtml:html];
   GHAssertNil(attr, nil);
            
 }

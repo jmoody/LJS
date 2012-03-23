@@ -34,9 +34,9 @@
 #import "Lumberjack.h"
 #import "LjsLocationManager.h"
 #import "LjsGoogleGlobals.h"
-#import "LjsGooglePlacesAddressComponent.h"
+#import "LjsGooglePlacesNmoAddressComponent.h"
 #import "NSMutableArray+LjsAdditions.h"
-#import "LjsGooglePlacesAttribution.h"
+#import "LjsGooglePlacesNmoAttribution.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -97,9 +97,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     
     NSArray *components = [aDictionary objectForKey:@"address_components"];
     NSMutableArray *marray = [NSMutableArray arrayWithCapacity:[components count]];
-    LjsGooglePlacesAddressComponent *comp;
+    LjsGooglePlacesNmoAddressComponent *comp;
     for (NSDictionary *compDict in components) {
-      comp = [[LjsGooglePlacesAddressComponent alloc]
+      comp = [[LjsGooglePlacesNmoAddressComponent alloc]
               initWithDictionary:compDict];
       [marray append:comp];
     }
@@ -108,8 +108,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     NSArray *html = [aDictionary objectForKey:@"html_attributions"];
     marray = [NSMutableArray arrayWithCapacity:[html count]];
     for (NSString *str in html) {
-      LjsGooglePlacesAttribution *attr;
-      attr = [[LjsGooglePlacesAttribution alloc] initWithHtml:str];
+      LjsGooglePlacesNmoAttribution *attr;
+      attr = [[LjsGooglePlacesNmoAttribution alloc] initWithHtml:str];
       [marray append:attr];
     }
     self.attributions = [NSArray arrayWithArray:marray];

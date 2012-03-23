@@ -28,11 +28,11 @@
 
 
 #import <Foundation/Foundation.h>
-#import "LjsGooglePlace.h"
+#import "LjsGoogleNmoPlace.h"
 /**
  Documentation
  */
-@interface LjsGooglePlacesPrediction : LjsGooglePlace
+@interface LjsGooglePlacesPrediction : LjsGoogleNmoPlace
 
 /** @name Properties */
 @property (nonatomic, copy) NSString *prediction;

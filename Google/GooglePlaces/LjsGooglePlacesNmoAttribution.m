@@ -26,22 +26,48 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
 
-#import <Foundation/Foundation.h>
+#import "LjsGooglePlacesNmoAttribution.h"
+#import "Lumberjack.h"
+#import "LjsValidator.h"
+#import "LjsGoogleGlobals.h"
 
-/**
- Documentation
- */
-@interface LjsGooglePlacesAttribution : NSObject 
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
 
-/** @name Properties */
-@property (nonatomic, strong) NSString *html;
+@implementation LjsGooglePlacesNmoAttribution
 
-/** @name Initializing Objects */
-- (id) initWithHtml:(NSString *) aHtml;
+@synthesize html;
 
-/** @name Handling Notifications, Requests, and Events */
+#pragma mark Memory Management
+- (void) dealloc {
+   DDLogDebug(@"deallocating %@", [self class]);
+}
 
-/** @name Utility */
+- (id) initWithHtml:(NSString *)aHtml {
+  self = [super init];
+  if (self) {
+    BOOL valid = [LjsValidator stringIsNonNilAndNotEmpty:aHtml];
+    if (valid == NO) {
+      DDLogWarn(@"@<%@> must be non-nil and non-empty - returning nil", aHtml);
+      return nil;
+    }
+    self.html = aHtml;
+  }
+  return self;
+}
+
+
+- (NSString *) description {
+  return [NSString stringWithFormat:@"#<Attribution:  %@>",
+          self.html];
+}
+
 
 @end

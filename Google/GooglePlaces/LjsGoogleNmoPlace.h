@@ -32,13 +32,12 @@
 /**
  Documentation
  */
-@interface LjsGooglePlacesAddressComponent : NSObject 
+@interface LjsGoogleNmoPlace : NSObject 
 
 /** @name Properties */
-@property (nonatomic, copy) NSString *longName;
-@property (nonatomic, copy) NSString *shortName;
+@property (nonatomic, copy) NSString *stablePlaceId;
+@property (nonatomic, copy) NSString *searchReferenceId;
 @property (nonatomic, strong) NSArray *types;
-
 
 /** @name Initializing Objects */
 - (id) initWithDictionary:(NSDictionary *) aDictionary;
@@ -46,12 +45,5 @@
 /** @name Handling Notifications, Requests, and Events */
 
 /** @name Utility */
-- (BOOL) isStreetNumber;
-- (BOOL) isRoute;
-- (BOOL) isLocality;
-- (BOOL) isAdministrativeArea1;
-- (BOOL) isAdministrativeArea2;
-- (BOOL) isCountry;
-- (BOOL) isPostalCode;
 
 @end

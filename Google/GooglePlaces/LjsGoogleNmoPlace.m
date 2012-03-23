@@ -30,11 +30,10 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsGooglePlacesAddressComponent.h"
+#import "LjsGoogleNmoPlace.h"
 #import "Lumberjack.h"
 #import "LjsValidator.h"
 #import "NSArray+LjsAdditions.h"
-
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -42,21 +41,21 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-@implementation LjsGooglePlacesAddressComponent
+@implementation LjsGoogleNmoPlace
 
-@synthesize longName;
-@synthesize shortName;
+@synthesize stablePlaceId;
+@synthesize searchReferenceId;
 @synthesize types;
 
 #pragma mark Memory Management
 - (void) dealloc {
-  //DDLogDebug(@"deallocating %@", [self class]);
+   DDLogDebug(@"deallocating %@", [self class]);
 }
 
-- (id) initWithDictionary:(NSDictionary *)aDictionary {
+- (id) initWithDictionary:(NSDictionary *) aDictionary {
   self = [super init];
   if (self) {
-    NSArray *keys = [NSArray arrayWithObjects:@"long_name", @"short_name", @"types", nil];
+    NSArray *keys = [NSArray arrayWithObjects:@"id", @"reference", @"types", nil];
     BOOL valid;
     valid = [LjsValidator dictionary:aDictionary containsKeys:keys allowsOthers:YES];
     if (valid == NO) {
@@ -72,49 +71,17 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
         return nil;
       }
     }
-    
-    self.longName = [aDictionary objectForKey:@"long_name"];
-    self.shortName = [aDictionary objectForKey:@"short_name"];
     self.types = [aDictionary objectForKey:@"types"];
     
     if (self.types == nil || [self.types count] == 0) {
       return nil;
     }
+    
+    self.stablePlaceId = [aDictionary objectForKey:@"id"];
+    self.searchReferenceId = [aDictionary objectForKey:@"reference"];
   }
   return self;
 }
 
-- (BOOL) isStreetNumber {
-  return [LjsValidator array:self.types containsString:@"street_number"];
-}
-
-- (BOOL) isRoute {
-  return [LjsValidator array:self.types containsString:@"route"];
-}
-
-- (BOOL) isLocality {
-  return [LjsValidator array:self.types containsString:@"locality"];
-}
-
-- (BOOL) isAdministrativeArea1 {
-  return [LjsValidator array:self.types containsString:@"administrative_area_level_1"];
-}
-
-- (BOOL) isAdministrativeArea2 {
-  return [LjsValidator array:self.types containsString:@"administrative_area_level_2"];
-}
-
-- (BOOL) isCountry {
-  return [LjsValidator array:self.types containsString:@"country"];
-}
-
-- (BOOL) isPostalCode {
-  return [LjsValidator array:self.types containsString:@"postal_code"];
-}
-
-- (NSString *) description {
-  return [NSString stringWithFormat:@"#<Address Component:  %@ (%@) - [%@]>",
-          self.longName, self.shortName, [self.types componentsJoinedByString:@","]];
-}
 
 @end

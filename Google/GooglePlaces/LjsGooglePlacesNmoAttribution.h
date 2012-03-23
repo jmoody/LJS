@@ -32,15 +32,13 @@
 /**
  Documentation
  */
-@interface LjsGooglePlace : NSObject 
+@interface LjsGooglePlacesNmoAttribution : NSObject 
 
 /** @name Properties */
-@property (nonatomic, copy) NSString *stablePlaceId;
-@property (nonatomic, copy) NSString *searchReferenceId;
-@property (nonatomic, strong) NSArray *types;
+@property (nonatomic, strong) NSString *html;
 
 /** @name Initializing Objects */
-- (id) initWithDictionary:(NSDictionary *) aDictionary;
+- (id) initWithHtml:(NSString *) aHtml;
 
 /** @name Handling Notifications, Requests, and Events */
 
