@@ -26,18 +26,32 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import <Foundation/Foundation.h>
-#import "ASIHTTPRequest.h"
-/**
- ASIHTTPRequest on ASIHTTPRequest_LjsAdditions category.
- */
-@interface ASIHTTPRequest (ASIHTTPRequest_LjsAdditions)
 
-/** @name Task Section */
-- (NSUInteger) responseCode;
-- (NSString *) errorMessage;
-- (NSString *) responseDescription;
-- (BOOL) didTimeOut;
-- (BOOL) was200or201Successful;
+#import <Foundation/Foundation.h>
+
+/**
+ Documentation
+ */
+@interface LjsGooglePlacesReply : NSObject 
+
+/** @name Properties */
+@property (nonatomic, strong) NSDictionary *dictionary;
+
+/** @name Initializing Objects */
+- (id) initWithReply:(NSString *) aReply
+               error:(NSError *__autoreleasing *)error;
+
+/** @name Handling Notifications, Requests, and Events */
+
+/** @name Utility */
+- (NSString *) status;
+- (BOOL) statusHasResults;
+- (BOOL) statusNoResults;
+- (BOOL) statusRejected;
+- (BOOL) statusOverQueryLimit;
+- (BOOL) statusRequestDenied;
+- (BOOL) statusInvalidRequest;
+- (BOOL) statusLocalParseError;
+- (NSUInteger) count;
 
 @end

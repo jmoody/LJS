@@ -29,6 +29,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+//extern CGFloat const LjsLocationManagerLocationHeadingNotFound;
+
+extern CGFloat const LjsLatitudeNotFound;
+extern CGFloat const LjsLongitudeNotFound;
+extern CGFloat const LjsHeadingNotFound;
+
+
 /**
  A singleton class wrapper around the Location Services.
  
@@ -57,36 +64,7 @@
 @interface LjsLocationManager : NSObject <CLLocationManagerDelegate> 
 
 /** @name Properties */
-/** 
- the core location manager
- @warning do not access directly use locationAvailable, longitude, and latitude
- methods */
-@property (nonatomic, strong) CLLocationManager *coreLocationManager;
-/** 
- the current location
- @warning do not access directly use locationAvailable, longitude, and latitude
- methods */
-@property (nonatomic, strong) CLLocation *coreLocation;
 
-/** 
- the current heading
- @warning do not access directly use headingAvailable and heading methods
- methods */
-@property (nonatomic, strong) CLHeading *coreHeading;
-/** 
- a decimal number handler for converting coordinates to decimal numbers
- */
-@property (nonatomic, strong) NSDecimalNumberHandler *handler;
-
-/**
- indicates a bad latitude or longitude
- */
-@property (nonatomic, strong) NSDecimalNumber *noLocation;
-
-/**
- indidcates a bad heading
- */
-@property (nonatomic, strong) NSDecimalNumber *noHeading;
 
 #ifdef LJS_LOCATION_SERVICES_DEBUG 
 /**

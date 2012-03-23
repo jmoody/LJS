@@ -30,9 +30,10 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsGooglePlacesPrediction.h"
+#import "LjsGooglePlace.h"
 #import "Lumberjack.h"
-#import "NSMutableArray+LjsAdditions.h"
+#import "LjsValidator.h"
+#import "NSArray+LjsAdditions.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -40,75 +41,47 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+@implementation LjsGooglePlace
 
-@interface LjsGooglePlacesPrediction ()
-
-@property (nonatomic, strong) NSDictionary *sourceDictionary;
-
-- (NSRange) makeRangeWithDictionary:(NSDictionary *) aDictionary;
-- (NSArray *) makeRangesWithArray:(NSArray *) aArray;
-- (NSArray *) tokensWithTermsArray:(NSArray *) aArray;
-
-@end
-
-@implementation LjsGooglePlacesPrediction
-
-@synthesize prediction;
-@synthesize tokens;
-@synthesize matchedRanges;
-@synthesize sourceDictionary;
-
+@synthesize stablePlaceId;
+@synthesize searchReferenceId;
+@synthesize types;
 
 #pragma mark Memory Management
 - (void) dealloc {
-  //DDLogDebug(@"deallocating %@", [self class]);
+   DDLogDebug(@"deallocating %@", [self class]);
 }
 
 - (id) initWithDictionary:(NSDictionary *) aDictionary {
-  self = [super initWithDictionary:aDictionary];
+  self = [super init];
   if (self) {
-    self.sourceDictionary = aDictionary;
-    self.prediction = [aDictionary objectForKey:@"description"];
+    NSArray *keys = [NSArray arrayWithObjects:@"id", @"reference", @"types", nil];
+    BOOL valid;
+    valid = [LjsValidator dictionary:aDictionary containsKeys:keys allowsOthers:YES];
+    if (valid == NO) {
+      DDLogWarn(@"dictionary: %@ must contain keys %@ - returning nil", aDictionary, keys);
+      return nil;
+    }
     
-    NSArray *ranges = [aDictionary objectForKey:@"matched_substrings"];
-    self.matchedRanges = [self makeRangesWithArray:ranges];
+    for (NSString *key in [[keys reverse] rest]) {
+      NSString *value = [aDictionary objectForKey:key];
+      valid = [LjsValidator stringIsNonNilAndNotEmpty:value];
+      if (valid == NO) {
+        DDLogWarn(@"@< %@ > must be non-nil and non-empty - returning nil", value);
+        return nil;
+      }
+    }
+    self.types = [aDictionary objectForKey:@"types"];
     
-    NSArray *terms = [aDictionary objectForKey:@"terms"];
-    self.tokens = [self tokensWithTermsArray:terms];
+    if (self.types == nil || [self.types count] == 0) {
+      return nil;
+    }
     
+    self.stablePlaceId = [aDictionary objectForKey:@"id"];
+    self.searchReferenceId = [aDictionary objectForKey:@"reference"];
   }
   return self;
 }
 
-- (NSArray *) makeRangesWithArray:(NSArray *)aArray {
-  NSMutableArray *result = [NSMutableArray arrayWithCapacity:[aArray count]];
-  for (NSDictionary *rangeDict in aArray) {
-    NSRange range = [self makeRangeWithDictionary:rangeDict];
-    NSString *str = NSStringFromRange(range);
-    [result append:str];
-  }
-  
-  return result;
-}
-
-- (NSRange) makeRangeWithDictionary:(NSDictionary *)aDictionary {
-  NSNumber *offset = [aDictionary objectForKey:@"offset"];
-  NSNumber *length = [aDictionary objectForKey:@"length"];
-  return NSMakeRange([offset intValue],
-                     [length intValue]);
-}
-
-- (NSArray *) tokensWithTermsArray:(NSArray *) aArray {
-  NSMutableArray *result = [NSMutableArray arrayWithCapacity:[aArray count]];
-  for (NSDictionary *termDict in aArray) {
-    NSString *value = [termDict objectForKey:@"value"];
-    [result append:value];
-  }
-  return result;
-}
-
-- (NSString *) description {
-  return [NSString stringWithFormat:@"#<Prediction %@>", self.prediction];
-}
 
 @end

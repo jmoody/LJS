@@ -66,17 +66,13 @@
 #endif
 
 #import "LjsTestCase.h"
-#import "LjsGooglePlacesPredictiveReply.h"
+#import "LjsFileUtilities.h"
 
-@interface LjsGooglePlacesPredictiveReplyTests : LjsTestCase 
-
-@property (nonatomic, copy) NSString *replyWithPredictions;
-
+@interface LjsFileUtiltiesTests : LjsTestCase {}
 @end
 
-@implementation LjsGooglePlacesPredictiveReplyTests
+@implementation LjsFileUtiltiesTests
 
-@synthesize replyWithPredictions;
 //- (id) init {
 //  self = [super init];
 //  if (self) {
@@ -95,14 +91,6 @@
 
 - (void) setUpClass {
   // Run at start of all tests in the class
-  NSBundle *main = [NSBundle mainBundle];
-  NSString *path = [main pathForResource:@"google-places-autocomplete-sample"
-                                  ofType:@"json"];
-  NSFileManager *fm = [NSFileManager defaultManager];
-  
-  NSData *data = [fm contentsAtPath:path];
-  NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-  self.replyWithPredictions = str;
 }
 
 - (void) tearDownClass {
@@ -117,28 +105,24 @@
   // Run after each test method
 }  
 
-- (void) test_replyWithPredictions {
-  LjsGooglePlacesPredictiveReply *reply;
-  
-  NSError *error = nil;
-  reply = [[LjsGooglePlacesPredictiveReply alloc]
-           initWithReply:self.replyWithPredictions
-           error:&error];
-  // tests description
-  GHTestLog(@"reply = %@", reply);
-  
-  GHAssertNil(error, nil);
-  GHAssertTrue([reply statusHasPredictions], nil);
-  GHAssertFalse([reply statusInvalidRequest], nil);
-  GHAssertFalse([reply statusLocalParseError], nil);
-  GHAssertFalse([reply statusNoResults], nil);
-  GHAssertFalse([reply statusOverQueryLimit], nil);
-  GHAssertFalse([reply statusRequestDenied], nil);
-  
-  GHAssertEquals((NSUInteger)[reply count], (NSUInteger)5, nil);
-  GHAssertNotNil([reply predictions], nil);
-  
+//- (void)testGHLog {
+//  GHTestLog(@"GH test logging is working");
+//}
 
+#if TARGET_MACOS 
 
+- (void) test_applicationFilesDirectory {
+  NSString *result;
+  result = [LjsFileUtilities findApplicationFilesDirectory:YES];
+  GHTestLog(@"application files directory: %@", result);
 }
+#endif
+
+
+- (void) test_findCoreDataLibraryPath {
+  NSString *result;
+  result = [LjsFileUtilities findCoreDataLibraryPath:YES];
+  GHTestLog(@"core data library path = %@", result);
+}
+
 @end

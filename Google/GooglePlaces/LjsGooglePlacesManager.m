@@ -35,6 +35,10 @@
 #import "Lumberjack.h"
 #import "LjsFileUtilities.h"
 #import "LjsCaesarCipher.h"
+#import "LjsGooglePlacesDetailsReply.h"
+#import "LjsGooglePlacesPredictiveReply.h"
+#import "LjsGooglePlacesDetails.h"
+#import "LjsGooglePlacesPrediction.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -66,6 +70,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 @synthesize sqliteFilename;
 @synthesize sqliteDirectory;
 @synthesize apiToken;
+@synthesize requestManager = __requestManager;
 
 
 #pragma mark Memory Management
@@ -114,6 +119,9 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
     self.sqliteFilename = aFilename;
     self.apiToken = aApiToken;
     
+    // initalize
+    [self requestManager];
+    
     // initialize
     [self context];
   }
@@ -121,13 +129,63 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 }
 
 
+
+- (void) requestForPredictionsCompletedWithPredictions:(NSArray *)aPredictions {
+  LjsGooglePlacesPrediction *prediction;
+  for (prediction in aPredictions) {
+    DDLogDebug(@"starting request for details with prediction: %@", prediction);
+    [self.requestManager performDetailsRequestionForPrediction:prediction
+                                               language:@"en"];
+  }
+}
+
+- (void) requestForPredictionsFailedWithCode:(NSUInteger)aCode 
+                                     request:(ASIHTTPRequest *)aRequest {
+  DDLogDebug(@"request failed with code: %d", aCode);
+}
+
+- (void) requestForPredictionsFailedWithCode:(NSString *) aStatusCode
+                                       reply:(LjsGooglePlacesPredictiveReply *) aReply
+                                       error:(NSError *) aError {
+  DDLogDebug(@"request failed with code: %@", aStatusCode);
+}
+
+- (void) requestForDetailsCompletedWithDetails:(LjsGooglePlacesDetails *) aDetails {
+  DDLogDebug(@"details = %@", aDetails);
+}
+
+- (void) requestForDetailsFailedWithCode:(NSUInteger) aCode
+                                 request:(ASIHTTPRequest *) aRequest {
+  DDLogDebug(@"failed with code: %d", aCode);
+}
+
+- (void) requestForDetailsFailedWithCode:(NSString *) aStatusCode
+                                   reply:(LjsGooglePlacesDetailsReply *) aReply
+                                   error:(NSError *) aError {
+  DDLogDebug(@"failed with code : %@", aStatusCode);
+}
+
+
+- (LjsGooglePlacesRequestManager *) requestManager {
+  if (__requestManager != nil) {
+    return __requestManager;
+  }
+  
+  __requestManager =  [[LjsGooglePlacesRequestManager alloc]
+                       initWithApiToken:self.apiToken
+                       resultHandler:self];
+  return __requestManager;
+}
+
+
+#pragma mark Core Data Stack
+
 - (NSURL *) urlForSqlitePath {
   NSURL *dirUrl = [NSURL fileURLWithPath:self.sqliteDirectory];
   NSURL *result = [dirUrl URLByAppendingPathComponent:self.sqliteFilename];
   return result;
 }
 
-#pragma mark Core Data Stack
 - (NSManagedObjectModel *) model {
   if (__moModel != nil) { 
     return __moModel; 

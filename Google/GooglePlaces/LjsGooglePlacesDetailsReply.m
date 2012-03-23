@@ -26,18 +26,48 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import <Foundation/Foundation.h>
-#import "ASIHTTPRequest.h"
-/**
- ASIHTTPRequest on ASIHTTPRequest_LjsAdditions category.
- */
-@interface ASIHTTPRequest (ASIHTTPRequest_LjsAdditions)
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
 
-/** @name Task Section */
-- (NSUInteger) responseCode;
-- (NSString *) errorMessage;
-- (NSString *) responseDescription;
-- (BOOL) didTimeOut;
-- (BOOL) was200or201Successful;
+#import "LjsGooglePlacesDetailsReply.h"
+#import "Lumberjack.h"
+
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
+
+@implementation LjsGooglePlacesDetailsReply
+
+#pragma mark Memory Management
+
+- (void) dealloc {
+//  DDLogDebug(@"deallocating %@", [self class]);
+}
+
+- (LjsGooglePlacesDetails *) details {
+  LjsGooglePlacesDetails *result = nil;
+  if ([self statusHasResults]) {
+    NSString *attributions = [self.dictionary objectForKey:@"html_attributions"];
+    NSDictionary *details = [self.dictionary objectForKey:@"result"];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict addEntriesFromDictionary:details];
+    [dict setObject:attributions forKey:@"html_attributions"];
+    
+    result = [[LjsGooglePlacesDetails alloc]
+              initWithDictionary:dict];
+  }
+  return result;
+}
+
+
+- (NSString *) description {
+  return [NSString stringWithFormat:@"#<Details Reply:  %@ %@>",
+          [self status], [self details]];
+}
+
+
 
 @end

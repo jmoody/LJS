@@ -26,18 +26,33 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import <Foundation/Foundation.h>
-#import "ASIHTTPRequest.h"
-/**
- ASIHTTPRequest on ASIHTTPRequest_LjsAdditions category.
- */
-@interface ASIHTTPRequest (ASIHTTPRequest_LjsAdditions)
 
-/** @name Task Section */
-- (NSUInteger) responseCode;
-- (NSString *) errorMessage;
-- (NSString *) responseDescription;
-- (BOOL) didTimeOut;
-- (BOOL) was200or201Successful;
+#import <Foundation/Foundation.h>
+#import "LjsGooglePlace.h"
+
+/**
+ Documentation
+ */
+@interface LjsGooglePlacesDetails : LjsGooglePlace
+
+/** @name Properties */
+@property (nonatomic, strong) NSArray *addressComponents;
+@property (nonatomic, copy) NSString *formattedAddress;
+@property (nonatomic, copy) NSString *formattedPhoneNumber;
+@property (nonatomic, copy) NSString *internationalPhoneNumber;
+@property (nonatomic, assign) CGPoint location;
+@property (nonatomic, assign) CGFloat rating;
+@property (nonatomic, copy) NSString *icon;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *mapUrl;
+@property (nonatomic, copy) NSString *vicinity;
+@property (nonatomic, copy) NSString *website;
+@property (nonatomic, copy) NSArray *attributions;
+
+/** @name Initializing Objects */
+
+/** @name Handling Notifications, Requests, and Events */
+
+/** @name Utility */
 
 @end

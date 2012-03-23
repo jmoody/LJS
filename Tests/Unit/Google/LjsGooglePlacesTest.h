@@ -26,18 +26,14 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import <Foundation/Foundation.h>
-#import "ASIHTTPRequest.h"
-/**
- ASIHTTPRequest on ASIHTTPRequest_LjsAdditions category.
- */
-@interface ASIHTTPRequest (ASIHTTPRequest_LjsAdditions)
+#import "LjsTestCase.h"
+#import "LjsGoogleGlobals.h"
 
-/** @name Task Section */
-- (NSUInteger) responseCode;
-- (NSString *) errorMessage;
-- (NSString *) responseDescription;
-- (BOOL) didTimeOut;
-- (BOOL) was200or201Successful;
+/**
+ Documentation
+*/
+@interface LjsGooglePlacesTest : LjsTestCase 
+@property (nonatomic, copy) NSString *jsonResource;
+@property (nonatomic, copy) NSString *resourceName;
 
 @end

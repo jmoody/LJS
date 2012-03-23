@@ -28,29 +28,20 @@
 
 
 #import <Foundation/Foundation.h>
+#import "LjsGooglePlacesReply.h"
 
 /**
  Documentation
  */
-@interface LjsGooglePlacesPredictiveReply : NSObject 
+@interface LjsGooglePlacesPredictiveReply : LjsGooglePlacesReply
 
 /** @name Properties */
 
 /** @name Initializing Objects */
-- (id) initWithReply:(NSString *) aReply
-               error:(NSError *__autoreleasing *)error;
 
 /** @name Handling Notifications, Requests, and Events */
 
 /** @name Utility */
-- (NSString *) status;
-- (BOOL) statusHasPredictions;
-- (BOOL) statusNoResults;
-- (BOOL) statusOverQueryLimit;
-- (BOOL) statusRequestDenied;
-- (BOOL) statusInvalidRequest;
-- (BOOL) statusLocalParseError;
-- (NSUInteger) count;
 - (NSArray *) predictions;
 
 @end

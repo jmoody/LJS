@@ -44,7 +44,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 //static const int ddLogLevel = LOG_LEVEL_WARN;
 //#endif
 
-static CGFloat const LjsLocationManagerLocationHeadingNotFound = -999.0;
+//CGFloat const LjsLocationManagerLocationHeadingNotFound = CGFLOAT_MIN;
+
+CGFloat const LjsLatitudeNotFound = CGFLOAT_MIN;
+CGFloat const LjsLongitudeNotFound = CGFLOAT_MIN;
+CGFloat const LjsHeadingNotFound = CGFLOAT_MIN;
+
 
 static CGFloat const LjsLocationManagerHeadingMin = 0.0;
 static CGFloat const LjsLocationManagerHeadingMax = 360.0;
@@ -65,6 +70,43 @@ static NSString *LjsLocationManagerZurichLatitude = @"8.32";
 
 
 static LjsLocationManager *singleton = nil;
+
+@interface LjsLocationManager () 
+
+/** 
+ the core location manager
+ @warning do not access directly use locationAvailable, longitude, and latitude
+ methods */
+@property (nonatomic, strong) CLLocationManager *coreLocationManager;
+/** 
+ the current location
+ @warning do not access directly use locationAvailable, longitude, and latitude
+ methods */
+@property (nonatomic, strong) CLLocation *coreLocation;
+
+/** 
+ the current heading
+ @warning do not access directly use headingAvailable and heading methods
+ methods */
+@property (nonatomic, strong) CLHeading *coreHeading;
+/** 
+ a decimal number handler for converting coordinates to decimal numbers
+ */
+@property (nonatomic, strong) NSDecimalNumberHandler *handler;
+
+/**
+ indicates a bad latitude or longitude
+ */
+@property (nonatomic, strong) NSDecimalNumber *noLocation;
+
+/**
+ indidcates a bad heading
+ */
+@property (nonatomic, strong) NSDecimalNumber *noHeading;
+
+
+@end
+
 
 @implementation LjsLocationManager
 
@@ -124,7 +166,7 @@ static LjsLocationManager *singleton = nil;
     self.handler = [LjsDecimalAide locationHandlerWithRoundMode:NSRoundPlain
                                                           scale:5];
     
-    self.noLocation = [LjsDecimalAide dnWithDouble:LjsLocationManagerLocationHeadingNotFound];
+    self.noLocation = [LjsDecimalAide dnWithDouble:LjsLongitudeNotFound];
     
     self.noHeading = self.noLocation;
     

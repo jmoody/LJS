@@ -28,23 +28,19 @@
 
 
 #import <Foundation/Foundation.h>
-
+#import "LjsGooglePlace.h"
 /**
  Documentation
  */
-@interface LjsGooglePlacesPrediction : NSObject 
+@interface LjsGooglePlacesPrediction : LjsGooglePlace
 
 /** @name Properties */
 @property (nonatomic, copy) NSString *prediction;
-@property (nonatomic, copy) NSString *stablePlaceId;
-@property (nonatomic, copy) NSString *searchReferenceId;
 @property (nonatomic, strong) NSArray *tokens;
-@property (nonatomic, strong) NSArray *types;
 @property (nonatomic, strong) NSArray *matchedRanges;
 
 /** @name Initializing Objects */
 - (id) initWithDictionary:(NSDictionary *) aDictionary;
-
 
 /** @name Handling Notifications, Requests, and Events */
 

@@ -50,7 +50,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  @param aRequest the request to query
  @return an NSInteger representing the response code.
  */
-- (NSInteger) responseCode {
+- (NSUInteger) responseCode {
   int statusCode = [self responseStatusCode];
   if (statusCode == 0) {
     statusCode = 408;
@@ -104,7 +104,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  @param aRequest the request to query
  @return  returns YES iff the request timed out
  */
-- (BOOL) requestDidTimeOut {
+- (BOOL) didTimeOut {
   NSInteger code = [self responseCode];
   return code == 408;
 }
@@ -114,7 +114,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  @param aRequest the request to query
  @return YES iff the request was successful with 200 or 201
  */
-- (BOOL) requestWas200or201Successful {
+- (BOOL) was200or201Successful {
   NSInteger code = [self responseCode];
   return code == 200 || code == 201;
 }

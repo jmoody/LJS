@@ -47,6 +47,10 @@ extern NSString *LjsGoogleStatusLocalParseError;
 extern NSString *LjsGooglePlacesKeyStatus;
 extern NSString *LjsGooglePlacesAutocompleteKeyPredictions;
 
+extern NSString *LjsGoogleStringNotFound;
+extern NSInteger LjsGoogleIntegerNotFound;
+extern CGFloat LjsGoogleFloatNotFound;
+
 
 
 /** @name Properties */

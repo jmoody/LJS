@@ -29,15 +29,18 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "LjsGooglePlacesRequestManager.h"
 
 /**
  Documentation
  */
 @interface LjsGooglePlacesManager : NSObject 
+<LjsGooglePlaceRequestManagerResultHandlerDelegate>
 
 /** @name Properties */
 @property (nonatomic, strong, readonly) NSManagedObjectContext *context; 
 @property (nonatomic, copy) NSString *apiToken;
+@property (nonatomic, strong, readonly) LjsGooglePlacesRequestManager *requestManager;
 
 /** @name Initializing Objects */
 - (id) init;

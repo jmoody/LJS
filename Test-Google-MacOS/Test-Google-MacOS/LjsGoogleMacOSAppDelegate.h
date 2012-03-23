@@ -1,6 +1,8 @@
 #import <Cocoa/Cocoa.h>
+#import "LjsGooglePlacesRequestManager.h"
 
-@interface LjsGoogleMacOSAppDelegate : NSObject <NSApplicationDelegate>
+@interface LjsGoogleMacOSAppDelegate : NSObject 
+<NSApplicationDelegate, LjsGooglePlaceRequestManagerResultHandlerDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 

@@ -35,6 +35,8 @@
 #import "LjsValidator.h"
 #import "LjsGoogleGlobals.h"
 #import "SBJson.h"
+#import "LjsGooglePlacesPrediction.h"
+#import "NSMutableArray+LjsAdditions.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -44,75 +46,29 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @interface LjsGooglePlacesPredictiveReply ()
 
-@property (nonatomic, strong) NSDictionary *dict;
 
 @end
 
 @implementation LjsGooglePlacesPredictiveReply
 
-@synthesize dict;
+
 
 #pragma mark Memory Management
 - (void) dealloc {
    DDLogDebug(@"deallocating %@", [self class]);
 }
 
-- (id) initWithReply:(NSString *) aReply 
-               error:(NSError *__autoreleasing *)error {
-  self = [super init];
-  if (self) {
-    SBJsonParser *parser = [[SBJsonParser alloc] init];
-    self.dict = [parser objectWithString:aReply
-                                   error:error];
-    
-  }
-  return self;
-}
-
-- (NSString *) status {
-  if (self.dict == nil) {
-    return LjsGoogleStatusLocalParseError; 
-  }
-  return [self.dict objectForKey:LjsGooglePlacesKeyStatus];
-}
-
-- (BOOL) statusHasPredictions {
-  return [LjsGoogleStatusOK isEqualToString:[self status]];
-}
-
-- (BOOL) statusNoResults {
-  return [LjsGoogleStatusNotFound isEqualToString:[self status]];
-}
-
-- (BOOL) statusOverQueryLimit {
-  return [LjsGoogleStatusOverQueryLimit isEqualToString:[self status]];
-}
-
-- (BOOL) statusRequestDenied {
-  return [LjsGoogleStatusRequestDenied isEqualToString:[self status]];
-}
-
-- (BOOL) statusInvalidRequest {
-  return [LjsGoogleStatusInvalidRequest isEqualToString:[self status]];
-}
-
-- (BOOL) statusLocalParseError {
-  return [LjsGoogleStatusLocalParseError isEqualToString:[self status]];
-}
-
-- (NSUInteger) count {
-  NSArray *predictions = [self predictions];
-  if (predictions == nil) {
-    return 0;
-  } else {
-    return [predictions count];
-  }
-}
-
 - (NSArray *) predictions {
   NSArray *result;
-  if ([self statusHasPredictions]) {
-    result = [self.dict objectForKey:LjsGooglePlacesAutocompleteKeyPredictions];
+  if ([self statusHasResults]) {
+    
+    NSArray *predictions = [self.dictionary objectForKey:LjsGooglePlacesAutocompleteKeyPredictions];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:[predictions count]];
+    for (NSDictionary *predDict in predictions) {
+      [array append:[[LjsGooglePlacesPrediction alloc] 
+                     initWithDictionary:predDict]];
+    }
+    result = [NSArray arrayWithArray:array];
   } else if ([self statusNoResults]) {
     result = [NSArray array];
   } else {

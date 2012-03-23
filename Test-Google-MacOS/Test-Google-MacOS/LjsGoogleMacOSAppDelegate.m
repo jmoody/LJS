@@ -5,6 +5,7 @@
 #import "LjsGoogleGlobals.h"
 #import "LjsGooglePlacesRequestManager.h"
 #import "LjsDecimalAide.h"
+#import "LjsGooglePlacesPrediction.h"
 
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -26,6 +27,41 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @synthesize model = __moModel;
 @synthesize coordinator = __coordinator;
 @synthesize manager;
+
+- (void) requestForPredictionsCompletedWithPredictions:(NSArray *)aPredictions {
+  LjsGooglePlacesPrediction *prediction;
+  for (prediction in aPredictions) {
+    DDLogDebug(@"starting request for details with prediction: %@", prediction);
+    [self.manager performDetailsRequestionForPrediction:prediction
+                                               language:@"en"];
+  }
+}
+
+- (void) requestForPredictionsFailedWithCode:(NSUInteger)aCode 
+                                     request:(ASIHTTPRequest *)aRequest {
+  DDLogDebug(@"request failed with code: %d", aCode);
+}
+
+- (void) requestForPredictionsFailedWithCode:(NSString *) aStatusCode
+                                       reply:(LjsGooglePlacesPredictiveReply *) aReply
+                                       error:(NSError *) aError {
+  DDLogDebug(@"request failed with code: %@", aStatusCode);
+}
+
+- (void) requestForDetailsCompletedWithDetails:(LjsGooglePlacesDetails *) aDetails {
+  DDLogDebug(@"details = %@", aDetails);
+}
+
+- (void) requestForDetailsFailedWithCode:(NSUInteger) aCode
+                                 request:(ASIHTTPRequest *) aRequest {
+  DDLogDebug(@"failed with code: %d", aCode);
+}
+
+- (void) requestForDetailsFailedWithCode:(NSString *) aStatusCode
+                                   reply:(LjsGooglePlacesDetailsReply *) aReply
+                                   error:(NSError *) aError {
+  DDLogDebug(@"failed with code : %@", aStatusCode);
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   // kick off the logger
@@ -51,7 +87,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   
   self.manager = [[LjsGooglePlacesRequestManager alloc]
                   initWithApiToken:apiToken
-                  resultHandler:nil];
+                  resultHandler:self];
   
   NSString *input, *langCode;
   NSDecimalNumber *radius;

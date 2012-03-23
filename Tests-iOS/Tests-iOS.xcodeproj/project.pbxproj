@@ -27,6 +27,23 @@
 		F50FE7041410CC420051FC7E /* LjsIdGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F41410CC420051FC7E /* LjsIdGenerator.m */; };
 		F50FE7061410CC420051FC7E /* LjsVariates.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F81410CC420051FC7E /* LjsVariates.m */; };
 		F50FE7351410D3160051FC7E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE7331410D30D0051FC7E /* Security.framework */; };
+		F512EB00151C72B5002E8E3A /* LjsGooglePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EAF5151C72B5002E8E3A /* LjsGooglePlace.m */; };
+		F512EB01151C72B5002E8E3A /* LjsGooglePlacesAddressComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EAF7151C72B5002E8E3A /* LjsGooglePlacesAddressComponent.m */; };
+		F512EB02151C72B5002E8E3A /* LjsGooglePlacesAttribution.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EAF9151C72B5002E8E3A /* LjsGooglePlacesAttribution.m */; };
+		F512EB03151C72B5002E8E3A /* LjsGooglePlacesDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EAFB151C72B5002E8E3A /* LjsGooglePlacesDetails.m */; };
+		F512EB04151C72B5002E8E3A /* LjsGooglePlacesDetailsReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EAFD151C72B5002E8E3A /* LjsGooglePlacesDetailsReply.m */; };
+		F512EB05151C72B5002E8E3A /* LjsGooglePlacesReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EAFF151C72B5002E8E3A /* LjsGooglePlacesReply.m */; };
+		F512EB0C151C7B68002E8E3A /* google-places-details-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F512EB0B151C7B68002E8E3A /* google-places-details-sample.json */; };
+		F512EB15151C7BBA002E8E3A /* LjsGooglePlacesAddressComponentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB0F151C7BBA002E8E3A /* LjsGooglePlacesAddressComponentTests.m */; };
+		F512EB16151C7BBA002E8E3A /* LjsGooglePlacesAttributeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB10151C7BBA002E8E3A /* LjsGooglePlacesAttributeTests.m */; };
+		F512EB17151C7BBA002E8E3A /* LjsGooglePlacesManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB11151C7BBA002E8E3A /* LjsGooglePlacesManagerTests.m */; };
+		F512EB18151C7BBA002E8E3A /* LjsGooglePlacesPredictionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB12151C7BBA002E8E3A /* LjsGooglePlacesPredictionTests.m */; };
+		F512EB19151C7BBA002E8E3A /* LjsGooglePlacesPredictiveReplyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB13151C7BBA002E8E3A /* LjsGooglePlacesPredictiveReplyTests.m */; };
+		F512EB1A151C7BBA002E8E3A /* LjsGooglePlacesRequestManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB14151C7BBA002E8E3A /* LjsGooglePlacesRequestManagerTests.m */; };
+		F512EB1C151C7BE4002E8E3A /* LjsGooglePlacesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB1B151C7BE4002E8E3A /* LjsGooglePlacesTest.m */; };
+		F512EB1F151C7E18002E8E3A /* LjsGooglePlacesDetailsReplyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB1E151C7E17002E8E3A /* LjsGooglePlacesDetailsReplyTests.m */; };
+		F512EB21151C8B5F002E8E3A /* LjsGooglePlaceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB20151C8B5F002E8E3A /* LjsGooglePlaceTests.m */; };
+		F512EBA2151CA285002E8E3A /* LjsFileUtiltiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EBA1151CA284002E8E3A /* LjsFileUtiltiesTests.m */; };
 		F515BF5114C629E2007052FF /* LjsFileBackedStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F515BF4E14C627EE007052FF /* LjsFileBackedStoreTests.m */; };
 		F51C63FD14B7917100F1841B /* LjsLabelAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = F51C63FC14B7917100F1841B /* LjsLabelAttributes.m */; };
 		F51C63FE14B7917100F1841B /* LjsLabelAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = F51C63FC14B7917100F1841B /* LjsLabelAttributes.m */; };
@@ -217,7 +234,6 @@
 		F5903FB4151B68DA00995AF1 /* LjsGooglePlacesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5903FB1151B68DA00995AF1 /* LjsGooglePlacesModel.xcdatamodeld */; };
 		F5903FBB151B6DFC00995AF1 /* LjsGoogleGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903FBA151B6DFC00995AF1 /* LjsGoogleGlobals.m */; };
 		F5903FBC151B6DFC00995AF1 /* LjsGoogleGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903FBA151B6DFC00995AF1 /* LjsGoogleGlobals.m */; };
-		F5903FBE151B6F4A00995AF1 /* LjsGooglePlacesManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5903FBD151B6F4A00995AF1 /* LjsGooglePlacesManagerTests.m */; };
 		F590BE9F14542E4900E5B89B /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */; };
 		F590BEA014542E4900E5B89B /* LjsLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9E14542E4900E5B89B /* LjsLogFileManager.m */; };
 		F59635D11496632000CDB27E /* LjsObjectWithUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635D01496632000CDB27E /* LjsObjectWithUUID.m */; };
@@ -227,14 +243,10 @@
 		F5B03A6714AA64E70015D59B /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B03A6614AA64E70015D59B /* GHUnitIOS.framework */; };
 		F5BB1EB3151B79B600BFDDA0 /* LjsGooglePlacesPredictiveReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EB2151B79B600BFDDA0 /* LjsGooglePlacesPredictiveReply.m */; };
 		F5BB1EB4151B79B600BFDDA0 /* LjsGooglePlacesPredictiveReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EB2151B79B600BFDDA0 /* LjsGooglePlacesPredictiveReply.m */; };
-		F5BB1EB7151B7F4E00BFDDA0 /* LjsGooglePlacesPredictiveReplyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EB6151B7F4E00BFDDA0 /* LjsGooglePlacesPredictiveReplyTests.m */; };
-		F5BB1EB8151B7F4E00BFDDA0 /* LjsGooglePlacesPredictiveReplyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EB6151B7F4E00BFDDA0 /* LjsGooglePlacesPredictiveReplyTests.m */; };
 		F5BB1EBC151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
 		F5BB1EBD151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
 		F5BB1EC0151B83AC00BFDDA0 /* LjsGooglePlacesPrediction.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EBF151B83AC00BFDDA0 /* LjsGooglePlacesPrediction.m */; };
 		F5BB1EC1151B83AC00BFDDA0 /* LjsGooglePlacesPrediction.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EBF151B83AC00BFDDA0 /* LjsGooglePlacesPrediction.m */; };
-		F5BB1EC3151B8BFC00BFDDA0 /* LjsGooglePlacesPredictionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EC2151B8BFC00BFDDA0 /* LjsGooglePlacesPredictionTests.m */; };
-		F5BB1EC4151B8BFC00BFDDA0 /* LjsGooglePlacesPredictionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EC2151B8BFC00BFDDA0 /* LjsGooglePlacesPredictionTests.m */; };
 		F5BB1EC7151B9A9400BFDDA0 /* LjsGooglePlacesRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EC6151B9A9300BFDDA0 /* LjsGooglePlacesRequestManager.m */; };
 		F5BB1EC8151B9A9400BFDDA0 /* LjsGooglePlacesRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1EC6151B9A9300BFDDA0 /* LjsGooglePlacesRequestManager.m */; };
 		F5BB1ED3151BA0E500BFDDA0 /* LjsWebCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1ED2151BA0E500BFDDA0 /* LjsWebCategories.m */; };
@@ -247,7 +259,6 @@
 		F5C112811496715900948605 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C112801496715900948605 /* AppDelegate.m */; };
 		F5D3581F14B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
 		F5D3582014B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
-		F5E3F77B151BDDD20076450F /* LjsGooglePlacesRequestManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E3F77A151BDDD20076450F /* LjsGooglePlacesRequestManagerTests.m */; };
 		F5F620A214E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */; };
 		F5F7BBB714D3E90800669FE6 /* LjsGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */; };
 		F5F7BBB914D3EA3300669FE6 /* LjsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F572496F149F9AD6006C62A2 /* LjsButton.m */; };
@@ -296,6 +307,30 @@
 		F50FE6F71410CC420051FC7E /* LjsVariates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsVariates.h; sourceTree = "<group>"; };
 		F50FE6F81410CC420051FC7E /* LjsVariates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariates.m; sourceTree = "<group>"; };
 		F50FE7331410D30D0051FC7E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F512EAF4151C72B5002E8E3A /* LjsGooglePlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlace.h; sourceTree = "<group>"; };
+		F512EAF5151C72B5002E8E3A /* LjsGooglePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlace.m; sourceTree = "<group>"; };
+		F512EAF6151C72B5002E8E3A /* LjsGooglePlacesAddressComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesAddressComponent.h; sourceTree = "<group>"; };
+		F512EAF7151C72B5002E8E3A /* LjsGooglePlacesAddressComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesAddressComponent.m; sourceTree = "<group>"; };
+		F512EAF8151C72B5002E8E3A /* LjsGooglePlacesAttribution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesAttribution.h; sourceTree = "<group>"; };
+		F512EAF9151C72B5002E8E3A /* LjsGooglePlacesAttribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesAttribution.m; sourceTree = "<group>"; };
+		F512EAFA151C72B5002E8E3A /* LjsGooglePlacesDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesDetails.h; sourceTree = "<group>"; };
+		F512EAFB151C72B5002E8E3A /* LjsGooglePlacesDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesDetails.m; sourceTree = "<group>"; };
+		F512EAFC151C72B5002E8E3A /* LjsGooglePlacesDetailsReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesDetailsReply.h; sourceTree = "<group>"; };
+		F512EAFD151C72B5002E8E3A /* LjsGooglePlacesDetailsReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesDetailsReply.m; sourceTree = "<group>"; };
+		F512EAFE151C72B5002E8E3A /* LjsGooglePlacesReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesReply.h; sourceTree = "<group>"; };
+		F512EAFF151C72B5002E8E3A /* LjsGooglePlacesReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesReply.m; sourceTree = "<group>"; };
+		F512EB0B151C7B68002E8E3A /* google-places-details-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "google-places-details-sample.json"; sourceTree = "<group>"; };
+		F512EB0F151C7BBA002E8E3A /* LjsGooglePlacesAddressComponentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesAddressComponentTests.m; sourceTree = "<group>"; };
+		F512EB10151C7BBA002E8E3A /* LjsGooglePlacesAttributeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesAttributeTests.m; sourceTree = "<group>"; };
+		F512EB11151C7BBA002E8E3A /* LjsGooglePlacesManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesManagerTests.m; sourceTree = "<group>"; };
+		F512EB12151C7BBA002E8E3A /* LjsGooglePlacesPredictionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesPredictionTests.m; sourceTree = "<group>"; };
+		F512EB13151C7BBA002E8E3A /* LjsGooglePlacesPredictiveReplyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesPredictiveReplyTests.m; sourceTree = "<group>"; };
+		F512EB14151C7BBA002E8E3A /* LjsGooglePlacesRequestManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesRequestManagerTests.m; sourceTree = "<group>"; };
+		F512EB1B151C7BE4002E8E3A /* LjsGooglePlacesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesTest.m; sourceTree = "<group>"; };
+		F512EB1D151C7D35002E8E3A /* LjsGooglePlacesTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesTest.h; sourceTree = "<group>"; };
+		F512EB1E151C7E17002E8E3A /* LjsGooglePlacesDetailsReplyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesDetailsReplyTests.m; sourceTree = "<group>"; };
+		F512EB20151C8B5F002E8E3A /* LjsGooglePlaceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlaceTests.m; sourceTree = "<group>"; };
+		F512EBA1151CA284002E8E3A /* LjsFileUtiltiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileUtiltiesTests.m; sourceTree = "<group>"; };
 		F515BF4E14C627EE007052FF /* LjsFileBackedStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileBackedStoreTests.m; sourceTree = "<group>"; };
 		F515E6DD148279A000526041 /* LjsRepeatingTimerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRepeatingTimerProtocol.h; sourceTree = "<group>"; };
 		F51C63FB14B7917100F1841B /* LjsLabelAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLabelAttributes.h; sourceTree = "<group>"; };
@@ -544,7 +579,6 @@
 		F5903FB2151B68DA00995AF1 /* LjsGooglePlacesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LjsGooglePlacesModel.xcdatamodel; sourceTree = "<group>"; };
 		F5903FB9151B6DFC00995AF1 /* LjsGoogleGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleGlobals.h; sourceTree = "<group>"; };
 		F5903FBA151B6DFC00995AF1 /* LjsGoogleGlobals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleGlobals.m; sourceTree = "<group>"; };
-		F5903FBD151B6F4A00995AF1 /* LjsGooglePlacesManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesManagerTests.m; sourceTree = "<group>"; };
 		F590BE9B14542E4900E5B89B /* DDFileLogger+CurrentFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDFileLogger+CurrentFile.h"; sourceTree = "<group>"; };
 		F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
 		F590BE9D14542E4900E5B89B /* LjsLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLogFileManager.h; sourceTree = "<group>"; };
@@ -567,11 +601,9 @@
 		F5B03A7414AA67620015D59B /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		F5BB1EB1151B79B600BFDDA0 /* LjsGooglePlacesPredictiveReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesPredictiveReply.h; sourceTree = "<group>"; };
 		F5BB1EB2151B79B600BFDDA0 /* LjsGooglePlacesPredictiveReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesPredictiveReply.m; sourceTree = "<group>"; };
-		F5BB1EB6151B7F4E00BFDDA0 /* LjsGooglePlacesPredictiveReplyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesPredictiveReplyTests.m; sourceTree = "<group>"; };
 		F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "google-places-autocomplete-sample.json"; sourceTree = "<group>"; };
 		F5BB1EBE151B83AC00BFDDA0 /* LjsGooglePlacesPrediction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesPrediction.h; sourceTree = "<group>"; };
 		F5BB1EBF151B83AC00BFDDA0 /* LjsGooglePlacesPrediction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesPrediction.m; sourceTree = "<group>"; };
-		F5BB1EC2151B8BFC00BFDDA0 /* LjsGooglePlacesPredictionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesPredictionTests.m; sourceTree = "<group>"; };
 		F5BB1EC5151B9A9300BFDDA0 /* LjsGooglePlacesRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesRequestManager.h; sourceTree = "<group>"; };
 		F5BB1EC6151B9A9300BFDDA0 /* LjsGooglePlacesRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesRequestManager.m; sourceTree = "<group>"; };
 		F5BB1ED1151BA0E500BFDDA0 /* LjsWebCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsWebCategories.h; sourceTree = "<group>"; };
@@ -593,7 +625,6 @@
 		F5D6C8E01518F63B006FF6FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LjsScrollViewController.xib; sourceTree = "<group>"; };
 		F5D6C8E21518F738006FF6FC /* fourth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fourth.png; sourceTree = "<group>"; };
 		F5D6C8E31518F738006FF6FC /* fourth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fourth@2x.png"; sourceTree = "<group>"; };
-		F5E3F77A151BDDD20076450F /* LjsGooglePlacesRequestManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesRequestManagerTests.m; sourceTree = "<group>"; };
 		F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateLjsAdditionsTests.m; sourceTree = "<group>"; };
 		F5F7BBB514D3E90800669FE6 /* LjsGlassButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGlassButton.h; sourceTree = "<group>"; };
 		F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGlassButton.m; sourceTree = "<group>"; };
@@ -732,7 +763,8 @@
 		F50FE6D81410CC250051FC7E /* Unit */ = {
 			isa = PBXGroup;
 			children = (
-				F5E3F77A151BDDD20076450F /* LjsGooglePlacesRequestManagerTests.m */,
+				F512EBA1151CA284002E8E3A /* LjsFileUtiltiesTests.m */,
+				F512EB0D151C7BBA002E8E3A /* Google */,
 				F54E39771450E2530059BF53 /* LjsJsonRpcReplyTests.m */,
 				F50FE6D91410CC250051FC7E /* LjsDateHelperTests.m */,
 				F50FE6DA1410CC250051FC7E /* LjsDecimalAideTests.m */,
@@ -747,9 +779,6 @@
 				F573B8FA14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m */,
 				F55CDEE9150F881600D9B906 /* LjsCaesarCipherTests.m */,
 				F58D22ED151A42940043DB52 /* LjsFakerTests.m */,
-				F5903FBD151B6F4A00995AF1 /* LjsGooglePlacesManagerTests.m */,
-				F5BB1EB6151B7F4E00BFDDA0 /* LjsGooglePlacesPredictiveReplyTests.m */,
-				F5BB1EC2151B8BFC00BFDDA0 /* LjsGooglePlacesPredictionTests.m */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -790,6 +819,31 @@
 			);
 			name = Utilities;
 			path = ../Utilities;
+			sourceTree = "<group>";
+		};
+		F512EB0D151C7BBA002E8E3A /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				F512EB1D151C7D35002E8E3A /* LjsGooglePlacesTest.h */,
+				F512EB1B151C7BE4002E8E3A /* LjsGooglePlacesTest.m */,
+				F512EB0E151C7BBA002E8E3A /* Places */,
+			);
+			path = Google;
+			sourceTree = "<group>";
+		};
+		F512EB0E151C7BBA002E8E3A /* Places */ = {
+			isa = PBXGroup;
+			children = (
+				F512EB0F151C7BBA002E8E3A /* LjsGooglePlacesAddressComponentTests.m */,
+				F512EB10151C7BBA002E8E3A /* LjsGooglePlacesAttributeTests.m */,
+				F512EB11151C7BBA002E8E3A /* LjsGooglePlacesManagerTests.m */,
+				F512EB12151C7BBA002E8E3A /* LjsGooglePlacesPredictionTests.m */,
+				F512EB13151C7BBA002E8E3A /* LjsGooglePlacesPredictiveReplyTests.m */,
+				F512EB14151C7BBA002E8E3A /* LjsGooglePlacesRequestManagerTests.m */,
+				F512EB1E151C7E17002E8E3A /* LjsGooglePlacesDetailsReplyTests.m */,
+				F512EB20151C8B5F002E8E3A /* LjsGooglePlaceTests.m */,
+			);
+			path = Places;
 			sourceTree = "<group>";
 		};
 		F538F2651515007D005D15D3 /* images */ = {
@@ -1287,6 +1341,18 @@
 		F5903F89151B52F000995AF1 /* GooglePlaces */ = {
 			isa = PBXGroup;
 			children = (
+				F512EAF4151C72B5002E8E3A /* LjsGooglePlace.h */,
+				F512EAF5151C72B5002E8E3A /* LjsGooglePlace.m */,
+				F512EAF6151C72B5002E8E3A /* LjsGooglePlacesAddressComponent.h */,
+				F512EAF7151C72B5002E8E3A /* LjsGooglePlacesAddressComponent.m */,
+				F512EAF8151C72B5002E8E3A /* LjsGooglePlacesAttribution.h */,
+				F512EAF9151C72B5002E8E3A /* LjsGooglePlacesAttribution.m */,
+				F512EAFA151C72B5002E8E3A /* LjsGooglePlacesDetails.h */,
+				F512EAFB151C72B5002E8E3A /* LjsGooglePlacesDetails.m */,
+				F512EAFC151C72B5002E8E3A /* LjsGooglePlacesDetailsReply.h */,
+				F512EAFD151C72B5002E8E3A /* LjsGooglePlacesDetailsReply.m */,
+				F512EAFE151C72B5002E8E3A /* LjsGooglePlacesReply.h */,
+				F512EAFF151C72B5002E8E3A /* LjsGooglePlacesReply.m */,
 				F5903F8A151B646800995AF1 /* LjsGooglePlacesManager.h */,
 				F5903F8B151B646800995AF1 /* LjsGooglePlacesManager.m */,
 				F5903FB1151B68DA00995AF1 /* LjsGooglePlacesModel.xcdatamodeld */,
@@ -1377,6 +1443,7 @@
 		F5BB1EBA151B7F5D00BFDDA0 /* google */ = {
 			isa = PBXGroup;
 			children = (
+				F512EB0B151C7B68002E8E3A /* google-places-details-sample.json */,
 				F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */,
 			);
 			path = google;
@@ -1517,6 +1584,7 @@
 				F58D234E151A4BAC0043DB52 /* com.littlejoysoftware.faker.street-addresses.us.plist in Resources */,
 				F58D2350151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist in Resources */,
 				F5BB1EBC151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */,
+				F512EB0C151C7B68002E8E3A /* google-places-details-sample.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1736,14 +1804,26 @@
 				F5903F8C151B646800995AF1 /* LjsGooglePlacesManager.m in Sources */,
 				F5903FB3151B68DA00995AF1 /* LjsGooglePlacesModel.xcdatamodeld in Sources */,
 				F5903FBB151B6DFC00995AF1 /* LjsGoogleGlobals.m in Sources */,
-				F5903FBE151B6F4A00995AF1 /* LjsGooglePlacesManagerTests.m in Sources */,
 				F5BB1EB3151B79B600BFDDA0 /* LjsGooglePlacesPredictiveReply.m in Sources */,
-				F5BB1EB7151B7F4E00BFDDA0 /* LjsGooglePlacesPredictiveReplyTests.m in Sources */,
 				F5BB1EC0151B83AC00BFDDA0 /* LjsGooglePlacesPrediction.m in Sources */,
-				F5BB1EC3151B8BFC00BFDDA0 /* LjsGooglePlacesPredictionTests.m in Sources */,
 				F5BB1EC7151B9A9400BFDDA0 /* LjsGooglePlacesRequestManager.m in Sources */,
 				F5BB1ED3151BA0E500BFDDA0 /* LjsWebCategories.m in Sources */,
-				F5E3F77B151BDDD20076450F /* LjsGooglePlacesRequestManagerTests.m in Sources */,
+				F512EB00151C72B5002E8E3A /* LjsGooglePlace.m in Sources */,
+				F512EB01151C72B5002E8E3A /* LjsGooglePlacesAddressComponent.m in Sources */,
+				F512EB02151C72B5002E8E3A /* LjsGooglePlacesAttribution.m in Sources */,
+				F512EB03151C72B5002E8E3A /* LjsGooglePlacesDetails.m in Sources */,
+				F512EB04151C72B5002E8E3A /* LjsGooglePlacesDetailsReply.m in Sources */,
+				F512EB05151C72B5002E8E3A /* LjsGooglePlacesReply.m in Sources */,
+				F512EB15151C7BBA002E8E3A /* LjsGooglePlacesAddressComponentTests.m in Sources */,
+				F512EB16151C7BBA002E8E3A /* LjsGooglePlacesAttributeTests.m in Sources */,
+				F512EB17151C7BBA002E8E3A /* LjsGooglePlacesManagerTests.m in Sources */,
+				F512EB18151C7BBA002E8E3A /* LjsGooglePlacesPredictionTests.m in Sources */,
+				F512EB19151C7BBA002E8E3A /* LjsGooglePlacesPredictiveReplyTests.m in Sources */,
+				F512EB1A151C7BBA002E8E3A /* LjsGooglePlacesRequestManagerTests.m in Sources */,
+				F512EB1C151C7BE4002E8E3A /* LjsGooglePlacesTest.m in Sources */,
+				F512EB1F151C7E18002E8E3A /* LjsGooglePlacesDetailsReplyTests.m in Sources */,
+				F512EB21151C8B5F002E8E3A /* LjsGooglePlaceTests.m in Sources */,
+				F512EBA2151CA285002E8E3A /* LjsFileUtiltiesTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1803,9 +1883,7 @@
 				F5903FB4151B68DA00995AF1 /* LjsGooglePlacesModel.xcdatamodeld in Sources */,
 				F5903FBC151B6DFC00995AF1 /* LjsGoogleGlobals.m in Sources */,
 				F5BB1EB4151B79B600BFDDA0 /* LjsGooglePlacesPredictiveReply.m in Sources */,
-				F5BB1EB8151B7F4E00BFDDA0 /* LjsGooglePlacesPredictiveReplyTests.m in Sources */,
 				F5BB1EC1151B83AC00BFDDA0 /* LjsGooglePlacesPrediction.m in Sources */,
-				F5BB1EC4151B8BFC00BFDDA0 /* LjsGooglePlacesPredictionTests.m in Sources */,
 				F5BB1EC8151B9A9400BFDDA0 /* LjsGooglePlacesRequestManager.m in Sources */,
 				F5BB1ED4151BA0E500BFDDA0 /* LjsWebCategories.m in Sources */,
 			);

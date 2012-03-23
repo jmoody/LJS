@@ -144,10 +144,21 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
   return [dirPaths objectAtIndex:0];
 }
 
++ (NSString *) findCoreDataLibraryPath:(BOOL) forUser {
+  NSString *result;
+#if TARGET_OS_IPHONE
+  result = [LjsFileUtilities findLibraryDirectoryPath:forUser];
+#else
+  result = [LjsFileUtilities findApplicationFilesDirectory:forUser];
+#endif
+  return result;
+}
+
 + (NSString *) findLibraryPreferencesPath:(BOOL) forUser {
   NSString *library = [LjsFileUtilities findLibraryDirectoryPath:forUser];
   return [library stringByAppendingPathComponent:LjsFileUtilitiesPreferencesDirectory];
 }
+
 
 
 /**
@@ -222,6 +233,21 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
     result = savePath;
   }
   return result;
+}
+
++ (NSString *) findApplicationFilesDirectory:(BOOL) forUser {
+  NSSearchPathDomainMask mask;
+  if (forUser == YES) {
+    mask = NSUserDomainMask;
+  } else {
+    mask = NSLocalDomainMask;
+  }
+
+  NSArray *dirPaths = 
+  NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory,
+                                      mask, 
+                                      YES);
+  return [dirPaths objectAtIndex:0];
 }
 #endif
 

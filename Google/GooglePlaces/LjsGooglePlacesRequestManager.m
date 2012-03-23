@@ -35,6 +35,9 @@
 #import "Lumberjack.h"
 #import "ASIHTTPRequest.h"
 #import "LjsLocationManager.h"
+#import "ASIHTTPRequest+LjsAdditions.h"
+#import "LjsGooglePlacesPredictiveReply.h"
+
 
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -50,6 +53,8 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
 @interface LjsGooglePlacesRequestManager ()
 
 @property (nonatomic, strong) LjsLocationManager *locationManager;
+
+- (NSString *) stringForSensor:(BOOL) aSensor;
 
 - (NSDictionary *) dictionaryForRequiredAutocompleteWithInput:(NSString *) aInput
                                                        sensor:(BOOL) aSensor;
@@ -69,8 +74,10 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
 
 - (void) handleRequestAutocompleteDidFinish:(ASIHTTPRequest *) aRequest;
 - (void) handleRequestAutocompleteDidFail:(ASIHTTPRequest *)aRequest;
-- (void) handleRequestDidStart:(ASIHTTPRequest *) aRequest;
-- (void) handleRequestDidReceiveData:(ASIHTTPRequest *) aRequest;
+
+- (void) handleRequestDetailsDidFinish:(ASIHTTPRequest *) aRequest;
+- (void) handleRequestDetailsDidFail:(ASIHTTPRequest *) aRequest;
+
 
 
 @end
@@ -99,14 +106,34 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
 }
 
 
-- (NSDictionary *) dictionaryForRequiredAutocompleteWithInput:(NSString *) aInput
-                                                       sensor:(BOOL) aSensor {
+
+/*
+ input — The text string on which to search. The Place service will return candidate matches based on this string and order results based on their perceived relevance.
+ sensor — Indicates whether or not the Place request came from a device using a location sensor (e.g. a GPS) to determine the location sent in this request. This value must be either true or false.
+ key — Your application's API key. This key identifies your application for purposes of quota management. Visit the APIs Console to create an API Project and obtain your key.
+ 
+ 
+ offset — The character position in the input term at which the service uses text for predictions. For example, if the input is 'Googl' and the completion point is 3, the service will match on 'Goo'. The offset should generally be set to the position of the text caret. If no offset is supplied, the service will use the entire term.
+ location — The point around which you wish to retrieve Place information. Must be specified as latitude,longitude.
+ radius — The distance (in meters) within which to return Place results. Note that setting a radius biases results to the indicated area, but may not fully restrict results to the specified area. See Location Biasing below.
+ language — The language in which to return results. See the supported list of domain languages. Note that we often update supported languages so this list may not be exhaustive. If language is not supplied, the Place service will attempt to use the native language of the domain from which the request is sent.
+ types — The types of Place results to return. See Place Types below. If no type is specified, all types will be returned.
+ */
+
+
+- (NSString *) stringForSensor:(BOOL) aSensor {
   NSString *sensor;
   if (aSensor == YES) {
     sensor = @"true";
   } else {
     sensor = @"false";
   }
+  return sensor;
+}
+
+- (NSDictionary *) dictionaryForRequiredAutocompleteWithInput:(NSString *) aInput
+                                                       sensor:(BOOL) aSensor {
+  NSString *sensor = [self stringForSensor:aSensor];
   return [NSDictionary dictionaryWithObjectsAndKeys:
           aInput, @"input",
           sensor, @"sensor",
@@ -169,8 +196,6 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
   [request setDelegate:self];
   [request setDidFailSelector:@selector(handleRequestAutocompleteDidFail:)];
   [request setDidFinishSelector:@selector(handleRequestAutocompleteDidFinish:)];
-//  [request setDidStartSelector:@selector(handleRequestDidStart:)];
-//  [request setDidReceiveDataSelector:@selector(handleRequestDidReceiveData:)];
   return request;
 }
 
@@ -188,55 +213,98 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
                                     establishment:aIsAnEstablishmentRequest];
   DDLogDebug(@"starting request: %@", request);
   DDLogDebug(@"url = %@", [request url]);
-  [request startSynchronous];
+  [request startAsynchronous];
 }
 
 
 - (void) handleRequestAutocompleteDidFail:(ASIHTTPRequest *)aRequest {
   DDLogDebug(@"autocomplete did fail");
+  NSUInteger code = [aRequest responseCode];
+  [self.resultHandler requestForPredictionsFailedWithCode:code 
+                                                  request:aRequest];
+                                       
   
 }
 
 - (void) handleRequestAutocompleteDidFinish:(ASIHTTPRequest *) aRequest {
   DDLogDebug(@"autocomplete request did finish");
-  
-  
-  NSData *data = [aRequest responseData];
-  NSString *response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-  DDLogDebug(@"response = %@", response);
+  if ([aRequest was200or201Successful] == NO) {
+    [self handleRequestAutocompleteDidFail:aRequest];
+    return;
+  }
+  NSError *error = nil;
+  LjsGooglePlacesPredictiveReply *reply = [[LjsGooglePlacesPredictiveReply alloc]
+                                           initWithReply:[aRequest responseString]
+                                           error:&error];
+  if ([reply statusRejected] == YES) {
+    [self.resultHandler requestForPredictionsFailedWithCode:[reply status]
+                                                      reply:reply
+                                                      error:error];
+  } else {
+    [self.resultHandler requestForPredictionsCompletedWithPredictions:[reply predictions]];
+  }
 }
-
-- (void) handleRequestDidStart:(ASIHTTPRequest *) aRequest {
-  DDLogDebug(@"request did start");
-}
-
-- (void) handleRequestDidReceiveData:(ASIHTTPRequest *) aRequest {
-  DDLogDebug(@"request did receive data");
-  NSString *response = [aRequest responseString];
-  NSData *data = [aRequest responseData];
-  response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-  DDLogDebug(@"response = %@", response);
-  DDLogDebug(@"headers = %@", [aRequest responseHeaders]);
-  DDLogDebug(@"code = %d", [aRequest responseStatusCode]);
-  DDLogDebug(@"response = %@", [aRequest responseStatusMessage]);
-}
-
-
-
-
 
 /*
- input — The text string on which to search. The Place service will return candidate matches based on this string and order results based on their perceived relevance.
- sensor — Indicates whether or not the Place request came from a device using a location sensor (e.g. a GPS) to determine the location sent in this request. This value must be either true or false.
- key — Your application's API key. This key identifies your application for purposes of quota management. Visit the APIs Console to create an API Project and obtain your key.
- 
- 
- offset — The character position in the input term at which the service uses text for predictions. For example, if the input is 'Googl' and the completion point is 3, the service will match on 'Goo'. The offset should generally be set to the position of the text caret. If no offset is supplied, the service will use the entire term.
- location — The point around which you wish to retrieve Place information. Must be specified as latitude,longitude.
- radius — The distance (in meters) within which to return Place results. Note that setting a radius biases results to the indicated area, but may not fully restrict results to the specified area. See Location Biasing below.
- language — The language in which to return results. See the supported list of domain languages. Note that we often update supported languages so this list may not be exhaustive. If language is not supplied, the Place service will attempt to use the native language of the domain from which the request is sent.
- types — The types of Place results to return. See Place Types below. If no type is specified, all types will be returned.
+key (required) — Your application's API key. This key identifies your application for purposes of quota management and so that Places added from your application are made immediately available to your app. Visit the APIs Console to create an API Project and obtain your key.
+reference (required) — A textual identifier that uniquely identifies a place, returned from a Place search request.
+sensor (required) — Indicates whether or not the Place Details request came from a device using a location sensor (e.g. a GPS). This value must be either true or false.
+
+language (optional) — The language code, indicating in which language the results should be returned, if possible. See the list of supported languages and their codes. Note that we often update supported languages so this list may not be exhaustive.
  */
+- (void) performDetailsRequestionForPrediction:(LjsGooglePlacesPrediction *) aPrediction
+                                      language:(NSString *)aLangCode {
+  NSDictionary *paramDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                             self.apiToken, @"key",
+                             aPrediction.searchReferenceId, @"reference",
+                             [self stringForSensor:YES], @"sensor",
+                             aLangCode, @"language",
+                             nil];
+  NSString *params = [paramDict stringByParameterizingForUrl];
+  NSString *path = [NSString stringWithFormat:@"%@%@", 
+                    LjsGooglePlacesDetailsUrl, params];
+  NSURL *url = [NSURL URLWithString:path];
+  DDLogDebug(@"url = %@", url);
+  ASIHTTPRequest *request = [[ASIHTTPRequest alloc]
+                             initWithURL:url];
+  
+  [request setRequestMethod:@"GET"];
+  [request setResponseEncoding:NSUTF8StringEncoding];
+  [request setDelegate:self];
+  [request setDidFailSelector:@selector(handleRequestDetailsDidFail:)];
+  [request setDidFinishSelector:@selector(handleRequestDetailsDidFinish:)];
+  
+  [request startAsynchronous];
+}
+
+
+- (void) handleRequestDetailsDidFail:(ASIHTTPRequest *)aRequest {
+  DDLogDebug(@"autocomplete did fail");
+  NSUInteger code = [aRequest responseCode];
+  [self.resultHandler requestForDetailsFailedWithCode:code
+                                              request:aRequest];
+  
+}
+
+- (void) handleRequestDetailsDidFinish:(ASIHTTPRequest *)aRequest {
+  DDLogDebug(@"autocomplete request did finish");
+  if ([aRequest was200or201Successful] == NO) {
+    [self handleRequestDetailsDidFail:aRequest];
+    return;
+  }
+  NSError *error = nil;
+  LjsGooglePlacesDetailsReply *reply = [[LjsGooglePlacesDetailsReply alloc]
+                                        initWithReply:[aRequest responseString]
+                                        error:&error];
+  if ([reply statusRejected] == YES) {
+    [self.resultHandler requestForDetailsFailedWithCode:[reply status]
+                                                  reply:reply
+                                                  error:error];
+  } else {
+    [self.resultHandler requestForDetailsCompletedWithDetails:[reply details]];
+  }
+}
+
 
 
 @end

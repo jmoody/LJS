@@ -30,9 +30,11 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsGooglePlacesPrediction.h"
+#import "LjsGooglePlacesAddressComponent.h"
 #import "Lumberjack.h"
-#import "NSMutableArray+LjsAdditions.h"
+#import "LjsValidator.h"
+#import "NSArray+LjsAdditions.h"
+
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -40,75 +42,79 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+@implementation LjsGooglePlacesAddressComponent
 
-@interface LjsGooglePlacesPrediction ()
-
-@property (nonatomic, strong) NSDictionary *sourceDictionary;
-
-- (NSRange) makeRangeWithDictionary:(NSDictionary *) aDictionary;
-- (NSArray *) makeRangesWithArray:(NSArray *) aArray;
-- (NSArray *) tokensWithTermsArray:(NSArray *) aArray;
-
-@end
-
-@implementation LjsGooglePlacesPrediction
-
-@synthesize prediction;
-@synthesize tokens;
-@synthesize matchedRanges;
-@synthesize sourceDictionary;
-
+@synthesize longName;
+@synthesize shortName;
+@synthesize types;
 
 #pragma mark Memory Management
 - (void) dealloc {
   //DDLogDebug(@"deallocating %@", [self class]);
 }
 
-- (id) initWithDictionary:(NSDictionary *) aDictionary {
-  self = [super initWithDictionary:aDictionary];
+- (id) initWithDictionary:(NSDictionary *)aDictionary {
+  self = [super init];
   if (self) {
-    self.sourceDictionary = aDictionary;
-    self.prediction = [aDictionary objectForKey:@"description"];
+    NSArray *keys = [NSArray arrayWithObjects:@"long_name", @"short_name", @"types", nil];
+    BOOL valid;
+    valid = [LjsValidator dictionary:aDictionary containsKeys:keys allowsOthers:YES];
+    if (valid == NO) {
+      DDLogWarn(@"dictionary: %@ must contain keys %@ - returning nil", aDictionary, keys);
+      return nil;
+    }
     
-    NSArray *ranges = [aDictionary objectForKey:@"matched_substrings"];
-    self.matchedRanges = [self makeRangesWithArray:ranges];
+    for (NSString *key in [[keys reverse] rest]) {
+      NSString *value = [aDictionary objectForKey:key];
+      valid = [LjsValidator stringIsNonNilAndNotEmpty:value];
+      if (valid == NO) {
+        DDLogWarn(@"@< %@ > must be non-nil and non-empty - returning nil", value);
+        return nil;
+      }
+    }
     
-    NSArray *terms = [aDictionary objectForKey:@"terms"];
-    self.tokens = [self tokensWithTermsArray:terms];
+    self.longName = [aDictionary objectForKey:@"long_name"];
+    self.shortName = [aDictionary objectForKey:@"short_name"];
+    self.types = [aDictionary objectForKey:@"types"];
     
+    if (self.types == nil || [self.types count] == 0) {
+      return nil;
+    }
   }
   return self;
 }
 
-- (NSArray *) makeRangesWithArray:(NSArray *)aArray {
-  NSMutableArray *result = [NSMutableArray arrayWithCapacity:[aArray count]];
-  for (NSDictionary *rangeDict in aArray) {
-    NSRange range = [self makeRangeWithDictionary:rangeDict];
-    NSString *str = NSStringFromRange(range);
-    [result append:str];
-  }
-  
-  return result;
+- (BOOL) isStreetNumber {
+  return [LjsValidator array:self.types containsString:@"street_number"];
 }
 
-- (NSRange) makeRangeWithDictionary:(NSDictionary *)aDictionary {
-  NSNumber *offset = [aDictionary objectForKey:@"offset"];
-  NSNumber *length = [aDictionary objectForKey:@"length"];
-  return NSMakeRange([offset intValue],
-                     [length intValue]);
+- (BOOL) isRoute {
+  return [LjsValidator array:self.types containsString:@"route"];
 }
 
-- (NSArray *) tokensWithTermsArray:(NSArray *) aArray {
-  NSMutableArray *result = [NSMutableArray arrayWithCapacity:[aArray count]];
-  for (NSDictionary *termDict in aArray) {
-    NSString *value = [termDict objectForKey:@"value"];
-    [result append:value];
-  }
-  return result;
+- (BOOL) isLocality {
+  return [LjsValidator array:self.types containsString:@"locality"];
+}
+
+- (BOOL) isAdministrativeArea1 {
+  return [LjsValidator array:self.types containsString:@"administrative_area_level_1"];
+}
+
+- (BOOL) isAdministrativeArea2 {
+  return [LjsValidator array:self.types containsString:@"administrative_area_level_2"];
+}
+
+- (BOOL) isCountry {
+  return [LjsValidator array:self.types containsString:@"country"];
+}
+
+- (BOOL) isPostalCode {
+  return [LjsValidator array:self.types containsString:@"postal_code"];
 }
 
 - (NSString *) description {
-  return [NSString stringWithFormat:@"#<Prediction %@>", self.prediction];
+  return [NSString stringWithFormat:@"#<Address Component:  %@ (%@) - [%@]>",
+          self.longName, self.shortName, [self.types componentsJoinedByString:@","]];
 }
 
 @end

@@ -30,9 +30,10 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsGooglePlacesPrediction.h"
+#import "LjsGooglePlacesReply.h"
 #import "Lumberjack.h"
-#import "NSMutableArray+LjsAdditions.h"
+#import "LjsGoogleGlobals.h"
+#import "SBJson.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -40,75 +41,69 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+@implementation LjsGooglePlacesReply
 
-@interface LjsGooglePlacesPrediction ()
-
-@property (nonatomic, strong) NSDictionary *sourceDictionary;
-
-- (NSRange) makeRangeWithDictionary:(NSDictionary *) aDictionary;
-- (NSArray *) makeRangesWithArray:(NSArray *) aArray;
-- (NSArray *) tokensWithTermsArray:(NSArray *) aArray;
-
-@end
-
-@implementation LjsGooglePlacesPrediction
-
-@synthesize prediction;
-@synthesize tokens;
-@synthesize matchedRanges;
-@synthesize sourceDictionary;
-
+@synthesize dictionary;
 
 #pragma mark Memory Management
 - (void) dealloc {
   //DDLogDebug(@"deallocating %@", [self class]);
 }
 
-- (id) initWithDictionary:(NSDictionary *) aDictionary {
-  self = [super initWithDictionary:aDictionary];
+- (id) initWithReply:(NSString *) aReply 
+               error:(NSError *__autoreleasing *)error {
+  self = [super init];
   if (self) {
-    self.sourceDictionary = aDictionary;
-    self.prediction = [aDictionary objectForKey:@"description"];
-    
-    NSArray *ranges = [aDictionary objectForKey:@"matched_substrings"];
-    self.matchedRanges = [self makeRangesWithArray:ranges];
-    
-    NSArray *terms = [aDictionary objectForKey:@"terms"];
-    self.tokens = [self tokensWithTermsArray:terms];
-    
+    SBJsonParser *parser = [[SBJsonParser alloc] init];
+    self.dictionary = [parser objectWithString:aReply
+                                   error:error];
   }
   return self;
 }
-
-- (NSArray *) makeRangesWithArray:(NSArray *)aArray {
-  NSMutableArray *result = [NSMutableArray arrayWithCapacity:[aArray count]];
-  for (NSDictionary *rangeDict in aArray) {
-    NSRange range = [self makeRangeWithDictionary:rangeDict];
-    NSString *str = NSStringFromRange(range);
-    [result append:str];
+- (NSUInteger) count {
+  if (self.dictionary == nil) {
+    return 0;
+  } else {
+    NSArray *predicts = [self.dictionary objectForKey:@"predictions"];
+    return [predicts count];
   }
-  
-  return result;
 }
 
-- (NSRange) makeRangeWithDictionary:(NSDictionary *)aDictionary {
-  NSNumber *offset = [aDictionary objectForKey:@"offset"];
-  NSNumber *length = [aDictionary objectForKey:@"length"];
-  return NSMakeRange([offset intValue],
-                     [length intValue]);
-}
 
-- (NSArray *) tokensWithTermsArray:(NSArray *) aArray {
-  NSMutableArray *result = [NSMutableArray arrayWithCapacity:[aArray count]];
-  for (NSDictionary *termDict in aArray) {
-    NSString *value = [termDict objectForKey:@"value"];
-    [result append:value];
+- (NSString *) status {
+  if (self.dictionary == nil) {
+    return LjsGoogleStatusLocalParseError; 
   }
-  return result;
+  return [self.dictionary objectForKey:LjsGooglePlacesKeyStatus];
 }
 
-- (NSString *) description {
-  return [NSString stringWithFormat:@"#<Prediction %@>", self.prediction];
+- (BOOL) statusHasResults {
+  return [LjsGoogleStatusOK isEqualToString:[self status]];
 }
+
+- (BOOL) statusNoResults {
+  return [LjsGoogleStatusNotFound isEqualToString:[self status]];
+}
+
+- (BOOL) statusRejected {
+  return [self statusNoResults] == NO && [self statusHasResults] == NO;
+}
+
+- (BOOL) statusOverQueryLimit {
+  return [LjsGoogleStatusOverQueryLimit isEqualToString:[self status]];
+}
+
+- (BOOL) statusRequestDenied {
+  return [LjsGoogleStatusRequestDenied isEqualToString:[self status]];
+}
+
+- (BOOL) statusInvalidRequest {
+  return [LjsGoogleStatusInvalidRequest isEqualToString:[self status]];
+}
+
+- (BOOL) statusLocalParseError {
+  return [LjsGoogleStatusLocalParseError isEqualToString:[self status]];
+}
+
 
 @end

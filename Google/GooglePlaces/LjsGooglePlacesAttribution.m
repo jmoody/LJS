@@ -26,18 +26,48 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import <Foundation/Foundation.h>
-#import "ASIHTTPRequest.h"
-/**
- ASIHTTPRequest on ASIHTTPRequest_LjsAdditions category.
- */
-@interface ASIHTTPRequest (ASIHTTPRequest_LjsAdditions)
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
 
-/** @name Task Section */
-- (NSUInteger) responseCode;
-- (NSString *) errorMessage;
-- (NSString *) responseDescription;
-- (BOOL) didTimeOut;
-- (BOOL) was200or201Successful;
+#import "LjsGooglePlacesAttribution.h"
+#import "Lumberjack.h"
+#import "LjsValidator.h"
+#import "LjsGoogleGlobals.h"
+
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
+
+@implementation LjsGooglePlacesAttribution
+
+@synthesize html;
+
+#pragma mark Memory Management
+- (void) dealloc {
+   DDLogDebug(@"deallocating %@", [self class]);
+}
+
+- (id) initWithHtml:(NSString *)aHtml {
+  self = [super init];
+  if (self) {
+    BOOL valid = [LjsValidator stringIsNonNilAndNotEmpty:aHtml];
+    if (valid == NO) {
+      DDLogWarn(@"@<%@> must be non-nil and non-empty - returning nil", aHtml);
+      return nil;
+    }
+    self.html = aHtml;
+  }
+  return self;
+}
+
+
+- (NSString *) description {
+  return [NSString stringWithFormat:@"#<Attribution:  %@>",
+          self.html];
+}
+
 
 @end

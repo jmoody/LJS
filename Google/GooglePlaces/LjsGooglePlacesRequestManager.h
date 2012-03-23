@@ -28,13 +28,28 @@
 
 #import <Foundation/Foundation.h>
 #import "ASIHTTPRequest.h"
+#import "LjsGooglePlacesPredictiveReply.h"
+#import "LjsGooglePlacesDetailsReply.h"
+#import "LjsGooglePlacesPrediction.h"
+#import "LjsGooglePlacesDetails.h"
 
 
 @protocol LjsGooglePlaceRequestManagerResultHandlerDelegate <NSObject>
 
 @required
 - (void) requestForPredictionsCompletedWithPredictions:(NSArray *) aPredictions;
-- (void) requestForPredictionsFailedWithReason:(NSString *) aReason;
+- (void) requestForPredictionsFailedWithCode:(NSUInteger) aCode
+                                     request:(ASIHTTPRequest *) aRequest;
+- (void) requestForPredictionsFailedWithCode:(NSString *) aStatusCode
+                                       reply:(LjsGooglePlacesPredictiveReply *) aReply
+                                       error:(NSError *) aError;
+
+- (void) requestForDetailsCompletedWithDetails:(LjsGooglePlacesDetails *) aDetails;
+- (void) requestForDetailsFailedWithCode:(NSUInteger) aCode
+                                 request:(ASIHTTPRequest *) aRequest;
+- (void) requestForDetailsFailedWithCode:(NSString *) aStatusCode
+                                   reply:(LjsGooglePlacesDetailsReply *) aReply
+                                   error:(NSError *) aError;
 
 @end
 
@@ -45,6 +60,7 @@
 
 @property (nonatomic, copy) NSString *apiToken;
 @property (nonatomic, assign) id<LjsGooglePlaceRequestManagerResultHandlerDelegate> resultHandler;
+
 
 /** @name Properties */
 
@@ -73,5 +89,8 @@
                                                       radius:(NSDecimalNumber *) aRadius
                                                     language:(NSString *) aLangCode
                                         establishmentRequest:(BOOL) aIsAnEstablishmentRequest;
+
+- (void) performDetailsRequestionForPrediction:(LjsGooglePlacesPrediction *) aPrediction
+                                      language:(NSString *) aLangCode;
 
 @end
