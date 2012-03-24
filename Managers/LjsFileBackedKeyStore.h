@@ -31,6 +31,8 @@
 #import "LjsBackingStore.h"
 #import "NSError+LjsAdditions.h"
 
+extern NSString *LjsFileBackedKeyStoreErrorDomain;
+extern NSUInteger const LjsFileBackedKeyStoreErrorCode;
 
 /**
  Documentation
@@ -38,8 +40,7 @@
 @interface LjsFileBackedKeyStore : NSObject <LjsBackingStore>
 
 /** @name Properties */
-@property (nonatomic, copy) NSString *filepath;
-@property (nonatomic, strong) NSMutableDictionary *store;
+
 
 /** @name Initializing Objects */
 
@@ -47,16 +48,18 @@
           directoryPath:(NSString *)aDirectoryPath 
                   error:(NSError *__autoreleasing *)error;
 
-- (id) initWithFileName:(NSString *) aFilename
-          directoryPath:(NSString *) aDirectoryPath
-           defaultStore:(NSDictionary *) aStore
-      overwriteExisting:(BOOL) shouldOverwrite
-                  error:(NSError **) error;
-
-
-
 /** @name Handling Notifications, Requests, and Events */
 
 /** @name Utility */
 
 @end
+
+#pragma mark DEAD SEA
+
+/*
+ - (id) initWithFileName:(NSString *) aFilename
+ directoryPath:(NSString *) aDirectoryPath
+ defaultStore:(NSDictionary *) aStore
+ overwriteExisting:(BOOL) shouldOverwrite
+ error:(NSError **) error;
+ */

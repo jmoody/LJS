@@ -105,45 +105,46 @@
   
 }  
 
-- (void) test_initWithFilepathDirectoryStore {
-  LjsFileBackedKeyStore *store;
-  NSString *filename, *directory;
-  NSDictionary *dict;
-  BOOL overwrite;
-  NSError *error = nil;
-
-  NSArray *values = [NSArray arrayWithObjects:
-                     @"string",
-                     [NSNumber numberWithInteger:0],
-                     [NSArray arrayWithObject:@"foo"],
-                     [NSDate date],
-                     [@"string" dataUsingEncoding:NSUTF8StringEncoding],
-                     [NSDictionary dictionaryWithObject:@"value" forKey:@"key"],
-                     nil];
-  NSArray *keys = [NSArray arrayWithObjects:
-                   @"string",
-                   @"number",
-                   @"array",
-                   @"date",
-                   @"data",
-                   @"dictionary",
-                   nil];
-  
-  dict = [NSDictionary dictionaryWithObjects:values forKeys:keys];
-  directory = [LjsFileUtilities findDocumentDirectoryPath];
-  filename = @"test-name.plist";
-  overwrite = NO;
-  
-  store = [[LjsFileBackedKeyStore alloc]
-           initWithFileName:filename
-           directoryPath:directory
-           defaultStore:dict
-           overwriteExisting:overwrite
-           error:&error];
-  
-
-
-  GHTestLog(@"store = %@", store);
-}
+#pragma mark DEAD SEA
+//- (void) test_initWithFilepathDirectoryStore {
+//  LjsFileBackedKeyStore *store;
+//  NSString *filename, *directory;
+//  NSDictionary *dict;
+//  BOOL overwrite;
+//  NSError *error = nil;
+//
+//  NSArray *values = [NSArray arrayWithObjects:
+//                     @"string",
+//                     [NSNumber numberWithInteger:0],
+//                     [NSArray arrayWithObject:@"foo"],
+//                     [NSDate date],
+//                     [@"string" dataUsingEncoding:NSUTF8StringEncoding],
+//                     [NSDictionary dictionaryWithObject:@"value" forKey:@"key"],
+//                     nil];
+//  NSArray *keys = [NSArray arrayWithObjects:
+//                   @"string",
+//                   @"number",
+//                   @"array",
+//                   @"date",
+//                   @"data",
+//                   @"dictionary",
+//                   nil];
+//  
+//  dict = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+//  directory = [LjsFileUtilities findDocumentDirectoryPath];
+//  filename = @"test-name.plist";
+//  overwrite = NO;
+//  
+//  store = [[LjsFileBackedKeyStore alloc]
+//           initWithFileName:filename
+//           directoryPath:directory
+//           defaultStore:dict
+//           overwriteExisting:overwrite
+//           error:&error];
+//  
+//
+//
+//  GHTestLog(@"store = %@", store);
+//}
 
 @end
