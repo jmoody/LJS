@@ -35,7 +35,8 @@
 
 /** @name Task Section */
 
-- (void) append:(id) object;
+- (void) nreverse;
+- (void) nappend:(id) object;
 - (void) push:(id) object;
 - (id) pop;
 
