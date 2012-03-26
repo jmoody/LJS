@@ -26,23 +26,56 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-/**
- Ljs Categories
-*/
-#import "NSCalendar+LjsAdditions.h"
-#import "NSArray+LjsAdditions.h"
-#import "NSMutableArray+LjsAdditions.h"
-#import "NSDate+LjsAdditions.h"
-#import "NSError+LjsAdditions.h"
-#import "NSSet+LjsAdditions.h"
-#import "NSLocale+LjsAdditions.h"
-#import "NSDateFormatter+LjsAdditions.h"
-#import "NSString+LjsAdditions.h"
+// several selectors from https://github.com/ZaBlanc/InnerBand
+//
+//  NSString+InnerBand.m
+//  InnerBand
+//
+//  InnerBand - The iOS Booster!
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
 
-#if TARGET_OS_IPHONE
-#import "UIColor+LjsAdditions.h"
-#import "UIView+LjsAdditions.h"
-#import "UILabel+LjsAdditions.h"
-#import "UIImageView+LjsAdditions.h"
-#import "UIImage+LjsCategory.h"
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
+
+#import "NSString+LjsAdditions.h"
+#import "Lumberjack.h"
+
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
+
+@implementation NSString (NSString_LjsAdditions)
+
+
+// https://github.com/ZaBlanc/InnerBand
+- (NSComparisonResult) diacriticInsensitiveCaseInsensitiveSort:(NSString *)rhs {
+	return [self compare:rhs options:NSDiacriticInsensitiveSearch | 
+          NSCaseInsensitiveSearch];	
+}
+
+// https://github.com/ZaBlanc/InnerBand
+- (NSComparisonResult) diacriticInsensitiveSort:(NSString *)rhs {
+	return [self compare:rhs options:NSDiacriticInsensitiveSearch];	
+}
+
+// https://github.com/ZaBlanc/InnerBand
+- (NSComparisonResult) caseInsensitiveSort:(NSString *)rhs {
+	return [self compare:rhs options:NSCaseInsensitiveSearch];	
+}
+
+@end
