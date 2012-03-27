@@ -78,4 +78,18 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 	return [self compare:rhs options:NSCaseInsensitiveSearch];	
 }
 
+// https://github.com/ZaBlanc/InnerBand
+- (NSString *)trimmed {
+  return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
+- (NSString *) stringByEscapeDoubleQuotes {
+  NSMutableString *mutable = [self mutableCopy];
+  
+  [mutable replaceOccurrencesOfString:@"\""
+                           withString:@"\\\""
+                              options:NSCaseInsensitiveSearch 
+                              range:NSMakeRange(0, [mutable length])];
+  return [NSString stringWithString:mutable];
+}
 @end

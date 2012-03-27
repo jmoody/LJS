@@ -63,6 +63,9 @@
 - (NSComparisonResult) diacriticInsensitiveSort:(NSString *)rhs;
 // https://github.com/ZaBlanc/InnerBand
 - (NSComparisonResult) caseInsensitiveSort:(NSString *)rhs;
+// https://github.com/ZaBlanc/InnerBand
+- (NSString *)trimmed;
 
+- (NSString *) stringByEscapeDoubleQuotes;
 
 @end
