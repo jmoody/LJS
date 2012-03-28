@@ -2328,19 +2328,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: arrangedObjects.longitude</string>
+						<string key="label">value: arrangedObjects.longitudeDN</string>
 						<reference key="source" ref="526318607"/>
 						<reference key="destination" ref="519675017"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="526318607"/>
 							<reference key="NSDestination" ref="519675017"/>
-							<string key="NSLabel">value: arrangedObjects.longitude</string>
+							<string key="NSLabel">value: arrangedObjects.longitudeDN</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">arrangedObjects.longitude</string>
+							<string key="NSKeyPath">arrangedObjects.longitudeDN</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">643</int>
+					<int key="connectionID">644</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3693,7 +3693,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">643</int>
+			<int key="maxID">644</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

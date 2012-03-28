@@ -26,15 +26,25 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-/**
- Ljs Categories
-*/
-#import "LjsFoundationCategories.h"
+#import <Foundation/Foundation.h>
 
-#if TARGET_OS_IPHONE
-#import "UIColor+LjsAdditions.h"
-#import "UIView+LjsAdditions.h"
-#import "UILabel+LjsAdditions.h"
-#import "UIImageView+LjsAdditions.h"
-#import "UIImage+LjsCategory.h"
-#endif
+/**
+ NSDecimalNumber on NSDecimalNumber_LjsAdditions category.
+ */
+@interface NSDecimalNumber (NSDecimalNumber_LjsAdditions)
+
+/** @name Task Section */
+- (BOOL) e:(NSDecimalNumber *) other;
+- (BOOL) lt:(NSDecimalNumber *) other;
+- (BOOL) gt:(NSDecimalNumber *) other;
+- (BOOL) lte:(NSDecimalNumber *) other;
+- (BOOL) gte:(NSDecimalNumber *) other;
+- (BOOL) isOnIntervalWithMin:(NSDecimalNumber *) aMin
+                         max:(NSDecimalNumber *) aMax;
+
+- (NSDecimalNumber *) dnByRoundingWithHandler:(NSDecimalNumberHandler *) aHandler;
+- (NSDecimalNumber *) dnByRoundingWithScale:(NSUInteger) aScale;
+- (NSDecimalNumber *) dnByRoundingAsLocation;
+
+
+@end

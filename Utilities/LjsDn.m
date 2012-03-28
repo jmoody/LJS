@@ -46,17 +46,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  sensitive currency calculations or implementing a complex confusing statistical
  algorithm.  And who can remember how to compare two NSDecimalNumbers?  
  
- Enter LjsDecimalAide - which provides methods for creating NSDecimalNumbers
+ Enter LjsDn - which provides methods for creating NSDecimalNumbers
  from various numeric values, logical comparisons and rounding.
  
  */
 @implementation LjsDn
-
-// Disallow the normal default initializer for instances
-- (id)init {
-  [self doesNotRecognizeSelector:_cmd];
-  return nil;
-}
 
 
 /**
@@ -81,6 +75,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  */ 
 + (NSDecimalNumber *) dnWithDouble:(double) aDouble {
   return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithDouble:aDouble] decimalValue]];
+}
+
++ (NSDecimalNumber *) dnWithFloat:(CGFloat) aFloat {
+  return [LjsDn dnWithDouble:aFloat];
 }
 
 /**

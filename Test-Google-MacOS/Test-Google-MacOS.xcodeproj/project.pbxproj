@@ -109,6 +109,7 @@
 		F5C3B1BC1523B23E005B1087 /* LjsGoogleAttribution.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C3B1B51523B23E005B1087 /* LjsGoogleAttribution.m */; };
 		F5C3B1BD1523B23E005B1087 /* LjsGooglePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C3B1B71523B23E005B1087 /* LjsGooglePlace.m */; };
 		F5C3B1BE1523B23E005B1087 /* LjsGooglePlaceType.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C3B1B91523B23E005B1087 /* LjsGooglePlaceType.m */; };
+		F5C3B1E21523B790005B1087 /* NSDecimalNumber+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C3B1E11523B790005B1087 /* NSDecimalNumber+LjsAdditions.m */; };
 		F5E3F756151BCDF70076450F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E3F755151BCDF70076450F /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F5E3F75A151BCE0E0076450F /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E3F759151BCE0E0076450F /* SFHFKeychainUtils.m */; };
 		F5E3F764151BD05C0076450F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E3F763151BD05C0076450F /* Cocoa.framework */; };
@@ -264,7 +265,7 @@
 		F5BB202E151BCC5000BFDDA0 /* LjsCurrentWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsCurrentWeather.m; sourceTree = "<group>"; };
 		F5BB202F151BCC5000BFDDA0 /* LjsDateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDateHelper.h; sourceTree = "<group>"; };
 		F5BB2030151BCC5000BFDDA0 /* LjsDateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDateHelper.m; sourceTree = "<group>"; };
-		F5BB2031151BCC5000BFDDA0 /* LjsDn.h */ = {isa = PBXFileReference; fileEncoding = 4; path = LjsDn.h; sourceTree = "<group>"; };
+		F5BB2031151BCC5000BFDDA0 /* LjsDn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDn.h; sourceTree = "<group>"; };
 		F5BB2032151BCC5000BFDDA0 /* LjsDn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDn.m; sourceTree = "<group>"; };
 		F5BB2033151BCC5000BFDDA0 /* LjsFileUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFileUtilities.h; sourceTree = "<group>"; };
 		F5BB2034151BCC5000BFDDA0 /* LjsFileUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileUtilities.m; sourceTree = "<group>"; };
@@ -309,6 +310,9 @@
 		F5C3B1B71523B23E005B1087 /* LjsGooglePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsGooglePlace.m; path = Human/LjsGooglePlace.m; sourceTree = "<group>"; };
 		F5C3B1B81523B23E005B1087 /* LjsGooglePlaceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsGooglePlaceType.h; path = Human/LjsGooglePlaceType.h; sourceTree = "<group>"; };
 		F5C3B1B91523B23E005B1087 /* LjsGooglePlaceType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsGooglePlaceType.m; path = Human/LjsGooglePlaceType.m; sourceTree = "<group>"; };
+		F5C3B1E01523B790005B1087 /* NSDecimalNumber+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDecimalNumber+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5C3B1E11523B790005B1087 /* NSDecimalNumber+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDecimalNumber+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5C3B1E31523B9F7005B1087 /* LjsFoundationCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFoundationCategories.h; sourceTree = "<group>"; };
 		F5E3F754151BCDF70076450F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		F5E3F755151BCDF70076450F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		F5E3F758151BCE0E0076450F /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
@@ -583,6 +587,7 @@
 		F5BB1FBF151BCC4300BFDDA0 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				F5C3B1E31523B9F7005B1087 /* LjsFoundationCategories.h */,
 				F5BB1FC0151BCC4300BFDDA0 /* LjsWebCategories.h */,
 				F5BB1FC1151BCC4300BFDDA0 /* LjsWebCategories.m */,
 				F5BB1FC2151BCC4300BFDDA0 /* NSArray+LjsAdditions.h */,
@@ -601,6 +606,8 @@
 				F5BB1FCF151BCC4300BFDDA0 /* NSMutableArray+LjsAdditions.m */,
 				F5BB1FD0151BCC4300BFDDA0 /* NSSet+LjsAdditions.h */,
 				F5BB1FD1151BCC4300BFDDA0 /* NSSet+LjsAdditions.m */,
+				F5C3B1E01523B790005B1087 /* NSDecimalNumber+LjsAdditions.h */,
+				F5C3B1E11523B790005B1087 /* NSDecimalNumber+LjsAdditions.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -1045,6 +1052,7 @@
 				F5C3B1BC1523B23E005B1087 /* LjsGoogleAttribution.m in Sources */,
 				F5C3B1BD1523B23E005B1087 /* LjsGooglePlace.m in Sources */,
 				F5C3B1BE1523B23E005B1087 /* LjsGooglePlaceType.m in Sources */,
+				F5C3B1E21523B790005B1087 /* NSDecimalNumber+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

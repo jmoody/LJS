@@ -4,6 +4,9 @@
 #import "LjsGooglePlaceType.h"
 #import "NSDate+LjsAdditions.h"
 #import "LjsGooglePlacesDetails.h"
+#import "LjsDn.h"
+#import "NSDecimalNumber+LjsAdditions.h"
+
 
 
 @implementation LjsGooglePlace
@@ -100,11 +103,11 @@
 }
 
 - (NSDecimalNumber *) latitudeDN {
-  return nil;
+  return [[LjsDn dnWithNumber:self.latitudeNumber] dnByRoundingAsLocation];
 }
 
 - (NSDecimalNumber *) longitudeDN {
-  return nil;
+  return [[LjsDn dnWithNumber:self.longitudeNumber] dnByRoundingAsLocation];
 }
 
 
