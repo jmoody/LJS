@@ -12,9 +12,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @implementation LjsGoogleAttribution
 
-@dynamic html;
-@dynamic places;
-
 + (LjsGoogleAttribution *) findOrCreateWithAtribution:(LjsGooglePlacesNmoAttribution *) aAttribution
                                                 place:(LjsGooglePlace *) aPlace
                                               context:(NSManagedObjectContext *) aContext {

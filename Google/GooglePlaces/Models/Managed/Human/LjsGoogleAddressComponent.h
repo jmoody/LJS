@@ -1,15 +1,11 @@
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import "_LjsGoogleAddressComponent.h"
 
 @class LjsGoogleAddressComponentType, LjsGooglePlace;
 @class LjsGooglePlacesNmoAddressComponent;
 
-@interface LjsGoogleAddressComponent : NSManagedObject
+@interface LjsGoogleAddressComponent : _LjsGoogleAddressComponent
 
-@property (nonatomic, strong) NSString * longName;
-@property (nonatomic, strong) NSString * shortName;
-@property (nonatomic, strong) LjsGooglePlace *place;
-@property (nonatomic, strong) NSSet *types;
 
 + (LjsGoogleAddressComponent *) initWithComponent:(LjsGooglePlacesNmoAddressComponent *) aComponent
                                             place:(LjsGooglePlace *) aPlace

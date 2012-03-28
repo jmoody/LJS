@@ -29,7 +29,7 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsDecimalAide.h"
+#import "LjsDn.h"
 #import "Lumberjack.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -50,7 +50,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  from various numeric values, logical comparisons and rounding.
  
  */
-@implementation LjsDecimalAide
+@implementation LjsDn
 
 // Disallow the normal default initializer for instances
 - (id)init {
@@ -154,7 +154,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 + (BOOL) dn:(NSDecimalNumber *) a 
     isOnMin:(NSDecimalNumber *) min
         max:(NSDecimalNumber *) max {
-  return [LjsDecimalAide dn:a gte:min] && [LjsDecimalAide dn:a lte:max];
+  return [LjsDn dn:a gte:min] && [LjsDn dn:a lte:max];
 }
 
 /**

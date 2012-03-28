@@ -24,6 +24,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @synthesize model = __moModel;
 @synthesize coordinator = __coordinator;
 @synthesize manager;
+@synthesize places;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   // kick off the logger
@@ -44,12 +45,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                 
   
   NSString *input, *langCode;
-  NSNumber *radius;
+  CGFloat radius;
   BOOL establishment;
   
   input = @"Basel";
   langCode = @"en";
-  radius = [NSNumber numberWithDouble:5000];
+  radius = 5000;
   establishment = NO;
   NSArray *results;
   
@@ -58,6 +59,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                                                               language:langCode];
   DDLogDebug(@"results = %@", results);
   
+  self.places = results;
 }
 
 // Returns the directory the application uses to store the Core Data store file. 

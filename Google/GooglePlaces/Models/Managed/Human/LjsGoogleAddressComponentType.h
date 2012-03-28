@@ -1,12 +1,10 @@
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import "_LjsGoogleAddressComponentType.h"
 
 @class LjsGoogleAddressComponent;
 
-@interface LjsGoogleAddressComponentType : NSManagedObject
+@interface LjsGoogleAddressComponentType : _LjsGoogleAddressComponentType
 
-@property (nonatomic, strong) NSString * name;
-@property (nonatomic, strong) NSSet *components;
 
 + (LjsGoogleAddressComponentType *) findOrCreateWithName:(NSString *) aName
                                                component:(LjsGoogleAddressComponent *) aComponent

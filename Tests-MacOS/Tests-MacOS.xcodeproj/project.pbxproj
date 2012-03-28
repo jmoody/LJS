@@ -100,7 +100,7 @@
 		F580715B146C296700EA4CFB /* ASIHTTPResponseUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807140146C296700EA4CFB /* ASIHTTPResponseUtils.m */; };
 		F580715C146C296700EA4CFB /* LjsJsonRpcReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807143146C296700EA4CFB /* LjsJsonRpcReply.m */; };
 		F580715D146C296700EA4CFB /* LjsDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807145146C296700EA4CFB /* LjsDateHelper.m */; };
-		F580715E146C296700EA4CFB /* LjsDecimalAide.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807147146C296700EA4CFB /* LjsDecimalAide.m */; };
+		F580715E146C296700EA4CFB /* LjsDn.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807147146C296700EA4CFB /* LjsDn.m */; };
 		F5807160146C296700EA4CFB /* LjsFileUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F580714B146C296700EA4CFB /* LjsFileUtilities.m */; };
 		F5807163146C296700EA4CFB /* LjsIdGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807151146C296700EA4CFB /* LjsIdGenerator.m */; };
 		F5807164146C296700EA4CFB /* LjsKeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807153146C296700EA4CFB /* LjsKeychainManager.m */; };
@@ -348,8 +348,8 @@
 		F5807143146C296700EA4CFB /* LjsJsonRpcReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsJsonRpcReply.m; sourceTree = "<group>"; };
 		F5807144146C296700EA4CFB /* LjsDateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDateHelper.h; sourceTree = "<group>"; };
 		F5807145146C296700EA4CFB /* LjsDateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDateHelper.m; sourceTree = "<group>"; };
-		F5807146146C296700EA4CFB /* LjsDecimalAide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDecimalAide.h; sourceTree = "<group>"; };
-		F5807147146C296700EA4CFB /* LjsDecimalAide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDecimalAide.m; sourceTree = "<group>"; };
+		F5807146146C296700EA4CFB /* LjsDn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDn.h; sourceTree = "<group>"; };
+		F5807147146C296700EA4CFB /* LjsDn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDn.m; sourceTree = "<group>"; };
 		F580714A146C296700EA4CFB /* LjsFileUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFileUtilities.h; sourceTree = "<group>"; };
 		F580714B146C296700EA4CFB /* LjsFileUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileUtilities.m; sourceTree = "<group>"; };
 		F5807150146C296700EA4CFB /* LjsIdGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsIdGenerator.h; sourceTree = "<group>"; };
@@ -857,8 +857,8 @@
 				F5807141146C296700EA4CFB /* JSON-RPC */,
 				F5807144146C296700EA4CFB /* LjsDateHelper.h */,
 				F5807145146C296700EA4CFB /* LjsDateHelper.m */,
-				F5807146146C296700EA4CFB /* LjsDecimalAide.h */,
-				F5807147146C296700EA4CFB /* LjsDecimalAide.m */,
+				F5807146146C296700EA4CFB /* LjsDn.h */,
+				F5807147146C296700EA4CFB /* LjsDn.m */,
 				F580714A146C296700EA4CFB /* LjsFileUtilities.h */,
 				F580714B146C296700EA4CFB /* LjsFileUtilities.m */,
 				F5807150146C296700EA4CFB /* LjsIdGenerator.h */,
@@ -1194,7 +1194,7 @@
 				F580715B146C296700EA4CFB /* ASIHTTPResponseUtils.m in Sources */,
 				F580715C146C296700EA4CFB /* LjsJsonRpcReply.m in Sources */,
 				F580715D146C296700EA4CFB /* LjsDateHelper.m in Sources */,
-				F580715E146C296700EA4CFB /* LjsDecimalAide.m in Sources */,
+				F580715E146C296700EA4CFB /* LjsDn.m in Sources */,
 				F5807160146C296700EA4CFB /* LjsFileUtilities.m in Sources */,
 				F5807163146C296700EA4CFB /* LjsIdGenerator.m in Sources */,
 				F5807164146C296700EA4CFB /* LjsKeychainManager.m in Sources */,

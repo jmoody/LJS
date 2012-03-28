@@ -69,7 +69,7 @@
 #import "LjsGooglePlacesRequestManager.h"
 #import "LjsGoogleGlobals.h"
 #import "LjsCaesarCipher.h"
-#import "LjsDecimalAide.h"
+#import "LjsDn.h"
 
 @interface LjsGooglePlacesRequestManagerTests : LjsTestCase 
 

@@ -1,12 +1,11 @@
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import "_LjsGoogleAttribution.h"
 
 @class LjsGooglePlacesNmoAttribution;
 @class LjsGooglePlace;
 
-@interface LjsGoogleAttribution : NSManagedObject
-@property (nonatomic, strong) NSString *html;
-@property (nonatomic, strong) NSSet *places;
+@interface LjsGoogleAttribution : _LjsGoogleAttribution
+
 
 + (LjsGoogleAttribution *) findOrCreateWithAtribution:(LjsGooglePlacesNmoAttribution *) aAttribution
                                                 place:(LjsGooglePlace *) aPlace

@@ -1,33 +1,18 @@
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import "_LjsGooglePlace.h"
 
 @class LjsGoogleAddressComponent, LjsGoogleAttribution, LjsGooglePlaceType;
 @class LjsGooglePlacesDetails;
 
-@interface LjsGooglePlace : NSManagedObject
-
-@property (nonatomic, strong) NSDate * dateAdded;
-@property (nonatomic, strong) NSDate * dateModified;
-@property (nonatomic, strong) NSString * formattedAddress;
-@property (nonatomic, strong) NSString * formattedPhone;
-@property (nonatomic, strong) NSString * iconUrl;
-@property (nonatomic, strong) NSString * internationalPhone;
-@property (nonatomic, strong) NSNumber * latitudeNumber;
-@property (nonatomic, strong) NSNumber * longitudeNumber;
-@property (nonatomic, strong) NSString * mapUrl;
-@property (nonatomic, strong) NSString * name;
-@property (nonatomic, strong) NSNumber * ratingNumber;
-@property (nonatomic, strong) NSString * referenceId;
-@property (nonatomic, strong) NSString * stableId;
-@property (nonatomic, strong) NSString * vicinity;
-@property (nonatomic, strong) NSString * website;
-@property (nonatomic, strong) NSNumber *orderValueNumber;
-@property (nonatomic, strong) NSSet *addressComponents;
-@property (nonatomic, strong) NSSet *attributions;
-@property (nonatomic, strong) NSSet *types;
+@interface LjsGooglePlace : _LjsGooglePlace
 
 + (LjsGooglePlace *) initWithDetails:(LjsGooglePlacesDetails *) aDetails
                              context:(NSManagedObjectContext *) aContext;
+
+- (NSString *) latitudeString;
+- (NSString *) longitudeString;
+- (NSDecimalNumber *) latitudeDN;
+- (NSDecimalNumber *) longitudeDN;
 
 - (CGFloat) latitude;
 - (void) setLatitude:(CGFloat) aValue;

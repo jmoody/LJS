@@ -12,8 +12,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @implementation LjsGooglePlaceType
 
-@dynamic name;
-@dynamic places;
 
 + (LjsGooglePlaceType *) findOrCreateWithName:(NSString *) aName
                                         place:(LjsGooglePlace *)aPlace 

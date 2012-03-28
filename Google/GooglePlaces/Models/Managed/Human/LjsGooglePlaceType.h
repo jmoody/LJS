@@ -1,12 +1,10 @@
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import "_LjsGooglePlaceType.h"
 
 @class LjsGooglePlace;
 
-@interface LjsGooglePlaceType : NSManagedObject
+@interface LjsGooglePlaceType : _LjsGooglePlaceType
 
-@property (nonatomic, strong) NSString * name;
-@property (nonatomic, strong) NSSet *places;
 
 + (LjsGooglePlaceType *) findOrCreateWithName:(NSString *) aName
                                         place:(LjsGooglePlace *) aPlace

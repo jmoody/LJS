@@ -8,26 +8,6 @@
 
 @implementation LjsGooglePlace
 
-@dynamic dateAdded;
-@dynamic dateModified;
-@dynamic formattedAddress;
-@dynamic formattedPhone;
-@dynamic iconUrl;
-@dynamic internationalPhone;
-@dynamic latitudeNumber;
-@dynamic longitudeNumber;
-@dynamic mapUrl;
-@dynamic name;
-@dynamic ratingNumber;
-@dynamic referenceId;
-@dynamic stableId;
-@dynamic vicinity;
-@dynamic website;
-@dynamic addressComponents;
-@dynamic attributions;
-@dynamic types;
-@dynamic orderValueNumber;
-
 + (LjsGooglePlace *) initWithDetails:(LjsGooglePlacesDetails *) aDetails
                              context:(NSManagedObjectContext *) aContext {
   NSString *entityName = [NSString stringWithFormat:@"%@", [self class]];
@@ -41,6 +21,8 @@
   place.formattedPhone = aDetails.formattedPhoneNumber;
   place.iconUrl = aDetails.icon;
   place.internationalPhone = aDetails.internationalPhoneNumber;
+
+  
   [place setLatitude:aDetails.location.x];
   [place setLongitude:aDetails.location.y];
   
@@ -49,7 +31,7 @@
   [place setRating:aDetails.rating];
   
   place.referenceId = aDetails.searchReferenceId;
-  place.stableId = aDetails.searchReferenceId;
+  place.stableId = aDetails.stablePlaceId;
   
   place.vicinity = aDetails.vicinity;
   
@@ -76,7 +58,9 @@
 
 
 - (CGFloat) latitude {
-  return [self.latitudeNumber doubleValue];
+  CGFloat val = [self.latitudeNumber doubleValue];
+  NSString *str = [NSString stringWithFormat:@"%.5f", val];
+  return [str doubleValue];
 }
 
 - (void) setLatitude:(CGFloat) aValue {
@@ -105,6 +89,22 @@
 
 - (void) setOrderValue:(CGFloat) aValue {
   self.orderValueNumber = [NSNumber numberWithDouble:aValue];
+}
+
+- (NSString *) latitudeString {
+  return [NSString stringWithFormat:@"%.5f", [self latitude]];
+}
+
+- (NSString *) longitudeString {
+  return [NSString stringWithFormat:@"%.5f", [self longitude]];
+}
+
+- (NSDecimalNumber *) latitudeDN {
+  return nil;
+}
+
+- (NSDecimalNumber *) longitudeDN {
+  return nil;
 }
 
 

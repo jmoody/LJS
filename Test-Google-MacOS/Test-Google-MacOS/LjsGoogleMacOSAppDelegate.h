@@ -9,7 +9,7 @@
 @property (nonatomic, strong, readonly) NSManagedObjectContext *context; 
 @property (nonatomic, strong, readonly) NSManagedObjectModel *model; 
 @property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *coordinator;
-
+@property (nonatomic, strong) NSArray *places;
 
 - (void) saveContext;
 

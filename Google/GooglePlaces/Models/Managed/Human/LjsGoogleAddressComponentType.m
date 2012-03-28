@@ -11,9 +11,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @implementation LjsGoogleAddressComponentType
 
-@dynamic name;
-@dynamic components;
-
 + (LjsGoogleAddressComponentType *) findOrCreateWithName:(NSString *) aName
                                                component:(LjsGoogleAddressComponent *) aComponent
                                                  context:(NSManagedObjectContext *)aContext {

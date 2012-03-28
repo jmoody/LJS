@@ -5,7 +5,7 @@
 #import "LjsNumericPickerDelegate.h"
 #import "Lumberjack.h"
 #import "LjsLocaleUtils.h"
-#import "LjsDecimalAide.h"
+#import "LjsDn.h"
 
 NSString *LjsNumericPickerDelegatePickerViewDidChangeNotification = @"com.littlejoysoftware.ljs LJS Numeric Picker Did Change Notification";
 NSString *LjsNumericPickerDelegatePickerViewStringValueUserInfoKey = @"com.littlejoysoftware.ljs LJS Numeric Picker View String Value User Info Key";
@@ -53,15 +53,15 @@ static NSInteger const LjsNumericPickerLargeInteger = 24000;
   self = [super init];
   if (self != nil) {
     NSDecimalNumber *start, *min, *max, *zero, *maxAllowed;
-    start = [LjsDecimalAide dnWithInteger:aStartingValue];
-    min = [LjsDecimalAide dnWithInteger:aMinValue];
-    max = [LjsDecimalAide dnWithInteger:aMaxValue];
+    start = [LjsDn dnWithInteger:aStartingValue];
+    min = [LjsDn dnWithInteger:aMinValue];
+    max = [LjsDn dnWithInteger:aMaxValue];
     zero = [NSDecimalNumber zero];
-    maxAllowed = [LjsDecimalAide dnWithInteger:LjsNumericPickerDelegageMaximumInteger];
+    maxAllowed = [LjsDn dnWithInteger:LjsNumericPickerDelegageMaximumInteger];
     NSAssert(aCallbackDelegate != nil, @"callback delegate must not be nil");
-    NSAssert1([LjsDecimalAide dn:min gte:zero], @"< %@ > must be greater than zero", min);
-    NSAssert2([LjsDecimalAide dn:max lte:maxAllowed], @"< %@ > must be <= %@", max, maxAllowed);
-    NSAssert3([LjsDecimalAide dn:start isOnMin:min max:max],
+    NSAssert1([LjsDn dn:min gte:zero], @"< %@ > must be greater than zero", min);
+    NSAssert2([LjsDn dn:max lte:maxAllowed], @"< %@ > must be <= %@", max, maxAllowed);
+    NSAssert3([LjsDn dn:start isOnMin:min max:max],
               @"< %@ > must be on (%@, %@)", start, min, max);
     
     self.callbackDelegate = aCallbackDelegate;

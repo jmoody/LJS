@@ -30,7 +30,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface LjsDecimalAide : NSObject
+@interface LjsDn : NSObject
 
 /** @name NSDecimalNumber creation */
 + (NSDecimalNumber *) dnWithInteger:(NSInteger) aInteger;
