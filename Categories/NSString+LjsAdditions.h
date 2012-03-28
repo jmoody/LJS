@@ -66,6 +66,6 @@
 // https://github.com/ZaBlanc/InnerBand
 - (NSString *)trimmed;
 
-- (NSString *) stringByEscapeDoubleQuotes;
-
+- (NSString *) stringByEscapingDoubleQuotes;
+- (NSString *) stringByUnescapingDoubleQuotes;
 @end
