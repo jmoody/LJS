@@ -187,6 +187,9 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
       NSString *langCode = [aUserInfo objectForKey:@"language"];
       [self.requestManager performDetailsRequestionForPrediction:prediction
                                                         language:langCode];
+    } else {
+      DDLogDebug(@"skipping details request - place: %@ (%@) already exists",
+                 prediction.prediction, [prediction shortId]);
     }
   }
 }
@@ -267,7 +270,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
   NSError *error = nil;
   __coordinator = [[NSPersistentStoreCoordinator alloc]
                    initWithManagedObjectModel:self.model];
-  
+
   NSDictionary *options = nil;
   options = [NSDictionary dictionaryWithObjectsAndKeys:
              [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,

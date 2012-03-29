@@ -23,6 +23,7 @@
 - (CGFloat) orderValue;
 - (void) setOrderValue:(CGFloat) aValue;
 
+- (NSString *) shortId;
 
 @end
 

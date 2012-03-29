@@ -123,7 +123,8 @@
   
 
   filename = @"com.littlejoysoftware.LjsGooglePlaces.sqlite";
-  libDir = [LjsFileUtilities findLibraryDirectoryPath:YES];
+  libDir = [LjsFileUtilities findCoreDataLibraryPath:YES];
+  
   manager = [[LjsGooglePlacesManager alloc] init];
   contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
   result = [LjsValidator array:contents containsString:filename];
@@ -132,7 +133,7 @@
   
   apiKey = [LjsVariates randomAsciiWithLengthMin:10 lenghtMax:20];
   filename = @"com.littlejoysoftware.LjsGooglePlaces.sqlite";
-  libDir = [LjsFileUtilities findLibraryDirectoryPath:YES];
+  libDir = [LjsFileUtilities findCoreDataLibraryPath:YES];
   manager = [[LjsGooglePlacesManager alloc] initWithApiToken:apiKey];
   contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
   result = [LjsValidator array:contents containsString:filename];

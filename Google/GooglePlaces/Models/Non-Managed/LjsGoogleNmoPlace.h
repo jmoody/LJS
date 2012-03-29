@@ -45,5 +45,6 @@
 /** @name Handling Notifications, Requests, and Events */
 
 /** @name Utility */
+- (NSString *) shortId;
 
 @end

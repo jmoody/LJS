@@ -34,6 +34,8 @@
 #import "LjsValidator.h"
 #import "LjsVariates.h"
 #import "Lumberjack.h"
+#import "LjsDn.h"
+#import "NSDecimalNumber+LjsAdditions.h"
 
 static const int ddLogLevel = LOG_LEVEL_WARN;
 
@@ -291,6 +293,10 @@ static LjsLocationManager *singleton = nil;
   return result;
 }
 
+- (NSDecimalNumber *) longitudeDn {
+  return [[LjsDn dnWithFloat:[self longitude]] dnByRoundingAsLocation];
+}
+
 - (CGFloat) latitude {
   CGFloat result;
   if (self.coreLocation == nil) {
@@ -317,6 +323,11 @@ static LjsLocationManager *singleton = nil;
 #endif
 
   return result;
+}
+
+
+- (NSDecimalNumber *) latitudeDn {
+  return [[LjsDn dnWithFloat:[self latitude]] dnByRoundingAsLocation];
 }
 
 - (CGFloat) trueHeading {
@@ -356,6 +367,35 @@ static LjsLocationManager *singleton = nil;
 #endif
   return result;
 }
+
+- (NSDecimalNumber *) trueHeadingDn {
+  return [[LjsDn dnWithFloat:[self trueHeading]] dnByRoundingAsLocation];
+}
+
+- (CGFloat) metersBetweenA:(LjsLocation) a
+                         b:(LjsLocation) b {
+  CLLocation *lA = [[CLLocation alloc] initWithLatitude:a.latitude
+                                              longitude:a.longitude];
+  CLLocation *lB = [[CLLocation alloc] initWithLatitude:b.latitude
+                                              longitude:b.longitude];
+  return (CGFloat)[lA distanceFromLocation:lB];
+}
+
+- (NSDecimalNumber *) dnMetersBetweenA:(LjsLocation) a
+                           b:(LjsLocation) b {
+  return [self dnMetersBetweenA:a b:b scale:5];
+}
+
+
+- (NSDecimalNumber *) dnMetersBetweenA:(LjsLocation) a
+                                     b:(LjsLocation) b
+                                 scale:(NSUInteger) aScale {
+  NSDecimalNumber *result = [LjsDn dnWithFloat:[self metersBetweenA:a b:b]];
+  return [result dnByRoundingWithScale:aScale];
+}
+
+
+
 
 
 

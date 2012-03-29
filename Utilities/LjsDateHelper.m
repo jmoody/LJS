@@ -863,7 +863,7 @@ static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 
   if ([components respondsToSelector:@selector(setWeekOfMonth:)]) {
     // setting this causes Sun Jan 1 2012 to return 0
-    //[calendar setMinimumDaysInFirstWeek:4];
+    // [calendar setMinimumDaysInFirstWeek:4];
     // Monday
     [calendar setFirstWeekday:2];
     components = [calendar components:NSWeekOfMonthCalendarUnit fromDate:aDate];

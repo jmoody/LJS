@@ -29,6 +29,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+struct LjsLocation {
+  CGFloat latitude;
+  CGFloat longitude;
+};
+typedef struct LjsLocation LjsLocation;
+
+
 //extern CGFloat const LjsLocationManagerLocationHeadingNotFound;
 
 extern CGFloat const LjsLocationNotFound;
@@ -85,7 +92,6 @@ extern CGFloat const LjsLocationNotFound;
  */
 + (id) sharedInstance;
 
-
 /** @name Testing For Location and Heading Availability and Validity*/
 
 /**
@@ -128,6 +134,8 @@ extern CGFloat const LjsLocationNotFound;
  */
 - (CGFloat) longitude;
 
+- (NSDecimalNumber *) longitudeDn;
+
 /**
  @return the current latitude as a rounded NSDecimalNumber
  @warning if LJS_LOCATION_SERVICES_DEBUG Preprocess Macro is defined and no valid
@@ -135,6 +143,8 @@ extern CGFloat const LjsLocationNotFound;
  Zurich, CH
  */
 - (CGFloat) latitude;
+
+- (NSDecimalNumber *) latitudeDn;
 
 
 /**
@@ -144,5 +154,21 @@ extern CGFloat const LjsLocationNotFound;
  
  */
 - (CGFloat) trueHeading;
+
+- (NSDecimalNumber *) trueHeadingDn;
+
+- (CGFloat) metersBetweenA:(LjsLocation) a
+                         b:(LjsLocation) b;
+
+
+- (NSDecimalNumber *) dnMetersBetweenA:(LjsLocation) a
+                                     b:(LjsLocation) b;
+
+- (NSDecimalNumber *) dnMetersBetweenA:(LjsLocation) a
+                                     b:(LjsLocation) b
+                                 scale:(NSUInteger) aScale;
+
+
+
 
 @end

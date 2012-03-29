@@ -110,6 +110,9 @@
   return [[LjsDn dnWithNumber:self.longitudeNumber] dnByRoundingAsLocation];
 }
 
+- (NSString *) shortId {
+  return [self.stableId substringToIndex:5];
+}
 
 
 @end

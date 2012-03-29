@@ -83,5 +83,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return self;
 }
 
+- (NSString *) shortId {
+  return [self.stablePlaceId substringToIndex:5];
+}
 
 @end
