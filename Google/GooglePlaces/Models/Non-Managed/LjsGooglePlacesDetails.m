@@ -101,7 +101,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     for (NSDictionary *compDict in components) {
       comp = [[LjsGooglePlacesNmoAddressComponent alloc]
               initWithDictionary:compDict];
-      [marray append:comp];
+      [marray nappend:comp];
     }
     self.addressComponents = [NSArray arrayWithArray:marray];
     
@@ -110,7 +110,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     for (NSString *str in html) {
       LjsGooglePlacesNmoAttribution *attr;
       attr = [[LjsGooglePlacesNmoAttribution alloc] initWithHtml:str];
-      [marray append:attr];
+      [marray nappend:attr];
     }
     self.attributions = [NSArray arrayWithArray:marray];
   }

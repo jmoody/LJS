@@ -85,7 +85,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   for (NSDictionary *rangeDict in aArray) {
     NSRange range = [self makeRangeWithDictionary:rangeDict];
     NSString *str = NSStringFromRange(range);
-    [result append:str];
+    [result nappend:str];
   }
   
   return result;
@@ -102,7 +102,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSMutableArray *result = [NSMutableArray arrayWithCapacity:[aArray count]];
   for (NSDictionary *termDict in aArray) {
     NSString *value = [termDict objectForKey:@"value"];
-    [result append:value];
+    [result nappend:value];
   }
   return result;
 }

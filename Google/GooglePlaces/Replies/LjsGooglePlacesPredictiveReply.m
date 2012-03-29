@@ -65,7 +65,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     NSArray *predictions = [self.dictionary objectForKey:LjsGooglePlacesAutocompleteKeyPredictions];
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:[predictions count]];
     for (NSDictionary *predDict in predictions) {
-      [array append:[[LjsGooglePlacesPrediction alloc] 
+      [array nappend:[[LjsGooglePlacesPrediction alloc] 
                      initWithDictionary:predDict]];
     }
     result = [NSArray arrayWithArray:array];
