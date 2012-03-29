@@ -47,7 +47,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 //CGFloat const LjsLocationManagerLocationHeadingNotFound = CGFLOAT_MIN;
 
-CGFloat const LjsLocationNotFound = CGFLOAT_MIN;
+const LjsLocation LjsLocationNotFound = {CGFLOAT_MIN, CGFLOAT_MAX};
+
+CGFloat const LjsLocationDegreesNotFound = CGFLOAT_MIN;
 
 static CGFloat const LjsMinHeading = 0.0;
 static CGFloat const LjsMaxHeading = 360.0;
@@ -234,7 +236,7 @@ static LjsLocationManager *singleton = nil;
 
 
 + (BOOL) isValidHeading:(CGFloat) aHeading {
-  if (aHeading == LjsLocationNotFound) {
+  if (aHeading == LjsLocationDegreesNotFound) {
     return NO;
   } else {
     LjsLocationManager *lm = [LjsLocationManager sharedInstance];
@@ -244,7 +246,7 @@ static LjsLocationManager *singleton = nil;
 
 
 + (BOOL) isValidLatitude:(CGFloat) aLatitude {
-  if (aLatitude == LjsLocationNotFound) {
+  if (aLatitude == LjsLocationDegreesNotFound) {
     return NO;
   } else {
     LjsLocationManager *lm = [LjsLocationManager sharedInstance];
@@ -254,7 +256,7 @@ static LjsLocationManager *singleton = nil;
 
 
 + (BOOL) isValidLongitude:(CGFloat) aLongitude {
-  if (aLongitude == LjsLocationNotFound) {
+  if (aLongitude == LjsLocationDegreesNotFound) {
     return NO;
   } else {
     LjsLocationManager *lm = [LjsLocationManager sharedInstance];
@@ -268,13 +270,13 @@ static LjsLocationManager *singleton = nil;
 - (CGFloat) longitude {
   CGFloat result;
   if (self.coreLocation == nil) {
-    result = LjsLocationNotFound;
+    result = LjsLocationDegreesNotFound;
   } else {
     result = self.coreLocation.coordinate.longitude;
   }
 
 #ifdef LJS_LOCATION_SERVICES_DEBUG 
-  if (result == LjsLocationNotFound)  {
+  if (result == LjsLocationDegreesNotFound)  {
     NSString *deviceName = [[UIDevice currentDevice] name];
     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
       DDLogNotice(@"location is not available for device: %@ - overriding", deviceName);
@@ -284,7 +286,7 @@ static LjsLocationManager *singleton = nil;
 #endif
   
 #ifdef LJS_LOCATION_SERVICES_SIMULATOR_DEBUG
-  if (result == LjsLocationNotFound) {
+  if (result == LjsLocationDegreesNotFound) {
     DDLogNotice(@"location is not available on the simulator - overriding");
     result = LjsLongitudeZurich;
   }
@@ -300,13 +302,13 @@ static LjsLocationManager *singleton = nil;
 - (CGFloat) latitude {
   CGFloat result;
   if (self.coreLocation == nil) {
-    result = LjsLocationNotFound;
+    result = LjsLocationDegreesNotFound;
   } else {
     result = self.coreLocation.coordinate.latitude;
   }
   
 #ifdef LJS_LOCATION_SERVICES_DEBUG 
-  if (result == LjsLocationNotFound)  {
+  if (result == LjsLocationDegreesNotFound)  {
     NSString *deviceName = [[UIDevice currentDevice] name];
     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
       DDLogNotice(@"location is not available for device: %@ - overriding", deviceName);
@@ -316,7 +318,7 @@ static LjsLocationManager *singleton = nil;
 #endif
   
 #ifdef LJS_LOCATION_SERVICES_SIMULATOR_DEBUG
-  if (result == LjsLocationNotFound) {
+  if (result == LjsLocationDegreesNotFound) {
     DDLogNotice(@"location is not available on the simulator - overriding");
     result = LjsLatitudeZurich;
   }
@@ -333,13 +335,13 @@ static LjsLocationManager *singleton = nil;
 - (CGFloat) trueHeading {
   CGFloat result;
   if (self.coreHeading == nil) {
-    result = LjsLocationNotFound;
+    result = LjsLocationDegreesNotFound;
   } else {
     result = self.coreHeading.trueHeading;
   }
 
 #ifdef LJS_LOCATION_SERVICES_DEBUG 
-  if (result == LjsLocationNotFound) {
+  if (result == LjsLocationDegreesNotFound) {
     NSString *deviceName = [[UIDevice currentDevice] name];
     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
       DDLogNotice(@"heading is not available for device: %@ - overriding", deviceName);
@@ -352,7 +354,7 @@ static LjsLocationManager *singleton = nil;
 #endif
 
 #ifdef LJS_LOCATION_SERVICES_SIMULATOR_DEBUG
-  if (result == LjsLocationNotFound) {
+  if (result == LjsLocationDegreesNotFound) {
     DDLogNotice(@"heading is not available for simulator - overriding");
     CGFloat random = [LjsVariates randomDoubleWithMin:5.0 max:10.0];
     NSUInteger signedness = [LjsVariates flip];
@@ -371,6 +373,17 @@ static LjsLocationManager *singleton = nil;
 - (NSDecimalNumber *) trueHeadingDn {
   return [[LjsDn dnWithFloat:[self trueHeading]] dnByRoundingAsLocation];
 }
+
+
+- (LjsLocation) location {
+  return LjslocationMake([self latitude], [self longitude]);
+}
+
++ (BOOL) isValidLocation:(LjsLocation) aLocation {
+  return ([LjsLocationManager isValidLatitude:aLocation.latitude] &&
+          [LjsLocationManager isValidLongitude:aLocation.longitude]);
+}
+
 
 - (CGFloat) metersBetweenA:(LjsLocation) a
                          b:(LjsLocation) b {
@@ -394,8 +407,57 @@ static LjsLocationManager *singleton = nil;
   return [result dnByRoundingWithScale:aScale];
 }
 
+- (CGFloat) kilometersBetweenA:(LjsLocation) a
+                             b:(LjsLocation) b {
+  return [self metersBetweenA:a b:b] / 1000.0;
+}
 
+- (NSDecimalNumber *) dnKilometersBetweenA:(LjsLocation) a
+                                         b:(LjsLocation) b {
+  
+  return [self dnKilometersBetweenA:a b:b scale:5];
+}
 
+- (NSDecimalNumber *) dnKilometersBetweenA:(LjsLocation) a
+                                        b:(LjsLocation) b
+                                    scale:(NSUInteger) aScale {
+  return [[LjsDn dnWithFloat:[self kilometersBetweenA:a b:b]] 
+          dnByRoundingWithScale:aScale];
+}
+
+- (CGFloat) feetBetweenA:(LjsLocation) a
+                       b:(LjsLocation) b {
+  return [self metersBetweenA:a b:b] * 3.2808399;
+}
+
+- (NSDecimalNumber *) dnFeetBetweenA:(LjsLocation) a
+                                   b:(LjsLocation) b {
+  return [self dnFeetBetweenA:a b:b scale:5];
+}
+
+- (NSDecimalNumber *) dnFeetBetweenA:(LjsLocation) a
+                                   b:(LjsLocation) b
+                               scale:(NSUInteger) aScale {
+  return [[LjsDn dnWithFloat:[self feetBetweenA:a b:b]]
+          dnByRoundingWithScale:aScale];
+}
+
+- (CGFloat) milesBetweenA:(LjsLocation) a
+                        b:(LjsLocation) b {
+  return [self metersBetweenA:a b:b] /  0.000621371192;
+}
+
+- (NSDecimalNumber *) dnMilesBetweenA:(LjsLocation) a
+                                    b:(LjsLocation) b {
+  return [self dnMilesBetweenA:a b:b scale:5];
+}
+
+- (NSDecimalNumber *) dnMilesBetweenA:(LjsLocation) a
+                                    b:(LjsLocation) b
+                                scale:(NSUInteger) aScale {
+  return [[LjsDn dnWithFloat:[self milesBetweenA:a b:b]]
+          dnByRoundingWithScale:aScale];
+}
 
 
 

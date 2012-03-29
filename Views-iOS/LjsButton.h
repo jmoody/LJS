@@ -41,6 +41,7 @@
 @property (nonatomic, strong) CAGradientLayer *gradientLayer;
 @property (nonatomic, assign) BOOL isOn;
 
+
 - (void) setHighColor:(UIColor *) aColor;
 - (void) setLowColor:(UIColor * ) aColor;
 
@@ -50,6 +51,12 @@
 - (void) setBorderColor:(UIColor *) color 
             borderWidth:(CGFloat) width 
            cornerRadius:(CGFloat) radius;
+
+- (void) setIsOnImage:(UIImage *)isOnImage 
+           isOffImage:(UIImage *) isOffImage;
+
+- (void) toggle;
+- (void) setState:(BOOL) aIsOn;
 
 - (void) resetBounds;
 

@@ -35,10 +35,16 @@ struct LjsLocation {
 };
 typedef struct LjsLocation LjsLocation;
 
+static inline LjsLocation
+LjslocationMake(CGFloat lat, CGFloat lng)
+{
+  LjsLocation loc; loc.latitude = lat; loc.longitude = lng; return loc;
+}
 
-//extern CGFloat const LjsLocationManagerLocationHeadingNotFound;
+extern const LjsLocation LjsLocationNotFound;
 
-extern CGFloat const LjsLocationNotFound;
+
+extern CGFloat const LjsLocationDegreesNotFound;
 
 /**
  A singleton class wrapper around the Location Services.
@@ -157,9 +163,11 @@ extern CGFloat const LjsLocationNotFound;
 
 - (NSDecimalNumber *) trueHeadingDn;
 
+- (LjsLocation) location;
++ (BOOL) isValidLocation:(LjsLocation) aLocation;
+
 - (CGFloat) metersBetweenA:(LjsLocation) a
                          b:(LjsLocation) b;
-
 
 - (NSDecimalNumber *) dnMetersBetweenA:(LjsLocation) a
                                      b:(LjsLocation) b;
@@ -168,7 +176,34 @@ extern CGFloat const LjsLocationNotFound;
                                      b:(LjsLocation) b
                                  scale:(NSUInteger) aScale;
 
+- (CGFloat) kilometersBetweenA:(LjsLocation) a
+                             b:(LjsLocation) b;
 
+- (NSDecimalNumber *) dnKilometersBetweenA:(LjsLocation) a
+                                     b:(LjsLocation) b;
 
+- (NSDecimalNumber *) dnKilometersBetweenA:(LjsLocation) a
+                                        b:(LjsLocation) b
+                                    scale:(NSUInteger) aScale;
+
+- (CGFloat) feetBetweenA:(LjsLocation) a
+                       b:(LjsLocation) b;
+
+- (NSDecimalNumber *) dnFeetBetweenA:(LjsLocation) a
+                                   b:(LjsLocation) b;
+
+- (NSDecimalNumber *) dnFeetBetweenA:(LjsLocation) a
+                                     b:(LjsLocation) b
+                               scale:(NSUInteger) aScale;
+
+- (CGFloat) milesBetweenA:(LjsLocation) a
+                       b:(LjsLocation) b;
+
+- (NSDecimalNumber *) dnMilesBetweenA:(LjsLocation) a
+                                   b:(LjsLocation) b;
+
+- (NSDecimalNumber *) dnMilesBetweenA:(LjsLocation) a
+                                   b:(LjsLocation) b
+                               scale:(NSUInteger) aScale;
 
 @end

@@ -39,13 +39,22 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+@interface LjsButton ()
+
+@property (nonatomic, strong) UIImage *isOnImage;
+@property (nonatomic, strong) UIImage *isOffImage;
+
+
+- (void) setImageForState;
+
+@end
 @implementation LjsButton
 
 @synthesize _highColor;
 @synthesize _lowColor;
 @synthesize gradientLayer;
 @synthesize isOn;
-
+@synthesize isOnImage, isOffImage;
 
 - (id) initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
@@ -77,9 +86,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   // Display a border around the button 
   [[self layer] setBorderWidth:2.0];
   
-
+  
   self.showsTouchWhenHighlighted = YES;
   self.isOn = NO;
+  self.isOnImage = nil;
+  self.isOffImage = nil;
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -138,6 +149,33 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [self setTitleColor:aColor forState:UIControlStateHighlighted];
 }
 
+- (void) setIsOnImage:(UIImage *)aIsOnImage 
+           isOffImage:(UIImage *)aIsOffImage {
+  self.isOnImage = aIsOnImage;
+  self.isOffImage = aIsOffImage;
+}
 
+- (void) setImageForState {
+  if (self.isOnImage == nil || self.isOffImage == nil) {
+    return;
+  }
+  UIImage *image;
+  if (self.isOn == YES) {
+    image = self.isOnImage;
+  } else {
+    image = self.isOffImage;
+  }
+  [self setImage:image forState:UIControlStateNormal];
+}
+
+- (void) setState:(BOOL) aIsOn {
+  self.isOn = aIsOn;
+  [self setImageForState];
+}
+
+- (void) toggle {
+  self.isOn = !self.isOn;
+  [self setImageForState];
+}
 
 @end
