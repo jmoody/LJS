@@ -32,8 +32,10 @@
 
 #import "LjsFileBackedKeyStore.h"
 #import "Lumberjack.h"
+#import "NSError+LjsAdditions.h"
 #import "LjsFileUtilities.h"
 #import "LjsValidator.h"
+#import "LjsIdGenerator.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -41,144 +43,138 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+NSString *LjsFileBackedKeyStoreErrorDomain = @"Ljs File Backed Key Store Error";
+NSUInteger const LjsFileBackedKeyStoreErrorCode = 4390116;
+
+static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoysoftware.LjsFileBackedKeyStore Store Changed Notification";
+
+@interface LjsFileBackedKeyStore ()
+
+
+- (void) handleStoreChanged:(NSNotification *) aNotifications;
+- (void) postStoreChangedNotification;
++ (id) semaphore;
+@property (nonatomic, copy) NSString *filepath;
+@property (nonatomic, strong) NSMutableDictionary *store;
+
+@end
+
 @implementation LjsFileBackedKeyStore
 
 @synthesize filepath;
 @synthesize store;
 
+
 #pragma mark Memory Management
 - (void) dealloc {
    //DDLogDebug(@"deallocating %@", [self class]);
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (id) initWithFileName:(NSString *)aFilename 
           directoryPath:(NSString *)aDirectoryPath 
                   error:(NSError *__autoreleasing *)error {
   self = [super init];
-  if (self != nil) {
-    NSAssert1([LjsValidator stringIsNonNilOrEmpty:aFilename],
-              @"filename must not be nil or empty - < %@ >", aFilename);
-    NSAssert1([LjsValidator stringIsNonNilOrEmpty:aDirectoryPath] != 0, 
-              @"directory path must be non-nil and non-empty - < %@ >", aDirectoryPath);
-    
-    NSFileManager *fm = [NSFileManager defaultManager];
-    
-    BOOL directoryExists = [LjsFileUtilities ensureSaveDirectory:aDirectoryPath
-                                               existsWithManager:fm];
-    if (directoryExists == NO) {
-      NSString *message = NSLocalizedString(@"Could not create directory", nil);
-      DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
-                         message, aDirectoryPath]);
-      if (error != NULL) {
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aDirectoryPath
-                                                             forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
-
-        *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
-                                     code:LjsFileUtilitiesFileDoesNotExistErrorCode 
-                     localizedDescription:message
-                            otherUserInfo:userInfo];
-      }
-      return nil;
-    }
-    
-    self.filepath = [aDirectoryPath stringByAppendingPathComponent:aFilename];
-    
-    BOOL fileExists = [fm fileExistsAtPath:self.filepath];
-    if (fileExists == NO) {
-      self.store = [NSMutableDictionary dictionary];
-      BOOL writeSucceeded = [LjsFileUtilities writeDictionary:self.store
-                                                       toFile:self.filepath
-                                                        error:error];
-      if (writeSucceeded == NO) {
-        // writing failed - bail out (error and messages handled in write selector)
-        return nil;
-      } 
-    } else {
-
-      NSDictionary *dict = [LjsFileUtilities readDictionaryFromFile:self.filepath
-                                                              error:error];
-      if (dict == nil) {
-        // reading failed - bail out (error and messages handled in read selector)
-        return nil;
-      }
-      self.store = [NSMutableDictionary dictionaryWithDictionary:dict];
-    }
+  if (self == nil) {
+    return nil;
   }
-  return self;
-}
-
-
-- (id) initWithFileName:(NSString *) aFilename
-          directoryPath:(NSString *) aDirectoryPath 
-           defaultStore:(NSDictionary *) aStore
-      overwriteExisting:(BOOL) shouldOverwrite
-                  error:(NSError **) error {
-  self = [super init];
-  if (self) {
-    NSAssert1([LjsValidator stringIsNonNilOrEmpty:aFilename],
-              @"filename must not be nil or empty - < %@ >", aFilename);
-    NSAssert1([LjsValidator stringIsNonNilOrEmpty:aDirectoryPath] != 0, 
-              @"directory path must be non-nil and non-empty - < %@ >", aDirectoryPath);
-    NSAssert1(aStore != nil && [aStore count] != 0, 
-              @"the default store must not be nil or empty: < %@ >", aStore);
-    
+  
+  BOOL validFilename = [LjsValidator stringIsNonNilOrEmpty:aFilename];
+  NSAssert1(validFilename,
+            @"filename must not be nil or empty - < %@ >", aFilename);
+  BOOL validDirectory = [LjsValidator stringIsNonNilOrEmpty:aDirectoryPath];
+  NSAssert1(validDirectory != 0, 
+            @"directory path must be non-nil and non-empty - < %@ >", aDirectoryPath);
+  if (validFilename == NO || validDirectory == NO) {
+    if (error != NULL) {
+      *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
+                                   code:LjsFileBackedKeyStoreErrorCode
+                   localizedDescription:@"could not created keystore because of a problem with the arguments"];
+    }
+    return nil;
+  }
+  
+  NSFileManager *fm = [NSFileManager defaultManager];
+  
+  BOOL directoryExists = [LjsFileUtilities ensureSaveDirectory:aDirectoryPath
+                                             existsWithManager:fm];
+  if (directoryExists == NO) {
+    NSString *message = NSLocalizedString(@"Could not create directory", nil);
+    DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
+                       message, aDirectoryPath]);
+    if (error != NULL) {
+      NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aDirectoryPath
+                                                           forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
       
-    NSFileManager *fm = [NSFileManager defaultManager];
+      *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
+                                   code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+                   localizedDescription:message
+                          otherUserInfo:userInfo];
+    }
+    return nil;
+  }
+  
+  self.filepath = [aDirectoryPath stringByAppendingPathComponent:aFilename];
     
-    BOOL directoryExists = [LjsFileUtilities ensureSaveDirectory:aDirectoryPath
-                                               existsWithManager:fm];
-    if (directoryExists == NO) {
-      NSString *message = NSLocalizedString(@"Could not create directory", nil);
-      DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
-                         message, aDirectoryPath]);
-      if (error != NULL) {
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aDirectoryPath
-                                                             forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
-        *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
-                                     code:LjsFileUtilitiesFileDoesNotExistErrorCode 
-                     localizedDescription:message
-                            otherUserInfo:userInfo];
-      }
-
+  BOOL fileExists = [fm fileExistsAtPath:self.filepath];
+  if (fileExists == NO) {
+    self.store = [NSMutableDictionary dictionary];
+    // file does not exist - no need to post notificaiton that we created it
+    BOOL writeSucceeded = [LjsFileUtilities writeDictionary:self.store
+                                                     toFile:self.filepath
+                                                      error:error];
+    if (writeSucceeded == NO) {
+      // writing failed - bail out (error and messages handled in write selector)
+      return nil;
+    } 
+  } else {
+    
+    NSDictionary *dict = [LjsFileUtilities readDictionaryFromFile:self.filepath
+                                                            error:error];
+    if (dict == nil) {
+      // reading failed - bail out (error and messages handled in read selector)
       return nil;
     }
-    
-    self.filepath = [aDirectoryPath stringByAppendingPathComponent:aFilename];
+    self.store = [NSMutableDictionary dictionaryWithDictionary:dict];
+  }
+  
+  [[NSNotificationCenter defaultCenter]
+   addObserver:self
+   selector:@selector(handleStoreChanged:) 
+   name:LjsFileBackedKeyStoreNotificationStoreChanged
+   object:nil];
+  return self;
+}
 
-    BOOL fileExists = [fm fileExistsAtPath:self.filepath];
-    
-    if (fileExists == NO) {
-      BOOL writeSucceeded = [LjsFileUtilities writeDictionary:aStore
-                                                       toFile:self.filepath
-                                                        error:error];
-      if (writeSucceeded == NO) {
-        // writing failed - bail out (error and messages handled in write selector)
-        return nil;
-      } 
-      self.store = [NSMutableDictionary dictionaryWithDictionary:aStore];
-    } else {
-      if (shouldOverwrite == YES) {
-        BOOL writeSucceeded = [LjsFileUtilities writeDictionary:aStore
-                                                         toFile:self.filepath
-                                                          error:error];
-        if (writeSucceeded == NO) {
-          // writing failed - bail out (error and messages handled in write selector)
-          return nil;
-        } 
-        self.store = [NSMutableDictionary dictionaryWithDictionary:aStore];
-      } else {
+- (void) postStoreChangedNotification {
+  [[NSNotificationCenter defaultCenter]
+   postNotificationName:LjsFileBackedKeyStoreNotificationStoreChanged
+   object:self];
+}
+
++ (id) semaphore {
+  return LjsFileBackedKeyStoreNotificationStoreChanged;
+}
+
+- (void) handleStoreChanged:(NSNotification *) aNotification {
+  if (aNotification.object != self) {
+    LjsFileBackedKeyStore *sender = (LjsFileBackedKeyStore *) aNotification.object;
+    if ([sender.filepath isEqualToString:self.filepath]) {
+      id semaphore = [LjsFileBackedKeyStore semaphore];
+      @synchronized(semaphore) {
+        // no need for an error - file utilities will verbosely present an error
         NSDictionary *dict = [LjsFileUtilities readDictionaryFromFile:self.filepath
-                                                                error:error];
+                                                                error:nil];
         if (dict == nil) {
-          // reading failed - bail out (error and messages handled in read selector)
-          return nil;
+          DDLogError(@"error reading dictionary so we make no change to key store");
+        } else {
+          self.store = [NSMutableDictionary dictionaryWithDictionary:dict];
         }
-        self.store = [NSMutableDictionary dictionaryWithDictionary:dict];
       }
     }
   }
-  return self;
 }
+
 
 - (NSArray *) allKeys {
   return [self.store allKeys];
@@ -187,6 +183,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (void) removeKeys:(NSArray *) keys {
   [self.store removeObjectsForKeys:keys];
   [LjsFileUtilities writeDictionary:self.store toFile:self.filepath error:nil];
+  [self postStoreChangedNotification];
 }
 
 - (NSString *) stringForKey:(NSString *) aKey 
@@ -294,9 +291,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return result;
 }
 
-
-
-
 - (id) valueForDictionaryNamed:(NSString *) aDictName
                   withValueKey:(NSString *) aValueKey
                   defaultValue:(id) aDefaultValue
@@ -350,8 +344,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 
 - (void) storeObject:(id) object forKey:(NSString *) aKey {
+  if ([@"com.recoverywarriors.RiseUp Should Show Checkin Tutorial User Defaults Key" isEqualToString:aKey]) {
+    CGFloat f = 5 + 6;
+    NSLog(@"float = %f", f);
+  }
   [self.store setObject:object forKey:aKey];
   [LjsFileUtilities writeDictionary:self.store toFile:self.filepath error:nil];
+  [self postStoreChangedNotification];
 }
 
 - (void) storeBool:(BOOL) aBool forKey:(NSString *) aKey {
@@ -362,10 +361,104 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (void) removeObjectForKey:(NSString *) aKey {
   [self.store removeObjectForKey:aKey];
   [LjsFileUtilities writeDictionary:self.store toFile:self.filepath error:nil];
+  [self postStoreChangedNotification];
 }
 
 
-
-
-
 @end
+
+#pragma mark DEAD SEA
+/*
+ //- (id) initWithFileName:(NSString *) aFilename
+ //          directoryPath:(NSString *) aDirectoryPath 
+ //           defaultStore:(NSDictionary *) aStore
+ //      overwriteExisting:(BOOL) shouldOverwrite
+ //                  error:(NSError **) error {
+ //  self = [super init];
+ //  if (self == nil) {
+ //    return nil;
+ //  }
+ //  
+ //  BOOL validFilename = [LjsValidator stringIsNonNilOrEmpty:aFilename];
+ //  NSAssert1(validFilename,
+ //            @"filename must not be nil or empty - < %@ >", aFilename);
+ //  BOOL validDirectory = [LjsValidator stringIsNonNilOrEmpty:aDirectoryPath];
+ //  NSAssert1(validDirectory != 0, 
+ //            @"directory path must be non-nil and non-empty - < %@ >", aDirectoryPath);
+ //  BOOL validStore = aStore != nil;
+ //  NSAssert(validStore, @"aStore must not be nil");
+ //  
+ //  if (validFilename == NO || validDirectory == NO || validStore == NO) {
+ //    if (error != NULL) {
+ //      *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
+ //                                   code:LjsFileBackedKeyStoreErrorCode
+ //                   localizedDescription:@"could not created keystore because of a problem with the arguments"];
+ //    }
+ //    return nil;
+ //  }
+ //  
+ //  NSFileManager *fm = [NSFileManager defaultManager];
+ //  BOOL directoryExists = [LjsFileUtilities ensureSaveDirectory:aDirectoryPath
+ //                                             existsWithManager:fm];
+ //  if (directoryExists == NO) {
+ //    NSString *message = NSLocalizedString(@"Could not create directory", nil);
+ //    DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
+ //                       message, aDirectoryPath]);
+ //    if (error != NULL) {
+ //      NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aDirectoryPath
+ //                                                           forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
+ //      *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
+ //                                   code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+ //                   localizedDescription:message
+ //                          otherUserInfo:userInfo];
+ //    }
+ //    return nil;
+ //  }
+ //  
+ //  self.filepath = [aDirectoryPath stringByAppendingPathComponent:aFilename];
+ //  
+ //  BOOL fileExists = [fm fileExistsAtPath:self.filepath];
+ //  
+ //  if (fileExists == NO) {
+ //    BOOL writeSucceeded = [LjsFileUtilities writeDictionary:aStore
+ //                                                     toFile:self.filepath
+ //                                                      error:error];
+ //    if (writeSucceeded == NO) {
+ //      // writing failed - bail out (error and messages handled in write selector)
+ //      return nil;
+ //    } 
+ //    self.store = [NSMutableDictionary dictionaryWithDictionary:aStore];
+ //    [[NSNotificationCenter defaultCenter]
+ //     addObserver:self
+ //     selector:@selector(handleStoreChanged:) 
+ //     name:LjsFileBackedKeyStoreNotificationStoreChanged
+ //     object:nil];
+ //    return self;
+ //  } 
+ //  
+ //  if (shouldOverwrite == YES) {
+ //    BOOL writeSucceeded = [LjsFileUtilities writeDictionary:aStore
+ //                                                     toFile:self.filepath
+ //                                                      error:error];
+ //    if (writeSucceeded == NO) {
+ //      // writing failed - bail out (error and messages handled in write selector)
+ //      return nil;
+ //    } 
+ //  }
+ //  
+ //  NSDictionary *dict = [LjsFileUtilities readDictionaryFromFile:self.filepath
+ //                                                          error:error];
+ //  if (dict == nil) {
+ //    // reading failed - bail out (error and messages handled in read selector)
+ //    return nil;
+ //  }
+ //  
+ //  self.store = [NSMutableDictionary dictionaryWithDictionary:dict];
+ //  [[NSNotificationCenter defaultCenter]
+ //   addObserver:self
+ //   selector:@selector(handleStoreChanged:) 
+ //   name:LjsFileBackedKeyStoreNotificationStoreChanged
+ //   object:nil];
+ //  return self;
+ //}
+*/

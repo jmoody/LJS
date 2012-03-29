@@ -80,6 +80,7 @@ licenses can be found in the attributes file)
 * json-framework
 * UKKQueue
 * CocoaHTTPServer
+* InnerBand
 
 JSON-RPC
 --------------------

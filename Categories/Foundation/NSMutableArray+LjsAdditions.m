@@ -38,11 +38,16 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 #else
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
-
+                
 @implementation NSMutableArray (NSMutableArray_LjsAdditions)
 
+- (void) nreverse {
+  NSArray *tmp = [[self reverseObjectEnumerator] allObjects];
+  [self removeAllObjects];
+  [self addObjectsFromArray:tmp];
+}
 
-- (void) append:(id) object {
+- (void) nappend:(id) object {
   if (object == nil) {
     return;
   }
@@ -55,15 +60,17 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
 }
 
-
 - (void) push:(id) object {
   if (object == nil) {
     return;
   }
-  [self insertObject:object atIndex:0];
+  [self insertObject:object atIndex:0]; 
 }
 
 - (id) pop {
+  if ([self count] == 0) {
+    return nil;
+  }
   id object = [self objectAtIndex:0];
   [self removeObjectAtIndex:0];
   return object;
