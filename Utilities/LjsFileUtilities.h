@@ -50,7 +50,7 @@ typedef enum {
 
 + (NSString *) parentDirectoryForPath:(NSString *) childPath;
 
-#if !TARGET_IPHONE_SIMULATOR && !TARGET_IPHONE
+#if !TARGET_OS_IPHONE
 + (NSString *) pathFromOpenPanelWithPrompt:(NSString *) aPrompt 
                                      title:(NSString *) aTitle
                              lastDirectory:(NSString *) aLastDirectory

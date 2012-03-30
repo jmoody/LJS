@@ -33,7 +33,7 @@
  NSString on NSString_LjsAdditions category.
  http://stackoverflow.com/questions/3423545/objective-c-iphone-percent-encode-a-string
 */
-@interface NSString (NSString_LjsAdditions)
+@interface NSString (NSString_LjsWebAdditions)
 
 /** @name Task Section */
 
@@ -46,7 +46,7 @@
  NSDictionary on NSDictionary_LjsAdditions category.
  https://github.com/newsyc
  */
-@interface NSDictionary (NSDictionary_LjsAdditions)
+@interface NSDictionary (NSDictionary_LjsWebAdditions)
 
 /** @name Task Section */
 - (NSString *) stringByParameterizingForUrl;

@@ -46,6 +46,7 @@
 		F512EB9F151C9EA7002E8E3A /* LjsReachabilityObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB9B151C9EA7002E8E3A /* LjsReachabilityObserver.m */; };
 		F512EBA0151C9EA7002E8E3A /* LjsServiceObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB9D151C9EA7002E8E3A /* LjsServiceObserver.m */; };
 		F5185CD31525B89C00F178E5 /* LjsGooglePlaceDistancer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5185CD21525B89C00F178E5 /* LjsGooglePlaceDistancer.m */; };
+		F5185D131526099B00F178E5 /* NSString+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5185D121526099B00F178E5 /* NSString+LjsAdditions.m */; };
 		F525D4A214C607DA000A4D5C /* LjsLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F525D4A114C607DA000A4D5C /* LjsLogFileManager.m */; };
 		F5400A0014B2288A001EF805 /* LoremIpsum.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009FF14B2288A001EF805 /* LoremIpsum.m */; };
 		F5807029146C26F100EA4CFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5807028146C26F100EA4CFB /* Cocoa.framework */; };
@@ -261,6 +262,8 @@
 		F512EB9D151C9EA7002E8E3A /* LjsServiceObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsServiceObserver.m; sourceTree = "<group>"; };
 		F5185CD11525B89C00F178E5 /* LjsGooglePlaceDistancer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlaceDistancer.h; sourceTree = "<group>"; };
 		F5185CD21525B89C00F178E5 /* LjsGooglePlaceDistancer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlaceDistancer.m; sourceTree = "<group>"; };
+		F5185D111526099B00F178E5 /* NSString+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5185D121526099B00F178E5 /* NSString+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LjsAdditions.m"; sourceTree = "<group>"; };
 		F525D4A014C607DA000A4D5C /* LjsLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLogFileManager.h; sourceTree = "<group>"; };
 		F525D4A114C607DA000A4D5C /* LjsLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLogFileManager.m; sourceTree = "<group>"; };
 		F54009FE14B2288A001EF805 /* LoremIpsum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoremIpsum.h; sourceTree = "<group>"; };
@@ -540,6 +543,8 @@
 		F512EB32151C9DAF002E8E3A /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				F5185D111526099B00F178E5 /* NSString+LjsAdditions.h */,
+				F5185D121526099B00F178E5 /* NSString+LjsAdditions.m */,
 				F5E98566152473580061631A /* LjsFoundationCategories.h */,
 				F5E98567152473580061631A /* NSDecimalNumber+LjsAdditions.h */,
 				F5E98568152473580061631A /* NSDecimalNumber+LjsAdditions.m */,
@@ -1544,6 +1549,7 @@
 				F5E985C9152473A70061631A /* LjsGooglePlacesRequestManagerTests.m in Sources */,
 				F5E985CA152473A70061631A /* LjsGooglePlaceTests.m in Sources */,
 				F5185CD31525B89C00F178E5 /* LjsGooglePlaceDistancer.m in Sources */,
+				F5185D131526099B00F178E5 /* NSString+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

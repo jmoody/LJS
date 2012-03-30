@@ -146,10 +146,10 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
 
 + (NSString *) findCoreDataLibraryPath:(BOOL) forUser {
   NSString *result;
-#if TARGET_IPHONE_SIMULATOR || TARGET_IPHONE
-  result = [LjsFileUtilities findLibraryDirectoryPath:forUser];
-#else
+#if !TARGET_OS_IPHONE
   result = [LjsFileUtilities findOrCreateApplicationFilesDirectory:forUser];
+#else
+  result = [LjsFileUtilities findLibraryDirectoryPath:forUser];
 #endif
   return result;
 }
@@ -183,7 +183,7 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
   return parentDirectory;
 }
 
-#if !TARGET_IPHONE_SIMULATOR && !TARGET_IPHONE
+#if !TARGET_OS_IPHONE
 /**
  creates a NSOpenPanel and returns the users selection as a path string.
  @return a string representing the path to the file or directory of the user's

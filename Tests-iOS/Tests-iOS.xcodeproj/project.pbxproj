@@ -40,6 +40,7 @@
 		F512EBA2151CA285002E8E3A /* LjsFileUtiltiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EBA1151CA284002E8E3A /* LjsFileUtiltiesTests.m */; };
 		F515BF5114C629E2007052FF /* LjsFileBackedStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F515BF4E14C627EE007052FF /* LjsFileBackedStoreTests.m */; };
 		F5185CCF1525B73100F178E5 /* LjsGooglePlaceDistancer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5185CCE1525B73100F178E5 /* LjsGooglePlaceDistancer.m */; };
+		F5185D17152609AB00F178E5 /* NSString+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5185D16152609AB00F178E5 /* NSString+LjsAdditions.m */; };
 		F51C63FD14B7917100F1841B /* LjsLabelAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = F51C63FC14B7917100F1841B /* LjsLabelAttributes.m */; };
 		F51C63FE14B7917100F1841B /* LjsLabelAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = F51C63FC14B7917100F1841B /* LjsLabelAttributes.m */; };
 		F51D49C514ED548800734C25 /* white-channel-300x24.png in Resources */ = {isa = PBXBuildFile; fileRef = F51D49C414ED548800734C25 /* white-channel-300x24.png */; };
@@ -331,6 +332,8 @@
 		F515E6DD148279A000526041 /* LjsRepeatingTimerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRepeatingTimerProtocol.h; sourceTree = "<group>"; };
 		F5185CCD1525B73100F178E5 /* LjsGooglePlaceDistancer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlaceDistancer.h; sourceTree = "<group>"; };
 		F5185CCE1525B73100F178E5 /* LjsGooglePlaceDistancer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlaceDistancer.m; sourceTree = "<group>"; };
+		F5185D15152609AB00F178E5 /* NSString+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5185D16152609AB00F178E5 /* NSString+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LjsAdditions.m"; sourceTree = "<group>"; };
 		F51C63FB14B7917100F1841B /* LjsLabelAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLabelAttributes.h; sourceTree = "<group>"; };
 		F51C63FC14B7917100F1841B /* LjsLabelAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLabelAttributes.m; sourceTree = "<group>"; };
 		F51D49C414ED548800734C25 /* white-channel-300x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-channel-300x24.png"; sourceTree = "<group>"; };
@@ -1310,6 +1313,8 @@
 		F5903F49151B515000995AF1 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				F5185D15152609AB00F178E5 /* NSString+LjsAdditions.h */,
+				F5185D16152609AB00F178E5 /* NSString+LjsAdditions.m */,
 				F5C3B1E41523BAC7005B1087 /* LjsFoundationCategories.h */,
 				F5C3B1E51523BAC7005B1087 /* NSDecimalNumber+LjsAdditions.h */,
 				F5C3B1E61523BAC7005B1087 /* NSDecimalNumber+LjsAdditions.m */,
@@ -1942,6 +1947,7 @@
 				F5C3B1E71523BAC7005B1087 /* NSDecimalNumber+LjsAdditions.m in Sources */,
 				F5C3B1EF1523BB84005B1087 /* LjsWebCategories.m in Sources */,
 				F5185CCF1525B73100F178E5 /* LjsGooglePlaceDistancer.m in Sources */,
+				F5185D17152609AB00F178E5 /* NSString+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

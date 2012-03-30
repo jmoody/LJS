@@ -109,7 +109,7 @@
 //  GHTestLog(@"GH test logging is working");
 //}
 
-#if !TARGET_IPHONE_SIMULATOR && !TARGET_IPHONE
+#if !TARGET_OS_IPHONE
 
 - (void) test_applicationFilesDirectory {
   NSString *result;
