@@ -90,7 +90,8 @@
 
 - (void) performPredictionRequestWithInput:(NSString *) aInput
                                     radius:(CGFloat) aRadius
-                                  language:(NSString *) aLangCode
+                                  location:(LjsLocation) aLocation
+                             languageOrNil:(NSString *) aLangCode
                       establishmentRequest:(BOOL) aIsAnEstablishmentRequest;
 
 - (void) performDetailsRequestionForPrediction:(LjsGooglePlacesPrediction *) aPrediction

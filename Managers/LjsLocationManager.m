@@ -68,8 +68,8 @@ static NSString *LjsLocationManagerPluto = @"pluto";
 static NSString *LjsLocationManagerNeptune = @"neptune";
 #endif
 
-static CGFloat const LjsLatitudeZurich = 47.22;
-static CGFloat const LjsLongitudeZurich = 8.33;
+static CGFloat const LjsLatitudeZurich = 47.4190963;
+static CGFloat const LjsLongitudeZurich = 8.5367873;
 
 
 @interface LjsLocationManager () 

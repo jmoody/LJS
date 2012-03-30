@@ -62,7 +62,7 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
 - (NSDictionary *) dictionaryForOptionalAutocompletWithLatitude:(CGFloat) aLatitude
                                                       longitude:(CGFloat) aLongitude
                                                          radius:(CGFloat) aRadius
-                                                   languageCode:(NSString *) aLangCode
+                                              languageCodeOrNil:(NSString *) aLangCode
                                             establishmentSearch:(BOOL) aIsAnEstablishmentSearch;
 
 
@@ -70,7 +70,7 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
                                             latitude:(CGFloat) aLatitude
                                            longitude:(CGFloat) aLongitude
                                               radius:(CGFloat) aRadius
-                                        languageCode:(NSString *) aLangCode
+                                   languageCodeOrNil:(NSString *) aLangCode
                                        establishment:(BOOL) aIsAnEstablishmentRequest;
 
 - (void) handleRequestAutocompleteDidFinish:(ASIHTTPRequest *) aRequest;
@@ -91,7 +91,7 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
 
 #pragma mark Memory Management
 - (void) dealloc {
-  DDLogDebug(@"deallocating %@", [self class]);
+  //DDLogDebug(@"deallocating %@", [self class]);
   self.resultHandler = nil;
 }
 
@@ -146,7 +146,7 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
 - (NSDictionary *) dictionaryForOptionalAutocompletWithLatitude:(CGFloat) aLatitude
                                                       longitude:(CGFloat) aLongitude
                                                          radius:(CGFloat) aRadius
-                                                   languageCode:(NSString *) aLangCode
+                                              languageCodeOrNil:(NSString *) aLangCode
                                             establishmentSearch:(BOOL) aIsAnEstablishmentSearch {
   NSString *type;
   if (aIsAnEstablishmentSearch == YES) {
@@ -159,11 +159,18 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
   NSString *radius = [NSString stringWithFormat:@"%f", aRadius];
   
   NSDictionary *result;
-  result = [NSDictionary dictionaryWithObjectsAndKeys:
-            location, @"location",
-            radius, @"radius",
-            aLangCode, @"language",
-            type, @"types", nil];
+  if (aLangCode != nil) {
+    result = [NSDictionary dictionaryWithObjectsAndKeys:
+              location, @"location",
+              radius, @"radius",
+              aLangCode, @"language",
+              type, @"types", nil];
+  } else {
+    result = [NSDictionary dictionaryWithObjectsAndKeys:
+              location, @"location",
+              radius, @"radius",
+              type, @"types", nil];
+  }
   
   return result;
 }
@@ -172,7 +179,7 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
                                             latitude:(CGFloat) aLatitude
                                            longitude:(CGFloat) aLongitude
                                               radius:(CGFloat) aRadius
-                                        languageCode:(NSString *) aLangCode
+                                   languageCodeOrNil:(NSString *) aLangCode
                                        establishment:(BOOL) aIsAnEstablishmentRequest {
 
   NSDictionary *required = [self dictionaryForRequiredAutocompleteWithInput:aInput
@@ -180,7 +187,7 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
   NSDictionary *optional = [self dictionaryForOptionalAutocompletWithLatitude:aLatitude
                                                                     longitude:aLongitude
                                                                        radius:aRadius
-                                                                 languageCode:aLangCode
+                                                            languageCodeOrNil:aLangCode
                                                           establishmentSearch:aIsAnEstablishmentRequest];
   NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
   [parameters addEntriesFromDictionary:required];
@@ -206,16 +213,19 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
 
 - (void) performPredictionRequestWithInput:(NSString *) aInput
                                     radius:(CGFloat) aRadius
-                                  language:(NSString *) aLangCode
+                                  location:(LjsLocation)aLocation 
+                             languageOrNil:(NSString *) aLangCode
                       establishmentRequest:(BOOL) aIsAnEstablishmentRequest {
+
+  //DDLogDebug(@"location = %@", NSStringFromLjsLocation(aLocation));
   ASIHTTPRequest *request;
   request = [self requestForAutocompleteWithInput:aInput
-                                         latitude:[self.locationManager latitude]
-                                        longitude:[self.locationManager longitude]
+                                         latitude:aLocation.latitude
+                                        longitude:aLocation.longitude
                                            radius:aRadius
-                                     languageCode:aLangCode
+                                languageCodeOrNil:aLangCode
                                     establishment:aIsAnEstablishmentRequest];
-  DDLogDebug(@"starting request: %@", request);
+  //DDLogDebug(@"starting request: %@", request);
   [request startAsynchronous];
 }
 
@@ -232,7 +242,7 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
 }
 
 - (void) handleRequestAutocompleteDidFinish:(ASIHTTPRequest *) aRequest {
-  DDLogDebug(@"autocomplete request did finish");
+  //DDLogDebug(@"autocomplete request did finish");
   if ([aRequest was200or201Successful] == NO) {
     [self handleRequestAutocompleteDidFail:aRequest];
     return;
@@ -248,6 +258,8 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
   } else {
     [self.resultHandler requestForPredictionsCompletedWithPredictions:[reply predictions]
                                                              userInfo:aRequest.userInfo];
+    //NSURL *url = [aRequest url];
+    //DDLogDebug(@"url = %@", url);
   }
 }
 
@@ -285,7 +297,7 @@ language (optional) — The language code, indicating in which language the resu
 
 
 - (void) handleRequestDetailsDidFail:(ASIHTTPRequest *)aRequest {
-  DDLogDebug(@"autocomplete did fail");
+  //DDLogDebug(@"autocomplete did fail");
   NSUInteger code = [aRequest responseCode];
   [self.resultHandler requestForDetailsFailedWithCode:code
                                               request:aRequest];
@@ -293,7 +305,7 @@ language (optional) — The language code, indicating in which language the resu
 }
 
 - (void) handleRequestDetailsDidFinish:(ASIHTTPRequest *)aRequest {
-  DDLogDebug(@"autocomplete request did finish");
+  //DDLogDebug(@"autocomplete request did finish");
   if ([aRequest was200or201Successful] == NO) {
     [self handleRequestDetailsDidFail:aRequest];
     return;

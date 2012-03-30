@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		F5185D3A152619AA00F178E5 /* LjsGooglePlacePredictionOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5185D39152619AA00F178E5 /* LjsGooglePlacePredictionOptions.m */; };
 		F54802CB1525AB7E00B5E776 /* LjsGooglePlaceDistancer.m in Sources */ = {isa = PBXBuildFile; fileRef = F54802CA1525AB7E00B5E776 /* LjsGooglePlaceDistancer.m */; };
 		F5BB1F21151BB61D00BFDDA0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1F1F151BB61D00BFDDA0 /* InfoPlist.strings */; };
 		F5BB1F23151BB61D00BFDDA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1F22151BB61D00BFDDA0 /* main.m */; };
@@ -137,6 +138,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F5185D38152619AA00F178E5 /* LjsGooglePlacePredictionOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; path = LjsGooglePlacePredictionOptions.h; sourceTree = "<group>"; };
+		F5185D39152619AA00F178E5 /* LjsGooglePlacePredictionOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacePredictionOptions.m; sourceTree = "<group>"; };
 		F54802C91525AB7E00B5E776 /* LjsGooglePlaceDistancer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlaceDistancer.h; sourceTree = "<group>"; };
 		F54802CA1525AB7E00B5E776 /* LjsGooglePlaceDistancer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlaceDistancer.m; sourceTree = "<group>"; };
 		F5BB1F12151BB61D00BFDDA0 /* Test-Google-MacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test-Google-MacOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -808,6 +811,8 @@
 				F5F1A213151CBFAE00E23DD5 /* LjsGooglePlacesRequestManager.m */,
 				F54802C91525AB7E00B5E776 /* LjsGooglePlaceDistancer.h */,
 				F54802CA1525AB7E00B5E776 /* LjsGooglePlaceDistancer.m */,
+				F5185D38152619AA00F178E5 /* LjsGooglePlacePredictionOptions.h */,
+				F5185D39152619AA00F178E5 /* LjsGooglePlacePredictionOptions.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1059,6 +1064,7 @@
 				F5C3B1BE1523B23E005B1087 /* LjsGooglePlaceType.m in Sources */,
 				F5C3B1E21523B790005B1087 /* NSDecimalNumber+LjsAdditions.m in Sources */,
 				F54802CB1525AB7E00B5E776 /* LjsGooglePlaceDistancer.m in Sources */,
+				F5185D3A152619AA00F178E5 /* LjsGooglePlacePredictionOptions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,6 +5,7 @@
 #import "LjsGooglePlacesManager.h"
 #import "LjsLocationManager.h"
 #import "LjsGooglePlace.h"
+#import "LjsGooglePlacePredictionOptions.h"
 
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -45,108 +46,73 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   LjsLocationManager *lm = [[LjsLocationManager alloc] init];
   
   self.manager = [[LjsGooglePlacesManager alloc] initWithLocationManager:lm];
-  
-//  
-//  NSString *input, *langCode;
-//  CGFloat radius;
-//  BOOL establishment;
-//  
-//  input = @"Basel";
-//  langCode = @"en";
-//  radius = 5000;
-//  establishment = NO;
- 
-//  
-//  results = [self.manager placesWithNameBeginningWithString:input
-//                                                      limit:0
-//                                                       sort:NO
-//                                                  ascending:NO
-//                                  performPredicationRequest:YES
-//                                           predictionRadius:radius
-//                                         predictionLanguage:langCode];
-//  
-////  self.places = results;
-//  
-//  NSArray *inputs = [NSArray arrayWithObjects:@"paris", @"lisbon", @"madrid",
-//                     @"boston", @"los angeles", @"london", @"kiev", nil];
-//  
-//  for (NSString *city in inputs) {
-//    results = [self.manager placesWithNameBeginningWithString:city
-//                                                        limit:0
-//                                                         sort:NO
-//                                                    ascending:NO
-//                                    performPredicationRequest:YES
-//                                             predictionRadius:radius
-//                                           predictionLanguage:langCode];
-//  }
-//  
-//  CGFloat lat = [lm latitude];
-//  CGFloat lng = [lm longitude];
-//  
-//  results = [self.manager placesWithNameBeginningWithString:@"b"
-//                                  performPredicationRequest:NO
-//                                           predictionRadius:radius
-//                                         predictionLanguage:langCode];
-//
-//  LjsLocation location = LjslocationMake(lat,lng);
-////  NSArray *sorted = [self.manager arrayBySortingPlaces:results
-////                              withDistanceFromLatitude:lat
-////                                            longitidue:lng
-////                                             ascending:YES];
-//
-//  DDLogDebug(@"========================================");
-//  for (LjsGooglePlace *place in results) {
-//    DDLogDebug(@"%.5f ==> %@", [place metersFromLocation:location], place);
-//  }
-//
-//  
-//  results = [self.manager placesWithNameBeginningWithString:@"ba"
-//                                  performPredicationRequest:NO
-//                                           predictionRadius:radius
-//                                         predictionLanguage:langCode];
-//  
-//  
-////  sorted = [self.manager arrayBySortingPlaces:results
-////                              withDistanceFromLatitude:lat
-////                                            longitidue:lng
-////                                             ascending:YES];
-//  
-//  DDLogDebug(@"========================================");
-//  for (LjsGooglePlace *place in results) {
-//    DDLogDebug(@"%.5f ==> %@", [place metersFromLocation:location], place);
-//  }
-//
-//  results = [self.manager placesWithNameBeginningWithString:@"bas"
-//                                                      limit:NSNotFound
-//                                  performPredicationRequest:NO
-//                                           predictionRadius:radius
-//                                         predictionLanguage:langCode];
-// 
+
   LjsLocation location = [lm location];
-  NSArray *sorted;
-  sorted = [self.manager predictionsWithString:@"bas"
-                                         limit:NSNotFound
-                                          sort:YES 
-                                     ascending:YES
-                                      location:location
-                     performPredicationRequest:YES
-                              predictionRadius:5000
-                            predictionLanguage:@"de"];
-  
 
-//  sorted = [self.manager arrayBySortingPlaces:sorted
-//                     withDistanceFromLatitude:location.latitude
-//                                   longitidue:location.longitude
-//                                    ascending:YES];
   
+//  NSArray *strings = [NSArray arrayWithObjects:@"s", @"st", @"sta", @"star", @"starbu",
+//                      @"starbuc", @"starbuck", @"starbucks", nil];
 
-  DDLogDebug(@"location = %@", NSStringFromLjsLocation(location));
-  DDLogDebug(@"========================================");
-  for (LjsGooglePlace *place in sorted) {
-    NSDecimalNumber *km = [lm dnKilometersBetweenA:[place location] b:location];
-    DDLogDebug(@"%@ ==> %@", km, place);
+  //  NSArray *strings = [NSArray arrayWithObjects:@"c", @"ca", @"caf", @"cafe", nil];
+
+  NSMutableArray *strings = [NSMutableArray array]; 
+  //                   
+  NSString *input = @"HB";
+  for (NSUInteger index = 0; index < [input length]; index++) {
+    [strings nappend:[input substringToIndex:index + 1]];
   }
+  DDLogDebug(@"strings = %@", strings);
 
+  
+  for (NSString *searchString in strings) {
+    LjsGpPredictionSortOptions *sortOptions = [LjsGpPredictionSortOptions sortAscending];
+    LjsGpPredictionGoogleOptions *googleOptions;
+    googleOptions = [LjsGpPredictionGoogleOptions optionsWithRadius:10000
+                                               searchEstablishments:NO
+                                                      langCodeOrNil:nil
+                                                       searchString:searchString];
+    LjsGpPredicateFactory *factory = [[LjsGpPredicateFactory alloc] init];
+//    NSPredicate *predicate = [factory establishmentPredicateWithSearchString:searchString];    
+
+    NSArray *tokens = [searchString componentsSeparatedByString:@" "];
+    NSMutableArray *preds = [NSMutableArray arrayWithCapacity:[tokens count]];
+    //[preds push:[factory nonEstablishmentPredicate]];
+    NSPredicate *subs;
+    for (NSString *token in tokens) {
+      subs = [NSPredicate predicateWithFormat:@"(name CONTAINS[cd] %@ OR vicinity CONTAINS[cd] %@)",
+                   token, tokens];
+      [preds push:subs];
+    }
+    
+    NSPredicate *ors = [NSCompoundPredicate orPredicateWithSubpredicates:preds];
+    NSArray *ands = [NSArray arrayWithObjects:ors, [factory nonEstablishmentPredicate], nil];
+    NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:ands];
+
+
+    
+    
+
+    
+    LjsGooglePlacePredictionOptions *options;
+    options = [[LjsGooglePlacePredictionOptions alloc]
+               initWithLocation:location
+               predicate:predicate
+               limit:NSNotFound
+               sortOptions:sortOptions
+               googleOptions:googleOptions];
+    
+  
+    NSArray *sorted;
+    sorted = [self.manager predicationsWithOptions:options];  
+    
+    
+    DDLogDebug(@"location = %@", NSStringFromLjsLocation(location));
+    DDLogDebug(@"==============  %@ ==========================", searchString);
+    for (LjsGooglePlace *place in sorted) {
+      NSDecimalNumber *km = [lm dnKilometersBetweenA:[place location] b:location];
+      DDLogDebug(@"%@ ==> %@", km, place);
+    }
+  }
 }
 
 // Returns the directory the application uses to store the Core Data store file. 

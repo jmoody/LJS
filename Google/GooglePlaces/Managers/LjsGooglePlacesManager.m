@@ -43,6 +43,7 @@
 #import "LjsDn.h"
 #import "LjsFoundationCategories.h"
 #import "LjsGooglePlaceDistancer.h"
+#import "LjsGooglePlacePredictionOptions.h"
 
 
 
@@ -94,7 +95,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 
 #pragma mark Memory Management
 - (void) dealloc {
-   DDLogDebug(@"deallocating %@", [self class]);
+  //DDLogDebug(@"deallocating %@", [self class]);
 }
 
 - (NSString *) decodeDefaultApiKey {
@@ -189,54 +190,51 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
     DDLogFatal(@"error fetching places %@: %@", [error localizedDescription], error);
     abort();
   } 
-  
   return fetched;
 }
 
 
-- (NSArray *) predictionsWithString:(NSString *)aString 
-                              limit:(NSUInteger) aLimit
-                               sort:(BOOL) aShouldSort
-                          ascending:(BOOL) aSortAscending
-                           location:(LjsLocation)aLocation 
-          performPredicationRequest:(BOOL) aShouldPerformRequest
-                   predictionRadius:(CGFloat) aRadius 
-                 predictionLanguage:(NSString *) aLangCode {
+
+- (NSArray *) predicationsWithOptions:(LjsGooglePlacePredictionOptions *) aOptions {
   NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LjsGooglePlace"];
-  request.predicate = [NSPredicate predicateWithFormat:@"formattedAddress CONTAINS[cd] %@",
-                       aString];
+  request.predicate = aOptions.predicate;
   
   // cannot limit the fetch if there is sorting involved - must limit post-fetch
-  if (aLimit != NSNotFound && aShouldSort == NO) {
-    request.fetchLimit = aLimit;
+  NSUInteger locLimit = aOptions.limit;
+  LjsGpPredictionSortOptions *sortOptions = aOptions.sortOptions;
+  if (locLimit != NSNotFound && sortOptions.shouldSort == NO) {
+    request.fetchLimit = locLimit;
   }
   
   NSError *error = nil;
   NSArray *fetched = [self.context executeFetchRequest:request error:&error];
   if (fetched == nil) {
-    DDLogFatal(@"could not execute fetch request for place: %@ : %@", 
-               [error localizedDescription], error);
+    DDLogFatal(@"could not execute fetch request for place: %@ : %@ - predicate: %@", 
+               [error localizedDescription], error, request.predicate);
     abort();
   } 
   
   NSArray *result = fetched;
-  if (aShouldSort == YES) {
+  if (sortOptions.shouldSort == YES) {
+    
     NSArray *sorted = [self arrayBySortingPlaces:fetched 
-                       withDistanceFromLocation:aLocation
-                                       ascending:aSortAscending];
-    if (aLimit != NSNotFound && [sorted count] > aLimit) {
-      NSRange range = NSMakeRange(0, aLimit);
+                        withDistanceFromLocation:aOptions.location
+                                       ascending:sortOptions.ascending];
+    if (locLimit != NSNotFound && [sorted count] > locLimit) {
+      NSRange range = NSMakeRange(0, locLimit);
       result = [sorted subarrayWithRange:range];
     } else {
       result = sorted;
     }
   }
   
-  if (aShouldPerformRequest == YES) {
-    [self.requestManager performPredictionRequestWithInput:aString
-                                                    radius:aRadius
-                                                  language:aLangCode
-                                      establishmentRequest:NO];
+  if (aOptions.googleOptions.shouldMakeRequest == YES) {
+    LjsGpPredictionGoogleOptions *googleOptions = aOptions.googleOptions;
+    [self.requestManager performPredictionRequestWithInput:googleOptions.searchString
+                                                    radius:googleOptions.radiusMeters
+                                                  location:aOptions.location
+                                             languageOrNil:googleOptions.langCode
+                                      establishmentRequest:googleOptions.searchEstablishments];
   }
   
   return result;
@@ -353,13 +351,13 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
   for (prediction in aPredictions) {
     NSString *placeId = prediction.stablePlaceId;
     if ([self placeExistsForId:placeId] == NO) {
-      DDLogDebug(@"starting request for details with prediction: %@", prediction);
+      //DDLogDebug(@"starting request for details with prediction: %@", prediction);
       NSString *langCode = [aUserInfo objectForKey:@"language"];
       [self.requestManager performDetailsRequestionForPrediction:prediction
                                                         language:langCode];
     } else {
-      DDLogDebug(@"skipping details request - place: %@ (%@) already exists",
-                 prediction.prediction, [prediction shortId]);
+      // DDLogDebug(@"skipping details request - place: %@ (%@) already exists",
+      //           prediction.prediction, [prediction shortId]);
     }
   }
 }

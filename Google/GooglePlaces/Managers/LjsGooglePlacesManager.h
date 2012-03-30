@@ -32,6 +32,8 @@
 #import "LjsGooglePlacesRequestManager.h"
 #import "LjsLocationManager.h"
 
+@class LjsGooglePlacePredictionOptions;
+
 extern NSString *LjsGooglePlacesManagerNotificationNewPlacesAvailable;
 
 
@@ -84,14 +86,16 @@ extern NSString *LjsGooglePlacesManagerNotificationNewPlacesAvailable;
 //                               predictionRadius:(CGFloat)aRadius 
 //                             predictionLanguage:(NSString *)aLangCode;
 
-- (NSArray *) predictionsWithString:(NSString *)aString 
-                              limit:(NSUInteger) aLimit
-                               sort:(BOOL) aShouldSort
-                          ascending:(BOOL) aSortAscending
-                           location:(LjsLocation) aLocation
-          performPredicationRequest:(BOOL) aShouldPerformRequest
-                   predictionRadius:(CGFloat)aRadius 
-                 predictionLanguage:(NSString *)aLangCode;
+//- (NSArray *) predictionsWithString:(NSString *)aString 
+//                              limit:(NSUInteger) aLimit
+//                               sort:(BOOL) aShouldSort
+//                          ascending:(BOOL) aSortAscending
+//                           location:(LjsLocation) aLocation
+//          performPredicationRequest:(BOOL) aShouldPerformRequest
+//                   predictionRadius:(CGFloat)aRadius 
+//                 predictionLanguage:(NSString *)aLangCode;
+
+- (NSArray *) predicationsWithOptions:(LjsGooglePlacePredictionOptions *) aOptions;
 
 
 /** @name Sorting */
