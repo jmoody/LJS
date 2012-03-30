@@ -30,6 +30,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "LjsGooglePlacesRequestManager.h"
+#import "LjsLocationManager.h"
+
 
 /**
  Documentation
@@ -43,23 +45,86 @@
 @property (nonatomic, strong, readonly) LjsGooglePlacesRequestManager *requestManager;
 
 /** @name Initializing Objects */
-- (id) init;
-- (id) initWithApiToken:(NSString *) aApiToken;
+- (id) initWithLocationManager:(LjsLocationManager *) aManager;
+
+- (id) initWithApiToken:(NSString *) aApiToken
+                manager:(LjsLocationManager *) aManager;
 
 - (id) initWithStoreFilename:(NSString *) aFilename
-                    apiToken:(NSString *) aApiToken;
+                    apiToken:(NSString *) aApiToken
+                     manager:(LjsLocationManager *) aManager;
           
 - (id) initWithStoreDirectory:(NSString *) aDirectory
                 storeFilename:(NSString *) aFilename
-                     apiToken:(NSString *) aApiToken;
+                     apiToken:(NSString *) aApiToken
+                      manager:(LjsLocationManager *) aManager;
                  
 
 /** @name Handling Notifications, Requests, and Events */
 
 /** @name Utility */
-- (NSArray *) arrayOfLocationsForCurrentLocationWithRadius:(CGFloat) aRadius
-                                              searchString:(NSString *) aSearchString
-                                                  language:(NSString *) aLangCode;
+
+- (NSArray *) placesWithNameBeginningWithString:(NSString *)aString 
+                      performPredicationRequest:(BOOL)aShouldPerformRequest
+                               predictionRadius:(CGFloat)aRadius 
+                             predictionLanguage:(NSString *)aLangCode;
+
+- (NSArray *) placesWithNameBeginningWithString:(NSString *)aString 
+                                          limit:(NSUInteger) aLimit
+                      performPredicationRequest:(BOOL)aShouldPerformRequest
+                               predictionRadius:(CGFloat)aRadius 
+                             predictionLanguage:(NSString *)aLangCode;
+
+- (NSArray *) placesWithNameBeginningWithString:(NSString *) aString
+                                           sort:(BOOL) aShouldSort
+                                      ascending:(BOOL) aSortAscending
+                      performPredicationRequest:(BOOL)aShouldPerformRequest
+                               predictionRadius:(CGFloat)aRadius 
+                             predictionLanguage:(NSString *)aLangCode;
+
+- (NSArray *) placesWithNameBeginningWithString:(NSString *)aString 
+                                          limit:(NSUInteger) aLimit
+                                           sort:(BOOL) aShouldSort
+                                      ascending:(BOOL) aSortAscending
+                      performPredicationRequest:(BOOL)aShouldPerformRequest
+                               predictionRadius:(CGFloat)aRadius 
+                             predictionLanguage:(NSString *)aLangCode;
+
+
+/** @name Sorting */
+
+- (NSArray *) arrayBySortingPlaces:(NSArray *) aPlaces
+          withDistanceFromLatitude:(CGFloat) aLatitude
+                        longitidue:(CGFloat) aLongitude
+                         ascending:(BOOL) aSortAscending;
+
+- (NSArray *) arrayBySortingPlaces:(NSArray *) aPlaces
+                        ascending:(BOOL) aSortAscending;
+
+- (NSArray *) arrayBySortingPlaces:(NSArray *) aPlaces
+          withDistanceFromLocation:(LjsLocation) aLocation
+                         ascending:(BOOL)aSortAscending;
+
+/** @name filtering */
+- (NSArray *) arrayByFilteringPlaces:(NSArray *) aPlaces
+                        withinMeters:(CGFloat) aMeters
+                          ofLocation:(LjsLocation) aLocation
+                        insideRadius:(BOOL) aInsideRadius;
+
+- (NSArray *) arrayByFilteringPlaces:(NSArray *) aPlaces
+                    withinKilometers:(CGFloat) aKilometers
+                          ofLocation:(LjsLocation) aLocation
+                        insideRadius:(BOOL) aInsideRadius;
+
+- (NSArray *) arrayByFilteringPlaces:(NSArray *) aPlaces
+                          withinFeet:(CGFloat) aFeet
+                          ofLocation:(LjsLocation) aLocation
+                        insideRadius:(BOOL) aInsideRadius;
+
+- (NSArray *) arrayByFilteringPlaces:(NSArray *) aPlaces
+                         withinMiles:(CGFloat) aMiles
+                          ofLocation:(LjsLocation) aLocation
+                        insideRadius:(BOOL) aInsideRadius;
 
 
 

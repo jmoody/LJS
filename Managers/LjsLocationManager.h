@@ -42,8 +42,12 @@ LjslocationMake(CGFloat lat, CGFloat lng)
 }
 
 extern const LjsLocation LjsLocationNotFound;
+extern const CGPoint LjsLatitudeBounds;
+extern const CGPoint LjsLongitudeBounds;
+extern const CGPoint LjsHeadingBounds;
 
 
+NSString *NSStringFromLjsLocation(LjsLocation aLocation);
 extern CGFloat const LjsLocationDegreesNotFound;
 
 /**
@@ -89,14 +93,6 @@ extern CGFloat const LjsLocationDegreesNotFound;
  */
 @property (nonatomic, assign) CGFloat debugLastHeading;
 
-
-#pragma mark Singleton
-/** @name Obtaining the Instance */
-
-/**
- implements the singleton pattern
- */
-+ (id) sharedInstance;
 
 /** @name Testing For Location and Heading Availability and Validity*/
 
@@ -164,6 +160,7 @@ extern CGFloat const LjsLocationDegreesNotFound;
 - (NSDecimalNumber *) trueHeadingDn;
 
 - (LjsLocation) location;
+
 + (BOOL) isValidLocation:(LjsLocation) aLocation;
 
 - (CGFloat) metersBetweenA:(LjsLocation) a

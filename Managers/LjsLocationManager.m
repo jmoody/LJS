@@ -45,7 +45,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 //static const int ddLogLevel = LOG_LEVEL_WARN;
 //#endif
 
-//CGFloat const LjsLocationManagerLocationHeadingNotFound = CGFLOAT_MIN;
 
 const LjsLocation LjsLocationNotFound = {CGFLOAT_MIN, CGFLOAT_MAX};
 
@@ -58,6 +57,10 @@ static CGFloat const LjsMaxLongitude = 180.0;
 static CGFloat const LjsMinLatitude = -90.0;
 static CGFloat const LjsMaxLatitude = 90.0;
 
+const CGPoint LjsLatitudeBounds = {LjsMinLatitude, LjsMaxLatitude};
+const CGPoint LjsLongitudeBounds = {LjsMinLongitude, LjsMaxLongitude};
+const CGPoint LjsHeadingBounds = {LjsMinHeading, LjsMaxHeading};
+
 
 #ifdef LJS_LOCATION_SERVICES_DEBUG
 static NSString *LjsLocationManagerMercury = @"mercury";
@@ -65,11 +68,9 @@ static NSString *LjsLocationManagerPluto = @"pluto";
 static NSString *LjsLocationManagerNeptune = @"neptune";
 #endif
 
-static CGFloat const LjsLongitudeZurich = 42.22;
-static CGFloat const LjsLatitudeZurich = 8.32;
+static CGFloat const LjsLatitudeZurich = 47.22;
+static CGFloat const LjsLongitudeZurich = 8.33;
 
-
-static LjsLocationManager *singleton = nil;
 
 @interface LjsLocationManager () 
 
@@ -94,12 +95,29 @@ static LjsLocationManager *singleton = nil;
 @property (nonatomic, assign) CGPoint longitudeBounds;
 @property (nonatomic, assign) CGPoint headingBounds;
 
-- (BOOL) isValue:(CGFloat) aValue onInterval:(CGPoint) aInterval;
++ (BOOL) isValue:(CGFloat) aValue onInterval:(CGPoint) aInterval;
 
 @end
 
 
 @implementation LjsLocationManager
+
+NSString *NSStringFromLjsLocation(LjsLocation aLocation) {
+  CGFloat lat = aLocation.latitude;
+  CGFloat lng = aLocation.longitude;
+  NSString *latStr = @"NAN", *lngStr = @"NAN";
+  if ([LjsLocationManager isValidLatitude:lat]) {
+    NSDecimalNumber *dn = [LjsDn dnWithFloat:lat];
+    NSDecimalNumber *round = [dn dnByRoundingAsLocation];
+    latStr = [round stringValue];
+  } 
+  
+  if ([LjsLocationManager isValidLongitude:lng]) {
+    lngStr = [[[LjsDn dnWithFloat:lng] dnByRoundingAsLocation] stringValue];
+  }
+  return [NSString stringWithFormat:@"(%@, %@)", latStr, lngStr];
+}
+
 
 @synthesize coreLocationManager;
 @synthesize coreLocation;
@@ -119,21 +137,6 @@ static LjsLocationManager *singleton = nil;
   [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-+ (id) sharedInstance {
-  @synchronized(self) {
-    if (singleton == nil)
-      singleton = [[super allocWithZone:NULL] init];
-  }
-  return singleton;
-}
-
-+ (id)allocWithZone:(NSZone *)zone {
-  return [self sharedInstance];
-}
-
-- (id)copyWithZone:(NSZone *)zone {
-  return self;
-}
 
 
 - (id) init {
@@ -141,10 +144,11 @@ static LjsLocationManager *singleton = nil;
   if (self != nil) {
     self.coreLocationManager = [[CLLocationManager alloc] init];
     self.coreLocationManager.delegate = self;
-
+    
     self.coreLocationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-
+    
     [self.coreLocationManager startUpdatingLocation];
+    
 #if TARGET_OS_IPHONE    
     if ([CLLocationManager headingAvailable]) {
       DDLogDebug(@"heading service available, starting orientation tracking.");
@@ -162,17 +166,16 @@ static LjsLocationManager *singleton = nil;
     
     self.debugLastHeading = [LjsVariates randomDoubleWithMin:0.0 max:360.0];
     
-    self.headingBounds = CGPointMake(LjsMinHeading, LjsMaxHeading);
-    self.latitudeBounds = CGPointMake(LjsMinLatitude, LjsMaxLatitude);
-    self.longitudeBounds = CGPointMake(LjsMinLongitude, LjsMaxLongitude);
+    self.headingBounds = LjsHeadingBounds;
+    self.latitudeBounds = LjsLatitudeBounds;
+    self.longitudeBounds = LjsLongitudeBounds;
   }
   return self;
 }
 
-- (BOOL) isValue:(CGFloat) aValue onInterval:(CGPoint) aInterval {
++ (BOOL) isValue:(CGFloat) aValue onInterval:(CGPoint) aInterval {
   return (aValue >= aInterval.x && aValue <= aInterval.y);
 }
-
 
 
 - (BOOL) locationIsAvailable {
@@ -234,13 +237,11 @@ static LjsLocationManager *singleton = nil;
   return serviceAvailable;
 }
 
-
 + (BOOL) isValidHeading:(CGFloat) aHeading {
   if (aHeading == LjsLocationDegreesNotFound) {
     return NO;
   } else {
-    LjsLocationManager *lm = [LjsLocationManager sharedInstance];
-    return [lm isValue:aHeading onInterval:lm.headingBounds];
+    return [LjsLocationManager isValue:aHeading onInterval:LjsHeadingBounds];
   }
 }
 
@@ -249,18 +250,16 @@ static LjsLocationManager *singleton = nil;
   if (aLatitude == LjsLocationDegreesNotFound) {
     return NO;
   } else {
-    LjsLocationManager *lm = [LjsLocationManager sharedInstance];
-    return [lm isValue:aLatitude onInterval:lm.latitudeBounds];
+    return [LjsLocationManager isValue:aLatitude onInterval:LjsLatitudeBounds];
   }
 }
 
 
 + (BOOL) isValidLongitude:(CGFloat) aLongitude {
-  if (aLongitude == LjsLocationDegreesNotFound) {
+ if (aLongitude == LjsLocationDegreesNotFound) {
     return NO;
   } else {
-    LjsLocationManager *lm = [LjsLocationManager sharedInstance];
-    return [lm isValue:aLongitude onInterval:lm.longitudeBounds];
+    return [LjsLocationManager isValue:aLongitude onInterval:LjsLongitudeBounds];
   }
 }
 
@@ -376,7 +375,10 @@ static LjsLocationManager *singleton = nil;
 
 
 - (LjsLocation) location {
-  return LjslocationMake([self latitude], [self longitude]);
+  CGFloat lat = [self latitude];
+  CGFloat lng = [self longitude];
+  LjsLocation result = LjslocationMake(lat, lng);
+  return result;
 }
 
 + (BOOL) isValidLocation:(LjsLocation) aLocation {
@@ -444,7 +446,7 @@ static LjsLocationManager *singleton = nil;
 
 - (CGFloat) milesBetweenA:(LjsLocation) a
                         b:(LjsLocation) b {
-  return [self metersBetweenA:a b:b] /  0.000621371192;
+  return [self metersBetweenA:a b:b] /  1609.344;
 }
 
 - (NSDecimalNumber *) dnMilesBetweenA:(LjsLocation) a

@@ -17,5 +17,5 @@
 - (NSArray *) append:(id) object;
 - (NSArray *) sortedArrayUsingDescriptor:(NSSortDescriptor *) aSorter;
 - (NSArray *) pushObject:(id) object;
-
+- (NSArray *) map:(id (^)(id obj)) aBlock;
 @end

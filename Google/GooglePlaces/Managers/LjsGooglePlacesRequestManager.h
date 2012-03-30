@@ -32,7 +32,7 @@
 #import "LjsGooglePlacesDetailsReply.h"
 #import "LjsGooglePlacesPrediction.h"
 #import "LjsGooglePlacesDetails.h"
-
+#import "LjsLocationManager.h"
 
 @protocol LjsGooglePlaceRequestManagerResultHandlerDelegate <NSObject>
 
@@ -68,7 +68,8 @@
 
 /** @name Initializing Objects */
 - (id) initWithApiToken:(NSString *) aApiToken
-          resultHandler:(id<LjsGooglePlaceRequestManagerResultHandlerDelegate>) aResultHandler;
+          resultHandler:(id<LjsGooglePlaceRequestManagerResultHandlerDelegate>) aResultHandler
+        locationManager:(LjsLocationManager *) aLocationManager;
 
 /** @name Handling Notifications, Requests, and Events */
 
@@ -87,10 +88,10 @@
  */
 /** @name Utility */
 
-- (void) performPredictionRequestForCurrentLocationWithInput:(NSString *) aInput
-                                                      radius:(CGFloat) aRadius
-                                                    language:(NSString *) aLangCode
-                                        establishmentRequest:(BOOL) aIsAnEstablishmentRequest;
+- (void) performPredictionRequestWithInput:(NSString *) aInput
+                                    radius:(CGFloat) aRadius
+                                  language:(NSString *) aLangCode
+                      establishmentRequest:(BOOL) aIsAnEstablishmentRequest;
 
 - (void) performDetailsRequestionForPrediction:(LjsGooglePlacesPrediction *) aPrediction
                                       language:(NSString *) aLangCode;

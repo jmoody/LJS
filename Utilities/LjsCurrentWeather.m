@@ -69,13 +69,14 @@ static NSString *LjsCurrentWeatherApiKeyPlist = @"weather-api-key";
 static NSString *LjsCurrentWeatherApiKeyKey = @"free.worldweatheronline.com.LJS Key";
 
 
-
 @implementation LjsCurrentWeather
 
 @synthesize latitude, longitude;
 @synthesize responseUtils;
 @synthesize currentConditions;
 @synthesize requestURL;
+
+
 
 
 #pragma mark Memory Management
@@ -86,8 +87,10 @@ static NSString *LjsCurrentWeatherApiKeyKey = @"free.worldweatheronline.com.LJS 
 - (id) initWithLatitude:(CGFloat)aLatitude longitude:(CGFloat)aLongitude {
   self = [super init];
   if (self != nil) {
-    NSAssert1([LjsLocationManager isValidLatitude:aLatitude], @"latitude < %.5f > must be valid", aLatitude);
-    NSAssert1([LjsLocationManager isValidLongitude:aLongitude], @"longitude < %.5f > must be valid", aLongitude);
+    BOOL isValidLat = [LjsLocationManager isValidLatitude:aLatitude];
+    BOOL isValidLong = [LjsLocationManager isValidLongitude:aLongitude];
+    NSAssert1(isValidLat, @"latitude < %.5f > must be valid", aLatitude);
+    NSAssert1(isValidLong, @"longitude < %.5f > must be valid", aLongitude);
     
     self.latitude = aLatitude;
     self.longitude = aLongitude;

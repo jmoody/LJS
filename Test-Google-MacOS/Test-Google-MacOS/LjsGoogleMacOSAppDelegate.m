@@ -3,6 +3,8 @@
 #import "LjsCategories.h"
 #import "LjsDn.h"
 #import "LjsGooglePlacesManager.h"
+#import "LjsLocationManager.h"
+#import "LjsGooglePlace.h"
 
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -40,9 +42,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [DDLog addLogger:fileLogger];
   DDLogDebug(@"logging initialized");
   
-
-  self.manager = [[LjsGooglePlacesManager alloc] init];
-                
+  LjsLocationManager *lm = [[LjsLocationManager alloc] init];
+  
+  self.manager = [[LjsGooglePlacesManager alloc] initWithLocationManager:lm];
+  
   
   NSString *input, *langCode;
   CGFloat radius;
@@ -53,13 +56,95 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   radius = 5000;
   establishment = NO;
   NSArray *results;
+//  
+//  results = [self.manager placesWithNameBeginningWithString:input
+//                                                      limit:0
+//                                                       sort:NO
+//                                                  ascending:NO
+//                                  performPredicationRequest:YES
+//                                           predictionRadius:radius
+//                                         predictionLanguage:langCode];
+//  
+////  self.places = results;
+//  
+//  NSArray *inputs = [NSArray arrayWithObjects:@"paris", @"lisbon", @"madrid",
+//                     @"boston", @"los angeles", @"london", @"kiev", nil];
+//  
+//  for (NSString *city in inputs) {
+//    results = [self.manager placesWithNameBeginningWithString:city
+//                                                        limit:0
+//                                                         sort:NO
+//                                                    ascending:NO
+//                                    performPredicationRequest:YES
+//                                             predictionRadius:radius
+//                                           predictionLanguage:langCode];
+//  }
+//  
+//  CGFloat lat = [lm latitude];
+//  CGFloat lng = [lm longitude];
+//  
+//  results = [self.manager placesWithNameBeginningWithString:@"b"
+//                                  performPredicationRequest:NO
+//                                           predictionRadius:radius
+//                                         predictionLanguage:langCode];
+//
+//  LjsLocation location = LjslocationMake(lat,lng);
+////  NSArray *sorted = [self.manager arrayBySortingPlaces:results
+////                              withDistanceFromLatitude:lat
+////                                            longitidue:lng
+////                                             ascending:YES];
+//
+//  DDLogDebug(@"========================================");
+//  for (LjsGooglePlace *place in results) {
+//    DDLogDebug(@"%.5f ==> %@", [place metersFromLocation:location], place);
+//  }
+//
+//  
+//  results = [self.manager placesWithNameBeginningWithString:@"ba"
+//                                  performPredicationRequest:NO
+//                                           predictionRadius:radius
+//                                         predictionLanguage:langCode];
+//  
+//  
+////  sorted = [self.manager arrayBySortingPlaces:results
+////                              withDistanceFromLatitude:lat
+////                                            longitidue:lng
+////                                             ascending:YES];
+//  
+//  DDLogDebug(@"========================================");
+//  for (LjsGooglePlace *place in results) {
+//    DDLogDebug(@"%.5f ==> %@", [place metersFromLocation:location], place);
+//  }
+//
+//  results = [self.manager placesWithNameBeginningWithString:@"bas"
+//                                                      limit:NSNotFound
+//                                  performPredicationRequest:NO
+//                                           predictionRadius:radius
+//                                         predictionLanguage:langCode];
+// 
+  NSArray *sorted;
+  sorted = [self.manager placesWithNameBeginningWithString:@"bas"
+                                                      limit:NSNotFound
+                                                       sort:YES 
+                                                  ascending:YES
+                                  performPredicationRequest:NO
+                                           predictionRadius:radius
+                                         predictionLanguage:langCode];
   
-  results = [self.manager arrayOfLocationsForCurrentLocationWithRadius:radius
-                                                          searchString:input
-                                                              language:langCode];
-  DDLogDebug(@"results = %@", results);
+  LjsLocation location = [lm location];
+//  sorted = [self.manager arrayBySortingPlaces:sorted
+//                     withDistanceFromLatitude:location.latitude
+//                                   longitidue:location.longitude
+//                                    ascending:YES];
   
-  self.places = results;
+
+  DDLogDebug(@"location = %@", NSStringFromLjsLocation(location));
+  DDLogDebug(@"========================================");
+  for (LjsGooglePlace *place in sorted) {
+    NSDecimalNumber *km = [lm dnKilometersBetweenA:[place location] b:location];
+    DDLogDebug(@"%@ ==> %@", km, place);
+  }
+
 }
 
 // Returns the directory the application uses to store the Core Data store file. 
@@ -67,7 +152,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 // in the user's Application Support directory.
 - (NSURL *)applicationFilesDirectory {
   NSFileManager *fileManager = [NSFileManager defaultManager];
-  NSURL *appSupportURL = [[fileManager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject];
+  NSURL *appSupportURL = [[fileManager URLsForDirectory:NSApplicationSupportDirectory 
+                                              inDomains:NSUserDomainMask] lastObject];
   return [appSupportURL URLByAppendingPathComponent:@"com.littlejoysoftware.Test_Google_MacOS"];
 }
 
@@ -104,12 +190,15 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSURL *applicationFilesDirectory = [self applicationFilesDirectory];
   NSError *error = nil;
   
-  NSDictionary *properties = [applicationFilesDirectory resourceValuesForKeys:[NSArray arrayWithObject:NSURLIsDirectoryKey] error:&error];
+  NSDictionary *properties = [applicationFilesDirectory 
+                              resourceValuesForKeys:[NSArray arrayWithObject:NSURLIsDirectoryKey] 
+                              error:&error];
   
   if (!properties) {
     BOOL ok = NO;
     if ([error code] == NSFileReadNoSuchFileError) {
-      ok = [fileManager createDirectoryAtPath:[applicationFilesDirectory path] withIntermediateDirectories:YES attributes:nil error:&error];
+      ok = [fileManager createDirectoryAtPath:[applicationFilesDirectory path] 
+                  withIntermediateDirectories:YES attributes:nil error:&error];
     }
     if (!ok) {
       [[NSApplication sharedApplication] presentError:error];
@@ -118,7 +207,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   } else {
     if (![[properties objectForKey:NSURLIsDirectoryKey] boolValue]) {
       // Customize and localize this error.
-      NSString *failureDescription = [NSString stringWithFormat:@"Expected a folder to store application data, found a file (%@).", [applicationFilesDirectory path]];
+      NSString *failureDescription = [NSString stringWithFormat:@"Expected a folder to store application data, found a file (%@).",
+                                      [applicationFilesDirectory path]];
       
       NSMutableDictionary *dict = [NSMutableDictionary dictionary];
       [dict setValue:failureDescription forKey:NSLocalizedDescriptionKey];

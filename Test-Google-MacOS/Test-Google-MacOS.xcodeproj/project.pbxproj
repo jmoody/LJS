@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		F54802CB1525AB7E00B5E776 /* LjsGooglePlaceDistancer.m in Sources */ = {isa = PBXBuildFile; fileRef = F54802CA1525AB7E00B5E776 /* LjsGooglePlaceDistancer.m */; };
 		F5BB1F21151BB61D00BFDDA0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1F1F151BB61D00BFDDA0 /* InfoPlist.strings */; };
 		F5BB1F23151BB61D00BFDDA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1F22151BB61D00BFDDA0 /* main.m */; };
 		F5BB1F27151BB61D00BFDDA0 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1F25151BB61D00BFDDA0 /* Credits.rtf */; };
@@ -136,6 +137,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F54802C91525AB7E00B5E776 /* LjsGooglePlaceDistancer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlaceDistancer.h; sourceTree = "<group>"; };
+		F54802CA1525AB7E00B5E776 /* LjsGooglePlaceDistancer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlaceDistancer.m; sourceTree = "<group>"; };
 		F5BB1F12151BB61D00BFDDA0 /* Test-Google-MacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test-Google-MacOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5BB1F1E151BB61D00BFDDA0 /* Test-Google-MacOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Google-MacOS-Info.plist"; sourceTree = "<group>"; };
 		F5BB1F20151BB61D00BFDDA0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -592,6 +595,8 @@
 				F5BB1FC1151BCC4300BFDDA0 /* LjsWebCategories.m */,
 				F5BB1FC2151BCC4300BFDDA0 /* NSArray+LjsAdditions.h */,
 				F5BB1FC3151BCC4300BFDDA0 /* NSArray+LjsAdditions.m */,
+				F5BB1FCE151BCC4300BFDDA0 /* NSMutableArray+LjsAdditions.h */,
+				F5BB1FCF151BCC4300BFDDA0 /* NSMutableArray+LjsAdditions.m */,
 				F5BB1FC4151BCC4300BFDDA0 /* NSCalendar+LjsAdditions.h */,
 				F5BB1FC5151BCC4300BFDDA0 /* NSCalendar+LjsAdditions.m */,
 				F5BB1FC6151BCC4300BFDDA0 /* NSDate+LjsAdditions.h */,
@@ -602,8 +607,6 @@
 				F5BB1FCB151BCC4300BFDDA0 /* NSError+LjsAdditions.m */,
 				F5BB1FCC151BCC4300BFDDA0 /* NSLocale+LjsAdditions.h */,
 				F5BB1FCD151BCC4300BFDDA0 /* NSLocale+LjsAdditions.m */,
-				F5BB1FCE151BCC4300BFDDA0 /* NSMutableArray+LjsAdditions.h */,
-				F5BB1FCF151BCC4300BFDDA0 /* NSMutableArray+LjsAdditions.m */,
 				F5BB1FD0151BCC4300BFDDA0 /* NSSet+LjsAdditions.h */,
 				F5BB1FD1151BCC4300BFDDA0 /* NSSet+LjsAdditions.m */,
 				F5C3B1E01523B790005B1087 /* NSDecimalNumber+LjsAdditions.h */,
@@ -803,6 +806,8 @@
 				F5F1A211151CBFAE00E23DD5 /* LjsGooglePlacesManager.m */,
 				F5F1A212151CBFAE00E23DD5 /* LjsGooglePlacesRequestManager.h */,
 				F5F1A213151CBFAE00E23DD5 /* LjsGooglePlacesRequestManager.m */,
+				F54802C91525AB7E00B5E776 /* LjsGooglePlaceDistancer.h */,
+				F54802CA1525AB7E00B5E776 /* LjsGooglePlaceDistancer.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1053,6 +1058,7 @@
 				F5C3B1BD1523B23E005B1087 /* LjsGooglePlace.m in Sources */,
 				F5C3B1BE1523B23E005B1087 /* LjsGooglePlaceType.m in Sources */,
 				F5C3B1E21523B790005B1087 /* NSDecimalNumber+LjsAdditions.m in Sources */,
+				F54802CB1525AB7E00B5E776 /* LjsGooglePlaceDistancer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1155,7 +1161,10 @@
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Test-Google-MacOS/Test-Google-MacOS-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = LOG_CONFIGURATION_DEBUG;
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = (
+					LOG_CONFIGURATION_DEBUG,
+					LJS_LOCATION_SERVICES_SIMULATOR_DEBUG,
+				);
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = NO;

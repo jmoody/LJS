@@ -70,6 +70,7 @@
 #import "LjsGoogleGlobals.h"
 #import "LjsCaesarCipher.h"
 #import "LjsDn.h"
+#import "LjsLocationManager.h"
 
 @interface LjsGooglePlacesRequestManagerTests : LjsTestCase 
 
@@ -105,10 +106,11 @@
                              initWithRotate:len];
   self.apiToken = [cipher stringByDecodingString:defaultKey];
   
-  
+  LjsLocationManager *lm = [[LjsLocationManager alloc] init];
   self.manager = [[LjsGooglePlacesRequestManager alloc]
              initWithApiToken:self.apiToken
-             resultHandler:nil];
+             resultHandler:nil
+                  locationManager:lm];
 }
 
 - (void) tearDownClass {

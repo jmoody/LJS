@@ -96,12 +96,13 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
 }
 
 - (id) initWithApiToken:(NSString *)aApiToken 
-          resultHandler:(id<LjsGooglePlaceRequestManagerResultHandlerDelegate>)aResultHandler {
+          resultHandler:(id<LjsGooglePlaceRequestManagerResultHandlerDelegate>)aResultHandler 
+        locationManager:(LjsLocationManager *)aLocationManager {
   self = [super init];
   if (self) {
     self.apiToken = aApiToken;
     self.resultHandler = aResultHandler;
-    self.locationManager = [LjsLocationManager sharedInstance];
+    self.locationManager = aLocationManager;
   }
   return self;
 }
@@ -203,10 +204,10 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
 }
 
 
-- (void) performPredictionRequestForCurrentLocationWithInput:(NSString *) aInput
-                                                      radius:(CGFloat) aRadius
-                                                    language:(NSString *) aLangCode
-                                        establishmentRequest:(BOOL) aIsAnEstablishmentRequest {
+- (void) performPredictionRequestWithInput:(NSString *) aInput
+                                    radius:(CGFloat) aRadius
+                                  language:(NSString *) aLangCode
+                      establishmentRequest:(BOOL) aIsAnEstablishmentRequest {
   ASIHTTPRequest *request;
   request = [self requestForAutocompleteWithInput:aInput
                                          latitude:[self.locationManager latitude]

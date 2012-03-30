@@ -14,34 +14,56 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+@interface LjsLocationServiceObserver ()
+
+@property (nonatomic, strong) LjsLocationManager *locationManager;
+
+@end
+
 @implementation LjsLocationServiceObserver
 
+@synthesize locationManager;
 
 #pragma mark Memory Management
 - (void) dealloc {
   DDLogDebug(@"deallocating LjsLocationServiceObserver");
 }
 
+// need to pass a location manager
 - (id) initWithTimerFrequency:(NSTimeInterval)aTimerFrequency {
+  [self doesNotRecognizeSelector:_cmd];
+  return nil;
+}
+
+// need to pass a location manager
+- (id) initWithTimerFrequency:(NSTimeInterval)aTimerFrequency 
+                timesToRepeat:(NSUInteger)aTimesToRepeat {
+  [self doesNotRecognizeSelector:_cmd];
+  return nil;
+}
+
+- (id) initWithTimerFrequency:(NSTimeInterval)aTimerFrequency 
+              locationManager:(LjsLocationManager *) aManager {
   self = [super initWithTimerFrequency:aTimerFrequency];
   if (self != nil) {
-
+    self.locationManager = aManager;
   }
   return self;
 }
 
 - (id) initWithTimerFrequency:(NSTimeInterval) aTimerFrequency
-                timesToRepeat:(NSUInteger) aTimesToRepeat {
+                timesToRepeat:(NSUInteger) aTimesToRepeat 
+              locationManager:(LjsLocationManager *)aManager {
   self = [super initWithTimerFrequency:aTimerFrequency timesToRepeat:aTimesToRepeat];
   if (self != nil) {
-
+    self.locationManager = aManager;
   }
   return self;
 }
 
 - (void) doRepeatedAction:(NSTimer *)aTimer {
   if (self.repeatCount < self.numberOfTimesToRepeat) {
-    BOOL newLocationServicesState = [[LjsLocationManager sharedInstance] locationIsAvailable];
+    BOOL newLocationServicesState = [self.locationManager locationIsAvailable];
     if (newLocationServicesState != self.stateVariable) {
       DDLogDebug(@"location service state change from %d to %d", self.stateVariable, 
                  newLocationServicesState);

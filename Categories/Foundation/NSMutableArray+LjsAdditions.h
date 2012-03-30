@@ -40,5 +40,4 @@
 - (void) push:(id) object;
 - (id) pop;
 
-
 @end

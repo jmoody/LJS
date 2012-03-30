@@ -40,6 +40,11 @@
 #import "LjsGooglePlacesDetails.h"
 #import "LjsGooglePlacesPrediction.h"
 #import "LjsGooglePlace.h"
+#import "LjsDn.h"
+#import "LjsFoundationCategories.h"
+#import "LjsGooglePlaceDistancer.h"
+
+
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -56,6 +61,11 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 @property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *coordinator; 
 @property (nonatomic, copy) NSString *sqliteFilename;
 @property (nonatomic, copy) NSString *sqliteDirectory;
+
+@property (nonatomic, strong) LjsLocationManager *lm;
+@property (nonatomic, strong) LjsGooglePlaceDistancer *distancer;
+
+
 
 
 - (NSURL *) urlForSqlitePath;
@@ -76,6 +86,8 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 @synthesize sqliteDirectory;
 @synthesize apiToken;
 @synthesize requestManager = __requestManager;
+@synthesize lm;
+@synthesize distancer;
 
 
 #pragma mark Memory Management
@@ -91,33 +103,39 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
   return decoded;
 }
 
-- (id) init {
+- (id) initWithLocationManager:(LjsLocationManager *)aManager {
   NSString *decoded = [self decodeDefaultApiKey];
   return [self initWithStoreDirectory:[LjsFileUtilities findCoreDataLibraryPath:YES]
                         storeFilename:LjsGooglePlacesSqlLiteStore
-                             apiToken:decoded];
+                             apiToken:decoded
+                              manager:aManager];
                           
 }
 
 
-- (id) initWithApiToken:(NSString *) aApiToken {
+- (id) initWithApiToken:(NSString *) aApiToken
+                manager:(LjsLocationManager *)aManager {
   return [self initWithStoreDirectory:[LjsFileUtilities findCoreDataLibraryPath:YES]
                         storeFilename:LjsGooglePlacesSqlLiteStore
-                             apiToken:aApiToken];
+                             apiToken:aApiToken
+                              manager:aManager];
                            
 }
 
 - (id) initWithStoreFilename:(NSString *) aFilename 
-                    apiToken:(NSString *) aApiToken {
+                    apiToken:(NSString *) aApiToken
+                     manager:(LjsLocationManager *)aManager {
   return [self initWithStoreDirectory:[LjsFileUtilities findCoreDataLibraryPath:YES]
                         storeFilename:aFilename
-                             apiToken:aApiToken];
+                             apiToken:aApiToken
+                              manager:aManager];
                           
 }
 
 - (id) initWithStoreDirectory:(NSString *) aDirectory
                 storeFilename:(NSString *) aFilename
-                     apiToken:(NSString *) aApiToken {
+                     apiToken:(NSString *) aApiToken 
+                      manager:(LjsLocationManager *)aManager {
   self = [super init];
   if (self != nil) {
     DDLogDebug(@"directory = %@", aDirectory);
@@ -125,7 +143,16 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
     self.sqliteFilename = aFilename;
     self.apiToken = aApiToken;
     
-    // initalize
+    self.lm = aManager;
+    if (self.lm == nil) {
+      abort();
+    }
+    
+    self.distancer = [[LjsGooglePlaceDistancer alloc] initWithLocationManager:self.lm];
+    
+    // initalize - must be done after setting the location manager
+    // why i did it this way, i am not sure - probably something about
+    // making the request manager readonly?
     [self requestManager];
     
     // initialize
@@ -164,16 +191,98 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
   return fetched;
 }
 
-- (NSArray *) arrayOfLocationsForCurrentLocationWithRadius:(CGFloat) aRadius
-                                              searchString:(NSString *) aSearchString
-                                                  language:(NSString *) aLangCode {
-  [self.requestManager performPredictionRequestForCurrentLocationWithInput:aSearchString
-                                                                    radius:aRadius
-                                                                  language:aLangCode
-                                                      establishmentRequest:NO];
+
+- (NSArray *) placesWithNameBeginningWithString:(NSString *)aString 
+                                          limit:(NSUInteger) aLimit
+                                           sort:(BOOL) aShouldSort
+                                      ascending:(BOOL) aSortAscending
+                      performPredicationRequest:(BOOL) aShouldPerformRequest
+                               predictionRadius:(CGFloat) aRadius 
+                             predictionLanguage:(NSString *) aLangCode {
+  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LjsGooglePlace"];
+  request.predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@",
+                       aString];
   
-  return [self fetchAllPlaces];
+  // cannot limit the fetch if there is sorting involved - must limit post-fetch
+  if (aLimit != NSNotFound && aShouldSort == NO) {
+    request.fetchLimit = aLimit;
+  }
+  
+  NSError *error = nil;
+  NSArray *fetched = [self.context executeFetchRequest:request error:&error];
+  if (fetched == nil) {
+    DDLogFatal(@"could not execute fetch request for place: %@ : %@", 
+               [error localizedDescription], error);
+    abort();
+  } 
+  
+  NSArray *result = fetched;
+  if (aShouldSort == YES) {
+    NSArray *sorted = [self arrayBySortingPlaces:fetched ascending:aSortAscending];
+    if (aLimit != NSNotFound && [sorted count] > aLimit) {
+      NSRange range = NSMakeRange(0, aLimit);
+      result = [sorted subarrayWithRange:range];
+    } else {
+      result = sorted;
+    }
+  }
+  
+  if (aShouldPerformRequest == YES) {
+    [self.requestManager performPredictionRequestWithInput:aString
+                                                    radius:aRadius
+                                                  language:aLangCode
+                                      establishmentRequest:NO];
+  }
+  
+  return result;
 }
+
+
+
+
+- (NSArray *) placesWithNameBeginningWithString:(NSString *)aString 
+                      performPredicationRequest:(BOOL)aShouldPerformRequest
+                               predictionRadius:(CGFloat)aRadius 
+                             predictionLanguage:(NSString *)aLangCode {
+  
+  return [self placesWithNameBeginningWithString:aString
+                                           limit:NSNotFound
+                       performPredicationRequest:aShouldPerformRequest
+                                predictionRadius:aRadius
+                              predictionLanguage:aLangCode];
+}
+
+
+
+- (NSArray *) placesWithNameBeginningWithString:(NSString *)aString 
+                                          limit:(NSUInteger) aLimit
+                      performPredicationRequest:(BOOL)aShouldPerformRequest
+                               predictionRadius:(CGFloat)aRadius 
+                             predictionLanguage:(NSString *)aLangCode {
+  return [self placesWithNameBeginningWithString:aString
+                                           limit:aLimit
+                                            sort:NO
+                                       ascending:NO
+                       performPredicationRequest:aShouldPerformRequest
+                                predictionRadius:aRadius
+                              predictionLanguage:aLangCode];
+}
+
+- (NSArray *) placesWithNameBeginningWithString:(NSString *) aString
+                                           sort:(BOOL) aShouldSort
+                                      ascending:(BOOL) aSortAscending
+                      performPredicationRequest:(BOOL)aShouldPerformRequest
+                               predictionRadius:(CGFloat)aRadius 
+                             predictionLanguage:(NSString *)aLangCode {
+  return [self placesWithNameBeginningWithString:aString
+                                            sort:aShouldSort
+                                       ascending:aSortAscending
+                       performPredicationRequest:aShouldPerformRequest
+                                predictionRadius:aRadius
+                              predictionLanguage:aLangCode];
+}
+
+
 
 #pragma mark Request Manager Callback Selectors
 
@@ -234,8 +343,108 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
   
   __requestManager =  [[LjsGooglePlacesRequestManager alloc]
                        initWithApiToken:self.apiToken
-                       resultHandler:self];
+                       resultHandler:self
+                       locationManager:self.lm];
   return __requestManager;
+}
+
+
+#pragma mark Sorting 
+
+- (NSArray *) arrayBySortingPlaces:(NSArray *) aPlaces
+          withDistanceFromLatitude:(CGFloat)aLatitude 
+                        longitidue:(CGFloat)aLongitude
+                         ascending:(BOOL) aSortAscending {
+  LjsLocation loc = LjslocationMake(aLatitude, aLongitude);
+  return [self arrayBySortingPlaces:aPlaces
+           withDistanceFromLocation:loc
+                          ascending:aSortAscending];
+                      
+}
+
+- (NSArray *) arrayBySortingPlaces:(NSArray *) aPlaces
+                         ascending:(BOOL)aSortAscending {
+  LjsLocation current = [self.lm location];
+  DDLogDebug(@"location = %@", NSStringFromLjsLocation(current));
+  return [self arrayBySortingPlaces:aPlaces
+           withDistanceFromLocation:current
+                          ascending:aSortAscending];
+}
+
+- (NSArray *) arrayBySortingPlaces:(NSArray *) aPlaces
+          withDistanceFromLocation:(LjsLocation)aLocation 
+                         ascending:(BOOL)aSortAscending {
+  if ([LjsLocationManager isValidLocation:aLocation] == NO) {
+    DDLogWarn(@"location must valid: %@", NSStringFromLjsLocation(aLocation));
+    return nil;
+  }
+  
+  DDLogDebug(@"location = %@", NSStringFromLjsLocation(aLocation));
+  NSComparisonResult compResult = aSortAscending ? NSOrderedDescending : NSOrderedAscending;  
+  NSArray *result;
+  result = [aPlaces sortedArrayUsingComparator:^(id a, id b) {
+    LjsGooglePlace *first = (LjsGooglePlace *) a;
+    LjsGooglePlace *second = (LjsGooglePlace *) b;
+    return (NSComparisonResult)([self.distancer compareDistanceFrom:aLocation 
+                                                                toA:first 
+                                                                toB:second] == compResult);
+  }];
+  return result;
+}
+
+
+#pragma mark Filtering 
+
+- (NSArray *) arrayByFilteringPlaces:(NSArray *) aPlaces
+                    withinKilometers:(CGFloat) aKilometers
+                          ofLocation:(LjsLocation) aLocation
+                        insideRadius:(BOOL) aInsideRadius {
+  return [self arrayByFilteringPlaces:aPlaces
+                         withinMeters:aKilometers * 1000
+                           ofLocation:aLocation
+                         insideRadius:aInsideRadius];
+}
+
+- (NSArray *) arrayByFilteringPlaces:(NSArray *) aPlaces
+                          withinFeet:(CGFloat) aFeet
+                          ofLocation:(LjsLocation) aLocation
+                        insideRadius:(BOOL) aInsideRadius {
+  return [self arrayByFilteringPlaces:aPlaces
+                         withinMeters:aFeet * 3.2808399
+                           ofLocation:aLocation
+                         insideRadius:aInsideRadius];
+}
+
+- (NSArray *) arrayByFilteringPlaces:(NSArray *) aPlaces
+                         withinMiles:(CGFloat) aMiles
+                          ofLocation:(LjsLocation) aLocation
+                        insideRadius:(BOOL) aInsideRadius {
+  return [self arrayByFilteringPlaces:aPlaces
+                          withinMiles:aMiles * 1609.344
+                           ofLocation:aLocation
+                         insideRadius:aInsideRadius];
+}
+
+
+- (NSArray *) arrayByFilteringPlaces:(NSArray *) aPlaces
+                        withinMeters:(CGFloat) aMeters
+                          ofLocation:(LjsLocation) aLocation 
+                        insideRadius:(BOOL) aInsideRadius {
+  if ([LjsLocationManager isValidLocation:aLocation] == NO) {
+    DDLogWarn(@"location must valid: %@", NSStringFromLjsLocation(aLocation));
+    return nil;
+  }
+  NSDecimalNumber *targetDist = [[LjsDn dnWithFloat:aMeters] dnByRoundingAsLocation];
+  NSPredicate *predicate;
+  predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+    LjsGooglePlace *place = (LjsGooglePlace *) evaluatedObject;
+    NSDecimalNumber *distFrom = [self.distancer dnMetersBetweenPlace:place andLocation:aLocation];    
+    return aInsideRadius ? [distFrom lte:targetDist] : [distFrom gte:targetDist];
+  }];
+  NSArray *result;
+  result = [aPlaces filteredArrayUsingPredicate:predicate];
+  
+  return result;
 }
 
 

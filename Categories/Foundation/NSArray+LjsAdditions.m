@@ -69,6 +69,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [array arrayByAddingObjectsFromArray:self];
 }
 
+- (NSArray *) map:(id (^)(id obj)) aBlock {
+  NSMutableArray *result = [NSMutableArray arrayWithCapacity:[self count]];
+  for (id obj in self) {
+    [result addObject:aBlock(obj)];
+  }
+  return [NSArray arrayWithArray:result];
+}
 
 
 @end
