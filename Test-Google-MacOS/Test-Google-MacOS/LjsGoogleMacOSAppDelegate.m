@@ -46,16 +46,16 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   
   self.manager = [[LjsGooglePlacesManager alloc] initWithLocationManager:lm];
   
-  
-  NSString *input, *langCode;
-  CGFloat radius;
-  BOOL establishment;
-  
-  input = @"Basel";
-  langCode = @"en";
-  radius = 5000;
-  establishment = NO;
-  NSArray *results;
+//  
+//  NSString *input, *langCode;
+//  CGFloat radius;
+//  BOOL establishment;
+//  
+//  input = @"Basel";
+//  langCode = @"en";
+//  radius = 5000;
+//  establishment = NO;
+ 
 //  
 //  results = [self.manager placesWithNameBeginningWithString:input
 //                                                      limit:0
@@ -122,16 +122,18 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 //                                           predictionRadius:radius
 //                                         predictionLanguage:langCode];
 // 
-  NSArray *sorted;
-  sorted = [self.manager placesWithNameBeginningWithString:@"bas"
-                                                      limit:NSNotFound
-                                                       sort:YES 
-                                                  ascending:YES
-                                  performPredicationRequest:NO
-                                           predictionRadius:radius
-                                         predictionLanguage:langCode];
-  
   LjsLocation location = [lm location];
+  NSArray *sorted;
+  sorted = [self.manager predictionsWithString:@"bas"
+                                         limit:NSNotFound
+                                          sort:YES 
+                                     ascending:YES
+                                      location:location
+                     performPredicationRequest:YES
+                              predictionRadius:5000
+                            predictionLanguage:@"de"];
+  
+
 //  sorted = [self.manager arrayBySortingPlaces:sorted
 //                     withDistanceFromLatitude:location.latitude
 //                                   longitidue:location.longitude

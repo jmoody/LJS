@@ -52,6 +52,8 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+NSString *LjsGooglePlacesManagerNotificationNewPlacesAvailable = @"com.littlejoysoftware.Google Place New Places Avaialable Notification";
+
 static NSString *LjsGooglePlacesManagerModelFile = @"LjsGooglePlacesModel";
 static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGooglePlaces.sqlite";
 
@@ -192,15 +194,16 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 }
 
 
-- (NSArray *) placesWithNameBeginningWithString:(NSString *)aString 
-                                          limit:(NSUInteger) aLimit
-                                           sort:(BOOL) aShouldSort
-                                      ascending:(BOOL) aSortAscending
-                      performPredicationRequest:(BOOL) aShouldPerformRequest
-                               predictionRadius:(CGFloat) aRadius 
-                             predictionLanguage:(NSString *) aLangCode {
+- (NSArray *) predictionsWithString:(NSString *)aString 
+                              limit:(NSUInteger) aLimit
+                               sort:(BOOL) aShouldSort
+                          ascending:(BOOL) aSortAscending
+                           location:(LjsLocation)aLocation 
+          performPredicationRequest:(BOOL) aShouldPerformRequest
+                   predictionRadius:(CGFloat) aRadius 
+                 predictionLanguage:(NSString *) aLangCode {
   NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LjsGooglePlace"];
-  request.predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@",
+  request.predicate = [NSPredicate predicateWithFormat:@"formattedAddress CONTAINS[cd] %@",
                        aString];
   
   // cannot limit the fetch if there is sorting involved - must limit post-fetch
@@ -218,7 +221,9 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
   
   NSArray *result = fetched;
   if (aShouldSort == YES) {
-    NSArray *sorted = [self arrayBySortingPlaces:fetched ascending:aSortAscending];
+    NSArray *sorted = [self arrayBySortingPlaces:fetched 
+                       withDistanceFromLocation:aLocation
+                                       ascending:aSortAscending];
     if (aLimit != NSNotFound && [sorted count] > aLimit) {
       NSRange range = NSMakeRange(0, aLimit);
       result = [sorted subarrayWithRange:range];
@@ -240,113 +245,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 
 
 
-- (NSArray *) placesWithNameBeginningWithString:(NSString *)aString 
-                      performPredicationRequest:(BOOL)aShouldPerformRequest
-                               predictionRadius:(CGFloat)aRadius 
-                             predictionLanguage:(NSString *)aLangCode {
-  
-  return [self placesWithNameBeginningWithString:aString
-                                           limit:NSNotFound
-                       performPredicationRequest:aShouldPerformRequest
-                                predictionRadius:aRadius
-                              predictionLanguage:aLangCode];
-}
 
-
-
-- (NSArray *) placesWithNameBeginningWithString:(NSString *)aString 
-                                          limit:(NSUInteger) aLimit
-                      performPredicationRequest:(BOOL)aShouldPerformRequest
-                               predictionRadius:(CGFloat)aRadius 
-                             predictionLanguage:(NSString *)aLangCode {
-  return [self placesWithNameBeginningWithString:aString
-                                           limit:aLimit
-                                            sort:NO
-                                       ascending:NO
-                       performPredicationRequest:aShouldPerformRequest
-                                predictionRadius:aRadius
-                              predictionLanguage:aLangCode];
-}
-
-- (NSArray *) placesWithNameBeginningWithString:(NSString *) aString
-                                           sort:(BOOL) aShouldSort
-                                      ascending:(BOOL) aSortAscending
-                      performPredicationRequest:(BOOL)aShouldPerformRequest
-                               predictionRadius:(CGFloat)aRadius 
-                             predictionLanguage:(NSString *)aLangCode {
-  return [self placesWithNameBeginningWithString:aString
-                                            sort:aShouldSort
-                                       ascending:aSortAscending
-                       performPredicationRequest:aShouldPerformRequest
-                                predictionRadius:aRadius
-                              predictionLanguage:aLangCode];
-}
-
-
-
-#pragma mark Request Manager Callback Selectors
-
-- (void) requestForPredictionsCompletedWithPredictions:(NSArray *)aPredictions
-                                              userInfo:(NSDictionary *) aUserInfo {
-  LjsGooglePlacesPrediction *prediction;
-  for (prediction in aPredictions) {
-    NSString *placeId = prediction.stablePlaceId;
-    if ([self placeExistsForId:placeId] == NO) {
-      DDLogDebug(@"starting request for details with prediction: %@", prediction);
-      NSString *langCode = [aUserInfo objectForKey:@"language"];
-      [self.requestManager performDetailsRequestionForPrediction:prediction
-                                                        language:langCode];
-    } else {
-      DDLogDebug(@"skipping details request - place: %@ (%@) already exists",
-                 prediction.prediction, [prediction shortId]);
-    }
-  }
-}
-
-- (void) requestForPredictionsFailedWithCode:(NSUInteger)aCode 
-                                     request:(ASIHTTPRequest *)aRequest {
-  DDLogDebug(@"request failed with code: %d", aCode);
-}
-
-- (void) requestForPredictionsFailedWithCode:(NSString *) aStatusCode
-                                       reply:(LjsGooglePlacesPredictiveReply *) aReply
-                                       error:(NSError *) aError {
-  DDLogDebug(@"request failed with code: %@", aStatusCode);
-}
-
-- (void) requestForDetailsCompletedWithDetails:(LjsGooglePlacesDetails *) aDetails
-                                      userInfo:(NSDictionary *) aUserInfo {
-  NSString *placeId = aDetails.stablePlaceId;
-  if ([self placeExistsForId:placeId] == NO) {
-    [LjsGooglePlace initWithDetails:aDetails
-                            context:self.context];
-    [self saveContext];
-  }
-}
-
-- (void) requestForDetailsFailedWithCode:(NSUInteger) aCode
-                                 request:(ASIHTTPRequest *) aRequest {
-  DDLogDebug(@"failed with code: %d", aCode);
-}
-
-- (void) requestForDetailsFailedWithCode:(NSString *) aStatusCode
-                                   reply:(LjsGooglePlacesDetailsReply *) aReply
-                                   error:(NSError *) aError {
-  DDLogDebug(@"failed with code : %@", aStatusCode);
-}
-
-
-- (LjsGooglePlacesRequestManager *) requestManager {
-  if (__requestManager != nil) {
-    return __requestManager;
-  }
-  
-  __requestManager =  [[LjsGooglePlacesRequestManager alloc]
-                       initWithApiToken:self.apiToken
-                       resultHandler:self
-                       locationManager:self.lm];
-  return __requestManager;
-}
 
 
 #pragma mark Sorting 
@@ -365,7 +264,6 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 - (NSArray *) arrayBySortingPlaces:(NSArray *) aPlaces
                          ascending:(BOOL)aSortAscending {
   LjsLocation current = [self.lm location];
-  DDLogDebug(@"location = %@", NSStringFromLjsLocation(current));
   return [self arrayBySortingPlaces:aPlaces
            withDistanceFromLocation:current
                           ascending:aSortAscending];
@@ -378,8 +276,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
     DDLogWarn(@"location must valid: %@", NSStringFromLjsLocation(aLocation));
     return nil;
   }
-  
-  DDLogDebug(@"location = %@", NSStringFromLjsLocation(aLocation));
+
   NSComparisonResult compResult = aSortAscending ? NSOrderedDescending : NSOrderedAscending;  
   NSArray *result;
   result = [aPlaces sortedArrayUsingComparator:^(id a, id b) {
@@ -445,6 +342,74 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
   result = [aPlaces filteredArrayUsingPredicate:predicate];
   
   return result;
+}
+
+
+#pragma mark Request Manager Callback Selectors
+
+- (void) requestForPredictionsCompletedWithPredictions:(NSArray *)aPredictions
+                                              userInfo:(NSDictionary *) aUserInfo {
+  LjsGooglePlacesPrediction *prediction;
+  for (prediction in aPredictions) {
+    NSString *placeId = prediction.stablePlaceId;
+    if ([self placeExistsForId:placeId] == NO) {
+      DDLogDebug(@"starting request for details with prediction: %@", prediction);
+      NSString *langCode = [aUserInfo objectForKey:@"language"];
+      [self.requestManager performDetailsRequestionForPrediction:prediction
+                                                        language:langCode];
+    } else {
+      DDLogDebug(@"skipping details request - place: %@ (%@) already exists",
+                 prediction.prediction, [prediction shortId]);
+    }
+  }
+}
+
+- (void) requestForPredictionsFailedWithCode:(NSUInteger)aCode 
+                                     request:(ASIHTTPRequest *)aRequest {
+  DDLogDebug(@"request failed with code: %d", aCode);
+}
+
+- (void) requestForPredictionsFailedWithCode:(NSString *) aStatusCode
+                                       reply:(LjsGooglePlacesPredictiveReply *) aReply
+                                       error:(NSError *) aError {
+  DDLogDebug(@"request failed with code: %@", aStatusCode);
+}
+
+- (void) requestForDetailsCompletedWithDetails:(LjsGooglePlacesDetails *) aDetails
+                                      userInfo:(NSDictionary *) aUserInfo {
+  NSString *placeId = aDetails.stablePlaceId;
+  if ([self placeExistsForId:placeId] == NO) {
+    [LjsGooglePlace initWithDetails:aDetails
+                            context:self.context];
+    [self saveContext];
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:LjsGooglePlacesManagerNotificationNewPlacesAvailable
+     object:nil];
+  }
+}
+
+- (void) requestForDetailsFailedWithCode:(NSUInteger) aCode
+                                 request:(ASIHTTPRequest *) aRequest {
+  DDLogDebug(@"failed with code: %d", aCode);
+}
+
+- (void) requestForDetailsFailedWithCode:(NSString *) aStatusCode
+                                   reply:(LjsGooglePlacesDetailsReply *) aReply
+                                   error:(NSError *) aError {
+  DDLogDebug(@"failed with code : %@", aStatusCode);
+}
+
+
+- (LjsGooglePlacesRequestManager *) requestManager {
+  if (__requestManager != nil) {
+    return __requestManager;
+  }
+  
+  __requestManager =  [[LjsGooglePlacesRequestManager alloc]
+                       initWithApiToken:self.apiToken
+                       resultHandler:self
+                       locationManager:self.lm];
+  return __requestManager;
 }
 
 
@@ -574,3 +539,48 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 
 
 @end
+
+#pragma mark DEAD SEA
+//- (NSArray *) placesWithNameBeginningWithString:(NSString *)aString 
+//                      performPredicationRequest:(BOOL)aShouldPerformRequest
+//                               predictionRadius:(CGFloat)aRadius 
+//                             predictionLanguage:(NSString *)aLangCode {
+//  
+//  return [self placesWithNameBeginningWithString:aString
+//                                           limit:NSNotFound
+//                       performPredicationRequest:aShouldPerformRequest
+//                                predictionRadius:aRadius
+//                              predictionLanguage:aLangCode];
+//}
+//
+//
+//
+//- (NSArray *) placesWithNameBeginningWithString:(NSString *)aString 
+//                                          limit:(NSUInteger) aLimit
+//                      performPredicationRequest:(BOOL)aShouldPerformRequest
+//                               predictionRadius:(CGFloat)aRadius 
+//                             predictionLanguage:(NSString *)aLangCode {
+//  return [self predictionsWithString:aString
+//                                           limit:aLimit
+//                                            sort:NO
+//                                       ascending:NO
+//                       performPredicationRequest:aShouldPerformRequest
+//                                predictionRadius:aRadius
+//                              predictionLanguage:aLangCode];
+//}
+//
+//- (NSArray *) placesWithNameBeginningWithString:(NSString *) aString
+//                                           sort:(BOOL) aShouldSort
+//                                      ascending:(BOOL) aSortAscending
+//                      performPredicationRequest:(BOOL)aShouldPerformRequest
+//                               predictionRadius:(CGFloat)aRadius 
+//                             predictionLanguage:(NSString *)aLangCode {
+//  return [self predictionsWithString:aString
+//                                           limit:NSNotFound
+//                                            sort:aShouldSort
+//                                       ascending:aSortAscending
+//                       performPredicationRequest:aShouldPerformRequest
+//                                predictionRadius:aRadius
+//                              predictionLanguage:aLangCode];
+//}
+

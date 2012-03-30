@@ -73,7 +73,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (NSComparisonResult) compareDistanceFrom:(LjsLocation) aLocation
                                        toA:(LjsGooglePlace *) a
                                        toB:(LjsGooglePlace *) b {
-  DDLogDebug(@"location = %@", NSStringFromLjsLocation(aLocation));
   NSDecimalNumber *fromA = [self.lm dnMetersBetweenA:aLocation
                                                       b:[a location]];
   NSDecimalNumber *fromB = [self.lm dnMetersBetweenA:aLocation

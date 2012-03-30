@@ -222,6 +222,8 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
 
 - (void) handleRequestAutocompleteDidFail:(ASIHTTPRequest *)aRequest {
   DDLogDebug(@"autocomplete did fail");
+  NSURL *url = [aRequest url];
+  DDLogDebug(@"url = %@", url);
   NSUInteger code = [aRequest responseCode];
   [self.resultHandler requestForPredictionsFailedWithCode:code 
                                                   request:aRequest];
