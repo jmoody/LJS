@@ -51,7 +51,6 @@ NSString *LjsGoogleStatusInvalidRequest = @"INVALID_REQUEST";
 NSString *LjsGoogleStatusLocalParseError = @"LOCAL_PARSE_ERROR";
 
 NSString *LjsGooglePlacesKeyStatus = @"status";
-NSString *LjsGooglePlacesAutocompleteKeyPredictions = @"predictions";
 
 NSString *LjsGoogleStringNotFound = @"NOT_FOUND";
 NSInteger LjsGoogleIntegerNotFound = NSNotFound;

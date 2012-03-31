@@ -1,7 +1,7 @@
 #import "LjsGoogleAddressComponent.h"
 #import "LjsGoogleAddressComponentType.h"
 #import "LjsGooglePlace.h"
-#import "LjsGooglePlacesNmoAddressComponent.h"
+#import "LjsGoogleNmoAddressComponent.h"
 #import "NSArray+LjsAdditions.h"
 #import "Lumberjack.h"
 
@@ -17,7 +17,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @implementation LjsGoogleAddressComponent
 
-+ (LjsGoogleAddressComponent *) initWithComponent:(LjsGooglePlacesNmoAddressComponent *) aComponent
++ (LjsGoogleAddressComponent *) initWithComponent:(LjsGoogleNmoAddressComponent *) aComponent
                                             place:(LjsGooglePlace *) aPlace
                                           context:(NSManagedObjectContext *) aContext {
   LjsGoogleAddressComponent *component;

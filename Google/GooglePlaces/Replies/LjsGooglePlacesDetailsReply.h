@@ -28,13 +28,13 @@
 
 
 #import <Foundation/Foundation.h>
-#import "LjsGooglePlacesReply.h"
+#import "LjsGoogleReply.h"
 #import "LjsGooglePlacesDetails.h"
 
 /**
  Documentation
  */
-@interface LjsGooglePlacesDetailsReply : LjsGooglePlacesReply 
+@interface LjsGooglePlacesDetailsReply : LjsGoogleReply 
 
 /** @name Properties */
 

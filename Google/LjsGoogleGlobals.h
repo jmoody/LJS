@@ -45,7 +45,6 @@ extern NSString *LjsGoogleStatusInvalidRequest;
 extern NSString *LjsGoogleStatusLocalParseError;
 
 extern NSString *LjsGooglePlacesKeyStatus;
-extern NSString *LjsGooglePlacesAutocompleteKeyPredictions;
 
 extern NSString *LjsGoogleStringNotFound;
 extern NSInteger LjsGoogleIntegerNotFound;

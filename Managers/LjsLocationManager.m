@@ -36,15 +36,20 @@
 #import "Lumberjack.h"
 #import "LjsDn.h"
 #import "NSDecimalNumber+LjsAdditions.h"
+#import "NSArray+LjsAdditions.h"
 
-static const int ddLogLevel = LOG_LEVEL_WARN;
 
-//#ifdef LOG_CONFIGURATION_DEBUG
-//static const int ddLogLevel = LOG_LEVEL_DEBUG;
-//#else
 //static const int ddLogLevel = LOG_LEVEL_WARN;
-//#endif
 
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
+
+NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable = @"com.littlejoysoftware.Reverse Geocoding Result Available Notification";
+
+static NSUInteger LjsLocationManagerLocationScale = 8;
 
 const LjsLocation LjsLocationNotFound = {CGFLOAT_MIN, CGFLOAT_MAX};
 
@@ -68,8 +73,12 @@ static NSString *LjsLocationManagerPluto = @"pluto";
 static NSString *LjsLocationManagerNeptune = @"neptune";
 #endif
 
-static CGFloat const LjsLatitudeZurich = 47.4190963;
-static CGFloat const LjsLongitudeZurich = 8.5367873;
+// himmeri strasse
+static CGFloat const LjsLatitudeZurich = 47.41909409;
+static CGFloat const LjsLongitudeZurich = 8.53678989;
+
+//static CGFloat const LjsLatitudeZurich = 26.9339;
+//static CGFloat const LjsLongitudeZurich = -80.0944;
 
 
 @interface LjsLocationManager () 
@@ -118,6 +127,14 @@ NSString *NSStringFromLjsLocation(LjsLocation aLocation) {
   return [NSString stringWithFormat:@"(%@, %@)", latStr, lngStr];
 }
 
+LjsLocation LjsLocationFromString(NSString *aString) {
+#if TARGET_OS_IPHONE
+  CGPoint point = CGPointFromString(aString);
+#else
+  NSPoint point = NSPointFromString(aString);
+#endif
+  return LjslocationMake(point.x, point.y);
+}
 
 @synthesize coreLocationManager;
 @synthesize coreLocation;
@@ -211,12 +228,10 @@ NSString *NSStringFromLjsLocation(LjsLocation aLocation) {
 #endif
   
 #ifdef LJS_LOCATION_SERVICES_SIMULATOR_DEBUG
-  if (result == NO && locationServiceEnabled == YES) {
-    DDLogDebug(@"LJS_LOCATION_SERVICES_SIMULATOR_DEBUG is on - will return YES");
+  if (result == NO) {
+    DDLogDebug(@"result was NO, but LJS_LOCATION_SERVICES_SIMULATOR_DEBUG is on - will return YES");
     result = YES;
-  } else if (result == NO && locationServiceEnabled == NO) {
-    DDLogNotice(@"declining to override returning NO even though LJS_LOCATION_SERVICES_SIMULATOR_DEBUG is defined - turn on location services in the Settings.app");
-  }
+  } 
 #endif
   return result;
 }
@@ -398,7 +413,7 @@ NSString *NSStringFromLjsLocation(LjsLocation aLocation) {
 
 - (NSDecimalNumber *) dnMetersBetweenA:(LjsLocation) a
                            b:(LjsLocation) b {
-  return [self dnMetersBetweenA:a b:b scale:5];
+  return [self dnMetersBetweenA:a b:b scale:LjsLocationManagerLocationScale];
 }
 
 
@@ -417,7 +432,7 @@ NSString *NSStringFromLjsLocation(LjsLocation aLocation) {
 - (NSDecimalNumber *) dnKilometersBetweenA:(LjsLocation) a
                                          b:(LjsLocation) b {
   
-  return [self dnKilometersBetweenA:a b:b scale:5];
+  return [self dnKilometersBetweenA:a b:b scale:LjsLocationManagerLocationScale];
 }
 
 - (NSDecimalNumber *) dnKilometersBetweenA:(LjsLocation) a
@@ -434,7 +449,7 @@ NSString *NSStringFromLjsLocation(LjsLocation aLocation) {
 
 - (NSDecimalNumber *) dnFeetBetweenA:(LjsLocation) a
                                    b:(LjsLocation) b {
-  return [self dnFeetBetweenA:a b:b scale:5];
+  return [self dnFeetBetweenA:a b:b scale:LjsLocationManagerLocationScale];
 }
 
 - (NSDecimalNumber *) dnFeetBetweenA:(LjsLocation) a
@@ -451,7 +466,7 @@ NSString *NSStringFromLjsLocation(LjsLocation aLocation) {
 
 - (NSDecimalNumber *) dnMilesBetweenA:(LjsLocation) a
                                     b:(LjsLocation) b {
-  return [self dnMilesBetweenA:a b:b scale:5];
+  return [self dnMilesBetweenA:a b:b scale:LjsLocationManagerLocationScale];
 }
 
 - (NSDecimalNumber *) dnMilesBetweenA:(LjsLocation) a
@@ -460,6 +475,93 @@ NSString *NSStringFromLjsLocation(LjsLocation aLocation) {
   return [[LjsDn dnWithFloat:[self milesBetweenA:a b:b]]
           dnByRoundingWithScale:aScale];
 }
+
+
+- (CLLocation *) clLocationWithLocation:(LjsLocation) aLocation {
+  CLLocation *result = nil;
+  if ([LjsLocationManager isValidLocation:aLocation]) {
+    result = [[CLLocation alloc] initWithLatitude:aLocation.latitude
+                                        longitude:aLocation.longitude];
+  }
+  return result;
+}
+
+
+- (LjsLocation) locationWithClLocation:(CLLocation *) aLocation {
+  if (aLocation == nil) {
+    return LjsLocationNotFound;
+  }
+  
+  LjsLocation location = LjslocationMake(aLocation.coordinate.latitude,
+                                         aLocation.coordinate.longitude);
+  if ([LjsLocationManager isValidLocation:location] == NO) {
+    location = LjsLocationNotFound;
+  }
+  return location;
+}
+
+#pragma mark Reverse Geocoding 
+
+- (void) detailsForLocation:(LjsLocation) aLocation {
+#if TARGET_OS_IPHONE
+  Class clgeocoder = NSClassFromString(@"CLGeocoder");
+  if (clgeocoder != nil) {
+    CLLocation *loc = [self clLocationWithLocation:aLocation];
+    if (loc != nil) {
+      CLGeocoder *coder = [[CLGeocoder alloc] init];
+      [coder reverseGeocodeLocation:loc completionHandler:^(NSArray *placemarks, NSError *error) {
+        if ([placemarks count] > 0) {
+          NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+          [userInfo setObject:NSStringFromLjsLocation(aLocation) forKey:@"sourceLocation"];
+          CLPlacemark *mark = [placemarks nth:0];
+          LjsLocation foundLoc = [self locationWithClLocation:[mark location]];
+          if ([LjsLocationManager isValidLocation:foundLoc]) {
+            [userInfo setObject:NSStringFromLjsLocation(foundLoc) forKey:@"foundLocation"];
+          }
+          NSString *obj;
+          if ((obj = mark.name) != nil) [userInfo setObject:obj forKey:@"name"];
+          if ((obj = mark.ISOcountryCode) != nil) [userInfo setObject:obj forKey:@"ISOcountryCode"];
+          if ((obj = mark.country) != nil) [userInfo setObject:obj forKey:@"country"];
+          if ((obj = mark.postalCode) != nil) [userInfo setObject:obj forKey:@"postalCode"];
+          if ((obj = mark.administrativeArea) != nil) [userInfo setObject:obj forKey:@"administrativeArea"];
+          if ((obj = mark.subAdministrativeArea) != nil) [userInfo setObject:obj forKey:@"subAdministrativeArea"];
+          if ((obj = mark.locality) != nil) [userInfo setObject:obj forKey:@"locality"];
+          if ((obj = mark.subLocality) != nil) [userInfo setObject:obj forKey:@"subLocality"];
+          if ((obj = mark.thoroughfare) != nil) [userInfo setObject:obj forKey:@"thoroughfare"];
+          if ((obj = mark.subThoroughfare) != nil) [userInfo setObject:obj forKey:@"subThoroughfare"];
+          if ((obj = mark.inlandWater) != nil) [userInfo setObject:obj forKey:@"inlandWater"];
+          if ((obj = mark.ocean) != nil) [userInfo setObject:obj forKey:@"ocean"];
+          if (mark.region != nil) [userInfo setObject:mark.region forKey:@"region"];
+          if (mark.addressDictionary != nil) [userInfo setObject:mark.addressDictionary forKey:@"addressDictionary"];
+          if (mark.areasOfInterest != nil) [userInfo setObject:mark.areasOfInterest forKey:@"areasOfInterest"];
+          
+          NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+          [nc postNotificationName:LjsLocationManagerNotificationReverseGeocodingResultAvailable
+                            object:nil
+                          userInfo:userInfo];
+        }
+      }];
+    }
+  } else {    
+    DDLogWarn(@"could not find class CLGeocoder - will reverse geocode with Google API");
+    
+  }
+#else
+  DDLogNotice(@"CLGeocoder not available on MacOS - will reverse geocode with Google API"); 
+#endif
+}
+
+
+
+
+//
+//- (void) reverseGeocoder:(MKReverseGeocoder *) didFailWithError:(NSError *) error {
+//  
+//}
+//
+//- (void) reverseGeocoder:(MKReverseGeocoder *) didFindPlacemark:(CLPlacemark *) aPlacemark {
+//  
+//}
 
 
 

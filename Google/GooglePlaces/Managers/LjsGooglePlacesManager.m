@@ -405,8 +405,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
   
   __requestManager =  [[LjsGooglePlacesRequestManager alloc]
                        initWithApiToken:self.apiToken
-                       resultHandler:self
-                       locationManager:self.lm];
+                       resultHandler:self];
   return __requestManager;
 }
 

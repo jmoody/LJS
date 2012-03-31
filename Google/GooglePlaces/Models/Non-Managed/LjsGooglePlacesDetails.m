@@ -34,7 +34,7 @@
 #import "Lumberjack.h"
 #import "LjsLocationManager.h"
 #import "LjsGoogleGlobals.h"
-#import "LjsGooglePlacesNmoAddressComponent.h"
+#import "LjsGoogleNmoAddressComponent.h"
 #import "NSMutableArray+LjsAdditions.h"
 #import "LjsGooglePlacesNmoAttribution.h"
 
@@ -97,9 +97,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     
     NSArray *components = [aDictionary objectForKey:@"address_components"];
     NSMutableArray *marray = [NSMutableArray arrayWithCapacity:[components count]];
-    LjsGooglePlacesNmoAddressComponent *comp;
+    LjsGoogleNmoAddressComponent *comp;
     for (NSDictionary *compDict in components) {
-      comp = [[LjsGooglePlacesNmoAddressComponent alloc]
+      comp = [[LjsGoogleNmoAddressComponent alloc]
               initWithDictionary:compDict];
       [marray nappend:comp];
     }

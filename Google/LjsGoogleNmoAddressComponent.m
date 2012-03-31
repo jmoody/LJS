@@ -30,10 +30,11 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsGooglePlacesReply.h"
+#import "LjsGoogleNmoAddressComponent.h"
 #import "Lumberjack.h"
-#import "LjsGoogleGlobals.h"
-#import "SBJson.h"
+#import "LjsValidator.h"
+#import "NSArray+LjsAdditions.h"
+
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -41,68 +42,79 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-@implementation LjsGooglePlacesReply
+@implementation LjsGoogleNmoAddressComponent
 
-@synthesize dictionary;
+@synthesize longName;
+@synthesize shortName;
+@synthesize types;
 
 #pragma mark Memory Management
 - (void) dealloc {
   //DDLogDebug(@"deallocating %@", [self class]);
 }
 
-- (id) initWithReply:(NSString *) aReply 
-               error:(NSError *__autoreleasing *)error {
+- (id) initWithDictionary:(NSDictionary *)aDictionary {
   self = [super init];
   if (self) {
-    SBJsonParser *parser = [[SBJsonParser alloc] init];
-    self.dictionary = [parser objectWithString:aReply
-                                   error:error];
+    NSArray *keys = [NSArray arrayWithObjects:@"long_name", @"short_name", @"types", nil];
+    BOOL valid;
+    valid = [LjsValidator dictionary:aDictionary containsKeys:keys allowsOthers:YES];
+    if (valid == NO) {
+      DDLogWarn(@"dictionary: %@ must contain keys %@ - returning nil", aDictionary, keys);
+      return nil;
+    }
+    
+    for (NSString *key in [[keys reverse] rest]) {
+      NSString *value = [aDictionary objectForKey:key];
+      valid = [LjsValidator stringIsNonNilAndNotEmpty:value];
+      if (valid == NO) {
+        DDLogWarn(@"@< %@ > must be non-nil and non-empty - returning nil", value);
+        return nil;
+      }
+    }
+    
+    self.longName = [aDictionary objectForKey:@"long_name"];
+    self.shortName = [aDictionary objectForKey:@"short_name"];
+    self.types = [aDictionary objectForKey:@"types"];
+    
+    if (self.types == nil || [self.types count] == 0) {
+      return nil;
+    }
   }
   return self;
 }
-- (NSUInteger) count {
-  if (self.dictionary == nil) {
-    return 0;
-  } else {
-    NSArray *predicts = [self.dictionary objectForKey:@"predictions"];
-    return [predicts count];
-  }
+
+- (BOOL) isStreetNumber {
+  return [LjsValidator array:self.types containsString:@"street_number"];
 }
 
-- (NSString *) status {
-  if (self.dictionary == nil) {
-    return LjsGoogleStatusLocalParseError; 
-  }
-  return [self.dictionary objectForKey:LjsGooglePlacesKeyStatus];
+- (BOOL) isRoute {
+  return [LjsValidator array:self.types containsString:@"route"];
 }
 
-- (BOOL) statusHasResults {
-  return [LjsGoogleStatusOK isEqualToString:[self status]];
+- (BOOL) isLocality {
+  return [LjsValidator array:self.types containsString:@"locality"];
 }
 
-- (BOOL) statusNoResults {
-  return [LjsGoogleStatusNotFound isEqualToString:[self status]];
+- (BOOL) isAdministrativeArea1 {
+  return [LjsValidator array:self.types containsString:@"administrative_area_level_1"];
 }
 
-- (BOOL) statusRejected {
-  return [self statusNoResults] == NO && [self statusHasResults] == NO;
+- (BOOL) isAdministrativeArea2 {
+  return [LjsValidator array:self.types containsString:@"administrative_area_level_2"];
 }
 
-- (BOOL) statusOverQueryLimit {
-  return [LjsGoogleStatusOverQueryLimit isEqualToString:[self status]];
+- (BOOL) isCountry {
+  return [LjsValidator array:self.types containsString:@"country"];
 }
 
-- (BOOL) statusRequestDenied {
-  return [LjsGoogleStatusRequestDenied isEqualToString:[self status]];
+- (BOOL) isPostalCode {
+  return [LjsValidator array:self.types containsString:@"postal_code"];
 }
 
-- (BOOL) statusInvalidRequest {
-  return [LjsGoogleStatusInvalidRequest isEqualToString:[self status]];
+- (NSString *) description {
+  return [NSString stringWithFormat:@"#<Address Component:  %@ (%@) - [%@]>",
+          self.longName, self.shortName, [self.types componentsJoinedByString:@","]];
 }
-
-- (BOOL) statusLocalParseError {
-  return [LjsGoogleStatusLocalParseError isEqualToString:[self status]];
-}
-
 
 @end

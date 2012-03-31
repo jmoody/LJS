@@ -32,7 +32,7 @@
 /**
  Documentation
  */
-@interface LjsGooglePlacesReply : NSObject 
+@interface LjsGoogleReply : NSObject 
 
 /** @name Properties */
 @property (nonatomic, strong) NSDictionary *dictionary;
@@ -52,6 +52,6 @@
 - (BOOL) statusRequestDenied;
 - (BOOL) statusInvalidRequest;
 - (BOOL) statusLocalParseError;
-- (NSUInteger) count;
+
 
 @end

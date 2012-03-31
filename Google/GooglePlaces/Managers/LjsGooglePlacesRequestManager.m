@@ -52,8 +52,6 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
 
 @interface LjsGooglePlacesRequestManager ()
 
-@property (nonatomic, strong) LjsLocationManager *locationManager;
-
 - (NSString *) stringForSensor:(BOOL) aSensor;
 
 - (NSDictionary *) dictionaryForRequiredAutocompleteWithInput:(NSString *) aInput
@@ -85,9 +83,8 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
 
 @implementation LjsGooglePlacesRequestManager
 
-@synthesize apiToken;
 @synthesize resultHandler;
-@synthesize locationManager;
+
 
 #pragma mark Memory Management
 - (void) dealloc {
@@ -95,14 +92,17 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
   self.resultHandler = nil;
 }
 
+
+- (id) initWithApiToken:(NSString *)aApiToken {
+   [self doesNotRecognizeSelector:_cmd];
+   return nil;
+}
+
 - (id) initWithApiToken:(NSString *)aApiToken 
-          resultHandler:(id<LjsGooglePlaceRequestManagerResultHandlerDelegate>)aResultHandler 
-        locationManager:(LjsLocationManager *)aLocationManager {
-  self = [super init];
+          resultHandler:(id<LjsGooglePlaceRequestManagerResultHandlerDelegate>)aResultHandler {
+  self = [super initWithApiToken:aApiToken];
   if (self) {
-    self.apiToken = aApiToken;
     self.resultHandler = aResultHandler;
-    self.locationManager = aLocationManager;
   }
   return self;
 }

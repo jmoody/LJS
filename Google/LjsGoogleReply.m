@@ -30,13 +30,10 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsGooglePlacesPredictiveReply.h"
+#import "LjsGoogleReply.h"
 #import "Lumberjack.h"
-#import "LjsValidator.h"
 #import "LjsGoogleGlobals.h"
 #import "SBJson.h"
-#import "LjsGooglePlacesPrediction.h"
-#import "NSMutableArray+LjsAdditions.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -44,50 +41,59 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-@interface LjsGooglePlacesPredictiveReply ()
+@implementation LjsGoogleReply
 
-
-@end
-
-@implementation LjsGooglePlacesPredictiveReply
-
-
+@synthesize dictionary;
 
 #pragma mark Memory Management
 - (void) dealloc {
   //DDLogDebug(@"deallocating %@", [self class]);
 }
 
-- (NSArray *) predictions {
-  NSArray *result;
-  if ([self statusHasResults]) {
-    
-    NSArray *predictions = [self.dictionary objectForKey:@"predictions"];
-    NSMutableArray *array = [NSMutableArray arrayWithCapacity:[predictions count]];
-    for (NSDictionary *predDict in predictions) {
-      [array nappend:[[LjsGooglePlacesPrediction alloc] 
-                     initWithDictionary:predDict]];
-    }
-    result = [NSArray arrayWithArray:array];
-  } else if ([self statusNoResults]) {
-    result = [NSArray array];
-  } else {
-    result = nil;
+- (id) initWithReply:(NSString *) aReply 
+               error:(NSError *__autoreleasing *)error {
+  self = [super init];
+  if (self) {
+    SBJsonParser *parser = [[SBJsonParser alloc] init];
+    self.dictionary = [parser objectWithString:aReply
+                                   error:error];
   }
-  return result;
+  return self;
 }
 
-- (NSUInteger) count {
+- (NSString *) status {
   if (self.dictionary == nil) {
-    return 0;
-  } else {
-    NSArray *predicts = [self.dictionary objectForKey:@"predictions"];
-    return [predicts count];
+    return LjsGoogleStatusLocalParseError; 
   }
+  return [self.dictionary objectForKey:LjsGooglePlacesKeyStatus];
 }
-- (NSString *) description {
-  return [NSString stringWithFormat:@"#<Predicitve Reply:  %@ %d>",
-          [self status], [self count]];
+
+- (BOOL) statusHasResults {
+  return [LjsGoogleStatusOK isEqualToString:[self status]];
+}
+
+- (BOOL) statusNoResults {
+  return [LjsGoogleStatusNotFound isEqualToString:[self status]];
+}
+
+- (BOOL) statusRejected {
+  return [self statusNoResults] == NO && [self statusHasResults] == NO;
+}
+
+- (BOOL) statusOverQueryLimit {
+  return [LjsGoogleStatusOverQueryLimit isEqualToString:[self status]];
+}
+
+- (BOOL) statusRequestDenied {
+  return [LjsGoogleStatusRequestDenied isEqualToString:[self status]];
+}
+
+- (BOOL) statusInvalidRequest {
+  return [LjsGoogleStatusInvalidRequest isEqualToString:[self status]];
+}
+
+- (BOOL) statusLocalParseError {
+  return [LjsGoogleStatusLocalParseError isEqualToString:[self status]];
 }
 
 

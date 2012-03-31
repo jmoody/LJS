@@ -32,7 +32,7 @@
 /**
  Documentation
  */
-@interface LjsGooglePlacesNmoAddressComponent : NSObject 
+@interface LjsGoogleNmoAddressComponent : NSObject 
 
 /** @name Properties */
 @property (nonatomic, copy) NSString *longName;

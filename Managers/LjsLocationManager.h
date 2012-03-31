@@ -26,8 +26,34 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+//#ifndef kCFCoreFoundationVersionNumber_iPhoneOS_5_0
+//#define kCFCoreFoundationVersionNumber_iPhoneOS_5_0 675.000000
+//#endif
+//
+//#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_5_0
+//#define IF_IOS5_OR_GREATER(...) \
+//if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iPhoneOS_5_0) \
+//{ \
+//__VA_ARGS__ \
+//}
+//#else
+//#define IF_IOS5_OR_GREATER(...)
+//#endif
+//
+//
+//#define IF_PRE_IOS5(...) \
+//if (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iPhoneOS_5_0) \
+//{ \
+//__VA_ARGS__ \
+//}
+
+
+
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+
+
+extern NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable;
 
 struct LjsLocation {
   CGFloat latitude;
@@ -48,6 +74,8 @@ extern const CGPoint LjsHeadingBounds;
 
 
 NSString *NSStringFromLjsLocation(LjsLocation aLocation);
+extern LjsLocation LjsLocationFromString(NSString *aString);
+
 extern CGFloat const LjsLocationDegreesNotFound;
 
 /**
@@ -75,7 +103,7 @@ extern CGFloat const LjsLocationDegreesNotFound;
  implement the pattern.  Do not subclass and do not call the init methods
  directly.
  */
-@interface LjsLocationManager : NSObject <CLLocationManagerDelegate> 
+@interface LjsLocationManager : NSObject <CLLocationManagerDelegate>
 
 /** @name Properties */
 
@@ -159,6 +187,7 @@ extern CGFloat const LjsLocationDegreesNotFound;
 
 - (NSDecimalNumber *) trueHeadingDn;
 
+
 - (LjsLocation) location;
 
 + (BOOL) isValidLocation:(LjsLocation) aLocation;
@@ -202,5 +231,9 @@ extern CGFloat const LjsLocationDegreesNotFound;
 - (NSDecimalNumber *) dnMilesBetweenA:(LjsLocation) a
                                    b:(LjsLocation) b
                                scale:(NSUInteger) aScale;
+
+- (void) detailsForLocation:(LjsLocation) aLocation;
+- (CLLocation *) clLocationWithLocation:(LjsLocation) aLocation;
+- (LjsLocation) locationWithClLocation:(CLLocation *) aLocation;
 
 @end

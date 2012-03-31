@@ -28,12 +28,12 @@
 
 
 #import <Foundation/Foundation.h>
-#import "LjsGooglePlacesReply.h"
+#import "LjsGoogleReply.h"
 
 /**
  Documentation
  */
-@interface LjsGooglePlacesPredictiveReply : LjsGooglePlacesReply
+@interface LjsGooglePlacesPredictiveReply : LjsGoogleReply
 
 /** @name Properties */
 
@@ -42,6 +42,7 @@
 /** @name Handling Notifications, Requests, and Events */
 
 /** @name Utility */
+- (NSUInteger) count;
 - (NSArray *) predictions;
 
 @end

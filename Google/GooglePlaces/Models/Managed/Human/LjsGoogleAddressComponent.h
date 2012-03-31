@@ -2,12 +2,12 @@
 #import "_LjsGoogleAddressComponent.h"
 
 @class LjsGoogleAddressComponentType, LjsGooglePlace;
-@class LjsGooglePlacesNmoAddressComponent;
+@class LjsGoogleNmoAddressComponent;
 
 @interface LjsGoogleAddressComponent : _LjsGoogleAddressComponent
 
 
-+ (LjsGoogleAddressComponent *) initWithComponent:(LjsGooglePlacesNmoAddressComponent *) aComponent
++ (LjsGoogleAddressComponent *) initWithComponent:(LjsGoogleNmoAddressComponent *) aComponent
                                             place:(LjsGooglePlace *) aPlace
                                           context:(NSManagedObjectContext *) aContext;
 @end

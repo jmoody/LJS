@@ -28,6 +28,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ASIHTTPRequest.h"
+#import "LjsGoogleRequestManager.h"
 #import "LjsGooglePlacesPredictiveReply.h"
 #import "LjsGooglePlacesDetailsReply.h"
 #import "LjsGooglePlacesPrediction.h"
@@ -58,9 +59,8 @@
 /**
  Documentation
  */
-@interface LjsGooglePlacesRequestManager : NSObject 
+@interface LjsGooglePlacesRequestManager : LjsGoogleRequestManager 
 
-@property (nonatomic, copy) NSString *apiToken;
 @property (nonatomic, assign) id<LjsGooglePlaceRequestManagerResultHandlerDelegate> resultHandler;
 
 
@@ -68,8 +68,7 @@
 
 /** @name Initializing Objects */
 - (id) initWithApiToken:(NSString *) aApiToken
-          resultHandler:(id<LjsGooglePlaceRequestManagerResultHandlerDelegate>) aResultHandler
-        locationManager:(LjsLocationManager *) aLocationManager;
+          resultHandler:(id<LjsGooglePlaceRequestManagerResultHandlerDelegate>) aResultHandler;
 
 /** @name Handling Notifications, Requests, and Events */
 

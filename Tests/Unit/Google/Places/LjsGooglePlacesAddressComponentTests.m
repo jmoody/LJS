@@ -66,7 +66,7 @@
 #endif
 
 #import "LjsTestCase.h"
-#import "LjsGooglePlacesNmoAddressComponent.h"
+#import "LjsGoogleNmoAddressComponent.h"
 
 @interface LjsGooglePlacesAddressComponentTests : LjsTestCase {}
 @end
@@ -111,7 +111,7 @@
   NSArray *values;
   NSArray *types;
   NSDictionary *dictionary;
-  LjsGooglePlacesNmoAddressComponent *comp;
+  LjsGoogleNmoAddressComponent *comp;
   
   types = [NSArray arrayWithObjects:@"street_number", 
            @"route", @"locality", @"country", @"postal_code",
@@ -119,7 +119,7 @@
   keys = [NSArray arrayWithObjects:@"long_name", @"short_name", @"types", nil];
   values = [NSArray arrayWithObjects:@"a", @"b", types, nil];
   dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
-  comp = [[LjsGooglePlacesNmoAddressComponent alloc] initWithDictionary:dictionary];
+  comp = [[LjsGoogleNmoAddressComponent alloc] initWithDictionary:dictionary];
   GHAssertNotNil(comp, nil);
   GHAssertEqualStrings(comp.longName, @"a", nil);
   GHAssertEqualStrings(comp.shortName, @"b", nil);
@@ -128,30 +128,30 @@
 
   keys = [NSArray arrayWithObjects:@"long_bad", @"short_name", @"types", nil];
   dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
-  comp = [[LjsGooglePlacesNmoAddressComponent alloc] initWithDictionary:dictionary];
+  comp = [[LjsGoogleNmoAddressComponent alloc] initWithDictionary:dictionary];
   GHAssertNil(comp, nil);
 
  
   keys = [NSArray arrayWithObjects:@"long_name", @"short_name", @"types", nil];
   values = [NSArray arrayWithObjects:@"", @"b", types, nil];
   dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
-  comp = [[LjsGooglePlacesNmoAddressComponent alloc] initWithDictionary:dictionary];
+  comp = [[LjsGoogleNmoAddressComponent alloc] initWithDictionary:dictionary];
   GHAssertNil(comp, nil);
 
   values = [NSArray arrayWithObjects:@"a", @"", types, nil];
   dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
-  comp = [[LjsGooglePlacesNmoAddressComponent alloc] initWithDictionary:dictionary];
+  comp = [[LjsGoogleNmoAddressComponent alloc] initWithDictionary:dictionary];
   GHAssertNil(comp, nil);
 
   values = [NSArray arrayWithObjects:@"a", @"", types, nil];
   dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
-  comp = [[LjsGooglePlacesNmoAddressComponent alloc] initWithDictionary:dictionary];
+  comp = [[LjsGoogleNmoAddressComponent alloc] initWithDictionary:dictionary];
   GHAssertNil(comp, nil); 
 
   types = [NSArray array];
   values = [NSArray arrayWithObjects:@"a", @"b", types, nil];
   dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
-  comp = [[LjsGooglePlacesNmoAddressComponent alloc] initWithDictionary:dictionary];
+  comp = [[LjsGoogleNmoAddressComponent alloc] initWithDictionary:dictionary];
   GHAssertNil(comp, nil); 
 }
 

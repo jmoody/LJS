@@ -91,7 +91,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   
   place.vicinity = aDetails.vicinity;
   
-  for (LjsGooglePlacesNmoAddressComponent *comp in aDetails.addressComponents) {
+  for (LjsGoogleNmoAddressComponent *comp in aDetails.addressComponents) {
     [LjsGoogleAddressComponent initWithComponent:comp
                                            place:place
                                          context:aContext];

@@ -81,7 +81,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 - (NSDecimalNumber *) dnByRoundingAsLocation {
   NSDecimalNumberHandler *handler = [LjsDn locationHandlerWithRoundMode:NSRoundPlain
-                                                                  scale:5];
+                                                                  scale:8];
   return [self dnByRoundingWithHandler:handler];
 }
 
