@@ -133,7 +133,7 @@
 		F5E3F778151BD1BD0076450F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E3F777151BD1BD0076450F /* CoreLocation.framework */; };
 		F5F1A22A151CBFAE00E23DD5 /* LjsGooglePlacesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A211151CBFAE00E23DD5 /* LjsGooglePlacesManager.m */; };
 		F5F1A22B151CBFAE00E23DD5 /* LjsGooglePlacesRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A213151CBFAE00E23DD5 /* LjsGooglePlacesRequestManager.m */; };
-		F5F1A22C151CBFAE00E23DD5 /* LjsGooglePlacesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A216151CBFAE00E23DD5 /* LjsGooglePlacesModel.xcdatamodeld */; };
+		F5F1A22C151CBFAE00E23DD5 /* LjsGoogleModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A216151CBFAE00E23DD5 /* LjsGoogleModel.xcdatamodeld */; };
 		F5F1A22D151CBFAE00E23DD5 /* LjsGoogleNmoPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A21A151CBFAE00E23DD5 /* LjsGoogleNmoPlace.m */; };
 		F5F1A22E151CBFAE00E23DD5 /* LjsGooglePlacesDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A21C151CBFAE00E23DD5 /* LjsGooglePlacesDetails.m */; };
 		F5F1A230151CBFAE00E23DD5 /* LjsGooglePlacesNmoAttribution.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1A220151CBFAE00E23DD5 /* LjsGooglePlacesNmoAttribution.m */; };
@@ -356,7 +356,7 @@
 		F5F1A211151CBFAE00E23DD5 /* LjsGooglePlacesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesManager.m; sourceTree = "<group>"; };
 		F5F1A212151CBFAE00E23DD5 /* LjsGooglePlacesRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesRequestManager.h; sourceTree = "<group>"; };
 		F5F1A213151CBFAE00E23DD5 /* LjsGooglePlacesRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesRequestManager.m; sourceTree = "<group>"; };
-		F5F1A217151CBFAE00E23DD5 /* LjsGooglePlacesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LjsGooglePlacesModel.xcdatamodel; sourceTree = "<group>"; };
+		F5F1A217151CBFAE00E23DD5 /* LjsGoogleModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LjsGoogleModel.xcdatamodel; sourceTree = "<group>"; };
 		F5F1A219151CBFAE00E23DD5 /* LjsGoogleNmoPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleNmoPlace.h; sourceTree = "<group>"; };
 		F5F1A21A151CBFAE00E23DD5 /* LjsGoogleNmoPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleNmoPlace.m; sourceTree = "<group>"; };
 		F5F1A21B151CBFAE00E23DD5 /* LjsGooglePlacesDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesDetails.h; sourceTree = "<group>"; };
@@ -906,7 +906,7 @@
 		F5F1A215151CBFAE00E23DD5 /* Managed */ = {
 			isa = PBXGroup;
 			children = (
-				F5F1A216151CBFAE00E23DD5 /* LjsGooglePlacesModel.xcdatamodeld */,
+				F5F1A216151CBFAE00E23DD5 /* LjsGoogleModel.xcdatamodeld */,
 				F5C3B1B01523B23E005B1087 /* LjsGoogleAddressComponent.h */,
 				F5C3B1B11523B23E005B1087 /* LjsGoogleAddressComponent.m */,
 				F5C3B1B21523B23E005B1087 /* LjsGoogleAddressComponentType.h */,
@@ -1116,7 +1116,7 @@
 				F5E3F75A151BCE0E0076450F /* SFHFKeychainUtils.m in Sources */,
 				F5F1A22A151CBFAE00E23DD5 /* LjsGooglePlacesManager.m in Sources */,
 				F5F1A22B151CBFAE00E23DD5 /* LjsGooglePlacesRequestManager.m in Sources */,
-				F5F1A22C151CBFAE00E23DD5 /* LjsGooglePlacesModel.xcdatamodeld in Sources */,
+				F5F1A22C151CBFAE00E23DD5 /* LjsGoogleModel.xcdatamodeld in Sources */,
 				F5F1A22D151CBFAE00E23DD5 /* LjsGoogleNmoPlace.m in Sources */,
 				F5F1A22E151CBFAE00E23DD5 /* LjsGooglePlacesDetails.m in Sources */,
 				F5F1A230151CBFAE00E23DD5 /* LjsGooglePlacesNmoAttribution.m in Sources */,
@@ -1328,13 +1328,13 @@
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
-		F5F1A216151CBFAE00E23DD5 /* LjsGooglePlacesModel.xcdatamodeld */ = {
+		F5F1A216151CBFAE00E23DD5 /* LjsGoogleModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				F5F1A217151CBFAE00E23DD5 /* LjsGooglePlacesModel.xcdatamodel */,
+				F5F1A217151CBFAE00E23DD5 /* LjsGoogleModel.xcdatamodel */,
 			);
-			currentVersion = F5F1A217151CBFAE00E23DD5 /* LjsGooglePlacesModel.xcdatamodel */;
-			path = LjsGooglePlacesModel.xcdatamodeld;
+			currentVersion = F5F1A217151CBFAE00E23DD5 /* LjsGoogleModel.xcdatamodel */;
+			path = LjsGoogleModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
