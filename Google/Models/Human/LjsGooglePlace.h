@@ -26,15 +26,8 @@
 + (LjsGooglePlace *) initWithDetails:(LjsGooglePlacesDetails *) aDetails
                              context:(NSManagedObjectContext *) aContext;
 
-- (NSString *) latitudeString;
-- (NSString *) longitudeString;
-- (NSDecimalNumber *) latitudeDN;
-- (NSDecimalNumber *) longitudeDN;
 
-- (CGFloat) latitude;
-- (void) setLatitude:(CGFloat) aValue;
-- (CGFloat) longitude;
-- (void) setLongitude:(CGFloat) aValue;
+
 - (CGFloat) rating;
 - (void) setRating:(CGFloat) aValue;
 - (CGFloat) orderValue;
@@ -42,8 +35,6 @@
 
 - (NSString *) shortId;
 
-- (LjsLocation) location;
-- (NSString *) locationStr;
 
 
 @end

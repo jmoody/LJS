@@ -2,12 +2,9 @@
 // Make changes to LjsGooglePlace.h instead.
 
 #import <CoreData/CoreData.h>
-
+#import "LjsGoogleThing.h"
 
 extern const struct LjsGooglePlaceAttributes {
-	__unsafe_unretained NSString *dateAdded;
-	__unsafe_unretained NSString *dateModified;
-	__unsafe_unretained NSString *formattedAddress;
 	__unsafe_unretained NSString *formattedPhone;
 	__unsafe_unretained NSString *iconUrl;
 	__unsafe_unretained NSString *internationalPhone;
@@ -15,7 +12,6 @@ extern const struct LjsGooglePlaceAttributes {
 	__unsafe_unretained NSString *longitudeNumber;
 	__unsafe_unretained NSString *mapUrl;
 	__unsafe_unretained NSString *name;
-	__unsafe_unretained NSString *orderValueNumber;
 	__unsafe_unretained NSString *ratingNumber;
 	__unsafe_unretained NSString *referenceId;
 	__unsafe_unretained NSString *stableId;
@@ -49,42 +45,14 @@ extern const struct LjsGooglePlaceFetchedProperties {
 
 
 
-
-
-
-
 @interface LjsGooglePlaceID : NSManagedObjectID {}
 @end
 
-@interface _LjsGooglePlace : NSManagedObject {}
+@interface _LjsGooglePlace : LjsGoogleThing {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (LjsGooglePlaceID*)objectID;
-
-
-
-
-@property (nonatomic, strong) NSDate *dateAdded;
-
-
-//- (BOOL)validateDateAdded:(id*)value_ error:(NSError**)error_;
-
-
-
-
-@property (nonatomic, strong) NSDate *dateModified;
-
-
-//- (BOOL)validateDateModified:(id*)value_ error:(NSError**)error_;
-
-
-
-
-@property (nonatomic, strong) NSString *formattedAddress;
-
-
-//- (BOOL)validateFormattedAddress:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -149,18 +117,6 @@ extern const struct LjsGooglePlaceFetchedProperties {
 
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
-
-
-
-
-@property (nonatomic, strong) NSNumber *orderValueNumber;
-
-
-@property double orderValueNumberValue;
-- (double)orderValueNumberValue;
-- (void)setOrderValueNumberValue:(double)value_;
-
-//- (BOOL)validateOrderValueNumber:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -256,24 +212,6 @@ extern const struct LjsGooglePlaceFetchedProperties {
 @interface _LjsGooglePlace (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSDate *)primitiveDateAdded;
-- (void)setPrimitiveDateAdded:(NSDate *)value;
-
-
-
-
-- (NSDate *)primitiveDateModified;
-- (void)setPrimitiveDateModified:(NSDate *)value;
-
-
-
-
-- (NSString *)primitiveFormattedAddress;
-- (void)setPrimitiveFormattedAddress:(NSString *)value;
-
-
-
-
 - (NSString *)primitiveFormattedPhone;
 - (void)setPrimitiveFormattedPhone:(NSString *)value;
 
@@ -318,15 +256,6 @@ extern const struct LjsGooglePlaceFetchedProperties {
 
 - (NSString *)primitiveName;
 - (void)setPrimitiveName:(NSString *)value;
-
-
-
-
-- (NSNumber *)primitiveOrderValueNumber;
-- (void)setPrimitiveOrderValueNumber:(NSNumber *)value;
-
-- (double)primitiveOrderValueNumberValue;
-- (void)setPrimitiveOrderValueNumberValue:(double)value_;
 
 
 

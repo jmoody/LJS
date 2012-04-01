@@ -113,21 +113,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 
-- (CGFloat) latitude {
-  return [self.latitudeNumber doubleValue];
-}
-
-- (void) setLatitude:(CGFloat) aValue {
-  self.latitudeNumber = [NSNumber numberWithDouble:aValue];
-}
-
-- (CGFloat) longitude {
-  return [self.longitudeNumber doubleValue];
-}
-
-- (void) setLongitude:(CGFloat) aValue {
-  self.longitudeNumber = [NSNumber numberWithDouble:aValue];
-}
 
 - (CGFloat) rating {
   return [self.ratingNumber doubleValue];
@@ -145,46 +130,47 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   self.orderValueNumber = [NSNumber numberWithDouble:aValue];
 }
 
-- (NSString *) latitudeString {
-  return [NSString stringWithFormat:@"%.5f", [self latitude]];
-}
-
-- (NSString *) longitudeString {
-  return [NSString stringWithFormat:@"%.5f", [self longitude]];
-}
-
-- (NSDecimalNumber *) latitudeDN {
-  return [[LjsDn dnWithNumber:self.latitudeNumber] dnByRoundingAsLocation];
-}
-
-- (NSDecimalNumber *) longitudeDN {
-  return [[LjsDn dnWithNumber:self.longitudeNumber] dnByRoundingAsLocation];
-}
 
 - (NSString *) shortId {
   return [self.stableId substringToIndex:5];
 }
 
-- (LjsLocation) location {
-  return LjslocationMake([self latitude], [self longitude]);
-}
+//- (LjsLocation) location {
+//  return LjslocationMake([self.location latitude], [self.location longitude]);
+//}
+//
+//- (NSString *) locationStr {
+//  return NSStringFromLjsLocation([self location]);
+//}
+//
+//- (NSString *) latitudeString {
+//  return [NSString stringWithFormat:@"%.5f", [self.location latitude]];
+//}
+//
+//- (NSString *) longitudeString {
+//  return [NSString stringWithFormat:@"%.5f", [self.location longitude]];
+//}
+//
+//- (NSDecimalNumber *) latitudeDN {
+//  return [[LjsDn dnWithNumber:self.location.latitudeNumber] dnByRoundingAsLocation];
+//}
+//
+//- (NSDecimalNumber *) longitudeDN {
+//  return [[LjsDn dnWithNumber:self.location.longitudeNumber] dnByRoundingAsLocation];
+//}
+//
 
-- (NSString *) locationStr {
-  return NSStringFromLjsLocation([self location]);
-}
 
-
-
-- (NSString *) description {
-  return [NSString stringWithFormat:@"#<Place: %@: %@ %@>",
-          self.name, self.formattedAddress, [self locationStr]];
-}
-
-
-- (NSString *) debugDescription {
-  return [NSString stringWithFormat:@"#<Place: %@: %@ %@>",
-          self.name, self.formattedAddress, [self locationStr]];
-}
+//- (NSString *) description {
+//  return [NSString stringWithFormat:@"#<Place: %@: %@ %@>",
+//          self.name, self.formattedAddress, [self locationStr]];
+//}
+//
+//
+//- (NSString *) debugDescription {
+//  return [NSString stringWithFormat:@"#<Place: %@: %@ %@>",
+//          self.name, self.formattedAddress, [self locationStr]];
+//}
 
 
 @end
