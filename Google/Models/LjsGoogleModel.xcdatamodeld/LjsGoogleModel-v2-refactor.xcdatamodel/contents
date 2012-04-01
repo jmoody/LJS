@@ -15,7 +15,19 @@
         <relationship name="places" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LjsGooglePlace" inverseName="attributions" inverseEntity="LjsGooglePlace" syncable="YES"/>
     </entity>
     <entity name="LjsGoogleLocation" representedClassName="LjsGoogleLocation" syncable="YES">
+        <attribute name="latitude1km" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="latitude1m" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="latitude10km" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="latitude10m" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="latitude100km" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="latitude100m" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="latitudeNumber" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude1km" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude1m" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude10km" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude10m" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude100km" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude100m" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitudeNumber" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="thing" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="LjsGoogleThing" inverseName="locationEnity" inverseEntity="LjsGoogleThing" syncable="YES"/>
@@ -52,7 +64,7 @@
         <element name="LjsGoogleAddressComponent" positionX="160" positionY="192" width="128" height="105"/>
         <element name="LjsGoogleAddressComponentType" positionX="160" positionY="192" width="128" height="75"/>
         <element name="LjsGoogleAttribution" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="LjsGoogleLocation" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="LjsGoogleLocation" positionX="160" positionY="192" width="128" height="285"/>
         <element name="LjsGooglePlace" positionX="160" positionY="192" width="128" height="270"/>
         <element name="LjsGooglePlaceType" positionX="160" positionY="192" width="128" height="75"/>
         <element name="LjsGoogleThing" positionX="160" positionY="192" width="128" height="120"/>
