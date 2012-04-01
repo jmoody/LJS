@@ -77,7 +77,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   
   NSMutableArray *strings = [NSMutableArray array]; 
   //                   
-  NSString *input = @"banhof zurch";
+  NSString *input = @"train station zurich";
   for (NSUInteger index = 0; index < [input length]; index++) {
     [strings nappend:[input substringToIndex:index + 1]];
   }
@@ -89,7 +89,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     LjsGpPredictionGoogleOptions *googleOptions;
     googleOptions = [LjsGpPredictionGoogleOptions optionsWithRadius:10000
                                                searchEstablishments:NO
-                                                      langCodeOrNil:nil
+                                                      langCodeOrNil:@"en"
                                                        searchString:searchString];
     LjsGpPredicateFactory *factory = [[LjsGpPredicateFactory alloc] init];
     //    NSPredicate *predicate = [factory establishmentPredicateWithSearchString:searchString];    

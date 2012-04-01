@@ -55,8 +55,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 NSString *LjsGooglePlacesManagerNotificationNewPlacesAvailable = @"com.littlejoysoftware.Google Place New Places Avaialable Notification";
 
-static NSString *LjsGooglePlacesManagerModelFile = @"LjsGooglePlacesModel";
-static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGooglePlaces.sqlite";
+static NSString *LjsGooglePlacesManagerModelFile = @"LjsGoogleModel";
+static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite";
 
 @interface LjsGooglePlacesManager ()
 
