@@ -142,6 +142,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F50F2904152868C100DD67D1 /* LjsGoogleModel-v2-refactor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "LjsGoogleModel-v2-refactor.xcdatamodel"; sourceTree = "<group>"; };
 		F58EDE991528525D009BE6D6 /* LjsGoogleRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleRequestManager.h; sourceTree = "<group>"; };
 		F58EDE9A1528525D009BE6D6 /* LjsGoogleRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleRequestManager.m; sourceTree = "<group>"; };
 		F58EDE9D1528525D009BE6D6 /* LjsGoogleModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LjsGoogleModel.xcdatamodel; sourceTree = "<group>"; };
@@ -1267,8 +1268,10 @@
 		F58EDE9C1528525D009BE6D6 /* LjsGoogleModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				F50F2904152868C100DD67D1 /* LjsGoogleModel-v2-refactor.xcdatamodel */,
 				F58EDE9D1528525D009BE6D6 /* LjsGoogleModel.xcdatamodel */,
 			);
+			currentVersion = F58EDE9D1528525D009BE6D6 /* LjsGoogleModel.xcdatamodel */;
 			path = LjsGoogleModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
