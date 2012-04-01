@@ -22,7 +22,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 #pragma mark Memory Management
 - (void) dealloc {
-  DDLogDebug(@"deallocating %@", [self class]);
+  //DDLogDebug(@"deallocating %@", [self class]);
 }
 
 
@@ -55,7 +55,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (CGPoint) pointWithLatLonDictionary:(NSDictionary *) aLatLonDict {
-  DDLogDebug(@"a lat long dict = %@", aLatLonDict);
   NSNumber *latNum = [aLatLonDict objectForKey:@"lat"];
   NSNumber *longNum = [aLatLonDict objectForKey:@"lng"];
   return CGPointMake([latNum doubleValue], [longNum doubleValue]);

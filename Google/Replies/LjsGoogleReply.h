@@ -53,5 +53,6 @@
 - (BOOL) statusInvalidRequest;
 - (BOOL) statusLocalParseError;
 
-- (NSArray *) addressComponentsWithDictionary:(NSDictionary *) aDictionary;
+//- (NSArray *) addressComponentsWithDictionary:(NSDictionary *) aDictionary;
+
 @end

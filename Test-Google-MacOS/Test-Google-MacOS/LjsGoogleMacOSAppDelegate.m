@@ -6,7 +6,7 @@
 #import "LjsLocationManager.h"
 #import "LjsGooglePlace.h"
 #import "LjsGooglePlacePredictionOptions.h"
-#import "LjsGoogleRgRequestManager.h"
+#import "LjsGoogleRequestManager.h"
 #import "LjsCaesarCipher.h"
 #import "LjsGoogleGlobals.h"
 
@@ -19,7 +19,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @interface LjsGoogleMacOSAppDelegate () 
 
 @property (nonatomic, strong) LjsGooglePlacesManager *manager;
-@property (nonatomic, strong) LjsGoogleRgRequestManager *rm;
+@property (nonatomic, strong) LjsGoogleRequestManager *rm;
 
 - (void) doPredictionRequestTests;
 
@@ -52,15 +52,16 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSString *encoded = LjsGoogleApiKey_joshuajmoody;
   LjsCaesarCipher *cipher = [[LjsCaesarCipher alloc] initWithRotate:[encoded length]];
   NSString *apiKey = [cipher stringByDecodingString:encoded];
-  self.rm = [[LjsGoogleRgRequestManager alloc]
-                                   initWithApiToken:apiKey];
+  self.rm = [[LjsGoogleRequestManager alloc]
+             initWithApiToken:apiKey];
   
   LjsLocationManager *lm = [[LjsLocationManager alloc] init];
   LjsLocation location = [lm location];
   
-  [self.rm executeReverseGeocodeRequestForLocation:location
-                         locationIsFromSensor:YES];
+  [self.rm executeHttpReverseGeocodeRequestForLocation:location
+                                  locationIsFromSensor:YES];
 
+  [self doPredictionRequestTests];
   
 }
 
@@ -76,7 +77,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   
   NSMutableArray *strings = [NSMutableArray array]; 
   //                   
-  NSString *input = @"HB";
+  NSString *input = @"banhof zurch";
   for (NSUInteger index = 0; index < [input length]; index++) {
     [strings nappend:[input substringToIndex:index + 1]];
   }

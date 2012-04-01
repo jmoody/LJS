@@ -230,11 +230,11 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
   
   if (aOptions.googleOptions.shouldMakeRequest == YES) {
     LjsGpPredictionGoogleOptions *googleOptions = aOptions.googleOptions;
-    [self.requestManager performPredictionRequestWithInput:googleOptions.searchString
-                                                    radius:googleOptions.radiusMeters
-                                                  location:aOptions.location
-                                             languageOrNil:googleOptions.langCode
-                                      establishmentRequest:googleOptions.searchEstablishments];
+    [self.requestManager executeHttpPredictionRequestWithInput:googleOptions.searchString
+                                                        radius:googleOptions.radiusMeters
+                                                      location:aOptions.location
+                                                 languageOrNil:googleOptions.langCode
+                                          establishmentRequest:googleOptions.searchEstablishments];
   }
   
   return result;
@@ -353,7 +353,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
     if ([self placeExistsForId:placeId] == NO) {
       //DDLogDebug(@"starting request for details with prediction: %@", prediction);
       NSString *langCode = [aUserInfo objectForKey:@"language"];
-      [self.requestManager performDetailsRequestionForPrediction:prediction
+      [self.requestManager executeHttpDetailsRequestionForPrediction:prediction
                                                         language:langCode];
     } else {
       // DDLogDebug(@"skipping details request - place: %@ (%@) already exists",
@@ -419,14 +419,16 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 }
 
 
-- (LjsGooglePlacesRequestManager *) requestManager {
+- (LjsGoogleRequestManager *) requestManager {
   if (__requestManager != nil) {
     return __requestManager;
   }
   
-  __requestManager =  [[LjsGooglePlacesRequestManager alloc]
-                       initWithApiToken:self.apiToken
-                       resultHandler:self];
+  __requestManager =  [[LjsGoogleRequestManager alloc]
+                       initWithApiToken:self.apiToken];
+  __requestManager.placeResultHandler = self;
+  __requestManager.reverseGeocodeHandler = self;
+
   return __requestManager;
 }
 

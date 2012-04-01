@@ -748,12 +748,11 @@
 		F5BB1FE3151BCC4300BFDDA0 /* Google */ = {
 			isa = PBXGroup;
 			children = (
-				F58EDE981528525D009BE6D6 /* Managers */,
-				F58EDE9B1528525D009BE6D6 /* Models */,
-				F58EDEC41528525D009BE6D6 /* Replies */,
-				F5DA4F5015277E440063D3C6 /* ReverseGeocode */,
 				F5BB1FEF151BCC4300BFDDA0 /* LjsGoogleGlobals.h */,
 				F5BB1FF0151BCC4300BFDDA0 /* LjsGoogleGlobals.m */,
+				F58EDEC41528525D009BE6D6 /* Replies */,
+				F58EDE981528525D009BE6D6 /* Managers */,
+				F58EDE9B1528525D009BE6D6 /* Models */,
 			);
 			name = Google;
 			path = ../Google;
@@ -874,21 +873,6 @@
 			);
 			name = Security;
 			path = ../Security;
-			sourceTree = "<group>";
-		};
-		F5DA4F5015277E440063D3C6 /* ReverseGeocode */ = {
-			isa = PBXGroup;
-			children = (
-				F5DA4F5115277E440063D3C6 /* Managers */,
-			);
-			path = ReverseGeocode;
-			sourceTree = "<group>";
-		};
-		F5DA4F5115277E440063D3C6 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Managers;
 			sourceTree = "<group>";
 		};
 		F5E3F753151BCDF70076450F /* Reachability */ = {

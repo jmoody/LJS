@@ -29,7 +29,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "LjsGooglePlacesRequestManager.h"
+#import "LjsGoogleRequestManager.h"
 #import "LjsLocationManager.h"
 
 @class LjsGooglePlacePredictionOptions;
@@ -41,12 +41,12 @@ extern NSString *LjsGooglePlacesManagerNotificationNewPlacesAvailable;
  Documentation
  */
 @interface LjsGooglePlacesManager : NSObject 
-<LjsGooglePlaceRequestManagerResultHandlerDelegate>
+<LjsGooglePlaceResultHandlerDelegate, LjsGoogleReverseGeocodeHandlerDelegate>
 
 /** @name Properties */
 @property (nonatomic, strong, readonly) NSManagedObjectContext *context; 
 @property (nonatomic, copy) NSString *apiToken;
-@property (nonatomic, strong, readonly) LjsGooglePlacesRequestManager *requestManager;
+@property (nonatomic, strong, readonly) LjsGoogleRequestManager *requestManager;
 
 /** @name Initializing Objects */
 - (id) initWithLocationManager:(LjsLocationManager *) aManager;
