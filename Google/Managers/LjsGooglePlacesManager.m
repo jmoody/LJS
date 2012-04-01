@@ -398,6 +398,27 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 }
 
 
+- (void) requestForReverseGeocodeCompletedWithResult:(NSArray *) aResult
+                                            userInfo:(NSDictionary *) aUserInfo {
+  DDLogDebug(@"results = %@", aResult);
+  DDLogDebug(@"user info = %@", aUserInfo);
+  
+}
+
+- (void) requestForReverseGeocodeFailedWithCode:(NSUInteger) aCode
+                                        request:(ASIHTTPRequest *) aRequest {
+  DDLogDebug(@"request failed with code: %d", aCode);
+}
+
+
+- (void) requestForReverseGeocodeFailedWithCode:(NSString *) aCode
+                                        request:(ASIHTTPRequest *) aRequest
+                                          error:(NSError *) aError {
+  DDLogDebug(@"request failed with code: %@", aCode);
+  DDLogDebug(@"error %@ : %@", [aError localizedDescription], aError);
+}
+
+
 - (LjsGooglePlacesRequestManager *) requestManager {
   if (__requestManager != nil) {
     return __requestManager;
