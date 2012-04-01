@@ -12,7 +12,7 @@ extern const struct LjsGoogleThingAttributes {
 } LjsGoogleThingAttributes;
 
 extern const struct LjsGoogleThingRelationships {
-	__unsafe_unretained NSString *location;
+	__unsafe_unretained NSString *locationEnity;
 } LjsGoogleThingRelationships;
 
 extern const struct LjsGoogleThingFetchedProperties {
@@ -74,9 +74,9 @@ extern const struct LjsGoogleThingFetchedProperties {
 
 
 
-@property (nonatomic, strong) LjsGoogleLocation* location;
+@property (nonatomic, strong) LjsGoogleLocation* locationEnity;
 
-//- (BOOL)validateLocation:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateLocationEnity:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -119,8 +119,8 @@ extern const struct LjsGoogleThingFetchedProperties {
 
 
 
-- (LjsGoogleLocation*)primitiveLocation;
-- (void)setPrimitiveLocation:(LjsGoogleLocation*)value;
+- (LjsGoogleLocation*)primitiveLocationEnity;
+- (void)setPrimitiveLocationEnity:(LjsGoogleLocation*)value;
 
 
 @end

@@ -36,6 +36,9 @@
 		F50F294515286B4A00DD67D1 /* LjsGoogleLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F294215286B4A00DD67D1 /* LjsGoogleLocation.m */; };
 		F50F294615286B4A00DD67D1 /* LjsGoogleThing.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F294415286B4A00DD67D1 /* LjsGoogleThing.m */; };
 		F50F294915286EDC00DD67D1 /* NSString+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F294815286EDC00DD67D1 /* NSString+LjsAdditions.m */; };
+		F50F295015286FE400DD67D1 /* GenModelStrings.py in Resources */ = {isa = PBXBuildFile; fileRef = F50F294B15286FE400DD67D1 /* GenModelStrings.py */; };
+		F50F295115286FE400DD67D1 /* NSEntityDescription+LocalizedName.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F294D15286FE400DD67D1 /* NSEntityDescription+LocalizedName.m */; };
+		F50F295215286FE400DD67D1 /* NSPropertyDescription+LocalizedName.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F294F15286FE400DD67D1 /* NSPropertyDescription+LocalizedName.m */; };
 		F58EDEC71528525D009BE6D6 /* LjsGoogleRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EDE9A1528525D009BE6D6 /* LjsGoogleRequestManager.m */; };
 		F58EDEC81528525D009BE6D6 /* LjsGoogleModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F58EDE9C1528525D009BE6D6 /* LjsGoogleModel.xcdatamodeld */; };
 		F58EDED31528525D009BE6D6 /* LjsGoogleImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EDEB71528525D009BE6D6 /* LjsGoogleImporter.m */; };
@@ -178,6 +181,11 @@
 		F50F294415286B4A00DD67D1 /* LjsGoogleThing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleThing.m; sourceTree = "<group>"; };
 		F50F294715286EDC00DD67D1 /* NSString+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LjsAdditions.h"; sourceTree = "<group>"; };
 		F50F294815286EDC00DD67D1 /* NSString+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LjsAdditions.m"; sourceTree = "<group>"; };
+		F50F294B15286FE400DD67D1 /* GenModelStrings.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = GenModelStrings.py; sourceTree = "<group>"; };
+		F50F294C15286FE400DD67D1 /* NSEntityDescription+LocalizedName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSEntityDescription+LocalizedName.h"; sourceTree = "<group>"; };
+		F50F294D15286FE400DD67D1 /* NSEntityDescription+LocalizedName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSEntityDescription+LocalizedName.m"; sourceTree = "<group>"; };
+		F50F294E15286FE400DD67D1 /* NSPropertyDescription+LocalizedName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPropertyDescription+LocalizedName.h"; sourceTree = "<group>"; };
+		F50F294F15286FE400DD67D1 /* NSPropertyDescription+LocalizedName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPropertyDescription+LocalizedName.m"; sourceTree = "<group>"; };
 		F58EDE991528525D009BE6D6 /* LjsGoogleRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleRequestManager.h; sourceTree = "<group>"; };
 		F58EDE9A1528525D009BE6D6 /* LjsGoogleRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleRequestManager.m; sourceTree = "<group>"; };
 		F58EDE9D1528525D009BE6D6 /* LjsGoogleModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LjsGoogleModel.xcdatamodel; sourceTree = "<group>"; };
@@ -447,6 +455,19 @@
 			path = Machine;
 			sourceTree = "<group>";
 		};
+		F50F294A15286FE400DD67D1 /* Core-Data-Localization */ = {
+			isa = PBXGroup;
+			children = (
+				F50F294B15286FE400DD67D1 /* GenModelStrings.py */,
+				F50F294C15286FE400DD67D1 /* NSEntityDescription+LocalizedName.h */,
+				F50F294D15286FE400DD67D1 /* NSEntityDescription+LocalizedName.m */,
+				F50F294E15286FE400DD67D1 /* NSPropertyDescription+LocalizedName.h */,
+				F50F294F15286FE400DD67D1 /* NSPropertyDescription+LocalizedName.m */,
+			);
+			name = "Core-Data-Localization";
+			path = "../Core-Data-Localization";
+			sourceTree = "<group>";
+		};
 		F58EDE981528525D009BE6D6 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -596,6 +617,7 @@
 		F5BB1F43151BB6C000BFDDA0 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				F50F294A15286FE400DD67D1 /* Core-Data-Localization */,
 				F5E3F757151BCE0E0076450F /* Security */,
 				F5E3F753151BCDF70076450F /* Reachability */,
 				F5BB1F7B151BB75F00BFDDA0 /* SBJSON */,
@@ -727,8 +749,6 @@
 		F5BB1FBF151BCC4300BFDDA0 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				F50F294715286EDC00DD67D1 /* NSString+LjsAdditions.h */,
-				F50F294815286EDC00DD67D1 /* NSString+LjsAdditions.m */,
 				F5C3B1E31523B9F7005B1087 /* LjsFoundationCategories.h */,
 				F5BB1FC0151BCC4300BFDDA0 /* LjsWebCategories.h */,
 				F5BB1FC1151BCC4300BFDDA0 /* LjsWebCategories.m */,
@@ -750,6 +770,8 @@
 				F5BB1FD1151BCC4300BFDDA0 /* NSSet+LjsAdditions.m */,
 				F5C3B1E01523B790005B1087 /* NSDecimalNumber+LjsAdditions.h */,
 				F5C3B1E11523B790005B1087 /* NSDecimalNumber+LjsAdditions.m */,
+				F50F294715286EDC00DD67D1 /* NSString+LjsAdditions.h */,
+				F50F294815286EDC00DD67D1 /* NSString+LjsAdditions.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -986,6 +1008,7 @@
 				F5BB2052151BCC5000BFDDA0 /* com.littlejoysoftware.faker.postal-codes.us.plist in Resources */,
 				F5BB2053151BCC5000BFDDA0 /* com.littlejoysoftware.faker.street-addresses.us.plist in Resources */,
 				F5BB2054151BCC5000BFDDA0 /* com.littlejoysoftware.faker.surnames-names.us.plist in Resources */,
+				F50F295015286FE400DD67D1 /* GenModelStrings.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1112,6 +1135,8 @@
 				F50F294515286B4A00DD67D1 /* LjsGoogleLocation.m in Sources */,
 				F50F294615286B4A00DD67D1 /* LjsGoogleThing.m in Sources */,
 				F50F294915286EDC00DD67D1 /* NSString+LjsAdditions.m in Sources */,
+				F50F295115286FE400DD67D1 /* NSEntityDescription+LocalizedName.m in Sources */,
+				F50F295215286FE400DD67D1 /* NSPropertyDescription+LocalizedName.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

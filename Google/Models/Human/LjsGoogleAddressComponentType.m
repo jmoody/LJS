@@ -14,7 +14,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 + (LjsGoogleAddressComponentType *) findOrCreateWithName:(NSString *) aName
                                                component:(LjsGoogleAddressComponent *) aComponent
                                                  context:(NSManagedObjectContext *)aContext {
-  NSString *entityName = [NSString stringWithFormat:@"%@", [self class]];
+  NSString *entityName = [LjsGoogleAddressComponentType entityName];
   LjsGoogleAddressComponentType *result = nil;
   NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
   request.predicate = [NSPredicate predicateWithFormat:@"name LIKE %@", aName];
@@ -32,8 +32,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
       result.components = [result.components setByAddingObject:aComponent];
     }
   } else {
-    result = [NSEntityDescription insertNewObjectForEntityForName:entityName
-                                           inManagedObjectContext:aContext];
+    result = [LjsGoogleAddressComponentType insertInManagedObjectContext:aContext];
     result.name = aName;
     result.components = [NSSet setWithObject:aComponent];
   }

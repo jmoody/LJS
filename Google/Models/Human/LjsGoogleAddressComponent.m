@@ -22,8 +22,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                                           context:(NSManagedObjectContext *) aContext {
   LjsGoogleAddressComponent *component;
   
-  component = [NSEntityDescription insertNewObjectForEntityForName:@"LjsGoogleAddressComponent"
-                                            inManagedObjectContext:aContext];
+  component = [LjsGoogleAddressComponent insertInManagedObjectContext:aContext];
+  
   component.longName = aComponent.longName;
   component.shortName = aComponent.shortName;
 

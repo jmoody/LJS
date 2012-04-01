@@ -16,7 +16,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 + (LjsGooglePlaceType *) findOrCreateWithName:(NSString *) aName
                                         place:(LjsGooglePlace *)aPlace 
                                       context:(NSManagedObjectContext *) aContext {
-  NSString *entityName = [NSString stringWithFormat:@"%@", [self class]];
+  NSString *entityName = [LjsGooglePlaceType entityName];
   LjsGooglePlaceType *result = nil;
   NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
   request.predicate = [NSPredicate predicateWithFormat:@"name LIKE %@", aName];
@@ -34,8 +34,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
       result.places = [result.places setByAddingObject:aPlace];
     }
   } else {
-    result = [NSEntityDescription insertNewObjectForEntityForName:entityName
-                                           inManagedObjectContext:aContext];
+    result = [LjsGooglePlaceType insertInManagedObjectContext:aContext];
     result.name = aName;
     result.places = [NSSet setWithObject:aPlace];
   }

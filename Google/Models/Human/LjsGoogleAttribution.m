@@ -15,7 +15,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 + (LjsGoogleAttribution *) findOrCreateWithAtribution:(LjsGooglePlacesNmoAttribution *) aAttribution
                                                 place:(LjsGooglePlace *) aPlace
                                               context:(NSManagedObjectContext *) aContext {
-  NSString *entityName = [NSString stringWithFormat:@"%@", [self class]];
+  NSString *entityName = [LjsGoogleAttribution entityName];
   NSString *html = aAttribution.html;
   LjsGoogleAttribution *result = nil;
   NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
@@ -34,8 +34,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
       result.places = [result.places setByAddingObject:aPlace];
     }
   } else {
-    result = [NSEntityDescription insertNewObjectForEntityForName:entityName
-                                           inManagedObjectContext:aContext];
+    result = [LjsGoogleAttribution insertInManagedObjectContext:aContext];
     result.html = html;
     result.places = [NSSet setWithObject:aPlace];
   }

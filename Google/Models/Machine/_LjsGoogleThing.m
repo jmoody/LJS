@@ -11,7 +11,7 @@ const struct LjsGoogleThingAttributes LjsGoogleThingAttributes = {
 };
 
 const struct LjsGoogleThingRelationships LjsGoogleThingRelationships = {
-	.location = @"location",
+	.locationEnity = @"locationEnity",
 };
 
 const struct LjsGoogleThingFetchedProperties LjsGoogleThingFetchedProperties = {
@@ -101,7 +101,7 @@ const struct LjsGoogleThingFetchedProperties LjsGoogleThingFetchedProperties = {
 
 
 
-@dynamic location;
+@dynamic locationEnity;
 
 	
 
