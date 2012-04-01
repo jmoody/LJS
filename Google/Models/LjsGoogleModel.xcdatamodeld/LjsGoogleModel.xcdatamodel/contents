@@ -14,16 +14,13 @@
         <attribute name="html" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="places" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LjsGooglePlace" inverseName="attributions" inverseEntity="LjsGooglePlace" syncable="YES"/>
     </entity>
-    <entity name="LjsGoogleLocation" syncable="YES">
+    <entity name="LjsGoogleLocation" representedClassName="LjsGoogleLocation" syncable="YES">
         <attribute name="latitudeNumber" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitudeNumber" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="thing" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="LjsGoogleThing" inverseName="location" inverseEntity="LjsGoogleThing" syncable="YES"/>
     </entity>
-    <entity name="LjsGooglePlace" representedClassName="LjsGooglePlace" syncable="YES">
-        <attribute name="dateAdded" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="dateModified" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="formattedAddress" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="LjsGooglePlace" representedClassName="LjsGooglePlace" parentEntity="LjsGoogleThing" syncable="YES">
         <attribute name="formattedPhone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="iconUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="internationalPhone" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,7 +28,6 @@
         <attribute name="longitudeNumber" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="mapUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="orderValueNumber" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="ratingNumber" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="referenceId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="stableId" optional="YES" attributeType="String" syncable="YES"/>
@@ -45,7 +41,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="places" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LjsGooglePlace" inverseName="types" inverseEntity="LjsGooglePlace" syncable="YES"/>
     </entity>
-    <entity name="LjsGoogleThing" syncable="YES">
+    <entity name="LjsGoogleThing" representedClassName="LjsGoogleThing" syncable="YES">
         <attribute name="dateAdded" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="dateModified" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="formattedAddress" optional="YES" attributeType="String" syncable="YES"/>
@@ -56,7 +52,7 @@
         <element name="LjsGoogleAddressComponent" positionX="160" positionY="192" width="128" height="105"/>
         <element name="LjsGoogleAddressComponentType" positionX="160" positionY="192" width="128" height="75"/>
         <element name="LjsGoogleAttribution" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="LjsGooglePlace" positionX="160" positionY="192" width="128" height="330"/>
+        <element name="LjsGooglePlace" positionX="160" positionY="192" width="128" height="270"/>
         <element name="LjsGooglePlaceType" positionX="160" positionY="192" width="128" height="75"/>
         <element name="LjsGoogleLocation" positionX="160" positionY="192" width="128" height="105"/>
         <element name="LjsGoogleThing" positionX="160" positionY="192" width="128" height="120"/>
