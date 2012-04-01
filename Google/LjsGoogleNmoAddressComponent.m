@@ -84,6 +84,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return self;
 }
 
+/*
 - (BOOL) isStreetNumber {
   return [LjsValidator array:self.types containsString:@"street_number"];
 }
@@ -111,6 +112,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (BOOL) isPostalCode {
   return [LjsValidator array:self.types containsString:@"postal_code"];
 }
+ */
 
 - (NSString *) description {
   return [NSString stringWithFormat:@"#<Address Component:  %@ (%@) - [%@]>",

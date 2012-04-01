@@ -4,6 +4,7 @@
 
 #import "LjsGoogleRgRequestManager.h"
 #import "Lumberjack.h"
+#import "LjsWebCategories.h"
 #import "ASIHTTPRequest.h"
 #import "ASIHTTPRequest+LjsAdditions.h"
 #import "LjsGoogleRgReply.h"
@@ -14,11 +15,13 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+static NSString *LjsGoogleReverseGeocodeUrl = @"https://maps.googleapis.com/maps/api/geocode/json";
 
 @interface LjsGoogleRgRequestManager ()
 
 - (void) handleRequestDidFail:(ASIHTTPRequest *) aRequest;
 - (void) handleRequestDidFinish:(ASIHTTPRequest *) aRequest;
+
 
 @end
 
@@ -51,6 +54,44 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 
+
+- (void) executeReverseGeocodeRequestForLocation:(LjsLocation) aLocation
+                            locationIsFromSensor:(BOOL) aLocIsFromSensor {
+  if ([LjsLocationManager isValidLocation:aLocation] == NO) {
+    DDLogError(@"location: %@ needs to be valid - nothing to do",
+               NSStringFromLjsLocation(aLocation));
+    return;
+  }
+  
+  NSString *sensor = [self stringForSensor:aLocIsFromSensor];
+  NSString *latlong = [NSString stringWithFormat:@"%f,%f",
+                       aLocation.latitude, aLocation.longitude];
+  NSDictionary *paramDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                             sensor, @"sensor",
+                             latlong, @"latlng",
+                              nil];
+  NSString *params = [paramDict stringByParameterizingForUrl];
+  NSString *path = [NSString stringWithFormat:@"%@%@",
+                    LjsGoogleReverseGeocodeUrl, params];
+  NSURL *url = [NSURL URLWithString:path];
+  DDLogDebug(@"url = %@", url);
+  ASIHTTPRequest *request = [[ASIHTTPRequest alloc]
+                             initWithURL:url];
+  
+  [request setRequestMethod:@"GET"];
+  [request setResponseEncoding:NSUTF8StringEncoding];
+  [request setDelegate:self];
+  [request setDidFailSelector:@selector(handleRequestDidFail:)];
+  [request setDidFinishSelector:@selector(handleRequestDidFinish:)];
+  [request setUserInfo:paramDict];
+  [request startAsynchronous];
+  
+  
+
+}
+
+
+
 - (void) handleRequestDidFail:(ASIHTTPRequest *)aRequest {
   DDLogDebug(@"request id fail");
   NSURL *url = [aRequest url];
@@ -61,7 +102,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (void) handleRequestDidFinish:(ASIHTTPRequest *)aRequest {
-  //DDLogDebug(@"autocomplete request did finish");
+  DDLogDebug(@"request did finish");
   if ([aRequest was200or201Successful] == NO) {
     [self handleRequestDidFail:aRequest];
     return;
@@ -70,6 +111,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   LjsGoogleRgReply *reply = [[LjsGoogleRgReply alloc]
                              initWithReply:[aRequest responseString]
                              error:&error];
+  DDLogDebug(@"reply = %@", reply);
   if ([reply statusRejected] == YES) {
     [self.resultHandler requestForReverseGeocodeFailedWithCode:[reply status]
                                                        request:aRequest
@@ -77,7 +119,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     
     
   } else {
-    [self.resultHandler requestForReverseGeocodeCompletedWithResult:nil
+//    DDLogDebug(@"response = %@", [aRequest responseString]);
+
+    NSArray *geos = [reply geocodes];
+    [self.resultHandler requestForReverseGeocodeCompletedWithResult:geos
                                                            userInfo:aRequest.userInfo];
     
     //NSURL *url = [aRequest url];
@@ -95,7 +140,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 - (void) requestForReverseGeocodeFailedWithCode:(NSUInteger) aCode
                                         request:(ASIHTTPRequest *) aRequest {
-  DDLogDebug(@"request failed with code: %@", aCode);
+  DDLogDebug(@"request failed with code: %d", aCode);
 }
 
 

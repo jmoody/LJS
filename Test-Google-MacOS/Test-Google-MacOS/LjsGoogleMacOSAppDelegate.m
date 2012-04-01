@@ -6,7 +6,9 @@
 #import "LjsLocationManager.h"
 #import "LjsGooglePlace.h"
 #import "LjsGooglePlacePredictionOptions.h"
-
+#import "LjsGoogleRgRequestManager.h"
+#import "LjsCaesarCipher.h"
+#import "LjsGoogleGlobals.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -17,6 +19,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @interface LjsGoogleMacOSAppDelegate () 
 
 @property (nonatomic, strong) LjsGooglePlacesManager *manager;
+@property (nonatomic, strong) LjsGoogleRgRequestManager *rm;
+
+- (void) doPredictionRequestTests;
 
 @end
 
@@ -28,6 +33,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @synthesize coordinator = __coordinator;
 @synthesize manager;
 @synthesize places;
+@synthesize rm;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   // kick off the logger
@@ -42,19 +48,32 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   fileLogger.logFileManager.maximumNumberOfLogFiles = 10;
   [DDLog addLogger:fileLogger];
   DDLogDebug(@"logging initialized");
+
+  NSString *encoded = LjsGoogleApiKey_joshuajmoody;
+  LjsCaesarCipher *cipher = [[LjsCaesarCipher alloc] initWithRotate:[encoded length]];
+  NSString *apiKey = [cipher stringByDecodingString:encoded];
+  self.rm = [[LjsGoogleRgRequestManager alloc]
+                                   initWithApiToken:apiKey];
   
+  LjsLocationManager *lm = [[LjsLocationManager alloc] init];
+  LjsLocation location = [lm location];
+  
+  [self.rm executeReverseGeocodeRequestForLocation:location
+                         locationIsFromSensor:YES];
+
+  
+}
+
+
+- (void) doPredictionRequestTests {
+  
+
   LjsLocationManager *lm = [[LjsLocationManager alloc] init];
   
   self.manager = [[LjsGooglePlacesManager alloc] initWithLocationManager:lm];
-
-  LjsLocation location = [lm location];
-
   
-//  NSArray *strings = [NSArray arrayWithObjects:@"s", @"st", @"sta", @"star", @"starbu",
-//                      @"starbuc", @"starbuck", @"starbucks", nil];
-
-  //  NSArray *strings = [NSArray arrayWithObjects:@"c", @"ca", @"caf", @"cafe", nil];
-
+  LjsLocation location = [lm location];
+  
   NSMutableArray *strings = [NSMutableArray array]; 
   //                   
   NSString *input = @"HB";
@@ -62,7 +81,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     [strings nappend:[input substringToIndex:index + 1]];
   }
   DDLogDebug(@"strings = %@", strings);
-
+  
   
   for (NSString *searchString in strings) {
     LjsGpPredictionSortOptions *sortOptions = [LjsGpPredictionSortOptions sortAscending];
@@ -72,26 +91,26 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                                                       langCodeOrNil:nil
                                                        searchString:searchString];
     LjsGpPredicateFactory *factory = [[LjsGpPredicateFactory alloc] init];
-//    NSPredicate *predicate = [factory establishmentPredicateWithSearchString:searchString];    
-
+    //    NSPredicate *predicate = [factory establishmentPredicateWithSearchString:searchString];    
+    
     NSArray *tokens = [searchString componentsSeparatedByString:@" "];
     NSMutableArray *preds = [NSMutableArray arrayWithCapacity:[tokens count]];
     //[preds push:[factory nonEstablishmentPredicate]];
     NSPredicate *subs;
     for (NSString *token in tokens) {
       subs = [NSPredicate predicateWithFormat:@"(name CONTAINS[cd] %@ OR vicinity CONTAINS[cd] %@)",
-                   token, tokens];
+              token, tokens];
       [preds push:subs];
     }
     
     NSPredicate *ors = [NSCompoundPredicate orPredicateWithSubpredicates:preds];
     NSArray *ands = [NSArray arrayWithObjects:ors, [factory nonEstablishmentPredicate], nil];
     NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:ands];
-
-
     
     
-
+    
+    
+    
     
     LjsGooglePlacePredictionOptions *options;
     options = [[LjsGooglePlacePredictionOptions alloc]
@@ -101,7 +120,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                sortOptions:sortOptions
                googleOptions:googleOptions];
     
-  
+    
     NSArray *sorted;
     sorted = [self.manager predicationsWithOptions:options];  
     
@@ -113,7 +132,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
       DDLogDebug(@"%@ ==> %@", km, place);
     }
   }
+
 }
+
+
+
+
+
 
 // Returns the directory the application uses to store the Core Data store file. 
 // This code uses a directory named "com.littlejoysoftware.Test_Google_MacOS" 

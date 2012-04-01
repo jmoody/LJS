@@ -34,5 +34,7 @@
 /** @name Handling Notifications, Requests, and Events */
 
 /** @name Utility */
+- (void) executeReverseGeocodeRequestForLocation:(LjsLocation) aLocation
+                            locationIsFromSensor:(BOOL) aLocIsFromSensor;
 
 @end

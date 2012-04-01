@@ -4,6 +4,8 @@
 
 #import "LjsGoogleRgReply.h"
 #import "Lumberjack.h"
+#import "LjsFoundationCategories.h"
+#import "LjsGoogleNmoReverseGeocode.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -16,16 +18,43 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 #pragma mark Memory Management
 - (void) dealloc {
-  DDLogDebug(@"deallocating %@", [self class]);
+//  DDLogDebug(@"deallocating %@", [self class]);
 }
 
-- (id) init {
-  //  [self doesNotRecognizeSelector:_cmd];
-  self = [super init];
-  if (self) {
-    // Initialization code here.
+
+- (NSUInteger) count {
+  if (self.dictionary == nil) {
+    return 0;
+  } else {
+    NSArray *results = [self.dictionary objectForKey:@"results"];
+    return [results count];
   }
-  return self;
 }
+
+- (NSArray *) geocodes {
+  NSArray *result;
+  if ([self statusHasResults]) {
+    NSArray *results = [self.dictionary objectForKey:@"results"];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:[results count]];
+    for (NSDictionary *dict in results) {
+      [array nappend:[[LjsGoogleNmoReverseGeocode alloc]
+                      initWithDictionary:dict]];
+    }
+    result = [NSArray arrayWithArray:array];
+  } else if ([self statusNoResults]) {
+    result = [NSArray array];
+  } else {
+    result = nil;
+  }
+  return result;
+}
+
+
+
+- (NSString *) description {
+  return [NSString stringWithFormat:@"#<Reverse Geo Reply:  %@ %d>",
+          [self status], [self count]];
+}
+
 
 @end

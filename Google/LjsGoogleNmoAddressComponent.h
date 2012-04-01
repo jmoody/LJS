@@ -46,12 +46,12 @@
 /** @name Handling Notifications, Requests, and Events */
 
 /** @name Utility */
-- (BOOL) isStreetNumber;
-- (BOOL) isRoute;
-- (BOOL) isLocality;
-- (BOOL) isAdministrativeArea1;
-- (BOOL) isAdministrativeArea2;
-- (BOOL) isCountry;
-- (BOOL) isPostalCode;
+//- (BOOL) isStreetNumber;
+//- (BOOL) isRoute;
+//- (BOOL) isLocality;
+//- (BOOL) isAdministrativeArea1;
+//- (BOOL) isAdministrativeArea2;
+//- (BOOL) isCountry;
+//- (BOOL) isPostalCode;
 
 @end

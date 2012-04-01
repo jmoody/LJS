@@ -13,5 +13,9 @@
 /** @name Handling Notifications, Requests, and Events */
 
 /** @name Utility */
+- (NSUInteger) count;
+
+- (NSArray *) geocodes;
+
 
 @end

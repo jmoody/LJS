@@ -52,8 +52,6 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
 
 @interface LjsGooglePlacesRequestManager ()
 
-- (NSString *) stringForSensor:(BOOL) aSensor;
-
 - (NSDictionary *) dictionaryForRequiredAutocompleteWithInput:(NSString *) aInput
                                                        sensor:(BOOL) aSensor;
 
@@ -122,16 +120,6 @@ static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/m
  types — The types of Place results to return. See Place Types below. If no type is specified, all types will be returned.
  */
 
-
-- (NSString *) stringForSensor:(BOOL) aSensor {
-  NSString *sensor;
-  if (aSensor == YES) {
-    sensor = @"true";
-  } else {
-    sensor = @"false";
-  }
-  return sensor;
-}
 
 - (NSDictionary *) dictionaryForRequiredAutocompleteWithInput:(NSString *) aInput
                                                        sensor:(BOOL) aSensor {

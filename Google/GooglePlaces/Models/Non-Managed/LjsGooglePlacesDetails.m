@@ -37,12 +37,19 @@
 #import "LjsGoogleNmoAddressComponent.h"
 #import "NSMutableArray+LjsAdditions.h"
 #import "LjsGooglePlacesNmoAttribution.h"
+#import "LjsGoogleImporter.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
 #else
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
+
+@interface LjsGooglePlacesDetails ()
+
+@property (nonatomic, strong) LjsGoogleImporter *importer;
+
+@end
 
 @implementation LjsGooglePlacesDetails
 
@@ -58,6 +65,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @synthesize vicinity;
 @synthesize website;
 @synthesize attributions;
+
+@synthesize importer;
 
 #pragma mark Memory Management
 - (void) dealloc {
@@ -81,32 +90,39 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     } else {
       rating = [ratingNum doubleValue];
     }
-    NSDictionary *geometry = [aDictionary objectForKey:@"geometry"];
-    if (geometry == nil) {
-      location = CGPointMake(LjsLocationDegreesNotFound, LjsLocationDegreesNotFound);
-    } else {
-      NSDictionary *locDict = [geometry objectForKey:@"location"];
-      if (locDict == nil) {
-        location = CGPointMake(LjsLocationDegreesNotFound, LjsLocationDegreesNotFound);
-      } else {
-        NSNumber *latNum = [locDict objectForKey:@"lat"];
-        NSNumber *longNum = [locDict objectForKey:@"lng"];
-        location = CGPointMake([latNum doubleValue], [longNum doubleValue]);
-      }
-    }
     
-    NSArray *components = [aDictionary objectForKey:@"address_components"];
-    NSMutableArray *marray = [NSMutableArray arrayWithCapacity:[components count]];
-    LjsGoogleNmoAddressComponent *comp;
-    for (NSDictionary *compDict in components) {
-      comp = [[LjsGoogleNmoAddressComponent alloc]
-              initWithDictionary:compDict];
-      [marray nappend:comp];
-    }
-    self.addressComponents = [NSArray arrayWithArray:marray];
+    self.importer = [[LjsGoogleImporter alloc] init];
+    
+    self.location = [self.importer pointForLocationWithDictionary:aDictionary];
+    
+//    NSDictionary *geometry = [aDictionary objectForKey:@"geometry"];
+//    if (geometry == nil) {
+//      self.location = CGPointMake(LjsLocationDegreesNotFound, LjsLocationDegreesNotFound);
+//    } else {
+//      NSDictionary *locDict = [geometry objectForKey:@"location"];
+//      if (locDict == nil) {
+//        location = CGPointMake(LjsLocationDegreesNotFound, LjsLocationDegreesNotFound);
+//      } else {
+//        NSNumber *latNum = [locDict objectForKey:@"lat"];
+//        NSNumber *longNum = [locDict objectForKey:@"lng"];
+//        self.location = CGPointMake([latNum doubleValue], [longNum doubleValue]);
+//      }
+//    }
+    
+    self.addressComponents = [self.importer addressComponentsWithDictionary:aDictionary];
+//    
+//    NSArray *components = [aDictionary objectForKey:@"address_components"];
+//    NSMutableArray *marray = [NSMutableArray arrayWithCapacity:[components count]];
+//    LjsGoogleNmoAddressComponent *comp;
+//    for (NSDictionary *compDict in components) {
+//      comp = [[LjsGoogleNmoAddressComponent alloc]
+//              initWithDictionary:compDict];
+//      [marray nappend:comp];
+//    }
+//    self.addressComponents = [NSArray arrayWithArray:marray];
     
     NSArray *html = [aDictionary objectForKey:@"html_attributions"];
-    marray = [NSMutableArray arrayWithCapacity:[html count]];
+    NSMutableArray *marray = [NSMutableArray arrayWithCapacity:[html count]];
     for (NSString *str in html) {
       LjsGooglePlacesNmoAttribution *attr;
       attr = [[LjsGooglePlacesNmoAttribution alloc] initWithHtml:str];

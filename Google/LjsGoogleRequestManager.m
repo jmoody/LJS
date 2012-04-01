@@ -5,6 +5,8 @@
 #import "LjsGoogleRequestManager.h"
 #import "Lumberjack.h"
 
+
+
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
 #else
@@ -32,6 +34,17 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     self.apiToken = aApiToken;
   }
   return self;
+}
+
+
+- (NSString *) stringForSensor:(BOOL) aSensor {
+  NSString *sensor;
+  if (aSensor == YES) {
+    sensor = @"true";
+  } else {
+    sensor = @"false";
+  }
+  return sensor;
 }
 
 @end

@@ -39,13 +39,13 @@
 #import "NSArray+LjsAdditions.h"
 
 
-//static const int ddLogLevel = LOG_LEVEL_WARN;
-
-#ifdef LOG_CONFIGURATION_DEBUG
-static const int ddLogLevel = LOG_LEVEL_DEBUG;
-#else
 static const int ddLogLevel = LOG_LEVEL_WARN;
-#endif
+
+//#ifdef LOG_CONFIGURATION_DEBUG
+//static const int ddLogLevel = LOG_LEVEL_DEBUG;
+//#else
+//static const int ddLogLevel = LOG_LEVEL_WARN;
+//#endif
 
 NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable = @"com.littlejoysoftware.Reverse Geocoding Result Available Notification";
 
@@ -73,7 +73,23 @@ static NSString *LjsLocationManagerPluto = @"pluto";
 static NSString *LjsLocationManagerNeptune = @"neptune";
 #endif
 
+// apple CLGeocoder appears to give back 8 decimal places
+// google reverse geocoder appears to give back a max of 6 or 7
+// we will round to 8 decimal places
+// -         sign     lat: north/south of equator lon: east/west of greenwich
+// 0     
+// 4          10s      contentient/ocean    ~1000 km
+// 7           1s      large state/country  ~ 111 km
+// .
+// 4        10ths    large city             ~  11 km
+// 1       100ths    village                ~ 1.1 km
+// 9      1000ths    campus/field            ~ 110 m
+// 0     10000ths    parcel of land          ~  11 m  (uncorrected GPS unit with no interference) 
+// 9    100000ths    trees                   ~ 1.1 m  (commerical GPS unit with differential correction)
+// 4   1000000ths    architectural detals    ~ .11 m  (painstaking GPS measurements)
+
 // himmeri strasse
+// this is what apple returned to me from a search
 static CGFloat const LjsLatitudeZurich = 47.41909409;
 static CGFloat const LjsLongitudeZurich = 8.53678989;
 

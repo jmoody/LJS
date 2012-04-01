@@ -14,5 +14,8 @@
 /** @name Handling Notifications, Requests, and Events */
 
 /** @name Utility */
+- (NSString *) stringForSensor:(BOOL) aSensor;
+
+
 
 @end
