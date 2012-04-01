@@ -8,11 +8,9 @@ extern const struct LjsGooglePlaceAttributes {
 	__unsafe_unretained NSString *formattedPhone;
 	__unsafe_unretained NSString *iconUrl;
 	__unsafe_unretained NSString *internationalPhone;
-	__unsafe_unretained NSString *latitudeNumber;
-	__unsafe_unretained NSString *longitudeNumber;
 	__unsafe_unretained NSString *mapUrl;
 	__unsafe_unretained NSString *name;
-	__unsafe_unretained NSString *ratingNumber;
+	__unsafe_unretained NSString *rating;
 	__unsafe_unretained NSString *referenceId;
 	__unsafe_unretained NSString *stableId;
 	__unsafe_unretained NSString *vicinity;
@@ -31,8 +29,6 @@ extern const struct LjsGooglePlaceFetchedProperties {
 @class LjsGoogleAddressComponent;
 @class LjsGoogleAttribution;
 @class LjsGooglePlaceType;
-
-
 
 
 
@@ -81,30 +77,6 @@ extern const struct LjsGooglePlaceFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber *latitudeNumber;
-
-
-@property double latitudeNumberValue;
-- (double)latitudeNumberValue;
-- (void)setLatitudeNumberValue:(double)value_;
-
-//- (BOOL)validateLatitudeNumber:(id*)value_ error:(NSError**)error_;
-
-
-
-
-@property (nonatomic, strong) NSNumber *longitudeNumber;
-
-
-@property double longitudeNumberValue;
-- (double)longitudeNumberValue;
-- (void)setLongitudeNumberValue:(double)value_;
-
-//- (BOOL)validateLongitudeNumber:(id*)value_ error:(NSError**)error_;
-
-
-
-
 @property (nonatomic, strong) NSString *mapUrl;
 
 
@@ -121,14 +93,10 @@ extern const struct LjsGooglePlaceFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber *ratingNumber;
+@property (nonatomic, strong) NSDecimalNumber *rating;
 
 
-@property double ratingNumberValue;
-- (double)ratingNumberValue;
-- (void)setRatingNumberValue:(double)value_;
-
-//- (BOOL)validateRatingNumber:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateRating:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -230,24 +198,6 @@ extern const struct LjsGooglePlaceFetchedProperties {
 
 
 
-- (NSNumber *)primitiveLatitudeNumber;
-- (void)setPrimitiveLatitudeNumber:(NSNumber *)value;
-
-- (double)primitiveLatitudeNumberValue;
-- (void)setPrimitiveLatitudeNumberValue:(double)value_;
-
-
-
-
-- (NSNumber *)primitiveLongitudeNumber;
-- (void)setPrimitiveLongitudeNumber:(NSNumber *)value;
-
-- (double)primitiveLongitudeNumberValue;
-- (void)setPrimitiveLongitudeNumberValue:(double)value_;
-
-
-
-
 - (NSString *)primitiveMapUrl;
 - (void)setPrimitiveMapUrl:(NSString *)value;
 
@@ -260,11 +210,8 @@ extern const struct LjsGooglePlaceFetchedProperties {
 
 
 
-- (NSNumber *)primitiveRatingNumber;
-- (void)setPrimitiveRatingNumber:(NSNumber *)value;
-
-- (double)primitiveRatingNumberValue;
-- (void)setPrimitiveRatingNumberValue:(double)value_;
+- (NSDecimalNumber *)primitiveRating;
+- (void)setPrimitiveRating:(NSDecimalNumber *)value;
 
 
 

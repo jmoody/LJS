@@ -48,24 +48,15 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 //#endif
 
 NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable = @"com.littlejoysoftware.Reverse Geocoding Result Available Notification";
-
 static NSUInteger LjsLocationManagerLocationScale = 8;
-
-const LjsLocation LjsLocationNotFound = {CGFLOAT_MIN, CGFLOAT_MAX};
-
-CGFloat const LjsLocationDegreesNotFound = CGFLOAT_MIN;
 
 static CGFloat const LjsMinHeading = 0.0;
 static CGFloat const LjsMaxHeading = 360.0;
-static CGFloat const LjsMinLongitude = -180.0;
-static CGFloat const LjsMaxLongitude = 180.0;
-static CGFloat const LjsMinLatitude = -90.0;
-static CGFloat const LjsMaxLatitude = 90.0;
 
-const CGPoint LjsLatitudeBounds = {LjsMinLatitude, LjsMaxLatitude};
-const CGPoint LjsLongitudeBounds = {LjsMinLongitude, LjsMaxLongitude};
-const CGPoint LjsHeadingBounds = {LjsMinHeading, LjsMaxHeading};
-
+//static CGFloat const LjsMinLongitude = -180.0;
+//static CGFloat const LjsMaxLongitude = 180.0;
+//static CGFloat const LjsMinLatitude = -90.0;
+//static CGFloat const LjsMaxLatitude = 90.0;
 
 #ifdef LJS_LOCATION_SERVICES_DEBUG
 static NSString *LjsLocationManagerMercury = @"mercury";
@@ -93,8 +84,78 @@ static NSString *LjsLocationManagerNeptune = @"neptune";
 static CGFloat const LjsLatitudeZurich = 47.41909409;
 static CGFloat const LjsLongitudeZurich = 8.53678989;
 
-//static CGFloat const LjsLatitudeZurich = 26.9339;
-//static CGFloat const LjsLongitudeZurich = -80.0944;
+@implementation LjsLocation 
+@synthesize latitude;
+@synthesize longitude;
+
+- (id) initWithPoint:(CGPoint) aPoint {
+  return [self initWithLatitudeFloat:aPoint.x longitudeFloat:aPoint.y];
+}
+
+- (id) initWithLatitudeNumber:(NSNumber *) aLatitude
+              longitudeNumber:(NSNumber *) aLongitude {
+  self = [super init];
+  if (self) {
+    self.latitude = [[LjsDn dnWithNumber:aLatitude] dnByRoundingAsLocation];
+    self.longitude = [[LjsDn dnWithNumber:aLongitude] dnByRoundingAsLocation];
+  }
+  return self;
+}
+
+- (id) initWithLatitudeFloat:(CGFloat) aLatitude
+              longitudeFloat:(CGFloat) aLongitude {
+  self = [super init];
+  if (self) {
+    self.latitude = [[LjsDn dnWithFloat:aLatitude] dnByRoundingAsLocation];
+    self.longitude = [[LjsDn dnWithFloat:aLongitude] dnByRoundingAsLocation];
+  }
+  return self;
+}
+
+
+- (id) initWithLatitude:(NSDecimalNumber *)aLatitude 
+              longitude:(NSDecimalNumber *)aLongitude {
+  self = [super init];
+  if (self) {
+    self.latitude = [aLatitude dnByRoundingAsLocation];
+    self.longitude = [aLongitude dnByRoundingAsLocation];
+  }
+  return self;
+}
+
+- (id) initWithCoreLocation:(CLLocation *) aLocation {
+  self = [super init];
+  if (self) {
+    NSDecimalNumber *lat, *lon;
+    if (aLocation == nil) {
+      lat = [LjsDn nan];
+      lon = [LjsDn nan];
+    } else {
+      lat = [LjsDn dnWithDouble:aLocation.coordinate.latitude];
+      lon = [LjsDn dnWithDouble:aLocation.coordinate.longitude];
+    }
+    self.latitude = lat;
+    self.longitude = lon;
+  }
+  return self;
+}
+
+- (CLLocation *) coreLocation {
+  CLLocation *result = nil;
+  if ([LjsLocationManager isValidLocation:self]) {
+    result = [[CLLocation alloc] initWithLatitude:[self.latitude doubleValue]
+                                        longitude:[self.longitude doubleValue]];
+  }
+  return result;
+}
+
+
+- (NSString *) description {
+  return [NSString stringWithFormat:@"#(%@, %@)", self.latitude, self.longitude];
+}
+
+@end
+
 
 
 @interface LjsLocationManager () 
@@ -116,52 +177,21 @@ static CGFloat const LjsLongitudeZurich = 8.53678989;
  methods */
 @property (nonatomic, strong) CLHeading *coreHeading;
 
-@property (nonatomic, assign) CGPoint latitudeBounds;
-@property (nonatomic, assign) CGPoint longitudeBounds;
-@property (nonatomic, assign) CGPoint headingBounds;
-
-+ (BOOL) isValue:(CGFloat) aValue onInterval:(CGPoint) aInterval;
 
 @end
 
 
 @implementation LjsLocationManager
 
-NSString *NSStringFromLjsLocation(LjsLocation aLocation) {
-  CGFloat lat = aLocation.latitude;
-  CGFloat lng = aLocation.longitude;
-  NSString *latStr = @"NAN", *lngStr = @"NAN";
-  if ([LjsLocationManager isValidLatitude:lat]) {
-    NSDecimalNumber *dn = [LjsDn dnWithFloat:lat];
-    NSDecimalNumber *round = [dn dnByRoundingAsLocation];
-    latStr = [round stringValue];
-  } 
-  
-  if ([LjsLocationManager isValidLongitude:lng]) {
-    lngStr = [[[LjsDn dnWithFloat:lng] dnByRoundingAsLocation] stringValue];
-  }
-  return [NSString stringWithFormat:@"(%@, %@)", latStr, lngStr];
-}
-
-LjsLocation LjsLocationFromString(NSString *aString) {
-#if TARGET_OS_IPHONE
-  CGPoint point = CGPointFromString(aString);
-#else
-  NSPoint point = NSPointFromString(aString);
-#endif
-  return LjslocationMake(point.x, point.y);
-}
-
 @synthesize coreLocationManager;
 @synthesize coreLocation;
 @synthesize coreHeading;
-@synthesize latitudeBounds;
-@synthesize longitudeBounds;
-@synthesize headingBounds;
 
-#ifdef LJS_LOCATION_SERVICES_DEBUG
+debugLocationServices
+(
 @synthesize debugDevices;
-#endif
+)
+
 @synthesize debugLastHeading;
 
 #pragma mark Memory Management
@@ -192,30 +222,39 @@ LjsLocation LjsLocationFromString(NSString *aString) {
 #endif
 
     
-#ifdef LJS_LOCATION_SERVICES_DEBUG
+debugLocationServices (
     self.debugDevices = [NSArray arrayWithObjects:LjsLocationManagerMercury,
                          LjsLocationManagerPluto, LjsLocationManagerNeptune, nil];
-#endif
+)
     
     self.debugLastHeading = [LjsVariates randomDoubleWithMin:0.0 max:360.0];
     
-    self.headingBounds = LjsHeadingBounds;
-    self.latitudeBounds = LjsLatitudeBounds;
-    self.longitudeBounds = LjsLongitudeBounds;
+  
+
   }
   return self;
 }
 
-+ (BOOL) isValue:(CGFloat) aValue onInterval:(CGPoint) aInterval {
-  return (aValue >= aInterval.x && aValue <= aInterval.y);
+
++ (LjsInterval *) latitudeBounds {
+  return [[LjsInterval alloc] initWithMin:[LjsDn dnWithString:@"-90.0"]
+                                      max:[LjsDn dnWithString:@"90.0"]];
 }
 
++ (LjsInterval *) longitudeBounds {
+  return [[LjsInterval alloc] initWithMin:[LjsDn dnWithString:@"-180.0"]
+                                      max:[LjsDn dnWithString:@"180.0"]];
+}
+
++ (LjsInterval *) headingBounds {
+  return [[LjsInterval alloc] initWithMin:[LjsDn dnWithString:@"0.0"]
+                                      max:[LjsDn dnWithString:@"360.0"]];
+  
+}
 
 - (BOOL) locationIsAvailable {
-  
   BOOL locationServiceEnabled = [CLLocationManager locationServicesEnabled];
   DDLogDebug(@"location service is turned on: %d", locationServiceEnabled);
-
    /*
    kCLAuthorizationStatusNotDetermined = 0,
    kCLAuthorizationStatusRestricted,
@@ -232,7 +271,7 @@ LjsLocation LjsLocationFromString(NSString *aString) {
 
   BOOL result = locationServiceEnabled && locationServicesEnabledForThisApp && locationExists;
 
-#ifdef LJS_LOCATION_SERVICES_DEBUG
+debugLocationServices(
   if (result == NO) {
     NSString *deviceName = [[UIDevice currentDevice] name];
     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
@@ -241,7 +280,7 @@ LjsLocation LjsLocationFromString(NSString *aString) {
       result = YES;
     }
   }
-#endif
+)
   
 #ifdef LJS_LOCATION_SERVICES_SIMULATOR_DEBUG
   if (result == NO) {
@@ -256,7 +295,7 @@ LjsLocation LjsLocationFromString(NSString *aString) {
 - (BOOL) headingIsAvailable {
   BOOL serviceAvailable = [CLLocationManager headingAvailable];
   
-#ifdef LJS_LOCATION_SERVICES_DEBUG
+debugLocationServices(
   if (serviceAvailable == NO) {
     NSString *deviceName = [[UIDevice currentDevice] name];
     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
@@ -264,127 +303,119 @@ LjsLocation LjsLocationFromString(NSString *aString) {
       serviceAvailable = YES;
     }
   }
-#endif
+)
   return serviceAvailable;
 }
 
-+ (BOOL) isValidHeading:(CGFloat) aHeading {
-  if (aHeading == LjsLocationDegreesNotFound) {
++ (BOOL) isValidHeading:(NSDecimalNumber *) aHeading {
+  if ([aHeading isNan]) {
     return NO;
   } else {
-    return [LjsLocationManager isValue:aHeading onInterval:LjsHeadingBounds];
+    return [[LjsLocationManager headingBounds] intervalContains:aHeading];
   }
 }
 
 
-+ (BOOL) isValidLatitude:(CGFloat) aLatitude {
-  if (aLatitude == LjsLocationDegreesNotFound) {
++ (BOOL) isValidLatitude:(NSDecimalNumber *) aLatitude {
+  if ([aLatitude isNan]) {
     return NO;
   } else {
-    return [LjsLocationManager isValue:aLatitude onInterval:LjsLatitudeBounds];
+    return [[LjsLocationManager latitudeBounds] intervalContains:aLatitude];
   }
 }
 
 
-+ (BOOL) isValidLongitude:(CGFloat) aLongitude {
- if (aLongitude == LjsLocationDegreesNotFound) {
++ (BOOL) isValidLongitude:(NSDecimalNumber *) aLongitude {
+ if ([aLongitude isNan]) {
     return NO;
   } else {
-    return [LjsLocationManager isValue:aLongitude onInterval:LjsLongitudeBounds];
+    return [[LjsLocationManager longitudeBounds] intervalContains:aLongitude];
   }
 }
+
 
 
 #pragma mark Latitude, Longitude, and Heading
 
-- (CGFloat) longitude {
-  CGFloat result;
+- (NSDecimalNumber *) longitude {
+  NSDecimalNumber *result;
   if (self.coreLocation == nil) {
-    result = LjsLocationDegreesNotFound;
+    result = [LjsDn nan];
   } else {
-    result = self.coreLocation.coordinate.longitude;
+    result = [[LjsDn dnWithDouble:self.coreLocation.coordinate.longitude] dnByRoundingAsLocation];
   }
 
-#ifdef LJS_LOCATION_SERVICES_DEBUG 
-  if (result == LjsLocationDegreesNotFound)  {
+debugLocationServices (
+  if ([result isNan])  {
     NSString *deviceName = [[UIDevice currentDevice] name];
     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
       DDLogNotice(@"location is not available for device: %@ - overriding", deviceName);
-      result = LjsLongitudeZurich;
+      result = [LjsDn dnWithFloat:LjsLongitudeZurich];
     } 
   }
-#endif
+)
   
 #ifdef LJS_LOCATION_SERVICES_SIMULATOR_DEBUG
-  if (result == LjsLocationDegreesNotFound) {
+  if ([result isNan]) {
     DDLogNotice(@"location is not available on the simulator - overriding");
-    result = LjsLongitudeZurich;
+    result = [LjsDn dnWithFloat:LjsLongitudeZurich];
   }
 #endif
   
   return result;
 }
 
-- (NSDecimalNumber *) longitudeDn {
-  return [[LjsDn dnWithFloat:[self longitude]] dnByRoundingAsLocation];
-}
-
-- (CGFloat) latitude {
-  CGFloat result;
+- (NSDecimalNumber *) latitude {
+  NSDecimalNumber *result;
   if (self.coreLocation == nil) {
-    result = LjsLocationDegreesNotFound;
+    result = [LjsDn nan];
   } else {
-    result = self.coreLocation.coordinate.latitude;
+    result = [[LjsDn dnWithDouble:self.coreLocation.coordinate.latitude] dnByRoundingAsLocation];
   }
   
-#ifdef LJS_LOCATION_SERVICES_DEBUG 
-  if (result == LjsLocationDegreesNotFound)  {
+debugLocationServices (
+  if ([result isNan])  {
     NSString *deviceName = [[UIDevice currentDevice] name];
     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
       DDLogNotice(@"location is not available for device: %@ - overriding", deviceName);
-      result = LjsLatitudeZurich;
+      result = [LjsDn dnWithFloat:LjsLatitudeZurich];   
     } 
   }
-#endif
+)
   
 #ifdef LJS_LOCATION_SERVICES_SIMULATOR_DEBUG
-  if (result == LjsLocationDegreesNotFound) {
+  if ([result isNan]) {
     DDLogNotice(@"location is not available on the simulator - overriding");
-    result = LjsLatitudeZurich;
+    result = [LjsDn dnWithFloat:LjsLatitudeZurich];
   }
 #endif
 
   return result;
 }
 
-
-- (NSDecimalNumber *) latitudeDn {
-  return [[LjsDn dnWithFloat:[self latitude]] dnByRoundingAsLocation];
-}
-
-- (CGFloat) trueHeading {
-  CGFloat result;
+- (NSDecimalNumber *) trueHeading {
+  NSDecimalNumber *result;
   if (self.coreHeading == nil) {
-    result = LjsLocationDegreesNotFound;
+    result = [LjsDn nan];
   } else {
-    result = self.coreHeading.trueHeading;
+    result = [[LjsDn dnWithDouble:self.coreHeading.trueHeading] dnByRoundingAsLocation];
   }
 
-#ifdef LJS_LOCATION_SERVICES_DEBUG 
-  if (result == LjsLocationDegreesNotFound) {
+debugLocationServices(
+  if ([result isNan]) {
     NSString *deviceName = [[UIDevice currentDevice] name];
     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
       DDLogNotice(@"heading is not available for device: %@ - overriding", deviceName);
       CGFloat random = [LjsVariates randomDoubleWithMin:5.0 max:10.0];
       CGFloat current = self.debugLastHeading;
       self.debugLastHeading = MIN(current + random, LjsMaxHeading);
-      result = self.debugLastHeading;
+      result = [[LjsDn dnWithFloat:self.debugLastHeading] dnByRoundingAsLocation];
     } 
   }
-#endif
+)
 
 #ifdef LJS_LOCATION_SERVICES_SIMULATOR_DEBUG
-  if (result == LjsLocationDegreesNotFound) {
+  if ([result isNan]) {
     DDLogNotice(@"heading is not available for simulator - overriding");
     CGFloat random = [LjsVariates randomDoubleWithMin:5.0 max:10.0];
     NSUInteger signedness = [LjsVariates flip];
@@ -394,146 +425,102 @@ LjsLocation LjsLocationFromString(NSString *aString) {
     CGFloat current = self.debugLastHeading;
     CGFloat new = MIN(current + random, LjsMaxHeading);
     self.debugLastHeading = MAX(new, LjsMinHeading);      
-    result = self.debugLastHeading;
+    result = [[LjsDn dnWithFloat:self.debugLastHeading] dnByRoundingAsLocation];
   }
 #endif
   return result;
 }
 
-- (NSDecimalNumber *) trueHeadingDn {
-  return [[LjsDn dnWithFloat:[self trueHeading]] dnByRoundingAsLocation];
+- (LjsLocation *) location {
+  return [[LjsLocation alloc]
+          initWithLatitude:[self latitude]
+          longitude:[self longitude]];
 }
 
-
-- (LjsLocation) location {
-  CGFloat lat = [self latitude];
-  CGFloat lng = [self longitude];
-  LjsLocation result = LjslocationMake(lat, lng);
-  return result;
-}
-
-+ (BOOL) isValidLocation:(LjsLocation) aLocation {
++ (BOOL) isValidLocation:(LjsLocation *) aLocation {
   return ([LjsLocationManager isValidLatitude:aLocation.latitude] &&
           [LjsLocationManager isValidLongitude:aLocation.longitude]);
 }
 
 
-- (CGFloat) metersBetweenA:(LjsLocation) a
-                         b:(LjsLocation) b {
-  CLLocation *lA = [[CLLocation alloc] initWithLatitude:a.latitude
-                                              longitude:a.longitude];
-  CLLocation *lB = [[CLLocation alloc] initWithLatitude:b.latitude
-                                              longitude:b.longitude];
-  return (CGFloat)[lA distanceFromLocation:lB];
-}
-
-- (NSDecimalNumber *) dnMetersBetweenA:(LjsLocation) a
-                           b:(LjsLocation) b {
-  return [self dnMetersBetweenA:a b:b scale:LjsLocationManagerLocationScale];
+- (NSDecimalNumber *) metersBetweenA:(LjsLocation *) a
+                                   b:(LjsLocation *) b {
+  return [self metersBetweenA:a
+                            b:b
+                        scale:LjsLocationManagerLocationScale];
 }
 
 
-- (NSDecimalNumber *) dnMetersBetweenA:(LjsLocation) a
-                                     b:(LjsLocation) b
-                                 scale:(NSUInteger) aScale {
-  NSDecimalNumber *result = [LjsDn dnWithFloat:[self metersBetweenA:a b:b]];
-  return [result dnByRoundingWithScale:aScale];
-}
 
-- (CGFloat) kilometersBetweenA:(LjsLocation) a
-                             b:(LjsLocation) b {
-  return [self metersBetweenA:a b:b] / 1000.0;
-}
-
-- (NSDecimalNumber *) dnKilometersBetweenA:(LjsLocation) a
-                                         b:(LjsLocation) b {
-  
-  return [self dnKilometersBetweenA:a b:b scale:LjsLocationManagerLocationScale];
-}
-
-- (NSDecimalNumber *) dnKilometersBetweenA:(LjsLocation) a
-                                        b:(LjsLocation) b
-                                    scale:(NSUInteger) aScale {
-  return [[LjsDn dnWithFloat:[self kilometersBetweenA:a b:b]] 
-          dnByRoundingWithScale:aScale];
-}
-
-- (CGFloat) feetBetweenA:(LjsLocation) a
-                       b:(LjsLocation) b {
-  return [self metersBetweenA:a b:b] * 3.2808399;
-}
-
-- (NSDecimalNumber *) dnFeetBetweenA:(LjsLocation) a
-                                   b:(LjsLocation) b {
-  return [self dnFeetBetweenA:a b:b scale:LjsLocationManagerLocationScale];
-}
-
-- (NSDecimalNumber *) dnFeetBetweenA:(LjsLocation) a
-                                   b:(LjsLocation) b
+- (NSDecimalNumber *) metersBetweenA:(LjsLocation *) a
+                                   b:(LjsLocation *) b
                                scale:(NSUInteger) aScale {
-  return [[LjsDn dnWithFloat:[self feetBetweenA:a b:b]]
-          dnByRoundingWithScale:aScale];
+  CLLocation *lA = [[CLLocation alloc] initWithLatitude:[a.latitude doubleValue]
+                                              longitude:[a.longitude doubleValue]];
+  CLLocation *lB = [[CLLocation alloc] initWithLatitude:[b.latitude doubleValue]
+                                              longitude:[b.longitude doubleValue]];
+  return [[LjsDn dnWithDouble:[lA distanceFromLocation:lB]] dnByRoundingWithScale:aScale];
+
 }
 
-- (CGFloat) milesBetweenA:(LjsLocation) a
-                        b:(LjsLocation) b {
-  return [self metersBetweenA:a b:b] /  1609.344;
+- (NSDecimalNumber *) kilometersBetweenA:(LjsLocation *) a
+                                       b:(LjsLocation *) b {
+  return [self kilometersBetweenA:a b:b scale:LjsLocationManagerLocationScale];
 }
 
-- (NSDecimalNumber *) dnMilesBetweenA:(LjsLocation) a
-                                    b:(LjsLocation) b {
-  return [self dnMilesBetweenA:a b:b scale:LjsLocationManagerLocationScale];
+- (NSDecimalNumber *) kilometersBetweenA:(LjsLocation *) a
+                                       b:(LjsLocation *) b
+                                   scale:(NSUInteger) aScale {
+  NSDecimalNumber *meters = [self metersBetweenA:a b:b scale:aScale];
+  return [meters decimalNumberByDividingBy:[LjsDn dnWithString:@"1000"]];
 }
 
-- (NSDecimalNumber *) dnMilesBetweenA:(LjsLocation) a
-                                    b:(LjsLocation) b
+
+- (NSDecimalNumber *) feetBetweenA:(LjsLocation *) a
+                                 b:(LjsLocation *) b {
+  return [self feetBetweenA:a b:b scale:LjsLocationManagerLocationScale];
+}
+
+- (NSDecimalNumber *) feetBetweenA:(LjsLocation *) a
+                                 b:(LjsLocation *) b
+                             scale:(NSUInteger) aScale {
+  NSDecimalNumber *meters = [self metersBetweenA:a b:b scale:aScale];
+  return [meters decimalNumberByMultiplyingBy:[LjsDn dnWithString:@"3.2808399"]];
+}
+
+- (NSDecimalNumber *) milesBetweenA:(LjsLocation *) a
+                                    b:(LjsLocation *) b {
+  return [self milesBetweenA:a b:b scale:LjsLocationManagerLocationScale];
+}
+
+- (NSDecimalNumber *) milesBetweenA:(LjsLocation *) a
+                                    b:(LjsLocation *) b
                                 scale:(NSUInteger) aScale {
-  return [[LjsDn dnWithFloat:[self milesBetweenA:a b:b]]
-          dnByRoundingWithScale:aScale];
+  NSDecimalNumber *meters = [self metersBetweenA:a b:b scale:aScale];
+  return [meters decimalNumberByDividingBy:[LjsDn dnWithString:@"1609.344"]];
 }
 
 
-- (CLLocation *) clLocationWithLocation:(LjsLocation) aLocation {
-  CLLocation *result = nil;
-  if ([LjsLocationManager isValidLocation:aLocation]) {
-    result = [[CLLocation alloc] initWithLatitude:aLocation.latitude
-                                        longitude:aLocation.longitude];
-  }
-  return result;
-}
 
-
-- (LjsLocation) locationWithClLocation:(CLLocation *) aLocation {
-  if (aLocation == nil) {
-    return LjsLocationNotFound;
-  }
-  
-  LjsLocation location = LjslocationMake(aLocation.coordinate.latitude,
-                                         aLocation.coordinate.longitude);
-  if ([LjsLocationManager isValidLocation:location] == NO) {
-    location = LjsLocationNotFound;
-  }
-  return location;
-}
 
 #pragma mark Reverse Geocoding 
 
-- (void) detailsForLocation:(LjsLocation) aLocation {
+- (void) detailsForLocation:(LjsLocation *) aLocation {
 #if TARGET_OS_IPHONE
   Class clgeocoder = NSClassFromString(@"CLGeocoder");
   if (clgeocoder != nil) {
-    CLLocation *loc = [self clLocationWithLocation:aLocation];
+    CLLocation *loc =  [aLocation coreLocation];
     if (loc != nil) {
       CLGeocoder *coder = [[CLGeocoder alloc] init];
       [coder reverseGeocodeLocation:loc completionHandler:^(NSArray *placemarks, NSError *error) {
         if ([placemarks count] > 0) {
           NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-          [userInfo setObject:NSStringFromLjsLocation(aLocation) forKey:@"sourceLocation"];
+          [userInfo setObject:aLocation forKey:@"sourceLocation"];
           CLPlacemark *mark = [placemarks nth:0];
-          LjsLocation foundLoc = [self locationWithClLocation:[mark location]];
-          if ([LjsLocationManager isValidLocation:foundLoc]) {
-            [userInfo setObject:NSStringFromLjsLocation(foundLoc) forKey:@"foundLocation"];
-          }
+
+          LjsLocation *foundLoc =  [[LjsLocation alloc]
+                                            initWithCoreLocation:[mark location]];
+          [userInfo setObject:foundLoc forKey:@"foundLocation"];
           NSString *obj;
           if ((obj = mark.name) != nil) [userInfo setObject:obj forKey:@"name"];
           if ((obj = mark.ISOcountryCode) != nil) [userInfo setObject:obj forKey:@"ISOcountryCode"];
@@ -567,17 +554,6 @@ LjsLocation LjsLocationFromString(NSString *aString) {
 #endif
 }
 
-
-
-
-//
-//- (void) reverseGeocoder:(MKReverseGeocoder *) didFailWithError:(NSError *) error {
-//  
-//}
-//
-//- (void) reverseGeocoder:(MKReverseGeocoder *) didFindPlacemark:(CLPlacemark *) aPlacemark {
-//  
-//}
 
 
 

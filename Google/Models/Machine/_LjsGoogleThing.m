@@ -43,10 +43,6 @@ const struct LjsGoogleThingFetchedProperties LjsGoogleThingFetchedProperties = {
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"orderValueNumberValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"orderValueNumber"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-	}
 
 	return keyPaths;
 }
@@ -77,25 +73,6 @@ const struct LjsGoogleThingFetchedProperties LjsGoogleThingFetchedProperties = {
 
 @dynamic orderValueNumber;
 
-
-
-- (double)orderValueNumberValue {
-	NSNumber *result = [self orderValueNumber];
-	return [result doubleValue];
-}
-
-- (void)setOrderValueNumberValue:(double)value_ {
-	[self setOrderValueNumber:[NSNumber numberWithDouble:value_]];
-}
-
-- (double)primitiveOrderValueNumberValue {
-	NSNumber *result = [self primitiveOrderValueNumber];
-	return [result doubleValue];
-}
-
-- (void)setPrimitiveOrderValueNumberValue:(double)value_ {
-	[self setPrimitiveOrderValueNumber:[NSNumber numberWithDouble:value_]];
-}
 
 
 

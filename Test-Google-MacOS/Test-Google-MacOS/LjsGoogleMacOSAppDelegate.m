@@ -56,8 +56,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
              initWithApiToken:apiKey];
   
   LjsLocationManager *lm = [[LjsLocationManager alloc] init];
-  LjsLocation location = [lm location];
-  
+  LjsLocation *location = [lm location];
+//  
   [self.rm executeHttpReverseGeocodeRequestForLocation:location
                                   locationIsFromSensor:YES];
 
@@ -73,7 +73,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   
   self.manager = [[LjsGooglePlacesManager alloc] initWithLocationManager:lm];
   
-  LjsLocation location = [lm location];
+  LjsLocation *location = [lm location];
   
   NSMutableArray *strings = [NSMutableArray array]; 
   //                   
@@ -126,10 +126,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     sorted = [self.manager predicationsWithOptions:options];  
     
     
-    DDLogDebug(@"location = %@", NSStringFromLjsLocation(location));
+    DDLogDebug(@"location = %@", location);
     DDLogDebug(@"==============  %@ ==========================", searchString);
     for (LjsGooglePlace *place in sorted) {
-      NSDecimalNumber *km = [lm dnKilometersBetweenA:[place location] b:location];
+      NSDecimalNumber *km = [lm kilometersBetweenA:[place location] b:location];
       DDLogDebug(@"%@ ==> %@", km, place);
     }
   }

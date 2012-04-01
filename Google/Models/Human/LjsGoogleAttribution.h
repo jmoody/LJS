@@ -13,11 +13,3 @@
 @end
 
 
-
-//@interface LjsGoogleAttribution (CoreDataGeneratedAccessors)
-//
-//- (void)addPlacesObject:(NSManagedObject *)value;
-//- (void)removePlacesObject:(NSManagedObject *)value;
-//- (void)addPlaces:(NSSet *)values;
-//- (void)removePlaces:(NSSet *)values;
-//@end

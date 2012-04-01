@@ -57,8 +57,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (NSDictionary *) dictionaryForRequiredAutocompleteWithInput:(NSString *) aInput
                                                        sensor:(BOOL) aSensor;
 
-- (NSDictionary *) dictionaryForOptionalAutocompletWithLatitude:(CGFloat) aLatitude
-                                                      longitude:(CGFloat) aLongitude
+- (NSDictionary *) dictionaryForOptionalAutocompletWithLatitude:(NSDecimalNumber *) aLatitude
+                                                      longitude:(NSDecimalNumber *) aLongitude
                                                          radius:(CGFloat) aRadius
                                               languageCodeOrNil:(NSString *) aLangCode
                                             establishmentSearch:(BOOL) aIsAnEstablishmentSearch;
@@ -110,8 +110,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
           nil];
 }
 
-- (NSDictionary *) dictionaryForOptionalAutocompletWithLatitude:(CGFloat) aLatitude
-                                                      longitude:(CGFloat) aLongitude
+- (NSDictionary *) dictionaryForOptionalAutocompletWithLatitude:(NSDecimalNumber *) aLatitude
+                                                      longitude:(NSDecimalNumber *) aLongitude
                                                          radius:(CGFloat) aRadius
                                               languageCodeOrNil:(NSString *) aLangCode
                                             establishmentSearch:(BOOL) aIsAnEstablishmentSearch {
@@ -121,7 +121,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   } else {
     type = @"geocode";
   }
-  NSString *location = [NSString stringWithFormat:@"%f,%f", 
+  NSString *location = [NSString stringWithFormat:@"%@,%@", 
                         aLatitude, aLongitude];
   NSString *radius = [NSString stringWithFormat:@"%f", aRadius];
   
@@ -143,8 +143,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (ASIHTTPRequest *) requestForAutocompleteWithInput:(NSString *) aInput
-                                            latitude:(CGFloat) aLatitude
-                                           longitude:(CGFloat) aLongitude
+                                            latitude:(NSDecimalNumber *) aLatitude
+                                           longitude:(NSDecimalNumber *) aLongitude
                                               radius:(CGFloat) aRadius
                                    languageCodeOrNil:(NSString *) aLangCode
                                        establishment:(BOOL) aIsAnEstablishmentRequest {
@@ -198,11 +198,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 
-- (ASIHTTPRequest *) requestForReverseGeocodeWithLocation:(LjsLocation) aLocation
+- (ASIHTTPRequest *) requestForReverseGeocodeWithLocation:(LjsLocation *) aLocation
                                      locationIsFromSensor:(BOOL) aLocIsFromSensor {
   
   NSString *sensor = [self stringForSensor:aLocIsFromSensor];
-  NSString *latlong = [NSString stringWithFormat:@"%f,%f",
+  NSString *latlong = [NSString stringWithFormat:@"%@,%@",
                        aLocation.latitude, aLocation.longitude];
   NSDictionary *paramDict = [NSDictionary dictionaryWithObjectsAndKeys:
                              sensor, @"sensor",

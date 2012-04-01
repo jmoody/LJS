@@ -1,48 +1,42 @@
 #import "LjsGoogleThing.h"
 #import "LjsGoogleLocation.h"
+#import "LjsLocationManager.h"
 
 @implementation LjsGoogleThing
 
 
-- (CGFloat) orderValue {
-  return [self.orderValueNumber doubleValue];
-}
-
-- (void) setOrderValue:(CGFloat) aValue {
-  self.orderValueNumber = [NSNumber numberWithDouble:aValue];
-}
-
-- (LjsLocation) location {
-  return [self.locationEnity location];
-}
-
 - (NSString *) latitudeStringWithScale:(NSUInteger) aScale {
-  return [[self latitudeDnWithScale:aScale] stringValue];
+  return [[self latitudeWithScale:aScale] stringValue];
 }
 
 - (NSString *) longitudeStringWithScale:(NSUInteger) aScale {
-  return [[self longitudeDnWithScale:aScale] stringValue];
+  return [[self longitudeWithScale:aScale] stringValue];
 }
 
-- (NSDecimalNumber *) latitudeDnWithScale:(NSUInteger) aScale {
-  return [self.locationEnity latitudeDnWithScale:aScale];
+- (NSDecimalNumber *) latitudeWithScale:(NSUInteger) aScale {
+  return [self.locationEnity latitudeWithScale:aScale];
 }
 
-- (NSDecimalNumber *) longitudeDnWithScale:(NSUInteger) aScale {
-  return [self.locationEnity longitudeDnWithScale:aScale];
+- (NSDecimalNumber *) longitudeWithScale:(NSUInteger) aScale {
+  return [self.locationEnity longitudeWithScale:aScale];
 }
 
-- (NSDecimalNumber *) latitudeDN {
-  return [self.locationEnity latitudeDN];
+- (NSDecimalNumber *) latitude {
+  return [self.locationEnity latitude];
 }
 
-- (NSDecimalNumber *) longitudeDN {
-  return [self.locationEnity longitudeDN];
+- (NSDecimalNumber *) longitude {
+  return [self.locationEnity longitude];
 }
 
 - (NSString *) locationString {
   return [self.locationEnity locationString];
 }
 
+- (LjsLocation *) location {
+  return [[LjsLocation alloc]
+          initWithLatitude:self.locationEnity.latitude
+          longitude:self.locationEnity.longitude];
+}
 
 @end

@@ -38,6 +38,8 @@
 #import "NSMutableArray+LjsAdditions.h"
 #import "LjsGooglePlacesNmoAttribution.h"
 #import "LjsGoogleImporter.h"
+#import "LjsDn.h"
+#import "NSDecimalNumber+LjsAdditions.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -86,41 +88,17 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     self.icon = [aDictionary objectForKey:@"icon"];
     NSNumber *ratingNum = [aDictionary objectForKey:@"rating"];
     if (ratingNum == nil) {
-      rating = LjsGoogleFloatNotFound;
+      rating = [LjsDn dnWithFloat:LjsGoogleFloatNotFound];
     } else {
-      rating = [ratingNum doubleValue];
+      rating = [LjsDn dnWithNumber:ratingNum];
     }
     
     self.importer = [[LjsGoogleImporter alloc] init];
     
-    self.location = [self.importer pointForLocationWithDictionary:aDictionary];
-    
-//    NSDictionary *geometry = [aDictionary objectForKey:@"geometry"];
-//    if (geometry == nil) {
-//      self.location = CGPointMake(LjsLocationDegreesNotFound, LjsLocationDegreesNotFound);
-//    } else {
-//      NSDictionary *locDict = [geometry objectForKey:@"location"];
-//      if (locDict == nil) {
-//        location = CGPointMake(LjsLocationDegreesNotFound, LjsLocationDegreesNotFound);
-//      } else {
-//        NSNumber *latNum = [locDict objectForKey:@"lat"];
-//        NSNumber *longNum = [locDict objectForKey:@"lng"];
-//        self.location = CGPointMake([latNum doubleValue], [longNum doubleValue]);
-//      }
-//    }
-    
+    self.location = [self.importer locationWithDictionary:aDictionary];
+  
     self.addressComponents = [self.importer addressComponentsWithDictionary:aDictionary];
-//    
-//    NSArray *components = [aDictionary objectForKey:@"address_components"];
-//    NSMutableArray *marray = [NSMutableArray arrayWithCapacity:[components count]];
-//    LjsGoogleNmoAddressComponent *comp;
-//    for (NSDictionary *compDict in components) {
-//      comp = [[LjsGoogleNmoAddressComponent alloc]
-//              initWithDictionary:compDict];
-//      [marray nappend:comp];
-//    }
-//    self.addressComponents = [NSArray arrayWithArray:marray];
-    
+
     NSArray *html = [aDictionary objectForKey:@"html_attributions"];
     NSMutableArray *marray = [NSMutableArray arrayWithCapacity:[html count]];
     for (NSString *str in html) {

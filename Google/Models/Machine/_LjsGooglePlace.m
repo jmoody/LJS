@@ -7,11 +7,9 @@ const struct LjsGooglePlaceAttributes LjsGooglePlaceAttributes = {
 	.formattedPhone = @"formattedPhone",
 	.iconUrl = @"iconUrl",
 	.internationalPhone = @"internationalPhone",
-	.latitudeNumber = @"latitudeNumber",
-	.longitudeNumber = @"longitudeNumber",
 	.mapUrl = @"mapUrl",
 	.name = @"name",
-	.ratingNumber = @"ratingNumber",
+	.rating = @"rating",
 	.referenceId = @"referenceId",
 	.stableId = @"stableId",
 	.vicinity = @"vicinity",
@@ -53,18 +51,6 @@ const struct LjsGooglePlaceFetchedProperties LjsGooglePlaceFetchedProperties = {
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"latitudeNumberValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"latitudeNumber"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-	}
-	if ([key isEqualToString:@"longitudeNumberValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"longitudeNumber"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-	}
-	if ([key isEqualToString:@"ratingNumberValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"ratingNumber"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-	}
 
 	return keyPaths;
 }
@@ -93,58 +79,6 @@ const struct LjsGooglePlaceFetchedProperties LjsGooglePlaceFetchedProperties = {
 
 
 
-@dynamic latitudeNumber;
-
-
-
-- (double)latitudeNumberValue {
-	NSNumber *result = [self latitudeNumber];
-	return [result doubleValue];
-}
-
-- (void)setLatitudeNumberValue:(double)value_ {
-	[self setLatitudeNumber:[NSNumber numberWithDouble:value_]];
-}
-
-- (double)primitiveLatitudeNumberValue {
-	NSNumber *result = [self primitiveLatitudeNumber];
-	return [result doubleValue];
-}
-
-- (void)setPrimitiveLatitudeNumberValue:(double)value_ {
-	[self setPrimitiveLatitudeNumber:[NSNumber numberWithDouble:value_]];
-}
-
-
-
-
-
-@dynamic longitudeNumber;
-
-
-
-- (double)longitudeNumberValue {
-	NSNumber *result = [self longitudeNumber];
-	return [result doubleValue];
-}
-
-- (void)setLongitudeNumberValue:(double)value_ {
-	[self setLongitudeNumber:[NSNumber numberWithDouble:value_]];
-}
-
-- (double)primitiveLongitudeNumberValue {
-	NSNumber *result = [self primitiveLongitudeNumber];
-	return [result doubleValue];
-}
-
-- (void)setPrimitiveLongitudeNumberValue:(double)value_ {
-	[self setPrimitiveLongitudeNumber:[NSNumber numberWithDouble:value_]];
-}
-
-
-
-
-
 @dynamic mapUrl;
 
 
@@ -159,27 +93,8 @@ const struct LjsGooglePlaceFetchedProperties LjsGooglePlaceFetchedProperties = {
 
 
 
-@dynamic ratingNumber;
+@dynamic rating;
 
-
-
-- (double)ratingNumberValue {
-	NSNumber *result = [self ratingNumber];
-	return [result doubleValue];
-}
-
-- (void)setRatingNumberValue:(double)value_ {
-	[self setRatingNumber:[NSNumber numberWithDouble:value_]];
-}
-
-- (double)primitiveRatingNumberValue {
-	NSNumber *result = [self primitiveRatingNumber];
-	return [result doubleValue];
-}
-
-- (void)setPrimitiveRatingNumberValue:(double)value_ {
-	[self setPrimitiveRatingNumber:[NSNumber numberWithDouble:value_]];
-}
 
 
 

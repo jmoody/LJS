@@ -41,6 +41,7 @@
 - (BOOL) gte:(NSDecimalNumber *) other;
 - (BOOL) isOnIntervalWithMin:(NSDecimalNumber *) aMin
                          max:(NSDecimalNumber *) aMax;
+- (BOOL) isNan;
 
 - (NSDecimalNumber *) dnByRoundingWithHandler:(NSDecimalNumberHandler *) aHandler;
 - (NSDecimalNumber *) dnByRoundingWithScale:(NSUInteger) aScale;

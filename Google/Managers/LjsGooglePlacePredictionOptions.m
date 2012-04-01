@@ -201,7 +201,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   //DDLogDebug(@"deallocating %@", [self class]);
 }
 
-- (id) initWithLocation:(LjsLocation) aLocation
+- (id) initWithLocation:(LjsLocation *) aLocation
               predicate:(NSPredicate *) aPredicate
                   limit:(NSUInteger) aLimit
             sortOptions:(LjsGpPredictionSortOptions *) aSortOptions

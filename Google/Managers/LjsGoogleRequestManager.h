@@ -60,7 +60,7 @@
 /** @name Utility */
 - (void) executeHttpPredictionRequestWithInput:(NSString *) aInput
                                         radius:(CGFloat) aRadius
-                                      location:(LjsLocation) aLocation
+                                      location:(LjsLocation *) aLocation
                                  languageOrNil:(NSString *) aLangCode
                           establishmentRequest:(BOOL) aIsAnEstablishmentRequest;
 
@@ -68,7 +68,7 @@
                                           language:(NSString *) aLangCode;
 
 /** @name Utility */
-- (void) executeHttpReverseGeocodeRequestForLocation:(LjsLocation) aLocation
+- (void) executeHttpReverseGeocodeRequestForLocation:(LjsLocation *) aLocation
                                 locationIsFromSensor:(BOOL) aLocIsFromSensor;
 
 @end

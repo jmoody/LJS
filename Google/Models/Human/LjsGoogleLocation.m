@@ -5,66 +5,54 @@
 
 @implementation LjsGoogleLocation
 
-+ (LjsGoogleLocation *) initWithPoint:(CGPoint) aPoint
-                                 type:(NSString *) aType
-                                thing:(LjsGoogleThing *) aThing
-                              context:(NSManagedObjectContext *) aContext {
++ (LjsGoogleLocation *) initWithLocation:(LjsLocation *)aLocation
+                                    type:(NSString *) aType
+                                   thing:(LjsGoogleThing *) aThing
+                                 context:(NSManagedObjectContext *) aContext {
   
   LjsGoogleLocation *location = [LjsGoogleLocation insertInManagedObjectContext:aContext];
-  [location setLatitude:aPoint.x];
-  [location setLongitude:aPoint.y];
+  location.latitude = aLocation.latitude;
+  location.longitude = aLocation.longitude;
+  
+  location.latitude100km = [location latitudeWithScale:0];
+  location.latitude10km = [location latitudeWithScale:1];
+  location.latitude1km = [location latitudeWithScale:2];
+  location.latitude100m = [location latitudeWithScale:3];
+  location.latitude10m = [location latitudeWithScale:4];
+  location.latitude1m = [location latitudeWithScale:5];
+  
+  location.longitude100km = [location longitudeWithScale:0];
+  location.longitude10km = [location longitudeWithScale:1];
+  location.longitude1km = [location longitudeWithScale:2];
+  location.longitude100m = [location longitudeWithScale:3];
+  location.longitude10m = [location longitudeWithScale:4];
+  location.longitude1m = [location longitudeWithScale:5];
+
+
   location.type = aType;
   location.thing = aThing;
   return location;
 }
 
 
-- (CGFloat) latitude {
-  return [self.latitudeNumber doubleValue];
-}
-
-- (void) setLatitude:(CGFloat) aValue {
-  self.latitudeNumber = [NSNumber numberWithDouble:aValue];
-}
-
-- (CGFloat) longitude {
-  return [self.longitudeNumber doubleValue];
-}
-
-- (void) setLongitude:(CGFloat) aValue {
-  self.longitudeNumber = [NSNumber numberWithDouble:aValue];
-}
-
-- (LjsLocation) location {
-  return LjslocationMake([self latitude], [self longitude]);
-}
-
 - (NSString *) locationString {
-  return NSStringFromLjsLocation([self location]);
+  return [NSString stringWithFormat:@"(%@, %@)", self.latitude, self.longitude];
 }
 
 - (NSString *) latitudeStringWithScale:(NSUInteger) aScale {
-  return [[self latitudeDnWithScale:aScale] stringValue];
+  return [[self latitudeWithScale:aScale] stringValue];
 }
 
 - (NSString *) longitudeStringWithScale:(NSUInteger) aScale {
-  return [[self longitudeDnWithScale:aScale] stringValue];
+  return [[self longitudeWithScale:aScale] stringValue];
 }
 
-- (NSDecimalNumber *) latitudeDnWithScale:(NSUInteger) aScale {
-  return [[LjsDn dnWithNumber:self.latitudeNumber] dnByRoundingWithScale:aScale];
+- (NSDecimalNumber *) latitudeWithScale:(NSUInteger) aScale {
+  return [[LjsDn dnWithNumber:self.latitude] dnByRoundingWithScale:aScale];
 }
 
-- (NSDecimalNumber *) longitudeDnWithScale:(NSUInteger) aScale {
-  return [[LjsDn dnWithNumber:self.longitudeNumber] dnByRoundingWithScale:aScale];
-}
-
-- (NSDecimalNumber *) latitudeDN {
-  return [[LjsDn dnWithNumber:self.latitudeNumber] dnByRoundingAsLocation];
-}
-
-- (NSDecimalNumber *) longitudeDN {
-  return [[LjsDn dnWithNumber:self.longitudeNumber] dnByRoundingAsLocation];
+- (NSDecimalNumber *) longitudeWithScale:(NSUInteger) aScale {
+  return [[LjsDn dnWithNumber:self.longitude] dnByRoundingWithScale:aScale];
 }
 
 - (NSString *) description {

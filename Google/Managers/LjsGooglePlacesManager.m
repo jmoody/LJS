@@ -243,16 +243,16 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 
 
 
-
-
-
 #pragma mark Sorting 
 
 - (NSArray *) arrayBySortingPlaces:(NSArray *) aPlaces
-          withDistanceFromLatitude:(CGFloat)aLatitude 
-                        longitidue:(CGFloat)aLongitude
+          withDistanceFromLatitude:(NSDecimalNumber *) aLatitude
+                         longitude:(NSDecimalNumber *) aLongitude
                          ascending:(BOOL) aSortAscending {
-  LjsLocation loc = LjslocationMake(aLatitude, aLongitude);
+  LjsLocation * loc = [[LjsLocation alloc]
+                       initWithLatitude:aLatitude
+                       longitude:aLongitude];
+  
   return [self arrayBySortingPlaces:aPlaces
            withDistanceFromLocation:loc
                           ascending:aSortAscending];
@@ -261,17 +261,17 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 
 - (NSArray *) arrayBySortingPlaces:(NSArray *) aPlaces
                          ascending:(BOOL)aSortAscending {
-  LjsLocation current = [self.lm location];
+  LjsLocation * current = [self.lm location];
   return [self arrayBySortingPlaces:aPlaces
            withDistanceFromLocation:current
                           ascending:aSortAscending];
 }
 
 - (NSArray *) arrayBySortingPlaces:(NSArray *) aPlaces
-          withDistanceFromLocation:(LjsLocation)aLocation 
+          withDistanceFromLocation:(LjsLocation *)aLocation 
                          ascending:(BOOL)aSortAscending {
   if ([LjsLocationManager isValidLocation:aLocation] == NO) {
-    DDLogWarn(@"location must valid: %@", NSStringFromLjsLocation(aLocation));
+    DDLogWarn(@"location must valid: %@", aLocation);
     return nil;
   }
 
@@ -292,7 +292,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 
 - (NSArray *) arrayByFilteringPlaces:(NSArray *) aPlaces
                     withinKilometers:(CGFloat) aKilometers
-                          ofLocation:(LjsLocation) aLocation
+                          ofLocation:(LjsLocation *) aLocation
                         insideRadius:(BOOL) aInsideRadius {
   return [self arrayByFilteringPlaces:aPlaces
                          withinMeters:aKilometers * 1000
@@ -302,7 +302,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 
 - (NSArray *) arrayByFilteringPlaces:(NSArray *) aPlaces
                           withinFeet:(CGFloat) aFeet
-                          ofLocation:(LjsLocation) aLocation
+                          ofLocation:(LjsLocation *) aLocation
                         insideRadius:(BOOL) aInsideRadius {
   return [self arrayByFilteringPlaces:aPlaces
                          withinMeters:aFeet * 3.2808399
@@ -312,7 +312,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 
 - (NSArray *) arrayByFilteringPlaces:(NSArray *) aPlaces
                          withinMiles:(CGFloat) aMiles
-                          ofLocation:(LjsLocation) aLocation
+                          ofLocation:(LjsLocation *) aLocation
                         insideRadius:(BOOL) aInsideRadius {
   return [self arrayByFilteringPlaces:aPlaces
                           withinMiles:aMiles * 1609.344
@@ -323,17 +323,17 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 
 - (NSArray *) arrayByFilteringPlaces:(NSArray *) aPlaces
                         withinMeters:(CGFloat) aMeters
-                          ofLocation:(LjsLocation) aLocation 
+                          ofLocation:(LjsLocation *) aLocation 
                         insideRadius:(BOOL) aInsideRadius {
   if ([LjsLocationManager isValidLocation:aLocation] == NO) {
-    DDLogWarn(@"location must valid: %@", NSStringFromLjsLocation(aLocation));
+    DDLogWarn(@"location must valid: %@", aLocation);
     return nil;
   }
   NSDecimalNumber *targetDist = [[LjsDn dnWithFloat:aMeters] dnByRoundingAsLocation];
   NSPredicate *predicate;
   predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
     LjsGooglePlace *place = (LjsGooglePlace *) evaluatedObject;
-    NSDecimalNumber *distFrom = [self.distancer dnMetersBetweenPlace:place andLocation:aLocation];    
+    NSDecimalNumber *distFrom = [self.distancer metersBetweenPlace:place andLocation:aLocation];    
     return aInsideRadius ? [distFrom lte:targetDist] : [distFrom gte:targetDist];
   }];
   NSArray *result;

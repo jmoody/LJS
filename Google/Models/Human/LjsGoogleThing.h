@@ -1,20 +1,16 @@
 #import "_LjsGoogleThing.h"
-#import "LjsLocationManager.h"
+
+@class  LjsLocation;
 
 @interface LjsGoogleThing : _LjsGoogleThing {}
 
-
-- (CGFloat) orderValue;
-- (void) setOrderValue:(CGFloat) aValue;
-
-
 - (NSString *) latitudeStringWithScale:(NSUInteger) aScale;
 - (NSString *) longitudeStringWithScale:(NSUInteger) aScale;
-- (NSDecimalNumber *) latitudeDnWithScale:(NSUInteger) aScale;
-- (NSDecimalNumber *) longitudeDnWithScale:(NSUInteger) aScale;
-- (NSDecimalNumber *) latitudeDN;
-- (NSDecimalNumber *) longitudeDN;
-- (LjsLocation) location;
+- (NSDecimalNumber *) latitudeWithScale:(NSUInteger) aScale;
+- (NSDecimalNumber *) longitudeWithScale:(NSUInteger) aScale;
+- (NSDecimalNumber *) latitude;
+- (NSDecimalNumber *) longitude;
 - (NSString *) locationString;
+- (LjsLocation *) location;
 
 @end

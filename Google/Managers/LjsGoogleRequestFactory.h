@@ -49,8 +49,8 @@
 /** @name Utility */
 
 - (ASIHTTPRequest *) requestForAutocompleteWithInput:(NSString *) aInput
-                                            latitude:(CGFloat) aLatitude
-                                           longitude:(CGFloat) aLongitude
+                                            latitude:(NSDecimalNumber *) aLatitude
+                                           longitude:(NSDecimalNumber *) aLongitude
                                               radius:(CGFloat) aRadius
                                    languageCodeOrNil:(NSString *) aLangCode
                                        establishment:(BOOL) aIsAnEstablishmentRequest;
@@ -59,7 +59,7 @@
 - (ASIHTTPRequest *) requestForDetailsRequestForPrediction:(LjsGooglePlacesPrediction *) aPrediction
                                                   language:(NSString *)aLangCode;
 
-- (ASIHTTPRequest *) requestForReverseGeocodeWithLocation:(LjsLocation) aLocation
+- (ASIHTTPRequest *) requestForReverseGeocodeWithLocation:(LjsLocation *) aLocation
                                      locationIsFromSensor:(BOOL) aLocIsFromSensor;
 
 

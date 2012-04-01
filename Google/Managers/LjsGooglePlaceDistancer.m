@@ -5,6 +5,7 @@
 #import "LjsGooglePlaceDistancer.h"
 #import "Lumberjack.h"
 #import "LjsGooglePlace.h"
+#import "LjsLocationManager.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -34,49 +35,44 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return self;
 }
 
-- (CGFloat) metersBetweenPlace:(LjsGooglePlace *) aPlace 
-                   andLocation:(LjsLocation) aLocation {
+- (NSDecimalNumber *) metersBetweenPlace:(LjsGooglePlace *) aPlace 
+                             andLocation:(LjsLocation *) aLocation {
   return [self.lm metersBetweenA:[aPlace location]
                                b:aLocation];
 }
 
-- (NSDecimalNumber *) dnMetersBetweenPlace:(LjsGooglePlace *) aPlace
-                               andLocation:(LjsLocation) aLocation {
-  return [self.lm dnMetersBetweenA:[aPlace location] b:aLocation];
-}
 
-
-- (CGFloat) metersBetweenA:(LjsGooglePlace *) a
-                         b:(LjsGooglePlace *) b {
+- (NSDecimalNumber *) metersBetweenA:(LjsGooglePlace *) a
+                                   b:(LjsGooglePlace *) b {
   return [self.lm metersBetweenA:[a location]
                                b:[b location]];
 }
 
-- (CGFloat) kilometersBetweenA:(LjsGooglePlace *) a
-                             b:(LjsGooglePlace *) b {
+- (NSDecimalNumber *) kilometersBetweenA:(LjsGooglePlace *) a
+                                       b:(LjsGooglePlace *) b {
   return [self.lm kilometersBetweenA:[a location]
                                    b:[b location]];
 }
 
-- (CGFloat) feetBetweenA:(LjsGooglePlace *) a 
-                       b:(LjsGooglePlace *) b {
+- (NSDecimalNumber *) feetBetweenA:(LjsGooglePlace *) a 
+                                 b:(LjsGooglePlace *) b {
   return [self.lm feetBetweenA:[a location]
                              b:[b location]];
 }
 
-- (CGFloat) milesBetweenA:(LjsGooglePlace *) a
-                        b:(LjsGooglePlace *) b {
+- (NSDecimalNumber *) milesBetweenA:(LjsGooglePlace *) a
+                                  b:(LjsGooglePlace *) b {
   return [self.lm milesBetweenA:[a location]
                               b:[b location]];
 }
 
-- (NSComparisonResult) compareDistanceFrom:(LjsLocation) aLocation
+- (NSComparisonResult) compareDistanceFrom:(LjsLocation *) aLocation
                                        toA:(LjsGooglePlace *) a
                                        toB:(LjsGooglePlace *) b {
-  NSDecimalNumber *fromA = [self.lm dnMetersBetweenA:aLocation
-                                                      b:[a location]];
-  NSDecimalNumber *fromB = [self.lm dnMetersBetweenA:aLocation
-                                                   b:[b location]];
+  NSDecimalNumber *fromA = [self.lm metersBetweenA:aLocation
+                                                 b:[a location]];
+  NSDecimalNumber *fromB = [self.lm metersBetweenA:aLocation
+                                                 b:[b location]];
   
   return [fromA compare:fromB];
 

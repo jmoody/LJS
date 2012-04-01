@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
 
+@class LjsLocation;
+
 /**
  Documentation
  */
@@ -10,7 +12,7 @@
 @property (nonatomic, strong) NSArray *types;
 @property (nonatomic, copy) NSString *formattedAddress;
 @property (nonatomic, strong) NSArray *addressComponents;
-@property (nonatomic, assign) CGPoint location;
+@property (nonatomic, strong) LjsLocation *location;
 @property (nonatomic, copy) NSString *locationType;
 @property (nonatomic, strong) NSDictionary *viewport;
 @property (nonatomic, strong) NSDictionary *bounds;

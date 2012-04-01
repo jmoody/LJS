@@ -64,7 +64,7 @@ static NSString *LjsCurrentWeatherWindDegreeKey = @"winddirDegree";
 static NSString *LjsCurrentWeatherWindKmphKey = @"windspeedKmph";
 static NSString *LjsCurrentWeatherWindMphKey = @"windspeedMiles";
 
-static NSString *LjsCurrentWeatherUrlFormatString = @"http://free.worldweatheronline.com/feed/weather.ashx?q=%f,%f&format=json&num_of_days=1&key=%@";
+static NSString *LjsCurrentWeatherUrlFormatString = @"http://free.worldweatheronline.com/feed/weather.ashx?q=%@,%@&format=json&num_of_days=1&key=%@";
 static NSString *LjsCurrentWeatherApiKeyPlist = @"weather-api-key";
 static NSString *LjsCurrentWeatherApiKeyKey = @"free.worldweatheronline.com.LJS Key";
 
@@ -84,7 +84,7 @@ static NSString *LjsCurrentWeatherApiKeyKey = @"free.worldweatheronline.com.LJS 
    DDLogDebug(@"deallocating LjsCurrentWeather");
 }
 
-- (id) initWithLatitude:(CGFloat)aLatitude longitude:(CGFloat)aLongitude {
+- (id) initWithLatitude:(NSDecimalNumber *)aLatitude longitude:(NSDecimalNumber *)aLongitude {
   self = [super init];
   if (self != nil) {
     BOOL isValidLat = [LjsLocationManager isValidLatitude:aLatitude];

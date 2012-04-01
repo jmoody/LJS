@@ -76,7 +76,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 - (void) executeHttpPredictionRequestWithInput:(NSString *) aInput
                                         radius:(CGFloat) aRadius
-                                      location:(LjsLocation)aLocation 
+                                      location:(LjsLocation *)aLocation 
                                  languageOrNil:(NSString *) aLangCode
                           establishmentRequest:(BOOL) aIsAnEstablishmentRequest {
   ASIHTTPRequest *request;
@@ -171,11 +171,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 
-- (void) executeHttpReverseGeocodeRequestForLocation:(LjsLocation) aLocation
+- (void) executeHttpReverseGeocodeRequestForLocation:(LjsLocation *) aLocation
                                 locationIsFromSensor:(BOOL) aLocIsFromSensor {
   if ([LjsLocationManager isValidLocation:aLocation] == NO) {
-    DDLogError(@"location: %@ needs to be valid - nothing to do",
-               NSStringFromLjsLocation(aLocation));
+    DDLogError(@"location: %@ needs to be valid - nothing to do", aLocation);
+              
     return;
   }
   

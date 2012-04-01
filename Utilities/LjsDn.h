@@ -29,6 +29,17 @@
 
 #import <Foundation/Foundation.h>
 
+@interface LjsInterval : NSObject
+
+@property (nonatomic, strong) NSDecimalNumber *min;
+@property (nonatomic, strong) NSDecimalNumber *max;
+
+- (id) initWithMin:(NSDecimalNumber *) aMin
+               max:(NSDecimalNumber *) aMax;
+- (BOOL) intervalContains:(NSDecimalNumber *) aNumber;
+
+@end
+
 
 @interface LjsDn : NSObject
 
@@ -39,6 +50,11 @@
 + (NSDecimalNumber *) dnWithFloat:(CGFloat) aFloat;
 + (NSDecimalNumber *) dnWithString:(NSString *) aString;
 + (NSDecimalNumber *) dnWithNumber:(NSNumber *) aNumber;
++ (NSDecimalNumber *) nan;
++ (NSDecimalNumber *) one;
++ (NSDecimalNumber *) zero;
++ (NSDecimalNumber *) min;
++ (NSDecimalNumber *) max;
 
 /** @name NSDecimalNumber comparison */
 + (BOOL) dn:(NSDecimalNumber *) a e:(NSDecimalNumber *) b;
@@ -49,6 +65,8 @@
 + (BOOL) dn:(NSDecimalNumber *) a 
     isOnMin:(NSDecimalNumber *) min
         max:(NSDecimalNumber *) max;
+
++ (BOOL) dn:(NSDecimalNumber *) a isOnInterval:(LjsInterval *) aInterval;
 
 /** @name NSDecimalNumber rounding */
 + (NSDecimalNumber *) round:(NSDecimalNumber *) number 

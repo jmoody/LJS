@@ -61,12 +61,8 @@ extern const struct LjsGoogleThingFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber *orderValueNumber;
+@property (nonatomic, strong) NSDecimalNumber *orderValueNumber;
 
-
-@property double orderValueNumberValue;
-- (double)orderValueNumberValue;
-- (void)setOrderValueNumberValue:(double)value_;
 
 //- (BOOL)validateOrderValueNumber:(id*)value_ error:(NSError**)error_;
 
@@ -109,11 +105,8 @@ extern const struct LjsGoogleThingFetchedProperties {
 
 
 
-- (NSNumber *)primitiveOrderValueNumber;
-- (void)setPrimitiveOrderValueNumber:(NSNumber *)value;
-
-- (double)primitiveOrderValueNumberValue;
-- (void)setPrimitiveOrderValueNumberValue:(double)value_;
+- (NSDecimalNumber *)primitiveOrderValueNumber;
+- (void)setPrimitiveOrderValueNumber:(NSDecimalNumber *)value;
 
 
 

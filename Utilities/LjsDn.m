@@ -39,6 +39,27 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
 
+@implementation LjsInterval 
+
+@synthesize min;
+@synthesize max;
+
+- (id) initWithMin:(NSDecimalNumber *)aMin 
+               max:(NSDecimalNumber *)aMax {
+  self = [super init];
+  if (self) {
+    self.min = aMin;
+    self.max = aMax;
+  }
+  return self;
+}
+
+- (BOOL) intervalContains:(NSDecimalNumber *) aNumber {
+  return [LjsDn dn:aNumber isOnMin:self.min max:self.max];
+}
+
+@end
+
 /**
  NSDecimalNumber is a powerful tool for handling currency, statistics, and other
  floating point data.  The class name and the methods are, in my opinion, overly
@@ -51,6 +72,27 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  
  */
 @implementation LjsDn
+
+
++ (NSDecimalNumber *) nan {
+  return [NSDecimalNumber notANumber];
+}
++ (NSDecimalNumber *) one {
+  return [NSDecimalNumber one];
+}
+
++ (NSDecimalNumber *) zero {
+  return [NSDecimalNumber zero];
+}
+
+
++ (NSDecimalNumber *) min {
+  return [NSDecimalNumber minimumDecimalNumber];
+}
+
++ (NSDecimalNumber *) max {
+  return [NSDecimalNumber maximumDecimalNumber];
+}
 
 
 /**
@@ -153,6 +195,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     isOnMin:(NSDecimalNumber *) min
         max:(NSDecimalNumber *) max {
   return [LjsDn dn:a gte:min] && [LjsDn dn:a lte:max];
+}
+
++ (BOOL) dn:(NSDecimalNumber *) a isOnInterval:(LjsInterval *) aInterval {
+  return [aInterval intervalContains:a];
 }
 
 /**

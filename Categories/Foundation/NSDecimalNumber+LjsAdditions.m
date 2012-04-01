@@ -69,6 +69,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [LjsDn dn:self isOnMin:aMin max:aMax];
 }
 
+- (BOOL) isNan {
+  return [self compare:[LjsDn nan]] == NSOrderedSame;
+}
+
+
 - (NSDecimalNumber *) dnByRoundingWithHandler:(NSDecimalNumberHandler *) aHandler {
   return [LjsDn round:self withHandler:aHandler];
 }

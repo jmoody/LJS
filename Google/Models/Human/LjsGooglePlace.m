@@ -8,6 +8,7 @@
 #import "LjsGooglePlacesDetails.h"
 #import "LjsDn.h"
 #import "NSDecimalNumber+LjsAdditions.h"
+#import "LjsLocationManager.h"
 
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -25,6 +26,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   place = [LjsGooglePlace insertInManagedObjectContext:aContext];
   place.dateAdded = [NSDate date];
   place.dateModified = [NSDate LjsDateNotFound];
+  place.orderValueNumber = [NSDecimalNumber zero];
   
   place.formattedAddress = aDetails.formattedAddress;
   place.formattedPhone = aDetails.formattedPhoneNumber;
@@ -32,17 +34,17 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   place.internationalPhone = aDetails.internationalPhoneNumber;
 
 
-  CGPoint loc = aDetails.location;
   // sets the relationship
-  [LjsGoogleLocation initWithPoint:loc
-                              type:nil
-                             thing:place
-                           context:aContext];
+  [LjsGoogleLocation initWithLocation:aDetails.location
+                                 type:nil
+                                thing:place
+                              context:aContext];
   
 
   place.mapUrl = aDetails.mapUrl;
   place.name = aDetails.name;
-  [place setRating:aDetails.rating];
+  place.rating = aDetails.rating;
+  
   
   place.referenceId = aDetails.searchReferenceId;
   place.stableId = aDetails.stablePlaceId;
@@ -68,15 +70,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
   
   return place;
-}
-
-
-- (CGFloat) rating {
-  return [self.ratingNumber doubleValue];
-}
-
-- (void) setRating:(CGFloat) aValue {
-  self.ratingNumber = [NSNumber numberWithDouble:aValue];
 }
 
 - (NSString *) shortId {

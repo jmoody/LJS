@@ -44,7 +44,7 @@
 @interface LjsGooglePlacePredictionOptions : NSObject 
 
 /** @name Properties */
-@property (nonatomic, assign) LjsLocation location;
+@property (nonatomic, assign) LjsLocation *location;
 @property (nonatomic, strong) NSPredicate *predicate;
 @property (nonatomic, strong) LjsGpPredictionSortOptions *sortOptions;
 @property (nonatomic, strong) LjsGpPredictionGoogleOptions *googleOptions;
@@ -53,7 +53,7 @@
 
 /** @name Initializing Objects */
 
-- (id) initWithLocation:(LjsLocation) aLocation
+- (id) initWithLocation:(LjsLocation *) aLocation
               predicate:(NSPredicate *) aPredicate
                   limit:(NSUInteger) aLimit
             sortOptions:(LjsGpPredictionSortOptions *) aSortOptions

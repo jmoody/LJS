@@ -49,34 +49,42 @@
 
 
 
+#ifndef kLjsLocationServicesDebug
+#define kLjsLocationservicesDebug 1
+#endif
+
+#if LJS_LOCATION_SERVICES_DEBUG
+#define debugLocationServices(...) \
+if (kLjsLocationservicesDebug == 1) \
+{ \
+__VA_ARGS__ \
+}
+#else
+#define debugLocationServices(...)
+#endif
+
+
+
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
 
 extern NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable;
 
-struct LjsLocation {
-  CGFloat latitude;
-  CGFloat longitude;
-};
-typedef struct LjsLocation LjsLocation;
 
-static inline LjsLocation
-LjslocationMake(CGFloat lat, CGFloat lng)
-{
-  LjsLocation loc; loc.latitude = lat; loc.longitude = lng; return loc;
-}
+@interface LjsLocation : NSObject
+@property (nonatomic, strong) NSDecimalNumber *latitude;
+@property (nonatomic, strong) NSDecimalNumber *longitude;
 
-extern const LjsLocation LjsLocationNotFound;
-extern const CGPoint LjsLatitudeBounds;
-extern const CGPoint LjsLongitudeBounds;
-extern const CGPoint LjsHeadingBounds;
+- (id) initWithPoint:(CGPoint) aPoint;
+- (id) initWithLatitudeFloat:(CGFloat) aLatitude
+              longitudeFloat:(CGFloat) aLongitude;
+- (id) initWithLatitudeNumber:(NSNumber *) aLatitude
+              longitudeNumber:(NSNumber *) aLongitude;
+- (id) initWithLatitude:(NSDecimalNumber *) aLatitude
+              longitude:(NSDecimalNumber *) aLongitude;
 
-
-NSString *NSStringFromLjsLocation(LjsLocation aLocation);
-extern LjsLocation LjsLocationFromString(NSString *aString);
-
-extern CGFloat const LjsLocationDegreesNotFound;
+@end
 
 /**
  A singleton class wrapper around the Location Services.
@@ -135,19 +143,20 @@ extern CGFloat const LjsLocationDegreesNotFound;
  @return true iff aHeading is on (0.0, 360.0)
  @param aHeading the heading to check
  */
-+ (BOOL) isValidHeading:(CGFloat) aHeading;
++ (BOOL) isValidHeading:(NSDecimalNumber *) aHeading;
 
 /**
  @return true if aLatitude is on (-90.0, 90.0)
  @param aLatitude the latitude to check
  */
-+ (BOOL) isValidLatitude:(CGFloat) aLatitude;
++ (BOOL) isValidLatitude:(NSDecimalNumber *) aLatitude;
 
 /**
  @return true if aLongitude is on (-180.0, 180.0)
  @param aLongitude the longitude to check  
  */
-+ (BOOL) isValidLongitude:(CGFloat) aLongitude;
++ (BOOL) isValidLongitude:(NSDecimalNumber *) aLongitude;
+
 
 /**
  @return true iff heading is available
@@ -162,9 +171,7 @@ extern CGFloat const LjsLocationDegreesNotFound;
  location can be found then this method will return the longitude for 
  Zurich, CH
  */
-- (CGFloat) longitude;
-
-- (NSDecimalNumber *) longitudeDn;
+- (NSDecimalNumber *) longitude;
 
 /**
  @return the current latitude as a rounded NSDecimalNumber
@@ -172,9 +179,7 @@ extern CGFloat const LjsLocationDegreesNotFound;
  location can be found then this method will return the latitude for 
  Zurich, CH
  */
-- (CGFloat) latitude;
-
-- (NSDecimalNumber *) latitudeDn;
+- (NSDecimalNumber *) latitude;
 
 
 /**
@@ -183,57 +188,43 @@ extern CGFloat const LjsLocationDegreesNotFound;
  heading can be found then this method will return
  
  */
-- (CGFloat) trueHeading;
-
-- (NSDecimalNumber *) trueHeadingDn;
+- (NSDecimalNumber *) trueHeading;
 
 
-- (LjsLocation) location;
++ (BOOL) isValidLocation:(LjsLocation *) aLocation;
 
-+ (BOOL) isValidLocation:(LjsLocation) aLocation;
+- (LjsLocation *) location;
 
-- (CGFloat) metersBetweenA:(LjsLocation) a
-                         b:(LjsLocation) b;
+- (NSDecimalNumber *) metersBetweenA:(LjsLocation *) a
+                                   b:(LjsLocation *) b;
 
-- (NSDecimalNumber *) dnMetersBetweenA:(LjsLocation) a
-                                     b:(LjsLocation) b;
-
-- (NSDecimalNumber *) dnMetersBetweenA:(LjsLocation) a
-                                     b:(LjsLocation) b
-                                 scale:(NSUInteger) aScale;
-
-- (CGFloat) kilometersBetweenA:(LjsLocation) a
-                             b:(LjsLocation) b;
-
-- (NSDecimalNumber *) dnKilometersBetweenA:(LjsLocation) a
-                                     b:(LjsLocation) b;
-
-- (NSDecimalNumber *) dnKilometersBetweenA:(LjsLocation) a
-                                        b:(LjsLocation) b
-                                    scale:(NSUInteger) aScale;
-
-- (CGFloat) feetBetweenA:(LjsLocation) a
-                       b:(LjsLocation) b;
-
-- (NSDecimalNumber *) dnFeetBetweenA:(LjsLocation) a
-                                   b:(LjsLocation) b;
-
-- (NSDecimalNumber *) dnFeetBetweenA:(LjsLocation) a
-                                     b:(LjsLocation) b
+- (NSDecimalNumber *) metersBetweenA:(LjsLocation *) a
+                                   b:(LjsLocation *) b
                                scale:(NSUInteger) aScale;
 
-- (CGFloat) milesBetweenA:(LjsLocation) a
-                       b:(LjsLocation) b;
+- (NSDecimalNumber *) kilometersBetweenA:(LjsLocation *) a
+                                       b:(LjsLocation *) b;
 
-- (NSDecimalNumber *) dnMilesBetweenA:(LjsLocation) a
-                                   b:(LjsLocation) b;
+- (NSDecimalNumber *) kilometersBetweenA:(LjsLocation *) a
+                                       b:(LjsLocation *) b
+                                   scale:(NSUInteger) aScale;
 
-- (NSDecimalNumber *) dnMilesBetweenA:(LjsLocation) a
-                                   b:(LjsLocation) b
+- (NSDecimalNumber *) feetBetweenA:(LjsLocation *) a
+                                 b:(LjsLocation *) b;
+
+
+- (NSDecimalNumber *) feetBetweenA:(LjsLocation *) a
+                                 b:(LjsLocation *) b
+                             scale:(NSUInteger) aScale;
+
+- (NSDecimalNumber *) milesBetweenA:(LjsLocation *) a
+                                  b:(LjsLocation *) b;
+
+- (NSDecimalNumber *) milesBetweenA:(LjsLocation *) a
+                                   b:(LjsLocation *) b
                                scale:(NSUInteger) aScale;
 
-- (void) detailsForLocation:(LjsLocation) aLocation;
-- (CLLocation *) clLocationWithLocation:(LjsLocation) aLocation;
-- (LjsLocation) locationWithClLocation:(CLLocation *) aLocation;
+- (void) detailsForLocation:(LjsLocation *) aLocation;
+
 
 @end

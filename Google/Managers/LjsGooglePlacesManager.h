@@ -101,36 +101,36 @@ extern NSString *LjsGooglePlacesManagerNotificationNewPlacesAvailable;
 /** @name Sorting */
 
 - (NSArray *) arrayBySortingPlaces:(NSArray *) aPlaces
-          withDistanceFromLatitude:(CGFloat) aLatitude
-                        longitidue:(CGFloat) aLongitude
+          withDistanceFromLatitude:(NSDecimalNumber *) aLatitude
+                         longitude:(NSDecimalNumber *) aLongitude
                          ascending:(BOOL) aSortAscending;
 
 - (NSArray *) arrayBySortingPlaces:(NSArray *) aPlaces
                         ascending:(BOOL) aSortAscending;
 
 - (NSArray *) arrayBySortingPlaces:(NSArray *) aPlaces
-          withDistanceFromLocation:(LjsLocation) aLocation
+          withDistanceFromLocation:(LjsLocation *) aLocation
                          ascending:(BOOL)aSortAscending;
 
 /** @name filtering */
 - (NSArray *) arrayByFilteringPlaces:(NSArray *) aPlaces
                         withinMeters:(CGFloat) aMeters
-                          ofLocation:(LjsLocation) aLocation
+                          ofLocation:(LjsLocation *) aLocation
                         insideRadius:(BOOL) aInsideRadius;
 
 - (NSArray *) arrayByFilteringPlaces:(NSArray *) aPlaces
                     withinKilometers:(CGFloat) aKilometers
-                          ofLocation:(LjsLocation) aLocation
+                          ofLocation:(LjsLocation *) aLocation
                         insideRadius:(BOOL) aInsideRadius;
 
 - (NSArray *) arrayByFilteringPlaces:(NSArray *) aPlaces
                           withinFeet:(CGFloat) aFeet
-                          ofLocation:(LjsLocation) aLocation
+                          ofLocation:(LjsLocation *) aLocation
                         insideRadius:(BOOL) aInsideRadius;
 
 - (NSArray *) arrayByFilteringPlaces:(NSArray *) aPlaces
                          withinMiles:(CGFloat) aMiles
-                          ofLocation:(LjsLocation) aLocation
+                          ofLocation:(LjsLocation *) aLocation
                         insideRadius:(BOOL) aInsideRadius;
 
 

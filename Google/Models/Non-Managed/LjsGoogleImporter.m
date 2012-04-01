@@ -38,26 +38,30 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [NSArray arrayWithArray:marray];
 }
 
-- (CGPoint) pointForLocationWithDictionary:(NSDictionary *) aDictionary {
-  CGPoint location;
+- (LjsLocation *)  locationWithDictionary:(NSDictionary *) aDictionary {
+  LjsLocation *location = [[LjsLocation alloc] 
+                           initWithLatitude:[LjsDn nan]
+                           longitude:[LjsDn nan]];
+                                  
   NSDictionary *geometry = [aDictionary objectForKey:@"geometry"];
   if (geometry == nil) {
-    location = CGPointMake(LjsLocationDegreesNotFound, LjsLocationDegreesNotFound);
+    // nop
   } else {
     NSDictionary *locDict = [geometry objectForKey:@"location"];
     if (locDict == nil) {
-      location = CGPointMake(LjsLocationDegreesNotFound, LjsLocationDegreesNotFound);
+      // nop
     } else {
-      location = [self pointWithLatLonDictionary:locDict];
+      location = [self locationWithLatLonDictionary:locDict];
     }
   }
   return location;
 }
 
-- (CGPoint) pointWithLatLonDictionary:(NSDictionary *) aLatLonDict {
+- (LjsLocation *) locationWithLatLonDictionary:(NSDictionary *) aLatLonDict {
   NSNumber *latNum = [aLatLonDict objectForKey:@"lat"];
   NSNumber *longNum = [aLatLonDict objectForKey:@"lng"];
-  return CGPointMake([latNum doubleValue], [longNum doubleValue]);
+  return [[LjsLocation alloc] initWithLatitudeNumber:latNum 
+                                            longitudeNumber:longNum];
 }
 
 

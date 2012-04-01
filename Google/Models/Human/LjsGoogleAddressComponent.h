@@ -12,11 +12,3 @@
                                           context:(NSManagedObjectContext *) aContext;
 @end
 
-//@interface LjsGoogleAddressComponent (CoreDataGeneratedAccessors)
-//
-//- (void)addTypesObject:(LjsGoogleAddressComponentType *)value;
-//- (void)removeTypesObject:(LjsGoogleAddressComponentType *)value;
-//- (void)addTypes:(NSSet *)values;
-//- (void)removeTypes:(NSSet *)values;
-//
-//@end

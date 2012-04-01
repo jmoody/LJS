@@ -43,7 +43,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     self.types = [aDictionary objectForKey:@"types"];
     self.formattedAddress = [aDictionary objectForKey:@"formatted_address"];
     self.addressComponents = [self.importer addressComponentsWithDictionary:aDictionary];
-    self.location = [self.importer pointForLocationWithDictionary:aDictionary];
+    self.location = [self.importer locationWithDictionary:aDictionary];
     NSDictionary *geometry = [aDictionary objectForKey:@"geometry"];
     self.locationType = [geometry objectForKey:@"location_type"];
     NSDictionary *vpd = [geometry objectForKey:@"viewport"];
@@ -62,12 +62,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 - (NSDictionary *) viewportOrBoundsWithDictionary:(NSDictionary *) aDictionary {
   NSDictionary *sw = [aDictionary objectForKey:@"southwest"];
-  CGPoint swp = [self.importer pointWithLatLonDictionary:sw];
+  LjsLocation *swp = [self.importer locationWithLatLonDictionary:sw];
   NSDictionary *nw = [aDictionary objectForKey:@"northeast"];
-  CGPoint nep = [self.importer pointWithLatLonDictionary:nw];
-  NSArray *points = [NSArray arrayWithObjects:
-                     NSStringFromPoint(swp),
-                     NSStringFromPoint(nep), nil];
+  LjsLocation *nep = [self.importer locationWithLatLonDictionary:nw];
+  NSArray *points = [NSArray arrayWithObjects:swp, nep, nil];
   NSArray *keys = [NSArray arrayWithObjects:
                    @"southwest", @"northeast", nil];
   
@@ -77,7 +75,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 - (NSString *) description {
   return [NSString stringWithFormat:@"<Reverse Geo Reply: %@ : %@ - has bounds: %d>",
-          self.formattedAddress, NSStringFromPoint(self.location), 
+          self.formattedAddress, self.location, 
           self.bounds != nil];
 }
 

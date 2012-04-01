@@ -12,11 +12,4 @@
 
 @end
 
-//@interface LjsGoogleAddressComponentType (CoreDataGeneratedAccessors)
-//
-//- (void)addComponentsObject:(LjsGoogleAddressComponent *)value;
-//- (void)removeComponentsObject:(LjsGoogleAddressComponent *)value;
-//- (void)addComponents:(NSSet *)values;
-//- (void)removeComponents:(NSSet *)values;
-//
-//@end
+

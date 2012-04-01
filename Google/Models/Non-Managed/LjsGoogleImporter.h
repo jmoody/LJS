@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 
+@class LjsLocation;
 /**
  Documentation
  */
@@ -13,7 +14,7 @@
 
 /** @name Utility */
 - (NSArray *) addressComponentsWithDictionary:(NSDictionary *) aDictionary;
-- (CGPoint) pointForLocationWithDictionary:(NSDictionary *) aDictionary;
-- (CGPoint) pointWithLatLonDictionary:(NSDictionary *) aLatLonDict;
+- (LjsLocation *) locationWithDictionary:(NSDictionary *) aDictionary;
+- (LjsLocation *) locationWithLatLonDictionary:(NSDictionary *) aLatLonDict;
 
 @end

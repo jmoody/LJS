@@ -30,6 +30,7 @@
 #import <Foundation/Foundation.h>
 #import "LjsGoogleNmoPlace.h"
 
+@class LjsLocation;
 /**
  Documentation
  */
@@ -40,8 +41,8 @@
 @property (nonatomic, copy) NSString *formattedAddress;
 @property (nonatomic, copy) NSString *formattedPhoneNumber;
 @property (nonatomic, copy) NSString *internationalPhoneNumber;
-@property (nonatomic, assign) CGPoint location;
-@property (nonatomic, assign) CGFloat rating;
+@property (nonatomic, strong) LjsLocation *location;
+@property (nonatomic, strong) NSDecimalNumber *rating;
 @property (nonatomic, copy) NSString *icon;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *mapUrl;
