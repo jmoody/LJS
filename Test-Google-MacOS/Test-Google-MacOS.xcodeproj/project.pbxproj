@@ -1271,7 +1271,7 @@
 				F50F2904152868C100DD67D1 /* LjsGoogleModel-v2-refactor.xcdatamodel */,
 				F58EDE9D1528525D009BE6D6 /* LjsGoogleModel.xcdatamodel */,
 			);
-			currentVersion = F58EDE9D1528525D009BE6D6 /* LjsGoogleModel.xcdatamodel */;
+			currentVersion = F50F2904152868C100DD67D1 /* LjsGoogleModel-v2-refactor.xcdatamodel */;
 			path = LjsGoogleModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
