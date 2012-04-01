@@ -10,12 +10,4 @@
                                         place:(LjsGooglePlace *) aPlace
                                       context:(NSManagedObjectContext *) aContext;
 @end
-//
-//@interface LjsGooglePlaceType (CoreDataGeneratedAccessors)
-//
-//- (void)addPlacesObject:(LjsGooglePlace *)value;
-//- (void)removePlacesObject:(LjsGooglePlace *)value;
-//- (void)addPlaces:(NSSet *)values;
-//- (void)removePlaces:(NSSet *)values;
-//
-//@end
+
