@@ -199,7 +199,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 
 - (ASIHTTPRequest *) requestForReverseGeocodeWithLocation:(LjsLocation *) aLocation
-                                     locationIsFromSensor:(BOOL) aLocIsFromSensor {
+                                     locationIsFromSensor:(BOOL) aLocIsFromSensor
+                                   shouldPostNotification:(BOOL) aShouldPostNofitication {
   
   NSString *sensor = [self stringForSensor:aLocIsFromSensor];
   NSString *latlong = [NSString stringWithFormat:@"%@,%@",
@@ -215,9 +216,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   ASIHTTPRequest *request = [[ASIHTTPRequest alloc]
                              initWithURL:url];
   
+  NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:paramDict];
+  [userInfo setObject:[NSNumber numberWithBool:aShouldPostNofitication] forKey:@"shouldPost"];
+  [userInfo setObject:aLocation forKey:@"location"];
+  
+  
   [request setRequestMethod:@"GET"];
   [request setResponseEncoding:NSUTF8StringEncoding];
-  [request setUserInfo:paramDict];
+  [request setUserInfo:userInfo];
   return request;
 }
 

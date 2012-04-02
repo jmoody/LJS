@@ -69,6 +69,7 @@
 
 /** @name Utility */
 - (void) executeHttpReverseGeocodeRequestForLocation:(LjsLocation *) aLocation
-                                locationIsFromSensor:(BOOL) aLocIsFromSensor;
+                                locationIsFromSensor:(BOOL) aLocIsFromSensor
+                              shouldPostNotification:(BOOL) aShouldPostNotification;
 
 @end

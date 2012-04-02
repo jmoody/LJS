@@ -46,6 +46,7 @@
 #import "LjsGooglePlacePredictionOptions.h"
 #import "LjsGoogleReverseGeocode.h"
 #import "LjsGoogleNmoReverseGeocode.h"
+#import "LjsGoogleReverseGeocodeOptions.h"
 
 
 
@@ -55,7 +56,12 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-NSString *LjsGooglePlacesManagerNotificationNewPlacesAvailable = @"com.littlejoysoftware.Google Place New Places Avaialable Notification";
+NSString *LjsNotificationGoogleManagerNewPlacesAvailable = @"com.littlejoysoftware.Notification from Google Manager New Places Available";
+
+NSString *LjsNotificationGoogleManagerReverseGeocodeResultsAvailable = @"com.littlejoysoftware.Notification from Google Manager Reverse Geocode Results Available";
+
+
+
 
 NSString *LjsGooglePlacesManagerModelFile = @"LjsGoogleModel";
 NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite";
@@ -205,7 +211,7 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
   NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
   NSPredicate *predicate;
   predicate = [NSPredicate predicateWithFormat:@"key == %@", [aLocation key]];
-
+  
   request.predicate = predicate;
   NSError *error = nil;
   NSUInteger count = [self.context countForFetchRequest:request error:&error];
@@ -278,60 +284,47 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
   return result;
 }
 
-- (NSArray *) geocodesWithLocation:(LjsLocation *) aLocation
-                        searchTerm:(NSString *)aSearchTerm 
-                   makeHttpRequest:(BOOL) aShouldMakeHttpRequest
-               locationFromSensors:(BOOL) aLocationIsFromSensor {
-  DDLogDebug(@"geocoded with location: %@", aLocation);
+- (NSArray *) geocodesWithOptions:(LjsGoogleReverseGeocodeOptions *) aOptions {
   NSString *entityName = [LjsGoogleReverseGeocode entityName];
   NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
-  NSPredicate *predicate;
-  LjsLocation *searchLoc = [LjsLocation locationWithLocation:aLocation
-                                                       scale:[LjsLocation scale1km]];
-  
-  NSPredicate *latPred = [NSPredicate predicateWithFormat:@"latitude1km == %@", 
-                          searchLoc.latitude];
-  NSPredicate *lonPred = [NSPredicate predicateWithFormat:@"longitude1km == %@",
-                          searchLoc.longitude];
-  NSPredicate *termPred = [NSPredicate predicateWithFormat:@"formattedAddress CONTAINS[cd] %@",
-                           aSearchTerm];
-  NSArray *preds = [NSArray arrayWithObjects:latPred, lonPred, termPred, nil];
-  
-  predicate = [NSCompoundPredicate andPredicateWithSubpredicates:preds];
-  
-  request.predicate = predicate;
+  request.predicate = aOptions.predicate;
   NSError *error = nil;
   NSArray *fetched = [self.context executeFetchRequest:request error:&error];
   if (fetched == nil) {
-    DDLogFatal(@"error fetching reverse geocode with location: %@ search term: %@ %@: %@",
-               aLocation, aSearchTerm, [error localizedDescription], error);
+    DDLogFatal(@"error fetching reverse geocode with location: %@ predicate: %@ %@: %@",
+               aOptions.location, request.predicate, [error localizedDescription], error);
     abort();
   } 
   
-
+  
   NSUInteger resultCount = [fetched count];
   if (resultCount > 1) {
+    __block LjsLocation *location = aOptions.location;
     fetched = [fetched sortedArrayUsingComparator:^(id a, id b) {
       LjsGoogleReverseGeocode *first = (LjsGoogleReverseGeocode *) a;
       LjsGoogleReverseGeocode *second = (LjsGoogleReverseGeocode *) b;
-      return (NSComparisonResult)([self.distancer compareDistanceFromLocation:aLocation 
-                                                                  toGeocodeA:first 
-                                                                  toGeocodeB:second] == NSOrderedDescending);
+      return (NSComparisonResult)([self.distancer compareDistanceFromLocation:location
+                                                                   toGeocodeA:first 
+                                                                   toGeocodeB:second] == NSOrderedDescending);
     }];
   }
   
-  if (aShouldMakeHttpRequest == YES) {
+  LjsGrgHttpRequestOptions *httpOptions = aOptions.httpRequestOptions;
+  if (httpOptions.shouldMakeRequest == YES) {
     if (resultCount != 0) {
-      DDLogDebug(@"args say - make a reverse geocode request, but results have been found - skipping");
+      DDLogDebug(@"args say make a reverse geocode request, but results have been found - skipping");
     } else {
-      DDLogDebug(@"args say - make a reverse geocode request");
-      [self.requestManager executeHttpReverseGeocodeRequestForLocation:aLocation
-                                                  locationIsFromSensor:aLocationIsFromSensor];
+      DDLogDebug(@"args say make a reverse geocode request");
+      LjsLocation *location = aOptions.location;
+      
+      [self.requestManager executeHttpReverseGeocodeRequestForLocation:location
+                                                  locationIsFromSensor:httpOptions.sensor
+                                                shouldPostNotification:httpOptions.shouldPostNotification];
     }
   } else {
-    DDLogDebug(@"args say - do not make a reverse geocode request");
+    DDLogDebug(@"args say do not make a reverse geocode request");
   }
-
+  
   return fetched;
 }
 
@@ -377,8 +370,8 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
     LjsGooglePlace *first = (LjsGooglePlace *) a;
     LjsGooglePlace *second = (LjsGooglePlace *) b;
     return (NSComparisonResult)([self.distancer compareDistanceFromLocation:aLocation 
-                                                                toPlaceA:first 
-                                                                toPlaceB:second] == compResult);
+                                                                   toPlaceA:first 
+                                                                   toPlaceB:second] == compResult);
   }];
   return result;
 }
@@ -472,12 +465,17 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
 - (void) requestForDetailsCompletedWithDetails:(LjsGooglePlacesNmoDetails *) aDetails
                                       userInfo:(NSDictionary *) aUserInfo {
   NSString *placeId = aDetails.stablePlaceId;
+  BOOL postNotification = NO;
   if ([self placeExistsForId:placeId] == NO) {
+    postNotification = YES;
     [LjsGooglePlace initWithDetails:aDetails
                             context:self.context];
     [self saveContext];
+  }
+  
+  if (postNotification == YES) {
     [[NSNotificationCenter defaultCenter]
-     postNotificationName:LjsGooglePlacesManagerNotificationNewPlacesAvailable
+     postNotificationName:LjsNotificationGoogleManagerNewPlacesAvailable
      object:nil];
   }
 }
@@ -496,17 +494,30 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
 
 - (void) requestForReverseGeocodeCompletedWithResult:(NSArray *) aResult
                                             userInfo:(NSDictionary *) aUserInfo {
+  BOOL persistedNewResult = NO;
   for (LjsGoogleNmoReverseGeocode *geocode in aResult) {
     LjsLocation *location = geocode.location;
     if ([self geocodeExistsForLocation:location]) {
-      DDLogDebug(@"skipping - geocode exists for: %@", geocode);
+      DDLogDebug(@"skipping - geocode exists for: %@ : %@", geocode, [location key]);
     } else {
       DDLogDebug(@"creating geocode for %@", geocode);
+      persistedNewResult = YES;
       [LjsGoogleReverseGeocode initWithReverseGeocode:geocode
                                               context:self.context];
       [self saveContext];
     }
-  }  
+  }
+  
+  if (persistedNewResult == YES) {
+    NSNumber *number = [aUserInfo objectForKey:@"shouldPost"];
+    BOOL shouldPost = [number boolValue];
+    LjsLocation *location = [aUserInfo objectForKey:@"location"];
+    if (shouldPost == YES) {
+      [[NSNotificationCenter defaultCenter]
+       postNotificationName:LjsNotificationGoogleManagerReverseGeocodeResultsAvailable
+       object:location];
+    }
+  }
 }
 
 - (void) requestForReverseGeocodeFailedWithCode:(NSUInteger) aCode

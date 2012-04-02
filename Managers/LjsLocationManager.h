@@ -100,6 +100,7 @@ __VA_ARGS__ \
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+@class LjsInterval;
 
 extern NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable;
 
@@ -137,6 +138,8 @@ extern NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable;
 - (BOOL) isSameLocation:(LjsLocation *) aLocation scale:(NSUInteger) aScale;
 - (BOOL) isSameLocation:(LjsLocation *) aLocation;
 
++ (LjsLocation *) randomLocation;
+
 @end
 
 /**
@@ -168,8 +171,6 @@ extern NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable;
 
 /** @name Properties */
 
-
-#ifdef LJS_LOCATION_SERVICES_DEBUG 
 /**
  available iff LJS_LOCATION_SERVICES_DEBUG Preprocessor Macro is defined
  */
@@ -179,8 +180,9 @@ extern NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable;
  used simulate the heading changing in environments where there is no heading
  available
  */
+
 @property (nonatomic, assign) CGFloat debugLastHeading;
-#endif
+
 
 /** @name Testing For Location and Heading Availability and Validity*/
 
@@ -242,6 +244,11 @@ extern NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable;
  */
 - (NSDecimalNumber *) trueHeading;
 
+
++ (LjsInterval *) latitudeBounds;
+
++ (LjsInterval *) longitudeBounds;
++ (LjsInterval *) headingBounds;
 
 + (BOOL) isValidLocation:(LjsLocation *) aLocation;
 

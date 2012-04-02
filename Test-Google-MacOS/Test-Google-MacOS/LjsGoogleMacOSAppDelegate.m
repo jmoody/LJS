@@ -9,6 +9,8 @@
 #import "LjsGoogleRequestManager.h"
 #import "LjsCaesarCipher.h"
 #import "LjsGoogleGlobals.h"
+#import "LjsGoogleReverseGeocodeOptions.h"
+
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -22,6 +24,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @property (nonatomic, strong) LjsGoogleRequestManager *rm;
 
 - (void) doPredictionRequestTests;
+
+- (void) handleNewReverseGeocodeAvailableNotification:(NSNotification *) aNotification;
 
 @end
 
@@ -58,22 +62,43 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   LjsLocationManager *lm = [[LjsLocationManager alloc] init];
   self.manager = [[LjsGoogleManager alloc] initWithLocationManager:lm];
 
-  LjsLocation *location = [lm location];
-  NSString *searchTerm = @"Zurich";
+  
+//  LjsLocation *location = [lm location];
+  LjsLocation *location = [LjsLocation randomLocation];
+  DDLogDebug(@"location = %@", location);
+//  NSString *searchTerm = @"Zurich";
   NSArray *geocodes;
   
-  geocodes = [self.manager geocodesWithLocation:location
-                                     searchTerm:searchTerm
-                                makeHttpRequest:YES
-                            locationFromSensors:YES];
+  
+  [[NSNotificationCenter defaultCenter] 
+   addObserver:self
+   selector:@selector(handleNewReverseGeocodeAvailableNotification:)
+   name:LjsNotificationGoogleManagerReverseGeocodeResultsAvailable
+   object:nil];
+  
+  LjsGrgPredicateFactory *factory = [[LjsGrgPredicateFactory alloc] init];
+  LjsGrgHttpRequestOptions *httpOpts = [LjsGrgHttpRequestOptions searchWithSensorPostNotification:YES];
+  LjsGoogleReverseGeocodeOptions *options;
+  options = [[LjsGoogleReverseGeocodeOptions alloc]
+             initWithLocation:location
+             predicate:[factory predicateForCityTownNeighborhoodWithLocation:location]
+             httpRequestOptions:httpOpts];
+  
+  geocodes = [self.manager geocodesWithOptions:options];
 
   DDLogDebug(@"geocodes:  %@", geocodes);
   
-  
+//  DDLogDebug(@"all geocodes = %@", [self.manager fetch)
   
   //  [self doPredictionRequestTests];
   
 }
+
+- (void) handleNewReverseGeocodeAvailableNotification:(NSNotification *) aNotification {
+  DDLogDebug(@"handling new reverse geocode available notification");
+  
+}
+
 
 
 - (void) doPredictionRequestTests {

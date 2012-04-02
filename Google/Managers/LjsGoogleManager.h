@@ -32,9 +32,15 @@
 #import "LjsGoogleRequestManager.h"
 #import "LjsLocationManager.h"
 
-@class LjsGooglePlacePredictionOptions;
 
-extern NSString *LjsGooglePlacesManagerNotificationNewPlacesAvailable;
+@class LjsGooglePlacePredictionOptions;
+@class LjsGoogleReverseGeocodeOptions;
+
+extern NSString *LjsNotificationGoogleManagerNewPlacesAvailable;
+extern NSString *LjsNotificationGoogleManagerReverseGeocodeResultsAvailable;
+
+
+
 
 extern NSString *LjsGooglePlacesManagerModelFile;
 extern NSString *LjsGooglePlacesSqlLiteStore;
@@ -73,10 +79,7 @@ extern NSString *LjsGooglePlacesSqlLiteStore;
 
 - (NSArray *) predicationsWithOptions:(LjsGooglePlacePredictionOptions *) aOptions;
 
-- (NSArray *) geocodesWithLocation:(LjsLocation *) aLocation
-                        searchTerm:(NSString *) aSearchTerm
-                   makeHttpRequest:(BOOL) aShouldMakeHttpRequest
-               locationFromSensors:(BOOL) aLocationIsFromSensor;
+- (NSArray *) geocodesWithOptions:(LjsGoogleReverseGeocodeOptions *) aOptions;
 
 /** @name Sorting */
 

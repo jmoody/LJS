@@ -30,9 +30,9 @@
 		F50F293B15286B1700DD67D1 /* _LjsGoogleAddressComponentType.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F292F15286B1700DD67D1 /* _LjsGoogleAddressComponentType.m */; };
 		F50F293C15286B1700DD67D1 /* _LjsGoogleAttribution.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F293115286B1700DD67D1 /* _LjsGoogleAttribution.m */; };
 		F50F294915286EDC00DD67D1 /* NSString+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F294815286EDC00DD67D1 /* NSString+LjsAdditions.m */; };
-		F50F295015286FE400DD67D1 /* GenModelStrings.py in Resources */ = {isa = PBXBuildFile; fileRef = F50F294B15286FE400DD67D1 /* GenModelStrings.py */; };
-		F50F295115286FE400DD67D1 /* NSEntityDescription+LocalizedName.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F294D15286FE400DD67D1 /* NSEntityDescription+LocalizedName.m */; };
-		F50F295215286FE400DD67D1 /* NSPropertyDescription+LocalizedName.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F294F15286FE400DD67D1 /* NSPropertyDescription+LocalizedName.m */; };
+		F5212809152A18E900492256 /* LjsGoogleReverseGeocodeOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5212808152A18E900492256 /* LjsGoogleReverseGeocodeOptions.m */; };
+		F521280F152A1A5900492256 /* NSEntityDescription+LocalizedName.m in Sources */ = {isa = PBXBuildFile; fileRef = F521280C152A1A5900492256 /* NSEntityDescription+LocalizedName.m */; };
+		F5212810152A1A5900492256 /* NSPropertyDescription+LocalizedName.m in Sources */ = {isa = PBXBuildFile; fileRef = F521280E152A1A5900492256 /* NSPropertyDescription+LocalizedName.m */; };
 		F538BA3F15298FEC00C47886 /* LjsLocationTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = F538BA3E15298FEC00C47886 /* LjsLocationTransformer.m */; };
 		F538BA4C1529A91C00C47886 /* _LjsGoogleBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = F538BA411529A91B00C47886 /* _LjsGoogleBounds.m */; };
 		F538BA4F1529A91C00C47886 /* _LjsGoogleRect.m in Sources */ = {isa = PBXBuildFile; fileRef = F538BA471529A91B00C47886 /* _LjsGoogleRect.m */; };
@@ -180,11 +180,12 @@
 		F50F293115286B1700DD67D1 /* _LjsGoogleAttribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LjsGoogleAttribution.m; sourceTree = "<group>"; };
 		F50F294715286EDC00DD67D1 /* NSString+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LjsAdditions.h"; sourceTree = "<group>"; };
 		F50F294815286EDC00DD67D1 /* NSString+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LjsAdditions.m"; sourceTree = "<group>"; };
-		F50F294B15286FE400DD67D1 /* GenModelStrings.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = GenModelStrings.py; sourceTree = "<group>"; };
-		F50F294C15286FE400DD67D1 /* NSEntityDescription+LocalizedName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSEntityDescription+LocalizedName.h"; sourceTree = "<group>"; };
-		F50F294D15286FE400DD67D1 /* NSEntityDescription+LocalizedName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSEntityDescription+LocalizedName.m"; sourceTree = "<group>"; };
-		F50F294E15286FE400DD67D1 /* NSPropertyDescription+LocalizedName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPropertyDescription+LocalizedName.h"; sourceTree = "<group>"; };
-		F50F294F15286FE400DD67D1 /* NSPropertyDescription+LocalizedName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPropertyDescription+LocalizedName.m"; sourceTree = "<group>"; };
+		F5212807152A18E900492256 /* LjsGoogleReverseGeocodeOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleReverseGeocodeOptions.h; sourceTree = "<group>"; };
+		F5212808152A18E900492256 /* LjsGoogleReverseGeocodeOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleReverseGeocodeOptions.m; sourceTree = "<group>"; };
+		F521280B152A1A5900492256 /* NSEntityDescription+LocalizedName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSEntityDescription+LocalizedName.h"; sourceTree = "<group>"; };
+		F521280C152A1A5900492256 /* NSEntityDescription+LocalizedName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSEntityDescription+LocalizedName.m"; sourceTree = "<group>"; };
+		F521280D152A1A5900492256 /* NSPropertyDescription+LocalizedName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPropertyDescription+LocalizedName.h"; sourceTree = "<group>"; };
+		F521280E152A1A5900492256 /* NSPropertyDescription+LocalizedName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPropertyDescription+LocalizedName.m"; sourceTree = "<group>"; };
 		F538BA3D15298FEC00C47886 /* LjsLocationTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLocationTransformer.h; sourceTree = "<group>"; };
 		F538BA3E15298FEC00C47886 /* LjsLocationTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLocationTransformer.m; sourceTree = "<group>"; };
 		F538BA401529A91A00C47886 /* _LjsGoogleBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LjsGoogleBounds.h; sourceTree = "<group>"; };
@@ -234,7 +235,7 @@
 		F58EDEE115285B89009BE6D6 /* LjsGooglePlacesPredictiveReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesPredictiveReply.m; sourceTree = "<group>"; };
 		F58EDEE215285B89009BE6D6 /* LjsGoogleRgReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleRgReply.h; sourceTree = "<group>"; };
 		F58EDEE315285B89009BE6D6 /* LjsGoogleRgReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleRgReply.m; sourceTree = "<group>"; };
-		F58EDEE715285C47009BE6D6 /* LjsGoogleDistancer.h */ = {isa = PBXFileReference; fileEncoding = 4; path = LjsGoogleDistancer.h; sourceTree = "<group>"; };
+		F58EDEE715285C47009BE6D6 /* LjsGoogleDistancer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleDistancer.h; sourceTree = "<group>"; };
 		F58EDEE815285C47009BE6D6 /* LjsGoogleDistancer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleDistancer.m; sourceTree = "<group>"; };
 		F58EDEE915285C47009BE6D6 /* LjsGooglePlacePredictionOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacePredictionOptions.h; sourceTree = "<group>"; };
 		F58EDEEA15285C47009BE6D6 /* LjsGooglePlacePredictionOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacePredictionOptions.m; sourceTree = "<group>"; };
@@ -493,11 +494,10 @@
 		F50F294A15286FE400DD67D1 /* Core-Data-Localization */ = {
 			isa = PBXGroup;
 			children = (
-				F50F294B15286FE400DD67D1 /* GenModelStrings.py */,
-				F50F294C15286FE400DD67D1 /* NSEntityDescription+LocalizedName.h */,
-				F50F294D15286FE400DD67D1 /* NSEntityDescription+LocalizedName.m */,
-				F50F294E15286FE400DD67D1 /* NSPropertyDescription+LocalizedName.h */,
-				F50F294F15286FE400DD67D1 /* NSPropertyDescription+LocalizedName.m */,
+				F521280B152A1A5900492256 /* NSEntityDescription+LocalizedName.h */,
+				F521280C152A1A5900492256 /* NSEntityDescription+LocalizedName.m */,
+				F521280D152A1A5900492256 /* NSPropertyDescription+LocalizedName.h */,
+				F521280E152A1A5900492256 /* NSPropertyDescription+LocalizedName.m */,
 			);
 			name = "Core-Data-Localization";
 			path = "../Core-Data-Localization";
@@ -549,6 +549,8 @@
 		F58EDE981528525D009BE6D6 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				F5212807152A18E900492256 /* LjsGoogleReverseGeocodeOptions.h */,
+				F5212808152A18E900492256 /* LjsGoogleReverseGeocodeOptions.m */,
 				F58EDEE715285C47009BE6D6 /* LjsGoogleDistancer.h */,
 				F58EDEE815285C47009BE6D6 /* LjsGoogleDistancer.m */,
 				F58EDEE915285C47009BE6D6 /* LjsGooglePlacePredictionOptions.h */,
@@ -1087,7 +1089,6 @@
 				F5BB2052151BCC5000BFDDA0 /* com.littlejoysoftware.faker.postal-codes.us.plist in Resources */,
 				F5BB2053151BCC5000BFDDA0 /* com.littlejoysoftware.faker.street-addresses.us.plist in Resources */,
 				F5BB2054151BCC5000BFDDA0 /* com.littlejoysoftware.faker.surnames-names.us.plist in Resources */,
-				F50F295015286FE400DD67D1 /* GenModelStrings.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1206,8 +1207,6 @@
 				F50F293B15286B1700DD67D1 /* _LjsGoogleAddressComponentType.m in Sources */,
 				F50F293C15286B1700DD67D1 /* _LjsGoogleAttribution.m in Sources */,
 				F50F294915286EDC00DD67D1 /* NSString+LjsAdditions.m in Sources */,
-				F50F295115286FE400DD67D1 /* NSEntityDescription+LocalizedName.m in Sources */,
-				F50F295215286FE400DD67D1 /* NSPropertyDescription+LocalizedName.m in Sources */,
 				F538BA3F15298FEC00C47886 /* LjsLocationTransformer.m in Sources */,
 				F538BA4C1529A91C00C47886 /* _LjsGoogleBounds.m in Sources */,
 				F538BA4F1529A91C00C47886 /* _LjsGoogleRect.m in Sources */,
@@ -1227,6 +1226,9 @@
 				F59830681529C51500457673 /* LjsGoogleAddressComponentPlace.m in Sources */,
 				F5AB7CB71529CE5100EB2976 /* _LjsGooglePlace.m in Sources */,
 				F5AB7CB81529CE5100EB2976 /* _LjsGooglePlaceType.m in Sources */,
+				F5212809152A18E900492256 /* LjsGoogleReverseGeocodeOptions.m in Sources */,
+				F521280F152A1A5900492256 /* NSEntityDescription+LocalizedName.m in Sources */,
+				F5212810152A1A5900492256 /* NSPropertyDescription+LocalizedName.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

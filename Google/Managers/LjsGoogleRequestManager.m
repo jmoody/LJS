@@ -172,7 +172,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 
 - (void) executeHttpReverseGeocodeRequestForLocation:(LjsLocation *) aLocation
-                                locationIsFromSensor:(BOOL) aLocIsFromSensor {
+                                locationIsFromSensor:(BOOL) aLocIsFromSensor 
+                              shouldPostNotification:(BOOL) aShouldPostNotification {
   if ([LjsLocationManager isValidLocation:aLocation] == NO) {
     DDLogError(@"location: %@ needs to be valid - nothing to do", aLocation);
               
@@ -180,11 +181,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
   
   ASIHTTPRequest *request = [self.requestFactory requestForReverseGeocodeWithLocation:aLocation
-                                                                 locationIsFromSensor:aLocIsFromSensor];
+                                                                 locationIsFromSensor:aLocIsFromSensor
+                                                               shouldPostNotification:aShouldPostNotification];
   
   [request setDelegate:self];
   [request setDidFailSelector:@selector(handleRequestDidFail:)];
   [request setDidFinishSelector:@selector(handleRequestDidFinish:)];
+  [request setTag:aShouldPostNotification];
   [request startAsynchronous];
 }
 
@@ -212,16 +215,21 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   DDLogDebug(@"reply = %@", reply);
   if ([reply statusRejected] == YES) {
     [self.reverseGeocodeHandler requestForReverseGeocodeFailedWithCode:[reply status]
-                                                       request:aRequest
-                                                         error:error];
+                                                               request:aRequest
+                                                                 error:error];
     
     
   } else {
     //    DDLogDebug(@"response = %@", [aRequest responseString]);
     
     NSArray *geos = [reply geocodes];
+    BOOL shouldPost = aRequest.tag;
+    NSNumber *number = [NSNumber numberWithBool:shouldPost];
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:aRequest.userInfo];
+    [userInfo setObject:number forKey:@"shouldPost"];
+    
     [self.reverseGeocodeHandler requestForReverseGeocodeCompletedWithResult:geos
-                                                           userInfo:aRequest.userInfo];
+                                                           userInfo:userInfo];
     
     //NSURL *url = [aRequest url];
     //DDLogDebug(@"url = %@", url);

@@ -237,6 +237,18 @@ static NSString *LjsLocation_SCALE_KEY = @"scale";
   return [NSString stringWithFormat:@"#(%@, %@)", self.latitude, self.longitude];
 }
 
++ (LjsLocation *) randomLocation {
+  LjsInterval *latBounds = [LjsLocationManager latitudeBounds];
+  NSDecimalNumber *lat =  [LjsVariates randomDecimalDoubleWithMin:latBounds.min
+                                                              max:latBounds.max];
+  LjsInterval *lonBounds = [LjsLocationManager longitudeBounds];
+  NSDecimalNumber *lon = [LjsVariates randomDecimalDoubleWithMin:lonBounds.min
+                                                             max:lonBounds.max];
+  return [[LjsLocation alloc]
+          initWithLatitude:lat longitude:lon];
+}
+
+
 @end
 
 
@@ -272,6 +284,7 @@ static NSString *LjsLocation_SCALE_KEY = @"scale";
 @synthesize debugDevices;
 @synthesize debugLastHeading;
 
+
 #pragma mark Memory Management
 
 - (void) dealloc {
@@ -304,10 +317,10 @@ static NSString *LjsLocation_SCALE_KEY = @"scale";
     (
      self.debugDevices = [NSArray arrayWithObjects:LjsLocationManagerMercury,
                           LjsLocationManagerPluto, LjsLocationManagerNeptune, nil];
+     self.debugLastHeading = [LjsVariates randomDoubleWithMin:0.0 max:360.0];
      )
     
-    self.debugLastHeading = [LjsVariates randomDoubleWithMin:0.0 max:360.0];
-    
+       
   
 
   }
@@ -637,8 +650,8 @@ static NSString *LjsLocation_SCALE_KEY = @"scale";
       }];
     }
   } else {    
-    DDLogWarn(@"could not find class CLGeocoder - will reverse geocode with Google API");
-    
+    DDLogFatal(@"could not find class CLGeocoder - ");
+    abort();
   }
 #else
   DDLogNotice(@"CLGeocoder not available on MacOS - will reverse geocode with Google API"); 
