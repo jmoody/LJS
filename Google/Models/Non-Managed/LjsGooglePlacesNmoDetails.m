@@ -30,7 +30,7 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsGooglePlacesDetails.h"
+#import "LjsGooglePlacesNmoDetails.h"
 #import "Lumberjack.h"
 #import "LjsLocationManager.h"
 #import "LjsGoogleGlobals.h"
@@ -47,13 +47,13 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-@interface LjsGooglePlacesDetails ()
+@interface LjsGooglePlacesNmoDetails ()
 
 @property (nonatomic, strong) LjsGoogleImporter *importer;
 
 @end
 
-@implementation LjsGooglePlacesDetails
+@implementation LjsGooglePlacesNmoDetails
 
 @synthesize addressComponents;
 @synthesize formattedAddress;

@@ -37,9 +37,9 @@
 #import "LjsCaesarCipher.h"
 #import "LjsGooglePlacesDetailsReply.h"
 #import "LjsGooglePlacesPredictiveReply.h"
-#import "LjsGooglePlacesDetails.h"
+#import "LjsGooglePlacesNmoDetails.h"
 #import "LjsGooglePlacesPrediction.h"
-#import "LjsGooglePlace.h"
+#import "LjsGooglePlaceDetails.h"
 #import "LjsDn.h"
 #import "LjsFoundationCategories.h"
 #import "LjsGooglePlaceDistancer.h"
@@ -166,7 +166,8 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 
 
 - (BOOL) placeExistsForId:(NSString *) aId {
-  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LjsGooglePlace"];
+  NSString *entityName = [LjsGooglePlaceDetails entityName];
+  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
   request.predicate = [NSPredicate predicateWithFormat:@"stableId LIKE %@", aId];
   NSError *error = nil;
   NSUInteger count = [self.context countForFetchRequest:request
@@ -183,7 +184,8 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 }
 
 - (NSArray *) fetchAllPlaces {
-  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LjsGooglePlace"];
+  NSString *entityName = [LjsGooglePlaceDetails entityName];
+  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
   NSError *error = nil;
   NSArray *fetched = [self.context executeFetchRequest:request error:&error];
   if (fetched == nil) {
@@ -196,7 +198,8 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 
 
 - (NSArray *) predicationsWithOptions:(LjsGooglePlacePredictionOptions *) aOptions {
-  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LjsGooglePlace"];
+  NSString *entityName = [LjsGooglePlaceDetails entityName];
+  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
   request.predicate = aOptions.predicate;
   
   // cannot limit the fetch if there is sorting involved - must limit post-fetch
@@ -373,12 +376,12 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
   DDLogDebug(@"request failed with code: %@", aStatusCode);
 }
 
-- (void) requestForDetailsCompletedWithDetails:(LjsGooglePlacesDetails *) aDetails
+- (void) requestForDetailsCompletedWithDetails:(LjsGooglePlacesNmoDetails *) aDetails
                                       userInfo:(NSDictionary *) aUserInfo {
   NSString *placeId = aDetails.stablePlaceId;
   if ([self placeExistsForId:placeId] == NO) {
-    [LjsGooglePlace initWithDetails:aDetails
-                            context:self.context];
+    [LjsGooglePlaceDetails initWithDetails:aDetails
+                                   context:self.context];
     [self saveContext];
     [[NSNotificationCenter defaultCenter]
      postNotificationName:LjsGooglePlacesManagerNotificationNewPlacesAvailable

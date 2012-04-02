@@ -2,7 +2,7 @@
 #import "LjsLocationManager.h"
 
 @class ASIHTTPRequest;
-@class LjsGooglePlacesDetails;
+@class LjsGooglePlacesNmoDetails;
 @class LjsGooglePlacesPredictiveReply;
 @class LjsGooglePlacesDetailsReply;
 @class LjsGooglePlacesPrediction;
@@ -18,7 +18,7 @@
                                        reply:(LjsGooglePlacesPredictiveReply *) aReply
                                        error:(NSError *) aError;
 
-- (void) requestForDetailsCompletedWithDetails:(LjsGooglePlacesDetails *) aDetails
+- (void) requestForDetailsCompletedWithDetails:(LjsGooglePlacesNmoDetails *) aDetails
                                       userInfo:(NSDictionary *) aUserInfo;
 - (void) requestForDetailsFailedWithCode:(NSUInteger) aCode
                                  request:(ASIHTTPRequest *) aRequest;

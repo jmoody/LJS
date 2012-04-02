@@ -75,6 +75,15 @@ extern NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable;
 @interface LjsLocation : NSObject <NSCoding>
 @property (nonatomic, strong) NSDecimalNumber *latitude;
 @property (nonatomic, strong) NSDecimalNumber *longitude;
+@property (nonatomic, assign) NSUInteger scale;
+
++ (NSUInteger) scale100km;
++ (NSUInteger) scale10km;
++ (NSUInteger) scale1km;
++ (NSUInteger) scale100m;
++ (NSUInteger) scale10m;
++ (NSUInteger) scale1m;
+
 
 - (id) initWithPoint:(CGPoint) aPoint;
 - (id) initWithLatitudeFloat:(CGFloat) aLatitude
@@ -88,7 +97,12 @@ extern NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable;
 - (id) initWithLatitude:(NSDecimalNumber *) aLatitude
               longitude:(NSDecimalNumber *) aLongitude
                   scale:(NSUInteger) aScale;
-- (id) locationWithScale:(NSUInteger) aScale;
+- (id) initWithLocation:(LjsLocation *) aLocation
+                  scale:(NSUInteger) aScale;
++ (LjsLocation *) locationWithLocation:(LjsLocation *) aLocation
+                                scale:(NSUInteger) aScale;
+
+
 
 
 @end

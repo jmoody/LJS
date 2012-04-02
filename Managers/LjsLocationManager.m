@@ -87,22 +87,50 @@ static CGFloat const LjsLongitudeZurich = 8.53678989;
 @implementation LjsLocation 
 @synthesize latitude;
 @synthesize longitude;
+@synthesize scale;
 
-static NSString *RuAudioResources_LATITUDE_KEY = @"latitude";
-static NSString *RuAudioResources_LONGITUDE_KEY = @"longitude";
+static NSString *LjsLocation_LATITUDE_KEY = @"latitude";
+static NSString *LjsLocation_LONGITUDE_KEY = @"longitude";
+static NSString *LjsLocation_SCALE_KEY = @"scale";
 
+
++ (NSUInteger) scale100km {
+  return 0;
+}
+
++ (NSUInteger) scale10km {
+  return 1;
+}
+
++ (NSUInteger) scale1km {
+  return 2;
+}
+
++ (NSUInteger) scale100m {
+  return 3;
+}
+
++ (NSUInteger) scale10m {
+  return 4;
+}
+
++ (NSUInteger) scale1m {
+  return 5;
+}
 
 
 - (void) encodeWithCoder: (NSCoder *)encoder {
-  [encoder encodeObject: latitude forKey: RuAudioResources_LATITUDE_KEY];
-  [encoder encodeObject: longitude forKey: RuAudioResources_LONGITUDE_KEY];
+  [encoder encodeObject: latitude forKey: LjsLocation_LATITUDE_KEY];
+  [encoder encodeObject: longitude forKey: LjsLocation_LONGITUDE_KEY];
+  [encoder encodeInteger: scale forKey: LjsLocation_SCALE_KEY];
 }
 
 - (id) initWithCoder: (NSCoder *)decoder {
   self = [super init];
   if (self) {
-    latitude = [decoder decodeObjectForKey: RuAudioResources_LATITUDE_KEY];
-    longitude = [decoder decodeObjectForKey: RuAudioResources_LONGITUDE_KEY];
+    latitude = [decoder decodeObjectForKey: LjsLocation_LATITUDE_KEY];
+    longitude = [decoder decodeObjectForKey: LjsLocation_LONGITUDE_KEY];
+    scale = [decoder decodeIntegerForKey: LjsLocation_SCALE_KEY];
   }
   return self;
 }
@@ -113,22 +141,20 @@ static NSString *RuAudioResources_LONGITUDE_KEY = @"longitude";
 
 - (id) initWithLatitudeNumber:(NSNumber *) aLatitude
               longitudeNumber:(NSNumber *) aLongitude {
-  self = [super init];
-  if (self) {
-    self.latitude = [[LjsDn dnWithNumber:aLatitude] dnByRoundingAsLocation];
-    self.longitude = [[LjsDn dnWithNumber:aLongitude] dnByRoundingAsLocation];
-  }
-  return self;
+  NSDecimalNumber *lat = [LjsDn dnWithNumber:aLatitude];
+  NSDecimalNumber *lon = [LjsDn dnWithNumber:aLongitude];
+  return [self initWithLatitude:lat
+                      longitude:lon
+                          scale:LjsLocationManagerLocationScale];
 }
 
 - (id) initWithLatitudeFloat:(CGFloat) aLatitude
               longitudeFloat:(CGFloat) aLongitude {
-  self = [super init];
-  if (self) {
-    self.latitude = [[LjsDn dnWithFloat:aLatitude] dnByRoundingAsLocation];
-    self.longitude = [[LjsDn dnWithFloat:aLongitude] dnByRoundingAsLocation];
-  }
-  return self;
+  NSDecimalNumber *lat = [LjsDn dnWithFloat:aLatitude];
+  NSDecimalNumber *lon = [LjsDn dnWithFloat:aLongitude];
+  return [self initWithLatitude:lat
+                      longitude:lon
+                          scale:LjsLocationManagerLocationScale];
 }
 
 
@@ -146,11 +172,10 @@ static NSString *RuAudioResources_LONGITUDE_KEY = @"longitude";
   if (self) {
     self.latitude = [aLatitude dnByRoundingWithScale:aScale];
     self.longitude = [aLongitude dnByRoundingWithScale:aScale];
+    self.scale = aScale;
   }
   return self;
 }
-
-
 
 - (id) initWithCoreLocation:(CLLocation *) aLocation {
   self = [super init];
@@ -179,12 +204,21 @@ static NSString *RuAudioResources_LONGITUDE_KEY = @"longitude";
 }
 
 
-- (id) locationWithScale:(NSUInteger) aScale {
+- (id) initWithLocation:(LjsLocation *) aLocation
+                  scale:(NSUInteger) aScale {
   return [[LjsLocation alloc]
-          initWithLatitude:self.latitude
-          longitude:self.longitude
+          initWithLatitude:aLocation.latitude
+          longitude:aLocation.longitude
           scale:aScale];
 }
+
++ (LjsLocation *) locationWithLocation:(LjsLocation *) aLocation
+                                scale:(NSUInteger) aScale {
+  return [[LjsLocation alloc] initWithLocation:aLocation
+                                         scale:aScale];
+}
+
+
 
 - (NSString *) description {
   return [NSString stringWithFormat:@"#(%@, %@)", self.latitude, self.longitude];

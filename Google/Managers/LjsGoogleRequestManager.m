@@ -11,7 +11,7 @@
 #import "LjsGooglePlacesPredictiveReply.h"
 #import "LjsGooglePlacesDetailsReply.h"
 #import "LjsGooglePlacesPrediction.h"
-#import "LjsGooglePlacesDetails.h"
+#import "LjsGooglePlacesNmoDetails.h"
 #import "LjsGoogleRgReply.h"
 #import "LjsLocationManager.h"
 #import "LjsGoogleRequestFactory.h"

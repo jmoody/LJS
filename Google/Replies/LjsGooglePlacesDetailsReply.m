@@ -32,6 +32,7 @@
 
 #import "LjsGooglePlacesDetailsReply.h"
 #import "Lumberjack.h"
+#import "LjsGooglePlacesNmoDetails.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -47,8 +48,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 //  DDLogDebug(@"deallocating %@", [self class]);
 }
 
-- (LjsGooglePlacesDetails *) details {
-  LjsGooglePlacesDetails *result = nil;
+- (LjsGooglePlacesNmoDetails *) details {
+  LjsGooglePlacesNmoDetails *result = nil;
   if ([self statusHasResults]) {
     NSString *attributions = [self.dictionary objectForKey:@"html_attributions"];
     NSDictionary *details = [self.dictionary objectForKey:@"result"];
@@ -56,7 +57,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     [dict addEntriesFromDictionary:details];
     [dict setObject:attributions forKey:@"html_attributions"];
     
-    result = [[LjsGooglePlacesDetails alloc]
+    result = [[LjsGooglePlacesNmoDetails alloc]
               initWithDictionary:dict];
   }
   return result;

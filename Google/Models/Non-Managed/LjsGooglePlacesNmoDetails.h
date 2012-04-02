@@ -34,7 +34,7 @@
 /**
  Documentation
  */
-@interface LjsGooglePlacesDetails : LjsGoogleNmoPlace
+@interface LjsGooglePlacesNmoDetails : LjsGoogleNmoPlace
 
 /** @name Properties */
 @property (nonatomic, strong) NSArray *addressComponents;

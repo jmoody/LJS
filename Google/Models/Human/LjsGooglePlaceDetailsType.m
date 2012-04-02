@@ -1,8 +1,8 @@
-#import "LjsGooglePlaceType.h"
-#import "LjsGooglePlace.h"
+#import "LjsGooglePlaceDetailsType.h"
+#import "LjsGooglePlaceDetails.h"
 #import "Lumberjack.h"
 #import "NSArray+LjsAdditions.h"
-#import "LjsGooglePlace.h"
+#import "LjsGooglePlaceDetails.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -10,16 +10,17 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-@implementation LjsGooglePlaceType
+
+@implementation LjsGooglePlaceDetailsType
 
 
-+ (LjsGooglePlaceType *) findOrCreateWithName:(NSString *) aName
-                                        place:(LjsGooglePlace *)aPlace 
-                                      context:(NSManagedObjectContext *) aContext {
-  NSString *entityName = [LjsGooglePlaceType entityName];
-  LjsGooglePlaceType *result = nil;
++ (LjsGooglePlaceDetailsType *) findOrCreateWithName:(NSString *) aName
+                                               place:(LjsGooglePlaceDetails *)aPlace 
+                                             context:(NSManagedObjectContext *) aContext {
+  NSString *entityName = [LjsGooglePlaceDetailsType entityName];
+  LjsGooglePlaceDetailsType *result = nil;
   NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
-  request.predicate = [NSPredicate predicateWithFormat:@"name LIKE %@", aName];
+  request.predicate = [NSPredicate predicateWithFormat:@"name == %@", aName];
   NSError *error = nil;
   NSArray *fetched = [aContext executeFetchRequest:request error:&error];
   if (fetched == nil) {
@@ -34,7 +35,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
       result.places = [result.places setByAddingObject:aPlace];
     }
   } else {
-    result = [LjsGooglePlaceType insertInManagedObjectContext:aContext];
+    result = [LjsGooglePlaceDetailsType insertInManagedObjectContext:aContext];
     result.name = aName;
     result.places = [NSSet setWithObject:aPlace];
   }

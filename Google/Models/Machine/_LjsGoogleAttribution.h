@@ -15,7 +15,7 @@ extern const struct LjsGoogleAttributionRelationships {
 extern const struct LjsGoogleAttributionFetchedProperties {
 } LjsGoogleAttributionFetchedProperties;
 
-@class LjsGooglePlace;
+@class LjsGooglePlaceDetails;
 
 
 
@@ -54,8 +54,8 @@ extern const struct LjsGoogleAttributionFetchedProperties {
 
 - (void)addPlaces:(NSSet*)value_;
 - (void)removePlaces:(NSSet*)value_;
-- (void)addPlacesObject:(LjsGooglePlace*)value_;
-- (void)removePlacesObject:(LjsGooglePlace*)value_;
+- (void)addPlacesObject:(LjsGooglePlaceDetails*)value_;
+- (void)removePlacesObject:(LjsGooglePlaceDetails*)value_;
 
 @end
 

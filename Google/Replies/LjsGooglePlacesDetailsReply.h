@@ -29,8 +29,9 @@
 
 #import <Foundation/Foundation.h>
 #import "LjsGoogleReply.h"
-#import "LjsGooglePlacesDetails.h"
 
+
+@class LjsGooglePlacesNmoDetails;
 /**
  Documentation
  */
@@ -43,6 +44,6 @@
 /** @name Handling Notifications, Requests, and Events */
 
 /** @name Utility */
-- (LjsGooglePlacesDetails *) details;
+- (LjsGooglePlacesNmoDetails *) details;
 
 @end
