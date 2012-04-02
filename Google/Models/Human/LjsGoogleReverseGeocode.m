@@ -7,6 +7,8 @@
 #import "LjsGoogleNmoAddressComponent.h"
 #import "LjsGoogleAddressComponent.h"
 #import "LjsGoogleReverseGeocodeType.h"
+#import "NSDate+LjsAdditions.h"
+#import "LjsDn.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -21,6 +23,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   LjsGoogleReverseGeocode *result;
   result = [LjsGoogleReverseGeocode insertInManagedObjectContext:aContext];
   result.formattedAddress = aGeocode.formattedAddress;
+  result.dateAdded = [NSDate date];
+  result.dateModified = [NSDate LjsDateNotFound];
+  result.orderValue = [LjsDn zero];
+  
   result.location = aGeocode.location;
   result.location100m = [LjsLocation locationWithLocation:aGeocode.location
                                                     scale:[LjsLocation scale100m]];

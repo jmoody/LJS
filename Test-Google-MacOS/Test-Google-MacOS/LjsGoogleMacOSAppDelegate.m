@@ -2,7 +2,7 @@
 #import "Lumberjack.h"
 #import "LjsCategories.h"
 #import "LjsDn.h"
-#import "LjsGooglePlacesManager.h"
+#import "LjsGoogleManager.h"
 #import "LjsLocationManager.h"
 #import "LjsGooglePlace.h"
 #import "LjsGooglePlacePredictionOptions.h"
@@ -18,7 +18,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @interface LjsGoogleMacOSAppDelegate () 
 
-@property (nonatomic, strong) LjsGooglePlacesManager *manager;
+@property (nonatomic, strong) LjsGoogleManager *manager;
 @property (nonatomic, strong) LjsGoogleRequestManager *rm;
 
 - (void) doPredictionRequestTests;
@@ -56,12 +56,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
              initWithApiToken:apiKey];
   
   LjsLocationManager *lm = [[LjsLocationManager alloc] init];
-  LjsLocation *location = [lm location];
-//  
-  [self.rm executeHttpReverseGeocodeRequestForLocation:location
-                                  locationIsFromSensor:YES];
+  self.manager = [[LjsGoogleManager alloc] initWithLocationManager:lm];
 
-  [self doPredictionRequestTests];
+  LjsLocation *location = [lm location];
+
+  [self.manager geocodesWithLocation:location
+                     makeHttpRequest:YES
+                 locationFromSensors:YES];
+//  [self doPredictionRequestTests];
   
 }
 
@@ -71,8 +73,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
   LjsLocationManager *lm = [[LjsLocationManager alloc] init];
   
-  self.manager = [[LjsGooglePlacesManager alloc] initWithLocationManager:lm];
-  
+    
   LjsLocation *location = [lm location];
   
   NSMutableArray *strings = [NSMutableArray array]; 

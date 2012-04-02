@@ -40,7 +40,7 @@ extern NSString *LjsGooglePlacesManagerNotificationNewPlacesAvailable;
 /**
  Documentation
  */
-@interface LjsGooglePlacesManager : NSObject 
+@interface LjsGoogleManager : NSObject 
 <LjsGooglePlaceResultHandlerDelegate, LjsGoogleReverseGeocodeHandlerDelegate>
 
 /** @name Properties */
@@ -68,35 +68,11 @@ extern NSString *LjsGooglePlacesManagerNotificationNewPlacesAvailable;
 
 /** @name Utility */
 
-//- (NSArray *) placesWithNameBeginningWithString:(NSString *)aString 
-//                      performPredicationRequest:(BOOL)aShouldPerformRequest
-//                               predictionRadius:(CGFloat)aRadius 
-//                             predictionLanguage:(NSString *)aLangCode;
-//
-//- (NSArray *) placesWithNameBeginningWithString:(NSString *)aString 
-//                                          limit:(NSUInteger) aLimit
-//                      performPredicationRequest:(BOOL)aShouldPerformRequest
-//                               predictionRadius:(CGFloat)aRadius 
-//                             predictionLanguage:(NSString *)aLangCode;
-//
-//- (NSArray *) placesWithNameBeginningWithString:(NSString *) aString
-//                                           sort:(BOOL) aShouldSort
-//                                      ascending:(BOOL) aSortAscending
-//                      performPredicationRequest:(BOOL)aShouldPerformRequest
-//                               predictionRadius:(CGFloat)aRadius 
-//                             predictionLanguage:(NSString *)aLangCode;
-
-//- (NSArray *) predictionsWithString:(NSString *)aString 
-//                              limit:(NSUInteger) aLimit
-//                               sort:(BOOL) aShouldSort
-//                          ascending:(BOOL) aSortAscending
-//                           location:(LjsLocation) aLocation
-//          performPredicationRequest:(BOOL) aShouldPerformRequest
-//                   predictionRadius:(CGFloat)aRadius 
-//                 predictionLanguage:(NSString *)aLangCode;
-
 - (NSArray *) predicationsWithOptions:(LjsGooglePlacePredictionOptions *) aOptions;
 
+- (NSArray *) geocodesWithLocation:(LjsLocation *) aLocation
+                   makeHttpRequest:(BOOL) aShouldMakeHttpRequest
+               locationFromSensors:(BOOL) aLocationIsFromSensor;
 
 /** @name Sorting */
 

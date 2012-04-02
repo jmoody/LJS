@@ -64,7 +64,7 @@
 		F58EDEE615285B89009BE6D6 /* LjsGoogleRgReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EDEE315285B89009BE6D6 /* LjsGoogleRgReply.m */; };
 		F58EDEED15285C47009BE6D6 /* LjsGooglePlaceDistancer.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EDEE815285C47009BE6D6 /* LjsGooglePlaceDistancer.m */; };
 		F58EDEEE15285C47009BE6D6 /* LjsGooglePlacePredictionOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EDEEA15285C47009BE6D6 /* LjsGooglePlacePredictionOptions.m */; };
-		F58EDEEF15285C47009BE6D6 /* LjsGooglePlacesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EDEEC15285C47009BE6D6 /* LjsGooglePlacesManager.m */; };
+		F58EDEEF15285C47009BE6D6 /* LjsGoogleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EDEEC15285C47009BE6D6 /* LjsGoogleManager.m */; };
 		F5BB1F21151BB61D00BFDDA0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1F1F151BB61D00BFDDA0 /* InfoPlist.strings */; };
 		F5BB1F23151BB61D00BFDDA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB1F22151BB61D00BFDDA0 /* main.m */; };
 		F5BB1F27151BB61D00BFDDA0 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1F25151BB61D00BFDDA0 /* Credits.rtf */; };
@@ -244,8 +244,8 @@
 		F58EDEE815285C47009BE6D6 /* LjsGooglePlaceDistancer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlaceDistancer.m; sourceTree = "<group>"; };
 		F58EDEE915285C47009BE6D6 /* LjsGooglePlacePredictionOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacePredictionOptions.h; sourceTree = "<group>"; };
 		F58EDEEA15285C47009BE6D6 /* LjsGooglePlacePredictionOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacePredictionOptions.m; sourceTree = "<group>"; };
-		F58EDEEB15285C47009BE6D6 /* LjsGooglePlacesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesManager.h; sourceTree = "<group>"; };
-		F58EDEEC15285C47009BE6D6 /* LjsGooglePlacesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesManager.m; sourceTree = "<group>"; };
+		F58EDEEB15285C47009BE6D6 /* LjsGoogleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; path = LjsGoogleManager.h; sourceTree = "<group>"; };
+		F58EDEEC15285C47009BE6D6 /* LjsGoogleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleManager.m; sourceTree = "<group>"; };
 		F5BB1F12151BB61D00BFDDA0 /* Test-Google-MacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test-Google-MacOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5BB1F1E151BB61D00BFDDA0 /* Test-Google-MacOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Google-MacOS-Info.plist"; sourceTree = "<group>"; };
 		F5BB1F20151BB61D00BFDDA0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -543,8 +543,8 @@
 				F58EDEE815285C47009BE6D6 /* LjsGooglePlaceDistancer.m */,
 				F58EDEE915285C47009BE6D6 /* LjsGooglePlacePredictionOptions.h */,
 				F58EDEEA15285C47009BE6D6 /* LjsGooglePlacePredictionOptions.m */,
-				F58EDEEB15285C47009BE6D6 /* LjsGooglePlacesManager.h */,
-				F58EDEEC15285C47009BE6D6 /* LjsGooglePlacesManager.m */,
+				F58EDEEB15285C47009BE6D6 /* LjsGoogleManager.h */,
+				F58EDEEC15285C47009BE6D6 /* LjsGoogleManager.m */,
 				F58EDE991528525D009BE6D6 /* LjsGoogleRequestManager.h */,
 				F58EDE9A1528525D009BE6D6 /* LjsGoogleRequestManager.m */,
 				F58EDEDB15285770009BE6D6 /* LjsGoogleRequestFactory.h */,
@@ -1188,7 +1188,7 @@
 				F58EDEE615285B89009BE6D6 /* LjsGoogleRgReply.m in Sources */,
 				F58EDEED15285C47009BE6D6 /* LjsGooglePlaceDistancer.m in Sources */,
 				F58EDEEE15285C47009BE6D6 /* LjsGooglePlacePredictionOptions.m in Sources */,
-				F58EDEEF15285C47009BE6D6 /* LjsGooglePlacesManager.m in Sources */,
+				F58EDEEF15285C47009BE6D6 /* LjsGoogleManager.m in Sources */,
 				F50F292615286B0B00DD67D1 /* LjsGoogleAddressComponent.m in Sources */,
 				F50F292715286B0B00DD67D1 /* LjsGoogleAddressComponentType.m in Sources */,
 				F50F292815286B0B00DD67D1 /* LjsGoogleAttribution.m in Sources */,

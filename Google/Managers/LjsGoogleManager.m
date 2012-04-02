@@ -30,7 +30,7 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsGooglePlacesManager.h"
+#import "LjsGoogleManager.h"
 #import "LjsGoogleGlobals.h"
 #import "Lumberjack.h"
 #import "LjsFileUtilities.h"
@@ -44,6 +44,8 @@
 #import "LjsFoundationCategories.h"
 #import "LjsGooglePlaceDistancer.h"
 #import "LjsGooglePlacePredictionOptions.h"
+#import "LjsGoogleReverseGeocode.h"
+#import "LjsGoogleNmoReverseGeocode.h"
 
 
 
@@ -58,7 +60,7 @@ NSString *LjsGooglePlacesManagerNotificationNewPlacesAvailable = @"com.littlejoy
 static NSString *LjsGooglePlacesManagerModelFile = @"LjsGoogleModel";
 static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite";
 
-@interface LjsGooglePlacesManager ()
+@interface LjsGoogleManager ()
 
 @property (nonatomic, strong, readonly) NSManagedObjectModel *model; 
 @property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *coordinator; 
@@ -80,7 +82,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 
 @end
 
-@implementation LjsGooglePlacesManager
+@implementation LjsGoogleManager
 
 @synthesize context = __moContext;
 @synthesize model = __moModel;
@@ -243,6 +245,24 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
   return result;
 }
 
+- (NSArray *) geocodesWithLocation:(LjsLocation *) aLocation
+                   makeHttpRequest:(BOOL) aShouldMakeHttpRequest
+               locationFromSensors:(BOOL) aLocationIsFromSensor {
+  
+  DDLogDebug(@"geocoded with location: %@", aLocation);
+//  LjsLocation *loc100m = [LjsLocation locationWithLocation:aLocation 
+//                                                     scale:[LjsLocation scale100m]];
+//  NSPredicate *predicate;
+//  predicate = [NSPredicate predicateWithFormat:@"location100m.latitude == %@ && location100m.longitude == %@",
+//               loc100m.latitude, loc100m.longitude];
+  
+  [self.requestManager executeHttpReverseGeocodeRequestForLocation:aLocation
+                                              locationIsFromSensor:aLocationIsFromSensor];
+  
+  return nil;
+}
+
+
 
 
 
@@ -403,9 +423,10 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 
 - (void) requestForReverseGeocodeCompletedWithResult:(NSArray *) aResult
                                             userInfo:(NSDictionary *) aUserInfo {
-  DDLogDebug(@"results = %@", aResult);
-  DDLogDebug(@"user info = %@", aUserInfo);
-  
+  for (LjsGoogleNmoReverseGeocode *geocode in aResult) {
+    [LjsGoogleReverseGeocode initWithReverseGeocode:geocode
+                                            context:self.context];
+  }  
 }
 
 - (void) requestForReverseGeocodeFailedWithCode:(NSUInteger) aCode
