@@ -1,8 +1,8 @@
-#import "LjsGooglePlaceDetails.h"
+#import "LjsGooglePlace.h"
 #import "Lumberjack.h"
 #import "LjsGoogleAddressComponentPlace.h"
 #import "LjsGoogleAttribution.h"
-#import "LjsGooglePlaceDetailsType.h"
+#import "LjsGooglePlaceType.h"
 #import "NSDate+LjsAdditions.h"
 #import "LjsGooglePlacesNmoDetails.h"
 #import "LjsDn.h"
@@ -18,12 +18,12 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-@implementation LjsGooglePlaceDetails
+@implementation LjsGooglePlace
 
-+ (LjsGooglePlaceDetails *) initWithDetails:(LjsGooglePlacesNmoDetails *) aDetails
++ (LjsGooglePlace *) initWithDetails:(LjsGooglePlacesNmoDetails *) aDetails
                                     context:(NSManagedObjectContext *) aContext {
-  LjsGooglePlaceDetails *place;
-  place = [LjsGooglePlaceDetails insertInManagedObjectContext:aContext];
+  LjsGooglePlace *place;
+  place = [LjsGooglePlace insertInManagedObjectContext:aContext];
   place.dateAdded = [NSDate date];
   place.dateModified = [NSDate LjsDateNotFound];
   place.orderValue = [NSDecimalNumber zero];
@@ -59,7 +59,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
   
   for (NSString *typeStr in aDetails.types) {
-    [LjsGooglePlaceDetailsType findOrCreateWithName:typeStr
+    [LjsGooglePlaceType findOrCreateWithName:typeStr
                                               place:place
                                             context:aContext];
   }

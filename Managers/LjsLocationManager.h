@@ -102,8 +102,8 @@ extern NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable;
 + (LjsLocation *) locationWithLocation:(LjsLocation *) aLocation
                                 scale:(NSUInteger) aScale;
 
-
-
+- (BOOL) isSameLocation:(LjsLocation *) aLocation scale:(NSUInteger) aScale;
+- (BOOL) isSameLocation:(LjsLocation *) aLocation;
 
 @end
 

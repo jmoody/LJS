@@ -14,7 +14,7 @@ extern const struct LjsGoogleAddressComponentPlaceRelationships {
 extern const struct LjsGoogleAddressComponentPlaceFetchedProperties {
 } LjsGoogleAddressComponentPlaceFetchedProperties;
 
-@class LjsGooglePlaceDetails;
+@class LjsGooglePlace;
 
 
 @interface LjsGoogleAddressComponentPlaceID : NSManagedObjectID {}
@@ -30,7 +30,7 @@ extern const struct LjsGoogleAddressComponentPlaceFetchedProperties {
 
 
 
-@property (nonatomic, strong) LjsGooglePlaceDetails* place;
+@property (nonatomic, strong) LjsGooglePlace* place;
 
 //- (BOOL)validatePlace:(id*)value_ error:(NSError**)error_;
 
@@ -48,8 +48,8 @@ extern const struct LjsGoogleAddressComponentPlaceFetchedProperties {
 
 
 
-- (LjsGooglePlaceDetails*)primitivePlace;
-- (void)setPrimitivePlace:(LjsGooglePlaceDetails*)value;
+- (LjsGooglePlace*)primitivePlace;
+- (void)setPrimitivePlace:(LjsGooglePlace*)value;
 
 
 @end

@@ -71,6 +71,7 @@ extern NSString *LjsGooglePlacesManagerNotificationNewPlacesAvailable;
 - (NSArray *) predicationsWithOptions:(LjsGooglePlacePredictionOptions *) aOptions;
 
 - (NSArray *) geocodesWithLocation:(LjsLocation *) aLocation
+                        searchTerm:(NSString *) aSearchTerm
                    makeHttpRequest:(BOOL) aShouldMakeHttpRequest
                locationFromSensors:(BOOL) aLocationIsFromSensor;
 

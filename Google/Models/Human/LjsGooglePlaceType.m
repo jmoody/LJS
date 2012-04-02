@@ -1,8 +1,8 @@
-#import "LjsGooglePlaceDetailsType.h"
-#import "LjsGooglePlaceDetails.h"
+#import "LjsGooglePlaceType.h"
+#import "LjsGooglePlace.h"
 #import "Lumberjack.h"
 #import "NSArray+LjsAdditions.h"
-#import "LjsGooglePlaceDetails.h"
+#import "LjsGooglePlace.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -11,14 +11,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
 
-@implementation LjsGooglePlaceDetailsType
+@implementation LjsGooglePlaceType
 
 
-+ (LjsGooglePlaceDetailsType *) findOrCreateWithName:(NSString *) aName
-                                               place:(LjsGooglePlaceDetails *)aPlace 
++ (LjsGooglePlaceType *) findOrCreateWithName:(NSString *) aName
+                                               place:(LjsGooglePlace *)aPlace 
                                              context:(NSManagedObjectContext *) aContext {
-  NSString *entityName = [LjsGooglePlaceDetailsType entityName];
-  LjsGooglePlaceDetailsType *result = nil;
+  NSString *entityName = [LjsGooglePlaceType entityName];
+  LjsGooglePlaceType *result = nil;
   NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
   request.predicate = [NSPredicate predicateWithFormat:@"name == %@", aName];
   NSError *error = nil;
@@ -35,7 +35,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
       result.places = [result.places setByAddingObject:aPlace];
     }
   } else {
-    result = [LjsGooglePlaceDetailsType insertInManagedObjectContext:aContext];
+    result = [LjsGooglePlaceType insertInManagedObjectContext:aContext];
     result.name = aName;
     result.places = [NSSet setWithObject:aPlace];
   }

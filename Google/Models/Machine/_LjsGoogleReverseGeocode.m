@@ -7,9 +7,14 @@ const struct LjsGoogleReverseGeocodeAttributes LjsGoogleReverseGeocodeAttributes
 	.dateAdded = @"dateAdded",
 	.dateModified = @"dateModified",
 	.formattedAddress = @"formattedAddress",
+	.key = @"key",
+	.latitude100m = @"latitude100m",
+	.latitude1km = @"latitude1km",
 	.location = @"location",
 	.location100m = @"location100m",
 	.locationType = @"locationType",
+	.longitude100m = @"longitude100m",
+	.longitude1km = @"longitude1km",
 	.orderValue = @"orderValue",
 };
 
@@ -77,6 +82,27 @@ const struct LjsGoogleReverseGeocodeFetchedProperties LjsGoogleReverseGeocodeFet
 
 
 
+@dynamic key;
+
+
+
+
+
+
+@dynamic latitude100m;
+
+
+
+
+
+
+@dynamic latitude1km;
+
+
+
+
+
+
 @dynamic location;
 
 
@@ -92,6 +118,20 @@ const struct LjsGoogleReverseGeocodeFetchedProperties LjsGoogleReverseGeocodeFet
 
 
 @dynamic locationType;
+
+
+
+
+
+
+@dynamic longitude100m;
+
+
+
+
+
+
+@dynamic longitude1km;
 
 
 

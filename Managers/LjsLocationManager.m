@@ -218,6 +218,19 @@ static NSString *LjsLocation_SCALE_KEY = @"scale";
                                          scale:aScale];
 }
 
+- (BOOL) isSameLocation:(LjsLocation *) aLocation scale:(NSUInteger) aScale {
+  LjsLocation *usScaled = [LjsLocation locationWithLocation:self
+                                                      scale:aScale];
+  LjsLocation *themScaled = [LjsLocation locationWithLocation:self
+                                                        scale:aScale];
+  return [LjsDn dn:usScaled.latitude e:themScaled.latitude] &&
+  [LjsDn dn:usScaled.longitude e:themScaled.longitude];
+}
+
+- (BOOL) isSameLocation:(LjsLocation *) aLocation {
+  return [LjsDn dn:self.latitude e:aLocation.latitude] &&
+  [LjsDn dn:self.longitude e:aLocation.longitude];
+}
 
 
 - (NSString *) description {

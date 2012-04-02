@@ -39,10 +39,10 @@
 #import "LjsGooglePlacesPredictiveReply.h"
 #import "LjsGooglePlacesNmoDetails.h"
 #import "LjsGooglePlacesPrediction.h"
-#import "LjsGooglePlaceDetails.h"
+#import "LjsGooglePlace.h"
 #import "LjsDn.h"
 #import "LjsFoundationCategories.h"
-#import "LjsGooglePlaceDistancer.h"
+#import "LjsGoogleDistancer.h"
 #import "LjsGooglePlacePredictionOptions.h"
 #import "LjsGoogleReverseGeocode.h"
 #import "LjsGoogleNmoReverseGeocode.h"
@@ -68,7 +68,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 @property (nonatomic, copy) NSString *sqliteDirectory;
 
 @property (nonatomic, strong) LjsLocationManager *lm;
-@property (nonatomic, strong) LjsGooglePlaceDistancer *distancer;
+@property (nonatomic, strong) LjsGoogleDistancer *distancer;
 
 
 
@@ -78,6 +78,9 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 
 - (BOOL) placeExistsForId:(NSString *) aId;
 - (NSArray *) fetchAllPlaces;
+- (BOOL) geocodeExistsForLocation:(LjsLocation *) aLocation;
+- (NSArray *) fetchAllGeocodes;
+
 
 
 @end
@@ -114,7 +117,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
                         storeFilename:LjsGooglePlacesSqlLiteStore
                              apiToken:decoded
                               manager:aManager];
-                          
+  
 }
 
 
@@ -124,7 +127,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
                         storeFilename:LjsGooglePlacesSqlLiteStore
                              apiToken:aApiToken
                               manager:aManager];
-                           
+  
 }
 
 - (id) initWithStoreFilename:(NSString *) aFilename 
@@ -134,7 +137,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
                         storeFilename:aFilename
                              apiToken:aApiToken
                               manager:aManager];
-                          
+  
 }
 
 - (id) initWithStoreDirectory:(NSString *) aDirectory
@@ -153,7 +156,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
       abort();
     }
     
-    self.distancer = [[LjsGooglePlaceDistancer alloc] initWithLocationManager:self.lm];
+    self.distancer = [[LjsGoogleDistancer alloc] initWithLocationManager:self.lm];
     
     // initalize - must be done after setting the location manager
     // why i did it this way, i am not sure - probably something about
@@ -168,9 +171,9 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 
 
 - (BOOL) placeExistsForId:(NSString *) aId {
-  NSString *entityName = [LjsGooglePlaceDetails entityName];
+  NSString *entityName = [LjsGooglePlace entityName];
   NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
-  request.predicate = [NSPredicate predicateWithFormat:@"stableId LIKE %@", aId];
+  request.predicate = [NSPredicate predicateWithFormat:@"stableId == %@", aId];
   NSError *error = nil;
   NSUInteger count = [self.context countForFetchRequest:request
                                                   error:&error];
@@ -186,7 +189,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 }
 
 - (NSArray *) fetchAllPlaces {
-  NSString *entityName = [LjsGooglePlaceDetails entityName];
+  NSString *entityName = [LjsGooglePlace entityName];
   NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
   NSError *error = nil;
   NSArray *fetched = [self.context executeFetchRequest:request error:&error];
@@ -197,10 +200,40 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
   return fetched;
 }
 
+- (BOOL) geocodeExistsForLocation:(LjsLocation *)aLocation {
+  NSString *entityName = [LjsGoogleReverseGeocode entityName];
+  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+  NSPredicate *predicate;
+  predicate = [NSPredicate predicateWithFormat:@"key == %@", [aLocation key]];
+
+  request.predicate = predicate;
+  NSError *error = nil;
+  NSUInteger count = [self.context countForFetchRequest:request error:&error];
+  if (count == NSNotFound) {
+    DDLogFatal(@"error fetching reverse geocode with location: %@ %@: %@",
+               aLocation, [error localizedDescription], error);
+    abort();
+  } 
+  
+  return count != 0;
+}
+
+- (NSArray *) fetchAllGeocodes {
+  NSString *entityName = [LjsGoogleReverseGeocode entityName];
+  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+  NSError *error = nil;
+  NSArray *fetched = [self.context executeFetchRequest:request error:&error];
+  if (fetched == nil) {
+    DDLogFatal(@"error fetching reverse geocode: %@: %@", 
+               [error localizedDescription], error);
+  } 
+  return fetched;
+}
+
 
 
 - (NSArray *) predicationsWithOptions:(LjsGooglePlacePredictionOptions *) aOptions {
-  NSString *entityName = [LjsGooglePlaceDetails entityName];
+  NSString *entityName = [LjsGooglePlace entityName];
   NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
   request.predicate = aOptions.predicate;
   
@@ -246,20 +279,60 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 }
 
 - (NSArray *) geocodesWithLocation:(LjsLocation *) aLocation
+                        searchTerm:(NSString *)aSearchTerm 
                    makeHttpRequest:(BOOL) aShouldMakeHttpRequest
                locationFromSensors:(BOOL) aLocationIsFromSensor {
-  
   DDLogDebug(@"geocoded with location: %@", aLocation);
-//  LjsLocation *loc100m = [LjsLocation locationWithLocation:aLocation 
-//                                                     scale:[LjsLocation scale100m]];
-//  NSPredicate *predicate;
-//  predicate = [NSPredicate predicateWithFormat:@"location100m.latitude == %@ && location100m.longitude == %@",
-//               loc100m.latitude, loc100m.longitude];
+  NSString *entityName = [LjsGoogleReverseGeocode entityName];
+  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+  NSPredicate *predicate;
+  LjsLocation *searchLoc = [LjsLocation locationWithLocation:aLocation
+                                                       scale:[LjsLocation scale1km]];
   
-  [self.requestManager executeHttpReverseGeocodeRequestForLocation:aLocation
-                                              locationIsFromSensor:aLocationIsFromSensor];
+  NSPredicate *latPred = [NSPredicate predicateWithFormat:@"latitude1km == %@", 
+                          searchLoc.latitude];
+  NSPredicate *lonPred = [NSPredicate predicateWithFormat:@"longitude1km == %@",
+                          searchLoc.longitude];
+  NSPredicate *termPred = [NSPredicate predicateWithFormat:@"formattedAddress CONTAINS[cd] %@",
+                           aSearchTerm];
+  NSArray *preds = [NSArray arrayWithObjects:latPred, lonPred, termPred, nil];
   
-  return nil;
+  predicate = [NSCompoundPredicate andPredicateWithSubpredicates:preds];
+  
+  request.predicate = predicate;
+  NSError *error = nil;
+  NSArray *fetched = [self.context executeFetchRequest:request error:&error];
+  if (fetched == nil) {
+    DDLogFatal(@"error fetching reverse geocode with location: %@ search term: %@ %@: %@",
+               aLocation, aSearchTerm, [error localizedDescription], error);
+    abort();
+  } 
+  
+
+  NSUInteger resultCount = [fetched count];
+  if (resultCount > 1) {
+    fetched = [fetched sortedArrayUsingComparator:^(id a, id b) {
+      LjsGoogleReverseGeocode *first = (LjsGoogleReverseGeocode *) a;
+      LjsGoogleReverseGeocode *second = (LjsGoogleReverseGeocode *) b;
+      return (NSComparisonResult)([self.distancer compareDistanceFromLocation:aLocation 
+                                                                  toGeocodeA:first 
+                                                                  toGeocodeB:second] == NSOrderedDescending);
+    }];
+  }
+  
+  if (aShouldMakeHttpRequest == YES) {
+    if (resultCount != 0) {
+      DDLogDebug(@"args say - make a reverse geocode request, but results have been found - skipping");
+    } else {
+      DDLogDebug(@"args say - make a reverse geocode request");
+      [self.requestManager executeHttpReverseGeocodeRequestForLocation:aLocation
+                                                  locationIsFromSensor:aLocationIsFromSensor];
+    }
+  } else {
+    DDLogDebug(@"args say - do not make a reverse geocode request");
+  }
+
+  return fetched;
 }
 
 
@@ -279,7 +352,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
   return [self arrayBySortingPlaces:aPlaces
            withDistanceFromLocation:loc
                           ascending:aSortAscending];
-                      
+  
 }
 
 - (NSArray *) arrayBySortingPlaces:(NSArray *) aPlaces
@@ -297,15 +370,15 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
     DDLogWarn(@"location must valid: %@", aLocation);
     return nil;
   }
-
+  
   NSComparisonResult compResult = aSortAscending ? NSOrderedDescending : NSOrderedAscending;  
   NSArray *result;
   result = [aPlaces sortedArrayUsingComparator:^(id a, id b) {
-    LjsGooglePlaceDetails *first = (LjsGooglePlaceDetails *) a;
-    LjsGooglePlaceDetails *second = (LjsGooglePlaceDetails *) b;
-    return (NSComparisonResult)([self.distancer compareDistanceFrom:aLocation 
-                                                                toA:first 
-                                                                toB:second] == compResult);
+    LjsGooglePlace *first = (LjsGooglePlace *) a;
+    LjsGooglePlace *second = (LjsGooglePlace *) b;
+    return (NSComparisonResult)([self.distancer compareDistanceFromLocation:aLocation 
+                                                                toPlaceA:first 
+                                                                toPlaceB:second] == compResult);
   }];
   return result;
 }
@@ -355,7 +428,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
   NSDecimalNumber *targetDist = [[LjsDn dnWithFloat:aMeters] dnByRoundingAsLocation];
   NSPredicate *predicate;
   predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
-    LjsGooglePlaceDetails *place = (LjsGooglePlaceDetails *) evaluatedObject;
+    LjsGooglePlace *place = (LjsGooglePlace *) evaluatedObject;
     NSDecimalNumber *distFrom = [self.distancer metersBetweenPlace:place andLocation:aLocation];    
     return aInsideRadius ? [distFrom lte:targetDist] : [distFrom gte:targetDist];
   }];
@@ -377,7 +450,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
       //DDLogDebug(@"starting request for details with prediction: %@", prediction);
       NSString *langCode = [aUserInfo objectForKey:@"language"];
       [self.requestManager executeHttpDetailsRequestionForPrediction:prediction
-                                                        language:langCode];
+                                                            language:langCode];
     } else {
       // DDLogDebug(@"skipping details request - place: %@ (%@) already exists",
       //           prediction.prediction, [prediction shortId]);
@@ -400,8 +473,8 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
                                       userInfo:(NSDictionary *) aUserInfo {
   NSString *placeId = aDetails.stablePlaceId;
   if ([self placeExistsForId:placeId] == NO) {
-    [LjsGooglePlaceDetails initWithDetails:aDetails
-                                   context:self.context];
+    [LjsGooglePlace initWithDetails:aDetails
+                            context:self.context];
     [self saveContext];
     [[NSNotificationCenter defaultCenter]
      postNotificationName:LjsGooglePlacesManagerNotificationNewPlacesAvailable
@@ -424,8 +497,15 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
 - (void) requestForReverseGeocodeCompletedWithResult:(NSArray *) aResult
                                             userInfo:(NSDictionary *) aUserInfo {
   for (LjsGoogleNmoReverseGeocode *geocode in aResult) {
-    [LjsGoogleReverseGeocode initWithReverseGeocode:geocode
-                                            context:self.context];
+    LjsLocation *location = geocode.location;
+    if ([self geocodeExistsForLocation:location]) {
+      DDLogDebug(@"skipping - geocode exists for: %@", geocode);
+    } else {
+      DDLogDebug(@"creating geocode for %@", geocode);
+      [LjsGoogleReverseGeocode initWithReverseGeocode:geocode
+                                              context:self.context];
+      [self saveContext];
+    }
   }  
 }
 
@@ -452,7 +532,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
                        initWithApiToken:self.apiToken];
   __requestManager.placeResultHandler = self;
   __requestManager.reverseGeocodeHandler = self;
-
+  
   return __requestManager;
 }
 
@@ -481,14 +561,14 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
   if (__coordinator != nil) {
     return __coordinator;
   }
-
+  
   
   NSURL *storeURL = [self urlForSqlitePath];
   
   NSError *error = nil;
   __coordinator = [[NSPersistentStoreCoordinator alloc]
                    initWithManagedObjectModel:self.model];
-
+  
   NSDictionary *options = nil;
   options = [NSDictionary dictionaryWithObjectsAndKeys:
              [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,

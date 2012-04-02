@@ -7,12 +7,24 @@ const struct LjsGooglePlaceAttributes LjsGooglePlaceAttributes = {
 	.dateAdded = @"dateAdded",
 	.dateModified = @"dateModified",
 	.formattedAddress = @"formattedAddress",
+	.formattedPhone = @"formattedPhone",
+	.iconUrl = @"iconUrl",
+	.internationalPhone = @"internationalPhone",
 	.location = @"location",
+	.mapUrl = @"mapUrl",
+	.name = @"name",
 	.orderValue = @"orderValue",
+	.rating = @"rating",
+	.referenceId = @"referenceId",
+	.stableId = @"stableId",
+	.vicinity = @"vicinity",
+	.website = @"website",
 };
 
 const struct LjsGooglePlaceRelationships LjsGooglePlaceRelationships = {
 	.addressComponents = @"addressComponents",
+	.attributions = @"attributions",
+	.types = @"types",
 };
 
 const struct LjsGooglePlaceFetchedProperties LjsGooglePlaceFetchedProperties = {
@@ -72,6 +84,27 @@ const struct LjsGooglePlaceFetchedProperties LjsGooglePlaceFetchedProperties = {
 
 
 
+@dynamic formattedPhone;
+
+
+
+
+
+
+@dynamic iconUrl;
+
+
+
+
+
+
+@dynamic internationalPhone;
+
+
+
+
+
+
 @dynamic location;
 
 
@@ -79,7 +112,56 @@ const struct LjsGooglePlaceFetchedProperties LjsGooglePlaceFetchedProperties = {
 
 
 
+@dynamic mapUrl;
+
+
+
+
+
+
+@dynamic name;
+
+
+
+
+
+
 @dynamic orderValue;
+
+
+
+
+
+
+@dynamic rating;
+
+
+
+
+
+
+@dynamic referenceId;
+
+
+
+
+
+
+@dynamic stableId;
+
+
+
+
+
+
+@dynamic vicinity;
+
+
+
+
+
+
+@dynamic website;
 
 
 
@@ -95,6 +177,32 @@ const struct LjsGooglePlaceFetchedProperties LjsGooglePlaceFetchedProperties = {
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"addressComponents"];
   
 	[self didAccessValueForKey:@"addressComponents"];
+	return result;
+}
+	
+
+@dynamic attributions;
+
+	
+- (NSMutableSet*)attributionsSet {
+	[self willAccessValueForKey:@"attributions"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"attributions"];
+  
+	[self didAccessValueForKey:@"attributions"];
+	return result;
+}
+	
+
+@dynamic types;
+
+	
+- (NSMutableSet*)typesSet {
+	[self willAccessValueForKey:@"types"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"types"];
+  
+	[self didAccessValueForKey:@"types"];
 	return result;
 }
 	

@@ -8,7 +8,7 @@
 
 
 + (LjsGoogleAttribution *) findOrCreateWithAtribution:(LjsGooglePlacesNmoAttribution *) aAttribution
-                                                place:(LjsGooglePlaceDetails *) aPlace
+                                                place:(LjsGooglePlace *) aPlace
                                               context:(NSManagedObjectContext *) aContext;
 @end
 

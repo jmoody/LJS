@@ -1,32 +1,32 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to LjsGooglePlaceDetailsType.h instead.
+// Make changes to LjsGooglePlaceType.h instead.
 
 #import <CoreData/CoreData.h>
 
 
-extern const struct LjsGooglePlaceDetailsTypeAttributes {
+extern const struct LjsGooglePlaceTypeAttributes {
 	__unsafe_unretained NSString *name;
-} LjsGooglePlaceDetailsTypeAttributes;
+} LjsGooglePlaceTypeAttributes;
 
-extern const struct LjsGooglePlaceDetailsTypeRelationships {
+extern const struct LjsGooglePlaceTypeRelationships {
 	__unsafe_unretained NSString *places;
-} LjsGooglePlaceDetailsTypeRelationships;
+} LjsGooglePlaceTypeRelationships;
 
-extern const struct LjsGooglePlaceDetailsTypeFetchedProperties {
-} LjsGooglePlaceDetailsTypeFetchedProperties;
+extern const struct LjsGooglePlaceTypeFetchedProperties {
+} LjsGooglePlaceTypeFetchedProperties;
 
-@class LjsGooglePlaceDetails;
+@class LjsGooglePlace;
 
 
 
-@interface LjsGooglePlaceDetailsTypeID : NSManagedObjectID {}
+@interface LjsGooglePlaceTypeID : NSManagedObjectID {}
 @end
 
-@interface _LjsGooglePlaceDetailsType : NSManagedObject {}
+@interface _LjsGooglePlaceType : NSManagedObject {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (LjsGooglePlaceDetailsTypeID*)objectID;
+- (LjsGooglePlaceTypeID*)objectID;
 
 
 
@@ -50,16 +50,16 @@ extern const struct LjsGooglePlaceDetailsTypeFetchedProperties {
 
 @end
 
-@interface _LjsGooglePlaceDetailsType (CoreDataGeneratedAccessors)
+@interface _LjsGooglePlaceType (CoreDataGeneratedAccessors)
 
 - (void)addPlaces:(NSSet*)value_;
 - (void)removePlaces:(NSSet*)value_;
-- (void)addPlacesObject:(LjsGooglePlaceDetails*)value_;
-- (void)removePlacesObject:(LjsGooglePlaceDetails*)value_;
+- (void)addPlacesObject:(LjsGooglePlace*)value_;
+- (void)removePlacesObject:(LjsGooglePlace*)value_;
 
 @end
 
-@interface _LjsGooglePlaceDetailsType (CoreDataGeneratedPrimitiveAccessors)
+@interface _LjsGooglePlaceType (CoreDataGeneratedPrimitiveAccessors)
 
 
 - (NSString *)primitiveName;

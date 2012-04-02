@@ -16,6 +16,15 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+@implementation LjsLocation (LjsLocation_LjsReverseGeocodeAdditions)
+
+- (NSString *) key {
+  LjsLocation *loc = [LjsLocation locationWithLocation:self scale:[LjsLocation scale1m]];
+  return [NSString stringWithFormat:@"%@,%@", loc.latitude, loc.longitude];
+}
+
+@end
+
 @implementation LjsGoogleReverseGeocode
 
 + (LjsGoogleReverseGeocode *) initWithReverseGeocode:(LjsGoogleNmoReverseGeocode *) aGeocode
@@ -28,8 +37,19 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   result.orderValue = [LjsDn zero];
   
   result.location = aGeocode.location;
-  result.location100m = [LjsLocation locationWithLocation:aGeocode.location
-                                                    scale:[LjsLocation scale100m]];
+  LjsLocation *location100m = [LjsLocation locationWithLocation:aGeocode.location
+                                                          scale:[LjsLocation scale100m]];
+  result.location100m = location100m;
+  result.latitude100m = location100m.latitude;
+  result.longitude100m = location100m.longitude;
+  
+  result.key = [aGeocode.location key];
+  
+  LjsLocation *location1k = [LjsLocation locationWithLocation:aGeocode.location
+                                                        scale:[LjsLocation scale1km]];
+  result.latitude1km = location1k.latitude;
+  result.longitude1km = location1k.longitude;
+  
   result.locationType = aGeocode.locationType;
   
   NSDictionary *boundsDict = aGeocode.bounds;
@@ -61,4 +81,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 
+
+- (NSString *) description {
+  return [NSString stringWithFormat:@"#<Geocode: %@ %@ %@>",
+          self.location100m, self.formattedAddress, self.locationType];
+}
+
+- (NSString *) debugDescription {
+  return [NSString stringWithFormat:@"#<Geocode: %@ %@ %@>",
+          self.location100m, self.formattedAddress, self.locationType];  
+}
 @end

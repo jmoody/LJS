@@ -4,7 +4,7 @@
 #import "LjsDn.h"
 #import "LjsGoogleManager.h"
 #import "LjsLocationManager.h"
-#import "LjsGooglePlaceDetails.h"
+#import "LjsGooglePlace.h"
 #import "LjsGooglePlacePredictionOptions.h"
 #import "LjsGoogleRequestManager.h"
 #import "LjsCaesarCipher.h"
@@ -59,11 +59,19 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   self.manager = [[LjsGoogleManager alloc] initWithLocationManager:lm];
 
   LjsLocation *location = [lm location];
+  NSString *searchTerm = @"Zurich";
+  NSArray *geocodes;
+  
+  geocodes = [self.manager geocodesWithLocation:location
+                                     searchTerm:searchTerm
+                                makeHttpRequest:YES
+                            locationFromSensors:YES];
 
-  [self.manager geocodesWithLocation:location
-                     makeHttpRequest:YES
-                 locationFromSensors:YES];
-  [self doPredictionRequestTests];
+  DDLogDebug(@"geocodes:  %@", geocodes);
+  
+  
+  
+  //  [self doPredictionRequestTests];
   
 }
 
@@ -126,7 +134,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     
     DDLogDebug(@"location = %@", location);
     DDLogDebug(@"==============  %@ ==========================", searchString);
-    for (LjsGooglePlaceDetails *place in sorted) {
+    for (LjsGooglePlace *place in sorted) {
       NSDecimalNumber *km = [lm kilometersBetweenA:place.location b:location];
       DDLogDebug(@"%@ ==> %@", km, place);
     }
