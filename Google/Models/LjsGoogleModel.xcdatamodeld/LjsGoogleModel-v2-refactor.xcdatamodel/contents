@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11D50b" minimumToolsVersion="Xcode 4.1" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="LjsGoogBase" representedClassName="LjsGoogBase" parentEntity="LjsGoogWithLoc" syncable="YES">
-        <attribute name="dateAdded" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="dateModified" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="formattedAddress" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <entity name="LjsGoogleAddressComponent" representedClassName="LjsGoogleAddressComponent" syncable="YES">
         <attribute name="longName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="shortName" optional="YES" attributeType="String" syncable="YES"/>
@@ -35,12 +30,15 @@
         <attribute name="longitude100km" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude100m" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="LjsGoogWithLoc" inverseName="locationEnity" inverseEntity="LjsGoogWithLoc" syncable="YES"/>
     </entity>
-    <entity name="LjsGooglePlace" representedClassName="LjsGooglePlace" parentEntity="LjsGoogBase" syncable="YES">
+    <entity name="LjsGooglePlace" representedClassName="LjsGooglePlace" syncable="YES">
+        <attribute name="dateAdded" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="formattedAddress" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="formattedPhone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="iconUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="internationalPhone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="Transformable" valueTransformerName="LjsLocationTransformer" syncable="YES"/>
         <attribute name="mapUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="orderValueNumber" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
@@ -57,17 +55,12 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="places" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LjsGooglePlace" inverseName="types" inverseEntity="LjsGooglePlace" syncable="YES"/>
     </entity>
-    <entity name="LjsGoogWithLoc" representedClassName="LjsGoogWithLoc" syncable="YES">
-        <relationship name="locationEnity" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="LjsGoogleLocation" inverseName="owner" inverseEntity="LjsGoogleLocation" syncable="YES"/>
-    </entity>
     <elements>
         <element name="LjsGoogleAddressComponent" positionX="160" positionY="192" width="128" height="105"/>
         <element name="LjsGoogleAddressComponentType" positionX="160" positionY="192" width="128" height="75"/>
         <element name="LjsGoogleAttribution" positionX="160" positionY="192" width="128" height="75"/>
         <element name="LjsGoogleLocation" positionX="160" positionY="192" width="128" height="285"/>
-        <element name="LjsGooglePlace" positionX="160" positionY="192" width="128" height="240"/>
+        <element name="LjsGooglePlace" positionX="160" positionY="192" width="128" height="315"/>
         <element name="LjsGooglePlaceType" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="LjsGoogWithLoc" positionX="160" positionY="192" width="128" height="60"/>
-        <element name="LjsGoogBase" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

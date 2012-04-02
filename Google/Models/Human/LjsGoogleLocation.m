@@ -1,13 +1,13 @@
 #import "LjsGoogleLocation.h"
 #import "LjsDn.h"
 #import "NSDecimalNumber+LjsAdditions.h"
-#import "LjsGoogWithLoc.h"
+
+
 
 @implementation LjsGoogleLocation
 
 + (LjsGoogleLocation *) initWithLocation:(LjsLocation *)aLocation
                                     type:(NSString *) aType
-                                  owner:(LjsGoogWithLoc *) aOwner
                                  context:(NSManagedObjectContext *) aContext {
   
   LjsGoogleLocation *location = [LjsGoogleLocation insertInManagedObjectContext:aContext];
@@ -30,7 +30,6 @@
 
 
   location.type = aType;
-  location.owner = aOwner;
   return location;
 }
 

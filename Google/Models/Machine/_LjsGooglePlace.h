@@ -2,12 +2,16 @@
 // Make changes to LjsGooglePlace.h instead.
 
 #import <CoreData/CoreData.h>
-#import "LjsGoogBase.h"
+
 
 extern const struct LjsGooglePlaceAttributes {
+	__unsafe_unretained NSString *dateAdded;
+	__unsafe_unretained NSString *dateModified;
+	__unsafe_unretained NSString *formattedAddress;
 	__unsafe_unretained NSString *formattedPhone;
 	__unsafe_unretained NSString *iconUrl;
 	__unsafe_unretained NSString *internationalPhone;
+	__unsafe_unretained NSString *location;
 	__unsafe_unretained NSString *mapUrl;
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *orderValueNumber;
@@ -37,6 +41,10 @@ extern const struct LjsGooglePlaceFetchedProperties {
 
 
 
+@class NSObject;
+
+
+
 
 
 
@@ -46,11 +54,35 @@ extern const struct LjsGooglePlaceFetchedProperties {
 @interface LjsGooglePlaceID : NSManagedObjectID {}
 @end
 
-@interface _LjsGooglePlace : LjsGoogBase {}
+@interface _LjsGooglePlace : NSManagedObject {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (LjsGooglePlaceID*)objectID;
+
+
+
+
+@property (nonatomic, strong) NSDate *dateAdded;
+
+
+//- (BOOL)validateDateAdded:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) NSDate *dateModified;
+
+
+//- (BOOL)validateDateModified:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) NSString *formattedAddress;
+
+
+//- (BOOL)validateFormattedAddress:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -75,6 +107,14 @@ extern const struct LjsGooglePlaceFetchedProperties {
 
 
 //- (BOOL)validateInternationalPhone:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) id location;
+
+
+//- (BOOL)validateLocation:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -190,6 +230,24 @@ extern const struct LjsGooglePlaceFetchedProperties {
 @interface _LjsGooglePlace (CoreDataGeneratedPrimitiveAccessors)
 
 
+- (NSDate *)primitiveDateAdded;
+- (void)setPrimitiveDateAdded:(NSDate *)value;
+
+
+
+
+- (NSDate *)primitiveDateModified;
+- (void)setPrimitiveDateModified:(NSDate *)value;
+
+
+
+
+- (NSString *)primitiveFormattedAddress;
+- (void)setPrimitiveFormattedAddress:(NSString *)value;
+
+
+
+
 - (NSString *)primitiveFormattedPhone;
 - (void)setPrimitiveFormattedPhone:(NSString *)value;
 
@@ -204,6 +262,12 @@ extern const struct LjsGooglePlaceFetchedProperties {
 
 - (NSString *)primitiveInternationalPhone;
 - (void)setPrimitiveInternationalPhone:(NSString *)value;
+
+
+
+
+- (id)primitiveLocation;
+- (void)setPrimitiveLocation:(id)value;
 
 
 

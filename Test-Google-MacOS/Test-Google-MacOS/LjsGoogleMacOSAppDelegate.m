@@ -129,7 +129,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     DDLogDebug(@"location = %@", location);
     DDLogDebug(@"==============  %@ ==========================", searchString);
     for (LjsGooglePlace *place in sorted) {
-      NSDecimalNumber *km = [lm kilometersBetweenA:[place location] b:location];
+      NSDecimalNumber *km = [lm kilometersBetweenA:place.location b:location];
       DDLogDebug(@"%@ ==> %@", km, place);
     }
   }

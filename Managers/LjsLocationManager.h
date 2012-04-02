@@ -72,7 +72,7 @@ __VA_ARGS__ \
 extern NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable;
 
 
-@interface LjsLocation : NSObject
+@interface LjsLocation : NSObject <NSCoding>
 @property (nonatomic, strong) NSDecimalNumber *latitude;
 @property (nonatomic, strong) NSDecimalNumber *longitude;
 
@@ -83,6 +83,13 @@ extern NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable;
               longitudeNumber:(NSNumber *) aLongitude;
 - (id) initWithLatitude:(NSDecimalNumber *) aLatitude
               longitude:(NSDecimalNumber *) aLongitude;
+- (id) initWithLatitude:(NSDecimalNumber *) aLatitude
+              longitude:(NSDecimalNumber *) aLongitude;
+- (id) initWithLatitude:(NSDecimalNumber *) aLatitude
+              longitude:(NSDecimalNumber *) aLongitude
+                  scale:(NSUInteger) aScale;
+- (id) locationWithScale:(NSUInteger) aScale;
+
 
 @end
 

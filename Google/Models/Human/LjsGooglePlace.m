@@ -33,13 +33,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   place.iconUrl = aDetails.icon;
   place.internationalPhone = aDetails.internationalPhoneNumber;
 
+  place.location = aDetails.location;
 
-  // sets the relationship
-  [LjsGoogleLocation initWithLocation:aDetails.location
-                                 type:nil
-                                owner:place
-                              context:aContext];
-  
 
   place.mapUrl = aDetails.mapUrl;
   place.name = aDetails.name;
@@ -76,17 +71,19 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [self.stableId substringToIndex:5];
 }
 
-
+- (LjsLocation *) locationWithScale:(NSUInteger) aScale {
+  return [self.location locationWithScale:aScale];
+}
 
 - (NSString *) description {
   return [NSString stringWithFormat:@"#<Place: %@: %@ %@>",
-          self.name, self.formattedAddress, [self locationString]];
+          self.name, self.formattedAddress, self.location];
 }
 
 
 - (NSString *) debugDescription {
   return [NSString stringWithFormat:@"#<Place: %@: %@ %@>",
-          self.name, self.formattedAddress, [self locationString]];
+          self.name, self.formattedAddress, self.location];
 }
 
 

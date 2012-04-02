@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "_LjsGooglePlace.h"
 
-
+@class LjsLocation;
 @class LjsGoogleAddressComponent, LjsGoogleAttribution, LjsGooglePlaceType;
 @class LjsGooglePlacesDetails;
 
@@ -13,6 +13,7 @@
 
 
 - (NSString *) shortId;
+- (LjsLocation *) locationWithScale:(NSUInteger) aScale;
 
 @end
 

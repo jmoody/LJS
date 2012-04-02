@@ -4,9 +4,13 @@
 #import "_LjsGooglePlace.h"
 
 const struct LjsGooglePlaceAttributes LjsGooglePlaceAttributes = {
+	.dateAdded = @"dateAdded",
+	.dateModified = @"dateModified",
+	.formattedAddress = @"formattedAddress",
 	.formattedPhone = @"formattedPhone",
 	.iconUrl = @"iconUrl",
 	.internationalPhone = @"internationalPhone",
+	.location = @"location",
 	.mapUrl = @"mapUrl",
 	.name = @"name",
 	.orderValueNumber = @"orderValueNumber",
@@ -59,6 +63,27 @@ const struct LjsGooglePlaceFetchedProperties LjsGooglePlaceFetchedProperties = {
 
 
 
+@dynamic dateAdded;
+
+
+
+
+
+
+@dynamic dateModified;
+
+
+
+
+
+
+@dynamic formattedAddress;
+
+
+
+
+
+
 @dynamic formattedPhone;
 
 
@@ -74,6 +99,13 @@ const struct LjsGooglePlaceFetchedProperties LjsGooglePlaceFetchedProperties = {
 
 
 @dynamic internationalPhone;
+
+
+
+
+
+
+@dynamic location;
 
 
 

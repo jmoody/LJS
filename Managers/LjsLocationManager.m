@@ -88,6 +88,25 @@ static CGFloat const LjsLongitudeZurich = 8.53678989;
 @synthesize latitude;
 @synthesize longitude;
 
+static NSString *RuAudioResources_LATITUDE_KEY = @"latitude";
+static NSString *RuAudioResources_LONGITUDE_KEY = @"longitude";
+
+
+
+- (void) encodeWithCoder: (NSCoder *)encoder {
+  [encoder encodeObject: latitude forKey: RuAudioResources_LATITUDE_KEY];
+  [encoder encodeObject: longitude forKey: RuAudioResources_LONGITUDE_KEY];
+}
+
+- (id) initWithCoder: (NSCoder *)decoder {
+  self = [super init];
+  if (self) {
+    latitude = [decoder decodeObjectForKey: RuAudioResources_LATITUDE_KEY];
+    longitude = [decoder decodeObjectForKey: RuAudioResources_LONGITUDE_KEY];
+  }
+  return self;
+}
+
 - (id) initWithPoint:(CGPoint) aPoint {
   return [self initWithLatitudeFloat:aPoint.x longitudeFloat:aPoint.y];
 }
@@ -115,13 +134,23 @@ static CGFloat const LjsLongitudeZurich = 8.53678989;
 
 - (id) initWithLatitude:(NSDecimalNumber *)aLatitude 
               longitude:(NSDecimalNumber *)aLongitude {
+  return [self initWithLatitude:aLatitude 
+                      longitude:aLongitude
+                          scale:LjsLocationManagerLocationScale];
+}
+
+- (id) initWithLatitude:(NSDecimalNumber *) aLatitude
+              longitude:(NSDecimalNumber *) aLongitude
+                  scale:(NSUInteger) aScale {
   self = [super init];
   if (self) {
-    self.latitude = [aLatitude dnByRoundingAsLocation];
-    self.longitude = [aLongitude dnByRoundingAsLocation];
+    self.latitude = [aLatitude dnByRoundingWithScale:aScale];
+    self.longitude = [aLongitude dnByRoundingWithScale:aScale];
   }
   return self;
 }
+
+
 
 - (id) initWithCoreLocation:(CLLocation *) aLocation {
   self = [super init];
@@ -149,6 +178,13 @@ static CGFloat const LjsLongitudeZurich = 8.53678989;
   return result;
 }
 
+
+- (id) locationWithScale:(NSUInteger) aScale {
+  return [[LjsLocation alloc]
+          initWithLatitude:self.latitude
+          longitude:self.longitude
+          scale:aScale];
+}
 
 - (NSString *) description {
   return [NSString stringWithFormat:@"#(%@, %@)", self.latitude, self.longitude];
