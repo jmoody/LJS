@@ -66,7 +66,7 @@
 #endif
 
 #import "LjsTestCase.h"
-#import "LjsGooglePlacesManager.h"
+#import "LjsGoogleManager.h"
 #import "LjsFileUtilities.h"
 #import "LjsValidator.h"
 #import "LjsVariates.h"
@@ -114,7 +114,7 @@
 //}
 
 - (void) test_init {
-  LjsGooglePlacesManager *manager;
+  LjsGoogleManager *manager;
   NSString *filename;
   NSString *apiKey;
   NSString *libDir;
@@ -123,19 +123,19 @@
   NSFileManager *fm = [NSFileManager defaultManager];
   LjsLocationManager *lm = [[LjsLocationManager alloc] init];
 
-  filename = @"com.littlejoysoftware.LjsGooglePlaces.sqlite";
+  filename = LjsGooglePlacesSqlLiteStore;
   libDir = [LjsFileUtilities findCoreDataLibraryPath:YES];
   
-  manager = [[LjsGooglePlacesManager alloc] initWithLocationManager:lm];
+  manager = [[LjsGoogleManager alloc] initWithLocationManager:lm];
   contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
   result = [LjsValidator array:contents containsString:filename];
   GHAssertTrue(result, nil);
 
-  
+ 
   apiKey = [LjsVariates randomAsciiWithLengthMin:10 lenghtMax:20];
-  filename = @"com.littlejoysoftware.LjsGooglePlaces.sqlite";
+  filename = LjsGooglePlacesSqlLiteStore;
   libDir = [LjsFileUtilities findCoreDataLibraryPath:YES];
-  manager = [[LjsGooglePlacesManager alloc] initWithApiToken:apiKey
+  manager = [[LjsGoogleManager alloc] initWithApiToken:apiKey
              manager:lm];
   contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
   result = [LjsValidator array:contents containsString:filename];
@@ -146,7 +146,7 @@
   apiKey = [LjsVariates randomAsciiWithLengthMin:10 lenghtMax:20];
   filename = @"com.littlejoysoftware.LjsGooglePlaces_test_init.sqlite";
   libDir = [LjsFileUtilities findLibraryDirectoryPath:YES];
-  manager = [[LjsGooglePlacesManager alloc] initWithStoreFilename:filename
+  manager = [[LjsGoogleManager alloc] initWithStoreFilename:filename
                                                          apiToken:apiKey
              manager:lm];
   contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
@@ -159,7 +159,7 @@
   apiKey = [LjsVariates randomAsciiWithLengthMin:10 lenghtMax:20];
   filename = @"com.littlejoysoftware.LjsGooglePlaces_test_init.sqlite";
   libDir = [LjsFileUtilities findLibraryDirectoryPath:YES];
-  manager = [[LjsGooglePlacesManager alloc] initWithStoreDirectory:libDir
+  manager = [[LjsGoogleManager alloc] initWithStoreDirectory:libDir
                                                      storeFilename:filename
                                                           apiToken:apiKey
                                                                 manager:lm];

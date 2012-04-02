@@ -67,7 +67,7 @@
 
 #import "LjsGooglePlacesTest.h"
 #import "LjsGooglePlacesDetailsReply.h"
-#import "LjsGooglePlacesDetails.h"
+#import "LjsGooglePlacesNmoDetails.h"
 
 
 @interface LjsGooglePlacesDetailsReplyTests : LjsGooglePlacesTest

@@ -66,7 +66,7 @@
 #endif
 
 #import "LjsTestCase.h"
-#import "LjsGooglePlacesRequestManager.h"
+#import "LjsGoogleRequestManager.h"
 #import "LjsGoogleGlobals.h"
 #import "LjsCaesarCipher.h"
 #import "LjsDn.h"
@@ -75,7 +75,7 @@
 @interface LjsGooglePlacesRequestManagerTests : LjsTestCase 
 
 @property (nonatomic, strong) NSString *apiToken;
-@property (nonatomic, strong) LjsGooglePlacesRequestManager *manager;
+@property (nonatomic, strong) LjsGoogleRequestManager *manager;
 @end
 
 @implementation LjsGooglePlacesRequestManagerTests
@@ -106,11 +106,9 @@
                              initWithRotate:len];
   self.apiToken = [cipher stringByDecodingString:defaultKey];
   
-  LjsLocationManager *lm = [[LjsLocationManager alloc] init];
-  self.manager = [[LjsGooglePlacesRequestManager alloc]
-             initWithApiToken:self.apiToken
-             resultHandler:nil
-                  locationManager:lm];
+
+  self.manager = [[LjsGoogleRequestManager alloc]
+                  initWithApiToken:self.apiToken];
 }
 
 - (void) tearDownClass {

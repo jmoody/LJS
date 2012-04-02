@@ -36,6 +36,9 @@
 
 extern NSString *LjsGooglePlacesManagerNotificationNewPlacesAvailable;
 
+extern NSString *LjsGooglePlacesManagerModelFile;
+extern NSString *LjsGooglePlacesSqlLiteStore;
+
 
 /**
  Documentation
