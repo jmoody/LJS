@@ -49,8 +49,14 @@
     </entity>
     <entity name="LjsGoogleReverseGeocode" representedClassName="LjsGoogleReverseGeocode" parentEntity="LjsGooglePlace" syncable="YES">
         <attribute name="location100m" optional="YES" attributeType="Transformable" valueTransformerName="LjsLocationTransformer" syncable="YES"/>
+        <attribute name="locationType" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="bounds" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="LjsGoogleBounds" inverseName="reverseGeocode" inverseEntity="LjsGoogleBounds" syncable="YES"/>
+        <relationship name="types" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LjsGoogleReverseGeocodeType" inverseName="geocodes" inverseEntity="LjsGoogleReverseGeocodeType" syncable="YES"/>
         <relationship name="viewport" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="LjsGoogleViewport" inverseName="reverseGeocode" inverseEntity="LjsGoogleViewport" syncable="YES"/>
+    </entity>
+    <entity name="LjsGoogleReverseGeocodeType" representedClassName="LjsGoogleReverseGeocodeType" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="geocodes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LjsGoogleReverseGeocode" inverseName="types" inverseEntity="LjsGoogleReverseGeocode" syncable="YES"/>
     </entity>
     <entity name="LjsGoogleViewport" representedClassName="LjsGoogleViewport" parentEntity="LjsGoogleRect" syncable="YES">
         <relationship name="reverseGeocode" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="LjsGoogleReverseGeocode" inverseName="viewport" inverseEntity="LjsGoogleReverseGeocode" syncable="YES"/>
@@ -60,11 +66,12 @@
         <element name="LjsGoogleAddressComponentType" positionX="160" positionY="192" width="128" height="75"/>
         <element name="LjsGoogleAttribution" positionX="160" positionY="192" width="128" height="75"/>
         <element name="LjsGoogleBounds" positionX="160" positionY="192" width="128" height="60"/>
-        <element name="LjsGooglePlace" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="LjsGooglePlace" positionX="160" positionY="192" width="128" height="240"/>
         <element name="LjsGooglePlaceDetails" positionX="160" positionY="192" width="128" height="225"/>
         <element name="LjsGooglePlaceDetailsType" positionX="160" positionY="192" width="128" height="75"/>
         <element name="LjsGoogleRect" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="LjsGoogleReverseGeocode" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="LjsGoogleReverseGeocode" positionX="160" positionY="192" width="128" height="120"/>
         <element name="LjsGoogleViewport" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="LjsGoogleReverseGeocodeType" positionX="160" positionY="192" width="128" height="75"/>
     </elements>
 </model>

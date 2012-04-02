@@ -1,5 +1,12 @@
 #import "_LjsGoogleViewport.h"
 
+@class LjsGoogleReverseGeocode;
+
 @interface LjsGoogleViewport : _LjsGoogleViewport {}
-// Custom logic goes here.
+
++ (LjsGoogleViewport *) initWithDictionary:(NSDictionary *) aDictionary
+                            reverseGeocode:(LjsGoogleReverseGeocode *) aGeocode
+                                   context:(NSManagedObjectContext *) aContext;
+
+
 @end

@@ -1,5 +1,10 @@
 #import "_LjsGoogleBounds.h"
 
+@class LjsGoogleReverseGeocode;
+
 @interface LjsGoogleBounds : _LjsGoogleBounds {}
-// Custom logic goes here.
+
++ (LjsGoogleBounds *) initWithDictionary:(NSDictionary *) aDictionary
+                            reverseGeocode:(LjsGoogleReverseGeocode *) aGeocode
+                                   context:(NSManagedObjectContext *) aContext;
 @end

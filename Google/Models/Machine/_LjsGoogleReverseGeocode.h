@@ -6,10 +6,12 @@
 
 extern const struct LjsGoogleReverseGeocodeAttributes {
 	__unsafe_unretained NSString *location100m;
+	__unsafe_unretained NSString *locationType;
 } LjsGoogleReverseGeocodeAttributes;
 
 extern const struct LjsGoogleReverseGeocodeRelationships {
 	__unsafe_unretained NSString *bounds;
+	__unsafe_unretained NSString *types;
 	__unsafe_unretained NSString *viewport;
 } LjsGoogleReverseGeocodeRelationships;
 
@@ -17,9 +19,11 @@ extern const struct LjsGoogleReverseGeocodeFetchedProperties {
 } LjsGoogleReverseGeocodeFetchedProperties;
 
 @class LjsGoogleBounds;
+@class LjsGoogleReverseGeocodeType;
 @class LjsGoogleViewport;
 
 @class NSObject;
+
 
 @interface LjsGoogleReverseGeocodeID : NSManagedObjectID {}
 @end
@@ -41,10 +45,25 @@ extern const struct LjsGoogleReverseGeocodeFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSString *locationType;
+
+
+//- (BOOL)validateLocationType:(id*)value_ error:(NSError**)error_;
+
+
+
+
 
 @property (nonatomic, strong) LjsGoogleBounds* bounds;
 
 //- (BOOL)validateBounds:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) NSSet* types;
+
+- (NSMutableSet*)typesSet;
 
 
 
@@ -61,6 +80,11 @@ extern const struct LjsGoogleReverseGeocodeFetchedProperties {
 
 @interface _LjsGoogleReverseGeocode (CoreDataGeneratedAccessors)
 
+- (void)addTypes:(NSSet*)value_;
+- (void)removeTypes:(NSSet*)value_;
+- (void)addTypesObject:(LjsGoogleReverseGeocodeType*)value_;
+- (void)removeTypesObject:(LjsGoogleReverseGeocodeType*)value_;
+
 @end
 
 @interface _LjsGoogleReverseGeocode (CoreDataGeneratedPrimitiveAccessors)
@@ -72,9 +96,20 @@ extern const struct LjsGoogleReverseGeocodeFetchedProperties {
 
 
 
+- (NSString *)primitiveLocationType;
+- (void)setPrimitiveLocationType:(NSString *)value;
+
+
+
+
 
 - (LjsGoogleBounds*)primitiveBounds;
 - (void)setPrimitiveBounds:(LjsGoogleBounds*)value;
+
+
+
+- (NSMutableSet*)primitiveTypes;
+- (void)setPrimitiveTypes:(NSMutableSet*)value;
 
 
 

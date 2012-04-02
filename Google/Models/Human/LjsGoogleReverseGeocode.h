@@ -1,5 +1,10 @@
 #import "_LjsGoogleReverseGeocode.h"
 
+@class LjsGoogleNmoReverseGeocode;
+
 @interface LjsGoogleReverseGeocode : _LjsGoogleReverseGeocode {}
-// Custom logic goes here.
+
++ (LjsGoogleReverseGeocode *) initWithReverseGeocode:(LjsGoogleNmoReverseGeocode *) aGeocode
+                                       context:(NSManagedObjectContext *) aContext;
+
 @end

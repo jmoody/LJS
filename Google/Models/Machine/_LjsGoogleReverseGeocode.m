@@ -5,10 +5,12 @@
 
 const struct LjsGoogleReverseGeocodeAttributes LjsGoogleReverseGeocodeAttributes = {
 	.location100m = @"location100m",
+	.locationType = @"locationType",
 };
 
 const struct LjsGoogleReverseGeocodeRelationships LjsGoogleReverseGeocodeRelationships = {
 	.bounds = @"bounds",
+	.types = @"types",
 	.viewport = @"viewport",
 };
 
@@ -55,8 +57,28 @@ const struct LjsGoogleReverseGeocodeFetchedProperties LjsGoogleReverseGeocodeFet
 
 
 
+@dynamic locationType;
+
+
+
+
+
+
 @dynamic bounds;
 
+	
+
+@dynamic types;
+
+	
+- (NSMutableSet*)typesSet {
+	[self willAccessValueForKey:@"types"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"types"];
+  
+	[self didAccessValueForKey:@"types"];
+	return result;
+}
 	
 
 @dynamic viewport;
