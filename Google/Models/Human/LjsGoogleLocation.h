@@ -1,13 +1,13 @@
 #import "_LjsGoogleLocation.h"
 #import "LjsLocationManager.h"
-@class LjsGoogleThing;
+@class LjsGoogWithLoc;
 @class LjsLocation;
 
 @interface LjsGoogleLocation : _LjsGoogleLocation {}
 
 + (LjsGoogleLocation *) initWithLocation:(LjsLocation *) aLocation
                                     type:(NSString *) aType
-                                   thing:(LjsGoogleThing *) aThing
+                                   owner:(LjsGoogWithLoc *) aOwner
                                  context:(NSManagedObjectContext *) aContext;
 
 

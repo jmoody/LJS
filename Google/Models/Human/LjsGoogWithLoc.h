@@ -1,8 +1,9 @@
-#import "_LjsGoogleThing.h"
+#import "_LjsGoogWithLoc.h"
 
-@class  LjsLocation;
+@class LjsLocation;
 
-@interface LjsGoogleThing : _LjsGoogleThing {}
+@interface LjsGoogWithLoc : _LjsGoogWithLoc {}
+
 
 - (NSString *) latitudeStringWithScale:(NSUInteger) aScale;
 - (NSString *) longitudeStringWithScale:(NSUInteger) aScale;
@@ -12,5 +13,6 @@
 - (NSDecimalNumber *) longitude;
 - (NSString *) locationString;
 - (LjsLocation *) location;
+
 
 @end

@@ -2,7 +2,7 @@
 // Make changes to LjsGooglePlace.h instead.
 
 #import <CoreData/CoreData.h>
-#import "LjsGoogleThing.h"
+#import "LjsGoogBase.h"
 
 extern const struct LjsGooglePlaceAttributes {
 	__unsafe_unretained NSString *formattedPhone;
@@ -10,6 +10,7 @@ extern const struct LjsGooglePlaceAttributes {
 	__unsafe_unretained NSString *internationalPhone;
 	__unsafe_unretained NSString *mapUrl;
 	__unsafe_unretained NSString *name;
+	__unsafe_unretained NSString *orderValueNumber;
 	__unsafe_unretained NSString *rating;
 	__unsafe_unretained NSString *referenceId;
 	__unsafe_unretained NSString *stableId;
@@ -41,10 +42,11 @@ extern const struct LjsGooglePlaceFetchedProperties {
 
 
 
+
 @interface LjsGooglePlaceID : NSManagedObjectID {}
 @end
 
-@interface _LjsGooglePlace : LjsGoogleThing {}
+@interface _LjsGooglePlace : LjsGoogBase {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
@@ -89,6 +91,14 @@ extern const struct LjsGooglePlaceFetchedProperties {
 
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) NSDecimalNumber *orderValueNumber;
+
+
+//- (BOOL)validateOrderValueNumber:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -206,6 +216,12 @@ extern const struct LjsGooglePlaceFetchedProperties {
 
 - (NSString *)primitiveName;
 - (void)setPrimitiveName:(NSString *)value;
+
+
+
+
+- (NSDecimalNumber *)primitiveOrderValueNumber;
+- (void)setPrimitiveOrderValueNumber:(NSDecimalNumber *)value;
 
 
 

@@ -9,6 +9,7 @@ const struct LjsGooglePlaceAttributes LjsGooglePlaceAttributes = {
 	.internationalPhone = @"internationalPhone",
 	.mapUrl = @"mapUrl",
 	.name = @"name",
+	.orderValueNumber = @"orderValueNumber",
 	.rating = @"rating",
 	.referenceId = @"referenceId",
 	.stableId = @"stableId",
@@ -87,6 +88,13 @@ const struct LjsGooglePlaceFetchedProperties LjsGooglePlaceFetchedProperties = {
 
 
 @dynamic name;
+
+
+
+
+
+
+@dynamic orderValueNumber;
 
 
 

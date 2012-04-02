@@ -32,13 +32,15 @@
 		F50F293D15286B1700DD67D1 /* _LjsGoogleLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F293315286B1700DD67D1 /* _LjsGoogleLocation.m */; };
 		F50F293E15286B1700DD67D1 /* _LjsGooglePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F293515286B1700DD67D1 /* _LjsGooglePlace.m */; };
 		F50F293F15286B1700DD67D1 /* _LjsGooglePlaceType.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F293715286B1700DD67D1 /* _LjsGooglePlaceType.m */; };
-		F50F294015286B1700DD67D1 /* _LjsGoogleThing.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F293915286B1700DD67D1 /* _LjsGoogleThing.m */; };
 		F50F294515286B4A00DD67D1 /* LjsGoogleLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F294215286B4A00DD67D1 /* LjsGoogleLocation.m */; };
-		F50F294615286B4A00DD67D1 /* LjsGoogleThing.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F294415286B4A00DD67D1 /* LjsGoogleThing.m */; };
 		F50F294915286EDC00DD67D1 /* NSString+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F294815286EDC00DD67D1 /* NSString+LjsAdditions.m */; };
 		F50F295015286FE400DD67D1 /* GenModelStrings.py in Resources */ = {isa = PBXBuildFile; fileRef = F50F294B15286FE400DD67D1 /* GenModelStrings.py */; };
 		F50F295115286FE400DD67D1 /* NSEntityDescription+LocalizedName.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F294D15286FE400DD67D1 /* NSEntityDescription+LocalizedName.m */; };
 		F50F295215286FE400DD67D1 /* NSPropertyDescription+LocalizedName.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F294F15286FE400DD67D1 /* NSPropertyDescription+LocalizedName.m */; };
+		F538BA27152985A200C47886 /* _LjsGoogBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F538BA24152985A200C47886 /* _LjsGoogBase.m */; };
+		F538BA28152985A200C47886 /* _LjsGoogWithLoc.m in Sources */ = {isa = PBXBuildFile; fileRef = F538BA26152985A200C47886 /* _LjsGoogWithLoc.m */; };
+		F538BA2E152985FF00C47886 /* LjsGoogBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F538BA2B152985FF00C47886 /* LjsGoogBase.m */; };
+		F538BA2F152985FF00C47886 /* LjsGoogWithLoc.m in Sources */ = {isa = PBXBuildFile; fileRef = F538BA2D152985FF00C47886 /* LjsGoogWithLoc.m */; };
 		F58EDEC71528525D009BE6D6 /* LjsGoogleRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EDE9A1528525D009BE6D6 /* LjsGoogleRequestManager.m */; };
 		F58EDEC81528525D009BE6D6 /* LjsGoogleModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F58EDE9C1528525D009BE6D6 /* LjsGoogleModel.xcdatamodeld */; };
 		F58EDED31528525D009BE6D6 /* LjsGoogleImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EDEB71528525D009BE6D6 /* LjsGoogleImporter.m */; };
@@ -173,12 +175,8 @@
 		F50F293515286B1700DD67D1 /* _LjsGooglePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LjsGooglePlace.m; sourceTree = "<group>"; };
 		F50F293615286B1700DD67D1 /* _LjsGooglePlaceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LjsGooglePlaceType.h; sourceTree = "<group>"; };
 		F50F293715286B1700DD67D1 /* _LjsGooglePlaceType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LjsGooglePlaceType.m; sourceTree = "<group>"; };
-		F50F293815286B1700DD67D1 /* _LjsGoogleThing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LjsGoogleThing.h; sourceTree = "<group>"; };
-		F50F293915286B1700DD67D1 /* _LjsGoogleThing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LjsGoogleThing.m; sourceTree = "<group>"; };
 		F50F294115286B4A00DD67D1 /* LjsGoogleLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleLocation.h; sourceTree = "<group>"; };
 		F50F294215286B4A00DD67D1 /* LjsGoogleLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleLocation.m; sourceTree = "<group>"; };
-		F50F294315286B4A00DD67D1 /* LjsGoogleThing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleThing.h; sourceTree = "<group>"; };
-		F50F294415286B4A00DD67D1 /* LjsGoogleThing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleThing.m; sourceTree = "<group>"; };
 		F50F294715286EDC00DD67D1 /* NSString+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LjsAdditions.h"; sourceTree = "<group>"; };
 		F50F294815286EDC00DD67D1 /* NSString+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LjsAdditions.m"; sourceTree = "<group>"; };
 		F50F294B15286FE400DD67D1 /* GenModelStrings.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = GenModelStrings.py; sourceTree = "<group>"; };
@@ -186,6 +184,14 @@
 		F50F294D15286FE400DD67D1 /* NSEntityDescription+LocalizedName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSEntityDescription+LocalizedName.m"; sourceTree = "<group>"; };
 		F50F294E15286FE400DD67D1 /* NSPropertyDescription+LocalizedName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPropertyDescription+LocalizedName.h"; sourceTree = "<group>"; };
 		F50F294F15286FE400DD67D1 /* NSPropertyDescription+LocalizedName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPropertyDescription+LocalizedName.m"; sourceTree = "<group>"; };
+		F538BA23152985A200C47886 /* _LjsGoogBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LjsGoogBase.h; sourceTree = "<group>"; };
+		F538BA24152985A200C47886 /* _LjsGoogBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LjsGoogBase.m; sourceTree = "<group>"; };
+		F538BA25152985A200C47886 /* _LjsGoogWithLoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LjsGoogWithLoc.h; sourceTree = "<group>"; };
+		F538BA26152985A200C47886 /* _LjsGoogWithLoc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LjsGoogWithLoc.m; sourceTree = "<group>"; };
+		F538BA2A152985FF00C47886 /* LjsGoogBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogBase.h; sourceTree = "<group>"; };
+		F538BA2B152985FF00C47886 /* LjsGoogBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogBase.m; sourceTree = "<group>"; };
+		F538BA2C152985FF00C47886 /* LjsGoogWithLoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogWithLoc.h; sourceTree = "<group>"; };
+		F538BA2D152985FF00C47886 /* LjsGoogWithLoc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogWithLoc.m; sourceTree = "<group>"; };
 		F58EDE991528525D009BE6D6 /* LjsGoogleRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleRequestManager.h; sourceTree = "<group>"; };
 		F58EDE9A1528525D009BE6D6 /* LjsGoogleRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleRequestManager.m; sourceTree = "<group>"; };
 		F58EDE9D1528525D009BE6D6 /* LjsGoogleModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LjsGoogleModel.xcdatamodel; sourceTree = "<group>"; };
@@ -416,10 +422,12 @@
 		F50F291B15286B0B00DD67D1 /* Human */ = {
 			isa = PBXGroup;
 			children = (
+				F538BA2A152985FF00C47886 /* LjsGoogBase.h */,
+				F538BA2B152985FF00C47886 /* LjsGoogBase.m */,
+				F538BA2C152985FF00C47886 /* LjsGoogWithLoc.h */,
+				F538BA2D152985FF00C47886 /* LjsGoogWithLoc.m */,
 				F50F294115286B4A00DD67D1 /* LjsGoogleLocation.h */,
 				F50F294215286B4A00DD67D1 /* LjsGoogleLocation.m */,
-				F50F294315286B4A00DD67D1 /* LjsGoogleThing.h */,
-				F50F294415286B4A00DD67D1 /* LjsGoogleThing.m */,
 				F50F291C15286B0B00DD67D1 /* LjsGoogleAddressComponent.h */,
 				F50F291D15286B0B00DD67D1 /* LjsGoogleAddressComponent.m */,
 				F50F291E15286B0B00DD67D1 /* LjsGoogleAddressComponentType.h */,
@@ -437,6 +445,10 @@
 		F50F292B15286B1700DD67D1 /* Machine */ = {
 			isa = PBXGroup;
 			children = (
+				F538BA24152985A200C47886 /* _LjsGoogBase.m */,
+				F538BA23152985A200C47886 /* _LjsGoogBase.h */,
+				F538BA25152985A200C47886 /* _LjsGoogWithLoc.h */,
+				F538BA26152985A200C47886 /* _LjsGoogWithLoc.m */,
 				F50F292C15286B1700DD67D1 /* _LjsGoogleAddressComponent.h */,
 				F50F292D15286B1700DD67D1 /* _LjsGoogleAddressComponent.m */,
 				F50F292E15286B1700DD67D1 /* _LjsGoogleAddressComponentType.h */,
@@ -449,8 +461,6 @@
 				F50F293515286B1700DD67D1 /* _LjsGooglePlace.m */,
 				F50F293615286B1700DD67D1 /* _LjsGooglePlaceType.h */,
 				F50F293715286B1700DD67D1 /* _LjsGooglePlaceType.m */,
-				F50F293815286B1700DD67D1 /* _LjsGoogleThing.h */,
-				F50F293915286B1700DD67D1 /* _LjsGoogleThing.m */,
 			);
 			path = Machine;
 			sourceTree = "<group>";
@@ -1131,12 +1141,14 @@
 				F50F293D15286B1700DD67D1 /* _LjsGoogleLocation.m in Sources */,
 				F50F293E15286B1700DD67D1 /* _LjsGooglePlace.m in Sources */,
 				F50F293F15286B1700DD67D1 /* _LjsGooglePlaceType.m in Sources */,
-				F50F294015286B1700DD67D1 /* _LjsGoogleThing.m in Sources */,
 				F50F294515286B4A00DD67D1 /* LjsGoogleLocation.m in Sources */,
-				F50F294615286B4A00DD67D1 /* LjsGoogleThing.m in Sources */,
 				F50F294915286EDC00DD67D1 /* NSString+LjsAdditions.m in Sources */,
 				F50F295115286FE400DD67D1 /* NSEntityDescription+LocalizedName.m in Sources */,
 				F50F295215286FE400DD67D1 /* NSPropertyDescription+LocalizedName.m in Sources */,
+				F538BA27152985A200C47886 /* _LjsGoogBase.m in Sources */,
+				F538BA28152985A200C47886 /* _LjsGoogWithLoc.m in Sources */,
+				F538BA2E152985FF00C47886 /* LjsGoogBase.m in Sources */,
+				F538BA2F152985FF00C47886 /* LjsGoogWithLoc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -37,7 +37,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   // sets the relationship
   [LjsGoogleLocation initWithLocation:aDetails.location
                                  type:nil
-                                thing:place
+                                owner:place
                               context:aContext];
   
 

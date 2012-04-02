@@ -22,7 +22,7 @@ const struct LjsGoogleLocationAttributes LjsGoogleLocationAttributes = {
 };
 
 const struct LjsGoogleLocationRelationships LjsGoogleLocationRelationships = {
-	.thing = @"thing",
+	.owner = @"owner",
 };
 
 const struct LjsGoogleLocationFetchedProperties LjsGoogleLocationFetchedProperties = {
@@ -166,7 +166,7 @@ const struct LjsGoogleLocationFetchedProperties LjsGoogleLocationFetchedProperti
 
 
 
-@dynamic thing;
+@dynamic owner;
 
 	
 

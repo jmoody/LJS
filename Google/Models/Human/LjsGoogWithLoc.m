@@ -1,9 +1,8 @@
-#import "LjsGoogleThing.h"
-#import "LjsGoogleLocation.h"
+#import "LjsGoogWithLoc.h"
 #import "LjsLocationManager.h"
+#import "LjsGoogleLocation.h"
 
-@implementation LjsGoogleThing
-
+@implementation LjsGoogWithLoc
 
 - (NSString *) latitudeStringWithScale:(NSUInteger) aScale {
   return [[self latitudeWithScale:aScale] stringValue];
