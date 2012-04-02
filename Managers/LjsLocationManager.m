@@ -269,12 +269,7 @@ static NSString *LjsLocation_SCALE_KEY = @"scale";
 @synthesize coreLocationManager;
 @synthesize coreLocation;
 @synthesize coreHeading;
-
-debugLocationServices
-(
 @synthesize debugDevices;
-)
-
 @synthesize debugLastHeading;
 
 #pragma mark Memory Management
@@ -305,10 +300,11 @@ debugLocationServices
 #endif
 
     
-debugLocationServices (
-    self.debugDevices = [NSArray arrayWithObjects:LjsLocationManagerMercury,
-                         LjsLocationManagerPluto, LjsLocationManagerNeptune, nil];
-)
+    LJS_DEBUG_LOCATION_SERVICES
+    (
+     self.debugDevices = [NSArray arrayWithObjects:LjsLocationManagerMercury,
+                          LjsLocationManagerPluto, LjsLocationManagerNeptune, nil];
+     )
     
     self.debugLastHeading = [LjsVariates randomDoubleWithMin:0.0 max:360.0];
     
@@ -354,39 +350,43 @@ debugLocationServices (
 
   BOOL result = locationServiceEnabled && locationServicesEnabledForThisApp && locationExists;
 
-debugLocationServices(
-  if (result == NO) {
-    NSString *deviceName = [[UIDevice currentDevice] name];
-    if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
-      
-      DDLogNotice(@"we are using a debug device: %@ and LJS_LOCATION_SERVICES_DEBUG is on so return true.", deviceName);
-      result = YES;
-    }
-  }
-)
+  LJS_DEBUG_LOCATION_SERVICES
+  (
+   if (result == NO) {
+     NSString *deviceName = [[UIDevice currentDevice] name];
+     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
+       
+       DDLogNotice(@"we are using a debug device: %@ and LJS_LOCATION_SERVICES_DEBUG is on so return true.", deviceName);
+       result = YES;
+     }
+   }
+   )
   
-#ifdef LJS_LOCATION_SERVICES_SIMULATOR_DEBUG
-  if (result == NO) {
-    DDLogDebug(@"result was NO, but LJS_LOCATION_SERVICES_SIMULATOR_DEBUG is on - will return YES");
-    result = YES;
-  } 
-#endif
-  return result;
+  LJS_DEBUG_LOCATION_SERVICES_SIMULATOR
+  (
+   if (result == NO) {
+     DDLogDebug(@"result was NO, but LJS_LOCATION_SERVICES_SIMULATOR_DEBUG is on - will return YES");
+     result = YES;
+   } 
+   return result;
+   )
 }
 
 
 - (BOOL) headingIsAvailable {
   BOOL serviceAvailable = [CLLocationManager headingAvailable];
   
-debugLocationServices(
-  if (serviceAvailable == NO) {
-    NSString *deviceName = [[UIDevice currentDevice] name];
-    if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
-      DDLogNotice(@"we are using a debug device: %@ and LJS_LOCATION_SERVICES_DEBUG is on so return true.", deviceName);
-      serviceAvailable = YES;
-    }
-  }
-)
+  LJS_DEBUG_LOCATION_SERVICES
+  (
+   if (serviceAvailable == NO) {
+     NSString *deviceName = [[UIDevice currentDevice] name];
+     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
+       DDLogNotice(@"we are using a debug device: %@ and LJS_LOCATION_SERVICES_DEBUG is on so return true.", deviceName);
+       serviceAvailable = YES;
+     }
+   }
+   )
+  
   return serviceAvailable;
 }
 
@@ -428,22 +428,24 @@ debugLocationServices(
     result = [[LjsDn dnWithDouble:self.coreLocation.coordinate.longitude] dnByRoundingAsLocation];
   }
 
-debugLocationServices (
-  if ([result isNan])  {
-    NSString *deviceName = [[UIDevice currentDevice] name];
-    if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
-      DDLogNotice(@"location is not available for device: %@ - overriding", deviceName);
-      result = [LjsDn dnWithFloat:LjsLongitudeZurich];
-    } 
-  }
-)
+  LJS_DEBUG_LOCATION_SERVICES 
+  (
+   if ([result isNan])  {
+     NSString *deviceName = [[UIDevice currentDevice] name];
+     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
+       DDLogNotice(@"location is not available for device: %@ - overriding", deviceName);
+       result = [LjsDn dnWithFloat:LjsLongitudeZurich];
+     } 
+   }
+   )
   
-#ifdef LJS_LOCATION_SERVICES_SIMULATOR_DEBUG
-  if ([result isNan]) {
-    DDLogNotice(@"location is not available on the simulator - overriding");
-    result = [LjsDn dnWithFloat:LjsLongitudeZurich];
-  }
-#endif
+  LJS_DEBUG_LOCATION_SERVICES_SIMULATOR 
+  (
+   if ([result isNan]) {
+     DDLogNotice(@"location is not available on the simulator - overriding");
+     result = [LjsDn dnWithFloat:LjsLongitudeZurich];
+   }
+   )
   
   return result;
 }
@@ -456,22 +458,25 @@ debugLocationServices (
     result = [[LjsDn dnWithDouble:self.coreLocation.coordinate.latitude] dnByRoundingAsLocation];
   }
   
-debugLocationServices (
-  if ([result isNan])  {
-    NSString *deviceName = [[UIDevice currentDevice] name];
-    if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
-      DDLogNotice(@"location is not available for device: %@ - overriding", deviceName);
-      result = [LjsDn dnWithFloat:LjsLatitudeZurich];   
-    } 
-  }
-)
+  LJS_DEBUG_LOCATION_SERVICES 
+  (
+   if ([result isNan])  {
+     NSString *deviceName = [[UIDevice currentDevice] name];
+     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
+       DDLogNotice(@"location is not available for device: %@ - overriding", deviceName);
+       result = [LjsDn dnWithFloat:LjsLatitudeZurich];   
+     } 
+   }
+   )
   
-#ifdef LJS_LOCATION_SERVICES_SIMULATOR_DEBUG
-  if ([result isNan]) {
-    DDLogNotice(@"location is not available on the simulator - overriding");
-    result = [LjsDn dnWithFloat:LjsLatitudeZurich];
-  }
-#endif
+  
+  LJS_DEBUG_LOCATION_SERVICES_SIMULATOR
+  (
+   if ([result isNan]) {
+     DDLogNotice(@"location is not available on the simulator - overriding");
+     result = [LjsDn dnWithFloat:LjsLatitudeZurich];
+   }
+   )
 
   return result;
 }
@@ -484,33 +489,36 @@ debugLocationServices (
     result = [[LjsDn dnWithDouble:self.coreHeading.trueHeading] dnByRoundingAsLocation];
   }
 
-debugLocationServices(
-  if ([result isNan]) {
-    NSString *deviceName = [[UIDevice currentDevice] name];
-    if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
-      DDLogNotice(@"heading is not available for device: %@ - overriding", deviceName);
-      CGFloat random = [LjsVariates randomDoubleWithMin:5.0 max:10.0];
-      CGFloat current = self.debugLastHeading;
-      self.debugLastHeading = MIN(current + random, LjsMaxHeading);
-      result = [[LjsDn dnWithFloat:self.debugLastHeading] dnByRoundingAsLocation];
-    } 
-  }
-)
+  LJS_DEBUG_LOCATION_SERVICES
+  (
+   if ([result isNan]) {
+     NSString *deviceName = [[UIDevice currentDevice] name];
+     if ([LjsValidator array:self.debugDevices containsString:deviceName]) {
+       DDLogNotice(@"heading is not available for device: %@ - overriding", deviceName);
+       CGFloat random = [LjsVariates randomDoubleWithMin:5.0 max:10.0];
+       CGFloat current = self.debugLastHeading;
+       self.debugLastHeading = MIN(current + random, LjsMaxHeading);
+       result = [[LjsDn dnWithFloat:self.debugLastHeading] dnByRoundingAsLocation];
+     } 
+   }
+   )
 
-#ifdef LJS_LOCATION_SERVICES_SIMULATOR_DEBUG
-  if ([result isNan]) {
-    DDLogNotice(@"heading is not available for simulator - overriding");
-    CGFloat random = [LjsVariates randomDoubleWithMin:5.0 max:10.0];
-    NSUInteger signedness = [LjsVariates flip];
-    if (signedness == 0) {
-      random = random * -1.0;
-    }
-    CGFloat current = self.debugLastHeading;
-    CGFloat new = MIN(current + random, LjsMaxHeading);
-    self.debugLastHeading = MAX(new, LjsMinHeading);      
-    result = [[LjsDn dnWithFloat:self.debugLastHeading] dnByRoundingAsLocation];
-  }
-#endif
+  LJS_DEBUG_LOCATION_SERVICES_SIMULATOR
+  (
+   if ([result isNan]) {
+     DDLogNotice(@"heading is not available for simulator - overriding");
+     CGFloat random = [LjsVariates randomDoubleWithMin:5.0 max:10.0];
+     NSUInteger signedness = [LjsVariates flip];
+     if (signedness == 0) {
+       random = random * -1.0;
+     }
+     CGFloat current = self.debugLastHeading;
+     CGFloat new = MIN(current + random, LjsMaxHeading);
+     self.debugLastHeading = MAX(new, LjsMinHeading);      
+     result = [[LjsDn dnWithFloat:self.debugLastHeading] dnByRoundingAsLocation];
+   }
+   )
+  
   return result;
 }
 

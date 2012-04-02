@@ -47,20 +47,52 @@
 //__VA_ARGS__ \
 //}
 
+//#define DDLogFatal(frmt, ...)    SYNC_LOG_OBJC_MAYBE(ddLogLevel, LOG_FLAG_FATAL,  0, frmt, ##__VA_ARGS__)
 
+/*
+ 
+ #ifndef kCFCoreFoundationVersionNumber_iPhoneOS_4_0
+ #define kCFCoreFoundationVersionNumber_iPhoneOS_4_0 550.32
+ #endif
+ 
+ #define IASK_IF_IOS4_OR_GREATER(...) \
+ if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iPhoneOS_4_0) \
+ { \
+ __VA_ARGS__ \
+ }
+ */
 
 #ifndef kLjsLocationServicesDebug
 #define kLjsLocationservicesDebug 1
+#else
+#define kLjsLocationservicesDebug 0
 #endif
 
 #if LJS_LOCATION_SERVICES_DEBUG
-#define debugLocationServices(...) \
+#define LJS_DEBUG_LOCATION_SERVICES(...) \
 if (kLjsLocationservicesDebug == 1) \
 { \
 __VA_ARGS__ \
 }
 #else
-#define debugLocationServices(...)
+#define LJS_DEBUG_LOCATION_SERVICES(...)
+#endif
+
+
+#ifndef kLjsLocationServicesSimulatorDebug
+#define kLjsLocationServicesSimulatorDebug 1
+#else
+#define kLjsLocationServicesSimulatorDebug 0
+#endif
+
+#if LJS_LOCATION_SERVICES_SIMULATOR_DEBUG
+#define LJS_DEBUG_LOCATION_SERVICES_SIMULATOR(...) \
+if (kLjsLocationServicesSimulatorDebug == 1) \
+{ \
+__VA_ARGS__ \
+}
+#else
+#define LJS_DEBUG_LOCATION_SERVICES_SIMULATOR(...)
 #endif
 
 
@@ -142,14 +174,13 @@ extern NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable;
  available iff LJS_LOCATION_SERVICES_DEBUG Preprocessor Macro is defined
  */
 @property (nonatomic, strong) NSArray *debugDevices;
-#endif
 
 /**
  used simulate the heading changing in environments where there is no heading
  available
  */
 @property (nonatomic, assign) CGFloat debugLastHeading;
-
+#endif
 
 /** @name Testing For Location and Heading Availability and Validity*/
 
