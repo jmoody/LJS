@@ -4,11 +4,16 @@
 #import "_LjsGooglePlaceDetails.h"
 
 const struct LjsGooglePlaceDetailsAttributes LjsGooglePlaceDetailsAttributes = {
+	.dateAdded = @"dateAdded",
+	.dateModified = @"dateModified",
+	.formattedAddress = @"formattedAddress",
 	.formattedPhone = @"formattedPhone",
 	.iconUrl = @"iconUrl",
 	.internationalPhone = @"internationalPhone",
+	.location = @"location",
 	.mapUrl = @"mapUrl",
 	.name = @"name",
+	.orderValue = @"orderValue",
 	.rating = @"rating",
 	.referenceId = @"referenceId",
 	.stableId = @"stableId",
@@ -17,6 +22,7 @@ const struct LjsGooglePlaceDetailsAttributes LjsGooglePlaceDetailsAttributes = {
 };
 
 const struct LjsGooglePlaceDetailsRelationships LjsGooglePlaceDetailsRelationships = {
+	.addressComponents = @"addressComponents",
 	.attributions = @"attributions",
 	.types = @"types",
 };
@@ -57,6 +63,27 @@ const struct LjsGooglePlaceDetailsFetchedProperties LjsGooglePlaceDetailsFetched
 
 
 
+@dynamic dateAdded;
+
+
+
+
+
+
+@dynamic dateModified;
+
+
+
+
+
+
+@dynamic formattedAddress;
+
+
+
+
+
+
 @dynamic formattedPhone;
 
 
@@ -78,6 +105,13 @@ const struct LjsGooglePlaceDetailsFetchedProperties LjsGooglePlaceDetailsFetched
 
 
 
+@dynamic location;
+
+
+
+
+
+
 @dynamic mapUrl;
 
 
@@ -86,6 +120,13 @@ const struct LjsGooglePlaceDetailsFetchedProperties LjsGooglePlaceDetailsFetched
 
 
 @dynamic name;
+
+
+
+
+
+
+@dynamic orderValue;
 
 
 
@@ -126,6 +167,19 @@ const struct LjsGooglePlaceDetailsFetchedProperties LjsGooglePlaceDetailsFetched
 
 
 
+
+@dynamic addressComponents;
+
+	
+- (NSMutableSet*)addressComponentsSet {
+	[self willAccessValueForKey:@"addressComponents"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"addressComponents"];
+  
+	[self didAccessValueForKey:@"addressComponents"];
+	return result;
+}
+	
 
 @dynamic attributions;
 

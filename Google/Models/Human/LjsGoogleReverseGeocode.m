@@ -5,7 +5,7 @@
 #import "LjsGoogleBounds.h"
 #import "LjsGoogleViewport.h"
 #import "LjsGoogleNmoAddressComponent.h"
-#import "LjsGoogleAddressComponent.h"
+#import "LjsGoogleAddressComponentGeocode.h"
 #import "LjsGoogleReverseGeocodeType.h"
 #import "NSDate+LjsAdditions.h"
 #import "LjsDn.h"
@@ -46,9 +46,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                                                   context:aContext];
 
   for (LjsGoogleNmoAddressComponent *comp in aGeocode.addressComponents) {
-    [LjsGoogleAddressComponent initWithComponent:comp
-                                           place:result
-                                         context:aContext];
+    [LjsGoogleAddressComponentGeocode initWithComponent:comp
+                                                 gecode:result
+                                                context:aContext];
   }
   
   for (NSString *typeStr in aGeocode.types) {

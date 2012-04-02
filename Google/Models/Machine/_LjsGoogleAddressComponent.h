@@ -10,14 +10,12 @@ extern const struct LjsGoogleAddressComponentAttributes {
 } LjsGoogleAddressComponentAttributes;
 
 extern const struct LjsGoogleAddressComponentRelationships {
-	__unsafe_unretained NSString *place;
 	__unsafe_unretained NSString *types;
 } LjsGoogleAddressComponentRelationships;
 
 extern const struct LjsGoogleAddressComponentFetchedProperties {
 } LjsGoogleAddressComponentFetchedProperties;
 
-@class LjsGooglePlace;
 @class LjsGoogleAddressComponentType;
 
 
@@ -48,13 +46,6 @@ extern const struct LjsGoogleAddressComponentFetchedProperties {
 
 //- (BOOL)validateShortName:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
-@property (nonatomic, strong) LjsGooglePlace* place;
-
-//- (BOOL)validatePlace:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -91,11 +82,6 @@ extern const struct LjsGoogleAddressComponentFetchedProperties {
 - (void)setPrimitiveShortName:(NSString *)value;
 
 
-
-
-
-- (LjsGooglePlace*)primitivePlace;
-- (void)setPrimitivePlace:(LjsGooglePlace*)value;
 
 
 

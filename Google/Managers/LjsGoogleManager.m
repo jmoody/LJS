@@ -301,8 +301,8 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
   NSComparisonResult compResult = aSortAscending ? NSOrderedDescending : NSOrderedAscending;  
   NSArray *result;
   result = [aPlaces sortedArrayUsingComparator:^(id a, id b) {
-    LjsGooglePlace *first = (LjsGooglePlace *) a;
-    LjsGooglePlace *second = (LjsGooglePlace *) b;
+    LjsGooglePlaceDetails *first = (LjsGooglePlaceDetails *) a;
+    LjsGooglePlaceDetails *second = (LjsGooglePlaceDetails *) b;
     return (NSComparisonResult)([self.distancer compareDistanceFrom:aLocation 
                                                                 toA:first 
                                                                 toB:second] == compResult);
@@ -355,7 +355,7 @@ static NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle
   NSDecimalNumber *targetDist = [[LjsDn dnWithFloat:aMeters] dnByRoundingAsLocation];
   NSPredicate *predicate;
   predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
-    LjsGooglePlace *place = (LjsGooglePlace *) evaluatedObject;
+    LjsGooglePlaceDetails *place = (LjsGooglePlaceDetails *) evaluatedObject;
     NSDecimalNumber *distFrom = [self.distancer metersBetweenPlace:place andLocation:aLocation];    
     return aInsideRadius ? [distFrom lte:targetDist] : [distFrom gte:targetDist];
   }];

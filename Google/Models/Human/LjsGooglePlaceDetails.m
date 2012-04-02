@@ -1,6 +1,6 @@
 #import "LjsGooglePlaceDetails.h"
 #import "Lumberjack.h"
-#import "LjsGoogleAddressComponent.h"
+#import "LjsGoogleAddressComponentPlace.h"
 #import "LjsGoogleAttribution.h"
 #import "LjsGooglePlaceDetailsType.h"
 #import "NSDate+LjsAdditions.h"
@@ -8,6 +8,8 @@
 #import "LjsDn.h"
 #import "NSDecimalNumber+LjsAdditions.h"
 #import "LjsLocationManager.h"
+#import "LjsGoogleNmoAddressComponent.h"
+
 
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -45,9 +47,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   place.vicinity = aDetails.vicinity;
   
   for (LjsGoogleNmoAddressComponent *comp in aDetails.addressComponents) {
-    [LjsGoogleAddressComponent initWithComponent:comp
-                                           place:place
-                                         context:aContext];
+    [LjsGoogleAddressComponentPlace initWithComponent:comp
+                                                place:place
+                                              context:aContext];
   }
   
   for (LjsGooglePlacesNmoAttribution *attribution in aDetails.attributions) {

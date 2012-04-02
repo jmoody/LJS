@@ -9,7 +9,6 @@ const struct LjsGoogleAddressComponentAttributes LjsGoogleAddressComponentAttrib
 };
 
 const struct LjsGoogleAddressComponentRelationships LjsGoogleAddressComponentRelationships = {
-	.place = @"place",
 	.types = @"types",
 };
 
@@ -62,10 +61,6 @@ const struct LjsGoogleAddressComponentFetchedProperties LjsGoogleAddressComponen
 
 
 
-
-@dynamic place;
-
-	
 
 @dynamic types;
 

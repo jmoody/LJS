@@ -2,14 +2,20 @@
 // Make changes to LjsGoogleReverseGeocode.h instead.
 
 #import <CoreData/CoreData.h>
-#import "LjsGooglePlace.h"
+
 
 extern const struct LjsGoogleReverseGeocodeAttributes {
+	__unsafe_unretained NSString *dateAdded;
+	__unsafe_unretained NSString *dateModified;
+	__unsafe_unretained NSString *formattedAddress;
+	__unsafe_unretained NSString *location;
 	__unsafe_unretained NSString *location100m;
 	__unsafe_unretained NSString *locationType;
+	__unsafe_unretained NSString *orderValue;
 } LjsGoogleReverseGeocodeAttributes;
 
 extern const struct LjsGoogleReverseGeocodeRelationships {
+	__unsafe_unretained NSString *addressComponents;
 	__unsafe_unretained NSString *bounds;
 	__unsafe_unretained NSString *types;
 	__unsafe_unretained NSString *viewport;
@@ -18,21 +24,59 @@ extern const struct LjsGoogleReverseGeocodeRelationships {
 extern const struct LjsGoogleReverseGeocodeFetchedProperties {
 } LjsGoogleReverseGeocodeFetchedProperties;
 
+@class LjsGoogleAddressComponentGeocode;
 @class LjsGoogleBounds;
 @class LjsGoogleReverseGeocodeType;
 @class LjsGoogleViewport;
 
+
+
+
 @class NSObject;
+@class NSObject;
+
 
 
 @interface LjsGoogleReverseGeocodeID : NSManagedObjectID {}
 @end
 
-@interface _LjsGoogleReverseGeocode : LjsGooglePlace {}
+@interface _LjsGoogleReverseGeocode : NSManagedObject {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (LjsGoogleReverseGeocodeID*)objectID;
+
+
+
+
+@property (nonatomic, strong) NSDate *dateAdded;
+
+
+//- (BOOL)validateDateAdded:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) NSDate *dateModified;
+
+
+//- (BOOL)validateDateModified:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) NSString *formattedAddress;
+
+
+//- (BOOL)validateFormattedAddress:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) id location;
+
+
+//- (BOOL)validateLocation:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -50,6 +94,21 @@ extern const struct LjsGoogleReverseGeocodeFetchedProperties {
 
 //- (BOOL)validateLocationType:(id*)value_ error:(NSError**)error_;
 
+
+
+
+@property (nonatomic, strong) NSDecimalNumber *orderValue;
+
+
+//- (BOOL)validateOrderValue:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSSet* addressComponents;
+
+- (NSMutableSet*)addressComponentsSet;
 
 
 
@@ -80,6 +139,11 @@ extern const struct LjsGoogleReverseGeocodeFetchedProperties {
 
 @interface _LjsGoogleReverseGeocode (CoreDataGeneratedAccessors)
 
+- (void)addAddressComponents:(NSSet*)value_;
+- (void)removeAddressComponents:(NSSet*)value_;
+- (void)addAddressComponentsObject:(LjsGoogleAddressComponentGeocode*)value_;
+- (void)removeAddressComponentsObject:(LjsGoogleAddressComponentGeocode*)value_;
+
 - (void)addTypes:(NSSet*)value_;
 - (void)removeTypes:(NSSet*)value_;
 - (void)addTypesObject:(LjsGoogleReverseGeocodeType*)value_;
@@ -88,6 +152,30 @@ extern const struct LjsGoogleReverseGeocodeFetchedProperties {
 @end
 
 @interface _LjsGoogleReverseGeocode (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSDate *)primitiveDateAdded;
+- (void)setPrimitiveDateAdded:(NSDate *)value;
+
+
+
+
+- (NSDate *)primitiveDateModified;
+- (void)setPrimitiveDateModified:(NSDate *)value;
+
+
+
+
+- (NSString *)primitiveFormattedAddress;
+- (void)setPrimitiveFormattedAddress:(NSString *)value;
+
+
+
+
+- (id)primitiveLocation;
+- (void)setPrimitiveLocation:(id)value;
+
+
 
 
 - (id)primitiveLocation100m;
@@ -100,6 +188,17 @@ extern const struct LjsGoogleReverseGeocodeFetchedProperties {
 - (void)setPrimitiveLocationType:(NSString *)value;
 
 
+
+
+- (NSDecimalNumber *)primitiveOrderValue;
+- (void)setPrimitiveOrderValue:(NSDecimalNumber *)value;
+
+
+
+
+
+- (NSMutableSet*)primitiveAddressComponents;
+- (void)setPrimitiveAddressComponents:(NSMutableSet*)value;
 
 
 

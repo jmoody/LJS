@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 
 
-@class LjsGooglePlace;
+@class LjsGooglePlaceDetails;
 @class LjsLocation;
 @class LjsLocationManager;
 
@@ -19,24 +19,24 @@
 
 /** @name Utility */
 
-- (NSDecimalNumber *) metersBetweenPlace:(LjsGooglePlace *) aPlace 
+- (NSDecimalNumber *) metersBetweenPlace:(LjsGooglePlaceDetails *) aPlace 
                              andLocation:(LjsLocation *) aLocation;
 
 
-- (NSDecimalNumber *) metersBetweenA:(LjsGooglePlace *) a
-                                   b:(LjsGooglePlace *) b;
+- (NSDecimalNumber *) metersBetweenA:(LjsGooglePlaceDetails *) a
+                                   b:(LjsGooglePlaceDetails *) b;
 
-- (NSDecimalNumber *) kilometersBetweenA:(LjsGooglePlace *) a
-                                       b:(LjsGooglePlace *) b;
+- (NSDecimalNumber *) kilometersBetweenA:(LjsGooglePlaceDetails *) a
+                                       b:(LjsGooglePlaceDetails *) b;
 
-- (NSDecimalNumber *) feetBetweenA:(LjsGooglePlace *) a 
-                                 b:(LjsGooglePlace *) b;
-- (NSDecimalNumber *) milesBetweenA:(LjsGooglePlace *) a
-                                  b:(LjsGooglePlace *) b;
+- (NSDecimalNumber *) feetBetweenA:(LjsGooglePlaceDetails *) a 
+                                 b:(LjsGooglePlaceDetails *) b;
+- (NSDecimalNumber *) milesBetweenA:(LjsGooglePlaceDetails *) a
+                                  b:(LjsGooglePlaceDetails *) b;
 
 - (NSComparisonResult) compareDistanceFrom:(LjsLocation *) aLocation
-                                       toA:(LjsGooglePlace *) a
-                                       toB:(LjsGooglePlace *) b;
+                                       toA:(LjsGooglePlaceDetails *) a
+                                       toB:(LjsGooglePlaceDetails *) b;
 
 
 @end
