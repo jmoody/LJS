@@ -84,7 +84,7 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
 
 - (BOOL) placeExistsForId:(NSString *) aId;
 - (NSArray *) fetchAllPlaces;
-- (BOOL) geocodeExistsForLocation:(LjsLocation *) aLocation;
+//- (BOOL) geocodeExistsForLocation:(LjsLocation *) aLocation;
 - (NSArray *) fetchAllGeocodes;
 
 
@@ -319,6 +319,7 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
       
       [self.requestManager executeHttpReverseGeocodeRequestForLocation:location
                                                   locationIsFromSensor:httpOptions.sensor
+                                                       searchTermOrNil:httpOptions.searchTerm
                                                 shouldPostNotification:httpOptions.shouldPostNotification];
     }
   } else {
@@ -511,11 +512,19 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
   if (persistedNewResult == YES) {
     NSNumber *number = [aUserInfo objectForKey:@"shouldPost"];
     BOOL shouldPost = [number boolValue];
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithCapacity:2];
     LjsLocation *location = [aUserInfo objectForKey:@"location"];
+    [userInfo setObject:location forKey:@"location"];
+    NSString *searchTerm = [aUserInfo objectForKey:@"searchTerm"];
+    if (searchTerm != nil) {
+      [userInfo setObject:searchTerm forKey:@"searchTerm"];
+    }
     if (shouldPost == YES) {
+      // putting information in a dictionary instead of userInfo property
+      // to get around sandboxing limitations on MacOs
       [[NSNotificationCenter defaultCenter]
        postNotificationName:LjsNotificationGoogleManagerReverseGeocodeResultsAvailable
-       object:location];
+       object:userInfo];
     }
   }
 }

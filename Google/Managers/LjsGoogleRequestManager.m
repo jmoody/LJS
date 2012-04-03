@@ -173,6 +173,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 - (void) executeHttpReverseGeocodeRequestForLocation:(LjsLocation *) aLocation
                                 locationIsFromSensor:(BOOL) aLocIsFromSensor 
+                                     searchTermOrNil:(NSString *)aSearchTerm 
                               shouldPostNotification:(BOOL) aShouldPostNotification {
   if ([LjsLocationManager isValidLocation:aLocation] == NO) {
     DDLogError(@"location: %@ needs to be valid - nothing to do", aLocation);
@@ -182,6 +183,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   
   ASIHTTPRequest *request = [self.requestFactory requestForReverseGeocodeWithLocation:aLocation
                                                                  locationIsFromSensor:aLocIsFromSensor
+                                                                      searchTermOrNil:aSearchTerm 
                                                                shouldPostNotification:aShouldPostNotification];
   
   [request setDelegate:self];

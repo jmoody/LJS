@@ -70,6 +70,7 @@
 /** @name Utility */
 - (void) executeHttpReverseGeocodeRequestForLocation:(LjsLocation *) aLocation
                                 locationIsFromSensor:(BOOL) aLocIsFromSensor
+                                     searchTermOrNil:(NSString *) aSearchTerm
                               shouldPostNotification:(BOOL) aShouldPostNotification;
 
 @end

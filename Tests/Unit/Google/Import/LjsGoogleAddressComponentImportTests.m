@@ -66,16 +66,12 @@
 #endif
 
 #import "LjsTestCase.h"
-#import "LjsGoogleManager.h"
-#import "LjsFileUtilities.h"
-#import "LjsValidator.h"
-#import "LjsVariates.h"
-#import "LjsLocationManager.h"
+#import "LjsGoogleNmoAddressComponent.h"
 
-@interface LjsGooglePlacesManagerTests : LjsTestCase {}
+@interface LjsGoogleAddressComponentImportTests : LjsTestCase {}
 @end
 
-@implementation LjsGooglePlacesManagerTests
+@implementation LjsGoogleAddressComponentImportTests
 
 //- (id) init {
 //  self = [super init];
@@ -109,67 +105,56 @@
   // Run after each test method
 }  
 
-//- (void)testGHLog {
-//  GHTestLog(@"GH test logging is working");
-//}
 
-- (void) test_init {
-  LjsGoogleManager *manager;
-  NSString *filename;
-  NSString *apiKey;
-  NSString *libDir;
-  NSArray *contents;
-  BOOL result;
-  NSFileManager *fm = [NSFileManager defaultManager];
-  LjsLocationManager *lm = [[LjsLocationManager alloc] init];
-
-  filename = LjsGooglePlacesSqlLiteStore;
-  libDir = [LjsFileUtilities findCoreDataLibraryPath:YES];
+- (void) test_initAddressComponent {
+  NSArray *keys;
+  NSArray *values;
+  NSArray *types;
+  NSDictionary *dictionary;
+  LjsGoogleNmoAddressComponent *comp;
   
-  manager = [[LjsGoogleManager alloc] initWithLocationManager:lm];
-  contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
-  result = [LjsValidator array:contents containsString:filename];
-  GHAssertTrue(result, nil);
+  types = [NSArray arrayWithObjects:@"street_number", 
+           @"route", @"locality", @"country", @"postal_code",
+           @"administrative_area_level_1", nil];
+  keys = [NSArray arrayWithObjects:@"long_name", @"short_name", @"types", nil];
+  values = [NSArray arrayWithObjects:@"a", @"b", types, nil];
+  dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+  comp = [[LjsGoogleNmoAddressComponent alloc] initWithDictionary:dictionary];
+  GHAssertNotNil(comp, nil);
+  GHAssertEqualStrings(comp.longName, @"a", nil);
+  GHAssertEqualStrings(comp.shortName, @"b", nil);
+  GHAssertEquals((NSUInteger)[comp.types count], (NSUInteger)[types count], nil);
+  
+
+  keys = [NSArray arrayWithObjects:@"long_bad", @"short_name", @"types", nil];
+  dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+  comp = [[LjsGoogleNmoAddressComponent alloc] initWithDictionary:dictionary];
+  GHAssertNil(comp, nil);
 
  
-  apiKey = [LjsVariates randomAsciiWithLengthMin:10 lenghtMax:20];
-  filename = LjsGooglePlacesSqlLiteStore;
-  libDir = [LjsFileUtilities findCoreDataLibraryPath:YES];
-  manager = [[LjsGoogleManager alloc] initWithApiToken:apiKey
-             manager:lm];
-  contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
-  result = [LjsValidator array:contents containsString:filename];
-  GHAssertTrue(result, nil);
- 
-  
-  
-  apiKey = [LjsVariates randomAsciiWithLengthMin:10 lenghtMax:20];
-  filename = @"com.littlejoysoftware.LjsGooglePlaces_test_init.sqlite";
-  libDir = [LjsFileUtilities findLibraryDirectoryPath:YES];
-  manager = [[LjsGoogleManager alloc] initWithStoreFilename:filename
-                                                         apiToken:apiKey
-             manager:lm];
-  contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
-  result = [LjsValidator array:contents containsString:filename];
-  manager = nil;
-  [fm removeItemAtPath:[libDir stringByAppendingPathComponent:filename]
-                 error:nil];
+  keys = [NSArray arrayWithObjects:@"long_name", @"short_name", @"types", nil];
+  values = [NSArray arrayWithObjects:@"", @"b", types, nil];
+  dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+  comp = [[LjsGoogleNmoAddressComponent alloc] initWithDictionary:dictionary];
+  GHAssertNil(comp, nil);
 
-  
-  apiKey = [LjsVariates randomAsciiWithLengthMin:10 lenghtMax:20];
-  filename = @"com.littlejoysoftware.LjsGooglePlaces_test_init.sqlite";
-  libDir = [LjsFileUtilities findLibraryDirectoryPath:YES];
-  manager = [[LjsGoogleManager alloc] initWithStoreDirectory:libDir
-                                                     storeFilename:filename
-                                                          apiToken:apiKey
-                                                                manager:lm];
-  contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
-  result = [LjsValidator array:contents containsString:filename];
-  GHAssertTrue(result, nil);
-  manager = nil;
-  [fm removeItemAtPath:[libDir stringByAppendingPathComponent:filename]
-                 error:nil];
+  values = [NSArray arrayWithObjects:@"a", @"", types, nil];
+  dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+  comp = [[LjsGoogleNmoAddressComponent alloc] initWithDictionary:dictionary];
+  GHAssertNil(comp, nil);
 
+  values = [NSArray arrayWithObjects:@"a", @"", types, nil];
+  dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+  comp = [[LjsGoogleNmoAddressComponent alloc] initWithDictionary:dictionary];
+  GHAssertNil(comp, nil); 
+
+  types = [NSArray array];
+  values = [NSArray arrayWithObjects:@"a", @"b", types, nil];
+  dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+  comp = [[LjsGoogleNmoAddressComponent alloc] initWithDictionary:dictionary];
+  GHAssertNil(comp, nil); 
 }
+
+
 
 @end

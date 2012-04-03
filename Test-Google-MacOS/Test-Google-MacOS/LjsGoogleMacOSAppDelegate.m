@@ -77,7 +77,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
    object:nil];
   
   LjsGrgPredicateFactory *factory = [[LjsGrgPredicateFactory alloc] init];
-  LjsGrgHttpRequestOptions *httpOpts = [LjsGrgHttpRequestOptions searchWithSensorPostNotification:YES];
+  LjsGrgHttpRequestOptions *httpOpts = [[LjsGrgHttpRequestOptions alloc]
+                                        initWithShouldMakeRequest:YES
+                                        sensor:NO
+                                        postNotification:YES
+                                        searchTermOrNil:nil];
   LjsGoogleReverseGeocodeOptions *options;
   options = [[LjsGoogleReverseGeocodeOptions alloc]
              initWithLocation:location

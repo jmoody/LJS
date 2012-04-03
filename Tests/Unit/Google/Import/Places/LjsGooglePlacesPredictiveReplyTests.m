@@ -65,13 +65,15 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsTestCase.h"
-#import "LjsGoogleNmoAddressComponent.h"
+#import "LjsGooglePlacesImportTest_Super.h"
+#import "LjsGooglePlacesPredictiveReply.h"
 
-@interface LjsGooglePlacesAddressComponentTests : LjsTestCase {}
+@interface LjsGooglePlacesPredictiveReplyTests : LjsGooglePlacesImportTest_Super
+
 @end
 
-@implementation LjsGooglePlacesAddressComponentTests
+@implementation LjsGooglePlacesPredictiveReplyTests
+
 
 //- (id) init {
 //  self = [super init];
@@ -91,6 +93,8 @@
 
 - (void) setUpClass {
   // Run at start of all tests in the class
+  self.resourceName = @"google-places-autocomplete-sample";
+  [super setUpClass];
 }
 
 - (void) tearDownClass {
@@ -105,56 +109,27 @@
   // Run after each test method
 }  
 
-
-- (void) test_initAddressComponent {
-  NSArray *keys;
-  NSArray *values;
-  NSArray *types;
-  NSDictionary *dictionary;
-  LjsGoogleNmoAddressComponent *comp;
+- (void) test_replyWithPredictions {
+  LjsGooglePlacesPredictiveReply *reply;
   
-  types = [NSArray arrayWithObjects:@"street_number", 
-           @"route", @"locality", @"country", @"postal_code",
-           @"administrative_area_level_1", nil];
-  keys = [NSArray arrayWithObjects:@"long_name", @"short_name", @"types", nil];
-  values = [NSArray arrayWithObjects:@"a", @"b", types, nil];
-  dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
-  comp = [[LjsGoogleNmoAddressComponent alloc] initWithDictionary:dictionary];
-  GHAssertNotNil(comp, nil);
-  GHAssertEqualStrings(comp.longName, @"a", nil);
-  GHAssertEqualStrings(comp.shortName, @"b", nil);
-  GHAssertEquals((NSUInteger)[comp.types count], (NSUInteger)[types count], nil);
+  NSError *error = nil;
+  reply = [[LjsGooglePlacesPredictiveReply alloc]
+           initWithReply:self.jsonResource
+           error:&error];
+  // tests description
+  GHTestLog(@"reply = %@", reply);
   
+  GHAssertNil(error, nil);
+  GHAssertTrue([reply statusHasResults], nil);
+  GHAssertFalse([reply statusInvalidRequest], nil);
+  GHAssertFalse([reply statusLocalParseError], nil);
+  GHAssertFalse([reply statusNoResults], nil);
+  GHAssertFalse([reply statusOverQueryLimit], nil);
+  GHAssertFalse([reply statusRequestDenied], nil);
+  
+  GHAssertEquals((NSUInteger)[reply count], (NSUInteger)5, nil);
+  GHAssertNotNil([reply predictions], nil);
 
-  keys = [NSArray arrayWithObjects:@"long_bad", @"short_name", @"types", nil];
-  dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
-  comp = [[LjsGoogleNmoAddressComponent alloc] initWithDictionary:dictionary];
-  GHAssertNil(comp, nil);
-
- 
-  keys = [NSArray arrayWithObjects:@"long_name", @"short_name", @"types", nil];
-  values = [NSArray arrayWithObjects:@"", @"b", types, nil];
-  dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
-  comp = [[LjsGoogleNmoAddressComponent alloc] initWithDictionary:dictionary];
-  GHAssertNil(comp, nil);
-
-  values = [NSArray arrayWithObjects:@"a", @"", types, nil];
-  dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
-  comp = [[LjsGoogleNmoAddressComponent alloc] initWithDictionary:dictionary];
-  GHAssertNil(comp, nil);
-
-  values = [NSArray arrayWithObjects:@"a", @"", types, nil];
-  dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
-  comp = [[LjsGoogleNmoAddressComponent alloc] initWithDictionary:dictionary];
-  GHAssertNil(comp, nil); 
-
-  types = [NSArray array];
-  values = [NSArray arrayWithObjects:@"a", @"b", types, nil];
-  dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
-  comp = [[LjsGoogleNmoAddressComponent alloc] initWithDictionary:dictionary];
-  GHAssertNil(comp, nil); 
 }
-
-
 
 @end

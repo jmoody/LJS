@@ -41,9 +41,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
 @interface LjsGrgHttpRequestOptions ()
-- (id) initWithShouldMakeRequest:(BOOL) aShouldMakeRequest
-                          sensor:(BOOL) aWasSensor
-                postNotification:(BOOL) aShouldPostNotification;
+
 @end
 
 @implementation LjsGrgHttpRequestOptions 
@@ -51,6 +49,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @synthesize shouldMakeRequest;
 @synthesize sensor;
 @synthesize shouldPostNotification;
+@synthesize searchTerm;
 
 - (id) init {
   [self doesNotRecognizeSelector:_cmd];
@@ -59,12 +58,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 - (id) initWithShouldMakeRequest:(BOOL)aShouldMakeRequest 
                           sensor:(BOOL)aWasSensor
-                postNotification:(BOOL)aShouldPostNotification {
+                postNotification:(BOOL)aShouldPostNotification 
+                 searchTermOrNil:(NSString *)aSearchTerm {
   self = [super init];
   if (self) {
     self.shouldMakeRequest = aShouldMakeRequest;
     self.sensor = aWasSensor;
     self.shouldPostNotification = aShouldPostNotification;
+    self.searchTerm = aSearchTerm;
   }
   return self;
 }
@@ -73,22 +74,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [[LjsGrgHttpRequestOptions alloc]
           initWithShouldMakeRequest:NO
           sensor:NO
-          postNotification:NO];        
+          postNotification:NO
+          searchTermOrNil:nil];        
 }
 
-+ (LjsGrgHttpRequestOptions *) searchWithSensorPostNotification:(BOOL)aPostNotification {
-  return [[LjsGrgHttpRequestOptions alloc]
-          initWithShouldMakeRequest:YES
-          sensor:YES
-          postNotification:aPostNotification];        
-}
-
-+ (LjsGrgHttpRequestOptions *) searchWithoutSensorPostNotification:(BOOL)aPostNotification {
-  return [[LjsGrgHttpRequestOptions alloc]
-          initWithShouldMakeRequest:YES
-          sensor:NO
-          postNotification:aPostNotification];        
-}
 
 @end
 

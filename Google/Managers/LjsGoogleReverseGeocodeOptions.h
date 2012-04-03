@@ -36,11 +36,14 @@
 @property (nonatomic, assign) BOOL shouldMakeRequest;
 @property (nonatomic, assign) BOOL sensor;
 @property (nonatomic, assign) BOOL shouldPostNotification;
+@property (nonatomic, copy) NSString *searchTerm;
 
 + (LjsGrgHttpRequestOptions *) doNotSearch;
-+ (LjsGrgHttpRequestOptions *) searchWithSensorPostNotification:(BOOL) aPostNotification;
-+ (LjsGrgHttpRequestOptions *) searchWithoutSensorPostNotification:(BOOL) aPostNotification;
 
+- (id) initWithShouldMakeRequest:(BOOL) aShouldMakeRequest
+                          sensor:(BOOL) aWasSensor
+                postNotification:(BOOL) aShouldPostNotification
+                 searchTermOrNil:(NSString *) aSearchTerm;
 @end
 
 @interface LjsGrgPredicateFactory: NSObject

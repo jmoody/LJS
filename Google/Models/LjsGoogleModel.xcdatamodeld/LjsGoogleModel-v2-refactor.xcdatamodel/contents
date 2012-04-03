@@ -56,11 +56,17 @@
         <attribute name="formattedAddress" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude1km" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="latitude1m" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="latitude10m" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="latitude100m" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="Transformable" valueTransformerName="LjsLocationTransformer" syncable="YES"/>
+        <attribute name="location1m" optional="YES" attributeType="Transformable" valueTransformerName="LjsLocationTransformer" syncable="YES"/>
+        <attribute name="location10m" optional="YES" attributeType="Transformable" valueTransformerName="LjsLocationTransformer" syncable="YES"/>
         <attribute name="location100m" optional="YES" attributeType="Transformable" valueTransformerName="LjsLocationTransformer" syncable="YES"/>
         <attribute name="locationType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitude1km" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude1m" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude10m" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude100m" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="orderValue" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <relationship name="addressComponents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LjsGoogleAddressComponentGeocode" inverseName="geocode" inverseEntity="LjsGoogleAddressComponentGeocode" syncable="YES"/>
@@ -85,7 +91,7 @@
         <element name="LjsGooglePlace" positionX="160" positionY="192" width="128" height="315"/>
         <element name="LjsGooglePlaceType" positionX="160" positionY="192" width="128" height="75"/>
         <element name="LjsGoogleRect" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="LjsGoogleReverseGeocode" positionX="160" positionY="192" width="128" height="285"/>
+        <element name="LjsGoogleReverseGeocode" positionX="160" positionY="192" width="128" height="375"/>
         <element name="LjsGoogleReverseGeocodeType" positionX="160" positionY="192" width="128" height="75"/>
         <element name="LjsGoogleViewport" positionX="160" positionY="192" width="128" height="60"/>
     </elements>

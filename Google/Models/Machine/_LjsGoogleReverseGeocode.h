@@ -10,12 +10,18 @@ extern const struct LjsGoogleReverseGeocodeAttributes {
 	__unsafe_unretained NSString *formattedAddress;
 	__unsafe_unretained NSString *key;
 	__unsafe_unretained NSString *latitude100m;
+	__unsafe_unretained NSString *latitude10m;
 	__unsafe_unretained NSString *latitude1km;
+	__unsafe_unretained NSString *latitude1m;
 	__unsafe_unretained NSString *location;
 	__unsafe_unretained NSString *location100m;
+	__unsafe_unretained NSString *location10m;
+	__unsafe_unretained NSString *location1m;
 	__unsafe_unretained NSString *locationType;
 	__unsafe_unretained NSString *longitude100m;
+	__unsafe_unretained NSString *longitude10m;
 	__unsafe_unretained NSString *longitude1km;
+	__unsafe_unretained NSString *longitude1m;
 	__unsafe_unretained NSString *orderValue;
 } LjsGoogleReverseGeocodeAttributes;
 
@@ -40,8 +46,14 @@ extern const struct LjsGoogleReverseGeocodeFetchedProperties {
 
 
 
+
+
 @class NSObject;
 @class NSObject;
+@class NSObject;
+@class NSObject;
+
+
 
 
 
@@ -99,10 +111,26 @@ extern const struct LjsGoogleReverseGeocodeFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSDecimalNumber *latitude10m;
+
+
+//- (BOOL)validateLatitude10m:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, strong) NSDecimalNumber *latitude1km;
 
 
 //- (BOOL)validateLatitude1km:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) NSDecimalNumber *latitude1m;
+
+
+//- (BOOL)validateLatitude1m:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -123,6 +151,22 @@ extern const struct LjsGoogleReverseGeocodeFetchedProperties {
 
 
 
+@property (nonatomic, strong) id location10m;
+
+
+//- (BOOL)validateLocation10m:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) id location1m;
+
+
+//- (BOOL)validateLocation1m:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, strong) NSString *locationType;
 
 
@@ -139,10 +183,26 @@ extern const struct LjsGoogleReverseGeocodeFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSDecimalNumber *longitude10m;
+
+
+//- (BOOL)validateLongitude10m:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, strong) NSDecimalNumber *longitude1km;
 
 
 //- (BOOL)validateLongitude1km:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) NSDecimalNumber *longitude1m;
+
+
+//- (BOOL)validateLongitude1m:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -234,8 +294,20 @@ extern const struct LjsGoogleReverseGeocodeFetchedProperties {
 
 
 
+- (NSDecimalNumber *)primitiveLatitude10m;
+- (void)setPrimitiveLatitude10m:(NSDecimalNumber *)value;
+
+
+
+
 - (NSDecimalNumber *)primitiveLatitude1km;
 - (void)setPrimitiveLatitude1km:(NSDecimalNumber *)value;
+
+
+
+
+- (NSDecimalNumber *)primitiveLatitude1m;
+- (void)setPrimitiveLatitude1m:(NSDecimalNumber *)value;
 
 
 
@@ -252,6 +324,18 @@ extern const struct LjsGoogleReverseGeocodeFetchedProperties {
 
 
 
+- (id)primitiveLocation10m;
+- (void)setPrimitiveLocation10m:(id)value;
+
+
+
+
+- (id)primitiveLocation1m;
+- (void)setPrimitiveLocation1m:(id)value;
+
+
+
+
 - (NSString *)primitiveLocationType;
 - (void)setPrimitiveLocationType:(NSString *)value;
 
@@ -264,8 +348,20 @@ extern const struct LjsGoogleReverseGeocodeFetchedProperties {
 
 
 
+- (NSDecimalNumber *)primitiveLongitude10m;
+- (void)setPrimitiveLongitude10m:(NSDecimalNumber *)value;
+
+
+
+
 - (NSDecimalNumber *)primitiveLongitude1km;
 - (void)setPrimitiveLongitude1km:(NSDecimalNumber *)value;
+
+
+
+
+- (NSDecimalNumber *)primitiveLongitude1m;
+- (void)setPrimitiveLongitude1m:(NSDecimalNumber *)value;
 
 
 

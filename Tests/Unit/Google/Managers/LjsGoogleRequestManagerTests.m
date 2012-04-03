@@ -65,15 +65,22 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsGooglePlacesTest.h"
-#import "LjsGooglePlacesPredictiveReply.h"
+#import "LjsTestCase.h"
+#import "LjsGoogleRequestManager.h"
+#import "LjsGoogleGlobals.h"
+#import "LjsCaesarCipher.h"
+#import "LjsDn.h"
+#import "LjsLocationManager.h"
 
-@interface LjsGooglePlacesPredictiveReplyTests : LjsGooglePlacesTest 
+@interface LjsGoogleRequestManagerTests : LjsTestCase 
 
+@property (nonatomic, strong) NSString *apiToken;
+@property (nonatomic, strong) LjsGoogleRequestManager *manager;
 @end
 
-@implementation LjsGooglePlacesPredictiveReplyTests
-
+@implementation LjsGoogleRequestManagerTests
+@synthesize apiToken;
+@synthesize manager;
 
 //- (id) init {
 //  self = [super init];
@@ -88,13 +95,20 @@
 
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
-  return NO;
+  return YES;
 }
 
 - (void) setUpClass {
   // Run at start of all tests in the class
-  self.resourceName = @"google-places-autocomplete-sample";
-  [super setUpClass];
+  NSString *defaultKey = LjsGoogleApiKey_joshuajmoody;
+  NSUInteger len = [defaultKey length];
+  LjsCaesarCipher *cipher = [[LjsCaesarCipher alloc]
+                             initWithRotate:len];
+  self.apiToken = [cipher stringByDecodingString:defaultKey];
+  
+
+  self.manager = [[LjsGoogleRequestManager alloc]
+                  initWithApiToken:self.apiToken];
 }
 
 - (void) tearDownClass {
@@ -109,27 +123,7 @@
   // Run after each test method
 }  
 
-- (void) test_replyWithPredictions {
-  LjsGooglePlacesPredictiveReply *reply;
-  
-  NSError *error = nil;
-  reply = [[LjsGooglePlacesPredictiveReply alloc]
-           initWithReply:self.jsonResource
-           error:&error];
-  // tests description
-  GHTestLog(@"reply = %@", reply);
-  
-  GHAssertNil(error, nil);
-  GHAssertTrue([reply statusHasResults], nil);
-  GHAssertFalse([reply statusInvalidRequest], nil);
-  GHAssertFalse([reply statusLocalParseError], nil);
-  GHAssertFalse([reply statusNoResults], nil);
-  GHAssertFalse([reply statusOverQueryLimit], nil);
-  GHAssertFalse([reply statusRequestDenied], nil);
-  
-  GHAssertEquals((NSUInteger)[reply count], (NSUInteger)5, nil);
-  GHAssertNotNil([reply predictions], nil);
 
-}
+
 
 @end

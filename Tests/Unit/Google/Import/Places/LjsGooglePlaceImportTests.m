@@ -66,21 +66,12 @@
 #endif
 
 #import "LjsTestCase.h"
-#import "LjsGoogleRequestManager.h"
-#import "LjsGoogleGlobals.h"
-#import "LjsCaesarCipher.h"
-#import "LjsDn.h"
-#import "LjsLocationManager.h"
+#import "LjsGoogleNmoPlace.h"
 
-@interface LjsGooglePlacesRequestManagerTests : LjsTestCase 
-
-@property (nonatomic, strong) NSString *apiToken;
-@property (nonatomic, strong) LjsGoogleRequestManager *manager;
+@interface LjsGooglePlaceImportTests : LjsTestCase {}
 @end
 
-@implementation LjsGooglePlacesRequestManagerTests
-@synthesize apiToken;
-@synthesize manager;
+@implementation LjsGooglePlaceImportTests
 
 //- (id) init {
 //  self = [super init];
@@ -95,20 +86,11 @@
 
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
-  return YES;
+  return NO;
 }
 
 - (void) setUpClass {
   // Run at start of all tests in the class
-  NSString *defaultKey = LjsGoogleApiKey_joshuajmoody;
-  NSUInteger len = [defaultKey length];
-  LjsCaesarCipher *cipher = [[LjsCaesarCipher alloc]
-                             initWithRotate:len];
-  self.apiToken = [cipher stringByDecodingString:defaultKey];
-  
-
-  self.manager = [[LjsGoogleRequestManager alloc]
-                  initWithApiToken:self.apiToken];
 }
 
 - (void) tearDownClass {
@@ -123,7 +105,22 @@
   // Run after each test method
 }  
 
-
+- (void) test_placeInit {
+  NSArray *keys;
+  NSArray *values;
+  NSArray *types;
+  NSDictionary *dictionary;
+  LjsGoogleNmoPlace *place;
+  
+  types = [NSArray arrayWithObjects:@"geocode", @"locality", nil];
+  keys = [NSArray arrayWithObjects:@"id", @"reference", @"types", nil];
+  values = [NSArray arrayWithObjects:@"123", @"456", types, nil];
+  dictionary = [NSDictionary dictionaryWithObjects:values
+                                           forKeys:keys];
+  place = [[LjsGoogleNmoPlace alloc] initWithDictionary:dictionary];
+  GHAssertNotNil(place, nil);
+  
+}
 
 
 @end

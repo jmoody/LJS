@@ -65,13 +65,15 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsTestCase.h"
-#import "LjsGoogleNmoPlace.h"
+#import "LjsGooglePlacesImportTest_Super.h"
+#import "LjsGooglePlacesDetailsReply.h"
+#import "LjsGooglePlacesNmoDetails.h"
 
-@interface LjsGooglePlaceTests : LjsTestCase {}
+
+@interface LjsGooglePlacesDetailsReplyTests : LjsGooglePlacesImportTest_Super
 @end
 
-@implementation LjsGooglePlaceTests
+@implementation LjsGooglePlacesDetailsReplyTests
 
 //- (id) init {
 //  self = [super init];
@@ -91,6 +93,8 @@
 
 - (void) setUpClass {
   // Run at start of all tests in the class
+  self.resourceName = @"google-places-details-sample";
+  [super setUpClass];
 }
 
 - (void) tearDownClass {
@@ -105,22 +109,32 @@
   // Run after each test method
 }  
 
-- (void) test_placeInit {
-  NSArray *keys;
-  NSArray *values;
-  NSArray *types;
-  NSDictionary *dictionary;
-  LjsGoogleNmoPlace *place;
+
+- (void) test_detailsReplyInit {
+  NSString *reply;
+  LjsGooglePlacesDetailsReply *result;
+  NSError *error;
+
+  error = nil;
+  reply = self.jsonResource;
+  result = [[LjsGooglePlacesDetailsReply alloc]
+            initWithReply:reply error:&error];
+  GHAssertNotNil(result, nil);
+  GHAssertNotNil([result details], nil);
+  GHAssertTrue([result statusHasResults], nil);
+  GHAssertNil(error, nil);
   
-  types = [NSArray arrayWithObjects:@"geocode", @"locality", nil];
-  keys = [NSArray arrayWithObjects:@"id", @"reference", @"types", nil];
-  values = [NSArray arrayWithObjects:@"123", @"456", types, nil];
-  dictionary = [NSDictionary dictionaryWithObjects:values
-                                           forKeys:keys];
-  place = [[LjsGoogleNmoPlace alloc] initWithDictionary:dictionary];
-  GHAssertNotNil(place, nil);
+  error = nil;
+  reply = @"[";
+  result = [[LjsGooglePlacesDetailsReply alloc]
+            initWithReply:reply error:&error];
+  GHAssertNotNil(result, nil);
+  GHAssertNil([result details], nil);
+  GHAssertFalse([result statusHasResults], nil);
+  GHAssertNotNil(error, nil);
+
+  
   
 }
-
 
 @end

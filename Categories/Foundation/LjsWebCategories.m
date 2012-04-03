@@ -41,7 +41,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 
 
-@implementation NSString (NSString_LjsAdditions)
+@implementation NSString (NSString_LjsWebCategories)
 
 - (NSString *) stringByEncodingForUrl {
   NSMutableString * output = [NSMutableString string];
@@ -65,7 +65,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @end
 
-@implementation NSDictionary (NSDictionary_LjsAdditions)
+@implementation NSDictionary (NSDictionary_LjsWebCategories)
 
 - (NSString *) stringByParameterizingForUrl {
   NSMutableArray *parameters = [NSMutableArray array];

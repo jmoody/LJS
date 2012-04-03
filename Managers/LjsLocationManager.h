@@ -139,6 +139,7 @@ extern NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable;
 - (BOOL) isSameLocation:(LjsLocation *) aLocation;
 
 + (LjsLocation *) randomLocation;
++ (LjsLocation *) locationZurich;
 
 @end
 

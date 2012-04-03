@@ -3,5 +3,9 @@
 
 @interface LjsGoogleAddressComponent : _LjsGoogleAddressComponent
 
+
+- (BOOL) hasTypeWithName:(NSString *) aName;
+
+
 @end
 

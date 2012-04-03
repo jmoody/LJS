@@ -71,6 +71,8 @@ extern NSString *LjsGooglePlacesSqlLiteStore;
                 storeFilename:(NSString *) aFilename
                      apiToken:(NSString *) aApiToken
                       manager:(LjsLocationManager *) aManager;
+
+- (BOOL) geocodeExistsForLocation:(LjsLocation *) aLocation;
                  
 
 /** @name Handling Notifications, Requests, and Events */

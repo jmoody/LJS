@@ -248,6 +248,11 @@ static NSString *LjsLocation_SCALE_KEY = @"scale";
           initWithLatitude:lat longitude:lon];
 }
 
++ (LjsLocation *) locationZurich {
+  return [[LjsLocation alloc]
+          initWithLatitudeFloat:LjsLatitudeZurich
+          longitudeFloat:LjsLongitudeZurich];
+}
 
 @end
 

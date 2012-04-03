@@ -69,10 +69,10 @@
 #import "LjsGooglePlacesNmoAttribution.h"
 
 
-@interface LjsGooglePlacesAttributeTests : LjsTestCase {}
+@interface LjsGooglePlacesAttributeImportTests : LjsTestCase {}
 @end
 
-@implementation LjsGooglePlacesAttributeTests
+@implementation LjsGooglePlacesAttributeImportTests
 
 //- (id) init {
 //  self = [super init];

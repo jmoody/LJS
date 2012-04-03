@@ -61,6 +61,7 @@
 
 - (ASIHTTPRequest *) requestForReverseGeocodeWithLocation:(LjsLocation *) aLocation
                                      locationIsFromSensor:(BOOL) aLocIsFromSensor
+                                          searchTermOrNil:(NSString *) aSearchTerm
                                    shouldPostNotification:(BOOL) aShouldPostNofitication;
 
 

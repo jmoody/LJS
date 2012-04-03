@@ -65,15 +65,17 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsGooglePlacesTest.h"
-#import "LjsGooglePlacesDetailsReply.h"
-#import "LjsGooglePlacesNmoDetails.h"
+#import "LjsTestCase.h"
+#import "LjsGoogleManager.h"
+#import "LjsFileUtilities.h"
+#import "LjsValidator.h"
+#import "LjsVariates.h"
+#import "LjsLocationManager.h"
 
-
-@interface LjsGooglePlacesDetailsReplyTests : LjsGooglePlacesTest
+@interface LjsGoogleManagerTests : LjsTestCase {}
 @end
 
-@implementation LjsGooglePlacesDetailsReplyTests
+@implementation LjsGoogleManagerTests
 
 //- (id) init {
 //  self = [super init];
@@ -93,8 +95,6 @@
 
 - (void) setUpClass {
   // Run at start of all tests in the class
-  self.resourceName = @"google-places-details-sample";
-  [super setUpClass];
 }
 
 - (void) tearDownClass {
@@ -109,32 +109,67 @@
   // Run after each test method
 }  
 
+//- (void)testGHLog {
+//  GHTestLog(@"GH test logging is working");
+//}
 
-- (void) test_detailsReplyInit {
-  NSString *reply;
-  LjsGooglePlacesDetailsReply *result;
-  NSError *error;
+- (void) test_init {
+  LjsGoogleManager *manager;
+  NSString *filename;
+  NSString *apiKey;
+  NSString *libDir;
+  NSArray *contents;
+  BOOL result;
+  NSFileManager *fm = [NSFileManager defaultManager];
+  LjsLocationManager *lm = [[LjsLocationManager alloc] init];
 
-  error = nil;
-  reply = self.jsonResource;
-  result = [[LjsGooglePlacesDetailsReply alloc]
-            initWithReply:reply error:&error];
-  GHAssertNotNil(result, nil);
-  GHAssertNotNil([result details], nil);
-  GHAssertTrue([result statusHasResults], nil);
-  GHAssertNil(error, nil);
+  filename = LjsGooglePlacesSqlLiteStore;
+  libDir = [LjsFileUtilities findCoreDataLibraryPath:YES];
   
-  error = nil;
-  reply = @"[";
-  result = [[LjsGooglePlacesDetailsReply alloc]
-            initWithReply:reply error:&error];
-  GHAssertNotNil(result, nil);
-  GHAssertNil([result details], nil);
-  GHAssertFalse([result statusHasResults], nil);
-  GHAssertNotNil(error, nil);
+  manager = [[LjsGoogleManager alloc] initWithLocationManager:lm];
+  contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
+  result = [LjsValidator array:contents containsString:filename];
+  GHAssertTrue(result, nil);
+
+ 
+  apiKey = [LjsVariates randomAsciiWithLengthMin:10 lenghtMax:20];
+  filename = LjsGooglePlacesSqlLiteStore;
+  libDir = [LjsFileUtilities findCoreDataLibraryPath:YES];
+  manager = [[LjsGoogleManager alloc] initWithApiToken:apiKey
+             manager:lm];
+  contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
+  result = [LjsValidator array:contents containsString:filename];
+  GHAssertTrue(result, nil);
+ 
+  
+  
+  apiKey = [LjsVariates randomAsciiWithLengthMin:10 lenghtMax:20];
+  filename = @"com.littlejoysoftware.LjsGooglePlaces_test_init.sqlite";
+  libDir = [LjsFileUtilities findLibraryDirectoryPath:YES];
+  manager = [[LjsGoogleManager alloc] initWithStoreFilename:filename
+                                                         apiToken:apiKey
+             manager:lm];
+  contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
+  result = [LjsValidator array:contents containsString:filename];
+  manager = nil;
+  [fm removeItemAtPath:[libDir stringByAppendingPathComponent:filename]
+                 error:nil];
 
   
-  
+  apiKey = [LjsVariates randomAsciiWithLengthMin:10 lenghtMax:20];
+  filename = @"com.littlejoysoftware.LjsGooglePlaces_test_init.sqlite";
+  libDir = [LjsFileUtilities findLibraryDirectoryPath:YES];
+  manager = [[LjsGoogleManager alloc] initWithStoreDirectory:libDir
+                                                     storeFilename:filename
+                                                          apiToken:apiKey
+                                                                manager:lm];
+  contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
+  result = [LjsValidator array:contents containsString:filename];
+  GHAssertTrue(result, nil);
+  manager = nil;
+  [fm removeItemAtPath:[libDir stringByAppendingPathComponent:filename]
+                 error:nil];
+
 }
 
 @end

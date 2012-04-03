@@ -200,6 +200,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 - (ASIHTTPRequest *) requestForReverseGeocodeWithLocation:(LjsLocation *) aLocation
                                      locationIsFromSensor:(BOOL) aLocIsFromSensor
+                                          searchTermOrNil:(NSString *)aSearchTerm 
                                    shouldPostNotification:(BOOL) aShouldPostNofitication {
   
   NSString *sensor = [self stringForSensor:aLocIsFromSensor];
@@ -219,7 +220,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:paramDict];
   [userInfo setObject:[NSNumber numberWithBool:aShouldPostNofitication] forKey:@"shouldPost"];
   [userInfo setObject:aLocation forKey:@"location"];
-  
+  if (aSearchTerm != nil) {
+    [userInfo setObject:aSearchTerm forKey:@"searchTerm"];
+  }
   
   [request setRequestMethod:@"GET"];
   [request setResponseEncoding:NSUTF8StringEncoding];
