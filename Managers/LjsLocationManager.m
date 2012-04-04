@@ -625,8 +625,7 @@ static NSString *LjsLocation_SCALE_KEY = @"scale";
         if ([placemarks count] > 0) {
           NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
           [userInfo setObject:aLocation forKey:@"sourceLocation"];
-          CLPlacemark *mark = [placemarks nth:0];
-
+          CLPlacemark *mark = [placemarks nth:0]; 
           LjsLocation *foundLoc =  [[LjsLocation alloc]
                                             initWithCoreLocation:[mark location]];
           [userInfo setObject:foundLoc forKey:@"foundLocation"];

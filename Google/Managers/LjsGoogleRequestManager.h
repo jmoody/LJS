@@ -61,11 +61,11 @@
 - (void) executeHttpPredictionRequestWithInput:(NSString *) aInput
                                         radius:(CGFloat) aRadius
                                       location:(LjsLocation *) aLocation
-                                 languageOrNil:(NSString *) aLangCode
+                                langCodesOrNil:(NSArray *) aLangCodes
                           establishmentRequest:(BOOL) aIsAnEstablishmentRequest;
 
 - (void) executeHttpDetailsRequestionForPrediction:(LjsGooglePlacesPrediction *) aPrediction
-                                          language:(NSString *) aLangCode;
+                                          langCode:(NSString *) aLangCode;
 
 /** @name Utility */
 - (void) executeHttpReverseGeocodeRequestForLocation:(LjsLocation *) aLocation

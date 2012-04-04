@@ -11,7 +11,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Tests-iOS 2.0 d15836e De</string>
+	<string>Tests-iOS 2.0 51fd828 De</string>
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
@@ -27,7 +27,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>d15836e</string>
+	<string>51fd828</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UISupportedInterfaceOrientations</key>

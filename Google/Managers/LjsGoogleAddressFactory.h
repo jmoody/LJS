@@ -1,4 +1,4 @@
-// Copyright 2012 Little Joy Software. All rights reserved.
+// Copyright 2012 nUCROSOFT. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,43 +26,25 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+
 #import <Foundation/Foundation.h>
-#import "LjsLocationManager.h"
 
-
-@class ASIHTTPRequest;
-@class LjsGooglePlacesPrediction;
+@class LjsGooglePlace;
+@class LjsGoogleReverseGeocode;
 
 /**
  Documentation
  */
-@interface LjsGoogleRequestFactory : NSObject 
+@interface LjsGoogleAddressFactory : NSObject 
 
 /** @name Properties */
-@property (nonatomic, copy) NSString *apiToken;
+- (id) initWithPlace:(LjsGooglePlace *) aPlace;
+- (id) initWithReverseGeocode:(LjsGoogleReverseGeocode *) aGeocode;
 
 /** @name Initializing Objects */
-- (id) initWithApiToken:(NSString *) aApiToken;
 
 /** @name Handling Notifications, Requests, and Events */
 
 /** @name Utility */
-
-- (ASIHTTPRequest *) requestForAutocompleteWithInput:(NSString *) aInput
-                                            latitude:(NSDecimalNumber *) aLatitude
-                                           longitude:(NSDecimalNumber *) aLongitude
-                                              radius:(CGFloat) aRadius
-                                       langCodeOrNil:(NSString *) aLangCode
-                                       establishment:(BOOL) aIsAnEstablishmentRequest;
-
-
-- (ASIHTTPRequest *) requestForDetailsRequestForPrediction:(LjsGooglePlacesPrediction *) aPrediction
-                                                  langCode:(NSString *)aLangCode;
-
-- (ASIHTTPRequest *) requestForReverseGeocodeWithLocation:(LjsLocation *) aLocation
-                                     locationIsFromSensor:(BOOL) aLocIsFromSensor
-                                          searchTermOrNil:(NSString *) aSearchTerm
-                                   shouldPostNotification:(BOOL) aShouldPostNofitication;
-
-
+- (NSString *) bestCityStateString;
 @end

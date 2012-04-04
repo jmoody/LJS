@@ -274,11 +274,14 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
   
   if (aOptions.googleOptions.shouldMakeRequest == YES) {
     LjsGpPredictionGoogleOptions *googleOptions = aOptions.googleOptions;
-    [self.requestManager executeHttpPredictionRequestWithInput:googleOptions.searchString
-                                                        radius:googleOptions.radiusMeters
-                                                      location:aOptions.location
-                                                 languageOrNil:googleOptions.langCode
-                                          establishmentRequest:googleOptions.searchEstablishments];
+    NSArray *langCodes = googleOptions.langCodes;
+    if (langCodes == nil) {
+      [self.requestManager executeHttpPredictionRequestWithInput:googleOptions.searchString
+                                                          radius:googleOptions.radiusMeters
+                                                        location:aOptions.location
+                                                  langCodesOrNil:nil
+                                            establishmentRequest:googleOptions.searchEstablishments];
+    }
   }
   
   return result;
@@ -444,7 +447,7 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
       //DDLogDebug(@"starting request for details with prediction: %@", prediction);
       NSString *langCode = [aUserInfo objectForKey:@"language"];
       [self.requestManager executeHttpDetailsRequestionForPrediction:prediction
-                                                            language:langCode];
+                                                            langCode:langCode];
     } else {
       // DDLogDebug(@"skipping details request - place: %@ (%@) already exists",
       //           prediction.prediction, [prediction shortId]);
