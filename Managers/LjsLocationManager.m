@@ -386,8 +386,8 @@ static NSString *LjsLocation_SCALE_KEY = @"scale";
      DDLogDebug(@"result was NO, but LJS_LOCATION_SERVICES_SIMULATOR_DEBUG is on - will return YES");
      result = YES;
    } 
-   return result;
    )
+  return result;
 }
 
 

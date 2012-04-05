@@ -240,7 +240,10 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
 
 - (NSArray *) predicationsWithOptions:(LjsGooglePlacePredictionOptions *) aOptions {
   NSString *entityName = [LjsGooglePlace entityName];
+
   NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+//  DDLogDebug(@"request = %@", request);
+
   request.predicate = aOptions.predicate;
   
   // cannot limit the fetch if there is sorting involved - must limit post-fetch
@@ -257,7 +260,7 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
                [error localizedDescription], error, request.predicate);
     abort();
   } 
-  
+
   NSArray *result = fetched;
   if (sortOptions.shouldSort == YES) {
     
@@ -275,13 +278,12 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
   if (aOptions.googleOptions.shouldMakeRequest == YES) {
     LjsGpPredictionGoogleOptions *googleOptions = aOptions.googleOptions;
     NSArray *langCodes = googleOptions.langCodes;
-    if (langCodes == nil) {
-      [self.requestManager executeHttpPredictionRequestWithInput:googleOptions.searchString
-                                                          radius:googleOptions.radiusMeters
-                                                        location:aOptions.location
-                                                  langCodesOrNil:nil
-                                            establishmentRequest:googleOptions.searchEstablishments];
-    }
+    [self.requestManager executeHttpPredictionRequestWithInput:googleOptions.searchString
+                                                        radius:googleOptions.radiusMeters
+                                                      location:aOptions.location
+                                                langCodesOrNil:langCodes
+                                          establishmentRequest:googleOptions.searchEstablishments];
+  
   }
   
   return result;
@@ -298,7 +300,7 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
                aOptions.location, request.predicate, [error localizedDescription], error);
     abort();
   } 
-  
+
   
   NSUInteger resultCount = [fetched count];
   if (resultCount > 1) {
