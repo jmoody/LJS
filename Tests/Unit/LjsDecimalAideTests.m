@@ -62,7 +62,7 @@
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
 
-#import "LjsDecimalAide.h"
+#import "LjsDn.h"
 #import "LjsTestCase.h"
 
 @interface LjsDecimalAideTests : LjsTestCase {}
@@ -96,7 +96,7 @@
   // Run at start of all tests in the class
   self.zero = [NSDecimalNumber zero];
   self.one = [NSDecimalNumber one];
-  self.minusOne = [LjsDecimalAide dnWithDouble:-1.0];
+  self.minusOne = [LjsDn dnWithDouble:-1.0];
 }
 
 - (void) tearDownClass {
@@ -119,12 +119,12 @@
   
   a = zero;
   b = zero;
-  actual = [LjsDecimalAide dn:a e:b];
+  actual = [LjsDn dn:a e:b];
   GHAssertTrue(actual, nil);
 
   a = zero;
   b = one;
-  actual = [LjsDecimalAide dn:a e:b];
+  actual = [LjsDn dn:a e:b];
   GHAssertFalse(actual, nil);
 
 }
@@ -136,17 +136,17 @@
   
   a = zero;
   b = zero;
-  actual = [LjsDecimalAide dn:a lt:b];
+  actual = [LjsDn dn:a lt:b];
   GHAssertFalse(actual, nil);
   
   a = minusOne;
   b = zero;
-  actual = [LjsDecimalAide dn:a lt:b];
+  actual = [LjsDn dn:a lt:b];
   GHAssertTrue(actual, nil);
 
   a = one;
   b = zero;
-  actual = [LjsDecimalAide dn:a lt:b];
+  actual = [LjsDn dn:a lt:b];
   GHAssertFalse(actual, nil);
 }
 
@@ -157,17 +157,17 @@
   
   a = zero;
   b = zero;
-  actual = [LjsDecimalAide dn:a gt:b];
+  actual = [LjsDn dn:a gt:b];
   GHAssertFalse(actual, nil);
   
   a = minusOne;
   b = zero;
-  actual = [LjsDecimalAide dn:a gt:b];
+  actual = [LjsDn dn:a gt:b];
   GHAssertFalse(actual, nil);
   
   a = one;
   b = zero;
-  actual = [LjsDecimalAide dn:a gt:b];
+  actual = [LjsDn dn:a gt:b];
   GHAssertTrue(actual, nil);
 }
 
@@ -178,17 +178,17 @@
   
   a = zero;
   b = zero;
-  actual = [LjsDecimalAide dn:a lte:b];
+  actual = [LjsDn dn:a lte:b];
   GHAssertTrue(actual, nil);
   
   a = minusOne;
   b = zero;
-  actual = [LjsDecimalAide dn:a lte:b];
+  actual = [LjsDn dn:a lte:b];
   GHAssertTrue(actual, nil);
   
   a = one;
   b = zero;
-  actual = [LjsDecimalAide dn:a lte:b];
+  actual = [LjsDn dn:a lte:b];
   GHAssertFalse(actual, nil);
 }
 
@@ -199,17 +199,17 @@
   
   a = zero;
   b = zero;
-  actual = [LjsDecimalAide dn:a gte:b];
+  actual = [LjsDn dn:a gte:b];
   GHAssertTrue(actual, nil);
   
   a = minusOne;
   b = zero;
-  actual = [LjsDecimalAide dn:a gte:b];
+  actual = [LjsDn dn:a gte:b];
   GHAssertFalse(actual, nil);
   
   a = one;
   b = zero;
-  actual = [LjsDecimalAide dn:a gte:b];
+  actual = [LjsDn dn:a gte:b];
   GHAssertTrue(actual, nil);
 }
 
@@ -220,31 +220,31 @@
   a = zero;
   min = minusOne;
   max = one;
-  actual = [LjsDecimalAide dn:a isOnMin:min max:max];
+  actual = [LjsDn dn:a isOnMin:min max:max];
   GHAssertTrue(actual, nil);
   
   a = minusOne;
   min = minusOne;
   max = one;
-  actual = [LjsDecimalAide dn:a isOnMin:min max:max];
+  actual = [LjsDn dn:a isOnMin:min max:max];
   GHAssertTrue(actual, nil);
   
   a = one;
   min = minusOne;
   max = one;
-  actual = [LjsDecimalAide dn:a isOnMin:min max:max];
+  actual = [LjsDn dn:a isOnMin:min max:max];
   GHAssertTrue(actual, nil);
   
   a = minusOne;
   min = zero;
   max = one;
-  actual = [LjsDecimalAide dn:a isOnMin:min max:max];
+  actual = [LjsDn dn:a isOnMin:min max:max];
   GHAssertFalse(actual, nil);
   
   a = one;
   min = minusOne;
   max = zero;
-  actual = [LjsDecimalAide dn:a isOnMin:min max:max];
+  actual = [LjsDn dn:a isOnMin:min max:max];
   GHAssertFalse(actual, nil);
 
 }

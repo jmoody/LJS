@@ -26,8 +26,122 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+//#ifndef kCFCoreFoundationVersionNumber_iPhoneOS_5_0
+//#define kCFCoreFoundationVersionNumber_iPhoneOS_5_0 675.000000
+//#endif
+//
+//#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_5_0
+//#define IF_IOS5_OR_GREATER(...) \
+//if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iPhoneOS_5_0) \
+//{ \
+//__VA_ARGS__ \
+//}
+//#else
+//#define IF_IOS5_OR_GREATER(...)
+//#endif
+//
+//
+//#define IF_PRE_IOS5(...) \
+//if (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iPhoneOS_5_0) \
+//{ \
+//__VA_ARGS__ \
+//}
+
+//#define DDLogFatal(frmt, ...)    SYNC_LOG_OBJC_MAYBE(ddLogLevel, LOG_FLAG_FATAL,  0, frmt, ##__VA_ARGS__)
+
+/*
+ 
+ #ifndef kCFCoreFoundationVersionNumber_iPhoneOS_4_0
+ #define kCFCoreFoundationVersionNumber_iPhoneOS_4_0 550.32
+ #endif
+ 
+ #define IASK_IF_IOS4_OR_GREATER(...) \
+ if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iPhoneOS_4_0) \
+ { \
+ __VA_ARGS__ \
+ }
+ */
+
+#ifndef kLjsLocationServicesDebug
+#define kLjsLocationservicesDebug 1
+#else
+#define kLjsLocationservicesDebug 0
+#endif
+
+#if LJS_LOCATION_SERVICES_DEBUG
+#define LJS_DEBUG_LOCATION_SERVICES(...) \
+if (kLjsLocationservicesDebug == 1) \
+{ \
+__VA_ARGS__ \
+}
+#else
+#define LJS_DEBUG_LOCATION_SERVICES(...)
+#endif
+
+
+#ifndef kLjsLocationServicesSimulatorDebug
+#define kLjsLocationServicesSimulatorDebug 1
+#else
+#define kLjsLocationServicesSimulatorDebug 0
+#endif
+
+#if LJS_LOCATION_SERVICES_SIMULATOR_DEBUG
+#define LJS_DEBUG_LOCATION_SERVICES_SIMULATOR(...) \
+if (kLjsLocationServicesSimulatorDebug == 1) \
+{ \
+__VA_ARGS__ \
+}
+#else
+#define LJS_DEBUG_LOCATION_SERVICES_SIMULATOR(...)
+#endif
+
+
+
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+
+@class LjsInterval;
+
+extern NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable;
+
+
+@interface LjsLocation : NSObject <NSCoding>
+@property (nonatomic, strong) NSDecimalNumber *latitude;
+@property (nonatomic, strong) NSDecimalNumber *longitude;
+@property (nonatomic, assign) NSUInteger scale;
+
++ (NSUInteger) scale100km;
++ (NSUInteger) scale10km;
++ (NSUInteger) scale1km;
++ (NSUInteger) scale100m;
++ (NSUInteger) scale10m;
++ (NSUInteger) scale1m;
+
+
+- (id) initWithPoint:(CGPoint) aPoint;
+- (id) initWithLatitudeFloat:(CGFloat) aLatitude
+              longitudeFloat:(CGFloat) aLongitude;
+- (id) initWithLatitudeNumber:(NSNumber *) aLatitude
+              longitudeNumber:(NSNumber *) aLongitude;
+- (id) initWithLatitude:(NSDecimalNumber *) aLatitude
+              longitude:(NSDecimalNumber *) aLongitude;
+- (id) initWithLatitude:(NSDecimalNumber *) aLatitude
+              longitude:(NSDecimalNumber *) aLongitude;
+- (id) initWithLatitude:(NSDecimalNumber *) aLatitude
+              longitude:(NSDecimalNumber *) aLongitude
+                  scale:(NSUInteger) aScale;
+- (id) initWithLocation:(LjsLocation *) aLocation
+                  scale:(NSUInteger) aScale;
++ (LjsLocation *) locationWithLocation:(LjsLocation *) aLocation
+                                scale:(NSUInteger) aScale;
+
+- (BOOL) isSameLocation:(LjsLocation *) aLocation scale:(NSUInteger) aScale;
+- (BOOL) isSameLocation:(LjsLocation *) aLocation;
+
++ (LjsLocation *) randomLocation;
++ (LjsLocation *) locationZurich;
+
+@end
 
 /**
  A singleton class wrapper around the Location Services.
@@ -54,61 +168,21 @@
  implement the pattern.  Do not subclass and do not call the init methods
  directly.
  */
-@interface LjsLocationManager : NSObject <CLLocationManagerDelegate> 
+@interface LjsLocationManager : NSObject <CLLocationManagerDelegate>
 
 /** @name Properties */
-/** 
- the core location manager
- @warning do not access directly use locationAvailable, longitude, and latitude
- methods */
-@property (nonatomic, strong) CLLocationManager *coreLocationManager;
-/** 
- the current location
- @warning do not access directly use locationAvailable, longitude, and latitude
- methods */
-@property (nonatomic, strong) CLLocation *coreLocation;
 
-/** 
- the current heading
- @warning do not access directly use headingAvailable and heading methods
- methods */
-@property (nonatomic, strong) CLHeading *coreHeading;
-/** 
- a decimal number handler for converting coordinates to decimal numbers
- */
-@property (nonatomic, strong) NSDecimalNumberHandler *handler;
-
-/**
- indicates a bad latitude or longitude
- */
-@property (nonatomic, strong) NSDecimalNumber *noLocation;
-
-/**
- indidcates a bad heading
- */
-@property (nonatomic, strong) NSDecimalNumber *noHeading;
-
-#ifdef LJS_LOCATION_SERVICES_DEBUG 
 /**
  available iff LJS_LOCATION_SERVICES_DEBUG Preprocessor Macro is defined
  */
 @property (nonatomic, strong) NSArray *debugDevices;
-#endif
 
 /**
  used simulate the heading changing in environments where there is no heading
  available
  */
-@property (nonatomic, strong) NSDecimalNumber *debugLastHeading;
 
-
-#pragma mark Singleton
-/** @name Obtaining the Instance */
-
-/**
- implements the singleton pattern
- */
-+ (id) sharedInstance;
+@property (nonatomic, assign) CGFloat debugLastHeading;
 
 
 /** @name Testing For Location and Heading Availability and Validity*/
@@ -137,6 +211,7 @@
  @param aLongitude the longitude to check  
  */
 + (BOOL) isValidLongitude:(NSDecimalNumber *) aLongitude;
+
 
 /**
  @return true iff heading is available
@@ -169,5 +244,47 @@
  
  */
 - (NSDecimalNumber *) trueHeading;
+
+
++ (LjsInterval *) latitudeBounds;
+
++ (LjsInterval *) longitudeBounds;
++ (LjsInterval *) headingBounds;
+
++ (BOOL) isValidLocation:(LjsLocation *) aLocation;
+
+- (LjsLocation *) location;
+
+- (NSDecimalNumber *) metersBetweenA:(LjsLocation *) a
+                                   b:(LjsLocation *) b;
+
+- (NSDecimalNumber *) metersBetweenA:(LjsLocation *) a
+                                   b:(LjsLocation *) b
+                               scale:(NSUInteger) aScale;
+
+- (NSDecimalNumber *) kilometersBetweenA:(LjsLocation *) a
+                                       b:(LjsLocation *) b;
+
+- (NSDecimalNumber *) kilometersBetweenA:(LjsLocation *) a
+                                       b:(LjsLocation *) b
+                                   scale:(NSUInteger) aScale;
+
+- (NSDecimalNumber *) feetBetweenA:(LjsLocation *) a
+                                 b:(LjsLocation *) b;
+
+
+- (NSDecimalNumber *) feetBetweenA:(LjsLocation *) a
+                                 b:(LjsLocation *) b
+                             scale:(NSUInteger) aScale;
+
+- (NSDecimalNumber *) milesBetweenA:(LjsLocation *) a
+                                  b:(LjsLocation *) b;
+
+- (NSDecimalNumber *) milesBetweenA:(LjsLocation *) a
+                                   b:(LjsLocation *) b
+                               scale:(NSUInteger) aScale;
+
+- (void) detailsForLocation:(LjsLocation *) aLocation;
+
 
 @end

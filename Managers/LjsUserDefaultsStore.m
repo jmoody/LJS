@@ -39,8 +39,15 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-@implementation LjsUserDefaultsStore
 
+@interface LjsUserDefaultsStore ()
+
+
+
+
+@end
+
+@implementation LjsUserDefaultsStore
 
 #pragma mark Memory Management
 - (void) dealloc {
@@ -50,7 +57,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (id) init {
   self = [super init];
   if (self) {
-    // Initialization code here.
+
   }
   return self;
 }

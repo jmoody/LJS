@@ -30,6 +30,7 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
+#if !TARGET_OS_IPHONE
 #import "LjsGestalt.h"
 #import "Lumberjack.h"
 
@@ -112,3 +113,9 @@ fail:
 }
 
 @end
+
+#else
+
+
+
+#endif

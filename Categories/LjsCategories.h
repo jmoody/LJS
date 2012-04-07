@@ -29,15 +29,7 @@
 /**
  Ljs Categories
 */
-#import "NSCalendar+LjsAdditions.h"
-#import "NSArray+LjsAdditions.h"
-#import "NSMutableArray+LjsAdditions.h"
-#import "NSDate+LjsAdditions.h"
-#import "NSError+LjsAdditions.h"
-#import "NSSet+LjsAdditions.h"
-#import "NSLocale+LjsAdditions.h"
-#import "NSDateFormatter+LjsAdditions.h"
-#import "NSString+LjsAdditions.h"
+#import "LjsFoundationCategories.h"
 
 #if TARGET_OS_IPHONE
 #import "UIColor+LjsAdditions.h"

@@ -43,6 +43,7 @@ typedef enum {
 + (NSString *) findDocumentDirectoryPath;
 + (NSString *) findLibraryDirectoryPath:(BOOL) forUser;
 + (NSString *) findLibraryPreferencesPath:(BOOL) forUser;
++ (NSString *) findCoreDataLibraryPath:(BOOL) forUser;
 
 + (BOOL) ensureSaveDirectory:(NSString *) path existsWithManager:(NSFileManager *) fileManager;
 + (BOOL) ensureDirectory:(NSString *) directoryPath error:(NSError *__autoreleasing *) error;
@@ -55,7 +56,11 @@ typedef enum {
                              lastDirectory:(NSString *) aLastDirectory
                          fallBackDirectory:(NSString *) fallbackDirectory
                           defaultsKeyOrNil:(NSString *) aDefaultsKeyOrNil;
+
++ (NSString *)findOrCreateApplicationFilesDirectory:(BOOL) forUser; 
 #endif
+
+
 
 + (NSString *) lastDirectoryPathWithDefaultsKey:(NSString *) aDefaultsKey
                               fallbackDirectory:(NSString *) aFallbackDirectory;
@@ -77,6 +82,7 @@ typedef enum {
 
 
 + (NSArray *) readArrayFromFile:(NSString *) aPath error:(NSError *__autoreleasing *) error;
+
 
 
 @end

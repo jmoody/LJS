@@ -27,6 +27,7 @@
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #import <Foundation/Foundation.h>
 
+#if !TARGET_OS_IPHONE
 typedef enum {
   LjsGestaltMinor_v_10_0 = 0,
   LjsGestaltMinor_v_10_1,
@@ -49,8 +50,32 @@ typedef enum {
 - (BOOL)getSystemVersionMajor:(unsigned *)major
                         minor:(unsigned *)minor
                        bugFix:(unsigned *)bugFix;
-                     
-
-
 
 @end
+
+#else
+//#ifndef kCFCoreFoundationVersionNumber_iPhoneOS_5_0
+//#define kCFCoreFoundationVersionNumber_iPhoneOS_5_0 675.000000
+//#endif
+//
+//#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_5_0
+//#define IF_IOS5_OR_GREATER(...) \
+//if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iPhoneOS_5_0) \
+//{ \
+//__VA_ARGS__ \
+//}
+//#else
+//#define IF_IOS5_OR_GREATER(...)
+//#endif
+//
+//
+//#define IF_PRE_IOS5(...) \
+//if (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iPhoneOS_5_0) \
+//{ \
+//  __VA_ARGS__ \
+//}
+
+#endif
+
+
+

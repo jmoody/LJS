@@ -1,0 +1,9 @@
+//
+// Prefix header for all source files of the 'Test-Google-MacOS' target in the 'Test-Google-MacOS' project
+//
+
+#ifdef __OBJC__
+#import <Cocoa/Cocoa.h>
+#include "TargetConditionals.h"
+#import "LjsFoundationCategories.h"
+#endif

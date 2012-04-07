@@ -76,7 +76,7 @@
          <EnvironmentVariable
             key = "GHUNIT_AUTOEXIT"
             value = "NO"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "NSDebugEnabled"

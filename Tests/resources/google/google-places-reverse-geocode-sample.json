@@ -1,0 +1,424 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "47",
+               "short_name" : "47",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Himmeristrasse",
+               "short_name" : "Himmeristrasse",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Seebach",
+               "short_name" : "Seebach",
+               "types" : [ "sublocality", "political" ]
+            },
+            {
+               "long_name" : "Zurich",
+               "short_name" : "Zurich",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Zurich District",
+               "short_name" : "Zurich District",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Zurich",
+               "short_name" : "ZH",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Switzerland",
+               "short_name" : "CH",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "8052",
+               "short_name" : "8052",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "Himmeristrasse 47, 8052 Zurich, Switzerland",
+         "geometry" : {
+            "location" : {
+               "lat" : 47.41902160,
+               "lng" : 8.536677899999999
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 47.42037058029150,
+                  "lng" : 8.538026880291502
+               },
+               "southwest" : {
+                  "lat" : 47.41767261970850,
+                  "lng" : 8.535328919708498
+               }
+            }
+         },
+         "types" : [ "street_address" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "8052",
+               "short_name" : "8052",
+               "types" : [ "postal_code" ]
+            },
+            {
+               "long_name" : "Zurich",
+               "short_name" : "Zurich",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Zurich District",
+               "short_name" : "Zurich District",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Zurich",
+               "short_name" : "ZH",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Switzerland",
+               "short_name" : "CH",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "8052 Zurich, Switzerland",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 47.43408360,
+                  "lng" : 8.562349599999999
+               },
+               "southwest" : {
+                  "lat" : 47.41459230,
+                  "lng" : 8.52020860
+               }
+            },
+            "location" : {
+               "lat" : 47.4232860,
+               "lng" : 8.542265499999999
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 47.43408360,
+                  "lng" : 8.562349599999999
+               },
+               "southwest" : {
+                  "lat" : 47.41459230,
+                  "lng" : 8.52020860
+               }
+            }
+         },
+         "types" : [ "postal_code" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Seebach",
+               "short_name" : "Seebach",
+               "types" : [ "sublocality", "political" ]
+            },
+            {
+               "long_name" : "Zurich",
+               "short_name" : "Zurich",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Zurich District",
+               "short_name" : "Zurich District",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Zurich",
+               "short_name" : "ZH",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Switzerland",
+               "short_name" : "CH",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Seebach, Zurich, Switzerland",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 47.4338940,
+                  "lng" : 8.56728680
+               },
+               "southwest" : {
+                  "lat" : 47.41068690,
+                  "lng" : 8.513828999999999
+               }
+            },
+            "location" : {
+               "lat" : 47.41834859999999,
+               "lng" : 8.543442799999999
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 47.4338940,
+                  "lng" : 8.56728680
+               },
+               "southwest" : {
+                  "lat" : 47.41068690,
+                  "lng" : 8.513828999999999
+               }
+            }
+         },
+         "types" : [ "sublocality", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "District 11",
+               "short_name" : "District 11",
+               "types" : [ "sublocality", "political" ]
+            },
+            {
+               "long_name" : "Zurich",
+               "short_name" : "Zurich",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Zurich District",
+               "short_name" : "Zurich District",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Zurich",
+               "short_name" : "ZH",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Switzerland",
+               "short_name" : "CH",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "District 11, Zurich, Switzerland",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 47.4346690,
+                  "lng" : 8.56728680
+               },
+               "southwest" : {
+                  "lat" : 47.39930190,
+                  "lng" : 8.482779000000001
+               }
+            },
+            "location" : {
+               "lat" : 47.42299999999999,
+               "lng" : 8.520999999999999
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 47.4346690,
+                  "lng" : 8.56728680
+               },
+               "southwest" : {
+                  "lat" : 47.39930190,
+                  "lng" : 8.482779000000001
+               }
+            }
+         },
+         "types" : [ "sublocality", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Zurich District",
+               "short_name" : "Zurich District",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Zurich",
+               "short_name" : "ZH",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Switzerland",
+               "short_name" : "CH",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Zurich District, Switzerland",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 47.434680,
+                  "lng" : 8.625370
+               },
+               "southwest" : {
+                  "lat" : 47.320230,
+                  "lng" : 8.448060
+               }
+            },
+            "location" : {
+               "lat" : 47.38776850,
+               "lng" : 8.52243850
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 47.434680,
+                  "lng" : 8.625370
+               },
+               "southwest" : {
+                  "lat" : 47.320230,
+                  "lng" : 8.448060
+               }
+            }
+         },
+         "types" : [ "administrative_area_level_2", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Zurich",
+               "short_name" : "Zurich",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Zurich District",
+               "short_name" : "Zurich District",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Zurich",
+               "short_name" : "ZH",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Switzerland",
+               "short_name" : "CH",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Zurich, Switzerland",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 47.434680,
+                  "lng" : 8.625370
+               },
+               "southwest" : {
+                  "lat" : 47.320230,
+                  "lng" : 8.448060
+               }
+            },
+            "location" : {
+               "lat" : 47.36864980,
+               "lng" : 8.539182499999999
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 47.434680,
+                  "lng" : 8.625370
+               },
+               "southwest" : {
+                  "lat" : 47.320230,
+                  "lng" : 8.448060
+               }
+            }
+         },
+         "types" : [ "locality", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Zurich",
+               "short_name" : "ZH",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Switzerland",
+               "short_name" : "CH",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Zurich, Switzerland",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 47.694920,
+                  "lng" : 8.98490
+               },
+               "southwest" : {
+                  "lat" : 47.159450,
+                  "lng" : 8.357889999999999
+               }
+            },
+            "location" : {
+               "lat" : 47.3595360,
+               "lng" : 8.635645199999999
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 47.694920,
+                  "lng" : 8.98490
+               },
+               "southwest" : {
+                  "lat" : 47.159450,
+                  "lng" : 8.357889999999999
+               }
+            }
+         },
+         "types" : [ "administrative_area_level_1", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Switzerland",
+               "short_name" : "CH",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Switzerland",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 47.80845460,
+                  "lng" : 10.492340
+               },
+               "southwest" : {
+                  "lat" : 45.817920,
+                  "lng" : 5.956080
+               }
+            },
+            "location" : {
+               "lat" : 46.8181880,
+               "lng" : 8.227511999999999
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 47.80845460,
+                  "lng" : 10.492340
+               },
+               "southwest" : {
+                  "lat" : 45.817920,
+                  "lng" : 5.956080
+               }
+            }
+         },
+         "types" : [ "country", "political" ]
+      }
+   ],
+   "status" : "OK"
+}

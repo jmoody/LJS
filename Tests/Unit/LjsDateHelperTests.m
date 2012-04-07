@@ -65,6 +65,7 @@
 #import "LjsDateHelper.h"
 #import "LjsLocaleUtils.h"
 #import <objc/runtime.h>
+#import "NSDate+LjsAdditions.h"
 
 @interface LjsDateHelperTests : LjsTestCase {}
 
@@ -948,13 +949,20 @@
   NSInteger actual, expected;
 
   // a sunday
-  NSUInteger yearsBetween = 2012 - 1970;
-  NSTimeInterval secondsInYear = LjsSecondsInTropicalYear;
+//  NSUInteger yearsBetween = 2012 - 1970;
+//  NSTimeInterval secondsInYear = LjsSecondsInTropicalYear;
   // a sunday
-  NSDate *jan1st2012 = [NSDate dateWithTimeIntervalSince1970:secondsInYear * yearsBetween];
+  
+  NSDate *jan1st2012 = [NSDate dateWithYear:2012
+                                      month:1
+                                        day:1
+                                       hour:12
+                                     minute:1
+                                     second:1];
   date = jan1st2012;
   expected = 1;
   actual = [LjsDateHelper weekOfMonthWithDate:date];
+  
   GHTestLog(@"actual week = %d : %@", actual, date);
   GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil);  
   

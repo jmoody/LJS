@@ -34,6 +34,8 @@
 #else
 #import <GHUnit/GHUnit.h>
 #endif
+#import "LjsVariates.h"
+#import "LjsValidator.h"
 
 @interface LjsTestCase : GHTestCase {
     

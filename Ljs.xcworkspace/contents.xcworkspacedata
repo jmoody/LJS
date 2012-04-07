@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Test-Google-MacOS/Test-Google-MacOS.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Tests-MacOS/Tests-MacOS.xcodeproj">
    </FileRef>
    <FileRef

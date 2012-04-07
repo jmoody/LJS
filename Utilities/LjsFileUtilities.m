@@ -144,10 +144,21 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
   return [dirPaths objectAtIndex:0];
 }
 
++ (NSString *) findCoreDataLibraryPath:(BOOL) forUser {
+  NSString *result;
+#if !TARGET_OS_IPHONE
+  result = [LjsFileUtilities findOrCreateApplicationFilesDirectory:forUser];
+#else
+  result = [LjsFileUtilities findLibraryDirectoryPath:forUser];
+#endif
+  return result;
+}
+
 + (NSString *) findLibraryPreferencesPath:(BOOL) forUser {
   NSString *library = [LjsFileUtilities findLibraryDirectoryPath:forUser];
   return [library stringByAppendingPathComponent:LjsFileUtilitiesPreferencesDirectory];
 }
+
 
 
 /**
@@ -221,6 +232,26 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
     }
     result = savePath;
   }
+  return result;
+}
+
++ (NSString *) findOrCreateApplicationFilesDirectory:(BOOL) forUser {
+  NSSearchPathDomainMask mask;
+  if (forUser == YES) {
+    mask = NSUserDomainMask;
+  } else {
+    mask = NSLocalDomainMask;
+  }
+
+  NSArray *dirPaths = 
+  NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory,
+                                      mask, 
+                                      YES);
+  NSString *appSupDir = [dirPaths objectAtIndex:0];
+  NSBundle *main = [NSBundle mainBundle];
+  NSString *bundleName = [main.infoDictionary objectForKey:@"CFBundleName"];
+  NSString *result = [appSupDir stringByAppendingPathComponent:bundleName];
+  [LjsFileUtilities ensureDirectory:result error:nil];
   return result;
 }
 #endif
