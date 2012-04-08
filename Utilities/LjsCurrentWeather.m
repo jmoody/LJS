@@ -92,6 +92,10 @@ static NSString *LjsCurrentWeatherApiKeyKey = @"free.worldweatheronline.com.LJS 
     NSAssert1(isValidLat, @"latitude < %.5f > must be valid", aLatitude);
     NSAssert1(isValidLong, @"longitude < %.5f > must be valid", aLongitude);
     
+    if (!isValidLat || !isValidLong) {
+      DDLogError(@"lat and lon must be valid: (%@, %@)", aLatitude, aLongitude);
+      return nil;
+    }
     self.latitude = aLatitude;
     self.longitude = aLongitude;
     self.responseUtils = [[ASIHTTPResponseUtils alloc] init];

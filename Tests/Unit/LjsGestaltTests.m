@@ -103,10 +103,79 @@
   // Run after each test method
 }  
 
+#if !TARGET_OS_IPHONE
 - (void) test_init {
   LjsGestalt *gestalt = [[LjsGestalt alloc] init];
   GHTestLog(@"gestalt = %@", gestalt);
   GHAssertNotNil(gestalt, nil);
 }
+#endif
+
+- (void) test_isDebugBuild {
+  LjsGestalt *gestalt = [[LjsGestalt alloc] init];
+#if DEBUG_BUILD
+  GHAssertTrue([gestalt isDebugBuild], nil);
+#else
+  GHAssertFalse([gestalt isDebugBuild], nil);
+#endif
+}
+
+- (void) test_isAdHocBuild {
+  LjsGestalt *gestalt = [[LjsGestalt alloc] init];
+#if ADHOC_BUILD
+  GHAssertTrue([gestalt isAdHocBuild], nil);
+#else
+  GHAssertFalse([gestalt isAdHocBuild], nil);
+#endif
+}
+
+- (void) test_isAppStoreBuild {
+  LjsGestalt *gestalt = [[LjsGestalt alloc] init];
+#if APP_STORE_BUILD
+  GHAssertTrue([gestalt isAppStoreBuild], nil);
+#else
+  GHAssertFalse([gestalt isAppStoreBuild], nil);
+#endif
+}
+
+- (void) test_buildConfiguration {
+  NSString *actual, *act;
+  NSString *expected, *exp;
+  
+  LjsGestalt *gestalt = [[LjsGestalt alloc] init];
+  
+#if DEBUG_BUILD
+  expected = @"debug";
+  exp = @"de";
+  actual = [gestalt buildConfiguration:NO];
+  act = [gestalt buildConfiguration:YES];
+  GHAssertEqualStrings(actual, expected, nil);
+  GHAssertEqualStrings(act, exp, nil);
+#elif ADHOC_BUILD
+  expected = @"adhoc";
+  exp = @"ah";
+  actual = [gestalt buildConfiguration:NO];
+  act = [gestalt buildConfiguration:YES];
+  GHAssertEqualStrings(actual, expected, nil);
+  GHAssertEqualStrings(act, exp, nil);
+#elif APP_STORE_BUILD
+  expected = @"appstore";
+  exp = @"as";
+  actual = [gestalt buildConfiguration:NO];
+  act = [gestalt buildConfiguration:YES];
+  GHAssertEqualStrings(actual, expected, nil);
+  GHAssertEqualStrings(act, exp, nil);
+#else
+  expected = nil;
+  exp = nil;
+  actual = [gestalt buildConfiguration:NO];
+  GHAssertNil(actual, nil);
+  act = [gestalt buildConfiguration:YES];
+  GHAssertNil(act, nil);
+#endif
+
+}
+
+
 
 @end

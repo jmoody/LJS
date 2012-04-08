@@ -30,9 +30,8 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#if !TARGET_OS_IPHONE
-#import "LjsGestalt.h"
 #import "Lumberjack.h"
+#import "LjsGestalt.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -40,20 +39,32 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+@interface LjsGestalt ()
+
+
+
+@end
+
 @implementation LjsGestalt
+
+#if !TARGET_OS_IPHONE
 
 @synthesize majorVersion;
 @synthesize minorVersion;
 @synthesize bugVersion;
 
+#endif
+
 #pragma mark Memory Management
 - (void) dealloc {
-   DDLogDebug(@"deallocating LjsGestalt");
+  //DDLogDebug(@"deallocating LjsGestalt");
 }
+
 
 - (id) init {
   self = [super init];
   if (self) {
+#if !TARGET_OS_IPHONE
     unsigned tMajor, tMinor, tBug;
     BOOL success = [self getSystemVersionMajor:&tMajor
                                          minor:&tMinor
@@ -67,10 +78,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     } else {
       self = nil;
     }
+#endif
   }
   return self;
 }
 
+
+#if !TARGET_OS_IPHONE
 //http://www.cocoadev.com/index.pl?DeterminingOSVersion
 - (BOOL)getSystemVersionMajor:(unsigned *)major
                         minor:(unsigned *)minor
@@ -78,15 +92,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   OSErr err;
   SInt32 systemVersion, versionMajor, versionMinor, versionBugFix;
   if ((err = Gestalt(gestaltSystemVersion, &systemVersion)) != noErr) goto fail;
-  if (systemVersion < 0x1040)
-  {
+  if (systemVersion < 0x1040) {
     if (major) *major = ((systemVersion & 0xF000) >> 12) * 10 +
       ((systemVersion & 0x0F00) >> 8);
     if (minor) *minor = (systemVersion & 0x00F0) >> 4;
     if (bugFix) *bugFix = (systemVersion & 0x000F);
-  }
-  else
-  {
+  } else {
     if ((err = Gestalt(gestaltSystemVersionMajor, &versionMajor)) != noErr) goto fail;
     if ((err = Gestalt(gestaltSystemVersionMinor, &versionMinor)) != noErr) goto fail;
     if ((err = Gestalt(gestaltSystemVersionBugFix, &versionBugFix)) != noErr) goto fail;
@@ -99,7 +110,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   
 fail:
   DDLogError(@"Unable to obtain system version: %ld", (long)err);
-
+  
   if (major) *major = 10;
   if (minor) *minor = 0;
   if (bugFix) *bugFix = 0;
@@ -112,10 +123,40 @@ fail:
           
 }
 
-@end
-
-#else
-
-
 
 #endif
+
+- (NSString *) buildConfiguration:(BOOL) abbrevated {
+  NSString *config, *abbrev;
+#if DEBUG_BUILD
+  config = @"debug";
+  abbrev = @"de";
+#elif ADHOC_BUILD
+  config = @"adhoc";
+  abbrev = @"ah";
+#elif APP_STORE_BUILD
+  config = @"appstore";
+  abbrev = @"as";
+#else
+  config = nil;
+  abbrev = nil;
+#endif
+  return abbrevated ? abbrev : config;
+}
+
+
+- (BOOL) isDebugBuild {
+  return [@"debug" isEqualToString:[self buildConfiguration:NO]];
+}
+
+- (BOOL) isAdHocBuild {
+  return [@"adhoc" isEqualToString:[self buildConfiguration:NO]];
+}
+
+- (BOOL) isAppStoreBuild {
+  return [@"appstore" isEqualToString:[self buildConfiguration:NO]];
+}
+
+
+@end
+
