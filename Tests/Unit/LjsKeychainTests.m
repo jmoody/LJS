@@ -703,20 +703,20 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
                                              shouldUseKeyChain:shouldUseKeychain
                                                    serviceName:serviceName
                                                          error:&error];
-  UIAlertView *alert = [[UIAlertView alloc]
-                        initWithTitle:@"alert"
-                        message:@"message"
-                        delegate:self
-                        cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-  alert.accessibilityLabel = @"alert";
-  alert.tag = 999;
-  [alert show];
-  
-  UIControl *okButton = (UIControl *)[alert viewWithTag:2];
-  [okButton sendActionsForControlEvents:UIControlEventTouchUpInside];
-
-  
-  GHTestLog(@"ok button = %@", okButton);
+//  UIAlertView *alert = [[UIAlertView alloc]
+//                        initWithTitle:@"alert"
+//                        message:@"message"
+//                        delegate:self
+//                        cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+//  alert.accessibilityLabel = @"alert";
+//  alert.tag = 999;
+//  [alert show];
+//  
+//  UIControl *okButton = (UIControl *)[alert viewWithTag:2];
+//  [okButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+//
+//  
+//  GHTestLog(@"ok button = %@", okButton);
     
   NSDictionary *currentUserInterfaceState =
   [[[UIApplication sharedApplication] keyWindow] fullDescription];
