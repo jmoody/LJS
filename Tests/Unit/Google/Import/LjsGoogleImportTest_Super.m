@@ -3,10 +3,10 @@
 #endif
 
 
-#import "LjsGooglePlacesImportTest_Super.h"
+#import "LjsGoogleImportTest_Super.h"
 
 
-@implementation LjsGooglePlacesImportTest_Super
+@implementation LjsGoogleImportTest_Super
 @synthesize jsonResource;
 @synthesize resourceName;
 

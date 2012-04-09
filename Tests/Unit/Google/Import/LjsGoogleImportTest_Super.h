@@ -32,7 +32,7 @@
 /**
  Documentation
 */
-@interface LjsGooglePlacesImportTest_Super : LjsTestCase 
+@interface LjsGoogleImportTest_Super : LjsTestCase 
 @property (nonatomic, copy) NSString *jsonResource;
 @property (nonatomic, copy) NSString *resourceName;
 

@@ -157,6 +157,7 @@
 		F573B8FB14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F573B8FA14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m */; };
 		F573B90014F14E8D00E6F5CF /* LjsKeyboardInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F573B8FE14F14E8D00E6F5CF /* LjsKeyboardInfo.m */; };
 		F573CBFB1510C7A600277794 /* LjsCaesarCipher.m in Sources */ = {isa = PBXBuildFile; fileRef = F573CBFA1510C7A600277794 /* LjsCaesarCipher.m */; };
+		F57F4C0E1532FAB200E8B7D4 /* LjsGoogleImportTest_Super.m in Sources */ = {isa = PBXBuildFile; fileRef = F57F4C0D1532FAB200E8B7D4 /* LjsGoogleImportTest_Super.m */; };
 		F58013AB149E06F100692073 /* LjsLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F58013AA149E06F100692073 /* LjsLocationManager.m */; };
 		F58013AD149E080E00692073 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58013AC149E080E00692073 /* CoreLocation.framework */; };
 		F580719F146C33AC00EA4CFB /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F580719E146C33AC00EA4CFB /* LjsTestCase.m */; };
@@ -277,7 +278,7 @@
 		F5C3B1E81523BAC7005B1087 /* NSDecimalNumber+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C3B1E61523BAC7005B1087 /* NSDecimalNumber+LjsAdditions.m */; };
 		F5C3B1EF1523BB84005B1087 /* LjsWebCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C3B1EE1523BB84005B1087 /* LjsWebCategories.m */; };
 		F5C3B1F01523BB84005B1087 /* LjsWebCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C3B1EE1523BB84005B1087 /* LjsWebCategories.m */; };
-		F5C8F4F6152A6CC400B32F95 /* LjsGoogleManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F4F4152A6CC400B32F95 /* LjsGoogleManagerTests.m */; };
+		F5C8F4F6152A6CC400B32F95 /* LjsGoogleManagerInitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F4F4152A6CC400B32F95 /* LjsGoogleManagerInitTests.m */; };
 		F5C8F4F7152A6CC400B32F95 /* LjsGoogleRequestManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F4F5152A6CC400B32F95 /* LjsGoogleRequestManagerTests.m */; };
 		F5C8F500152A6D1800B32F95 /* LjsGoogleAddressComponentImportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F4F9152A6D1800B32F95 /* LjsGoogleAddressComponentImportTests.m */; };
 		F5C8F502152A6D1800B32F95 /* LjsGooglePlacesAttributeImportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F4FC152A6D1800B32F95 /* LjsGooglePlacesAttributeImportTests.m */; };
@@ -286,7 +287,6 @@
 		F5C8F505152A6D1800B32F95 /* LjsGooglePlacesPredictiveReplyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F4FF152A6D1800B32F95 /* LjsGooglePlacesPredictiveReplyTests.m */; };
 		F5C8F507152A6D8100B32F95 /* LjsGooglePlaceImportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F506152A6D8100B32F95 /* LjsGooglePlaceImportTests.m */; };
 		F5C8F50A152A6E2500B32F95 /* LjsGoogleReverseGeocodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F509152A6E2500B32F95 /* LjsGoogleReverseGeocodeTests.m */; };
-		F5C8F510152A6ED800B32F95 /* LjsGooglePlacesImportTest_Super.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F50F152A6ED800B32F95 /* LjsGooglePlacesImportTest_Super.m */; };
 		F5C8F513152A70F300B32F95 /* LjsGoogleReverseGeocodeOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F512152A70F300B32F95 /* LjsGoogleReverseGeocodeOptions.m */; };
 		F5D3581F14B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
 		F5D3582014B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
@@ -298,6 +298,7 @@
 		F5F7BBBD14D3EAE700669FE6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5724971149F9C00006C62A2 /* QuartzCore.framework */; };
 		F5FD82981532125400F5800F /* LjsGestalt.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FD82971532125400F5800F /* LjsGestalt.m */; };
 		F5FD829B153212CA00F5800F /* LjsGestaltTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FD829A153212CA00F5800F /* LjsGestaltTests.m */; };
+		F5FD83101532F20000F5800F /* LjsGoogleManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FD830F1532F20000F5800F /* LjsGoogleManagerTests.m */; };
 		F5FF5AA314E85D880091D283 /* LjsTextAndFontTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF5AA014E85D820091D283 /* LjsTextAndFontTests.m */; };
 		F5FF5AB114E96F630091D283 /* LjsGlassView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF5AB014E96F630091D283 /* LjsGlassView.m */; };
 		F5FF5AB414E971C30091D283 /* LjsGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF5AB314E971C30091D283 /* LjsGradientView.m */; };
@@ -540,6 +541,8 @@
 		F573B8FF14F14E8D00E6F5CF /* LjsTableViewOwnerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsTableViewOwnerProtocol.h; sourceTree = "<group>"; };
 		F573CBF91510C7A600277794 /* LjsCaesarCipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsCaesarCipher.h; sourceTree = "<group>"; };
 		F573CBFA1510C7A600277794 /* LjsCaesarCipher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsCaesarCipher.m; sourceTree = "<group>"; };
+		F57F4C0C1532FAB200E8B7D4 /* LjsGoogleImportTest_Super.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleImportTest_Super.h; sourceTree = "<group>"; };
+		F57F4C0D1532FAB200E8B7D4 /* LjsGoogleImportTest_Super.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleImportTest_Super.m; sourceTree = "<group>"; };
 		F58013A9149E06F100692073 /* LjsLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLocationManager.h; sourceTree = "<group>"; };
 		F58013AA149E06F100692073 /* LjsLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLocationManager.m; sourceTree = "<group>"; };
 		F58013AC149E080E00692073 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -707,7 +710,7 @@
 		F5C3B1E61523BAC7005B1087 /* NSDecimalNumber+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDecimalNumber+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5C3B1ED1523BB84005B1087 /* LjsWebCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsWebCategories.h; sourceTree = "<group>"; };
 		F5C3B1EE1523BB84005B1087 /* LjsWebCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsWebCategories.m; sourceTree = "<group>"; };
-		F5C8F4F4152A6CC400B32F95 /* LjsGoogleManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleManagerTests.m; sourceTree = "<group>"; };
+		F5C8F4F4152A6CC400B32F95 /* LjsGoogleManagerInitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleManagerInitTests.m; sourceTree = "<group>"; };
 		F5C8F4F5152A6CC400B32F95 /* LjsGoogleRequestManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleRequestManagerTests.m; sourceTree = "<group>"; };
 		F5C8F4F9152A6D1800B32F95 /* LjsGoogleAddressComponentImportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleAddressComponentImportTests.m; sourceTree = "<group>"; };
 		F5C8F4FC152A6D1800B32F95 /* LjsGooglePlacesAttributeImportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesAttributeImportTests.m; sourceTree = "<group>"; };
@@ -716,8 +719,6 @@
 		F5C8F4FF152A6D1800B32F95 /* LjsGooglePlacesPredictiveReplyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesPredictiveReplyTests.m; sourceTree = "<group>"; };
 		F5C8F506152A6D8100B32F95 /* LjsGooglePlaceImportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlaceImportTests.m; sourceTree = "<group>"; };
 		F5C8F509152A6E2500B32F95 /* LjsGoogleReverseGeocodeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleReverseGeocodeTests.m; sourceTree = "<group>"; };
-		F5C8F50E152A6ED700B32F95 /* LjsGooglePlacesImportTest_Super.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGooglePlacesImportTest_Super.h; sourceTree = "<group>"; };
-		F5C8F50F152A6ED800B32F95 /* LjsGooglePlacesImportTest_Super.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGooglePlacesImportTest_Super.m; sourceTree = "<group>"; };
 		F5C8F511152A70F300B32F95 /* LjsGoogleReverseGeocodeOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleReverseGeocodeOptions.h; sourceTree = "<group>"; };
 		F5C8F512152A70F300B32F95 /* LjsGoogleReverseGeocodeOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleReverseGeocodeOptions.m; sourceTree = "<group>"; };
 		F5D3581B14B805B50022E24E /* LjsBackingStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsBackingStore.h; sourceTree = "<group>"; };
@@ -736,6 +737,7 @@
 		F5FD82961532125400F5800F /* LjsGestalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGestalt.h; sourceTree = "<group>"; };
 		F5FD82971532125400F5800F /* LjsGestalt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestalt.m; sourceTree = "<group>"; };
 		F5FD829A153212CA00F5800F /* LjsGestaltTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestaltTests.m; sourceTree = "<group>"; };
+		F5FD830F1532F20000F5800F /* LjsGoogleManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleManagerTests.m; sourceTree = "<group>"; };
 		F5FF5AA014E85D820091D283 /* LjsTextAndFontTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsTextAndFontTests.m; sourceTree = "<group>"; };
 		F5FF5AAF14E96F620091D283 /* LjsGlassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGlassView.h; sourceTree = "<group>"; };
 		F5FF5AB014E96F630091D283 /* LjsGlassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGlassView.m; sourceTree = "<group>"; };
@@ -1313,6 +1315,13 @@
 			path = ../Security;
 			sourceTree = "<group>";
 		};
+		F57F4C0F1532FACC00E8B7D4 /* ReverseGeo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ReverseGeo;
+			sourceTree = "<group>";
+		};
 		F58013A8149E06F100692073 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1687,8 +1696,9 @@
 		F5C8F4F3152A6CC400B32F95 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				F5C8F4F4152A6CC400B32F95 /* LjsGoogleManagerTests.m */,
+				F5C8F4F4152A6CC400B32F95 /* LjsGoogleManagerInitTests.m */,
 				F5C8F4F5152A6CC400B32F95 /* LjsGoogleRequestManagerTests.m */,
+				F5FD830F1532F20000F5800F /* LjsGoogleManagerTests.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1696,6 +1706,9 @@
 		F5C8F4F8152A6D1800B32F95 /* Import */ = {
 			isa = PBXGroup;
 			children = (
+				F57F4C0F1532FACC00E8B7D4 /* ReverseGeo */,
+				F57F4C0C1532FAB200E8B7D4 /* LjsGoogleImportTest_Super.h */,
+				F57F4C0D1532FAB200E8B7D4 /* LjsGoogleImportTest_Super.m */,
 				F5C8F4F9152A6D1800B32F95 /* LjsGoogleAddressComponentImportTests.m */,
 				F5C8F4FB152A6D1800B32F95 /* Places */,
 			);
@@ -1705,8 +1718,6 @@
 		F5C8F4FB152A6D1800B32F95 /* Places */ = {
 			isa = PBXGroup;
 			children = (
-				F5C8F50E152A6ED700B32F95 /* LjsGooglePlacesImportTest_Super.h */,
-				F5C8F50F152A6ED800B32F95 /* LjsGooglePlacesImportTest_Super.m */,
 				F5C8F506152A6D8100B32F95 /* LjsGooglePlaceImportTests.m */,
 				F5C8F4FC152A6D1800B32F95 /* LjsGooglePlacesAttributeImportTests.m */,
 				F5C8F4FD152A6D1800B32F95 /* LjsGooglePlacesDetailsReplyTests.m */,
@@ -2103,7 +2114,7 @@
 				F5A425C01529F32000F35DDE /* LjsGooglePlacesPredictiveReply.m in Sources */,
 				F5A425C11529F32000F35DDE /* LjsGoogleReply.m in Sources */,
 				F5A425C21529F32000F35DDE /* LjsGoogleRgReply.m in Sources */,
-				F5C8F4F6152A6CC400B32F95 /* LjsGoogleManagerTests.m in Sources */,
+				F5C8F4F6152A6CC400B32F95 /* LjsGoogleManagerInitTests.m in Sources */,
 				F5C8F4F7152A6CC400B32F95 /* LjsGoogleRequestManagerTests.m in Sources */,
 				F5C8F500152A6D1800B32F95 /* LjsGoogleAddressComponentImportTests.m in Sources */,
 				F5C8F502152A6D1800B32F95 /* LjsGooglePlacesAttributeImportTests.m in Sources */,
@@ -2112,10 +2123,11 @@
 				F5C8F505152A6D1800B32F95 /* LjsGooglePlacesPredictiveReplyTests.m in Sources */,
 				F5C8F507152A6D8100B32F95 /* LjsGooglePlaceImportTests.m in Sources */,
 				F5C8F50A152A6E2500B32F95 /* LjsGoogleReverseGeocodeTests.m in Sources */,
-				F5C8F510152A6ED800B32F95 /* LjsGooglePlacesImportTest_Super.m in Sources */,
 				F5C8F513152A70F300B32F95 /* LjsGoogleReverseGeocodeOptions.m in Sources */,
 				F5FD82981532125400F5800F /* LjsGestalt.m in Sources */,
 				F5FD829B153212CA00F5800F /* LjsGestaltTests.m in Sources */,
+				F5FD83101532F20000F5800F /* LjsGoogleManagerTests.m in Sources */,
+				F57F4C0E1532FAB200E8B7D4 /* LjsGoogleImportTest_Super.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2369,9 +2381,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-iOS/Tests-iOS-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = (
-					LOG_CONFIGURATION_DEBUG,
-				);
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = LOG_CONFIGURATION_DEBUG;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (

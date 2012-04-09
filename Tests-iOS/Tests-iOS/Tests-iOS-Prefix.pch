@@ -11,4 +11,5 @@
 #import <GHUnitIOS/GHUnit.h>
 #include "TargetConditionals.h"
 #import "LjsFoundationCategories.h"
+#import <CoreData/CoreData.h>
 #endif

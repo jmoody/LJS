@@ -65,10 +65,10 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsGooglePlacesImportTest_Super.h"
+#import "LjsGoogleImportTest_Super.h"
 #import "LjsGooglePlacesPredictiveReply.h"
 
-@interface LjsGooglePlacesPredictiveReplyTests : LjsGooglePlacesImportTest_Super
+@interface LjsGooglePlacesPredictiveReplyTests : LjsGoogleImportTest_Super
 
 @end
 
