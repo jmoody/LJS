@@ -1758,6 +1758,7 @@
 				F50FE6981410C6F60051FC7E /* Frameworks */,
 				F50FE6991410C6F60051FC7E /* Resources */,
 				F56481A1149906EB008CDF7E /* Run Script versioning */,
+				F57F4C1015331D2100E8B7D4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1934,6 +1935,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = "#!/bin/bash\n# This is a build phase run script to set various properties in the info plist \n# of an Xcode project.  The values that are set are:\n# CFBuildNumber - an incrementing counter to keep track of the number of App Store\n#                 Distribution builds have been created\n# CFBundleGetInfoString - verbose details about current build\n#   !App Store Configuration: MyApp 1.0.5 ee168e1 De\n#    App Store Configuration: MyApp 1.2 1.2.1\n# CFBundleVersion - the current bundle version\n#   !App Store Distribution:  <git short rev> e.g. ee168e1\n#    App Store Distribution:  <short version>.<build number>\n#\n# You must manage the CFBundleShortVersionString manually!\n# You must reset the CFBuildNumber manually for each new short version string!\n#\n# Rules\n# 1. depends on a build configuration \"App Store Distribution\"\n# 2. you must manage your short version string manually\n# 3. keep your app store distribution short version string to *.* \n# 4. the build number is used to create bundle version for App Store distributions which\n#    only allows *.*.* bundle version\n\nif [ \"$USER\" = \"moody\" ] \nthen\n\nPlistBuddyPath=/usr/libexec/PlistBuddy\nLjsAppStoreDistributionConfiguration=\"App Store Distribution\"\n\n\n\nCFBuildNumber=$(\"$PlistBuddyPath\" -c \"Print CFBuildNumber\" \"$INFOPLIST_FILE\")\n# if the build number property does not exist, create it and set it to 0\nif [ `echo $?` != 0 ]\nthen\necho \"No entry for CFBuildNumber in Plist, so we create it\"\nCFBuildNumber=0\n\"$PlistBuddyPath\" -c \"Add :CFBuildNumber integer $CFBuildNumber\" \"$INFOPLIST_FILE\"\nfi\n\n# if this is an app store release, then increment the build number\nif [ \"$CONFIGURATION\" = \"$LjsAppStoreDistributionConfiguration\" ] \nthen \nCFBuildNumber=$(($CFBuildNumber + 1))\n\"$PlistBuddyPath\" -c \"Set :CFBuildNumber $CFBuildNumber\" \"$INFOPLIST_FILE\"\nfi\n\n\n# if the get info string property does not exist, create it\nCFBundleGetInfoString=$(\"$PlistBuddyPath\" -c \"Print CFBundleGetInfoString\" \"$INFOPLIST_FILE\")\nif [ `echo $?` != 0 ]\nthen\necho \"No entry for CFBundleGetInfoString in Plist, so we create it\"\U0013\n\"$PlistBuddyPath\" -c \"Add :CFBundleGetInfoString string \\\"NEWLY CREATED\\\"\" \"$INFOPLIST_FILE\"\nfi\n\n\n\n# use the git revision for the bunlde version, except when building for the app store\ngitpath=`which git`\nCFBundleVersion=`$gitpath rev-parse --short HEAD`\nCFBundleShortVersionString=$(\"$PlistBuddyPath\" -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\n\n\nif [ \"$CONFIGURATION\" != \"$LjsAppStoreDistributionConfiguration\" ] \nthen\nCFBundleVersion_CURRENT=$(\"$PlistBuddyPath\" -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nif [ \"$CFBundleVersion\" != \"$CFBundleVersion_CURRENT\" ]\nthen\necho \"Bundle version has changed:  $CFBundleVersion_CURRENT ==> $CFBundleVersion - updating plist\"\n\"$PlistBuddyPath\" -c \"Set :CFBundleVersion $CFBundleVersion\" \"$INFOPLIST_FILE\"\nelse\necho \"CFBundleVersion has not changed, no need to update plist\"  \nfi\nBUILD_CONFIGURATION_ABBR=${CONFIGURATION:0:2} \nCFBundleGetInfoString=\"$PRODUCT_NAME $CFBundleShortVersionString $CFBundleVersion $BUILD_CONFIGURATION_ABBR\"\nCFBundleGetInfoString_CURRENT=$(\"$PlistBuddyPath\" -c \"Print CFBundleGetInfoString\" \"$INFOPLIST_FILE\")\nif [ \"$CFBundleGetInfoString\" != \"$CFBundleGetInfoString_CURRENT\" ]\nthen\necho \"Info String has changed:  $CFBundleGetInfoString_CURRENT ==> $CFBundleGetInfoString - updating plist\"\n\"$PlistBuddyPath\" -c \"Set :CFBundleGetInfoString $CFBundleGetInfoString\" \"$INFOPLIST_FILE\"\nelse\necho \"CFBundleGetInfoString has not changed, no need to update plist\"\nfi\nelse\n# no need to check if the get info string has changed, but it necessarily will have because\n# the build number is incremented\n\"$PlistBuddyPath\" -c \"Set :CFBundleVersion $CFBundleShortVersionString.$CFBuildNumber\" \"$INFOPLIST_FILE\"\nCFBundleGetInfoString=\"$PROJECT_NAME $CFBundleShortVersionString.$CFBuildNumber\"\n\"$PlistBuddyPath\" -c \"Set :CFBundleGetInfoString $CFBundleGetInfoString\" \"$INFOPLIST_FILE\"\nfi\n\n\n\necho CONFIGURATION = \"$CONFIGURATION\"\necho build number = $(\"$PlistBuddyPath\" -c \"Print CFBuildNumber\" \"$INFOPLIST_FILE\")\necho bundle version = $(\"$PlistBuddyPath\" -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\necho bundle short version = $(\"$PlistBuddyPath\" -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\necho bundle info string = $(\"$PlistBuddyPath\" -c \"Print CFBundleGetInfoString\" \"$INFOPLIST_FILE\")\n\nelse\n\necho \"Skipping the modification of $INFOPLIST_FILE for $USER\"\n\nfi\n\n";
+			showEnvVarsInLog = 0;
+		};
+		F57F4C1015331D2100E8B7D4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh RunTests.sh";
+			showEnvVarsInLog = 0;
 		};
 		F5C112861496716500948605 /* Run Script appledoc */ = {
 			isa = PBXShellScriptBuildPhase;

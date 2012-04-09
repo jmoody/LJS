@@ -65,17 +65,17 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsTestCase.h"
-#import "LjsGoogleManager.h"
-#import "LjsFileUtilities.h"
+#import "LjsGoogleImportTest_Super.h"
+#import "LjsGooglePlacesPrediction.h"
 #import "LjsValidator.h"
-#import "LjsVariates.h"
-#import "LjsLocationManager.h"
+#import "SBJson.h"
 
-@interface LjsGoogleManagerInitTests : LjsTestCase {}
+@interface LjsGooglePlacesPredictionTests : LjsGoogleImportTest_Super
+
 @end
 
-@implementation LjsGoogleManagerInitTests
+@implementation LjsGooglePlacesPredictionTests
+
 
 //- (id) init {
 //  self = [super init];
@@ -95,6 +95,8 @@
 
 - (void) setUpClass {
   // Run at start of all tests in the class
+  self.resourceName = @"google-places-autocomplete-sample";
+  [super setUpClass];
 }
 
 - (void) tearDownClass {
@@ -109,68 +111,36 @@
   // Run after each test method
 }  
 
-//- (void)testGHLog {
-//  GHTestLog(@"GH test logging is working");
-//}
+- (void) test_predictionTestInit {
+  SBJsonParser *parser;
+  NSError *error;
+  NSDictionary *dict;
+  NSArray *predictions;
+  LjsGooglePlacesPrediction *prediction;
 
-/*
-- (void) test_init {
-  LjsGoogleManager *manager;
-  NSString *filename;
-  NSString *apiKey;
-  NSString *libDir;
-  NSArray *contents;
-  BOOL result;
-  NSFileManager *fm = [NSFileManager defaultManager];
-  LjsLocationManager *lm = [[LjsLocationManager alloc] init];
-
-  filename = LjsGooglePlacesSqlLiteStore;
-  libDir = [LjsFileUtilities findCoreDataLibraryPath:YES];
+  error = nil;
+  parser = [[SBJsonParser alloc] init];
+  dict = [parser objectWithString:self.jsonResource
+                            error:&error];
   
-  manager = [[LjsGoogleManager alloc] initWithLocationManager:lm];
-  contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
-  result = [LjsValidator array:contents containsString:filename];
-  GHAssertTrue(result, nil);
-
- 
-  apiKey = [LjsVariates randomAsciiWithLengthMin:10 lenghtMax:20];
-  filename = LjsGooglePlacesSqlLiteStore;
-  libDir = [LjsFileUtilities findCoreDataLibraryPath:YES];
-  manager = [[LjsGoogleManager alloc] initWithApiToken:apiKey
-             manager:lm];
-  contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
-  result = [LjsValidator array:contents containsString:filename];
-  GHAssertTrue(result, nil);
- 
+  if (dict == nil) {
+    GHTestLog(@"failed because of an error: %@", error);
+  }
   
+  GHAssertNotNil(dict, @"error: %@", error);
   
-  apiKey = [LjsVariates randomAsciiWithLengthMin:10 lenghtMax:20];
-  filename = @"com.littlejoysoftware.LjsGooglePlaces_test_init.sqlite";
-  libDir = [LjsFileUtilities findLibraryDirectoryPath:YES];
-  manager = [[LjsGoogleManager alloc] initWithStoreFilename:filename
-                                                         apiToken:apiKey
-             manager:lm];
-  contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
-  result = [LjsValidator array:contents containsString:filename];
-  manager = nil;
-  [fm removeItemAtPath:[libDir stringByAppendingPathComponent:filename]
-                 error:nil];
-
+  predictions = [dict objectForKey:@"predictions"];
   
-  apiKey = [LjsVariates randomAsciiWithLengthMin:10 lenghtMax:20];
-  filename = @"com.littlejoysoftware.LjsGooglePlaces_test_init.sqlite";
-  libDir = [LjsFileUtilities findLibraryDirectoryPath:YES];
-  manager = [[LjsGoogleManager alloc] initWithStoreDirectory:libDir
-                                                     storeFilename:filename
-                                                          apiToken:apiKey
-                                                                manager:lm];
-  contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
-  result = [LjsValidator array:contents containsString:filename];
-  GHAssertTrue(result, nil);
-  manager = nil;
-  [fm removeItemAtPath:[libDir stringByAppendingPathComponent:filename]
-                 error:nil];
-
+  for (NSDictionary *predDict in predictions) {
+    prediction = [[LjsGooglePlacesPrediction alloc]
+                 initWithDictionary:predDict];
+    GHAssertNotNil(prediction, nil);
+    GHAssertNotNil(prediction.stablePlaceId, nil);
+    GHAssertNotNil(prediction.searchReferenceId, nil);
+    GHAssertNotNil(prediction.tokens, nil);
+    GHAssertNotNil(prediction.types, nil);
+    GHAssertNotNil(prediction.matchedRanges, nil);
+  }
 }
-*/
+
 @end

@@ -1,5 +1,7 @@
 (require 'cl)
 
+(global-set-key [(control h)] 'delete-backward-char)
+
 ;;; --------------------------------------------------------------------------
 
 (setf mac-command-key-is-meta nil)
