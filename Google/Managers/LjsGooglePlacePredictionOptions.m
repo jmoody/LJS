@@ -58,7 +58,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (id) initWithShouldMakeRequest:(BOOL) aShouldMakeRequest
                           radius:(CGFloat) aRadiusMeters
             searchEstablishments:(BOOL) aSearchEstablishments
-                        langCode:(NSString *) aLangCode
+                  langCodesOrNil:(NSArray *) aLangCodes
                     searchString:(NSString *) aSearchStrin;
 
 @end
@@ -68,20 +68,20 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @synthesize shouldMakeRequest;
 @synthesize radiusMeters;
 @synthesize searchEstablishments;
-@synthesize langCode;
+@synthesize langCodes;
 @synthesize searchString;
 
 - (id) initWithShouldMakeRequest:(BOOL) aShouldMakeRequest
                           radius:(CGFloat) aRadiusMeters
             searchEstablishments:(BOOL) aSearchEstablishments
-                        langCode:(NSString *) aLangCode 
+                  langCodesOrNil:(NSArray *) aLangCodes
                     searchString:(NSString *) aSearchString {
   self = [super init];
   if (self) {
     self.shouldMakeRequest = aShouldMakeRequest;
     self.radiusMeters = aRadiusMeters;
     self.searchEstablishments = aSearchEstablishments;
-    self.langCode = aLangCode;
+    self.langCodes = aLangCodes;
     self.searchString = aSearchString;
   }
   return self;
@@ -90,13 +90,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 + (LjsGpPredictionGoogleOptions *) optionsWithRadius:(CGFloat) aRadiusMeters
                                 searchEstablishments:(BOOL) aSearchEstablishments
-                                       langCodeOrNil:(NSString *) aLangCode 
+                                       langCodesOrNil:(NSArray *) aLangCodes
                                         searchString:(NSString *) aSearchString {
   return [[LjsGpPredictionGoogleOptions alloc]
           initWithShouldMakeRequest:YES
           radius:aRadiusMeters
           searchEstablishments:aSearchEstablishments
-          langCode:aLangCode
+          langCodesOrNil:aLangCodes
           searchString:aSearchString];
 }
 
@@ -105,7 +105,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
           initWithShouldMakeRequest:NO
           radius:CGFLOAT_MIN
           searchEstablishments:NO
-          langCode:nil
+          langCodesOrNil:nil
           searchString:nil];
 }
 

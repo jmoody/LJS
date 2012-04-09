@@ -93,179 +93,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return result;
 }
 
-- (BOOL) hasTypeWithName:(NSString *) aName {
-  NSArray *types = [self.types allObjects];
-  NSUInteger index;
-  index = [types indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-    LjsGoogleReverseGeocodeType *type = (LjsGoogleReverseGeocodeType *) obj;
-    return [type.name isEqualToString:aName];
-  }];
-  return index != NSNotFound;
-}
-
-- (BOOL) isSublocality {
-  return [self hasTypeWithName:@"sublocality"];
-}
-
-- (BOOL) isLocality {
-  return [self hasTypeWithName:@"locality"];
-}
-
-- (BOOL) isStreetAddress {
-  return [self hasTypeWithName:@"street_address"];
-}
-
-
-- (NSUInteger) indexOfAddrCompInArray:(NSArray *) aArray
-                             withType:(NSString *) aType {
-  NSUInteger index;
-  index = [aArray indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-    LjsGoogleAddressComponent *comp = (LjsGoogleAddressComponent *) obj;
-    return [comp hasTypeWithName:aType];
-  }];
-  return index;
-}
-
-- (NSUInteger) indexOfAddrCompInArray:(NSArray *) aArray
-                             withType:(NSString *) aType
-                         longNameLike:(NSString *) aString {
-  NSPredicate *predicate;
-  NSPredicate *typePred = [NSPredicate predicateWithFormat:@"ANY types.name == %@",
-                           aType];
-  NSPredicate *strPred = [NSPredicate predicateWithFormat:@"longName CONTAINS[cd] %@",
-                          aString];
-  NSArray *preds = [NSArray arrayWithObjects:typePred, strPred, nil];
-  predicate = [NSCompoundPredicate andPredicateWithSubpredicates:preds];
-
-  NSUInteger index;
-  index = [aArray indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-    return [predicate evaluateWithObject:obj];
-  }];
-  
-  return index;
-}
-
-- (BOOL) formattedAddressContainsSearchTerm:(NSString *) aSearchTerm {
-  NSRange range;
-  NSUInteger options = NSCaseInsensitiveSearch | NSAnchoredSearch |
-  NSDiacriticInsensitiveSearch | NSWidthInsensitiveSearch;
-  range = [self.formattedAddress rangeOfString:aSearchTerm
-                                       options:options];
-  return range.length > 0;
-}
-
-- (BOOL) containsAddrCompWithType:(NSString *) aType {
-  NSArray *array = [self.addressComponents allObjects];
-  return [self indexOfAddrCompInArray:array withType:aType] != NSNotFound;
-}
-
-- (LjsGoogleAddressComponent *) componentWithType:(NSString *) aType {
-  LjsGoogleAddressComponent *result = nil;
-  NSArray *comps = [self.addressComponents allObjects];
-  NSUInteger index = [self indexOfAddrCompInArray:comps
-                                         withType:aType];
-  if (index != NSNotFound) {
-    result = [comps nth:index];
-  }
-  return result;
-}
-
-- (LjsGoogleAddressComponent *) sublocality {
-  return [self componentWithType:@"sublocality"];
-}
-
-- (LjsGoogleAddressComponent *) locality {
-  return [self componentWithType:@"locality"];
-}
-
-- (LjsGoogleAddressComponent *) administrativeAreaLevel1 {
-  return [self componentWithType:@"administrative_area_level_1"];
-}
-
-- (LjsGoogleAddressComponent *) country {
-  return [self componentWithType:@"country"];
-}
-
-- (LjsGoogleAddressComponent *) componentWithType:(NSString *)aType 
-                                       searchTerm:(NSString *) aSearchTerm {
-  LjsGoogleAddressComponent *result = nil;
-  NSArray *comps = [self.addressComponents allObjects];
-  NSUInteger index = [self indexOfAddrCompInArray:comps
-                                         withType:aType
-                                     longNameLike:aSearchTerm];
-  if (index != NSNotFound) {
-    result = [comps nth:index];
-  }
-  return result;
-}
-
-- (LjsGoogleAddressComponent *) sublocalityWithSearchTerm:(NSString *) aSearchTerm {
-  return [self componentWithType:@"sublocality" searchTerm:aSearchTerm];
-}
-
-- (LjsGoogleAddressComponent *) localityWithSearchTerm:(NSString *) aSearchTerm {
-  return [self componentWithType:@"locality" searchTerm:aSearchTerm];
-}
-
-- (LjsGoogleAddressComponent *) administrativeAreaLevel1WithSearchTerm:(NSString *) aSearchTerm {
-  return [self componentWithType:@"administrative_area_level_1" searchTerm:aSearchTerm];
-}
-- (LjsGoogleAddressComponent *) countryWithSearchTerm:(NSString *) aSearchTerm {
-  return [self componentWithType:@"country" searchTerm:aSearchTerm];
-}
-
-
-
-
-- (NSArray *) bestPairForCityState {
-  NSMutableArray *result = [NSMutableArray arrayWithCapacity:2];
-  LjsGoogleAddressComponent *cityComp = nil;
-  LjsGoogleAddressComponent *stateComp = nil;
-  
-  cityComp = [self sublocality];
-  if (cityComp != nil) {
-    stateComp = [self locality];
-    if (stateComp == nil || [stateComp.longName isEqualToString:cityComp.longName]) {
-      stateComp = [self administrativeAreaLevel1];
-      if (stateComp == nil || [stateComp.longName isEqualToString:cityComp.longName]) {
-        stateComp = [self country];
-        if (stateComp == nil || [stateComp.longName isEqualToString:cityComp.longName]) {
-          return result;
-        }
-      }
-    }
-    [result nappend:cityComp];
-    [result nappend:stateComp];
-    return result;
-  }
-  
-  cityComp = [self locality];
-  if (cityComp != nil) {
-    stateComp = [self administrativeAreaLevel1];
-    if (stateComp == nil || [stateComp.longName isEqualToString:cityComp.longName]) {
-      stateComp = [self country];
-      if (stateComp == nil || [stateComp.longName isEqualToString:cityComp.longName]) {
-        return result;
-      }
-    }
-    [result nappend:cityComp];
-    [result nappend:stateComp];
-    return result;
-  }
-  
-  cityComp = [self administrativeAreaLevel1];
-  if (cityComp != nil) {
-    stateComp = [self country];
-    if (stateComp == nil || [stateComp.longName isEqualToString:cityComp.longName]) {
-      return result;
-    }
-    [result nappend:cityComp];
-    [result nappend:stateComp];
-    return result;
-  }
-  return result;
-}
-
 
 - (NSString *) description {
   return [NSString stringWithFormat:@"#<Geocode: %@ %@ %@>",
@@ -277,3 +104,177 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
           self.location100m, self.formattedAddress, self.locationType];  
 }
 @end
+
+//- (BOOL) hasTypeWithName:(NSString *) aName {
+//  NSArray *types = [self.types allObjects];
+//  NSUInteger index;
+//  index = [types indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+//    LjsGoogleReverseGeocodeType *type = (LjsGoogleReverseGeocodeType *) obj;
+//    return [type.name isEqualToString:aName];
+//  }];
+//  return index != NSNotFound;
+//}
+//
+//- (BOOL) isSublocality {
+//  return [self hasTypeWithName:@"sublocality"];
+//}
+//
+//- (BOOL) isLocality {
+//  return [self hasTypeWithName:@"locality"];
+//}
+//
+//- (BOOL) isStreetAddress {
+//  return [self hasTypeWithName:@"street_address"];
+//}
+//
+//
+//- (NSUInteger) indexOfAddrCompInArray:(NSArray *) aArray
+//                             withType:(NSString *) aType {
+//  NSUInteger index;
+//  index = [aArray indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+//    LjsGoogleAddressComponent *comp = (LjsGoogleAddressComponent *) obj;
+//    return [comp hasTypeWithName:aType];
+//  }];
+//  return index;
+//}
+//
+//- (NSUInteger) indexOfAddrCompInArray:(NSArray *) aArray
+//                             withType:(NSString *) aType
+//                         longNameLike:(NSString *) aString {
+//  NSPredicate *predicate;
+//  NSPredicate *typePred = [NSPredicate predicateWithFormat:@"ANY types.name == %@",
+//                           aType];
+//  NSPredicate *strPred = [NSPredicate predicateWithFormat:@"longName CONTAINS[cd] %@",
+//                          aString];
+//  NSArray *preds = [NSArray arrayWithObjects:typePred, strPred, nil];
+//  predicate = [NSCompoundPredicate andPredicateWithSubpredicates:preds];
+//
+//  NSUInteger index;
+//  index = [aArray indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+//    return [predicate evaluateWithObject:obj];
+//  }];
+//  
+//  return index;
+//}
+//
+//- (BOOL) formattedAddressContainsSearchTerm:(NSString *) aSearchTerm {
+//  NSRange range;
+//  NSUInteger options = NSCaseInsensitiveSearch | NSAnchoredSearch |
+//  NSDiacriticInsensitiveSearch | NSWidthInsensitiveSearch;
+//  range = [self.formattedAddress rangeOfString:aSearchTerm
+//                                       options:options];
+//  return range.length > 0;
+//}
+//
+//- (BOOL) containsAddrCompWithType:(NSString *) aType {
+//  NSArray *array = [self.addressComponents allObjects];
+//  return [self indexOfAddrCompInArray:array withType:aType] != NSNotFound;
+//}
+//
+//- (LjsGoogleAddressComponent *) componentWithType:(NSString *) aType {
+//  LjsGoogleAddressComponent *result = nil;
+//  NSArray *comps = [self.addressComponents allObjects];
+//  NSUInteger index = [self indexOfAddrCompInArray:comps
+//                                         withType:aType];
+//  if (index != NSNotFound) {
+//    result = [comps nth:index];
+//  }
+//  return result;
+//}
+//
+//- (LjsGoogleAddressComponent *) sublocality {
+//  return [self componentWithType:@"sublocality"];
+//}
+//
+//- (LjsGoogleAddressComponent *) locality {
+//  return [self componentWithType:@"locality"];
+//}
+//
+//- (LjsGoogleAddressComponent *) administrativeAreaLevel1 {
+//  return [self componentWithType:@"administrative_area_level_1"];
+//}
+//
+//- (LjsGoogleAddressComponent *) country {
+//  return [self componentWithType:@"country"];
+//}
+//
+//- (LjsGoogleAddressComponent *) componentWithType:(NSString *)aType 
+//                                       searchTerm:(NSString *) aSearchTerm {
+//  LjsGoogleAddressComponent *result = nil;
+//  NSArray *comps = [self.addressComponents allObjects];
+//  NSUInteger index = [self indexOfAddrCompInArray:comps
+//                                         withType:aType
+//                                     longNameLike:aSearchTerm];
+//  if (index != NSNotFound) {
+//    result = [comps nth:index];
+//  }
+//  return result;
+//}
+//
+//- (LjsGoogleAddressComponent *) sublocalityWithSearchTerm:(NSString *) aSearchTerm {
+//  return [self componentWithType:@"sublocality" searchTerm:aSearchTerm];
+//}
+//
+//- (LjsGoogleAddressComponent *) localityWithSearchTerm:(NSString *) aSearchTerm {
+//  return [self componentWithType:@"locality" searchTerm:aSearchTerm];
+//}
+//
+//- (LjsGoogleAddressComponent *) administrativeAreaLevel1WithSearchTerm:(NSString *) aSearchTerm {
+//  return [self componentWithType:@"administrative_area_level_1" searchTerm:aSearchTerm];
+//}
+//- (LjsGoogleAddressComponent *) countryWithSearchTerm:(NSString *) aSearchTerm {
+//  return [self componentWithType:@"country" searchTerm:aSearchTerm];
+//}
+//
+//
+//
+//
+//- (NSArray *) bestPairForCityState {
+//  NSMutableArray *result = [NSMutableArray arrayWithCapacity:2];
+//  LjsGoogleAddressComponent *cityComp = nil;
+//  LjsGoogleAddressComponent *stateComp = nil;
+//  
+//  cityComp = [self sublocality];
+//  if (cityComp != nil) {
+//    stateComp = [self locality];
+//    if (stateComp == nil || [stateComp.longName isEqualToString:cityComp.longName]) {
+//      stateComp = [self administrativeAreaLevel1];
+//      if (stateComp == nil || [stateComp.longName isEqualToString:cityComp.longName]) {
+//        stateComp = [self country];
+//        if (stateComp == nil || [stateComp.longName isEqualToString:cityComp.longName]) {
+//          return result;
+//        }
+//      }
+//    }
+//    [result nappend:cityComp];
+//    [result nappend:stateComp];
+//    return result;
+//  }
+//  
+//  cityComp = [self locality];
+//  if (cityComp != nil) {
+//    stateComp = [self administrativeAreaLevel1];
+//    if (stateComp == nil || [stateComp.longName isEqualToString:cityComp.longName]) {
+//      stateComp = [self country];
+//      if (stateComp == nil || [stateComp.longName isEqualToString:cityComp.longName]) {
+//        return result;
+//      }
+//    }
+//    [result nappend:cityComp];
+//    [result nappend:stateComp];
+//    return result;
+//  }
+//  
+//  cityComp = [self administrativeAreaLevel1];
+//  if (cityComp != nil) {
+//    stateComp = [self country];
+//    if (stateComp == nil || [stateComp.longName isEqualToString:cityComp.longName]) {
+//      return result;
+//    }
+//    [result nappend:cityComp];
+//    [result nappend:stateComp];
+//    return result;
+//  }
+//  return result;
+//}
+

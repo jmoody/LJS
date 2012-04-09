@@ -240,7 +240,10 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
 
 - (NSArray *) predicationsWithOptions:(LjsGooglePlacePredictionOptions *) aOptions {
   NSString *entityName = [LjsGooglePlace entityName];
+
   NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+//  DDLogDebug(@"request = %@", request);
+
   request.predicate = aOptions.predicate;
   
   // cannot limit the fetch if there is sorting involved - must limit post-fetch
@@ -257,7 +260,7 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
                [error localizedDescription], error, request.predicate);
     abort();
   } 
-  
+
   NSArray *result = fetched;
   if (sortOptions.shouldSort == YES) {
     
@@ -274,11 +277,13 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
   
   if (aOptions.googleOptions.shouldMakeRequest == YES) {
     LjsGpPredictionGoogleOptions *googleOptions = aOptions.googleOptions;
+    NSArray *langCodes = googleOptions.langCodes;
     [self.requestManager executeHttpPredictionRequestWithInput:googleOptions.searchString
                                                         radius:googleOptions.radiusMeters
                                                       location:aOptions.location
-                                                 languageOrNil:googleOptions.langCode
+                                                langCodesOrNil:langCodes
                                           establishmentRequest:googleOptions.searchEstablishments];
+  
   }
   
   return result;
@@ -295,7 +300,7 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
                aOptions.location, request.predicate, [error localizedDescription], error);
     abort();
   } 
-  
+
   
   NSUInteger resultCount = [fetched count];
   if (resultCount > 1) {
@@ -444,7 +449,7 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
       //DDLogDebug(@"starting request for details with prediction: %@", prediction);
       NSString *langCode = [aUserInfo objectForKey:@"language"];
       [self.requestManager executeHttpDetailsRequestionForPrediction:prediction
-                                                            language:langCode];
+                                                            langCode:langCode];
     } else {
       // DDLogDebug(@"skipping details request - place: %@ (%@) already exists",
       //           prediction.prediction, [prediction shortId]);

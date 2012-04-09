@@ -60,7 +60,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (NSDictionary *) dictionaryForOptionalAutocompletWithLatitude:(NSDecimalNumber *) aLatitude
                                                       longitude:(NSDecimalNumber *) aLongitude
                                                          radius:(CGFloat) aRadius
-                                              languageCodeOrNil:(NSString *) aLangCode
+                                                  langCodeOrNil:(NSString *) aLangCode
                                             establishmentSearch:(BOOL) aIsAnEstablishmentSearch;
 
 
@@ -113,7 +113,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (NSDictionary *) dictionaryForOptionalAutocompletWithLatitude:(NSDecimalNumber *) aLatitude
                                                       longitude:(NSDecimalNumber *) aLongitude
                                                          radius:(CGFloat) aRadius
-                                              languageCodeOrNil:(NSString *) aLangCode
+                                                  langCodeOrNil:(NSString *) aLangCode
                                             establishmentSearch:(BOOL) aIsAnEstablishmentSearch {
   NSString *type;
   if (aIsAnEstablishmentSearch == YES) {
@@ -146,15 +146,17 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                                             latitude:(NSDecimalNumber *) aLatitude
                                            longitude:(NSDecimalNumber *) aLongitude
                                               radius:(CGFloat) aRadius
-                                   languageCodeOrNil:(NSString *) aLangCode
+                                       langCodeOrNil:(NSString *) aLangCode
                                        establishment:(BOOL) aIsAnEstablishmentRequest {
   
   NSDictionary *required = [self dictionaryForRequiredAutocompleteWithInput:aInput
                                                                      sensor:YES];
+  
+  
   NSDictionary *optional = [self dictionaryForOptionalAutocompletWithLatitude:aLatitude
                                                                     longitude:aLongitude
                                                                        radius:aRadius
-                                                            languageCodeOrNil:aLangCode
+                                                            langCodeOrNil:aLangCode
                                                           establishmentSearch:aIsAnEstablishmentRequest];
   NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
   [parameters addEntriesFromDictionary:required];
@@ -176,7 +178,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 
 - (ASIHTTPRequest *) requestForDetailsRequestForPrediction:(LjsGooglePlacesPrediction *) aPrediction
-                                                  language:(NSString *)aLangCode {
+                                                  langCode:(NSString *)aLangCode {
   NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
                               self.apiToken, @"key",
                               aPrediction.searchReferenceId, @"reference",

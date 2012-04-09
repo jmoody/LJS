@@ -17,15 +17,16 @@
 
 @property (nonatomic, assign) BOOL shouldMakeRequest;
 @property (nonatomic, assign) CGFloat radiusMeters;
-@property (nonatomic, copy) NSString *langCode;
+@property (nonatomic, strong) NSArray *langCodes;
 @property (nonatomic, assign) BOOL searchEstablishments;
 @property (nonatomic, copy) NSString *searchString;
 
 + (LjsGpPredictionGoogleOptions *) optionsWithRadius:(CGFloat) aRadiusMeters
                                 searchEstablishments:(BOOL) aSearchEstablishments
-                                       langCodeOrNil:(NSString *) aLangCode
+                                      langCodesOrNil:(NSArray *) aLangCodes
                                         searchString:(NSString *) aSearchString;
 + (LjsGpPredictionGoogleOptions *) doNotMakeRequest;
+
 
 @end
 

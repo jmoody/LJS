@@ -127,7 +127,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     LjsGpPredictionGoogleOptions *googleOptions;
     googleOptions = [LjsGpPredictionGoogleOptions optionsWithRadius:10000
                                                searchEstablishments:NO
-                                                      langCodeOrNil:@"en"
+                                                      langCodesOrNil:@"en"
                                                        searchString:searchString];
     LjsGpPredicateFactory *factory = [[LjsGpPredicateFactory alloc] init];
     //    NSPredicate *predicate = [factory establishmentPredicateWithSearchString:searchString];    

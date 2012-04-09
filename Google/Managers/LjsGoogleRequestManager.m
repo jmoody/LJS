@@ -77,22 +77,38 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (void) executeHttpPredictionRequestWithInput:(NSString *) aInput
                                         radius:(CGFloat) aRadius
                                       location:(LjsLocation *)aLocation 
-                                 languageOrNil:(NSString *) aLangCode
+                                langCodesOrNil:(NSArray *) aLangCodes
                           establishmentRequest:(BOOL) aIsAnEstablishmentRequest {
   ASIHTTPRequest *request;
+  // always make a request based on current language for (locale) ip
   request = [self.requestFactory requestForAutocompleteWithInput:aInput
                                                         latitude:aLocation.latitude
                                                        longitude:aLocation.longitude
                                                           radius:aRadius
-                                               languageCodeOrNil:aLangCode
+                                                   langCodeOrNil:nil
                                                    establishment:aIsAnEstablishmentRequest];
-  
   [request setDelegate:self];
   [request setDidFailSelector:@selector(handleRequestAutocompleteDidFail:)];
   [request setDidFinishSelector:@selector(handleRequestAutocompleteDidFinish:)];
   //DDLogDebug(@"starting request: %@", request);
   [request startAsynchronous];
+
+  // there there are additional codes, then make requests for them 
+  for (NSString *langCode in aLangCodes) {
+    request = [self.requestFactory requestForAutocompleteWithInput:aInput
+                                                          latitude:aLocation.latitude
+                                                         longitude:aLocation.longitude
+                                                            radius:aRadius
+                                                     langCodeOrNil:langCode
+                                                     establishment:aIsAnEstablishmentRequest];
+    [request setDelegate:self];
+    [request setDidFailSelector:@selector(handleRequestAutocompleteDidFail:)];
+    [request setDidFinishSelector:@selector(handleRequestAutocompleteDidFinish:)];
+    //DDLogDebug(@"starting request: %@", request);
+    [request startAsynchronous];
+  }
 }
+
 
 
 - (void) handleRequestAutocompleteDidFail:(ASIHTTPRequest *)aRequest {
@@ -122,18 +138,18 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                                                       error:error];
   } else {
     [self.placeResultHandler requestForPredictionsCompletedWithPredictions:[reply predictions]
-                                                             userInfo:aRequest.userInfo];
+                                                                  userInfo:aRequest.userInfo];
     //NSURL *url = [aRequest url];
     //DDLogDebug(@"url = %@", url);
   }
 }
 
 - (void) executeHttpDetailsRequestionForPrediction:(LjsGooglePlacesPrediction *) aPrediction
-                                          language:(NSString *)aLangCode {
+                                          langCode:(NSString *)aLangCode {
 
   
   ASIHTTPRequest *request = [self.requestFactory requestForDetailsRequestForPrediction:aPrediction
-                                                                              language:aLangCode];
+                                                                              langCode:aLangCode];
   
   [request setDelegate:self];
   [request setDidFailSelector:@selector(handleRequestDetailsDidFail:)];

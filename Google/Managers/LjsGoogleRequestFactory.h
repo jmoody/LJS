@@ -52,12 +52,12 @@
                                             latitude:(NSDecimalNumber *) aLatitude
                                            longitude:(NSDecimalNumber *) aLongitude
                                               radius:(CGFloat) aRadius
-                                   languageCodeOrNil:(NSString *) aLangCode
+                                       langCodeOrNil:(NSString *) aLangCode
                                        establishment:(BOOL) aIsAnEstablishmentRequest;
 
 
 - (ASIHTTPRequest *) requestForDetailsRequestForPrediction:(LjsGooglePlacesPrediction *) aPrediction
-                                                  language:(NSString *)aLangCode;
+                                                  langCode:(NSString *)aLangCode;
 
 - (ASIHTTPRequest *) requestForReverseGeocodeWithLocation:(LjsLocation *) aLocation
                                      locationIsFromSensor:(BOOL) aLocIsFromSensor

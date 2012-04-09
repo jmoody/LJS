@@ -83,7 +83,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
-- (NSString *) stringByEscapeDoubleQuotes {
+- (NSString *) stringByEscapingDoubleQuotes {
   NSMutableString *mutable = [self mutableCopy];
   
   [mutable replaceOccurrencesOfString:@"\""
@@ -92,4 +92,17 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                               range:NSMakeRange(0, [mutable length])];
   return [NSString stringWithString:mutable];
 }
+
+- (NSString *) stringByUnescapingDoubleQuotes {
+  NSMutableString *mutable = [self mutableCopy];
+  
+  [mutable replaceOccurrencesOfString:@"\\"
+                           withString:@"\""
+                              options:NSCaseInsensitiveSearch 
+                                range:NSMakeRange(0, [mutable length])];
+  return [NSString stringWithString:mutable];
+}
+
+
+
 @end
