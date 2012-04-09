@@ -35,6 +35,50 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+@implementation UIView (UIView_TESTING)
+
+- (NSMutableDictionary *)fullDescription {
+  NSDictionary *frame =
+  [NSDictionary dictionaryWithObjectsAndKeys:
+   [NSNumber numberWithFloat:self.frame.origin.x], @"x",
+   [NSNumber numberWithFloat:self.frame.origin.y], @"y",
+   [NSNumber numberWithFloat:self.frame.size.width], @"width",
+   [NSNumber numberWithFloat:self.frame.size.height], @"height",
+   nil];
+  NSMutableDictionary *description =
+  [NSMutableDictionary dictionaryWithObjectsAndKeys:
+   [NSNumber numberWithInteger:(NSInteger)self], @"address",
+   NSStringFromClass([self class]), @"className",
+   frame, @"frame",
+   [NSNumber numberWithInteger:[self tag]], @"tag",
+   [self valueForKeyPath:@"subviews.fullDescription"], @"subviews",
+   nil];
+  
+  if ([self respondsToSelector:@selector(text)])
+  {
+    [description
+     setValue:[self performSelector:@selector(text)]
+     forKey:@"text"];
+  }
+  if ([self respondsToSelector:@selector(title)])
+  {
+    [description
+     setValue:[self performSelector:@selector(title)]
+     forKey:@"title"];
+  }
+  if ([self respondsToSelector:@selector(currentTitle)])
+  {
+    [description
+     setValue:[self performSelector:@selector(currentTitle)]
+     forKey:@"currentTitle"];
+  }
+  
+  return description;
+}
+
+@end
+
+
 @implementation LjsTestCase
 
 

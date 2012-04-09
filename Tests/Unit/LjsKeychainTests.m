@@ -47,55 +47,6 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-@interface UIView (UIView_TESTING)
-
-- (NSMutableDictionary *)fullDescription;
-
-@end
-
-
-@implementation UIView (UIView_TESTING)
-
-- (NSMutableDictionary *)fullDescription {
-  NSDictionary *frame =
-  [NSDictionary dictionaryWithObjectsAndKeys:
-   [NSNumber numberWithFloat:self.frame.origin.x], @"x",
-   [NSNumber numberWithFloat:self.frame.origin.y], @"y",
-   [NSNumber numberWithFloat:self.frame.size.width], @"width",
-   [NSNumber numberWithFloat:self.frame.size.height], @"height",
-   nil];
-  NSMutableDictionary *description =
-  [NSMutableDictionary dictionaryWithObjectsAndKeys:
-   [NSNumber numberWithInteger:(NSInteger)self], @"address",
-   NSStringFromClass([self class]), @"className",
-   frame, @"frame",
-   [NSNumber numberWithInteger:[self tag]], @"tag",
-   [self valueForKeyPath:@"subviews.fullDescription"], @"subviews",
-   nil];
-  
-  if ([self respondsToSelector:@selector(text)])
-  {
-    [description
-     setValue:[self performSelector:@selector(text)]
-     forKey:@"text"];
-  }
-  if ([self respondsToSelector:@selector(title)])
-  {
-    [description
-     setValue:[self performSelector:@selector(title)]
-     forKey:@"title"];
-  }
-  if ([self respondsToSelector:@selector(currentTitle)])
-  {
-    [description
-     setValue:[self performSelector:@selector(currentTitle)]
-     forKey:@"currentTitle"];
-  }
-  
-  return description;
-}
-
-@end
 
 static NSString *LjsKeychainTestsUsernameDefaultsKey = @"com.littlejoysoftware.Ljs Keychain Manager Tests Username Defaults Key";
 static NSString *LjsKeychainTestsDefaultUsername = @"TestUsername";
@@ -703,27 +654,19 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
                                              shouldUseKeyChain:shouldUseKeychain
                                                    serviceName:serviceName
                                                          error:&error];
-//  UIAlertView *alert = [[UIAlertView alloc]
-//                        initWithTitle:@"alert"
-//                        message:@"message"
-//                        delegate:self
-//                        cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-//  alert.accessibilityLabel = @"alert";
-//  alert.tag = 999;
-//  [alert show];
-//  
-//  UIControl *okButton = (UIControl *)[alert viewWithTag:2];
-//  [okButton sendActionsForControlEvents:UIControlEventTouchUpInside];
-//
-//  
-//  GHTestLog(@"ok button = %@", okButton);
-    
-  NSDictionary *currentUserInterfaceState =
-  [[[UIApplication sharedApplication] keyWindow] fullDescription];
-  GHTestLog(@"current state = %@", currentUserInterfaceState);
-  GHTestLog(@"synchronize error = %@", error);
-  GHAssertTrue(actual, nil);
-  GHAssertNil(error, nil);
+  
+  NSDictionary *enviro = [[NSProcessInfo processInfo]environment];
+  NSNumber *number = [enviro objectForKey:@"GHUNIT_RUN_TESTS_SCRIPT"];
+  BOOL headless = [number boolValue];
+  if (headless == NO) {
+    GHAssertTrue(actual, nil);
+    GHAssertNil(error, nil);
+  } else {
+    GHTestLog(@"WARN: skipping keychain unit test because we are running headless");
+    GHTestLog(@"synchronize error = %@", error);
+    GHAssertFalse(actual, nil);
+    GHAssertNotNil(error, nil);
+  }
 }
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {

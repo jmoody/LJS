@@ -16,6 +16,8 @@ export NSDeallocateZombies=NO
 export NSHangOnUncaughtException=YES
 export NSAutoreleaseFreedObjectCheckEnabled=YES
 
+export GHUNIT_RUN_TESTS_SCRIPT=YES
+
 export DYLD_FRAMEWORK_PATH="$CONFIGURATION_BUILD_DIR"
 
 TEST_TARGET_EXECUTABLE_PATH="$TARGET_BUILD_DIR/$EXECUTABLE_PATH"

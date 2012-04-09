@@ -37,6 +37,13 @@
 #import "LjsVariates.h"
 #import "LjsValidator.h"
 
+@interface UIView (UIView_TESTING)
+
+- (NSMutableDictionary *)fullDescription;
+
+@end
+
+
 @interface LjsTestCase : GHTestCase {
     
 }
