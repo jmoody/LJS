@@ -134,7 +134,7 @@ fail:
 #elif ADHOC_BUILD
   config = @"adhoc";
   abbrev = @"ah";
-#elif APP_STORE_BUILD
+#elif APPSTORE_BUILD
   config = @"appstore";
   abbrev = @"as";
 #else

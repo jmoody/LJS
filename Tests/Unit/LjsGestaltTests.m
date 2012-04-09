@@ -131,7 +131,7 @@
 
 - (void) test_isAppStoreBuild {
   LjsGestalt *gestalt = [[LjsGestalt alloc] init];
-#if APP_STORE_BUILD
+#if APPSTORE_BUILD
   GHAssertTrue([gestalt isAppStoreBuild], nil);
 #else
   GHAssertFalse([gestalt isAppStoreBuild], nil);
@@ -158,7 +158,7 @@
   act = [gestalt buildConfiguration:YES];
   GHAssertEqualStrings(actual, expected, nil);
   GHAssertEqualStrings(act, exp, nil);
-#elif APP_STORE_BUILD
+#elif APPSTORE_BUILD
   expected = @"appstore";
   exp = @"as";
   actual = [gestalt buildConfiguration:NO];
