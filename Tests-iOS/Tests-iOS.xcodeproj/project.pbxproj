@@ -2641,7 +2641,7 @@
 				GCC_PREFIX_HEADER = "Tests-iOS/Tests-iOS-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = (
 					LOG_CONFIGURATION_DEBUG,
-					APP_STORE_BUILD,
+					APPSTORE_BUILD,
 				);
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
