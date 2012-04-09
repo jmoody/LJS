@@ -491,8 +491,7 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
   method_exchangeImplementations(mockMethod, originalMethod);
 }
 
-
-- (void) test_synchronizeKeychainAndDefaults {
+- (void) test_synchronizeKeychainAndDefaults0 {
   NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
   NSError *error = nil;
   BOOL shouldUseKeychain, actual;
@@ -513,7 +512,14 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
                                                          error:&error];
   GHAssertFalse(actual, nil);
   GHAssertNotNil(error, nil);
+}
 
+- (void) test_synchronizeKeychainAndDefaults1 {
+  NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
+  NSError *error = nil;
+  BOOL shouldUseKeychain, actual;
+  
+  
   
   username = LjsKeychainTestsDefaultUsername;
   usernameKey = [self nilOrEmptyString];
@@ -531,7 +537,15 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
                                                          error:&error];
   GHAssertFalse(actual, nil);
   GHAssertNotNil(error, nil);
+}
 
+- (void) test_synchronizeKeychainAndDefaults2 {
+  NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
+  NSError *error = nil;
+  BOOL shouldUseKeychain, actual;
+  
+  
+  
   username = LjsKeychainTestsDefaultUsername;
   usernameKey = LjsKeychainTestsUsernameDefaultsKey;
   password = [self nilOrEmptyString];
@@ -548,7 +562,12 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
                                                          error:&error];
   GHAssertFalse(actual, nil);
   GHAssertNotNil(error, nil);
+}
 
+- (void) test_synchronizeKeychainAndDefaults3 {
+  NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
+  NSError *error = nil;
+  BOOL shouldUseKeychain, actual;
   
   username = LjsKeychainTestsDefaultUsername;
   usernameKey = LjsKeychainTestsUsernameDefaultsKey;
@@ -566,7 +585,13 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
                                                          error:&error];
   GHAssertFalse(actual, nil);
   GHAssertNotNil(error, nil);
+}
 
+- (void) test_synchronizeKeychainAndDefaults4 {
+  NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
+  NSError *error = nil;
+  BOOL shouldUseKeychain, actual;
+  
   username = LjsKeychainTestsDefaultUsername;
   usernameKey = LjsKeychainTestsUsernameDefaultsKey;
   password = LjsKeychainTestsDefaultPassword;
@@ -583,7 +608,13 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
                                                          error:&error];
   GHAssertFalse(actual, nil);
   GHAssertNotNil(error, nil);
+}
 
+- (void) test_synchronizeKeychainAndDefaults5 {
+  NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
+  NSError *error = nil;
+  BOOL shouldUseKeychain, actual;
+  
   username = LjsKeychainTestsDefaultUsername;
   usernameKey = LjsKeychainTestsUsernameDefaultsKey;
   password = LjsKeychainTestsDefaultPassword;
@@ -601,7 +632,13 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
   GHTestLog(@"synchronize error = %@", error);
   GHAssertTrue(actual, nil);
   GHAssertNil(error, nil);
+}
 
+- (void) test_synchronizeKeychainAndDefaults6 {
+  NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
+  NSError *error = nil;
+  BOOL shouldUseKeychain, actual;
+    
   username = LjsKeychainTestsDefaultUsername;
   usernameKey = LjsKeychainTestsUsernameDefaultsKey;
   password = LjsKeychainTestsDefaultPassword;
@@ -619,9 +656,8 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
   GHTestLog(@"synchronize error = %@", error);
   GHAssertTrue(actual, nil);
   GHAssertNil(error, nil);
-
-  
 }
+
 - (void) printerror:(NSError *) error {
   NSInteger code = [error code];
   NSString *message = [error localizedDescription];
