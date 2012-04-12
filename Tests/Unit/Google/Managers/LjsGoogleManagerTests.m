@@ -69,6 +69,7 @@
 #import "LjsGoogleManager.h"
 #import "LjsFileUtilities.h"
 #import "LjsLocationManager.h"
+#import "LjsLocationTransformer.h"
 
 @interface LjsGoogleManagerTests : LjsTestCase {}
 @property (nonatomic, strong) NSManagedObjectContext *moc;
@@ -104,13 +105,42 @@
 - (void) setUp {
   // Run before each test method
   //NSArray *bundles = [NSBundle allBundles];
-  NSManagedObjectModel *mom = [NSManagedObjectModel mergedModelFromBundles:[NSBundle allBundles]];
+  
+  [NSValueTransformer setValueTransformer:[[LjsLocationTransformer alloc] init] forName:@"LjsLocationTransformer"];
+  
+  NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"LjsGoogleModel" 
+                                            withExtension:@"momd"]; 
+  NSFileManager *fm = [NSFileManager defaultManager];
+  GHAssertTrue([fm fileExistsAtPath:[modelURL path]], @"%@ should exist", modelURL);
+  
+  NSManagedObjectModel *mom = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+  
+  
+  
   NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
   
-  GHAssertTrue((int)[psc addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:nil options:nil error:NULL], @"Should be able to add in-memory store");
+  NSDictionary *options = nil;
+  options = [NSDictionary dictionaryWithObjectsAndKeys:
+             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
   
+  GHAssertTrue((int)[psc addPersistentStoreWithType:NSInMemoryStoreType 
+                                      configuration:nil 
+                                                URL:nil 
+                                            options:options 
+                                              error:NULL], 
+               @"Should be able to add in-memory store");
   self.moc = [[NSManagedObjectContext alloc] init];
   self.moc.persistentStoreCoordinator = psc;
+
+   
+//  NSManagedObjectModel *mom = [NSManagedObjectModel mergedModelFromBundles:[NSBundle allBundles]];
+//  NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
+//  
+//  GHAssertTrue((int)[psc addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:nil options:nil error:NULL], @"Should be able to add in-memory store");
+//  
+//  self.moc = [[NSManagedObjectContext alloc] init];
+//  self.moc.persistentStoreCoordinator = psc;
 }
 
 - (void) tearDown {
