@@ -36,6 +36,7 @@ else
 fi
 
 alias be='bundle exec'
+alias cuke='NO_LAUNCH=1 OS=ios5 cucumber'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
