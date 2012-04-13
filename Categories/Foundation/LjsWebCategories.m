@@ -69,7 +69,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 - (NSString *) stringByParameterizingForUrl {
   NSMutableArray *parameters = [NSMutableArray array];
-  for (NSString *key in [self allKeys]) {
+  NSArray *keys = [self allKeys];
+  NSArray *sorted = [keys sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+    NSString *first = (NSString *) obj1;
+    NSString *second = (NSString *) obj2;
+    return [first compare:second];
+  }];
+  
+  for (NSString *key in sorted) {
     NSString *escapedk = [key stringByEncodingForUrl];
     NSString *v = [[self objectForKey:key] isKindOfClass:[NSString class]] ? [self objectForKey:key] : [[self objectForKey:key] stringValue];
     NSString *escapedv = [v stringByEncodingForUrl];

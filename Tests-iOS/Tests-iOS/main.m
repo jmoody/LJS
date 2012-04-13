@@ -3,7 +3,6 @@
 
 int main(int argc, char *argv[]) {
   @autoreleasepool {
-    NSString *GHUNIT_DELEGATE;
     
     LjsDefaultFormatter *formatter = [[LjsDefaultFormatter alloc] init];
     DDTTYLogger *tty = [DDTTYLogger sharedInstance];
@@ -16,7 +15,7 @@ int main(int argc, char *argv[]) {
     fileLogger.logFileManager.maximumNumberOfLogFiles = 10;
     [DDLog addLogger:fileLogger];
 
-    
+    NSString *GHUNIT_DELEGATE;
 #if TARGET_IPHONE_SIMULATOR 
     GHUNIT_DELEGATE = @"GHUnitIPhoneAppDelegate";
 #else

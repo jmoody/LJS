@@ -1,4 +1,4 @@
-// Copyright 2011 Little Joy Software. All rights reserved.
+// Copyright 2012 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -29,25 +29,45 @@
 
 #import <Foundation/Foundation.h>
 
-#if TARGET_OS_IPHONE
-#import <GHUnitIOS/GHUnit.h>
-#else
-#import <GHUnit/GHUnit.h>
-#endif
-#import "LjsVariates.h"
-#import "LjsValidator.h"
+@class ASIHTTPRequest;
+@class LjsGoogleTranslateManager;
 
-@interface UIView (UIView_TESTING)
+@protocol LjsGoogleTranslateManagerCallbackDelegate <NSObject>
 
-- (NSMutableDictionary *)fullDescription;
+@required
+- (void) finishedWithTranslation:(NSString *) aTranslation
+                             tag:(NSUInteger) aTag
+                        userInfo:(NSDictionary *) aUserInfo
+                         manager:(LjsGoogleTranslateManager *) aManager;
 
+- (void) failedTranslationWithTag:(NSUInteger) aTag
+                          request:(ASIHTTPRequest *) aRequest
+                          manager:(LjsGoogleTranslateManager *) aManager;
 @end
 
+/**
+ Documentation
+ */
+@interface LjsGoogleTranslateManager : NSObject 
 
-@interface LjsTestCase : GHTestCase {
-    
-}
+/** @name Properties */
+@property (nonatomic, copy) NSString *apiToken;
+@property (nonatomic, assign) id<LjsGoogleTranslateManagerCallbackDelegate> delegate;
 
-- (NSString *) emptyStringOrNil;
+/** @name Initializing Objects */
+- (id) initWithApiToken:(NSString *) aApiToken
+               delegate:(id<LjsGoogleTranslateManagerCallbackDelegate>) aDelegate;
+
+/** @name Handling Notifications, Requests, and Events */
+
+/** @name Utility */
+- (BOOL) translateText:(NSString *) aText
+            sourceLang:(NSString *) aSource
+            targetLang:(NSString *) aTarget
+                   tag:(NSUInteger) aTag
+          asynchronous:(BOOL) aAsync;
+
+
+
 
 @end

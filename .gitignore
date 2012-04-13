@@ -12,7 +12,7 @@ private/*
 
 # Xcode 3.*
 *~
-build 
+build
 *.mode* 
 *.perspective* 
 *~.nib 
