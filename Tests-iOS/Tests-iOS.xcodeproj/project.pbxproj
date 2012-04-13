@@ -290,6 +290,8 @@
 		F5C8F513152A70F300B32F95 /* LjsGoogleReverseGeocodeOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F512152A70F300B32F95 /* LjsGoogleReverseGeocodeOptions.m */; };
 		F5D3581F14B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
 		F5D3582014B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
+		F5D86BA315381E5000354105 /* LjsGoogleTranslateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D86BA215381E5000354105 /* LjsGoogleTranslateManager.m */; };
+		F5D86BA615381E6B00354105 /* LjsGoogleTranslateManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D86BA515381E6B00354105 /* LjsGoogleTranslateManagerTests.m */; };
 		F5F620A214E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */; };
 		F5F7BBB714D3E90800669FE6 /* LjsGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */; };
 		F5F7BBB914D3EA3300669FE6 /* LjsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F572496F149F9AD6006C62A2 /* LjsButton.m */; };
@@ -731,6 +733,9 @@
 		F5D6C8E01518F63B006FF6FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LjsScrollViewController.xib; sourceTree = "<group>"; };
 		F5D6C8E21518F738006FF6FC /* fourth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fourth.png; sourceTree = "<group>"; };
 		F5D6C8E31518F738006FF6FC /* fourth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fourth@2x.png"; sourceTree = "<group>"; };
+		F5D86BA115381E5000354105 /* LjsGoogleTranslateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleTranslateManager.h; sourceTree = "<group>"; };
+		F5D86BA215381E5000354105 /* LjsGoogleTranslateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleTranslateManager.m; sourceTree = "<group>"; };
+		F5D86BA515381E6B00354105 /* LjsGoogleTranslateManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleTranslateManagerTests.m; sourceTree = "<group>"; };
 		F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateLjsAdditionsTests.m; sourceTree = "<group>"; };
 		F5F7BBB514D3E90800669FE6 /* LjsGlassButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGlassButton.h; sourceTree = "<group>"; };
 		F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGlassButton.m; sourceTree = "<group>"; };
@@ -937,6 +942,7 @@
 		F512EB0D151C7BBA002E8E3A /* Google */ = {
 			isa = PBXGroup;
 			children = (
+				F5D86BA415381E6B00354105 /* Translate */,
 				F5C8F508152A6DFF00B32F95 /* Models */,
 				F5C8F4F8152A6D1800B32F95 /* Import */,
 				F5C8F4F3152A6CC400B32F95 /* Managers */,
@@ -1466,6 +1472,7 @@
 		F5A425351529F32000F35DDE /* Google */ = {
 			isa = PBXGroup;
 			children = (
+				F5D86BA015381E5000354105 /* Translate */,
 				F5A4253A1529F32000F35DDE /* LjsGoogleGlobals.h */,
 				F5A4253B1529F32000F35DDE /* LjsGoogleGlobals.m */,
 				F5A4253C1529F32000F35DDE /* Managers */,
@@ -1733,6 +1740,23 @@
 				F5C8F509152A6E2500B32F95 /* LjsGoogleReverseGeocodeTests.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F5D86BA015381E5000354105 /* Translate */ = {
+			isa = PBXGroup;
+			children = (
+				F5D86BA115381E5000354105 /* LjsGoogleTranslateManager.h */,
+				F5D86BA215381E5000354105 /* LjsGoogleTranslateManager.m */,
+			);
+			path = Translate;
+			sourceTree = "<group>";
+		};
+		F5D86BA415381E6B00354105 /* Translate */ = {
+			isa = PBXGroup;
+			children = (
+				F5D86BA515381E6B00354105 /* LjsGoogleTranslateManagerTests.m */,
+			);
+			path = Translate;
 			sourceTree = "<group>";
 		};
 		F5F7BBBE14D3ED5100669FE6 /* Categories */ = {
@@ -2144,6 +2168,8 @@
 				F5FD829B153212CA00F5800F /* LjsGestaltTests.m in Sources */,
 				F5FD83101532F20000F5800F /* LjsGoogleManagerTests.m in Sources */,
 				F57F4C0E1532FAB200E8B7D4 /* LjsGoogleImportTest_Super.m in Sources */,
+				F5D86BA315381E5000354105 /* LjsGoogleTranslateManager.m in Sources */,
+				F5D86BA615381E6B00354105 /* LjsGoogleTranslateManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

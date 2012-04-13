@@ -81,5 +81,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @implementation LjsTestCase
 
+- (NSString *) emptyStringOrNil {
+  NSString *result = nil;
+  if ([LjsVariates flip]) {
+    result = @"";
+  }
+  return result;
+}
 
 @end
