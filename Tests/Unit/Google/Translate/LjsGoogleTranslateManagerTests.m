@@ -105,8 +105,11 @@
 @property (atomic, strong) NSCondition* condition;
 @property (atomic, assign) BOOL operationSucceeded;
 
+@property (atomic, strong) ASIHTTPRequest *currentRequest;
+
 - (void) requestDidFail:(ASIHTTPRequest *) aRequest;
 - (void) requestDidFinish:(ASIHTTPRequest *) aRequest;
+
 @end
 
 @implementation LjsGoogleTranslateManagerTests
@@ -114,6 +117,7 @@
 @synthesize cipher;
 @synthesize condition;
 @synthesize operationSucceeded;
+@synthesize currentRequest;
 
 //- (id) init {
 //  self = [super init];
@@ -189,16 +193,10 @@
 
 - (void) tearDown {
   // Run after each test method
-  self.condition = nil;
-  self.operationSucceeded = YES;
+//  self.condition = nil;
+//  self.operationSucceeded = YES;
 }  
 
-//- (void) unlock {
-//    operationSucceeded = YES;    
-//    [condition lock];
-//    [condition signal];
-//    [condition unlock];
-//}
 
 - (void) test_urlForTranslationRequestWithBadParamters {
   NSString *source = [self emptyStringOrNil];
@@ -365,17 +363,26 @@
                                                 tag:tag
                                        asynchronous:YES];
   GHAssertTrue(actual, nil);
+  NSDate *date = [[NSDate date] dateByAddingTimeInterval:10];
+  
+  
   [self.condition lock];
-  [self.condition wait];
+  BOOL timedOut = ![self.condition waitUntilDate:date];
 	[self.condition unlock];
 
-  GHAssertTrue(self.operationSucceeded, nil);
+  if (timedOut) {
+    GHTestLog(@"operation timed out, so there is no test");
+  } else {
+    GHTestLog(@"operation completed, so we check the result");
+    GHAssertTrue(self.operationSucceeded, nil);
+  }
 }
+
 
 - (void) failedTranslationWithTag:(NSUInteger)aTag 
                           request:(ASIHTTPRequest *)aRequest 
                           manager:(LjsGoogleTranslateManager *)aManager {
-  GHTestLog(@"failed translation with tage: %d", aTag);
+  GHTestLog(@"failed translation with tag: %d", aTag);
   GHAssertTrue(aTag == 0, nil);
   self.operationSucceeded = NO;
   [self.condition lock];
@@ -414,10 +421,18 @@
                                         tag:0
                                asynchronous:YES];
   GHAssertTrue(actual, nil);
+  
+  NSDate *date = [[NSDate date] dateByAddingTimeInterval:10];
   [self.condition lock];
-  [self.condition wait];
+  BOOL timedOut = ![self.condition waitUntilDate:date];
 	[self.condition unlock];
-  GHAssertTrue(self.operationSucceeded, nil);
+  
+  if (timedOut) {
+    GHTestLog(@"operation timed out, so there is no test");
+  } else {
+    GHTestLog(@"operation completed, so we check the result");
+    GHAssertTrue(self.operationSucceeded, nil);
+  }
 }
 
 
