@@ -279,7 +279,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   
   NSArray *translations = [[dict objectForKey:@"data"] objectForKey:@"translations"];
   NSDictionary *first = [translations first];
-  return [first objectForKey:@"translatedText"];
+  // the google translation service is primarily focused on javascript, so quotes
+  // are returned as &quot; so we replace them.
+  NSString *rawText = [first objectForKey:@"translatedText"];
+  rawText = [rawText stringByReplacingOccurrencesOfString:@"&quot;" withString:@"\""];
+  rawText = [rawText trimmed];
+  return rawText;
 }
 
 

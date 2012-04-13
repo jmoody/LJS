@@ -455,6 +455,12 @@
   GHAssertEqualStrings(actual, expected, nil);
 }
 
+- (void) test_parseResultsWithQuotes {
+  NSString *response = @"{\"data\": {\"translations\": [{\"translatedText\": \"&quot;Hallo Welt&quot;\"}]}}";
+  NSString *actual = [self.manager parseResponse:response];
+  NSString *expected = @"\"Hallo Welt\"";
+  GHAssertEqualStrings(actual, expected, nil);
+}
 
 
 @end
