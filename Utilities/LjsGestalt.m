@@ -157,6 +157,22 @@ fail:
   return [@"appstore" isEqualToString:[self buildConfiguration:NO]];
 }
 
+- (BOOL) shouldDebugLabels {
+#ifdef DEBUG_LABELS
+  return YES;
+#else
+  return NO;
+#endif
+}
+
+- (BOOL) shouldDebugButtons {
+#ifdef DEBUG_BUTTONS
+  return YES;
+#else
+  return NO;
+#endif
+}
+
 
 @end
 

@@ -64,5 +64,8 @@ typedef enum {
 - (BOOL) isAdHocBuild;
 - (BOOL) isAppStoreBuild;
 
+- (BOOL) shouldDebugLabels;
+- (BOOL) shouldDebugButtons;
+
 @end
 
