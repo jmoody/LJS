@@ -60,6 +60,10 @@ typedef enum {
 
 - (NSString *) buildConfiguration:(BOOL) abbrevated;
 
+- (BOOL) isIphone;
+- (BOOL) isSimulator;
+- (BOOL) isMacOs;
+
 - (BOOL) isDebugBuild;
 - (BOOL) isAdHocBuild;
 - (BOOL) isAppStoreBuild;
