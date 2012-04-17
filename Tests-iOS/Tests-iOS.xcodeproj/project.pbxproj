@@ -222,6 +222,9 @@
 		F59635EC149665CC00CDB27E /* LjsModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635E7149665CC00CDB27E /* LjsModalViewController.m */; };
 		F59635ED149665CC00CDB27E /* LjsTimePickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635E9149665CC00CDB27E /* LjsTimePickerDelegate.m */; };
 		F59635EE149665CC00CDB27E /* UIViewController+ParentOrPresenting.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635EB149665CC00CDB27E /* UIViewController+ParentOrPresenting.m */; };
+		F59DE42E153DBE1600B92BFD /* com.littlejoysoftware.faker.us-census-firstnames.plist in Resources */ = {isa = PBXBuildFile; fileRef = F59DE42D153DBE1600B92BFD /* com.littlejoysoftware.faker.us-census-firstnames.plist */; };
+		F59DE431153DBF8C00B92BFD /* com.littlejoysoftware.faker.us-census-surnames.plist in Resources */ = {isa = PBXBuildFile; fileRef = F59DE430153DBF8C00B92BFD /* com.littlejoysoftware.faker.us-census-surnames.plist */; };
+		F59DE437153DC0CC00B92BFD /* com.littlejoysoftware.faker.domain-names.plist in Resources */ = {isa = PBXBuildFile; fileRef = F59DE436153DC0CC00B92BFD /* com.littlejoysoftware.faker.domain-names.plist */; };
 		F5A425981529F32000F35DDE /* LjsGoogleGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A4253B1529F32000F35DDE /* LjsGoogleGlobals.m */; };
 		F5A425991529F32000F35DDE /* LjsGoogleDistancer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A4253E1529F32000F35DDE /* LjsGoogleDistancer.m */; };
 		F5A4259A1529F32000F35DDE /* LjsGoogleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425401529F32000F35DDE /* LjsGoogleManager.m */; };
@@ -605,6 +608,9 @@
 		F59635E9149665CC00CDB27E /* LjsTimePickerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsTimePickerDelegate.m; sourceTree = "<group>"; };
 		F59635EA149665CC00CDB27E /* UIViewController+ParentOrPresenting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ParentOrPresenting.h"; sourceTree = "<group>"; };
 		F59635EB149665CC00CDB27E /* UIViewController+ParentOrPresenting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ParentOrPresenting.m"; sourceTree = "<group>"; };
+		F59DE42D153DBE1600B92BFD /* com.littlejoysoftware.faker.us-census-firstnames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.littlejoysoftware.faker.us-census-firstnames.plist"; sourceTree = "<group>"; };
+		F59DE430153DBF8C00B92BFD /* com.littlejoysoftware.faker.us-census-surnames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.littlejoysoftware.faker.us-census-surnames.plist"; sourceTree = "<group>"; };
+		F59DE436153DC0CC00B92BFD /* com.littlejoysoftware.faker.domain-names.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.littlejoysoftware.faker.domain-names.plist"; sourceTree = "<group>"; };
 		F5A4253A1529F32000F35DDE /* LjsGoogleGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleGlobals.h; sourceTree = "<group>"; };
 		F5A4253B1529F32000F35DDE /* LjsGoogleGlobals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleGlobals.m; sourceTree = "<group>"; };
 		F5A4253D1529F32000F35DDE /* LjsGoogleDistancer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleDistancer.h; sourceTree = "<group>"; };
@@ -1372,6 +1378,9 @@
 		F58D2334151A4BAC0043DB52 /* plists */ = {
 			isa = PBXGroup;
 			children = (
+				F59DE436153DC0CC00B92BFD /* com.littlejoysoftware.faker.domain-names.plist */,
+				F59DE430153DBF8C00B92BFD /* com.littlejoysoftware.faker.us-census-surnames.plist */,
+				F59DE42D153DBE1600B92BFD /* com.littlejoysoftware.faker.us-census-firstnames.plist */,
 				F58D2335151A4BAC0043DB52 /* com.littlejoysoftware.faker.addresses.us.plist */,
 				F58D2336151A4BAC0043DB52 /* com.littlejoysoftware.faker.cities.us.plist */,
 				F58D2337151A4BAC0043DB52 /* com.littlejoysoftware.faker.companies.us.plist */,
@@ -1876,6 +1885,9 @@
 				F5BB1EBC151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */,
 				F512EB0C151C7B68002E8E3A /* google-places-details-sample.json in Resources */,
 				F545349C1527B45D00B95A6D /* google-places-reverse-geocode-sample.json in Resources */,
+				F59DE42E153DBE1600B92BFD /* com.littlejoysoftware.faker.us-census-firstnames.plist in Resources */,
+				F59DE431153DBF8C00B92BFD /* com.littlejoysoftware.faker.us-census-surnames.plist in Resources */,
+				F59DE437153DC0CC00B92BFD /* com.littlejoysoftware.faker.domain-names.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
