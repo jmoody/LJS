@@ -6,4 +6,5 @@
 @interface NSLocale (NSLocale_LjsAdditions)
 
 + (NSLocale *) localeForEnglishUS;
+- (BOOL) localeUses24HourClock;
 @end

@@ -52,12 +52,12 @@
 /** @name Handling Notifications, Requests, and Events */
 
 /** @name Utility */
-+ (void) registerObserver:(id) aObserver 
-forKeyboardNotificationsWithWillShowSel:(SEL) aWillShowSel
-               didShowSel:(SEL) aDidShowSel
-              willHideSel:(SEL) aWillHideSel
-               didHideSel:(SEL) aDidHideSel 
-                   object:(id) aObject;
++ (void) registerForKeyboardNotificationWithObserver:(id) aObserver 
+                                         willShowSel:(SEL) aWillShowSel
+                                          didShowSel:(SEL) aDidShowSel
+                                         willHideSel:(SEL) aWillHideSel
+                                          didHideSel:(SEL) aDidHideSel 
+                                              object:(id) aObject;
   
 
 @end
