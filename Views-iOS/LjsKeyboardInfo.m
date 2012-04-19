@@ -94,11 +94,6 @@ static NSString *Ljs_UIKeyboardFrameChangedByUserInteraction = @"UIKeyboardFrame
                                               object:(id) aObject {
   NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
   
-  DDLogDebug(@"will show: %d", aWillShowSel != nil);
-  DDLogDebug(@" did show: %d", aDidShowSel != nil);
-  DDLogDebug(@"will hide: %d", aWillHideSel != nil);
-  DDLogDebug(@" did hide: %d", aDidHideSel != nil);
-  
 
   if (aWillShowSel != nil) {
     [nc addObserver:aObserver
