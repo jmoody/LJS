@@ -62,10 +62,10 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
 
 NSString *LjsHoursMinutesSecondsDateFormat = @"H:mm:ss";
 NSString *LjsHoursMinutesSecondsMillisDateFormat = @"H:mm:ss:SSS";
-static NSString *LjsISO8601_DateFormatWithMillis = @"yyyy-MM-dd HH:mm:ss.SSS";
-static NSString *LjsISO8601_DateFormat = @"yyyy-MM-dd HH:mm:ss";
-static NSString *LjsOrderedDateFormat = @"yyyy_MM_dd_HH_mm";
-static NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
+NSString *LjsISO8601_DateFormatWithMillis = @"yyyy-MM-dd HH:mm:ss.SSS";
+NSString *LjsISO8601_DateFormat = @"yyyy-MM-dd HH:mm:ss";
+NSString *LjsOrderedDateFormat = @"yyyy_MM_dd_HH_mm";
+NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 
 @implementation LjsDateHelper
 

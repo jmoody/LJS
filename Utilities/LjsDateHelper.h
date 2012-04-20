@@ -51,6 +51,12 @@ extern NSTimeInterval const LjsSecondsInWeek;
 extern NSTimeInterval const LjsSecondsInTropicalYear;
 extern NSTimeInterval const LjsSecondsInYear;
 
+extern NSString *LjsISO8601_DateFormatWithMillis;
+extern NSString *LjsISO8601_DateFormat;
+extern NSString *LjsOrderedDateFormat;
+extern NSString *LjsOrderedDateFormatWithMillis;
+
+
 /**
  Date handling is a pain, especially on iOS devices where user settings can 
  override explicit date formatting and locale conventions.  LjsDateHelper 
