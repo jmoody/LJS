@@ -37,12 +37,15 @@
 #import "LjsVariates.h"
 #import "LjsValidator.h"
 
+
+#if TARGET_OS_IPHONE
 @interface UIView (UIView_TESTING)
 
 - (NSMutableDictionary *)fullDescription;
 
 @end
 
+#endif
 
 @interface LjsTestCase : GHTestCase {
     

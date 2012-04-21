@@ -35,6 +35,7 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+#if TARGET_OS_IPHONE
 @implementation UIView (UIView_TESTING)
 
 - (NSMutableDictionary *)fullDescription {
@@ -77,7 +78,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 @end
-
+#endif
 
 @implementation LjsTestCase
 
