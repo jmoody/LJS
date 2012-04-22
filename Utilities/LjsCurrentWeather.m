@@ -81,7 +81,7 @@ static NSString *LjsCurrentWeatherApiKeyKey = @"free.worldweatheronline.com.LJS 
 
 #pragma mark Memory Management
 - (void) dealloc {
-   DDLogDebug(@"deallocating LjsCurrentWeather");
+   DDLogDebug(@"deallocating %@", [self class]);
 }
 
 - (id) initWithLatitude:(NSDecimalNumber *)aLatitude longitude:(NSDecimalNumber *)aLongitude {
