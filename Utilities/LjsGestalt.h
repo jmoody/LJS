@@ -71,5 +71,10 @@ typedef enum {
 - (BOOL) shouldDebugLabels;
 - (BOOL) shouldDebugButtons;
 
+- (NSString *) currentLanguageCode;
+- (BOOL) currentLangCodeIsEqualToCode:(NSString *) aCode;
+- (BOOL) isCurrentLanguageEnglish;
+
+
 @end
 

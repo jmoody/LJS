@@ -28,6 +28,60 @@
 
 #import <Foundation/Foundation.h>
 
+
+@interface LjsInterval : NSObject
+
+@property (nonatomic, strong) NSDecimalNumber *min;
+@property (nonatomic, strong) NSDecimalNumber *max;
+
+- (id) initWithMin:(NSDecimalNumber *) aMin
+               max:(NSDecimalNumber *) aMax;
+- (BOOL) intervalContains:(NSDecimalNumber *) aNumber;
+
+@end
+
+
+@interface LjsDn : NSObject
+
+/** @name NSDecimalNumber creation */
++ (NSDecimalNumber *) dnWithInteger:(NSInteger) aInteger;
++ (NSDecimalNumber *) dnWithUInteger:(NSUInteger) aUInteger;
++ (NSDecimalNumber *) dnWithDouble:(double) aDouble;
++ (NSDecimalNumber *) dnWithFloat:(CGFloat) aFloat;
++ (NSDecimalNumber *) dnWithString:(NSString *) aString;
++ (NSDecimalNumber *) dnWithNumber:(NSNumber *) aNumber;
++ (NSDecimalNumber *) nan;
++ (NSDecimalNumber *) one;
++ (NSDecimalNumber *) zero;
++ (NSDecimalNumber *) min;
++ (NSDecimalNumber *) max;
+
+/** @name NSDecimalNumber comparison */
++ (BOOL) dn:(NSDecimalNumber *) a e:(NSDecimalNumber *) b;
++ (BOOL) dn:(NSDecimalNumber *) a lt:(NSDecimalNumber *) b;
++ (BOOL) dn:(NSDecimalNumber *) a gt:(NSDecimalNumber *) b;
++ (BOOL) dn:(NSDecimalNumber *) a lte:(NSDecimalNumber *) b;
++ (BOOL) dn:(NSDecimalNumber *) a gte:(NSDecimalNumber *) b;
++ (BOOL) dn:(NSDecimalNumber *) a 
+    isOnMin:(NSDecimalNumber *) min
+        max:(NSDecimalNumber *) max;
+
++ (BOOL) dn:(NSDecimalNumber *) a isOnInterval:(LjsInterval *) aInterval;
+
+/** @name NSDecimalNumber rounding */
++ (NSDecimalNumber *) round:(NSDecimalNumber *) number 
+                withHandler:(NSDecimalNumberHandler *) handler;
+
+/** @name common NSDecimalNumberHandler */
++ (NSDecimalNumberHandler *) statisticsHandlerWithRoundMode:(NSRoundingMode) aMode
+                                                      scale:(NSUInteger) aInteger;
++ (NSDecimalNumberHandler *) locationHandlerWithRoundMode:(NSRoundingMode) aMode
+                                                    scale:(NSUInteger) aInteger;
+
+@end
+
+
+
 /**
  NSDecimalNumber on NSDecimalNumber_LjsAdditions category.
  */

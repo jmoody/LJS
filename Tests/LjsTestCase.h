@@ -37,7 +37,6 @@
 #import "LjsVariates.h"
 #import "LjsValidator.h"
 
-
 #if TARGET_OS_IPHONE
 @interface UIView (UIView_TESTING)
 
@@ -47,9 +46,8 @@
 
 #endif
 
-@interface LjsTestCase : GHTestCase {
-    
-}
+@interface LjsTestCase : GHTestCase 
+
 
 - (NSString *) emptyStringOrNil;
 

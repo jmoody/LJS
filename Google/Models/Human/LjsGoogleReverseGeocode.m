@@ -8,7 +8,6 @@
 #import "LjsGoogleAddressComponentGeocode.h"
 #import "LjsGoogleReverseGeocodeType.h"
 #import "NSDate+LjsAdditions.h"
-#import "LjsDn.h"
 #import "NSArray+LjsAdditions.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -99,10 +98,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
           self.location100m, self.formattedAddress, self.locationType];
 }
 
-- (NSString *) debugDescription {
-  return [NSString stringWithFormat:@"#<Geocode: %@ %@ %@>",
-          self.location100m, self.formattedAddress, self.locationType];  
-}
 @end
 
 //- (BOOL) hasTypeWithName:(NSString *) aName {

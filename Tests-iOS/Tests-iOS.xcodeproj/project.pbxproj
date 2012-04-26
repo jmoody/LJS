@@ -22,7 +22,6 @@
 		F50FE6E31410CC250051FC7E /* LjsKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6DD1410CC250051FC7E /* LjsKeychainTests.m */; };
 		F50FE6E41410CC250051FC7E /* LjsVariatesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6DE1410CC250051FC7E /* LjsVariatesTests.m */; };
 		F50FE6FF1410CC420051FC7E /* LjsDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6EA1410CC420051FC7E /* LjsDateHelper.m */; };
-		F50FE7001410CC420051FC7E /* LjsDn.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6EC1410CC420051FC7E /* LjsDn.m */; };
 		F50FE7021410CC420051FC7E /* LjsFileUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F01410CC420051FC7E /* LjsFileUtilities.m */; };
 		F50FE7041410CC420051FC7E /* LjsIdGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F41410CC420051FC7E /* LjsIdGenerator.m */; };
 		F50FE7061410CC420051FC7E /* LjsVariates.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F81410CC420051FC7E /* LjsVariates.m */; };
@@ -148,7 +147,6 @@
 		F54FA42014B708D40080CC9A /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448ABB1450B63B0065E516 /* LjsDefaultFormatter.m */; };
 		F54FA42114B708D40080CC9A /* LjsMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448ABE1450B63B0065E516 /* LjsMessageBuilder.m */; };
 		F54FA42314B725C00080CC9A /* LjsValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524414232EB5009C67EE /* LjsValidator.m */; };
-		F54FA42414B725F30080CC9A /* LjsDn.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6EC1410CC420051FC7E /* LjsDn.m */; };
 		F55CDEEA150F881600D9B906 /* LjsCaesarCipherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F55CDEE9150F881600D9B906 /* LjsCaesarCipherTests.m */; };
 		F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F56147B81450C72A00D2653A /* libOCMock.a */; };
 		F56147BB1450C86700D2653A /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F56147BA1450C86700D2653A /* OCMockWorkingTest.m */; };
@@ -337,8 +335,6 @@
 		F50FE6DE1410CC250051FC7E /* LjsVariatesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariatesTests.m; sourceTree = "<group>"; };
 		F50FE6E91410CC420051FC7E /* LjsDateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDateHelper.h; sourceTree = "<group>"; };
 		F50FE6EA1410CC420051FC7E /* LjsDateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDateHelper.m; sourceTree = "<group>"; };
-		F50FE6EB1410CC420051FC7E /* LjsDn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDn.h; sourceTree = "<group>"; };
-		F50FE6EC1410CC420051FC7E /* LjsDn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDn.m; sourceTree = "<group>"; };
 		F50FE6EF1410CC420051FC7E /* LjsFileUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFileUtilities.h; sourceTree = "<group>"; };
 		F50FE6F01410CC420051FC7E /* LjsFileUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileUtilities.m; sourceTree = "<group>"; };
 		F50FE6F31410CC420051FC7E /* LjsIdGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsIdGenerator.h; sourceTree = "<group>"; };
@@ -928,8 +924,6 @@
 				F5448AD21450B6590065E516 /* LjsKeychainManager.m */,
 				F50FE6E91410CC420051FC7E /* LjsDateHelper.h */,
 				F50FE6EA1410CC420051FC7E /* LjsDateHelper.m */,
-				F50FE6EB1410CC420051FC7E /* LjsDn.h */,
-				F50FE6EC1410CC420051FC7E /* LjsDn.m */,
 				F50FE6EF1410CC420051FC7E /* LjsFileUtilities.h */,
 				F50FE6F01410CC420051FC7E /* LjsFileUtilities.m */,
 				F50FE6F31410CC420051FC7E /* LjsIdGenerator.h */,
@@ -1984,7 +1978,6 @@
 				F50FE6E31410CC250051FC7E /* LjsKeychainTests.m in Sources */,
 				F50FE6E41410CC250051FC7E /* LjsVariatesTests.m in Sources */,
 				F50FE6FF1410CC420051FC7E /* LjsDateHelper.m in Sources */,
-				F50FE7001410CC420051FC7E /* LjsDn.m in Sources */,
 				F50FE7021410CC420051FC7E /* LjsFileUtilities.m in Sources */,
 				F50FE7041410CC420051FC7E /* LjsIdGenerator.m in Sources */,
 				F50FE7061410CC420051FC7E /* LjsVariates.m in Sources */,
@@ -2175,7 +2168,6 @@
 				F54FA42014B708D40080CC9A /* LjsDefaultFormatter.m in Sources */,
 				F54FA42114B708D40080CC9A /* LjsMessageBuilder.m in Sources */,
 				F54FA42314B725C00080CC9A /* LjsValidator.m in Sources */,
-				F54FA42414B725F30080CC9A /* LjsDn.m in Sources */,
 				F51C63FE14B7917100F1841B /* LjsLabelAttributes.m in Sources */,
 				F5D3582014B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */,
 				F548505114C5AF0700B7824F /* LjsFileBackedKeyStore.m in Sources */,

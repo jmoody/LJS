@@ -40,9 +40,4 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
           self.longName, self.shortName];
 }
 
-- (NSString *) debugDescription {
-  return [NSString stringWithFormat:@"#<Addr Comp: %@ %@>",
-          self.longName, self.shortName];
-}
-
 @end

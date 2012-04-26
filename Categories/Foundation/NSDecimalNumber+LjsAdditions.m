@@ -32,13 +32,224 @@
 
 #import "NSDecimalNumber+LjsAdditions.h"
 #import "Lumberjack.h"
-#import "LjsDn.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
 #else
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
+
+@implementation LjsInterval 
+
+@synthesize min;
+@synthesize max;
+
+- (id) initWithMin:(NSDecimalNumber *)aMin 
+               max:(NSDecimalNumber *)aMax {
+  self = [super init];
+  if (self) {
+    self.min = aMin;
+    self.max = aMax;
+  }
+  return self;
+}
+
+- (BOOL) intervalContains:(NSDecimalNumber *) aNumber {
+  return [LjsDn dn:aNumber isOnMin:self.min max:self.max];
+}
+
+@end
+
+/**
+ NSDecimalNumber is a powerful tool for handling currency, statistics, and other
+ floating point data.  The class name and the methods are, in my opinion, overly
+ verbose and tend to clutter code at the worse times - when you are doing 
+ sensitive currency calculations or implementing a complex confusing statistical
+ algorithm.  And who can remember how to compare two NSDecimalNumbers?  
+ 
+ Enter LjsDn - which provides methods for creating NSDecimalNumbers
+ from various numeric values, logical comparisons and rounding.
+ 
+ */
+@implementation LjsDn
+
+
++ (NSDecimalNumber *) nan {
+  return [NSDecimalNumber notANumber];
+}
++ (NSDecimalNumber *) one {
+  return [NSDecimalNumber one];
+}
+
++ (NSDecimalNumber *) zero {
+  return [NSDecimalNumber zero];
+}
+
+
++ (NSDecimalNumber *) min {
+  return [NSDecimalNumber minimumDecimalNumber];
+}
+
++ (NSDecimalNumber *) max {
+  return [NSDecimalNumber maximumDecimalNumber];
+}
+
+
+/**
+ @return a decimal number with the integer value
+ @param aInteger an integer
+ */
++ (NSDecimalNumber *) dnWithInteger:(NSInteger) aInteger {
+  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInteger:aInteger] decimalValue]];
+}
+
+/**
+ @return a decimal number with the uinteger value
+ @param aUInteger a uinteger
+ */
++ (NSDecimalNumber *) dnWithUInteger:(NSUInteger) aUInteger {
+  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithUnsignedInteger:aUInteger] decimalValue]];
+}
+
+/**
+ @return a decimal number with the double value
+ @param aDouble a double
+ */ 
++ (NSDecimalNumber *) dnWithDouble:(double) aDouble {
+  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithDouble:aDouble] decimalValue]];
+}
+
++ (NSDecimalNumber *) dnWithFloat:(CGFloat) aFloat {
+  return [LjsDn dnWithDouble:aFloat];
+}
+
+/**
+ @return a decimal number with the string value
+ @param aString a string
+ */
++ (NSDecimalNumber *) dnWithString:(NSString *) aString {
+  return [NSDecimalNumber decimalNumberWithString:aString];
+}
+
+/**
+ @return a decimal number from aNumber
+ @param aNumber a number
+ */
++ (NSDecimalNumber *) dnWithNumber:(NSNumber *) aNumber {
+  return [NSDecimalNumber decimalNumberWithDecimal:[aNumber decimalValue]];
+}
+
+
+/**
+ @return true iff a = b
+ @param a left hand side
+ @param b right hand side
+ */
++ (BOOL) dn:(NSDecimalNumber *) a e:(NSDecimalNumber *) b {
+  return [a compare:b] == NSOrderedSame;
+}
+
+/**
+ @return true iff a < b
+ @param a left hand side
+ @param b right hand side
+ */
++ (BOOL) dn:(NSDecimalNumber *) a lt:(NSDecimalNumber *) b {
+  return [a compare:b] == NSOrderedAscending;
+}
+
+/**
+ @return true iff a > b
+ @param a left hand side
+ @param b right hand side
+ */
++ (BOOL) dn:(NSDecimalNumber *) a gt:(NSDecimalNumber *) b {
+  return [a compare:b] == NSOrderedDescending;
+}
+
+/**
+ @return true iff a <= b
+ @param a left hand side
+ @param b right hand side
+ */
++ (BOOL) dn:(NSDecimalNumber *) a lte:(NSDecimalNumber *) b {
+  return [a compare:b] != NSOrderedDescending;
+}
+
+/**
+ @return true iff a >= b
+ @param a left hand side
+ @param b right hand side
+ */
++ (BOOL) dn:(NSDecimalNumber *) a gte:(NSDecimalNumber *) b {
+  return [a compare:b] != NSOrderedAscending;
+}
+
+/**
+ @return return true iff a is on (min, max) 
+ @param a number to test
+ @param min lower bound of range
+ @param max upper bound or range
+ */
++ (BOOL) dn:(NSDecimalNumber *) a 
+    isOnMin:(NSDecimalNumber *) min
+        max:(NSDecimalNumber *) max {
+  return [LjsDn dn:a gte:min] && [LjsDn dn:a lte:max];
+}
+
++ (BOOL) dn:(NSDecimalNumber *) a isOnInterval:(LjsInterval *) aInterval {
+  return [aInterval intervalContains:a];
+}
+
+/**
+ @return rounded decimal number with handler
+ @param number the number to round
+ @param handler the handler to use
+ */
++ (NSDecimalNumber *) round:(NSDecimalNumber *) number withHandler:(NSDecimalNumberHandler *) handler {
+  return [number decimalNumberByMultiplyingBy:[NSDecimalNumber one]
+                                 withBehavior:handler];
+}
+
+
+/**
+ NB: typically you will want to use NSRoundPlain for statistics
+ 
+ @return a handler with mode and scale
+ @param aMode a rounding mode
+ @param aInteger a scale (precision)
+ */
++ (NSDecimalNumberHandler *) statisticsHandlerWithRoundMode:(NSRoundingMode) aMode
+                                                      scale:(NSUInteger) aInteger {
+  return [NSDecimalNumberHandler 
+          decimalNumberHandlerWithRoundingMode:aMode
+          scale:aInteger
+          raiseOnExactness:NO
+          raiseOnOverflow:NO
+          raiseOnUnderflow:NO
+          raiseOnDivideByZero:YES];
+}
+
+/**
+ NB: typically you will want to use NSRoundPlain for location
+ 
+ @return a handler with mode and scale
+ @param aMode a rounding mode
+ @param aInteger a scale (precision)
+ */
++ (NSDecimalNumberHandler *) locationHandlerWithRoundMode:(NSRoundingMode) aMode
+                                                    scale:(NSUInteger) aInteger {
+  return  [NSDecimalNumberHandler 
+           decimalNumberHandlerWithRoundingMode:aMode
+           scale:aInteger
+           raiseOnExactness:NO
+           raiseOnOverflow:NO
+           raiseOnUnderflow:NO
+           raiseOnDivideByZero:YES];
+}
+
+
+@end
 
 @implementation NSDecimalNumber (NSDecimalNumber_LjsAdditions)
 

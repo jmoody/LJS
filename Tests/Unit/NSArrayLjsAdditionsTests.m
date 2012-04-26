@@ -254,4 +254,20 @@
   }
 }
 
+- (void) test_emptypTrue {
+  NSArray *array = [NSArray array];
+  GHAssertTrue([array emptyp], @"should be empty:\n%@", array);
+  NSMutableArray *marray = [NSMutableArray array];
+  GHAssertTrue([marray emptyp], @"should be empty:\n%@", marray);
+}
+
+- (void) test_emptypFalse {
+  NSArray *array = [NSArray arrayWithObject:@"a"];
+  GHAssertFalse([array emptyp], @"should be empty:\n%@", array);
+  NSMutableArray *marray = [NSMutableArray arrayWithObject:@"a"];
+  GHAssertFalse([marray emptyp], @"should be empty:\n%@", marray);
+}
+
+
+
 @end

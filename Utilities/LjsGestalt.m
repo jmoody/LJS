@@ -199,6 +199,18 @@ fail:
 #endif
 }
 
+- (NSString *) currentLanguageCode {
+  return [[NSLocale preferredLanguages] first];
+}
+
+- (BOOL) currentLangCodeIsEqualToCode:(NSString *) aCode {
+  return [[self currentLanguageCode] isEqualToString:aCode];
+}
+
+- (BOOL) isCurrentLanguageEnglish {
+  return [self currentLangCodeIsEqualToCode:@"en"];
+}
+
 
 @end
 

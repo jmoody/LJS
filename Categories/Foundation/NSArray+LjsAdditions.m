@@ -77,5 +77,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [NSArray arrayWithArray:result];
 }
 
+- (BOOL) emptyp {
+  return [self count] == 0;
+}
+
 
 @end
