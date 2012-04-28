@@ -170,3 +170,20 @@
    onIntervalMin:(CGFloat) aMin
              max:(CGFloat) aMax;
 @end
+
+@interface LjsReasons : NSObject
+
+- (BOOL) hasReasons;
+- (void) addReason:(NSString *) aReason;
+- (void) addReasonWithVarName:(NSString *)aVarName ifNil:(id) aObject;
+- (void) addReasonWithVarName:(NSString *)aVarName ifNilOrEmptyString:(NSString *) aString;
+- (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id) aObject notInList:(id) aFirst, ...NS_REQUIRES_NIL_TERMINATION;
+- (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id) aObject notInArray:(NSArray *) aArray;
+- (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id)aObject inList:(id) aFirst, ...NS_REQUIRES_NIL_TERMINATION;
+- (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id) aObject inArray:(NSArray *) aArray;
+
+- (NSString *) explanation:(NSString *) aExplanation;
+- (NSString *) explanation:(NSString *) aExplanation
+           withConsequence:(NSString *) aConsequence;
+
+@end

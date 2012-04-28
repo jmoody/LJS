@@ -184,3 +184,111 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 @end
+
+@interface LjsReasons ()
+
+@property (nonatomic, strong) NSMutableArray *reasons;
+
+@end
+
+@implementation LjsReasons
+
+@synthesize reasons;
+
+- (id) init {
+  self = [super init];
+  if (self) {
+    self.reasons = [NSMutableArray array];
+  }
+  return self;
+}
+
+- (BOOL) hasReasons {
+  return ![self.reasons emptyp];
+}
+
+- (void) addReason:(NSString *)aReason {
+  if ([LjsValidator stringIsNonNilAndNotEmpty:aReason] == NO) {
+    DDLogWarn(@"declining to add reason < %@ > - reasons must be non-nil and non-empty");
+    return;
+  }
+  [self.reasons nappend:aReason];
+}
+
+- (void) addReasonWithVarName:(NSString *)aVarName ifNil:(id) aObject {
+  if (aObject == nil) {
+    NSString *reason = [NSString stringWithFormat:@"%@ cannot be nil", aVarName];
+    [self addReason:reason];
+  }
+}
+
+- (void) addReasonWithVarName:(NSString *)aVarName ifNilOrEmptyString:(NSString *) aString {
+  if ([LjsValidator stringIsNonNilAndNotEmpty:aString] == NO) {
+    NSString *reason = [NSString stringWithFormat:@"%@ cannot be nil or empty",
+                        aVarName];
+    [self addReason:reason];
+  }
+}
+
+- (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id) aObject notInList:(id) aFirst, ... {
+  NSMutableArray *array = [NSMutableArray array];
+  va_list args;
+  va_start(args, aFirst);
+  for (id arg = aFirst; arg != nil; arg = va_arg(args, id)) {
+    [array nappend:arg];
+  }
+  va_end(args);
+  [self addReasonWithVarName:aVarName ifElement:aObject notInArray:array];
+  
+}
+
+- (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id) aObject notInArray:(NSArray *) aArray {
+  if ([aArray containsObject:aObject] == NO) {
+    NSString *set = [aArray componentsJoinedByString:@" | "];
+    set = [NSString stringWithFormat:@"{%@}", set];
+    NSString *reason = [NSString stringWithFormat:@"%@ < %@ > is not in: %@",
+                        aVarName, aObject, set];
+    [self addReason:reason];
+  }
+}
+
+- (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id)aObject inList:(id) aFirst, ... {
+  NSMutableArray *array = [NSMutableArray array];
+  va_list args;
+  va_start(args, aFirst);
+  for (id arg = aFirst; arg != nil; arg = va_arg(args, id)) {
+    [array nappend:arg];
+  }
+  va_end(args);
+  [self addReasonWithVarName:aVarName ifElement:aObject inArray:array];
+}
+
+- (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id) aObject inArray:(NSArray *) aArray {
+  if ([aArray containsObject:aObject]) {
+    NSString *set = [aArray componentsJoinedByString:@" | "];
+    set = [NSString stringWithFormat:@"{%@}", set];
+    NSString *reason = [NSString stringWithFormat:@"%@ < %@ > is in: %@",
+                        aVarName, aObject, set];
+    [self addReason:reason];
+  }
+}
+
+
+- (NSString *) explanation:(NSString *) aExplanation {
+  return [NSString stringWithFormat:@"%@ for these reasons:\n%@",
+          aExplanation, self.reasons];
+}
+
+- (NSString *) explanation:(NSString *) aExplanation
+           withConsequence:(NSString *) aConsequence {
+  NSString *result = [self explanation:aExplanation];
+  if ([LjsValidator stringIsNonNilAndNotEmpty:aConsequence]) {
+    result = [result stringByAppendingFormat:@"\nreturning %@", aConsequence];
+  } 
+  return result;
+}
+
+
+
+
+@end
