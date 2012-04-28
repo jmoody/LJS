@@ -169,6 +169,8 @@
 + (BOOL) isFloat:(CGFloat) aFloat
    onIntervalMin:(CGFloat) aMin
              max:(CGFloat) aMax;
+
++ (BOOL) isZeroRect:(CGRect) aRect;
 @end
 
 @interface LjsReasons : NSObject

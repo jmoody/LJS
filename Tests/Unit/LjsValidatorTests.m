@@ -349,6 +349,19 @@
   
 }
 
+- (void) test_isZeroRect_true {
+  BOOL actual = [LjsValidator isZeroRect:CGRectZero];
+  GHAssertTrue(actual, @"should be true");
+}
+
+- (void) test_isZeroRect_false {
+  BOOL actual = [LjsValidator isZeroRect:CGRectMake(0,1,0,1)];
+  GHAssertFalse(actual, @"should be false");
+}
+
+
+#pragma mark LjsReasons Tests 
+
 - (void) test_ljsReasonsInit {
   LjsReasons *reasons = [[LjsReasons alloc] init];
   GHAssertNotNil(reasons, @"reasons should not be nil");
