@@ -288,7 +288,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (NSString *) explanation:(NSString *) aExplanation
-           withConsequence:(NSString *) aConsequence {
+           consequence:(NSString *) aConsequence {
   NSString *result = [self explanation:aExplanation];
   if ([LjsValidator stringIsNonNilAndNotEmpty:aConsequence]) {
     result = [result stringByAppendingFormat:@"\nreturning %@", aConsequence];

@@ -186,6 +186,6 @@
 
 - (NSString *) explanation:(NSString *) aExplanation;
 - (NSString *) explanation:(NSString *) aExplanation
-           withConsequence:(NSString *) aConsequence;
+           consequence:(NSString *) aConsequence;
 
 @end
