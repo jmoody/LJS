@@ -387,7 +387,7 @@
   [reasons addReason:@"foo"];
   
   NSString *actual = [reasons explanation:@"could not make foo"
-                          withConsequence:nil];
+                              consequence:nil];
   GHTestLog(@"explanation = %@", actual);
   NSString *expected = @"could not make foo for these reasons:\n(\n    foo\n)";
   GHAssertEqualStrings(actual, expected, nil);
@@ -398,7 +398,7 @@
   [reasons addReason:@"foo"];
 
   NSString *actual = [reasons explanation:@"could not make foo"
-                          withConsequence:nil];
+                              consequence:nil];
   GHTestLog(@"explanation = %@", actual);
   NSString *expected = @"could not make foo for these reasons:\n(\n    foo\n)";
   GHAssertEqualStrings(actual, expected, nil);
@@ -409,7 +409,7 @@
   [reasons addReason:@"foo"];
   
   NSString *actual = [reasons explanation:@"could not make foo"
-                          withConsequence:@"nil"];
+                              consequence:@"nil"];
   GHTestLog(@"explanation = %@", actual);
   NSString *expected = @"could not make foo for these reasons:\n(\n    foo\n)\nreturning nil";
   GHAssertEqualStrings(actual, expected, nil);
