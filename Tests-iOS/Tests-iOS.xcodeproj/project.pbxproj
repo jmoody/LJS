@@ -147,6 +147,8 @@
 		F54FA42014B708D40080CC9A /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448ABB1450B63B0065E516 /* LjsDefaultFormatter.m */; };
 		F54FA42114B708D40080CC9A /* LjsMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448ABE1450B63B0065E516 /* LjsMessageBuilder.m */; };
 		F54FA42314B725C00080CC9A /* LjsValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524414232EB5009C67EE /* LjsValidator.m */; };
+		F5595B711550157E001CF528 /* NSDictionary+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5595B701550157E001CF528 /* NSDictionary+LjsAdditions.m */; };
+		F5595B74155015CB001CF528 /* NSDictionaryLjsAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5595B73155015CB001CF528 /* NSDictionaryLjsAdditionsTests.m */; };
 		F55CDEEA150F881600D9B906 /* LjsCaesarCipherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F55CDEE9150F881600D9B906 /* LjsCaesarCipherTests.m */; };
 		F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F56147B81450C72A00D2653A /* libOCMock.a */; };
 		F56147BB1450C86700D2653A /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F56147BA1450C86700D2653A /* OCMockWorkingTest.m */; };
@@ -522,6 +524,9 @@
 		F54FA40A14B7060B0080CC9A /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		F54FA40D14B7060B0080CC9A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LjsFirstViewController.xib; sourceTree = "<group>"; };
 		F54FA41014B7060B0080CC9A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LjsSecondViewController.xib; sourceTree = "<group>"; };
+		F5595B6F1550157E001CF528 /* NSDictionary+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5595B701550157E001CF528 /* NSDictionary+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5595B73155015CB001CF528 /* NSDictionaryLjsAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionaryLjsAdditionsTests.m; sourceTree = "<group>"; };
 		F55CDEE9150F881600D9B906 /* LjsCaesarCipherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsCaesarCipherTests.m; sourceTree = "<group>"; };
 		F56147AC1450BFB800D2653A /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../gh-unit/Project-iOS/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
 		F56147B21450C72A00D2653A /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
@@ -897,6 +902,7 @@
 				F573B8FA14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m */,
 				F55CDEE9150F881600D9B906 /* LjsCaesarCipherTests.m */,
 				F58D22ED151A42940043DB52 /* LjsFakerTests.m */,
+				F5595B73155015CB001CF528 /* NSDictionaryLjsAdditionsTests.m */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -1391,9 +1397,11 @@
 		F5903F49151B515000995AF1 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				F5C3B1E41523BAC7005B1087 /* LjsFoundationCategories.h */,
+				F5595B6F1550157E001CF528 /* NSDictionary+LjsAdditions.h */,
+				F5595B701550157E001CF528 /* NSDictionary+LjsAdditions.m */,
 				F5185D15152609AB00F178E5 /* NSString+LjsAdditions.h */,
 				F5185D16152609AB00F178E5 /* NSString+LjsAdditions.m */,
-				F5C3B1E41523BAC7005B1087 /* LjsFoundationCategories.h */,
 				F5C3B1E51523BAC7005B1087 /* NSDecimalNumber+LjsAdditions.h */,
 				F5C3B1E61523BAC7005B1087 /* NSDecimalNumber+LjsAdditions.m */,
 				F5903F4A151B515000995AF1 /* NSArray+LjsAdditions.h */,
@@ -2144,6 +2152,8 @@
 				F57F4C0E1532FAB200E8B7D4 /* LjsGoogleImportTest_Super.m in Sources */,
 				F5D86BA315381E5000354105 /* LjsGoogleTranslateManager.m in Sources */,
 				F5D86BA615381E6B00354105 /* LjsGoogleTranslateManagerTests.m in Sources */,
+				F5595B711550157E001CF528 /* NSDictionary+LjsAdditions.m in Sources */,
+				F5595B74155015CB001CF528 /* NSDictionaryLjsAdditionsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
