@@ -357,8 +357,6 @@
 		F529524414232EB5009C67EE /* LjsValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidator.m; sourceTree = "<group>"; };
 		F529524714232F47009C67EE /* LjsValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidatorTests.m; sourceTree = "<group>"; };
 		F5314A3214D88E8A007FC70C /* LoremIpsumTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoremIpsumTests.m; sourceTree = "<group>"; };
-		F534EC1014B4A32C00FFC67F /* LjsRemotePlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRemotePlist.h; sourceTree = "<group>"; };
-		F534EC1114B4A32C00FFC67F /* LjsRemotePlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsRemotePlist.m; sourceTree = "<group>"; };
 		F538F2401514AC81005D15D3 /* LjsPanAndZoomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsPanAndZoomImageView.h; sourceTree = "<group>"; };
 		F538F2411514AC81005D15D3 /* LjsPanAndZoomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsPanAndZoomImageView.m; sourceTree = "<group>"; };
 		F538F2451514B270005D15D3 /* LjsPanZoomController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsPanZoomController.h; sourceTree = "<group>"; };
@@ -1459,8 +1457,6 @@
 			children = (
 				F59635CF1496632000CDB27E /* LjsObjectWithUUID.h */,
 				F59635D01496632000CDB27E /* LjsObjectWithUUID.m */,
-				F534EC1014B4A32C00FFC67F /* LjsRemotePlist.h */,
-				F534EC1114B4A32C00FFC67F /* LjsRemotePlist.m */,
 			);
 			name = Model;
 			path = ../Model;

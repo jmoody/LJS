@@ -28,6 +28,10 @@
 
 #import "LjsTestCase.h"
 #import "Lumberjack.h"
+#import "LjsFileUtilities.h"
+#import "LjsGestalt.h"
+
+
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -80,7 +84,28 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @end
 #endif
 
+
 @implementation LjsTestCase
+
+@synthesize gestalt;
+@synthesize findDocumentDirectoryPathMock, findDocumentDirectoryPathOriginal;
+
+
+- (id) init {
+  self = [super init];
+  if (self) {
+    
+    self.gestalt = [[LjsGestalt alloc] init];
+    
+    self.findDocumentDirectoryPathOriginal = 
+    class_getClassMethod([LjsFileUtilities class],
+                         @selector(findDocumentDirectoryPath));
+    self.findDocumentDirectoryPathMock = 
+    class_getInstanceMethod([self class],
+                            @selector(findDocumentDirectoryPathSwizzled));
+  }
+  return self;
+}
 
 - (NSString *) emptyStringOrNil {
   NSString *result = nil;
@@ -89,5 +114,44 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
   return result;
 }
+
+// must swizzle for command line builds because Application does not exist
+// on the CLI so document path is /dev/null/Documents
+- (NSString *) findDocumentDirectoryPathSwizzled {
+  NSString *path = @"./build/sandbox/Documents";
+  NSError *error = nil;
+  BOOL success = [LjsFileUtilities ensureDirectory:path error:&error];
+  if (success == NO) {
+    GHTestLog(@"could not create directory at path: %@\n%@ : %@",
+              [error localizedDescription], error);
+    abort();
+  }
+  return path;
+}
+
+- (void) swizzleFindDocumentDirectoryPath {
+  
+//  Method original = class_getClassMethod([LjsFileUtilities class],
+//                                         @selector(findDocumentDirectoryPath));
+//  Method mock = class_getInstanceMethod([self class],
+//                                        @selector(findDocumentDirectoryPathSwizzled));
+//
+//  
+//  method_exchangeImplementations(original, mock);
+  method_exchangeImplementations(self.findDocumentDirectoryPathOriginal,
+                                 self.findDocumentDirectoryPathMock);
+}
+
+- (void) restoreFindDocumentDirectoryPath {
+//  Method original = class_getClassMethod([LjsFileUtilities class],
+//                                         @selector(findDocumentDirectoryPath));
+//  Method mock = class_getInstanceMethod([self class],
+//                                        @selector(findDocumentDirectoryPathSwizzled));
+//  method_exchangeImplementations(mock, original);
+  method_exchangeImplementations(self.findDocumentDirectoryPathMock,
+                                 self.findDocumentDirectoryPathOriginal);
+
+}
+
 
 @end
