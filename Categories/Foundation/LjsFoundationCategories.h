@@ -37,6 +37,7 @@
 #import "NSDateFormatter+LjsAdditions.h"
 #import "NSDecimalNumber+LjsAdditions.h"
 #import "NSString+LjsAdditions.h"
+#import "NSDictionary+LjsAdditions.h"
 
 // categories on string and dictionary for encoding and url parameters
 #import "LjsWebCategories.h"

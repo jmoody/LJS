@@ -65,28 +65,14 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsGoogleImportTest_Super.h"
-#import "LjsGooglePlacesPrediction.h"
-#import "LjsValidator.h"
-#import "SBJson.h"
+#import "LjsTestCase.h"
+#import "NSDate+LjsAdditions.h"
 
-@interface LjsGooglePlacesPredictionTests : LjsGoogleImportTest_Super
-
+@interface NSDictionaryLjsAdditionsTests : LjsTestCase {}
 @end
 
-@implementation LjsGooglePlacesPredictionTests
+@implementation NSDictionaryLjsAdditionsTests
 
-
-//- (id) init {
-//  self = [super init];
-//  if (self) {
-//    // Initialization code here.
-//  }
-//  return self;
-//}
-//
-//- (void) dealloc {
-//}
 
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
@@ -95,8 +81,6 @@
 
 - (void) setUpClass {
   // Run at start of all tests in the class
-  self.resourceName = @"google-places-autocomplete-sample";
-  [super setUpClass];
 }
 
 - (void) tearDownClass {
@@ -111,36 +95,26 @@
   // Run after each test method
 }  
 
-- (void) test_predictionTestInit {
-  SBJsonParser *parser;
-  NSError *error;
-  NSDictionary *dict;
-  NSArray *predictions;
-  LjsGooglePlacesPrediction *prediction;
 
-  error = nil;
-  parser = [[SBJsonParser alloc] init];
-  dict = [parser objectWithString:self.jsonResource
-                            error:&error];
-  
-  if (dict == nil) {
-    GHTestLog(@"failed because of an error: %@", error);
-  }
-  
-  GHAssertNotNil(dict, @"error: %@", error);
-  
-  predictions = [dict objectForKey:@"predictions"];
-  
-  for (NSDictionary *predDict in predictions) {
-    prediction = [[LjsGooglePlacesPrediction alloc]
-                 initWithDictionary:predDict];
-    GHAssertNotNil(prediction, nil);
-    GHAssertNotNil(prediction.stablePlaceId, nil);
-    GHAssertNotNil(prediction.searchReferenceId, nil);
-    GHAssertNotNil(prediction.tokens, nil);
-    GHAssertNotNil(prediction.types, nil);
-    GHAssertNotNil(prediction.matchedRanges, nil);
-  }
+- (void) test_emptyp_with_empty_dictionary {
+  BOOL actual = [[NSDictionary dictionary] emptyp];
+  GHAssertTrue(actual, @"empty dictionary should be emptyp");  
+}
+
+- (void) test_emptyp_with_empty_dictionary_mutable {
+  BOOL actual = [[NSMutableDictionary dictionary] emptyp];
+  GHAssertTrue(actual, @"empty dictionary should be emptyp");  
+}
+
+
+- (void) test_emptyp_with_non_empty_dict {
+  BOOL actual = [[NSDictionary dictionaryWithObject:@"foo" forKey:@"bar"] emptyp];
+  GHAssertFalse(actual, @"non-empty dictionaries should not be emptyp");
+}
+
+- (void) test_emptyp_with_non_empty_dict_mutable {
+  BOOL actual = [[NSMutableDictionary dictionaryWithObject:@"foo" forKey:@"bar"] emptyp];
+  GHAssertFalse(actual, @"non-empty dictionaries should not be emptyp");
 }
 
 @end

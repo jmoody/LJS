@@ -37,23 +37,12 @@
 #import "LjsValidator.h"
 #import "LjsVariates.h"
 
+
 @interface LjsValidatorTests : LjsTestCase {}
 @end
 
 
 @implementation LjsValidatorTests
-
-//- (id) init {
-//  self = [super init];
-//  if (self) {
-//    // Initialization code here.
-//  }
-//  return self;
-//}
-//
-//- (void) dealloc {
-//  [super dealloc];
-//}
 
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
@@ -359,5 +348,145 @@
   GHAssertTrue(actual, nil);
   
 }
+
+- (void) test_isZeroRect_true {
+  BOOL actual = [LjsValidator isZeroRect:CGRectZero];
+  GHAssertTrue(actual, @"should be true");
+}
+
+- (void) test_isZeroRect_false {
+  BOOL actual = [LjsValidator isZeroRect:CGRectMake(0,1,0,1)];
+  GHAssertFalse(actual, @"should be false");
+}
+
+
+#pragma mark LjsReasons Tests 
+
+- (void) test_ljsReasonsInit {
+  LjsReasons *reasons = [[LjsReasons alloc] init];
+  GHAssertNotNil(reasons, @"reasons should not be nil");
+   GHAssertFalse([reasons hasReasons], @"reasons array should be empty");
+}
+
+- (void) test_ljsReasonsAddReason {
+  LjsReasons *reasons = [[LjsReasons alloc] init];
+  [reasons addReason:@"foo"];
+  GHAssertTrue([reasons hasReasons], @"reasons array should have one reason after adding a reason");
+}
+
+- (void) test_ljsReasonsAddReasonIfNil {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"foo" ifNil:@"bar"];
+  GHAssertFalse([reasons hasReasons], @"reasons array should be empty");
+  [reasons addReasonWithVarName:@"niller" ifNil:nil];
+  GHAssertTrue([reasons hasReasons], @"reasons array should have one reason after adding a reason");
+}
+
+- (void) test_explanation {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReason:@"foo"];
+  
+  NSString *actual = [reasons explanation:@"could not make foo"
+                              consequence:nil];
+  GHTestLog(@"explanation = %@", actual);
+  NSString *expected = @"could not make foo for these reasons:\n(\n    foo\n)";
+  GHAssertEqualStrings(actual, expected, nil);
+}
+
+- (void) test_explanationWithNoConsequence {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReason:@"foo"];
+
+  NSString *actual = [reasons explanation:@"could not make foo"
+                              consequence:nil];
+  GHTestLog(@"explanation = %@", actual);
+  NSString *expected = @"could not make foo for these reasons:\n(\n    foo\n)";
+  GHAssertEqualStrings(actual, expected, nil);
+}
+
+- (void) test_explanationWithConsequence {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReason:@"foo"];
+  
+  NSString *actual = [reasons explanation:@"could not make foo"
+                              consequence:@"nil"];
+  GHTestLog(@"explanation = %@", actual);
+  NSString *expected = @"could not make foo for these reasons:\n(\n    foo\n)\nreturning nil";
+  GHAssertEqualStrings(actual, expected, nil);
+}
+
+
+//- (void) addReason:(NSString *)aReason ifNilOrEmptyString:(NSString *) aString;
+- (void) test_addReasonIfNilOrEmptyString {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"foo" ifNilOrEmptyString:[self emptyStringOrNil]];
+  GHAssertTrue([reasons hasReasons], @"should have reasons");  
+}
+
+//- (void) addReason:(NSString *)aReason ifElement:(id) aObject notInList:(id) aFirst, ... {
+
+- (void) test_addReasonIfElementNotInList_ElementInList {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"foo" ifElement:@"a" notInList:@"a", @"b", @"c", nil];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons");
+}
+
+
+- (void) test_addReasonIfElementNotInList_ElementNotInList {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"foo" ifElement:@"q" notInList:@"a", @"b", @"c", nil];
+  GHAssertTrue([reasons hasReasons], @"should have reasons");
+  GHTestLog(@"explanation: %@", [reasons explanation:@"i will give a reason"]);
+}
+
+- (void) test_addReasonIfElementNotInArray_element_in_list {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"foo" 
+                      ifElement:@"a"
+                     notInArray:[NSArray arrayWithObjects:@"a", @"b", @"c", nil]];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons");
+}
+
+- (void) test_addReasonIfElementNotInArray_element_not_in_list {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"foo" 
+                      ifElement:@"q"
+                     notInArray:[NSArray arrayWithObjects:@"a", @"b", @"c", nil]];
+  GHAssertTrue([reasons hasReasons], @"should have reasons");  
+}
+
+- (void) test_addReasonIfElementInList_elementInList {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"foo"
+                      ifElement:@"a"
+                         inList:@"a", @"b", @"c", nil];
+  GHAssertTrue([reasons hasReasons], @"should have reasons");  
+}
+
+- (void) test_addReasonIfElementInList_elementNotInList {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"foo"
+                      ifElement:@"q"
+                         inList:@"a", @"b", @"c", nil];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons");
+}
+
+- (void) test_addReasonIfElementInArray_elementInArray {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"foo"
+                      ifElement:@"a"
+                        inArray:[NSArray arrayWithObjects:@"a", @"b", @"c", nil]];
+  GHAssertTrue([reasons hasReasons], @"should have reasons");  
+}
+
+- (void) test_addReasonIfElementInArray_elementNotInArray {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"foo"
+                      ifElement:@"q"
+                        inArray:[NSArray arrayWithObjects:@"a", @"b", @"c", nil]];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons");  
+}
+
+
 
 @end

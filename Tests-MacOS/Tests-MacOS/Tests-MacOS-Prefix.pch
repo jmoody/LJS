@@ -6,4 +6,5 @@
 #import <Cocoa/Cocoa.h>
 #import <OCMock/OCMock.h>
 #include "TargetConditionals.h"
+#import "LjsCategories.h"
 #endif

@@ -101,6 +101,36 @@
   [LjsVariates flip];
 }
 
+- (void) test_flipWithProbOne {
+  for (NSUInteger index = 0; index < 100; index++) {
+    GHAssertTrue([LjsVariates flipWithProbilityOfYes:1.0], 
+                 @"failed at index: %d", index);
+  }
+}
+
+- (void) test_flipWithProbZero {
+  for (NSUInteger index = 0; index < 100; index++) {
+    GHAssertFalse([LjsVariates flipWithProbilityOfYes:0.0], 
+                  @"failed at index: %d", index);
+  }
+}
+
+- (void) test_flipWithProbNegative {
+  for (NSUInteger index = 0; index < 100; index++) {
+    GHAssertFalse([LjsVariates flipWithProbilityOfYes:-1.0], 
+                  @"failed at index: %d", index);
+  }
+}
+
+- (void) test_flipWithProbGreaterThanOne {
+  for (NSUInteger index = 0; index < 100; index++) {
+    GHAssertTrue([LjsVariates flipWithProbilityOfYes:2.0], 
+                  @"failed at index: %d", index);
+  }
+}
+
+
+
 - (void) testRandomDouble {
   int passes = 100;
   int index = 0;

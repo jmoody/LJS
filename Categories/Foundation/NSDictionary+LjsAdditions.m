@@ -1,4 +1,4 @@
-// Copyright (c) 2010, Little Joy Software
+// Copyright 2012 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,12 +26,23 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import <Foundation/Foundation.h>
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
+
+#import "NSDictionary+LjsAdditions.h"
 #import "Lumberjack.h"
 
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
 
-@interface DDFileLogger (DDFileLogger_CurrentFile)
+@implementation NSDictionary (NSDictionary_LjsAdditions)
 
-- (NSString *) currentFilePath;
+- (BOOL) emptyp {
+  return [self count] == 0;
+}
 
 @end

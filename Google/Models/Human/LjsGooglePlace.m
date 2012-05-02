@@ -5,7 +5,6 @@
 #import "LjsGooglePlaceType.h"
 #import "NSDate+LjsAdditions.h"
 #import "LjsGooglePlacesNmoDetails.h"
-#import "LjsDn.h"
 #import "NSDecimalNumber+LjsAdditions.h"
 #import "LjsLocationManager.h"
 #import "LjsGoogleNmoAddressComponent.h"
@@ -77,10 +76,5 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
           self.name, self.formattedAddress, self.location];
 }
 
-
-- (NSString *) debugDescription {
-  return [NSString stringWithFormat:@"#<Place: %@: %@ %@>",
-          self.name, self.formattedAddress, self.location];
-}
 
 @end

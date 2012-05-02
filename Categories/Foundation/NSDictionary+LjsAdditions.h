@@ -1,4 +1,4 @@
-// Copyright (c) 2010, Little Joy Software
+// Copyright 2012 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -27,11 +27,13 @@
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import <Foundation/Foundation.h>
-#import "Lumberjack.h"
 
+/**
+ NSDictionary on NSDictionary_LjsAdditions category.
+ */
+@interface NSDictionary (NSDictionary_LjsAdditions)
 
-@interface DDFileLogger (DDFileLogger_CurrentFile)
-
-- (NSString *) currentFilePath;
+/** @name Task Section */
+- (BOOL) emptyp;
 
 @end

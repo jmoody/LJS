@@ -42,16 +42,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @interface LjsUserDefaultsStore ()
 
-
-
-
 @end
 
 @implementation LjsUserDefaultsStore
 
 #pragma mark Memory Management
 - (void) dealloc {
-   DDLogDebug(@"deallocating LjsUserDefaultsStore");
+   DDLogDebug(@"deallocating %@", [self class]);
 }
 
 - (id) init {

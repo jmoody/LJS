@@ -46,7 +46,7 @@ NSString *LjsRestartFinderOperationFinishedNotification = @"com.littlejoysoftwar
 
 #pragma mark Memory Management
 - (void) dealloc {
-   DDLogDebug(@"deallocating LjsRestartFinderOperation");
+   DDLogDebug(@"deallocating %@", [self class]);
 }
 
 - (id) init {

@@ -22,7 +22,6 @@
 		F50FE6E31410CC250051FC7E /* LjsKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6DD1410CC250051FC7E /* LjsKeychainTests.m */; };
 		F50FE6E41410CC250051FC7E /* LjsVariatesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6DE1410CC250051FC7E /* LjsVariatesTests.m */; };
 		F50FE6FF1410CC420051FC7E /* LjsDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6EA1410CC420051FC7E /* LjsDateHelper.m */; };
-		F50FE7001410CC420051FC7E /* LjsDn.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6EC1410CC420051FC7E /* LjsDn.m */; };
 		F50FE7021410CC420051FC7E /* LjsFileUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F01410CC420051FC7E /* LjsFileUtilities.m */; };
 		F50FE7041410CC420051FC7E /* LjsIdGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F41410CC420051FC7E /* LjsIdGenerator.m */; };
 		F50FE7061410CC420051FC7E /* LjsVariates.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F81410CC420051FC7E /* LjsVariates.m */; };
@@ -148,7 +147,8 @@
 		F54FA42014B708D40080CC9A /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448ABB1450B63B0065E516 /* LjsDefaultFormatter.m */; };
 		F54FA42114B708D40080CC9A /* LjsMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448ABE1450B63B0065E516 /* LjsMessageBuilder.m */; };
 		F54FA42314B725C00080CC9A /* LjsValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524414232EB5009C67EE /* LjsValidator.m */; };
-		F54FA42414B725F30080CC9A /* LjsDn.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6EC1410CC420051FC7E /* LjsDn.m */; };
+		F5595B711550157E001CF528 /* NSDictionary+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5595B701550157E001CF528 /* NSDictionary+LjsAdditions.m */; };
+		F5595B74155015CB001CF528 /* NSDictionaryLjsAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5595B73155015CB001CF528 /* NSDictionaryLjsAdditionsTests.m */; };
 		F55CDEEA150F881600D9B906 /* LjsCaesarCipherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F55CDEE9150F881600D9B906 /* LjsCaesarCipherTests.m */; };
 		F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F56147B81450C72A00D2653A /* libOCMock.a */; };
 		F56147BB1450C86700D2653A /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F56147BA1450C86700D2653A /* OCMockWorkingTest.m */; };
@@ -222,6 +222,10 @@
 		F59635EC149665CC00CDB27E /* LjsModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635E7149665CC00CDB27E /* LjsModalViewController.m */; };
 		F59635ED149665CC00CDB27E /* LjsTimePickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635E9149665CC00CDB27E /* LjsTimePickerDelegate.m */; };
 		F59635EE149665CC00CDB27E /* UIViewController+ParentOrPresenting.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635EB149665CC00CDB27E /* UIViewController+ParentOrPresenting.m */; };
+		F59AC1601546B536001ABB88 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F59AC15F1546B536001ABB88 /* GHUnitIOS.framework */; };
+		F59DE42E153DBE1600B92BFD /* com.littlejoysoftware.faker.us-census-firstnames.plist in Resources */ = {isa = PBXBuildFile; fileRef = F59DE42D153DBE1600B92BFD /* com.littlejoysoftware.faker.us-census-firstnames.plist */; };
+		F59DE431153DBF8C00B92BFD /* com.littlejoysoftware.faker.us-census-surnames.plist in Resources */ = {isa = PBXBuildFile; fileRef = F59DE430153DBF8C00B92BFD /* com.littlejoysoftware.faker.us-census-surnames.plist */; };
+		F59DE437153DC0CC00B92BFD /* com.littlejoysoftware.faker.domain-names.plist in Resources */ = {isa = PBXBuildFile; fileRef = F59DE436153DC0CC00B92BFD /* com.littlejoysoftware.faker.domain-names.plist */; };
 		F5A425981529F32000F35DDE /* LjsGoogleGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A4253B1529F32000F35DDE /* LjsGoogleGlobals.m */; };
 		F5A425991529F32000F35DDE /* LjsGoogleDistancer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A4253E1529F32000F35DDE /* LjsGoogleDistancer.m */; };
 		F5A4259A1529F32000F35DDE /* LjsGoogleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425401529F32000F35DDE /* LjsGoogleManager.m */; };
@@ -265,7 +269,6 @@
 		F5A425C01529F32000F35DDE /* LjsGooglePlacesPredictiveReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425931529F32000F35DDE /* LjsGooglePlacesPredictiveReply.m */; };
 		F5A425C11529F32000F35DDE /* LjsGoogleReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425951529F32000F35DDE /* LjsGoogleReply.m */; };
 		F5A425C21529F32000F35DDE /* LjsGoogleRgReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425971529F32000F35DDE /* LjsGoogleRgReply.m */; };
-		F5B03A6714AA64E70015D59B /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B03A6614AA64E70015D59B /* GHUnitIOS.framework */; };
 		F5BB1EBC151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
 		F5BB1EBD151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
 		F5C112731496715900948605 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE69F1410C6F60051FC7E /* UIKit.framework */; };
@@ -334,8 +337,6 @@
 		F50FE6DE1410CC250051FC7E /* LjsVariatesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariatesTests.m; sourceTree = "<group>"; };
 		F50FE6E91410CC420051FC7E /* LjsDateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDateHelper.h; sourceTree = "<group>"; };
 		F50FE6EA1410CC420051FC7E /* LjsDateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDateHelper.m; sourceTree = "<group>"; };
-		F50FE6EB1410CC420051FC7E /* LjsDn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDn.h; sourceTree = "<group>"; };
-		F50FE6EC1410CC420051FC7E /* LjsDn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDn.m; sourceTree = "<group>"; };
 		F50FE6EF1410CC420051FC7E /* LjsFileUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFileUtilities.h; sourceTree = "<group>"; };
 		F50FE6F01410CC420051FC7E /* LjsFileUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileUtilities.m; sourceTree = "<group>"; };
 		F50FE6F31410CC420051FC7E /* LjsIdGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsIdGenerator.h; sourceTree = "<group>"; };
@@ -356,8 +357,6 @@
 		F529524414232EB5009C67EE /* LjsValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidator.m; sourceTree = "<group>"; };
 		F529524714232F47009C67EE /* LjsValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidatorTests.m; sourceTree = "<group>"; };
 		F5314A3214D88E8A007FC70C /* LoremIpsumTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoremIpsumTests.m; sourceTree = "<group>"; };
-		F534EC1014B4A32C00FFC67F /* LjsRemotePlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRemotePlist.h; sourceTree = "<group>"; };
-		F534EC1114B4A32C00FFC67F /* LjsRemotePlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsRemotePlist.m; sourceTree = "<group>"; };
 		F538F2401514AC81005D15D3 /* LjsPanAndZoomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsPanAndZoomImageView.h; sourceTree = "<group>"; };
 		F538F2411514AC81005D15D3 /* LjsPanAndZoomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsPanAndZoomImageView.m; sourceTree = "<group>"; };
 		F538F2451514B270005D15D3 /* LjsPanZoomController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsPanZoomController.h; sourceTree = "<group>"; };
@@ -523,6 +522,9 @@
 		F54FA40A14B7060B0080CC9A /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		F54FA40D14B7060B0080CC9A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LjsFirstViewController.xib; sourceTree = "<group>"; };
 		F54FA41014B7060B0080CC9A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LjsSecondViewController.xib; sourceTree = "<group>"; };
+		F5595B6F1550157E001CF528 /* NSDictionary+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5595B701550157E001CF528 /* NSDictionary+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5595B73155015CB001CF528 /* NSDictionaryLjsAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionaryLjsAdditionsTests.m; sourceTree = "<group>"; };
 		F55CDEE9150F881600D9B906 /* LjsCaesarCipherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsCaesarCipherTests.m; sourceTree = "<group>"; };
 		F56147AC1450BFB800D2653A /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../gh-unit/Project-iOS/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
 		F56147B21450C72A00D2653A /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
@@ -605,6 +607,10 @@
 		F59635E9149665CC00CDB27E /* LjsTimePickerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsTimePickerDelegate.m; sourceTree = "<group>"; };
 		F59635EA149665CC00CDB27E /* UIViewController+ParentOrPresenting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ParentOrPresenting.h"; sourceTree = "<group>"; };
 		F59635EB149665CC00CDB27E /* UIViewController+ParentOrPresenting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ParentOrPresenting.m"; sourceTree = "<group>"; };
+		F59AC15F1546B536001ABB88 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnitIOS.framework; sourceTree = "<group>"; };
+		F59DE42D153DBE1600B92BFD /* com.littlejoysoftware.faker.us-census-firstnames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.littlejoysoftware.faker.us-census-firstnames.plist"; sourceTree = "<group>"; };
+		F59DE430153DBF8C00B92BFD /* com.littlejoysoftware.faker.us-census-surnames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.littlejoysoftware.faker.us-census-surnames.plist"; sourceTree = "<group>"; };
+		F59DE436153DC0CC00B92BFD /* com.littlejoysoftware.faker.domain-names.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.littlejoysoftware.faker.domain-names.plist"; sourceTree = "<group>"; };
 		F5A4253A1529F32000F35DDE /* LjsGoogleGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleGlobals.h; sourceTree = "<group>"; };
 		F5A4253B1529F32000F35DDE /* LjsGoogleGlobals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleGlobals.m; sourceTree = "<group>"; };
 		F5A4253D1529F32000F35DDE /* LjsGoogleDistancer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleDistancer.h; sourceTree = "<group>"; };
@@ -691,7 +697,6 @@
 		F5A425951529F32000F35DDE /* LjsGoogleReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleReply.m; sourceTree = "<group>"; };
 		F5A425961529F32000F35DDE /* LjsGoogleRgReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleRgReply.h; sourceTree = "<group>"; };
 		F5A425971529F32000F35DDE /* LjsGoogleRgReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleRgReply.m; sourceTree = "<group>"; };
-		F5B03A6614AA64E70015D59B /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnitIOS.framework; sourceTree = "<group>"; };
 		F5B03A6E14AA67620015D59B /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		F5B03A6F14AA67620015D59B /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
 		F5B03A7014AA67620015D59B /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
@@ -768,7 +773,7 @@
 				F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */,
 				F50FE6A01410C6F60051FC7E /* UIKit.framework in Frameworks */,
 				F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */,
-				F5B03A6714AA64E70015D59B /* GHUnitIOS.framework in Frameworks */,
+				F59AC1601546B536001ABB88 /* GHUnitIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -855,8 +860,8 @@
 		F50FE6A61410C6F60051FC7E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F59AC15F1546B536001ABB88 /* GHUnitIOS.framework */,
 				F5B03A6A14AA67620015D59B /* ocmock */,
-				F5B03A6614AA64E70015D59B /* GHUnitIOS.framework */,
 				F50FE6A71410C6F60051FC7E /* Tests-iOS-Info.plist */,
 				F50FE6A81410C6F60051FC7E /* InfoPlist.strings */,
 				F50FE6AB1410C6F60051FC7E /* main.m */,
@@ -878,9 +883,9 @@
 		F50FE6D81410CC250051FC7E /* Unit */ = {
 			isa = PBXGroup;
 			children = (
+				F512EB0D151C7BBA002E8E3A /* Google */,
 				F5FD829A153212CA00F5800F /* LjsGestaltTests.m */,
 				F512EBA1151CA284002E8E3A /* LjsFileUtiltiesTests.m */,
-				F512EB0D151C7BBA002E8E3A /* Google */,
 				F54E39771450E2530059BF53 /* LjsJsonRpcReplyTests.m */,
 				F50FE6D91410CC250051FC7E /* LjsDateHelperTests.m */,
 				F50FE6DA1410CC250051FC7E /* LjsDecimalAideTests.m */,
@@ -895,6 +900,7 @@
 				F573B8FA14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m */,
 				F55CDEE9150F881600D9B906 /* LjsCaesarCipherTests.m */,
 				F58D22ED151A42940043DB52 /* LjsFakerTests.m */,
+				F5595B73155015CB001CF528 /* NSDictionaryLjsAdditionsTests.m */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -922,8 +928,6 @@
 				F5448AD21450B6590065E516 /* LjsKeychainManager.m */,
 				F50FE6E91410CC420051FC7E /* LjsDateHelper.h */,
 				F50FE6EA1410CC420051FC7E /* LjsDateHelper.m */,
-				F50FE6EB1410CC420051FC7E /* LjsDn.h */,
-				F50FE6EC1410CC420051FC7E /* LjsDn.m */,
 				F50FE6EF1410CC420051FC7E /* LjsFileUtilities.h */,
 				F50FE6F01410CC420051FC7E /* LjsFileUtilities.m */,
 				F50FE6F31410CC420051FC7E /* LjsIdGenerator.h */,
@@ -1372,6 +1376,9 @@
 		F58D2334151A4BAC0043DB52 /* plists */ = {
 			isa = PBXGroup;
 			children = (
+				F59DE436153DC0CC00B92BFD /* com.littlejoysoftware.faker.domain-names.plist */,
+				F59DE430153DBF8C00B92BFD /* com.littlejoysoftware.faker.us-census-surnames.plist */,
+				F59DE42D153DBE1600B92BFD /* com.littlejoysoftware.faker.us-census-firstnames.plist */,
 				F58D2335151A4BAC0043DB52 /* com.littlejoysoftware.faker.addresses.us.plist */,
 				F58D2336151A4BAC0043DB52 /* com.littlejoysoftware.faker.cities.us.plist */,
 				F58D2337151A4BAC0043DB52 /* com.littlejoysoftware.faker.companies.us.plist */,
@@ -1388,9 +1395,11 @@
 		F5903F49151B515000995AF1 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				F5C3B1E41523BAC7005B1087 /* LjsFoundationCategories.h */,
+				F5595B6F1550157E001CF528 /* NSDictionary+LjsAdditions.h */,
+				F5595B701550157E001CF528 /* NSDictionary+LjsAdditions.m */,
 				F5185D15152609AB00F178E5 /* NSString+LjsAdditions.h */,
 				F5185D16152609AB00F178E5 /* NSString+LjsAdditions.m */,
-				F5C3B1E41523BAC7005B1087 /* LjsFoundationCategories.h */,
 				F5C3B1E51523BAC7005B1087 /* NSDecimalNumber+LjsAdditions.h */,
 				F5C3B1E61523BAC7005B1087 /* NSDecimalNumber+LjsAdditions.m */,
 				F5903F4A151B515000995AF1 /* NSArray+LjsAdditions.h */,
@@ -1448,8 +1457,6 @@
 			children = (
 				F59635CF1496632000CDB27E /* LjsObjectWithUUID.h */,
 				F59635D01496632000CDB27E /* LjsObjectWithUUID.m */,
-				F534EC1014B4A32C00FFC67F /* LjsRemotePlist.h */,
-				F534EC1114B4A32C00FFC67F /* LjsRemotePlist.m */,
 			);
 			name = Model;
 			path = ../Model;
@@ -1781,7 +1788,6 @@
 				F50FE6971410C6F60051FC7E /* Sources */,
 				F50FE6981410C6F60051FC7E /* Frameworks */,
 				F50FE6991410C6F60051FC7E /* Resources */,
-				F56481A1149906EB008CDF7E /* Run Script versioning */,
 				F57F4C1015331D2100E8B7D4 /* ShellScript */,
 			);
 			buildRules = (
@@ -1800,7 +1806,6 @@
 				F54FA3E914B7060A0080CC9A /* Sources */,
 				F54FA3EA14B7060A0080CC9A /* Frameworks */,
 				F54FA3EB14B7060A0080CC9A /* Resources */,
-				F54FA41514B706340080CC9A /* Run Script bundle version <== git short version */,
 			);
 			buildRules = (
 			);
@@ -1876,6 +1881,9 @@
 				F5BB1EBC151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */,
 				F512EB0C151C7B68002E8E3A /* google-places-details-sample.json in Resources */,
 				F545349C1527B45D00B95A6D /* google-places-reverse-geocode-sample.json in Resources */,
+				F59DE42E153DBE1600B92BFD /* com.littlejoysoftware.faker.us-census-firstnames.plist in Resources */,
+				F59DE431153DBF8C00B92BFD /* com.littlejoysoftware.faker.us-census-surnames.plist in Resources */,
+				F59DE437153DC0CC00B92BFD /* com.littlejoysoftware.faker.domain-names.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1932,35 +1940,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		F54FA41514B706340080CC9A /* Run Script bundle version <== git short version */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script bundle version <== git short version";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "#!/bin/bash\n# This is a build phase run script to set various properties in the info plist \n# of an Xcode project.  The values that are set are:\n# CFBuildNumber - an incrementing counter to keep track of the number of App Store\n#                 Distribution builds have been created\n# CFBundleGetInfoString - verbose details about current build\n#   !App Store Configuration: MyApp 1.0.5 ee168e1 De\n#    App Store Configuration: MyApp 1.2 1.2.1\n# CFBundleVersion - the current bundle version\n#   !App Store Distribution:  <git short rev> e.g. ee168e1\n#    App Store Distribution:  <short version>.<build number>\n#\n# You must manage the CFBundleShortVersionString manually!\n# You must reset the CFBuildNumber manually for each new short version string!\n#\n# Rules\n# 1. depends on a build configuration \"App Store Distribution\"\n# 2. you must manage your short version string manually\n# 3. keep your app store distribution short version string to *.* \n# 4. the build number is used to create bundle version for App Store distributions which\n#    only allows *.*.* bundle version\n\nif [ \"$USER\" = \"moody\" ] \nthen\n\nPlistBuddyPath=/usr/libexec/PlistBuddy\nLjsAppStoreDistributionConfiguration=\"App Store Distribution\"\n\n\n\nCFBuildNumber=$(\"$PlistBuddyPath\" -c \"Print CFBuildNumber\" \"$INFOPLIST_FILE\")\n# if the build number property does not exist, create it and set it to 0\nif [ `echo $?` != 0 ]\nthen\necho \"No entry for CFBuildNumber in Plist, so we create it\"\nCFBuildNumber=0\n\"$PlistBuddyPath\" -c \"Add :CFBuildNumber integer $CFBuildNumber\" \"$INFOPLIST_FILE\"\nfi\n\n# if this is an app store release, then increment the build number\nif [ \"$CONFIGURATION\" = \"$LjsAppStoreDistributionConfiguration\" ] \nthen \nCFBuildNumber=$(($CFBuildNumber + 1))\n\"$PlistBuddyPath\" -c \"Set :CFBuildNumber $CFBuildNumber\" \"$INFOPLIST_FILE\"\nfi\n\n\n# if the get info string property does not exist, create it\nCFBundleGetInfoString=$(\"$PlistBuddyPath\" -c \"Print CFBundleGetInfoString\" \"$INFOPLIST_FILE\")\nif [ `echo $?` != 0 ]\nthen\necho \"No entry for CFBundleGetInfoString in Plist, so we create it\"\U0013\n\"$PlistBuddyPath\" -c \"Add :CFBundleGetInfoString string \\\"NEWLY CREATED\\\"\" \"$INFOPLIST_FILE\"\nfi\n\n\n\n# use the git revision for the bunlde version, except when building for the app store\ngitpath=`which git`\nCFBundleVersion=`$gitpath rev-parse --short HEAD`\nCFBundleShortVersionString=$(\"$PlistBuddyPath\" -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\n\n\nif [ \"$CONFIGURATION\" != \"$LjsAppStoreDistributionConfiguration\" ] \nthen\nCFBundleVersion_CURRENT=$(\"$PlistBuddyPath\" -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nif [ \"$CFBundleVersion\" != \"$CFBundleVersion_CURRENT\" ]\nthen\necho \"Bundle version has changed:  $CFBundleVersion_CURRENT ==> $CFBundleVersion - updating plist\"\n\"$PlistBuddyPath\" -c \"Set :CFBundleVersion $CFBundleVersion\" \"$INFOPLIST_FILE\"\nelse\necho \"CFBundleVersion has not changed, no need to update plist\"  \nfi\nBUILD_CONFIGURATION_ABBR=${CONFIGURATION:0:2} \nCFBundleGetInfoString=\"$PRODUCT_NAME $CFBundleShortVersionString $CFBundleVersion $BUILD_CONFIGURATION_ABBR\"\nCFBundleGetInfoString_CURRENT=$(\"$PlistBuddyPath\" -c \"Print CFBundleGetInfoString\" \"$INFOPLIST_FILE\")\nif [ \"$CFBundleGetInfoString\" != \"$CFBundleGetInfoString_CURRENT\" ]\nthen\necho \"Info String has changed:  $CFBundleGetInfoString_CURRENT ==> $CFBundleGetInfoString - updating plist\"\n\"$PlistBuddyPath\" -c \"Set :CFBundleGetInfoString $CFBundleGetInfoString\" \"$INFOPLIST_FILE\"\nelse\necho \"CFBundleGetInfoString has not changed, no need to update plist\"\nfi\nelse\n# no need to check if the get info string has changed, but it necessarily will have because\n# the build number is incremented\n\"$PlistBuddyPath\" -c \"Set :CFBundleVersion $CFBundleShortVersionString.$CFBuildNumber\" \"$INFOPLIST_FILE\"\nCFBundleGetInfoString=\"$PROJECT_NAME $CFBundleShortVersionString.$CFBuildNumber\"\n\"$PlistBuddyPath\" -c \"Set :CFBundleGetInfoString $CFBundleGetInfoString\" \"$INFOPLIST_FILE\"\nfi\n\n\n\necho CONFIGURATION = \"$CONFIGURATION\"\necho build number = $(\"$PlistBuddyPath\" -c \"Print CFBuildNumber\" \"$INFOPLIST_FILE\")\necho bundle version = $(\"$PlistBuddyPath\" -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\necho bundle short version = $(\"$PlistBuddyPath\" -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\necho bundle info string = $(\"$PlistBuddyPath\" -c \"Print CFBundleGetInfoString\" \"$INFOPLIST_FILE\")\n\nelse\n\necho \"Skipping the modification of $INFOPLIST_FILE for $USER\"\n\nfi\n\n";
-		};
-		F56481A1149906EB008CDF7E /* Run Script versioning */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script versioning";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "#!/bin/bash\n# This is a build phase run script to set various properties in the info plist \n# of an Xcode project.  The values that are set are:\n# CFBuildNumber - an incrementing counter to keep track of the number of App Store\n#                 Distribution builds have been created\n# CFBundleGetInfoString - verbose details about current build\n#   !App Store Configuration: MyApp 1.0.5 ee168e1 De\n#    App Store Configuration: MyApp 1.2 1.2.1\n# CFBundleVersion - the current bundle version\n#   !App Store Distribution:  <git short rev> e.g. ee168e1\n#    App Store Distribution:  <short version>.<build number>\n#\n# You must manage the CFBundleShortVersionString manually!\n# You must reset the CFBuildNumber manually for each new short version string!\n#\n# Rules\n# 1. depends on a build configuration \"App Store Distribution\"\n# 2. you must manage your short version string manually\n# 3. keep your app store distribution short version string to *.* \n# 4. the build number is used to create bundle version for App Store distributions which\n#    only allows *.*.* bundle version\n\nif [ \"$USER\" = \"moody\" ] \nthen\n\nPlistBuddyPath=/usr/libexec/PlistBuddy\nLjsAppStoreDistributionConfiguration=\"App Store Distribution\"\n\n\n\nCFBuildNumber=$(\"$PlistBuddyPath\" -c \"Print CFBuildNumber\" \"$INFOPLIST_FILE\")\n# if the build number property does not exist, create it and set it to 0\nif [ `echo $?` != 0 ]\nthen\necho \"No entry for CFBuildNumber in Plist, so we create it\"\nCFBuildNumber=0\n\"$PlistBuddyPath\" -c \"Add :CFBuildNumber integer $CFBuildNumber\" \"$INFOPLIST_FILE\"\nfi\n\n# if this is an app store release, then increment the build number\nif [ \"$CONFIGURATION\" = \"$LjsAppStoreDistributionConfiguration\" ] \nthen \nCFBuildNumber=$(($CFBuildNumber + 1))\n\"$PlistBuddyPath\" -c \"Set :CFBuildNumber $CFBuildNumber\" \"$INFOPLIST_FILE\"\nfi\n\n\n# if the get info string property does not exist, create it\nCFBundleGetInfoString=$(\"$PlistBuddyPath\" -c \"Print CFBundleGetInfoString\" \"$INFOPLIST_FILE\")\nif [ `echo $?` != 0 ]\nthen\necho \"No entry for CFBundleGetInfoString in Plist, so we create it\"\U0013\n\"$PlistBuddyPath\" -c \"Add :CFBundleGetInfoString string \\\"NEWLY CREATED\\\"\" \"$INFOPLIST_FILE\"\nfi\n\n\n\n# use the git revision for the bunlde version, except when building for the app store\ngitpath=`which git`\nCFBundleVersion=`$gitpath rev-parse --short HEAD`\nCFBundleShortVersionString=$(\"$PlistBuddyPath\" -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\n\n\nif [ \"$CONFIGURATION\" != \"$LjsAppStoreDistributionConfiguration\" ] \nthen\nCFBundleVersion_CURRENT=$(\"$PlistBuddyPath\" -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nif [ \"$CFBundleVersion\" != \"$CFBundleVersion_CURRENT\" ]\nthen\necho \"Bundle version has changed:  $CFBundleVersion_CURRENT ==> $CFBundleVersion - updating plist\"\n\"$PlistBuddyPath\" -c \"Set :CFBundleVersion $CFBundleVersion\" \"$INFOPLIST_FILE\"\nelse\necho \"CFBundleVersion has not changed, no need to update plist\"  \nfi\nBUILD_CONFIGURATION_ABBR=${CONFIGURATION:0:2} \nCFBundleGetInfoString=\"$PRODUCT_NAME $CFBundleShortVersionString $CFBundleVersion $BUILD_CONFIGURATION_ABBR\"\nCFBundleGetInfoString_CURRENT=$(\"$PlistBuddyPath\" -c \"Print CFBundleGetInfoString\" \"$INFOPLIST_FILE\")\nif [ \"$CFBundleGetInfoString\" != \"$CFBundleGetInfoString_CURRENT\" ]\nthen\necho \"Info String has changed:  $CFBundleGetInfoString_CURRENT ==> $CFBundleGetInfoString - updating plist\"\n\"$PlistBuddyPath\" -c \"Set :CFBundleGetInfoString $CFBundleGetInfoString\" \"$INFOPLIST_FILE\"\nelse\necho \"CFBundleGetInfoString has not changed, no need to update plist\"\nfi\nelse\n# no need to check if the get info string has changed, but it necessarily will have because\n# the build number is incremented\n\"$PlistBuddyPath\" -c \"Set :CFBundleVersion $CFBundleShortVersionString.$CFBuildNumber\" \"$INFOPLIST_FILE\"\nCFBundleGetInfoString=\"$PROJECT_NAME $CFBundleShortVersionString.$CFBuildNumber\"\n\"$PlistBuddyPath\" -c \"Set :CFBundleGetInfoString $CFBundleGetInfoString\" \"$INFOPLIST_FILE\"\nfi\n\n\n\necho CONFIGURATION = \"$CONFIGURATION\"\necho build number = $(\"$PlistBuddyPath\" -c \"Print CFBuildNumber\" \"$INFOPLIST_FILE\")\necho bundle version = $(\"$PlistBuddyPath\" -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\necho bundle short version = $(\"$PlistBuddyPath\" -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\necho bundle info string = $(\"$PlistBuddyPath\" -c \"Print CFBundleGetInfoString\" \"$INFOPLIST_FILE\")\n\nelse\n\necho \"Skipping the modification of $INFOPLIST_FILE for $USER\"\n\nfi\n\n";
-			showEnvVarsInLog = 0;
-		};
 		F57F4C1015331D2100E8B7D4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2003,7 +1982,6 @@
 				F50FE6E31410CC250051FC7E /* LjsKeychainTests.m in Sources */,
 				F50FE6E41410CC250051FC7E /* LjsVariatesTests.m in Sources */,
 				F50FE6FF1410CC420051FC7E /* LjsDateHelper.m in Sources */,
-				F50FE7001410CC420051FC7E /* LjsDn.m in Sources */,
 				F50FE7021410CC420051FC7E /* LjsFileUtilities.m in Sources */,
 				F50FE7041410CC420051FC7E /* LjsIdGenerator.m in Sources */,
 				F50FE7061410CC420051FC7E /* LjsVariates.m in Sources */,
@@ -2170,6 +2148,8 @@
 				F57F4C0E1532FAB200E8B7D4 /* LjsGoogleImportTest_Super.m in Sources */,
 				F5D86BA315381E5000354105 /* LjsGoogleTranslateManager.m in Sources */,
 				F5D86BA615381E6B00354105 /* LjsGoogleTranslateManagerTests.m in Sources */,
+				F5595B711550157E001CF528 /* NSDictionary+LjsAdditions.m in Sources */,
+				F5595B74155015CB001CF528 /* NSDictionaryLjsAdditionsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2194,7 +2174,6 @@
 				F54FA42014B708D40080CC9A /* LjsDefaultFormatter.m in Sources */,
 				F54FA42114B708D40080CC9A /* LjsMessageBuilder.m in Sources */,
 				F54FA42314B725C00080CC9A /* LjsValidator.m in Sources */,
-				F54FA42414B725F30080CC9A /* LjsDn.m in Sources */,
 				F51C63FE14B7917100F1841B /* LjsLabelAttributes.m in Sources */,
 				F5D3582014B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */,
 				F548505114C5AF0700B7824F /* LjsFileBackedKeyStore.m in Sources */,

@@ -83,7 +83,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 
 - (void) dealloc {
-  DDLogDebug(@"deallocating LjsTextViewTailing");
+  DDLogDebug(@"deallocating %@", [self class]);
   [self stopAndReleaseRepeatingTimers];
   [[UKKQueue sharedFileWatcher] removePathFromQueue:[self.logger currentFilePath]];
   [DDLog removeLogger:self.logger];

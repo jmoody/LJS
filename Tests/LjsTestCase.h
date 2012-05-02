@@ -36,17 +36,29 @@
 #endif
 #import "LjsVariates.h"
 #import "LjsValidator.h"
+#import <objc/runtime.h>
 
+#if TARGET_OS_IPHONE
 @interface UIView (UIView_TESTING)
 
 - (NSMutableDictionary *)fullDescription;
 
 @end
 
+#endif
 
-@interface LjsTestCase : GHTestCase {
-    
-}
+@class LjsGestalt;
+
+@interface LjsTestCase : GHTestCase 
+
+@property (nonatomic, strong) LjsGestalt *gestalt;
+
+@property (assign) Method findDocumentDirectoryPathOriginal;
+@property (assign) Method findDocumentDirectoryPathMock;
+
+- (NSString *) findDocumentDirectoryPathSwizzled;
+- (void) swizzleFindDocumentDirectoryPath;
+- (void) restoreFindDocumentDirectoryPath;
 
 - (NSString *) emptyStringOrNil;
 

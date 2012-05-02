@@ -43,8 +43,4 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [NSString stringWithFormat:@"#%@", self.name];
 }
 
-- (NSString *) debugDescription {
-  return [NSString stringWithFormat:@"#%@", self.name];
-}
-
 @end

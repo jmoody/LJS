@@ -75,7 +75,7 @@ static NSString *LjsConnectivityStatusStringNoInternet = @"Reachability:  Intern
 
 
 - (void) dealloc {
-  DDLogDebug(@"deallocating LjsReachabilityObserver");
+  DDLogDebug(@"deallocating %@", [self class]);
   [[NSNotificationCenter defaultCenter] removeObserver:self];
   [self stopAndReleaseRepeatingTimers];
 }

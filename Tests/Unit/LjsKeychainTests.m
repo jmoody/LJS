@@ -57,7 +57,10 @@ static NSString *LjsKeychainTestsPasswordKeychainServiceName = @"com.littlejoyso
 
 static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
 
-@interface LjsKeychainTests : LjsTestCase <UIAlertViewDelegate>
+@interface LjsKeychainTests : LjsTestCase 
+#if TARGET_OS_IPHONE
+<UIAlertViewDelegate>
+#endif
 
 @property (nonatomic, strong) LjsKeychainManager *km;
 
@@ -72,6 +75,13 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
 
 
 @implementation LjsKeychainTests
+
+#if TARGET_OS_IPHONE
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+  GHTestLog(@"touched button at index: %d", buttonIndex);
+}
+#endif
+
 
 @synthesize km;
 //- (id) init {
@@ -669,9 +679,6 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
   }
 }
 
-- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-  GHTestLog(@"touched button at index: %d", buttonIndex);
-}
 
 - (void) printerror:(NSError *) error {
   NSInteger code = [error code];

@@ -62,7 +62,6 @@
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
 
-#import "LjsDn.h"
 #import "LjsTestCase.h"
 
 @interface LjsDecimalAideTests : LjsTestCase {}

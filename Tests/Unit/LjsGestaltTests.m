@@ -64,11 +64,14 @@
 #import "LjsTestCase.h"
 #import "LjsGestalt.h"
 
-@interface LjsGestaltTests : LjsTestCase {}
+@interface LjsGestaltTests : LjsTestCase 
+
+@property (nonatomic, strong) LjsGestalt *gestalt;
 @end
 
 
 @implementation LjsGestaltTests
+@synthesize gestalt;
 
 //- (id) init {
 //  self = [super init];
@@ -89,52 +92,47 @@
 
 - (void) setUpClass {
   // Run at start of all tests in the class
+  self.gestalt = [[LjsGestalt alloc] init];
+  GHTestLog(@"gestalt = %@", self.gestalt);
+  GHAssertNotNil(self.gestalt, nil);
 }
 
 - (void) tearDownClass {
   // Run at end of all tests in the class
+  self.gestalt = nil;
 }
 
 - (void) setUp {
   // Run before each test method
+
 }
 
 - (void) tearDown {
   // Run after each test method
 }  
 
-#if !TARGET_OS_IPHONE
-- (void) test_init {
-  LjsGestalt *gestalt = [[LjsGestalt alloc] init];
-  GHTestLog(@"gestalt = %@", gestalt);
-  GHAssertNotNil(gestalt, nil);
-}
-#endif
 
 - (void) test_isDebugBuild {
-  LjsGestalt *gestalt = [[LjsGestalt alloc] init];
 #if DEBUG_BUILD
-  GHAssertTrue([gestalt isDebugBuild], nil);
+  GHAssertTrue([self.gestalt isDebugBuild], nil);
 #else
-  GHAssertFalse([gestalt isDebugBuild], nil);
+  GHAssertFalse([self.gestalt isDebugBuild], nil);
 #endif
 }
 
 - (void) test_isAdHocBuild {
-  LjsGestalt *gestalt = [[LjsGestalt alloc] init];
 #if ADHOC_BUILD
-  GHAssertTrue([gestalt isAdHocBuild], nil);
+  GHAssertTrue([self.gestalt isAdHocBuild], nil);
 #else
-  GHAssertFalse([gestalt isAdHocBuild], nil);
+  GHAssertFalse([self.gestalt isAdHocBuild], nil);
 #endif
 }
 
 - (void) test_isAppStoreBuild {
-  LjsGestalt *gestalt = [[LjsGestalt alloc] init];
 #if APPSTORE_BUILD
-  GHAssertTrue([gestalt isAppStoreBuild], nil);
+  GHAssertTrue([self.gestalt isAppStoreBuild], nil);
 #else
-  GHAssertFalse([gestalt isAppStoreBuild], nil);
+  GHAssertFalse([self.gestalt isAppStoreBuild], nil);
 #endif
 }
 
@@ -142,38 +140,67 @@
   NSString *actual, *act;
   NSString *expected, *exp;
   
-  LjsGestalt *gestalt = [[LjsGestalt alloc] init];
-  
 #if DEBUG_BUILD
   expected = @"debug";
   exp = @"de";
-  actual = [gestalt buildConfiguration:NO];
-  act = [gestalt buildConfiguration:YES];
+  actual = [self.gestalt buildConfiguration:NO];
+  act = [self.gestalt buildConfiguration:YES];
   GHAssertEqualStrings(actual, expected, nil);
   GHAssertEqualStrings(act, exp, nil);
 #elif ADHOC_BUILD
   expected = @"adhoc";
   exp = @"ah";
-  actual = [gestalt buildConfiguration:NO];
-  act = [gestalt buildConfiguration:YES];
+  actual = [self.gestalt buildConfiguration:NO];
+  act = [self.gestalt buildConfiguration:YES];
   GHAssertEqualStrings(actual, expected, nil);
   GHAssertEqualStrings(act, exp, nil);
 #elif APPSTORE_BUILD
   expected = @"appstore";
   exp = @"as";
-  actual = [gestalt buildConfiguration:NO];
-  act = [gestalt buildConfiguration:YES];
+  actual = [self.gestalt buildConfiguration:NO];
+  act = [self.gestalt buildConfiguration:YES];
   GHAssertEqualStrings(actual, expected, nil);
   GHAssertEqualStrings(act, exp, nil);
 #else
   expected = nil;
   exp = nil;
-  actual = [gestalt buildConfiguration:NO];
+  actual = [self.gestalt buildConfiguration:NO];
   GHAssertNil(actual, nil);
-  act = [gestalt buildConfiguration:YES];
+  act = [self.gestalt buildConfiguration:YES];
   GHAssertNil(act, nil);
 #endif
 
+}
+
+- (void) test_currentLanguageCodeNotNil {
+  NSString *actual = [self.gestalt currentLanguageCode];
+  GHAssertNotNil(actual, nil);
+}
+
+- (void) test_currentLangCodeIsWithNil {
+  GHAssertFalse([self.gestalt currentLangCodeIsEqualToCode:nil], 
+                @"result should be false with code argument is nil");
+}
+
+- (void) test_currentLangCodeIsCorrect {
+  NSString *code = [[NSLocale preferredLanguages] first];
+  GHAssertTrue([self.gestalt currentLangCodeIsEqualToCode:code],
+               @"< %@ > should be equal to the current language code: < %@ >",
+               code, [self.gestalt currentLanguageCode]);
+}
+
+- (void) test_isCurrentLanguageEnglishTrue {
+  LjsGestalt *g = [[LjsGestalt alloc] init];
+  id mock = [OCMockObject partialMockForObject:g];
+  [[[mock expect] andReturn:@"en"] currentLanguageCode];
+  GHAssertTrue([g isCurrentLanguageEnglish], nil);
+}
+
+- (void) test_isCurrentLanguageEnglishFalse {
+  LjsGestalt *g = [[LjsGestalt alloc] init];
+  id mock = [OCMockObject partialMockForObject:g];
+  [[[mock expect] andReturn:@"de"] currentLanguageCode];
+  GHAssertFalse([g isCurrentLanguageEnglish], nil);
 }
 
 

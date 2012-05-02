@@ -57,7 +57,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 #pragma mark Memory Management
 - (void) dealloc {
-  //DDLogDebug(@"deallocating LjsGestalt");
+  //DDLogDebug(@"deallocating %@", [self class]);
 }
 
 
@@ -126,6 +126,32 @@ fail:
 
 #endif
 
+- (BOOL) isIphone {
+#if TARGET_OS_IPHONE && !TARGET_IPHONE_SIMULATOR
+  return YES;
+#else
+  return NO;
+#endif
+}
+
+- (BOOL) isSimulator {
+#if TARGET_IPHONE_SIMULATOR
+  return YES;
+#else
+  return NO;
+#endif
+}
+
+- (BOOL) isMacOs {
+#if !TARGET_OS_IPHONE
+  return YES;
+#else
+  return NO;
+#endif
+}
+
+
+
 - (NSString *) buildConfiguration:(BOOL) abbrevated {
   NSString *config, *abbrev;
 #if DEBUG_BUILD
@@ -155,6 +181,34 @@ fail:
 
 - (BOOL) isAppStoreBuild {
   return [@"appstore" isEqualToString:[self buildConfiguration:NO]];
+}
+
+- (BOOL) shouldDebugLabels {
+#ifdef DEBUG_LABELS
+  return YES;
+#else
+  return NO;
+#endif
+}
+
+- (BOOL) shouldDebugButtons {
+#ifdef DEBUG_BUTTONS
+  return YES;
+#else
+  return NO;
+#endif
+}
+
+- (NSString *) currentLanguageCode {
+  return [[NSLocale preferredLanguages] first];
+}
+
+- (BOOL) currentLangCodeIsEqualToCode:(NSString *) aCode {
+  return [[self currentLanguageCode] isEqualToString:aCode];
+}
+
+- (BOOL) isCurrentLanguageEnglish {
+  return [self currentLangCodeIsEqualToCode:@"en"];
 }
 
 

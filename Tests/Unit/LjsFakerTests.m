@@ -70,14 +70,21 @@
 #import "LjsCategories.h"
 #import "LjsFileUtilities.h"
 
+@interface LjsFaker (TEST)
+
+
+@end
+
 @interface LjsFakerTests : LjsTestCase {}
 
 @property (nonatomic, strong) LjsFaker *faker;
+@property (nonatomic, strong) NSFileManager *fm;
 @end
 
 
 @implementation LjsFakerTests
 @synthesize faker;
+@synthesize fm;
 
 //- (id) init {
 //  self = [super init];
@@ -106,11 +113,82 @@
 
 - (void) setUp {
   // Run before each test method
+  self.fm = [NSFileManager defaultManager];
 }
 
 - (void) tearDown {
   // Run after each test method
 }  
+
+
+- (void) test_firstName {
+  GHAssertNotNil([self.faker firstName], nil);
+}
+
+- (void) test_lastName {
+  GHAssertNotNil([self.faker lastName], nil);
+}
+
+- (void) test_name {
+  GHAssertNotNil([self.faker name], nil);
+}
+
+- (void) test_companyName {
+  GHAssertNotNil([self.faker company], nil);
+}
+
+- (void) test_cityName {
+  GHAssertNotNil([self.faker city], nil);
+}
+
+- (void) test_streetAddress {
+  GHAssertNotNil([self.faker streetAddress], nil);
+}
+
+- (void) test_state {
+  GHAssertNotNil([self.faker state:YES], nil);
+  GHAssertNotNil([self.faker state:NO], nil);
+}
+
+- (void) test_domainName {
+  GHAssertNotNil([self.faker websiteWithHttp:YES escaped:YES], nil);
+}
+
+//- (void) test_writeDomainNames {
+//  NSArray *array = [LjsFaker domainNamesArray];
+//  NSString *dir = [LjsFileUtilities findDocumentDirectoryPath];
+//  NSString *filename = @"com.littlejoysoftware.faker.domain-names.plist";
+//  NSString *path = [dir stringByAppendingPathComponent:filename];
+//  [LjsFileUtilities writeArray:array
+//                        toFile:path
+//                         error:nil];
+//  GHAssertTrue([fm fileExistsAtPath:path], nil);
+//}
+
+//- (void) test_writeCensusSurnamesNames {
+//  NSArray *array = [LjsFaker lastNamesArray];
+//  NSString *dir = [LjsFileUtilities findDocumentDirectoryPath];
+//  NSString *filename = @"com.littlejoysoftware.faker.us-census-surnames.plist";
+//  NSString *path = [dir stringByAppendingPathComponent:filename];
+//  [LjsFileUtilities writeArray:array
+//                        toFile:path
+//                         error:nil];
+//  GHAssertTrue([fm fileExistsAtPath:path], nil);
+//
+//}
+
+
+//- (void) test_writeCensusFirstNames {
+//  NSArray *array = [LjsFaker firstNamesArray];
+//  NSString *dir = [LjsFileUtilities findDocumentDirectoryPath];
+//  NSString *filename = @"com.littlejoysoftware.faker.us-census-firstnames.plist";
+//  NSString *path = [dir stringByAppendingPathComponent:filename];
+//  [LjsFileUtilities writeArray:array
+//                        toFile:path
+//                         error:nil];
+//  GHAssertTrue([fm fileExistsAtPath:path], nil);
+//
+//}
 
 //- (void)testGHLog {
 //  GHTestLog(@"GH test logging is working");
@@ -222,38 +300,6 @@
 //                         error:nil];
 //
 //}
-
-- (void) test_firstName {
-  GHAssertNotNil([self.faker firstName], nil);
-}
-
-- (void) test_lastName {
-  GHAssertNotNil([self.faker lastName], nil);
-}
-
-- (void) test_name {
-  GHAssertNotNil([self.faker name], nil);
-}
-
-- (void) test_companyName {
-  GHAssertNotNil([self.faker company], nil);
-}
-
-- (void) test_cityName {
-  GHAssertNotNil([self.faker city], nil);
-}
-
-- (void) test_streetAddress {
-  GHAssertNotNil([self.faker streetAddress], nil);
-}
-
-- (void) test_state {
-  GHAssertNotNil([self.faker state:YES], nil);
-  GHAssertNotNil([self.faker state:NO], nil);
-}
-
-
-
 
 
 
