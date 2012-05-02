@@ -18,8 +18,9 @@ export LSCOLORS=dxfxcxdxbxegedabagacad
 
 export POSTGRES_PATH=/Library/PostgreSQL/9.0/bin
 export DEVELOPER_PATH=/Applications/Xcode.app/Contents/Developer/usr/bin
-export PATH=/opt/local/bin:/opt/local/sbin:$DEVELOPER_PATH:$POSTGRES_PATH:~/bin:$PATH
+export PATH=$DEVELOPER_PATH:/opt/local/bin:/opt/local/sbin:$POSTGRES_PATH:~/bin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
+
 
 export RUBYMINE_HOME="/Applications/RubyMine 3.2.4.app/"
 
@@ -36,7 +37,8 @@ else
 fi
 
 alias be='bundle exec'
-alias cuke='NO_LAUNCH=1 OS=ios5 cucumber'
+#alias cuke='appledoc-script.sh;NO_LAUNCH=1 OS=ios5 cucumber'
+#alias cuke='/usr/bin/osascript -e 'tell application "iPhone Simulator" to activate';NO_LAUNCH=1 OS=ios5 cucumber'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

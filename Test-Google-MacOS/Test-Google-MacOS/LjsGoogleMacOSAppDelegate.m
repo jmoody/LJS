@@ -50,6 +50,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   fileLogger.maximumFileSize = 1024 * 1024;
   fileLogger.rollingFrequency = 60 * 60 * 24;
   fileLogger.logFileManager.maximumNumberOfLogFiles = 10;
+  formatter = [[LjsDefaultFormatter alloc] init];
+  [fileLogger setLogFormatter:formatter];
   [DDLog addLogger:fileLogger];
   DDLogDebug(@"logging initialized");
 
@@ -127,7 +129,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     LjsGpPredictionGoogleOptions *googleOptions;
     googleOptions = [LjsGpPredictionGoogleOptions optionsWithRadius:10000
                                                searchEstablishments:NO
-                                                      langCodesOrNil:@"en"
+                                                     langCodesOrNil:[NSArray arrayWithObject:@"en"]
                                                        searchString:searchString];
     LjsGpPredicateFactory *factory = [[LjsGpPredicateFactory alloc] init];
     //    NSPredicate *predicate = [factory establishmentPredicateWithSearchString:searchString];    
