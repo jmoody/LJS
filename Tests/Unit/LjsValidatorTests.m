@@ -349,6 +349,7 @@
   
 }
 
+#if TARGET_OS_IPHONE
 - (void) test_isZeroRect_true {
   BOOL actual = [LjsValidator isZeroRect:CGRectZero];
   GHAssertTrue(actual, @"should be true");
@@ -358,7 +359,7 @@
   BOOL actual = [LjsValidator isZeroRect:CGRectMake(0,1,0,1)];
   GHAssertFalse(actual, @"should be false");
 }
-
+#endif
 
 #pragma mark LjsReasons Tests 
 

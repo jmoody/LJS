@@ -119,7 +119,6 @@
 		F580715B146C296700EA4CFB /* ASIHTTPResponseUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807140146C296700EA4CFB /* ASIHTTPResponseUtils.m */; };
 		F580715C146C296700EA4CFB /* LjsJsonRpcReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807143146C296700EA4CFB /* LjsJsonRpcReply.m */; };
 		F580715D146C296700EA4CFB /* LjsDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807145146C296700EA4CFB /* LjsDateHelper.m */; };
-		F580715E146C296700EA4CFB /* LjsDn.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807147146C296700EA4CFB /* LjsDn.m */; };
 		F5807160146C296700EA4CFB /* LjsFileUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F580714B146C296700EA4CFB /* LjsFileUtilities.m */; };
 		F5807163146C296700EA4CFB /* LjsIdGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807151146C296700EA4CFB /* LjsIdGenerator.m */; };
 		F5807164146C296700EA4CFB /* LjsKeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807153146C296700EA4CFB /* LjsKeychainManager.m */; };
@@ -198,6 +197,8 @@
 		F5B2844114AD0B6700E48908 /* LjsGestalt.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844014AD0B6700E48908 /* LjsGestalt.m */; };
 		F5B2844414AD0E6700E48908 /* LjsGestaltTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844314AD0E6700E48908 /* LjsGestaltTests.m */; };
 		F5B2844E14AD1B5E00E48908 /* LjsRestartFinderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844D14AD1B5E00E48908 /* LjsRestartFinderOperation.m */; };
+		F5D33F1A15529DBF00A42506 /* NSDictionaryLjsAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D33F1915529DBF00A42506 /* NSDictionaryLjsAdditionsTests.m */; };
+		F5D33F361552A01100A42506 /* NSDictionary+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D33F351552A01100A42506 /* NSDictionary+LjsAdditions.m */; };
 		F5E98569152473580061631A /* NSDecimalNumber+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E98568152473580061631A /* NSDecimalNumber+LjsAdditions.m */; };
 		F5E985CF152474420061631A /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5E985CD152474420061631A /* google-places-autocomplete-sample.json */; };
 		F5E985D0152474420061631A /* google-places-details-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5E985CE152474420061631A /* google-places-details-sample.json */; };
@@ -437,8 +438,6 @@
 		F5807143146C296700EA4CFB /* LjsJsonRpcReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsJsonRpcReply.m; sourceTree = "<group>"; };
 		F5807144146C296700EA4CFB /* LjsDateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDateHelper.h; sourceTree = "<group>"; };
 		F5807145146C296700EA4CFB /* LjsDateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDateHelper.m; sourceTree = "<group>"; };
-		F5807146146C296700EA4CFB /* LjsDn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDn.h; sourceTree = "<group>"; };
-		F5807147146C296700EA4CFB /* LjsDn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDn.m; sourceTree = "<group>"; };
 		F580714A146C296700EA4CFB /* LjsFileUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFileUtilities.h; sourceTree = "<group>"; };
 		F580714B146C296700EA4CFB /* LjsFileUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileUtilities.m; sourceTree = "<group>"; };
 		F5807150146C296700EA4CFB /* LjsIdGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsIdGenerator.h; sourceTree = "<group>"; };
@@ -576,6 +575,9 @@
 		F5B2844314AD0E6700E48908 /* LjsGestaltTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestaltTests.m; sourceTree = "<group>"; };
 		F5B2844C14AD1B5E00E48908 /* LjsRestartFinderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRestartFinderOperation.h; sourceTree = "<group>"; };
 		F5B2844D14AD1B5E00E48908 /* LjsRestartFinderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsRestartFinderOperation.m; sourceTree = "<group>"; };
+		F5D33F1915529DBF00A42506 /* NSDictionaryLjsAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionaryLjsAdditionsTests.m; sourceTree = "<group>"; };
+		F5D33F341552A01100A42506 /* NSDictionary+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5D33F351552A01100A42506 /* NSDictionary+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5E98566152473580061631A /* LjsFoundationCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFoundationCategories.h; sourceTree = "<group>"; };
 		F5E98567152473580061631A /* NSDecimalNumber+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDecimalNumber+LjsAdditions.h"; sourceTree = "<group>"; };
 		F5E98568152473580061631A /* NSDecimalNumber+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDecimalNumber+LjsAdditions.m"; sourceTree = "<group>"; };
@@ -625,6 +627,8 @@
 		F512EB32151C9DAF002E8E3A /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				F5D33F341552A01100A42506 /* NSDictionary+LjsAdditions.h */,
+				F5D33F351552A01100A42506 /* NSDictionary+LjsAdditions.m */,
 				F5185D111526099B00F178E5 /* NSString+LjsAdditions.h */,
 				F5185D121526099B00F178E5 /* NSString+LjsAdditions.m */,
 				F5E98566152473580061631A /* LjsFoundationCategories.h */,
@@ -1112,8 +1116,6 @@
 				F5807141146C296700EA4CFB /* JSON-RPC */,
 				F5807144146C296700EA4CFB /* LjsDateHelper.h */,
 				F5807145146C296700EA4CFB /* LjsDateHelper.m */,
-				F5807146146C296700EA4CFB /* LjsDn.h */,
-				F5807147146C296700EA4CFB /* LjsDn.m */,
 				F580714A146C296700EA4CFB /* LjsFileUtilities.h */,
 				F580714B146C296700EA4CFB /* LjsFileUtilities.m */,
 				F5807150146C296700EA4CFB /* LjsIdGenerator.h */,
@@ -1197,6 +1199,7 @@
 				F5807178146C2AAC00EA4CFB /* LjsVariatesTests.m */,
 				F5B2844314AD0E6700E48908 /* LjsGestaltTests.m */,
 				F512EB2F151C9CFA002E8E3A /* LjsFileUtiltiesTests.m */,
+				F5D33F1915529DBF00A42506 /* NSDictionaryLjsAdditionsTests.m */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -1463,7 +1466,7 @@
 				F5807021146C26F100EA4CFB /* Frameworks */,
 				F5807022146C26F100EA4CFB /* Resources */,
 				F580716B146C2A1500EA4CFB /* CopyFiles */,
-				F56481A014990516008CDF7E /* Run Script versioning */,
+				F56481A014990516008CDF7E /* Run Script RuTests.sh */,
 			);
 			buildRules = (
 			);
@@ -1556,19 +1559,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		F56481A014990516008CDF7E /* Run Script versioning */ = {
+		F56481A014990516008CDF7E /* Run Script RuTests.sh */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Run Script versioning";
+			name = "Run Script RuTests.sh";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "#!/bin/bash\n# This is a build phase run script to set various properties in the info plist \n# of an Xcode project.  The values that are set are:\n# CFBuildNumber - an incrementing counter to keep track of the number of App Store\n#                 Distribution builds have been created\n# CFBundleGetInfoString - verbose details about current build\n#   !App Store Configuration: MyApp 1.0.5 ee168e1 De\n#    App Store Configuration: MyApp 1.2 1.2.1\n# CFBundleVersion - the current bundle version\n#   !App Store Distribution:  <git short rev> e.g. ee168e1\n#    App Store Distribution:  <short version>.<build number>\n#\n# You must manage the CFBundleShortVersionString manually!\n# You must reset the CFBuildNumber manually for each new short version string!\n#\n# Rules\n# 1. depends on a build configuration \"App Store Distribution\"\n# 2. you must manage your short version string manually\n# 3. keep your app store distribution short version string to *.* \n# 4. the build number is used to create bundle version for App Store distributions which\n#    only allows *.*.* bundle version\n\nPlistBuddyPath=/usr/libexec/PlistBuddy\nLjsAppStoreDistributionConfiguration=\"App Store Distribution\"\n\nCFBuildNumber=$(\"$PlistBuddyPath\" -c \"Print CFBuildNumber\" \"$INFOPLIST_FILE\")\n# if the build number property does not exist, create it and set it to 0\nif [ `echo $?` != 0 ]\nthen\necho \"No entry for CFBuildNumber in Plist, so we create it\"\nCFBuildNumber=0\n\"$PlistBuddyPath\" -c \"Add :CFBuildNumber integer $CFBuildNumber\" \"$INFOPLIST_FILE\"\nfi\n\n# if this is an app store release, then increment the build number\nif [ \"$CONFIGURATION\" = \"$LjsAppStoreDistributionConfiguration\" ] \nthen \nCFBuildNumber=$(($CFBuildNumber + 1))\n\"$PlistBuddyPath\" -c \"Set :CFBuildNumber $CFBuildNumber\" \"$INFOPLIST_FILE\"\nfi\n\n\n# if the get info string property does not exist, create it\nCFBundleGetInfoString=$(\"$PlistBuddyPath\" -c \"Print CFBundleGetInfoString\" \"$INFOPLIST_FILE\")\nif [ `echo $?` != 0 ]\nthen\necho \"No entry for CFBundleGetInfoString in Plist, so we create it\"\U0013\n\"$PlistBuddyPath\" -c \"Add :CFBundleGetInfoString string \\\"NEWLY CREATED\\\"\" \"$INFOPLIST_FILE\"\nfi\n\n\n\n# use the git revision for the bunlde version, except when building for the app store\ngitpath=`which git`\nCFBundleVersion=`$gitpath rev-parse --short HEAD`\nCFBundleShortVersionString=$(\"$PlistBuddyPath\" -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\n\n\nif [ \"$CONFIGURATION\" != \"$LjsAppStoreDistributionConfiguration\" ] \nthen\nCFBundleVersion_CURRENT=$(\"$PlistBuddyPath\" -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nif [ \"$CFBundleVersion\" != \"$CFBundleVersion_CURRENT\" ]\nthen\necho \"Bundle version has changed:  $CFBundleVersion_CURRENT ==> $CFBundleVersion - updating plist\"\n\"$PlistBuddyPath\" -c \"Set :CFBundleVersion $CFBundleVersion\" \"$INFOPLIST_FILE\"\nelse\necho \"CFBundleVersion has not changed, no need to update plist\"  \nfi\nBUILD_CONFIGURATION_ABBR=${CONFIGURATION:0:2} \nCFBundleGetInfoString=\"$PRODUCT_NAME $CFBundleShortVersionString $CFBundleVersion $BUILD_CONFIGURATION_ABBR\"\nCFBundleGetInfoString_CURRENT=$(\"$PlistBuddyPath\" -c \"Print CFBundleGetInfoString\" \"$INFOPLIST_FILE\")\nif [ \"$CFBundleGetInfoString\" != \"$CFBundleGetInfoString_CURRENT\" ]\nthen\necho \"Info String has changed:  $CFBundleGetInfoString_CURRENT ==> $CFBundleGetInfoString - updating plist\"\n\"$PlistBuddyPath\" -c \"Set :CFBundleGetInfoString $CFBundleGetInfoString\" \"$INFOPLIST_FILE\"\nelse\necho \"CFBundleGetInfoString has not changed, no need to update plist\"\nfi\nelse\n# no need to check if the get info string has changed, but it necessarily will have because\n# the build number is incremented\n\"$PlistBuddyPath\" -c \"Set :CFBundleVersion $CFBundleShortVersionString.$CFBuildNumber\" \"$INFOPLIST_FILE\"\nCFBundleGetInfoString=\"$PROJECT_NAME $CFBundleShortVersionString.$CFBuildNumber\"\n\"$PlistBuddyPath\" -c \"Set :CFBundleGetInfoString $CFBundleGetInfoString\" \"$INFOPLIST_FILE\"\nfi\n\n\n\necho CONFIGURATION = \"$CONFIGURATION\"\necho build number = $(\"$PlistBuddyPath\" -c \"Print CFBuildNumber\" \"$INFOPLIST_FILE\")\necho bundle version = $(\"$PlistBuddyPath\" -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\necho bundle short version = $(\"$PlistBuddyPath\" -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\necho bundle info string = $(\"$PlistBuddyPath\" -c \"Print CFBundleGetInfoString\" \"$INFOPLIST_FILE\")\n\n";
+			shellPath = /bin/sh;
+			shellScript = "sh RunTests.sh";
+			showEnvVarsInLog = 0;
 		};
 		F58DBA2D14955210009F39F7 /* Run Script appledoc */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1639,7 +1643,6 @@
 				F580715B146C296700EA4CFB /* ASIHTTPResponseUtils.m in Sources */,
 				F580715C146C296700EA4CFB /* LjsJsonRpcReply.m in Sources */,
 				F580715D146C296700EA4CFB /* LjsDateHelper.m in Sources */,
-				F580715E146C296700EA4CFB /* LjsDn.m in Sources */,
 				F5807160146C296700EA4CFB /* LjsFileUtilities.m in Sources */,
 				F5807163146C296700EA4CFB /* LjsIdGenerator.m in Sources */,
 				F5807164146C296700EA4CFB /* LjsKeychainManager.m in Sources */,
@@ -1753,6 +1756,8 @@
 				F5223C761542E2DD006DB9E8 /* LjsGoogleRequestManagerTests.m in Sources */,
 				F5223C771542E2DD006DB9E8 /* LjsGoogleReverseGeocodeTests.m in Sources */,
 				F5223C781542E2DD006DB9E8 /* LjsGoogleTranslateManagerTests.m in Sources */,
+				F5D33F1A15529DBF00A42506 /* NSDictionaryLjsAdditionsTests.m in Sources */,
+				F5D33F361552A01100A42506 /* NSDictionary+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

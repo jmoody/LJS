@@ -203,6 +203,8 @@
   GHAssertFalse([g isCurrentLanguageEnglish], nil);
 }
 
-
+- (void) test_isGhUnitCommandLineBuild {
+  GHTestLog(@"WARN:  no good way to test this yet");
+}
 
 @end

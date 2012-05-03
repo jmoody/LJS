@@ -39,6 +39,7 @@
 #import "LjsTestCase.h"
 #import "LjsVariates.h"
 #import "Lumberjack.h"
+#import "LjsGestalt.h"
 #import <objc/runtime.h>
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -112,7 +113,7 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
   NSError __autoreleasing *error = nil;
   // known analyzer warning - not sure what to do here
   aError = &error;
-    
+  
   return LjsKeychainTestsDefaultPassword;
 }
 
@@ -138,7 +139,7 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
 
 - (void) tearDown {
   // Run after each test method
-
+  
   
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   [defaults removeObjectForKey:LjsKeychainTestsUsernameDefaultsKey];
@@ -158,15 +159,15 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
 - (void) test_isValidString {
   NSString *username;
   BOOL actual;
-
+  
   username = LjsKeychainTestsDefaultUsername;
   actual = [self.km isValidUsername:username];
   GHAssertTrue(actual, nil);
-
+  
   username = nil;
   actual = [self.km isValidUsername:username];
   GHAssertFalse(actual, nil);
-
+  
   username = @"";
   actual = [self.km isValidUsername:username];
   GHAssertFalse(actual, nil);
@@ -182,7 +183,7 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
   expected = LjsKeychainTestsDefaultUsername;
   actual = [self.km usernameStoredInDefaultsForKey:key];
   GHAssertEqualStrings(actual, expected, nil);
-
+  
   
   [defaults removeObjectForKey:LjsKeychainTestsUsernameDefaultsKey];
   key = LjsKeychainTestsUsernameDefaultsKey;
@@ -232,8 +233,8 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
   GHAssertFalse(actual, nil);
   GHAssertNotNil(error, nil);
   GHTestLog(@"keychain error = %@", error);
-
-
+  
+  
   error = nil;
   key = LjsKeychainTestsUsernameDefaultsKey;
   username = [self nilOrEmptyString];
@@ -243,8 +244,8 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
   GHAssertFalse(actual, nil);
   GHAssertNotNil(error, nil);
   GHTestLog(@"keychain error = %@", error);
-
-
+  
+  
   error = nil;
   key = LjsKeychainTestsUsernameDefaultsKey;
   username = LjsKeychainTestsDefaultUsername;
@@ -275,7 +276,7 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
   actual = [self.km shouldUseKeychainWithKey:key error:&error];
   GHAssertFalse(actual, nil);
   GHAssertNil(error, nil);
-
+  
   key = LjsKeychainTestsShouldUseKeychainDefaultsKey;
   [defaults setBool:YES forKey:key];
   error = nil;
@@ -290,7 +291,7 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
   NSString *key;
   BOOL actual;
   NSError *error;
-
+  
   error = nil;
   key = [self nilOrEmptyString];
   actual = [self.km deleteUsernameInDefaultsForKey:key error:&error];
@@ -304,14 +305,14 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
   GHAssertTrue(actual, nil);
   GHAssertNil(error, nil);
   
-
+  
   error = nil;
   key = LjsKeychainTestsShouldUseKeychainDefaultsKey;
   [defaults setBool:YES forKey:key];
   actual = [self.km deleteUsernameInDefaultsForKey:key error:&error];
   GHAssertTrue(actual, nil);
   GHAssertNil(error, nil);
-
+  
   error = nil;
   key = [LjsVariates randomStringWithLength:9];
   actual = [self.km deleteUsernameInDefaultsForKey:key error:&error];
@@ -347,335 +348,367 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
   GHAssertTrue(actual, nil);
   GHAssertNil(error, nil);
   GHAssertFalse([defaults boolForKey:key], nil);
-
+  
 }
 
 
 - (void) test_hasKeychainPasswordForUsername {
-  NSString *username, *serviceName;
-  NSError *error;
-  BOOL actual;
-  
-  error = nil;
-  username = [self nilOrEmptyString];
-  serviceName = [self nilOrEmptyString];
-  actual = [self.km hasKeychainPasswordForUsername:username
-                                       serviceName:serviceName
-                                             error:&error];
-  GHAssertFalse(actual, nil);
-  GHAssertNotNil(error, nil);
-  GHTestLog(@"keychain error = %@", error);
-  
-
-  error = nil;
-  username = LjsKeychainTestsDefaultUsername;
-  serviceName = [self nilOrEmptyString];
-  actual = [self.km hasKeychainPasswordForUsername:username
-                                       serviceName:serviceName
-                                             error:&error];
-  GHAssertFalse(actual, nil);
-  GHAssertNotNil(error, nil);
-  GHTestLog(@"keychain error = %@", error);
-
-  error = nil;
-  username =  LjsKeychainTestsDefaultUsername;
-  serviceName = LjsKeychainTestsPasswordKeychainServiceName;
-  actual = [self.km hasKeychainPasswordForUsername:username
-                                       serviceName:serviceName
-                                             error:&error];
- 
-  DDLogNotice(@"@joshua - there is a problem here, but I do not know how to fix it yet");
-#if !TARGET_OS_IPHONE
-  GHAssertTrue(actual, nil);
-#else
-  GHAssertFalse(actual, nil);
-#endif
-  GHAssertNil(error, nil);
-  
-
-  Method originalMethod = 
-  class_getClassMethod([SFHFKeychainUtils class], 
-                       @selector(getPasswordForUsername:andServiceName:error:));                         
-
-  Method mockMethod = 
-  class_getInstanceMethod([self class], 
-                          @selector(swizzledSFHFgetPasswordForUsername:andServiceName:error:));
-  method_exchangeImplementations(originalMethod, mockMethod);
-  
-  error = nil;
-  username = @"foo";
-  serviceName = @"bar";
-  NSString *pwd = [SFHFKeychainUtils getPasswordForUsername:username
-                                             andServiceName:serviceName
-                                                      error:&error];
-  GHAssertEqualStrings(pwd, LjsKeychainTestsDefaultPassword, nil);
-  GHAssertNil(error, nil);
-
-  error = nil;
-  username =  LjsKeychainTestsDefaultUsername;
-  serviceName = LjsKeychainTestsPasswordKeychainServiceName;
-  actual = [self.km hasKeychainPasswordForUsername:username
-                                       serviceName:serviceName
-                                             error:&error];
-  GHAssertTrue(actual, nil);
-  GHAssertNil(error, nil);
-
-  method_exchangeImplementations(mockMethod, originalMethod);
+  if ([self.gestalt isGhUnitCommandLineBuild] == NO) {
+    NSString *username, *serviceName;
+    NSError *error;
+    BOOL actual;
+    
+    error = nil;
+    username = [self nilOrEmptyString];
+    serviceName = [self nilOrEmptyString];
+    actual = [self.km hasKeychainPasswordForUsername:username
+                                         serviceName:serviceName
+                                               error:&error];
+    GHAssertFalse(actual, nil);
+    GHAssertNotNil(error, nil);
+    GHTestLog(@"keychain error = %@", error);
+    
+    
+    error = nil;
+    username = LjsKeychainTestsDefaultUsername;
+    serviceName = [self nilOrEmptyString];
+    actual = [self.km hasKeychainPasswordForUsername:username
+                                         serviceName:serviceName
+                                               error:&error];
+    GHAssertFalse(actual, nil);
+    GHAssertNotNil(error, nil);
+    GHTestLog(@"keychain error = %@", error);
+    
+    error = nil;
+    username =  LjsKeychainTestsDefaultUsername;
+    serviceName = LjsKeychainTestsPasswordKeychainServiceName;
+    actual = [self.km hasKeychainPasswordForUsername:username
+                                         serviceName:serviceName
+                                               error:&error];
+    
+    
+    GHAssertTrue(actual, nil);
+    GHAssertNil(error, nil);
+    //#if !TARGET_OS_IPHONE
+    //  GHAssertTrue(actual, nil);
+    //#else
+    //  GHAssertFalse(actual, nil);
+    //#endif
+    //  GHAssertNil(error, nil);
+    
+    
+    Method originalMethod = 
+    class_getClassMethod([SFHFKeychainUtils class], 
+                         @selector(getPasswordForUsername:andServiceName:error:));                         
+    
+    Method mockMethod = 
+    class_getInstanceMethod([self class], 
+                            @selector(swizzledSFHFgetPasswordForUsername:andServiceName:error:));
+    method_exchangeImplementations(originalMethod, mockMethod);
+    
+    error = nil;
+    username = @"foo";
+    serviceName = @"bar";
+    NSString *pwd = [SFHFKeychainUtils getPasswordForUsername:username
+                                               andServiceName:serviceName
+                                                        error:&error];
+    GHAssertEqualStrings(pwd, LjsKeychainTestsDefaultPassword, nil);
+    GHAssertNil(error, nil);
+    
+    error = nil;
+    username =  LjsKeychainTestsDefaultUsername;
+    serviceName = LjsKeychainTestsPasswordKeychainServiceName;
+    actual = [self.km hasKeychainPasswordForUsername:username
+                                         serviceName:serviceName
+                                               error:&error];
+    GHAssertTrue(actual, nil);
+    GHAssertNil(error, nil);
+    
+    method_exchangeImplementations(mockMethod, originalMethod);
+  } else {
+    GHTestLog(@"WARN: skipping keychain unit test because we are running headless");
+  }
 }
 
 
 - (void) test_keychainPasswordForUsernameInDefaults {
-  NSString *key, *serviceName, *actual, *expected;
-  NSError *error;
-  
-  error = nil;
-  key = [self nilOrEmptyString];
-  serviceName = [self nilOrEmptyString];
-  actual = [self.km keychainPasswordForUsernameInDefaults:key 
-                                              serviceName:serviceName
-                                                    error:&error];
-  GHAssertNil(actual, nil);
-  GHAssertNotNil(error, nil);
-  GHTestLog(@"keychain error = %@", error);
-
-  
-  error = nil;
-  key = LjsKeychainTestsUsernameDefaultsKey;
-  serviceName = [self nilOrEmptyString];
-  actual = [self.km keychainPasswordForUsernameInDefaults:key 
-                                              serviceName:serviceName
-                                                    error:&error];
-  GHAssertNil(actual, nil);
-  GHAssertNotNil(error, nil);
-  GHTestLog(@"keychain error = %@", error);
-  
-  
-  error = nil;
-  key = LjsKeychainTestsUsernameDefaultsKey;
-  serviceName = LjsKeychainTestsPasswordKeychainServiceName;
-  actual = [self.km keychainPasswordForUsernameInDefaults:key 
-                                              serviceName:serviceName
-                                                    error:&error];
-  GHAssertNil(actual, nil);
-  GHAssertNil(error, nil);
-
-
-  error = nil;
-  key = LjsKeychainTestsUsernameDefaultsKey;
-  id mock = [OCMockObject partialMockForObject:self.km];
-  [[[mock stub] andReturn:LjsKeychainTestsDefaultUsername] 
-   usernameStoredInDefaultsForKey:key];
-  
-  actual = [mock usernameStoredInDefaultsForKey:key];
-  expected = LjsKeychainTestsDefaultUsername;
-  GHAssertEqualStrings(actual, expected, nil);
-  
-  
-  Method originalMethod = 
-  class_getClassMethod([SFHFKeychainUtils class], 
-                       @selector(getPasswordForUsername:andServiceName:error:));                         
-  
-  Method mockMethod = 
-  class_getInstanceMethod([self class], 
-                          @selector(swizzledSFHFgetPasswordForUsername:andServiceName:error:));
-  method_exchangeImplementations(originalMethod, mockMethod);
-
-  
-  error = nil;
-  NSString *username = @"foo";
-  serviceName = @"bar";
-  NSString *pwd = [SFHFKeychainUtils getPasswordForUsername:username
-                                             andServiceName:serviceName
+  if ([self.gestalt isGhUnitCommandLineBuild] == YES) {
+    GHTestLog(@"WARN: skipping keychain unit test because we are running headless");
+  } else {
+    
+    NSString *key, *serviceName, *actual, *expected;
+    NSError *error;
+    
+    error = nil;
+    key = [self nilOrEmptyString];
+    serviceName = [self nilOrEmptyString];
+    actual = [self.km keychainPasswordForUsernameInDefaults:key 
+                                                serviceName:serviceName
                                                       error:&error];
-  
-  GHAssertEqualStrings(pwd, LjsKeychainTestsDefaultPassword, nil);
-  GHAssertNil(error, nil);
-  
-  serviceName = LjsKeychainTestsPasswordKeychainServiceName;
-  actual = [self.km keychainPasswordForUsernameInDefaults:key 
-                                              serviceName:serviceName
-                                                    error:&error];
-  expected = LjsKeychainTestsDefaultPassword;
-  GHAssertEqualStrings(actual, expected, nil);
-  GHAssertNil(error, nil);
-
-  method_exchangeImplementations(mockMethod, originalMethod);
+    GHAssertNil(actual, nil);
+    GHAssertNotNil(error, nil);
+    GHTestLog(@"keychain error = %@", error);
+    
+    
+    error = nil;
+    key = LjsKeychainTestsUsernameDefaultsKey;
+    serviceName = [self nilOrEmptyString];
+    actual = [self.km keychainPasswordForUsernameInDefaults:key 
+                                                serviceName:serviceName
+                                                      error:&error];
+    GHAssertNil(actual, nil);
+    GHAssertNotNil(error, nil);
+    GHTestLog(@"keychain error = %@", error);
+    
+    
+    error = nil;
+    key = LjsKeychainTestsUsernameDefaultsKey;
+    serviceName = LjsKeychainTestsPasswordKeychainServiceName;
+    actual = [self.km keychainPasswordForUsernameInDefaults:key 
+                                                serviceName:serviceName
+                                                      error:&error];
+    GHAssertNil(actual, nil);
+    GHAssertNil(error, nil);
+    
+    
+    error = nil;
+    key = LjsKeychainTestsUsernameDefaultsKey;
+    id mock = [OCMockObject partialMockForObject:self.km];
+    [[[mock stub] andReturn:LjsKeychainTestsDefaultUsername] 
+     usernameStoredInDefaultsForKey:key];
+    
+    actual = [mock usernameStoredInDefaultsForKey:key];
+    expected = LjsKeychainTestsDefaultUsername;
+    GHAssertEqualStrings(actual, expected, nil);
+    
+    
+    Method originalMethod = 
+    class_getClassMethod([SFHFKeychainUtils class], 
+                         @selector(getPasswordForUsername:andServiceName:error:));                         
+    
+    Method mockMethod = 
+    class_getInstanceMethod([self class], 
+                            @selector(swizzledSFHFgetPasswordForUsername:andServiceName:error:));
+    method_exchangeImplementations(originalMethod, mockMethod);
+    
+    
+    error = nil;
+    NSString *username = @"foo";
+    serviceName = @"bar";
+    NSString *pwd = [SFHFKeychainUtils getPasswordForUsername:username
+                                               andServiceName:serviceName
+                                                        error:&error];
+    
+    GHAssertEqualStrings(pwd, LjsKeychainTestsDefaultPassword, nil);
+    GHAssertNil(error, nil);
+    
+    serviceName = LjsKeychainTestsPasswordKeychainServiceName;
+    actual = [self.km keychainPasswordForUsernameInDefaults:key 
+                                                serviceName:serviceName
+                                                      error:&error];
+    expected = LjsKeychainTestsDefaultPassword;
+    GHAssertEqualStrings(actual, expected, nil);
+    GHAssertNil(error, nil);
+    
+    method_exchangeImplementations(mockMethod, originalMethod);
+  }
 }
 
 - (void) test_synchronizeKeychainAndDefaults0 {
-  NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
-  NSError *error = nil;
-  BOOL shouldUseKeychain, actual;
-  
-  username = [self nilOrEmptyString];
-  usernameKey = [self nilOrEmptyString];
-  password = [self nilOrEmptyString];
-  shouldUseKeychainKey = [self nilOrEmptyString];
-  serviceName = [self nilOrEmptyString];
-  error = nil;
-  shouldUseKeychain = NO;
-  actual = [self.km synchronizeKeychainAndDefaultsWithUsername:username
-                                           usernameDefaultsKey:usernameKey
-                                                      password:password
-                                  shouldUseKeychainDefaultsKey:shouldUseKeychainKey
-                                             shouldUseKeyChain:shouldUseKeychain
-                                                   serviceName:serviceName
-                                                         error:&error];
-  GHAssertFalse(actual, nil);
-  GHAssertNotNil(error, nil);
+  if ([self.gestalt isGhUnitCommandLineBuild] == YES) {
+    GHTestLog(@"WARN: skipping keychain unit test because we are running headless");
+  } else {
+    NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
+    NSError *error = nil;
+    BOOL shouldUseKeychain, actual;
+    
+    username = [self nilOrEmptyString];
+    usernameKey = [self nilOrEmptyString];
+    password = [self nilOrEmptyString];
+    shouldUseKeychainKey = [self nilOrEmptyString];
+    serviceName = [self nilOrEmptyString];
+    error = nil;
+    shouldUseKeychain = NO;
+    actual = [self.km synchronizeKeychainAndDefaultsWithUsername:username
+                                             usernameDefaultsKey:usernameKey
+                                                        password:password
+                                    shouldUseKeychainDefaultsKey:shouldUseKeychainKey
+                                               shouldUseKeyChain:shouldUseKeychain
+                                                     serviceName:serviceName
+                                                           error:&error];
+    GHAssertFalse(actual, nil);
+    GHAssertNotNil(error, nil);
+  }
 }
 
 - (void) test_synchronizeKeychainAndDefaults1 {
-  NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
-  NSError *error = nil;
-  BOOL shouldUseKeychain, actual;
   
-  
-  
-  username = LjsKeychainTestsDefaultUsername;
-  usernameKey = [self nilOrEmptyString];
-  password = [self nilOrEmptyString];
-  shouldUseKeychainKey = [self nilOrEmptyString];
-  serviceName = [self nilOrEmptyString];
-  error = nil;
-  shouldUseKeychain = NO;
-  actual = [self.km synchronizeKeychainAndDefaultsWithUsername:username
-                                           usernameDefaultsKey:usernameKey
-                                                      password:password
-                                  shouldUseKeychainDefaultsKey:shouldUseKeychainKey
-                                             shouldUseKeyChain:shouldUseKeychain
-                                                   serviceName:serviceName
-                                                         error:&error];
-  GHAssertFalse(actual, nil);
-  GHAssertNotNil(error, nil);
+  if ([self.gestalt isGhUnitCommandLineBuild] == YES) {
+    GHTestLog(@"WARN: skipping keychain unit test because we are running headless");
+  } else {
+    NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
+    NSError *error = nil;
+    BOOL shouldUseKeychain, actual;
+    
+    
+    
+    username = LjsKeychainTestsDefaultUsername;
+    usernameKey = [self nilOrEmptyString];
+    password = [self nilOrEmptyString];
+    shouldUseKeychainKey = [self nilOrEmptyString];
+    serviceName = [self nilOrEmptyString];
+    error = nil;
+    shouldUseKeychain = NO;
+    actual = [self.km synchronizeKeychainAndDefaultsWithUsername:username
+                                             usernameDefaultsKey:usernameKey
+                                                        password:password
+                                    shouldUseKeychainDefaultsKey:shouldUseKeychainKey
+                                               shouldUseKeyChain:shouldUseKeychain
+                                                     serviceName:serviceName
+                                                           error:&error];
+    GHAssertFalse(actual, nil);
+    GHAssertNotNil(error, nil);
+  }
 }
 
 - (void) test_synchronizeKeychainAndDefaults2 {
-  NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
-  NSError *error = nil;
-  BOOL shouldUseKeychain, actual;
-  
-  
-  
-  username = LjsKeychainTestsDefaultUsername;
-  usernameKey = LjsKeychainTestsUsernameDefaultsKey;
-  password = [self nilOrEmptyString];
-  shouldUseKeychainKey = [self nilOrEmptyString];
-  serviceName = [self nilOrEmptyString];
-  error = nil;
-  shouldUseKeychain = NO;
-  actual = [self.km synchronizeKeychainAndDefaultsWithUsername:username
-                                           usernameDefaultsKey:usernameKey
-                                                      password:password
-                                  shouldUseKeychainDefaultsKey:shouldUseKeychainKey
-                                             shouldUseKeyChain:shouldUseKeychain
-                                                   serviceName:serviceName
-                                                         error:&error];
-  GHAssertFalse(actual, nil);
-  GHAssertNotNil(error, nil);
+  if ([self.gestalt isGhUnitCommandLineBuild] == YES) {
+    GHTestLog(@"WARN: skipping keychain unit test because we are running headless");
+  } else {
+    NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
+    NSError *error = nil;
+    BOOL shouldUseKeychain, actual;
+    
+    
+    
+    username = LjsKeychainTestsDefaultUsername;
+    usernameKey = LjsKeychainTestsUsernameDefaultsKey;
+    password = [self nilOrEmptyString];
+    shouldUseKeychainKey = [self nilOrEmptyString];
+    serviceName = [self nilOrEmptyString];
+    error = nil;
+    shouldUseKeychain = NO;
+    actual = [self.km synchronizeKeychainAndDefaultsWithUsername:username
+                                             usernameDefaultsKey:usernameKey
+                                                        password:password
+                                    shouldUseKeychainDefaultsKey:shouldUseKeychainKey
+                                               shouldUseKeyChain:shouldUseKeychain
+                                                     serviceName:serviceName
+                                                           error:&error];
+    GHAssertFalse(actual, nil);
+    GHAssertNotNil(error, nil);
+  }
 }
 
 - (void) test_synchronizeKeychainAndDefaults3 {
-  NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
-  NSError *error = nil;
-  BOOL shouldUseKeychain, actual;
-  
-  username = LjsKeychainTestsDefaultUsername;
-  usernameKey = LjsKeychainTestsUsernameDefaultsKey;
-  password = LjsKeychainTestsDefaultPassword;
-  shouldUseKeychainKey = [self nilOrEmptyString];
-  serviceName = [self nilOrEmptyString];
-  error = nil;
-  shouldUseKeychain = NO;
-  actual = [self.km synchronizeKeychainAndDefaultsWithUsername:username
-                                           usernameDefaultsKey:usernameKey
-                                                      password:password
-                                  shouldUseKeychainDefaultsKey:shouldUseKeychainKey
-                                             shouldUseKeyChain:shouldUseKeychain
-                                                   serviceName:serviceName
-                                                         error:&error];
-  GHAssertFalse(actual, nil);
-  GHAssertNotNil(error, nil);
+  if ([self.gestalt isGhUnitCommandLineBuild] == YES) {
+    GHTestLog(@"WARN: skipping keychain unit test because we are running headless");
+  } else {
+    NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
+    NSError *error = nil;
+    BOOL shouldUseKeychain, actual;
+    
+    username = LjsKeychainTestsDefaultUsername;
+    usernameKey = LjsKeychainTestsUsernameDefaultsKey;
+    password = LjsKeychainTestsDefaultPassword;
+    shouldUseKeychainKey = [self nilOrEmptyString];
+    serviceName = [self nilOrEmptyString];
+    error = nil;
+    shouldUseKeychain = NO;
+    actual = [self.km synchronizeKeychainAndDefaultsWithUsername:username
+                                             usernameDefaultsKey:usernameKey
+                                                        password:password
+                                    shouldUseKeychainDefaultsKey:shouldUseKeychainKey
+                                               shouldUseKeyChain:shouldUseKeychain
+                                                     serviceName:serviceName
+                                                           error:&error];
+    GHAssertFalse(actual, nil);
+    GHAssertNotNil(error, nil);
+  }
 }
 
 - (void) test_synchronizeKeychainAndDefaults4 {
-  NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
-  NSError *error = nil;
-  BOOL shouldUseKeychain, actual;
-  
-  username = LjsKeychainTestsDefaultUsername;
-  usernameKey = LjsKeychainTestsUsernameDefaultsKey;
-  password = LjsKeychainTestsDefaultPassword;
-  shouldUseKeychainKey = LjsKeychainTestsShouldUseKeychainDefaultsKey;
-  serviceName = [self nilOrEmptyString];
-  error = nil;
-  shouldUseKeychain = NO;
-  actual = [self.km synchronizeKeychainAndDefaultsWithUsername:username
-                                           usernameDefaultsKey:usernameKey
-                                                      password:password
-                                  shouldUseKeychainDefaultsKey:shouldUseKeychainKey
-                                             shouldUseKeyChain:shouldUseKeychain
-                                                   serviceName:serviceName
-                                                         error:&error];
-  GHAssertFalse(actual, nil);
-  GHAssertNotNil(error, nil);
+  if ([self.gestalt isGhUnitCommandLineBuild] == YES) {
+    GHTestLog(@"WARN: skipping keychain unit test because we are running headless");
+  } else {
+    NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
+    NSError *error = nil;
+    BOOL shouldUseKeychain, actual;
+    
+    username = LjsKeychainTestsDefaultUsername;
+    usernameKey = LjsKeychainTestsUsernameDefaultsKey;
+    password = LjsKeychainTestsDefaultPassword;
+    shouldUseKeychainKey = LjsKeychainTestsShouldUseKeychainDefaultsKey;
+    serviceName = [self nilOrEmptyString];
+    error = nil;
+    shouldUseKeychain = NO;
+    actual = [self.km synchronizeKeychainAndDefaultsWithUsername:username
+                                             usernameDefaultsKey:usernameKey
+                                                        password:password
+                                    shouldUseKeychainDefaultsKey:shouldUseKeychainKey
+                                               shouldUseKeyChain:shouldUseKeychain
+                                                     serviceName:serviceName
+                                                           error:&error];
+    GHAssertFalse(actual, nil);
+    GHAssertNotNil(error, nil);
+  }
 }
 
 - (void) test_synchronizeKeychainAndDefaults5 {
-  NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
-  NSError *error = nil;
-  BOOL shouldUseKeychain, actual;
-  
-  username = LjsKeychainTestsDefaultUsername;
-  usernameKey = LjsKeychainTestsUsernameDefaultsKey;
-  password = LjsKeychainTestsDefaultPassword;
-  shouldUseKeychainKey = LjsKeychainTestsShouldUseKeychainDefaultsKey;
-  serviceName = LjsKeychainTestsPasswordKeychainServiceName;
-  error = nil;
-  shouldUseKeychain = NO;
-  actual = [self.km synchronizeKeychainAndDefaultsWithUsername:username
-                                           usernameDefaultsKey:usernameKey
-                                                      password:password
-                                  shouldUseKeychainDefaultsKey:shouldUseKeychainKey
-                                             shouldUseKeyChain:shouldUseKeychain
-                                                   serviceName:serviceName
-                                                         error:&error];
-  GHTestLog(@"synchronize error = %@", error);
-  GHAssertTrue(actual, nil);
-  GHAssertNil(error, nil);
-}
-
-- (void) test_synchronizeKeychainAndDefaults6 {
-  NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
-  NSError *error = nil;
-  BOOL shouldUseKeychain, actual;
+  if ([self.gestalt isGhUnitCommandLineBuild] == YES) {
+    GHTestLog(@"WARN: skipping keychain unit test because we are running headless");
+  } else {
+    NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
+    NSError *error = nil;
+    BOOL shouldUseKeychain, actual;
     
-  username = LjsKeychainTestsDefaultUsername;
-  usernameKey = LjsKeychainTestsUsernameDefaultsKey;
-  password = LjsKeychainTestsDefaultPassword;
-  shouldUseKeychainKey = LjsKeychainTestsShouldUseKeychainDefaultsKey;
-  serviceName = LjsKeychainTestsPasswordKeychainServiceName;
-  error = nil;
-  shouldUseKeychain = YES;
-  actual = [self.km synchronizeKeychainAndDefaultsWithUsername:username
-                                           usernameDefaultsKey:usernameKey
-                                                      password:password
-                                  shouldUseKeychainDefaultsKey:shouldUseKeychainKey
-                                             shouldUseKeyChain:shouldUseKeychain
-                                                   serviceName:serviceName
-                                                         error:&error];
-  
-  NSDictionary *enviro = [[NSProcessInfo processInfo]environment];
-  NSNumber *number = [enviro objectForKey:@"GHUNIT_RUN_TESTS_SCRIPT"];
-  BOOL headless = [number boolValue];
-  if (headless == NO) {
+    username = LjsKeychainTestsDefaultUsername;
+    usernameKey = LjsKeychainTestsUsernameDefaultsKey;
+    password = LjsKeychainTestsDefaultPassword;
+    shouldUseKeychainKey = LjsKeychainTestsShouldUseKeychainDefaultsKey;
+    serviceName = LjsKeychainTestsPasswordKeychainServiceName;
+    error = nil;
+    shouldUseKeychain = NO;
+    actual = [self.km synchronizeKeychainAndDefaultsWithUsername:username
+                                             usernameDefaultsKey:usernameKey
+                                                        password:password
+                                    shouldUseKeychainDefaultsKey:shouldUseKeychainKey
+                                               shouldUseKeyChain:shouldUseKeychain
+                                                     serviceName:serviceName
+                                                           error:&error];
+    GHTestLog(@"synchronize error = %@", error);
     GHAssertTrue(actual, nil);
     GHAssertNil(error, nil);
-  } else {
+  }
+}
+
+
+- (void) test_synchronizeKeychainAndDefaults6 {
+  if ([self.gestalt isGhUnitCommandLineBuild] == YES) {
     GHTestLog(@"WARN: skipping keychain unit test because we are running headless");
-    GHTestLog(@"synchronize error = %@", error);
-    GHAssertFalse(actual, nil);
-    GHAssertNotNil(error, nil);
+  } else {
+    NSString *username, *usernameKey, *password, *shouldUseKeychainKey, *serviceName;
+    NSError *error = nil;
+    BOOL shouldUseKeychain, actual;
+    
+    username = LjsKeychainTestsDefaultUsername;
+    usernameKey = LjsKeychainTestsUsernameDefaultsKey;
+    password = LjsKeychainTestsDefaultPassword;
+    shouldUseKeychainKey = LjsKeychainTestsShouldUseKeychainDefaultsKey;
+    serviceName = LjsKeychainTestsPasswordKeychainServiceName;
+    error = nil;
+    shouldUseKeychain = YES;
+    actual = [self.km synchronizeKeychainAndDefaultsWithUsername:username
+                                             usernameDefaultsKey:usernameKey
+                                                        password:password
+                                    shouldUseKeychainDefaultsKey:shouldUseKeychainKey
+                                               shouldUseKeyChain:shouldUseKeychain
+                                                     serviceName:serviceName
+                                                           error:&error];
+    
+    
+    GHAssertTrue(actual, nil);
+    GHAssertNil(error, nil);
   }
 }
 
@@ -695,109 +728,110 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
 }
 
 - (void) test_keychain {
-  NSString *name, *password, *domain, *fetcehedPwd;
-  NSError *error;
-  
-  error = nil;
-  name = @"inform test username";
-  password = @"inform test password";
-  domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
-  
-  [SFHFKeychainUtils storeUsername:name
-                       andPassword:password
-                    forServiceName:domain updateExisting:NO error:&error];
-  
-  if (error != nil) {
-    [self printerror:error];
+  if ([self.gestalt isGhUnitCommandLineBuild] == YES) {
+    GHTestLog(@"WARN: skipping keychain unit test because we are running headless");
   } else {
-    GHTestLog(@"saved %@/%@ in %@", name, password, domain);
+    NSString *name, *password, *domain, *fetcehedPwd;
+    NSError *error;
+    
+    error = nil;
+    name = @"inform test username";
+    password = @"inform test password";
+    domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
+    
+    [SFHFKeychainUtils storeUsername:name
+                         andPassword:password
+                      forServiceName:domain updateExisting:NO error:&error];
+    
+    if (error != nil) {
+      [self printerror:error];
+    } else {
+      GHTestLog(@"saved %@/%@ in %@", name, password, domain);
+    }
+    
+    error = nil;
+    name = @"inform test username";
+    password = @"inform test password";
+    domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
+    
+    [SFHFKeychainUtils storeUsername:name
+                         andPassword:password
+                      forServiceName:domain updateExisting:YES error:&error];
+    
+    if (error != nil) {
+      [self printerror:error];
+    } else {
+      GHTestLog(@"updating keychain with %@/%@ in %@", name, password, domain);
+    }
+    
+    
+    error = nil;
+    name = @"inform test username";
+    password = @"inform test password";
+    domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
+    
+    [SFHFKeychainUtils storeUsername:name
+                         andPassword:password
+                      forServiceName:domain updateExisting:NO error:&error];
+    
+    if (error != nil) {
+      [self printerror:error];
+    } else {
+      GHTestLog(@"updating keychain with %@/%@ in %@", name, password, domain);
+    }
+    
+    
+    error = nil;
+    name = nil;
+    password = @"inform test password";
+    domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
+    
+    [SFHFKeychainUtils storeUsername:name
+                         andPassword:password
+                      forServiceName:domain updateExisting:NO error:&error];
+    
+    
+    if (error != nil) {
+      [self printerror:error];
+    } else {
+      GHTestLog(@"saved %@/%@ in %@", name, password, domain);
+    }
+    
+    error = nil;
+    name = @"inform test username";
+    domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
+    
+    fetcehedPwd = [SFHFKeychainUtils getPasswordForUsername:name andServiceName:domain error:&error];
+    
+    if (error != nil) {
+      [self printerror:error];
+    } else {
+      GHTestLog(@"fetched \"%@\" for %@ in %@", fetcehedPwd, name, domain);
+    }
+    
+    error = nil;
+    name = @"inform test username";
+    domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
+    [SFHFKeychainUtils deleteItemForUsername:name andServiceName:domain error:&error];
+    
+    if (error != nil) {
+      [self printerror:error];
+    } else {
+      GHTestLog(@"deleted password for %@ in %@", fetcehedPwd, name, domain);
+    }
+    
+    error = nil;
+    name = @"inform test username";
+    domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
+    fetcehedPwd = [SFHFKeychainUtils getPasswordForUsername:name andServiceName:domain error:&error];
+    
+    if (error != nil) {
+      [self printerror:error];
+    } else {
+      GHTestLog(@"attempted to fetch pwd for %@ in %@ - expecting nil, got: %@", name, domain, fetcehedPwd);
+    }
   }
-  
-  error = nil;
-  name = @"inform test username";
-  password = @"inform test password";
-  domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
-  
-  [SFHFKeychainUtils storeUsername:name
-                       andPassword:password
-                    forServiceName:domain updateExisting:YES error:&error];
-  
-  if (error != nil) {
-    [self printerror:error];
-  } else {
-    GHTestLog(@"updating keychain with %@/%@ in %@", name, password, domain);
-  }
+}  
   
   
-  error = nil;
-  name = @"inform test username";
-  password = @"inform test password";
-  domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
-  
-  [SFHFKeychainUtils storeUsername:name
-                       andPassword:password
-                    forServiceName:domain updateExisting:NO error:&error];
-  
-  if (error != nil) {
-    [self printerror:error];
-  } else {
-    GHTestLog(@"updating keychain with %@/%@ in %@", name, password, domain);
-  }
-
-  
-  error = nil;
-  name = nil;
-  password = @"inform test password";
-  domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
-  
-  [SFHFKeychainUtils storeUsername:name
-                       andPassword:password
-                    forServiceName:domain updateExisting:NO error:&error];
-  
-  
-  if (error != nil) {
-    [self printerror:error];
-  } else {
-    GHTestLog(@"saved %@/%@ in %@", name, password, domain);
-  }
-  
-  error = nil;
-  name = @"inform test username";
-  domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
-
-  fetcehedPwd = [SFHFKeychainUtils getPasswordForUsername:name andServiceName:domain error:&error];
-  
-  if (error != nil) {
-    [self printerror:error];
-  } else {
-    GHTestLog(@"fetched \"%@\" for %@ in %@", fetcehedPwd, name, domain);
-  }
-
-  error = nil;
-  name = @"inform test username";
-  domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
-  [SFHFKeychainUtils deleteItemForUsername:name andServiceName:domain error:&error];
-  
-  if (error != nil) {
-    [self printerror:error];
-  } else {
-    GHTestLog(@"deleted password for %@ in %@", fetcehedPwd, name, domain);
-  }
-
-  error = nil;
-  name = @"inform test username";
-  domain = @"com.littlejoysoftware.LJS Keychain Tests Domain";
-  fetcehedPwd = [SFHFKeychainUtils getPasswordForUsername:name andServiceName:domain error:&error];
-  
-  if (error != nil) {
-    [self printerror:error];
-  } else {
-    GHTestLog(@"attempted to fetch pwd for %@ in %@ - expecting nil, got: %@", name, domain, fetcehedPwd);
-  }
-
-
-}
-
-
-
 @end

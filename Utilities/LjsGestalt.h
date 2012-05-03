@@ -75,6 +75,7 @@ typedef enum {
 - (BOOL) currentLangCodeIsEqualToCode:(NSString *) aCode;
 - (BOOL) isCurrentLanguageEnglish;
 
+- (BOOL) isGhUnitCommandLineBuild;
 
 @end
 
