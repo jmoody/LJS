@@ -39,6 +39,9 @@
 
 
 @interface LjsValidatorTests : LjsTestCase {}
+
+- (void) dummySelector;
+
 @end
 
 
@@ -485,6 +488,24 @@
                       ifElement:@"q"
                         inArray:[NSArray arrayWithObjects:@"a", @"b", @"c", nil]];
   GHAssertFalse([reasons hasReasons], @"should not have reasons");  
+}
+
+- (void) test_addReasonIfSelectorIsNil {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"selector"
+                  ifNilSelector:nil];
+  GHAssertTrue([reasons hasReasons], @"should have reasons");  
+}
+
+- (void) dummySelector {
+  // a selector to supress compiler warning
+}
+
+- (void) test_addReasonIfSelectorIsNotNil {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"selector"
+                  ifNilSelector:@selector(dummySelector)];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons if selector is non-nil");
 }
 
 

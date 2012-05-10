@@ -230,6 +230,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
 }
 
+- (void) addReasonWithVarName:(NSString *)aVarName ifNilSelector:(SEL) aSel {
+  NSString *selStr = NSStringFromSelector(aSel);
+  [self addReasonWithVarName:aVarName ifNil:selStr];
+}
+
 - (void) addReasonWithVarName:(NSString *)aVarName ifNilOrEmptyString:(NSString *) aString {
   if ([LjsValidator stringIsNonNilAndNotEmpty:aString] == NO) {
     NSString *reason = [NSString stringWithFormat:@"%@ cannot be nil or empty",
