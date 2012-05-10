@@ -183,11 +183,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return ((aFloat >= aMin) && (aFloat <= aMax));
 }
 
+#if TARGET_OS_IPHONE
 + (BOOL) isZeroRect:(CGRect) aRect {
   NSString *str = NSStringFromCGRect(aRect);
   NSString *zero = NSStringFromCGRect(CGRectZero);
   return [str isEqualToString:zero];
 }
+#endif
 
 @end
 

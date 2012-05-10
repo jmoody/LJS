@@ -170,7 +170,10 @@
    onIntervalMin:(CGFloat) aMin
              max:(CGFloat) aMax;
 
+#if TARGET_OS_IPHONE
 + (BOOL) isZeroRect:(CGRect) aRect;
+#endif
+
 @end
 
 @interface LjsReasons : NSObject

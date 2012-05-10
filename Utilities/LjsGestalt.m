@@ -211,6 +211,13 @@ fail:
   return [self currentLangCodeIsEqualToCode:@"en"];
 }
 
+- (BOOL) isGhUnitCommandLineBuild {
+  if (getenv("GHUNIT_CLI")) {
+    return YES;
+  } else {
+    return NO;
+  }
+}
 
 @end
 
