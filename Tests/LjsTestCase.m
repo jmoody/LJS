@@ -153,6 +153,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 }
 
+- (void) dummyControlSelector:(id) sender {
+  return;
+}
+
 #pragma mark LJS Table View Owner Protocol
 
 #if TARGET_OS_IPHONE
