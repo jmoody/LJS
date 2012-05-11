@@ -153,5 +153,44 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 }
 
+#pragma mark LJS Table View Owner Protocol
+
+#if TARGET_OS_IPHONE
+- (void) scrollTableViewToIndexPath:(NSIndexPath *) aIndexPath
+                   atScrollPosition:(UITableViewScrollPosition) aPostion {
+  return;
+}
+
+- (void) reloadTableView {
+  return;
+}
+
+- (UITableViewCell *) cellForIndexPath:(NSIndexPath *) aIndexPath {
+  return nil;
+}
+
+- (UITableViewCell *) cellForSelectedRow {
+  return nil;
+}
+
+- (NSIndexPath *) indexPathForSelectedRow {
+  return nil;
+}
+
+- (void) deselectSelectedRow:(BOOL) animated {
+  return;
+}
+
+- (void) selectCellAtIndexPath:(NSIndexPath *) aIndexPath 
+                      animated:(BOOL) animated 
+                scrollPosition:(UITableViewScrollPosition) scrollPosition {
+  return;
+}
+
+- (NSArray *) visibleCells {
+  return nil;
+}
+#endif
+
 
 @end

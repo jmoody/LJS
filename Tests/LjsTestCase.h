@@ -34,11 +34,14 @@
 #else
 #import <GHUnit/GHUnit.h>
 #endif
+
 #import "LjsVariates.h"
 #import "LjsValidator.h"
 #import <objc/runtime.h>
 
 #if TARGET_OS_IPHONE
+#import "LjsTableViewOwnerProtocol.h"
+
 @interface UIView (UIView_TESTING)
 
 - (NSMutableDictionary *)fullDescription;
@@ -47,9 +50,14 @@
 
 #endif
 
+
+
 @class LjsGestalt;
 
 @interface LjsTestCase : GHTestCase 
+#if TARGET_OS_IPHONE
+<LjsTableViewOwnerProtocol>
+#endif
 
 @property (nonatomic, strong) LjsGestalt *gestalt;
 
