@@ -341,9 +341,12 @@ NSSecondCalendarUnit);
                    second:(NSUInteger) aSecond {
   NSCalendar *current = [NSCalendar currentCalendar];
   NSTimeZone *local = [current timeZone];
-  return [self dateWithYear:aYear month:aMonth 
-                        day:aDay hour:aHour
-                     minute:aMonth second:aSecond
+  return [self dateWithYear:aYear 
+                      month:aMonth 
+                        day:aDay 
+                       hour:aHour
+                     minute:aMinute 
+                     second:aSecond
                    timeZone:local
                    calendar:current];
 }
@@ -355,9 +358,12 @@ NSSecondCalendarUnit);
                    minute:(NSUInteger) aMinute
                    second:(NSUInteger) aSecond
                  timeZone:(NSTimeZone *) aTimeZone {
-  return [self dateWithYear:aYear month:aMonth 
-                        day:aDay hour:aHour
-                     minute:aMonth second:aSecond
+  return [self dateWithYear:aYear
+                      month:aMonth 
+                        day:aDay 
+                       hour:aHour
+                     minute:aMinute 
+                     second:aSecond
                    timeZone:aTimeZone
                    calendar:[NSCalendar currentCalendar]];
 }
@@ -369,9 +375,12 @@ NSSecondCalendarUnit);
                    minute:(NSUInteger) aMinute
                    second:(NSUInteger) aSecond
                  calendar:(NSCalendar *) aCalendar {
-  return [self dateWithYear:aYear month:aMonth 
-                        day:aDay hour:aHour
-                     minute:aMonth second:aSecond
+  return [self dateWithYear:aYear 
+                      month:aMonth 
+                        day:aDay 
+                       hour:aHour
+                     minute:aMinute
+                     second:aSecond
                    timeZone:[aCalendar timeZone]
                    calendar:[NSCalendar currentCalendar]];
 }
