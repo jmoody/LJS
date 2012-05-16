@@ -97,11 +97,16 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return self;
 }
 
-- (void) applyAttributesToLabel:(UILabel *) aLabel {
+- (void) applyAttributesToLabel:(UILabel *) aLabel 
+      shouldApplyWidthAndHeight:(BOOL) aShouldApplyWidthAndHeight {
   aLabel.font = self.font;
   aLabel.text = self.string;
   aLabel.lineBreakMode = self.linebreakMode;
   aLabel.numberOfLines = self.numberOfLines;
+  if (aShouldApplyWidthAndHeight == YES) {
+    [aLabel setHeightWithHeight:self.labelHeight];
+    [aLabel setWidthWithWidth:self.labelWidth];
+  }
 }
 
 

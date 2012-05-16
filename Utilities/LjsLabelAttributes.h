@@ -54,7 +54,9 @@
         linebreakMode:(UILineBreakMode) aLinebreakMode
           minFontSize:(CGFloat) aMinFontSize;
 
-- (void) applyAttributesToLabel:(UILabel *) aLabel;
+- (void) applyAttributesToLabel:(UILabel *) aLabel
+      shouldApplyWidthAndHeight:(BOOL) aShouldApplyWidthAndHeight;
+
 - (UILabel *) labelWithFrame:(CGRect) aFrame
                    alignment:(UITextAlignment) aAlignemnt
                    textColor:(UIColor *) aTextColor
