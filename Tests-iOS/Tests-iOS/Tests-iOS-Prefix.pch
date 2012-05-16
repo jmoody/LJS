@@ -10,6 +10,6 @@
 #import <OCMock/OCMock.h>
 #import <GHUnitIOS/GHUnit.h>
 #include "TargetConditionals.h"
-#import "LjsFoundationCategories.h"
+#import "LjsCategories.h"
 #import <CoreData/CoreData.h>
 #endif
