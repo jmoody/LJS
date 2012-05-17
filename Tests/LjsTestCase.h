@@ -64,9 +64,16 @@
 @property (assign) Method findDocumentDirectoryPathOriginal;
 @property (assign) Method findDocumentDirectoryPathMock;
 
+@property (assign) Method findLibraryPreferencesPathOriginal;
+@property (assign) Method findLibraryPreferencesPathMock;
+
 - (NSString *) findDocumentDirectoryPathSwizzled;
 - (void) swizzleFindDocumentDirectoryPath;
 - (void) restoreFindDocumentDirectoryPath;
+
+- (NSString *) findLibraryPreferencesPathSwizzled:(BOOL) ignorable;
+- (void) swizzleFindLibraryPreferencesPath;
+- (void) restoreFindLibraryPreferencesPath;
 
 - (NSString *) emptyStringOrNil;
 - (BOOL) flip;

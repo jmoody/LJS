@@ -89,6 +89,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @synthesize gestalt;
 @synthesize findDocumentDirectoryPathMock, findDocumentDirectoryPathOriginal;
+@synthesize findLibraryPreferencesPathMock, findLibraryPreferencesPathOriginal;
 
 
 - (id) init {
@@ -103,9 +104,37 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     self.findDocumentDirectoryPathMock = 
     class_getInstanceMethod([self class],
                             @selector(findDocumentDirectoryPathSwizzled));
+    
+    self.findLibraryPreferencesPathOriginal =
+    class_getClassMethod([LjsFileUtilities class], 
+                         @selector(findLibraryPreferencesPath:));
+    self.findLibraryPreferencesPathMock =
+    class_getInstanceMethod([LjsFileUtilities class], 
+                            @selector(findLibraryPreferencesPathSwizzled));
   }
   return self;
 }
+
+
+- (void) setUpClass {
+  // Run at start of all tests in the class
+  [super setUpClass];
+  if (getenv("GHUNIT_CLI")) {
+    [self swizzleFindDocumentDirectoryPath];
+    [self swizzleFindLibraryPreferencesPath];
+  }
+}
+
+- (void) tearDownClass {
+  // Run at end of all tests in the class  
+  if (getenv("GHUNIT_CLI")) {
+    [self restoreFindDocumentDirectoryPath];
+    [self restoreFindLibraryPreferencesPath];
+  }
+  [super tearDownClass];
+}
+
+
 
 - (NSString *) emptyStringOrNil {
   NSString *result = nil;
@@ -134,28 +163,38 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (void) swizzleFindDocumentDirectoryPath {
-  
-//  Method original = class_getClassMethod([LjsFileUtilities class],
-//                                         @selector(findDocumentDirectoryPath));
-//  Method mock = class_getInstanceMethod([self class],
-//                                        @selector(findDocumentDirectoryPathSwizzled));
-//
-//  
-//  method_exchangeImplementations(original, mock);
   method_exchangeImplementations(self.findDocumentDirectoryPathOriginal,
                                  self.findDocumentDirectoryPathMock);
 }
 
 - (void) restoreFindDocumentDirectoryPath {
-//  Method original = class_getClassMethod([LjsFileUtilities class],
-//                                         @selector(findDocumentDirectoryPath));
-//  Method mock = class_getInstanceMethod([self class],
-//                                        @selector(findDocumentDirectoryPathSwizzled));
-//  method_exchangeImplementations(mock, original);
   method_exchangeImplementations(self.findDocumentDirectoryPathMock,
                                  self.findDocumentDirectoryPathOriginal);
 
 }
+
+- (NSString *) findLibraryPreferencesPathSwizzled:(BOOL) ignorable {
+  NSString *path = @"./build/sandbox/Library/Preferences";
+  NSError *error = nil;
+  BOOL success = [LjsFileUtilities ensureDirectory:path error:&error];
+  if (success == NO) {
+    GHTestLog(@"could not create directory at path: %@\n%@ : %@",
+              [error localizedDescription], error);
+    abort();
+  }
+  return path;
+}
+
+- (void) swizzleFindLibraryPreferencesPath {
+  method_exchangeImplementations(self.findLibraryPreferencesPathOriginal,
+                                 self.findLibraryPreferencesPathMock);
+}
+
+- (void) restoreFindLibraryPreferencesPath {
+  method_exchangeImplementations(self.findLibraryPreferencesPathMock, 
+                                 self.findLibraryPreferencesPathOriginal);
+}
+
 
 - (void) dummyControlSelector:(id) sender {
   return;

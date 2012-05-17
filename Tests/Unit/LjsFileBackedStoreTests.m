@@ -98,16 +98,10 @@ static NSString *LjsTestStoreFilename = @"com.littlejoysoftware.LjsTestStore.pli
 - (void) setUpClass {
   [super setUpClass];
   // Run at start of all tests in the class
-  if (getenv("GHUNIT_CLI")) {
-    [self swizzleFindDocumentDirectoryPath];
-  }
 }
 
 - (void) tearDownClass {
   // Run at end of all tests in the class
-  if (getenv("GHUNIT_CLI")) {
-    [self restoreFindDocumentDirectoryPath];
-  }
   [super tearDownClass];
 }
 
