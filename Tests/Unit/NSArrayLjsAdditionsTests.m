@@ -268,6 +268,17 @@
   GHAssertFalse([marray emptyp], @"should be empty:\n%@", marray);
 }
 
+- (void) test_map {
+  NSArray *array = [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
+  NSArray *actual = [array map:^(id obj) {
+    return [obj uppercaseString];
+  }];
+  NSSet *expected = [NSSet setWithObjects:@"A", @"B", @"C", nil];
+  GHAssertTrue([LjsValidator array:actual containsStrings:expected allowsOthers:NO],
+               @"map should have upcased strings in original array\nactual   %@\nexpected     %@\noriginal    %@",
+               actual, expected, array);
+}
+
 
 
 @end
