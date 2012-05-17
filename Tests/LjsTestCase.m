@@ -115,6 +115,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return result;
 }
 
+- (BOOL) flip {
+  return [LjsVariates flip];
+}
+
 // must swizzle for command line builds because Application does not exist
 // on the CLI so document path is /dev/null/Documents
 - (NSString *) findDocumentDirectoryPathSwizzled {

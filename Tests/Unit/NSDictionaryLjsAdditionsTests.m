@@ -66,7 +66,6 @@
 #endif
 
 #import "LjsTestCase.h"
-#import "NSDate+LjsAdditions.h"
 
 @interface NSDictionaryLjsAdditionsTests : LjsTestCase {}
 @end
@@ -115,6 +114,42 @@
 - (void) test_emptyp_with_non_empty_dict_mutable {
   BOOL actual = [[NSMutableDictionary dictionaryWithObject:@"foo" forKey:@"bar"] emptyp];
   GHAssertFalse(actual, @"non-empty dictionaries should not be emptyp");
+}
+
+- (void) test_keySet_with_empty_dict {
+  NSSet *set = [[NSDictionary dictionary] keySet];
+  GHAssertNotNil(set, @"set should not be nil");
+  GHAssertTrue([set count] == 0, @"set should contain no elements");
+}
+
+- (void) test_keySet_with_empty_mutable_dict {
+  NSSet *set = [[NSMutableDictionary dictionary] keySet];
+  GHAssertNotNil(set, @"set should not be nil");
+  GHAssertTrue([set count] == 0, @"set should contain no elements");
+}
+
+- (void) test_keySet_with_non_empty_dict {
+  NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                        @"1", @"a",
+                        @"2", @"b",
+                        @"3", @"c", nil];
+  NSSet *set = [dict keySet];
+  GHAssertTrue([set containsObject:@"a"], @"set should contain a");
+  GHAssertTrue([set containsObject:@"b"], @"set should contain b");
+  GHAssertTrue([set containsObject:@"c"], @"set should contain c");
+  GHAssertTrue([set count] == 3, @"set should contain 3 objects");
+}
+
+- (void) test_keySet_with_non_empty_mutable_dict {
+  NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"1", @"a",
+                               @"2", @"b",
+                               @"3", @"c", nil];
+  NSSet *set = [dict keySet];
+  GHAssertTrue([set containsObject:@"a"], @"set should contain a");
+  GHAssertTrue([set containsObject:@"b"], @"set should contain b");
+  GHAssertTrue([set containsObject:@"c"], @"set should contain c");
+  GHAssertTrue([set count] == 3, @"set should contain 3 objects");
 }
 
 @end

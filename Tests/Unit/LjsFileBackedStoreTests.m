@@ -64,23 +64,31 @@
 #import "LjsTestCase.h"
 #import "LjsFileBackedKeyStore.h"
 #import "LjsFileUtilities.h"
+#import "Lumberjack.h"
 
-@interface LjsFileBackedStoreTests : LjsTestCase {}
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
+
+static NSString *LjsTestStoreFilename = @"com.littlejoysoftware.LjsTestStore.plist";
+
+
+
+@interface LjsFileBackedStoreTests : LjsTestCase
+@property (nonatomic, strong) LjsFileBackedKeyStore *store;
+@property (nonatomic, strong) LjsFileBackedKeyStore *other;
+
+- (NSArray *) listOfTestKeys;
+- (NSArray *) listOfTestValues;
+- (NSDictionary *) testMap;
+
 @end
 
 @implementation LjsFileBackedStoreTests
-
-//- (id) init {
-//  self = [super init];
-//  if (self) {
-//    // Initialization code here.
-//  }
-//  return self;
-//}
-//
-//- (void) dealloc {
-//
-//}
+@synthesize store;
+@synthesize other;
 
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
@@ -88,63 +96,239 @@
 }
 
 - (void) setUpClass {
+  [super setUpClass];
   // Run at start of all tests in the class
+  if (getenv("GHUNIT_CLI")) {
+    [self swizzleFindDocumentDirectoryPath];
+  }
 }
 
 - (void) tearDownClass {
   // Run at end of all tests in the class
+  if (getenv("GHUNIT_CLI")) {
+    [self restoreFindDocumentDirectoryPath];
+  }
+  [super tearDownClass];
 }
 
 - (void) setUp {
+  [super setUp];
   // Run before each test method
+  NSString *docDir = [LjsFileUtilities findDocumentDirectoryPath];
+  NSError *error = nil;
+  
+  self.store = [[LjsFileBackedKeyStore alloc]
+                initWithFileName:LjsTestStoreFilename
+                directoryPath:docDir
+                error:&error];
+  
+  if (store == nil) {
+    GHTestLog(@"error == %@", error);
+  }
+  
+  GHAssertNotNil(self.store, @"store should not be nil");
+  
+  self.other = [[LjsFileBackedKeyStore alloc]
+                initWithFileName:LjsTestStoreFilename
+                directoryPath:docDir
+                error:&error];
+  GHAssertNotNil(self.other, @"other should not be nil");
+  
 }
 
 - (void) tearDown {
   // Run after each test method
-  
-  
+  [self.store removeKeys:[self.store allKeys]];
+  [super tearDown];
 }  
 
-#pragma mark DEAD SEA
-//- (void) test_initWithFilepathDirectoryStore {
-//  LjsFileBackedKeyStore *store;
-//  NSString *filename, *directory;
-//  NSDictionary *dict;
-//  BOOL overwrite;
-//  NSError *error = nil;
-//
-//  NSArray *values = [NSArray arrayWithObjects:
-//                     @"string",
-//                     [NSNumber numberWithInteger:0],
-//                     [NSArray arrayWithObject:@"foo"],
-//                     [NSDate date],
-//                     [@"string" dataUsingEncoding:NSUTF8StringEncoding],
-//                     [NSDictionary dictionaryWithObject:@"value" forKey:@"key"],
-//                     nil];
-//  NSArray *keys = [NSArray arrayWithObjects:
-//                   @"string",
-//                   @"number",
-//                   @"array",
-//                   @"date",
-//                   @"data",
-//                   @"dictionary",
-//                   nil];
-//  
-//  dict = [NSDictionary dictionaryWithObjects:values forKeys:keys];
-//  directory = [LjsFileUtilities findDocumentDirectoryPath];
-//  filename = @"test-name.plist";
-//  overwrite = NO;
-//  
-//  store = [[LjsFileBackedKeyStore alloc]
-//           initWithFileName:filename
-//           directoryPath:directory
-//           defaultStore:dict
-//           overwriteExisting:overwrite
-//           error:&error];
-//  
-//
-//
-//  GHTestLog(@"store = %@", store);
-//}
+- (NSArray *) listOfTestKeys {
+  return [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
+}
+
+- (NSArray *) listOfTestValues {
+  return [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
+}
+
+- (NSDictionary *) testMap {
+  return [NSDictionary dictionaryWithObjects:[self listOfTestValues]
+                                     forKeys:[self listOfTestKeys]];
+}
+
+//NSUInteger actualCount = [[self.store allKeys] count];
+//GHAssertEquals(actualCount, (NSUInteger)[map count], @"counts should be the same");
+
+- (void) test_removeKeys {
+  NSDictionary *map = [self testMap];
+  for (NSString *key in [map allKeys]) {
+    [self.store storeObject:[map objectForKey:key] forKey:key];
+  }
+  NSUInteger actualCount = [[self.store allKeys] count];
+  NSUInteger expectedCount = [map count];
+  GHAssertEquals(actualCount, expectedCount, @"should be same number of keys");
+  NSString *first = [[self listOfTestKeys] first];
+  NSArray *toRemove = [NSArray arrayWithObject:first];
+  [self.store removeKeys:toRemove];
+  
+  NSString *found = [self.store stringForKey:first
+                                defaultValue:nil 
+                              storeIfMissing:NO];
+  GHAssertNil(found, @"should not find key after removing it");
+
+  [self.store removeKeys:[map allKeys]];
+  actualCount = [[self.store allKeys] count];
+  expectedCount = 0;
+  GHAssertEquals(actualCount, expectedCount, @"should be no keys after removing all keys");
+}
+
+- (void) test_allKeys {
+  NSDictionary *map = [self testMap];
+  for (NSString *key in [map allKeys]) {
+    [self.store storeObject:[map objectForKey:key] forKey:key];
+  }
+  GHAssertTrue([LjsValidator array:[self.store allKeys]
+                   containsStrings:[map keySet] allowsOthers:NO], 
+               @"store should contain %@ keys and no others",
+               [map keySet]);
+}
+
+
+- (void) test_storeObject_for_nil_key_value {
+  GHAssertThrowsSpecificNamed([self.store storeObject:nil forKey:@"a"],
+                              NSException, NSInvalidArgumentException, 
+                              @"should throw an exception if object is nil", nil);
+  GHAssertThrowsSpecificNamed([self.store storeObject:@"a" forKey:nil],
+                              NSException, NSInvalidArgumentException, 
+                              @"should throw an exception if key is nil", nil);
+}
+
+- (void) test_getting_values_from_dictionary_with_name_nil {
+  GHAssertThrowsSpecificNamed([self.store valueForDictionaryNamed:nil
+                                                     withValueKey:@"key"
+                                                     defaultValue:@"default"
+                                                   storeIfMissing:[self flip]],
+                               NSException, NSInvalidArgumentException, 
+                               @"should throw an exception if key is nil", nil);
+}
+
+- (void) test_getting_values_from_dictionary_with_value_key_nil {
+  GHAssertThrowsSpecificNamed([self.store valueForDictionaryNamed:@"name"
+                                                     withValueKey:nil
+                                                     defaultValue:@"default"
+                                                   storeIfMissing:[self flip]],
+                              NSException, NSInvalidArgumentException, 
+                              @"should throw an exception if key is nil", nil);
+}
+
+- (void) test_getting_values_from_dictionary_with_nil_default_value_persist_no {
+  id obj = [self.store valueForDictionaryNamed:@"name"
+                                  withValueKey:@"key"
+                                  defaultValue:nil
+                                storeIfMissing:NO];
+  GHAssertNil(obj, @"object should be nil, but found: %@", obj);
+  NSDictionary *dict = [self.store dictionaryForKey:@"name"
+                                       defaultValue:nil
+                                     storeIfMissing:NO];
+  GHAssertNil(dict, @"dictionary for name should be nil because storeIfMissing was NO");
+
+}
+
+- (void) test_getting_values_from_dictionary_with_nil_default_value_persist_yes {
+  id obj = [self.store valueForDictionaryNamed:@"name"
+                                  withValueKey:@"key"
+                                  defaultValue:nil
+                                storeIfMissing:YES];
+  GHAssertNil(obj, @"object should be nil, but found: %@", obj);
+  NSDictionary *dict = [self.store dictionaryForKey:@"name"
+                                       defaultValue:nil
+                                     storeIfMissing:NO];
+  GHAssertNil(dict, @"dictionary for name should be nil because default value was nil (would have stored empty array");
+}
+
+- (void) test_getting_values_from_dictionary_with_default_value_persist_no {
+  id obj = [self.store valueForDictionaryNamed:@"name"
+                                  withValueKey:@"key"
+                                  defaultValue:@"default"
+                                storeIfMissing:NO];
+  GHAssertEqualStrings(obj, @"default", @"should return < default > because it was provided");
+  
+  NSDictionary *dict = [self.store dictionaryForKey:@"name"
+                                       defaultValue:nil
+                                     storeIfMissing:NO];
+  GHAssertNil(dict, @"dictionary for name should be nil because storeIfMissing was NO");
+}
+
+- (void) test_getting_values_from_dictionary_with_default_value_persist_yes {
+  id obj = [self.store valueForDictionaryNamed:@"name"
+                                  withValueKey:@"key"
+                                  defaultValue:@"default"
+                                storeIfMissing:YES];
+  GHAssertEqualStrings(obj, @"default", @"should return < default > because it was provided");
+  
+  NSDictionary *dict = [self.store dictionaryForKey:@"name"
+                                       defaultValue:nil
+                                     storeIfMissing:NO];
+  GHAssertNotNil(dict, @"dictionary for name should not be nil storeIfMissing was YES and there was default value provided");
+  GHAssertEqualStrings([dict objectForKey:@"key"], @"default", 
+                       @"dictionary should contain < default > for key < key >");
+  
+  dict = [self.other dictionaryForKey:@"name"
+                         defaultValue:nil
+                       storeIfMissing:NO];
+  GHAssertEqualStrings([dict objectForKey:@"key"], @"default", 
+                       @"other store dictionary should contain < default > for key < key >");
+
+}
+
+
+- (void) test_updating_value_in_dictionary_with_nil_name {
+  GHAssertThrowsSpecificNamed([self.store updateValueInDictionaryNamed:nil
+                                                          withValueKey:@"key"
+                                                                 value:@"value"],
+                              NSException, NSInvalidArgumentException, 
+                              @"should throw an exception if name is nil", nil);
+}
+
+- (void) test_updating_value_in_dictionary_with_nil_key {
+  GHAssertThrowsSpecificNamed([self.store updateValueInDictionaryNamed:@"name"
+                                                          withValueKey:nil
+                                                                 value:@"value"],
+                              NSException, NSInvalidArgumentException, 
+                              @"should throw an exception if key is nil", nil);
+}
+                               
+- (void) test_updating_value_in_dictionary_with_nil_value {
+  GHAssertThrowsSpecificNamed([self.store updateValueInDictionaryNamed:@"name"
+                                                          withValueKey:@"key"
+                                                                 value:nil],
+                              NSException, NSInvalidArgumentException, 
+                              @"should throw an exception if value is nil", nil);
+}
+
+
+- (void) test_updating_value_in_dictionary {
+  NSDictionary *dict = [NSDictionary dictionaryWithObject:@"old" forKey:@"key"];
+  [self.store storeObject:dict forKey:@"name"];
+  
+  [self.store updateValueInDictionaryNamed:@"name"
+                              withValueKey:@"key"
+                                     value:@"new"];
+  GHAssertEqualStrings([self.store valueForDictionaryNamed:@"name"
+                                              withValueKey:@"key"
+                                              defaultValue:nil
+                                            storeIfMissing:NO],
+                       @"new", @"value should have updated from < old > to < new >");
+  
+  GHAssertEqualStrings([self.other valueForDictionaryNamed:@"name"
+                                              withValueKey:@"key"
+                                              defaultValue:nil
+                                            storeIfMissing:NO],
+                       @"new", @"value in other store should have updated from < old > to < new >");
+}
+
+
+
+
+
 
 @end

@@ -45,4 +45,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [self count] == 0;
 }
 
+- (NSSet *) keySet {
+  return [NSSet setWithArray:[self allKeys]];
+}
+
 @end

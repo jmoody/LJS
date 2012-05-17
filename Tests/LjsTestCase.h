@@ -69,6 +69,7 @@
 - (void) restoreFindDocumentDirectoryPath;
 
 - (NSString *) emptyStringOrNil;
+- (BOOL) flip;
 - (void) dummyControlSelector:(id) sender;
 
 @end

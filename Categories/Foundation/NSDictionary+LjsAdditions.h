@@ -36,4 +36,6 @@
 /** @name Task Section */
 - (BOOL) emptyp;
 
+- (NSSet *) keySet;
+
 @end
