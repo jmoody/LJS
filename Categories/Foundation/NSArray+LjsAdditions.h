@@ -19,4 +19,5 @@
 - (NSArray *) pushObject:(id) object;
 - (NSArray *) map:(id (^)(id obj)) aBlock;
 - (BOOL) emptyp;
+- (NSArray *) arrayByRemovingObjectsInArray:(NSArray *) aArray;
 @end

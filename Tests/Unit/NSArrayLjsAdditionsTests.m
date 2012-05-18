@@ -136,13 +136,13 @@
   index = 1;
   actual = [array nth:index];
   GHAssertEqualObjects(actual, expected, nil);
-
+  
   expected = @"foo";
   array = [NSArray arrayWithObjects:@"bar", @"ble", expected, nil];
   index = 2;
   actual = [array nth:index];
   GHAssertEqualObjects(actual, expected, nil);
-
+  
   expected = nil;
   array = [NSArray arrayWithObjects:@"bar", @"ble", nil];
   index = 2;
@@ -169,8 +169,8 @@
   array = [NSArray arrayWithObject:@"foo"];
   actual = [array rest];
   GHAssertNil(actual, nil);
-
-
+  
+  
   array = [NSArray arrayWithObjects:@"first", @"foo", nil];
   actual = [array rest];
   GHAssertEqualStrings([actual first], @"foo", nil);
@@ -213,7 +213,7 @@
   actual = [array append:object];
   expected = nil;
   GHAssertNil(actual, nil);
-
+  
   object = nil;
   array = [NSArray array];
   actual = [array append:object];
@@ -221,7 +221,7 @@
   expected = [NSArray array];
   expectedCount = [expected count];
   GHAssertEquals((NSUInteger) actualCount, (NSUInteger) expectedCount, nil);
-
+  
   object = @"d";
   array = [NSArray array];
   actual = [array append:object];
@@ -241,7 +241,7 @@
   for (NSUInteger index; index < actualCount; index++) {
     GHAssertEqualStrings([actual nth:index], [expected nth:index], nil);
   }
-
+  
   object = [NSArray arrayWithObjects:@"d", @"e", @"f", nil];
   array = [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
   actual = [array append:object];
@@ -279,6 +279,43 @@
                actual, expected, array);
 }
 
+- (void) test_arrayByRemovingObjectInArray_nil_array {
+  NSArray *array = [NSArray arrayWithObjects:@"a", nil];
+  NSArray *actual = [array arrayByRemovingObjectsInArray:nil];
+  GHAssertTrue([actual count] == 1, @"array should have object");
+  GHAssertTrue([actual containsObject:@"a"], @"array should contain < a >");
+}
+
+- (void) test_arrayByRemovingObjectInArray_empty_array {
+  NSArray *array = [NSArray arrayWithObjects:@"a", nil];
+  NSArray *actual = [array arrayByRemovingObjectsInArray:nil];
+  GHAssertTrue([actual count] == 1, @"array should have object");
+  GHAssertTrue([actual containsObject:@"a"], @"array should contain < a >");
+}
+
+- (void) test_arrayByRemovingObjectInArray_array_with_one_object_found {
+  NSArray *array = [NSArray arrayWithObjects:@"a", nil];
+  NSArray *toRemove = [NSArray arrayWithObjects:@"a", nil];
+  NSArray *actual = [array arrayByRemovingObjectsInArray:toRemove];
+  GHAssertTrue([actual emptyp], @"array should be emptyp");
+}
+
+
+- (void) test_arrayByRemovingObjectInArray_array_with_no_objects_found {
+  NSArray *array = [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
+  NSArray *toRemove = [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
+  NSArray *actual = [array arrayByRemovingObjectsInArray:toRemove];
+  GHAssertTrue([LjsValidator array:actual containsStrings:[NSSet setWithArray:array] allowsOthers:NO],
+               @"array should contain only the original objects");
+}
+
+- (void) test_arrayByRemovingObjectInArray_array_with_some_objects_found {
+  NSArray *array = [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
+  NSArray *toRemove = [NSArray arrayWithObjects:@"1", @"b", @"c", nil];
+  NSArray *actual = [array arrayByRemovingObjectsInArray:toRemove];
+  GHAssertTrue([LjsValidator array:actual containsStrings:[NSSet setWithObject:@"a"] allowsOthers:NO],
+               @"array should contain only the original objects");
+}
 
 
 @end

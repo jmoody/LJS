@@ -363,11 +363,9 @@
                                                 tag:tag
                                        asynchronous:YES];
   GHAssertTrue(actual, nil);
-  NSDate *date = [[NSDate date] dateByAddingTimeInterval:10];
-  
-  
+ 
   [self.condition lock];
-  BOOL timedOut = ![self.condition waitUntilDate:date];
+  BOOL timedOut = ![self.condition waitUntilDate:[self dateForDefaultTimeOut]];
 	[self.condition unlock];
 
   if (timedOut) {
@@ -422,9 +420,8 @@
                                asynchronous:YES];
   GHAssertTrue(actual, nil);
   
-  NSDate *date = [[NSDate date] dateByAddingTimeInterval:10];
   [self.condition lock];
-  BOOL timedOut = ![self.condition waitUntilDate:date];
+  BOOL timedOut = ![self.condition waitUntilDate:[self dateForDefaultTimeOut]];
 	[self.condition unlock];
   
   if (timedOut) {

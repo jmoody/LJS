@@ -200,6 +200,15 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return;
 }
 
+
+- (NSDate *) dateForTimeOutWithSeconds:(NSTimeInterval) aSeconds {
+  return [[NSDate date] dateByAddingTimeInterval:aSeconds];
+}
+
+- (NSDate *) dateForDefaultTimeOut {
+  return [self dateForTimeOutWithSeconds:1.5];
+}
+
 #pragma mark LJS Table View Owner Protocol
 
 #if TARGET_OS_IPHONE

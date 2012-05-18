@@ -81,5 +81,19 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [self count] == 0;
 }
 
+- (NSArray *) arrayByRemovingObjectsInArray:(NSArray *) aArray {
+  if (aArray == nil || [aArray emptyp]) {
+    return [NSArray arrayWithArray:self];
+  }
+  NSPredicate *predicate;
+  predicate = [NSPredicate predicateWithBlock:^(id obj, NSDictionary *bindings) {
+    DDLogDebug(@"evaluating: %@", obj);
+    BOOL result = [aArray containsObject:obj] == NO;
+    return result;
+  }];
+  return [self filteredArrayUsingPredicate:predicate];
+}
+
+
 
 @end

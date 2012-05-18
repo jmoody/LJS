@@ -79,4 +79,7 @@
 - (BOOL) flip;
 - (void) dummyControlSelector:(id) sender;
 
+- (NSDate *) dateForTimeOutWithSeconds:(NSTimeInterval) aSeconds;
+- (NSDate *) dateForDefaultTimeOut;
+
 @end
