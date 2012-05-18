@@ -74,11 +74,12 @@
 //}
 
 - (void)test_OCMockWorking {
-  id returnValue;
+  id actual;
   id mock = [OCMockObject mockForClass:[NSString class]];
-  [[[mock stub] andReturn:@"megamock"] lowercaseString];
-  returnValue = [mock lowercaseString];
-  GHAssertEqualObjects(@"megamock", returnValue, @"Should have returned stubbed value."); 
+  [[[mock expect] andReturn:@"megamock"] lowercaseString];
+  actual = [mock lowercaseString];
+  [mock verify];
+  GHAssertEqualStrings(actual, @"megamock", @"Should have returned stubbed value."); 
 }
 
 
