@@ -73,38 +73,30 @@
 
 @implementation NSDateLjsAdditionsTests
 
-//- (id) init {
-//  self = [super init];
-//  if (self) {
-//    // Initialization code here.
-//  }
-//  return self;
-//}
-//
-//- (void) dealloc {
-//}
-
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
   return NO;
 }
 
 - (void) setUpClass {
+  [super setUpClass];
   // Run at start of all tests in the class
 }
 
 - (void) tearDownClass {
   // Run at end of all tests in the class
+  [super tearDownClass];
 }
 
 - (void) setUp {
+  [super setUp];
   // Run before each test method
 }
 
 - (void) tearDown {
   // Run after each test method
+  [super tearDown];
 }  
-
 
 - (void) test_dateByAddingDays {
   NSInteger daysToAdd;
@@ -176,10 +168,51 @@
   date = [date midnightWithTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:3600 * 2]];
   midnight = [date midnight];
   GHTestLog(@"midnight = %@", [midnight descriptionWithCurrentLocale]);
-
-  
-  
 }
+
+
+- (void) test_isSameDate_YES {
+  NSDate *date = [NSDate date];
+  GHAssertTrue([date isSameDay:date], @"dates should be the same");
+}
+
+- (void) test_dateComesBeforeDate_YES {
+  NSDate *today = [NSDate date];
+  NSDate *tomorrow = [NSDate tomorrow];
+  GHAssertTrue([today comesBeforeDate:tomorrow], 
+               @"date < %@ > should come before < %@ >",
+               [today descriptionWithCurrentLocale], 
+               [tomorrow descriptionWithCurrentLocale]);
+}
+
+- (void) test_dateComesBeforeDate_NO {
+  NSDate *today = [NSDate date];
+  NSDate *tomorrow = [NSDate tomorrow];
+  GHAssertFalse([tomorrow comesBeforeDate:today], 
+                @"date < %@ > should not come before < %@ >",
+                [tomorrow descriptionWithCurrentLocale], 
+                [today  descriptionWithCurrentLocale]);
+}
+
+- (void) test_dateComesAfterDate_YES {
+  NSDate *today = [NSDate date];
+  NSDate *tomorrow = [NSDate tomorrow];
+  GHAssertTrue([tomorrow comesAfterDate:today],
+                @"date < %@ > should come after < %@ >",
+                [tomorrow descriptionWithCurrentLocale], 
+                [today  descriptionWithCurrentLocale]);
+}
+
+- (void) test_dateComesAfterDate_NO {
+  NSDate *today = [NSDate date];
+  NSDate *tomorrow = [NSDate tomorrow];
+  GHAssertFalse([today comesAfterDate:tomorrow],
+               @"date < %@ > should not come after < %@ >",
+               [today descriptionWithCurrentLocale], 
+               [tomorrow  descriptionWithCurrentLocale]);
+}
+
+
 
 
 @end

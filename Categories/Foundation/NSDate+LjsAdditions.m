@@ -116,6 +116,20 @@ NSSecondCalendarUnit);
   return [self isSameDay:[NSDate date]];
 }
 
+- (BOOL) isSameAsDate:(NSDate *) aDate {
+  return [self compare:aDate] == NSOrderedSame;
+}
+
+- (BOOL) comesBeforeDate:(NSDate *) aDate {
+  return [self compare:aDate] == NSOrderedAscending;
+}
+
+- (BOOL) comesAfterDate:(NSDate *) aDate {
+  return [self compare:aDate] == NSOrderedDescending;
+}
+
+
+
 - (BOOL) isSameDay:(NSDate *) aDate {
   LjsDateComps selfComps = [self dateComponents];
   LjsDateComps aDateComps = [aDate dateComponents];
