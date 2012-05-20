@@ -40,6 +40,7 @@ extern NSUInteger const LjsFileBackedKeyStoreErrorCode;
 @interface LjsFileBackedKeyStore : NSObject <LjsBackingStore>
 
 /** @name Properties */
+@property (nonatomic, copy) NSString *filepath;
 
 
 /** @name Initializing Objects */

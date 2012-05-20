@@ -118,7 +118,7 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
 
 - (id) initWithLocationManager:(LjsLocationManager *)aManager {
   NSString *decoded = [self decodeDefaultApiKey];
-  return [self initWithStoreDirectory:[LjsFileUtilities findCoreDataLibraryPath:YES]
+  return [self initWithStoreDirectory:[LjsFileUtilities findCoreDataStoreDirectoryForUserp:YES]
                         storeFilename:LjsGooglePlacesSqlLiteStore
                              apiToken:decoded
                               manager:aManager];
@@ -128,7 +128,7 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
 
 - (id) initWithApiToken:(NSString *) aApiToken
                 manager:(LjsLocationManager *)aManager {
-  return [self initWithStoreDirectory:[LjsFileUtilities findCoreDataLibraryPath:YES]
+  return [self initWithStoreDirectory:[LjsFileUtilities findCoreDataStoreDirectoryForUserp:YES]
                         storeFilename:LjsGooglePlacesSqlLiteStore
                              apiToken:aApiToken
                               manager:aManager];
@@ -138,7 +138,7 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
 - (id) initWithStoreFilename:(NSString *) aFilename 
                     apiToken:(NSString *) aApiToken
                      manager:(LjsLocationManager *)aManager {
-  return [self initWithStoreDirectory:[LjsFileUtilities findCoreDataLibraryPath:YES]
+  return [self initWithStoreDirectory:[LjsFileUtilities findCoreDataStoreDirectoryForUserp:YES]
                         storeFilename:aFilename
                              apiToken:aApiToken
                               manager:aManager];

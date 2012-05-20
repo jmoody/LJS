@@ -64,16 +64,44 @@
 @property (assign) Method findDocumentDirectoryPathOriginal;
 @property (assign) Method findDocumentDirectoryPathMock;
 
-@property (assign) Method findLibraryPreferencesPathOriginal;
-@property (assign) Method findLibraryPreferencesPathMock;
+@property (assign) Method findLibraryDirectoryPathForUserpOriginal;
+@property (assign) Method findLibraryDirectoryPathForUserpMock;
+
+@property (assign) Method findPreferencesPathForUserpOriginal;
+@property (assign) Method findPreferencesPathForUserpMock;
+
+@property (assign) Method findCoreDataStorePathForUserpOriginal;
+@property (assign) Method findCoreDataStorePathForUserpMock;
+
+#if !TARGET_OS_IPHONE
+@property (assign) Method findApplicationSupportDirectoryForUserpOriginal;
+@property (assign) Method findApplicationSupportDirectoryForUserpMock;
+#endif
+
+
 
 - (NSString *) findDocumentDirectoryPathSwizzled;
 - (void) swizzleFindDocumentDirectoryPath;
 - (void) restoreFindDocumentDirectoryPath;
 
-- (NSString *) findLibraryPreferencesPathSwizzled:(BOOL) ignorable;
-- (void) swizzleFindLibraryPreferencesPath;
-- (void) restoreFindLibraryPreferencesPath;
+- (NSString *) findLibraryDirectoryPathForUserpSwizzled:(BOOL) ignorable;
+- (void) swizzleFindLibraryDirectoryPath;
+- (void) restoreFindLibraryDirectoryPath;
+
+- (NSString *) findPreferencesPathForUserpSwizzled:(BOOL) ignorable;
+- (void) swizzleFindPreferencesPath;
+- (void) restoreFindPreferencesPath;
+
+- (NSString *) findCoreDataStorePathForUserpSwizzled:(BOOL) ignorable;
+- (void) swizzleFindCoreDataPath;
+- (void) restoreFindCoreDataPath;
+
+#if !TARGET_OS_IPHONE 
+- (NSString *) findApplicationSupportDirectoryForUserpSwizzled:(BOOL) ignorable;
+- (void) swizzleFindApplicationSupportDirectory;
+- (void) restoreFindApplicationSupportDirectory;
+#endif
+
 
 - (NSString *) emptyStringOrNil;
 - (BOOL) flip;

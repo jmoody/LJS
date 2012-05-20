@@ -108,7 +108,7 @@ static NSString *LjsTestStoreFilename = @"com.littlejoysoftware.LjsTestStore.pli
 - (void) setUp {
   [super setUp];
   // Run before each test method
-  NSString *docDir = [LjsFileUtilities findDocumentDirectoryPath];
+  NSString *docDir = [LjsFileUtilities findPreferencesDirectoryForUserp:YES];
   NSError *error = nil;
   
   self.store = [[LjsFileBackedKeyStore alloc]

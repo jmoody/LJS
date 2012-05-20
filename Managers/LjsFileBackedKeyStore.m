@@ -54,7 +54,8 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
 - (void) handleStoreChanged:(NSNotification *) aNotifications;
 - (void) postStoreChangedNotification;
 + (id) semaphore;
-@property (nonatomic, copy) NSString *filepath;
+
+
 @property (nonatomic, strong) NSMutableDictionary *store;
 
 @end

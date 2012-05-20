@@ -86,6 +86,7 @@
 - (void) storeObject:(id) object forKey:(NSString *) aKey;
 - (void) storeBool:(BOOL) aBool forKey:(NSString *) aKey;
 - (void) removeObjectForKey:(NSString *) aKey;
+- (NSString *) filepath;
 
 
 @end

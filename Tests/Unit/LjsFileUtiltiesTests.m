@@ -73,36 +73,29 @@
 
 @implementation LjsFileUtiltiesTests
 
-//- (id) init {
-//  self = [super init];
-//  if (self) {
-//    // Initialization code here.
-//  }
-//  return self;
-//}
-//
-//- (void) dealloc {
-//}
-
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
   return NO;
 }
 
 - (void) setUpClass {
+  [super setUpClass];
   // Run at start of all tests in the class
 }
 
 - (void) tearDownClass {
   // Run at end of all tests in the class
+  [super tearDownClass];
 }
 
 - (void) setUp {
+  [super setUp];
   // Run before each test method
 }
 
 - (void) tearDown {
   // Run after each test method
+  [super tearDown];
 }  
 
 //- (void)testGHLog {
@@ -113,16 +106,21 @@
 
 - (void) test_applicationFilesDirectory {
   NSString *result;
-  result = [LjsFileUtilities findOrCreateApplicationFilesDirectory:YES];
+  result = [LjsFileUtilities findApplicationSupportDirectoryForUserp:YES];
   GHTestLog(@"application files directory: %@", result);
 }
+
 #endif
 
 
 - (void) test_findCoreDataLibraryPath {
   NSString *result;
-  result = [LjsFileUtilities findCoreDataLibraryPath:YES];
+  result = [LjsFileUtilities findCoreDataStoreDirectoryForUserp:YES];
   GHTestLog(@"core data library path = %@", result);
 }
+
+//- (void) test_findLibraryPreferencesPath {
+//  NSString *actual = [LjsFileUtilities findPreferencesPathForUserp:NO];
+//}
 
 @end

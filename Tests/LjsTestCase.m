@@ -89,7 +89,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @synthesize gestalt;
 @synthesize findDocumentDirectoryPathMock, findDocumentDirectoryPathOriginal;
-@synthesize findLibraryPreferencesPathMock, findLibraryPreferencesPathOriginal;
+@synthesize findLibraryDirectoryPathForUserpMock, findLibraryDirectoryPathForUserpOriginal;
+@synthesize findPreferencesPathForUserpMock, findPreferencesPathForUserpOriginal;
+@synthesize findCoreDataStorePathForUserpMock, findCoreDataStorePathForUserpOriginal;
+#if !TARGET_OS_IPHONE
+@synthesize findApplicationSupportDirectoryForUserpMock, findApplicationSupportDirectoryForUserpOriginal;
+#endif
+
 
 
 - (id) init {
@@ -100,17 +106,43 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     
     self.findDocumentDirectoryPathOriginal = 
     class_getClassMethod([LjsFileUtilities class],
-                         @selector(findDocumentDirectoryPath));
+                         @selector(findDocumentDirectory));
     self.findDocumentDirectoryPathMock = 
     class_getInstanceMethod([self class],
                             @selector(findDocumentDirectoryPathSwizzled));
     
-    self.findLibraryPreferencesPathOriginal =
+
+    self.findLibraryDirectoryPathForUserpOriginal = 
+    class_getClassMethod([LjsFileUtilities class],
+                         @selector(findLibraryDirectoryForUserp:));
+    self.findLibraryDirectoryPathForUserpMock =
+    class_getInstanceMethod([self class],
+                            @selector(findLibraryDirectoryPathForUserpSwizzled:));
+    
+    self.findPreferencesPathForUserpOriginal =
     class_getClassMethod([LjsFileUtilities class], 
-                         @selector(findLibraryPreferencesPath:));
-    self.findLibraryPreferencesPathMock =
-    class_getInstanceMethod([LjsFileUtilities class], 
-                            @selector(findLibraryPreferencesPathSwizzled));
+                         @selector(findPreferencesDirectoryForUserp:));
+    self.findPreferencesPathForUserpMock =
+    class_getInstanceMethod([self class], 
+                            @selector(findPreferencesPathForUserpSwizzled:));
+    
+
+    self.findCoreDataStorePathForUserpOriginal = 
+    class_getClassMethod([LjsFileUtilities class], 
+                         @selector(findCoreDataStoreDirectoryForUserp:));
+    self.findCoreDataStorePathForUserpOriginal =
+    class_getInstanceMethod([self class], 
+                            @selector(findCoreDataStorePathForUserpSwizzled:));
+    
+#if !TARGET_OS_IPHONE
+    self.findApplicationSupportDirectoryForUserpOriginal =
+    class_getClassMethod([LjsFileUtilities class], 
+                         @selector(findApplicationSupportDirectoryForUserp:));
+    self.findApplicationSupportDirectoryForUserpMock =
+    class_getInstanceMethod([self class], 
+                            @selector(findApplicationSupportDirectoryForUserpSwizzled:));
+#endif
+  
   }
   return self;
 }
@@ -120,21 +152,69 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   // Run at start of all tests in the class
   [super setUpClass];
   if (getenv("GHUNIT_CLI")) {
+    GHTestLog(@"swizzling paths");
     [self swizzleFindDocumentDirectoryPath];
-    [self swizzleFindLibraryPreferencesPath];
+    [self swizzleFindPreferencesPath];
+    [self swizzleFindLibraryDirectoryPath];
+    [self swizzleFindCoreDataPath];
+    
+#if !TARGET_OS_IPHONE
+    [self swizzleFindApplicationSupportDirectory];
+#endif
   }
+
+  NSString *devnull = @"/dev/null/";
+  NSUInteger len = [devnull length];
+  
+  NSString *docsPath = [LjsFileUtilities findDocumentDirectory];
+//  NSLog(@"document directory path = %@", docsPath);
+  GHAssertNotEqualStrings([docsPath substringToIndex:len], devnull,
+                          @"path < %@ > should not start with %@",
+                          docsPath, devnull);
+  
+  NSString *libraryPath = [LjsFileUtilities findLibraryDirectoryForUserp:YES];
+//  NSLog(@"library path = %@", libraryPath);
+  GHAssertNotEqualStrings([libraryPath substringToIndex:len], devnull,
+                          @"path < %@ > should not start with %@",
+                          libraryPath, devnull);
+
+  NSString *prefPath = [LjsFileUtilities findPreferencesDirectoryForUserp:YES];
+//  NSLog(@"preferences path = %@", prefPath);
+  GHAssertNotEqualStrings([prefPath substringToIndex:len], devnull,
+                          @"path < %@ > should not start with %@",
+                          prefPath, devnull);
+  
+  NSString *coreDataPath = [LjsFileUtilities findCoreDataStoreDirectoryForUserp:YES];
+//  NSLog(@"core data path path = %@", coreDataPath);
+  GHAssertNotEqualStrings([coreDataPath substringToIndex:len], devnull,
+                          @"path < %@ > should not start with %@",
+                          coreDataPath, devnull);
+  
+#if !TARGET_OS_IPHONE
+  NSString *appSupportPath = [LjsFileUtilities findApplicationSupportDirectoryForUserp:YES];
+//  NSLog(@"application support path = %@", appSupportPath);
+  GHAssertNotEqualStrings([appSupportPath substringToIndex:len], devnull,
+                          @"path < %@ > should not start with %@",
+                          appSupportPath, devnull);
+#endif
+
 }
 
 - (void) tearDownClass {
   // Run at end of all tests in the class  
   if (getenv("GHUNIT_CLI")) {
+    GHTestLog(@"restoring swizzled paths");
     [self restoreFindDocumentDirectoryPath];
-    [self restoreFindLibraryPreferencesPath];
+    [self restoreFindPreferencesPath];
+    [self restoreFindLibraryDirectoryPath];
+    [self restoreFindCoreDataPath];
+    
+#if !TARGET_OS_IPHONE
+    [self restoreFindApplicationSupportDirectory];
+#endif
   }
   [super tearDownClass];
 }
-
-
 
 - (NSString *) emptyStringOrNil {
   NSString *result = nil;
@@ -151,12 +231,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 // must swizzle for command line builds because Application does not exist
 // on the CLI so document path is /dev/null/Documents
 - (NSString *) findDocumentDirectoryPathSwizzled {
+//  NSLog(@"in find document directory path swizzled");
   NSString *path = @"./build/sandbox/Documents";
   NSError *error = nil;
   BOOL success = [LjsFileUtilities ensureDirectory:path error:&error];
   if (success == NO) {
-    GHTestLog(@"could not create directory at path: %@\n%@ : %@",
-              [error localizedDescription], error);
+    NSLog(@"could not create directory at path: %@\n%@ : %@",
+          path, [error localizedDescription], error);
     abort();
   }
   return path;
@@ -173,28 +254,105 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 }
 
-- (NSString *) findLibraryPreferencesPathSwizzled:(BOOL) ignorable {
-  NSString *path = @"./build/sandbox/Library/Preferences";
+- (NSString *) findLibraryDirectoryPathForUserpSwizzled:(BOOL) ignorable {
+//  NSLog(@"in find library directory path swizzled");
+  NSString *path = @"./build/sandbox/Library";
   NSError *error = nil;
   BOOL success = [LjsFileUtilities ensureDirectory:path error:&error];
   if (success == NO) {
-    GHTestLog(@"could not create directory at path: %@\n%@ : %@",
-              [error localizedDescription], error);
+    NSLog(@"could not create directory at path: %@\n%@ : %@",
+              path, [error localizedDescription], error);
     abort();
   }
   return path;
 }
 
-- (void) swizzleFindLibraryPreferencesPath {
-  method_exchangeImplementations(self.findLibraryPreferencesPathOriginal,
-                                 self.findLibraryPreferencesPathMock);
+- (void) swizzleFindLibraryDirectoryPath {
+  method_exchangeImplementations(self.findLibraryDirectoryPathForUserpOriginal, 
+                                 self.findLibraryDirectoryPathForUserpMock);
 }
 
-- (void) restoreFindLibraryPreferencesPath {
-  method_exchangeImplementations(self.findLibraryPreferencesPathMock, 
-                                 self.findLibraryPreferencesPathOriginal);
+- (void) restoreFindLibraryDirectoryPath {
+  method_exchangeImplementations(self.findLibraryDirectoryPathForUserpMock, 
+                                 self.findLibraryDirectoryPathForUserpOriginal);
 }
 
+- (NSString *) findPreferencesPathForUserpSwizzled:(BOOL) ignorable {
+//  NSLog(@"in find preference path swizzled");
+  NSString *path = @"./build/sandbox/Library/Preferences";
+  NSError *error = nil;
+  BOOL success = [LjsFileUtilities ensureDirectory:path error:&error];
+  if (success == NO) {
+    NSLog(@"could not create directory at path: %@\n%@ : %@",
+              path, [error localizedDescription], error);
+    abort();
+  }
+  return path;
+}
+
+- (void) swizzleFindPreferencesPath {
+  method_exchangeImplementations(self.findPreferencesPathForUserpOriginal,
+                                 self.findPreferencesPathForUserpMock);
+}
+
+- (void) restoreFindPreferencesPath {
+  method_exchangeImplementations(self.findPreferencesPathForUserpMock, 
+                                 self.findPreferencesPathForUserpOriginal);
+}
+
+
+- (NSString *) findCoreDataStorePathForUserpSwizzled:(BOOL) ignorable {
+//  NSLog(@"in find core data path swizzled");
+  NSString *path = @"./build/sandbox/Library";
+  NSError *error = nil;
+  BOOL success = [LjsFileUtilities ensureDirectory:path error:&error];
+  if (success == NO) {
+    NSLog(@"could not create directory at path: %@\n%@ : %@",
+          path, [error localizedDescription], error);
+    abort();
+  }
+  return path;
+}
+
+- (void) swizzleFindCoreDataPath {
+  method_exchangeImplementations(self.findCoreDataStorePathForUserpOriginal,
+                                 self.findCoreDataStorePathForUserpMock);
+}
+
+- (void) restoreFindCoreDataPath {
+  method_exchangeImplementations(self.findCoreDataStorePathForUserpMock,
+                                 self.findCoreDataStorePathForUserpOriginal);
+
+}
+
+
+#if !TARGET_OS_IPHONE
+- (NSString *) findApplicationSupportDirectoryForUserpSwizzled:(BOOL) ignorable {
+//  NSLog(@"in find application support directory swizzled");
+  NSString *path = @"./build/sandbox/Library/Application Support";
+  NSError *error = nil;
+  BOOL success = [LjsFileUtilities ensureDirectory:path error:&error];
+  if (success == NO) {
+    NSLog(@"could not create directory at path: %@\n%@ : %@",
+          path, [error localizedDescription], error);
+    abort();
+  }
+  return path;
+}
+
+- (void) swizzleFindApplicationSupportDirectory {
+  method_exchangeImplementations(self.findApplicationSupportDirectoryForUserpOriginal,
+                                 self.findApplicationSupportDirectoryForUserpMock);
+}
+
+- (void) restoreFindApplicationSupportDirectory {
+  method_exchangeImplementations(self.findApplicationSupportDirectoryForUserpMock,
+                                 self.findApplicationSupportDirectoryForUserpOriginal);
+}
+
+
+
+#endif
 
 - (void) dummyControlSelector:(id) sender {
   return;
