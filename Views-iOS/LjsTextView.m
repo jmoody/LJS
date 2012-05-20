@@ -37,14 +37,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   [self setPlaceholder:@""];
   [self setPlaceholderColor:[UIColor lightGrayColor]];
   [self registerForNotifications];
+  
 }
 
 - (id)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
   if (self) {
-    [self setPlaceholder:@""];
-    [self setPlaceholderColor:[UIColor lightGrayColor]];
-    [self registerForNotifications];
+    [self awakeFromNib];
   }
   return self;
 }
@@ -85,20 +84,24 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
       // the trick here (and i do not have it right yet) is that
       // the content inset applies only to the placeholder label and
       // not to where the cursor appears in the view.
-      CGFloat x = self.contentInset.left;
-      CGFloat y = self.contentInset.top;
-      
-      CGFloat w = self.bounds.size.width - (x * 2);
+
+      // also, setting the context insets affects whether or not the
+      // text view horizontally scrolls (we do not want horizontal scrolling)
+    
+      // CGFloat x = self.contentInset.left;
+      // CGFloat y = self.contentInset.top;
+      CGFloat w = self.bounds.size.width; //- (x * 2);
       LjsLabelAttributes *attrs = [[LjsLabelAttributes alloc]
                                    initWithString:self.placeholder
                                    font:self.font
                                    labelWidth:w];
       CGFloat h = attrs.labelHeight;
-      self.placeHolderLabel = [attrs labelWithFrame:CGRectMake(x, y, w, h)
+      self.placeHolderLabel = [attrs labelWithFrame:CGRectMake(8, 8, w, h)
                                           alignment:UITextAlignmentRight
                                           textColor:self.placeholderColor
                                      highlightColor:self.placeholderColor
                                     backgroundColor:[UIColor clearColor]];
+      self.placeHolderLabel.userInteractionEnabled = NO;
       self.placeHolderLabel.alpha = 0;
       [self addSubview:placeHolderLabel];
       self.placeHolderLabel.accessibilityIdentifier = @"textview.label.placeholder";
