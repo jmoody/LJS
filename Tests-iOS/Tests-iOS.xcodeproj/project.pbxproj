@@ -26,6 +26,8 @@
 		F50FE7041410CC420051FC7E /* LjsIdGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F41410CC420051FC7E /* LjsIdGenerator.m */; };
 		F50FE7061410CC420051FC7E /* LjsVariates.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F81410CC420051FC7E /* LjsVariates.m */; };
 		F50FE7351410D3160051FC7E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE7331410D30D0051FC7E /* Security.framework */; };
+		F512D8E8156B951C00D44011 /* NSStringLjsAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F512D8E7156B951C00D44011 /* NSStringLjsAdditionsTest.m */; };
+		F512D8EA156B985300D44011 /* NSSetLjsAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F512D8E9156B985300D44011 /* NSSetLjsAdditionsTest.m */; };
 		F512EB0C151C7B68002E8E3A /* google-places-details-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F512EB0B151C7B68002E8E3A /* google-places-details-sample.json */; };
 		F512EBA2151CA285002E8E3A /* LjsFileUtiltiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EBA1151CA284002E8E3A /* LjsFileUtiltiesTests.m */; };
 		F515BF5114C629E2007052FF /* LjsFileBackedStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F515BF4E14C627EE007052FF /* LjsFileBackedStoreTests.m */; };
@@ -344,6 +346,8 @@
 		F50FE6F71410CC420051FC7E /* LjsVariates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsVariates.h; sourceTree = "<group>"; };
 		F50FE6F81410CC420051FC7E /* LjsVariates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariates.m; sourceTree = "<group>"; };
 		F50FE7331410D30D0051FC7E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F512D8E7156B951C00D44011 /* NSStringLjsAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringLjsAdditionsTest.m; sourceTree = "<group>"; };
+		F512D8E9156B985300D44011 /* NSSetLjsAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSetLjsAdditionsTest.m; sourceTree = "<group>"; };
 		F512EB0B151C7B68002E8E3A /* google-places-details-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "google-places-details-sample.json"; sourceTree = "<group>"; };
 		F512EBA1151CA284002E8E3A /* LjsFileUtiltiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileUtiltiesTests.m; sourceTree = "<group>"; };
 		F515BF4E14C627EE007052FF /* LjsFileBackedStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileBackedStoreTests.m; sourceTree = "<group>"; };
@@ -895,12 +899,14 @@
 				F529524714232F47009C67EE /* LjsValidatorTests.m */,
 				F515BF4E14C627EE007052FF /* LjsFileBackedStoreTests.m */,
 				F5314A3214D88E8A007FC70C /* LoremIpsumTests.m */,
-				F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */,
 				F5FF5AA014E85D820091D283 /* LjsTextAndFontTests.m */,
-				F573B8FA14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m */,
 				F55CDEE9150F881600D9B906 /* LjsCaesarCipherTests.m */,
 				F58D22ED151A42940043DB52 /* LjsFakerTests.m */,
+				F573B8FA14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m */,
+				F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */,
 				F5595B73155015CB001CF528 /* NSDictionaryLjsAdditionsTests.m */,
+				F512D8E7156B951C00D44011 /* NSStringLjsAdditionsTest.m */,
+				F512D8E9156B985300D44011 /* NSSetLjsAdditionsTest.m */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -2150,6 +2156,8 @@
 				F5D86BA615381E6B00354105 /* LjsGoogleTranslateManagerTests.m in Sources */,
 				F5595B711550157E001CF528 /* NSDictionary+LjsAdditions.m in Sources */,
 				F5595B74155015CB001CF528 /* NSDictionaryLjsAdditionsTests.m in Sources */,
+				F512D8E8156B951C00D44011 /* NSStringLjsAdditionsTest.m in Sources */,
+				F512D8EA156B985300D44011 /* NSSetLjsAdditionsTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

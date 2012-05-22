@@ -14,5 +14,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [self sortedArrayUsingDescriptors:array];
 }
 
+- (BOOL) emptyp {
+  return [self count] == 0;
+}
+
++ (BOOL) setIsEmptyP:(NSSet *) aSet {
+  return (aSet == nil) ? YES : [aSet emptyp];
+}
+
 
 @end

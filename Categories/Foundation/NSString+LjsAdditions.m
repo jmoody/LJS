@@ -104,5 +104,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 
+- (BOOL) emptyp {
+  return [self length] == 0;
+}
+
++ (BOOL) stringIsEmptyP:(NSString *) aString {
+  return (aString == nil) ? YES : [aString emptyp];
+}
+
 
 @end

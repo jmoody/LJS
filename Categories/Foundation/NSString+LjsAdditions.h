@@ -68,4 +68,8 @@
 
 - (NSString *) stringByEscapingDoubleQuotes;
 - (NSString *) stringByUnescapingDoubleQuotes;
+
+- (BOOL) emptyp;
++ (BOOL) stringIsEmptyP:(NSString *) aString;
+
 @end
