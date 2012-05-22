@@ -123,4 +123,44 @@
 //  NSString *actual = [LjsFileUtilities findPreferencesPathForUserp:NO];
 //}
 
+- (void) test_read_lines_from_file_success {
+  NSError *error = nil;
+  NSBundle *main = [NSBundle mainBundle];
+  NSString *path = [main pathForResource:@"readlines-test" ofType:@"txt"];
+  NSArray *actual = [LjsFileUtilities readLinesFromFile:path error:&error];
+  GHAssertNotNil(actual, @"array should not be nil");
+  GHAssertNil(error, @"error should be nil");
+  GHAssertEquals((NSUInteger)[actual count], (NSUInteger)3, 
+                 @"should be exactly three items in the list: %@", 
+                 actual);
+}
+
+- (void) test_read_lines_from_file_does_not_exist {
+  NSError *error = nil;
+  NSBundle *main = [NSBundle mainBundle];
+  NSString *path = [main pathForResource:@"file-does-not-exist" ofType:@"txt"];
+  NSArray *actual = [LjsFileUtilities readLinesFromFile:path error:&error];
+  GHAssertNil(actual, @"array should be nil");
+  GHAssertNotNil(error, @"error should not be nil");
+}
+
+- (void) test_read_lines_from_file_cannot_read_data {
+  // ugh - need to swizzle class method
+//  NSError *error = nil;
+//  NSBundle *main = [NSBundle mainBundle];
+//  NSString *path = [main pathForResource:@"readlines-test" ofType:@"txt"];
+//  
+//  
+//  id mock = [OCMockObject mockForClass:[NSData class]];
+//  id foo = [[[mock expect] andReturn:nil] initWithContentsOfFile:[OCMArg any]
+//                                                         options:NSDataReadingUncached
+//                                                           error:&error];
+//  GHTestLog(@"foo = %@", foo);
+//  NSArray *actual = [LjsFileUtilities readLinesFromFile:path error:&error];
+//  GHAssertNil(actual, @"should return nil if file cannot be read");
+//  GHTestLog(@"error = %@", error);
+//  [mock verify];
+  
+}
+
 @end

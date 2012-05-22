@@ -417,6 +417,49 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
   return array;
 }
 
++ (NSArray *) readLinesFromFile:(NSString *) aPath error:(NSError  *__autoreleasing *) error {
+  DDLogDebug(@"reading lines from file at path: %@", aPath);
+  
+  NSFileManager *fm = [NSFileManager defaultManager];
+  BOOL exists = [fm fileExistsAtPath:aPath];
+  if (exists == NO) {
+    NSString *message = NSLocalizedString(@"file does not exist at path.", nil);
+    DDLogError(@"%@: %@ - returning nil", message, aPath);
+    if (error != NULL) {
+      NSDictionary *userInfo;
+      NSString *ensurePath;
+      if (aPath == nil) {
+        ensurePath = @"<path was nil>";
+      }
+      userInfo = [NSDictionary dictionaryWithObject:ensurePath
+                                             forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
+      
+      *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
+                                   code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+                   localizedDescription:message
+                          otherUserInfo:userInfo];
+    }
+    return nil;
+  }
+  
+  NSError *readError = nil;
+  NSData *data = [[NSData alloc] 
+                  initWithContentsOfFile:aPath
+                  options:NSDataReadingUncached 
+                  error:&readError];
+  if (data == nil) {
+    NSString *message = NSLocalizedString(@"error reading file at path", nil);
+    
+    DDLogError(@"%@: %@\n%@: %@", message, aPath, [readError localizedDescription],
+               readError);
+    if (error != NULL) {
+      *error = readError;
+    }
+    return nil;
+  }
 
+  NSString *text = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+  return [text componentsSeparatedByString:@"\n"];
+}
 
 @end

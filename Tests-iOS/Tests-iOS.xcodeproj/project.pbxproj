@@ -159,6 +159,8 @@
 		F573B8FB14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F573B8FA14F1356500E6F5CF /* NSArrayLjsAdditionsTests.m */; };
 		F573B90014F14E8D00E6F5CF /* LjsKeyboardInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F573B8FE14F14E8D00E6F5CF /* LjsKeyboardInfo.m */; };
 		F573CBFB1510C7A600277794 /* LjsCaesarCipher.m in Sources */ = {isa = PBXBuildFile; fileRef = F573CBFA1510C7A600277794 /* LjsCaesarCipher.m */; };
+		F57D0E47156C216C00C5CDC2 /* readlines-test.txt in Resources */ = {isa = PBXBuildFile; fileRef = F57D0E46156C216C00C5CDC2 /* readlines-test.txt */; };
+		F57D0E4A156C232E00C5CDC2 /* NSErrorLjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F57D0E49156C232E00C5CDC2 /* NSErrorLjsAdditions.m */; };
 		F57F4C0E1532FAB200E8B7D4 /* LjsGoogleImportTest_Super.m in Sources */ = {isa = PBXBuildFile; fileRef = F57F4C0D1532FAB200E8B7D4 /* LjsGoogleImportTest_Super.m */; };
 		F58013AB149E06F100692073 /* LjsLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F58013AA149E06F100692073 /* LjsLocationManager.m */; };
 		F58013AD149E080E00692073 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58013AC149E080E00692073 /* CoreLocation.framework */; };
@@ -549,6 +551,8 @@
 		F573B8FF14F14E8D00E6F5CF /* LjsTableViewOwnerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsTableViewOwnerProtocol.h; sourceTree = "<group>"; };
 		F573CBF91510C7A600277794 /* LjsCaesarCipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsCaesarCipher.h; sourceTree = "<group>"; };
 		F573CBFA1510C7A600277794 /* LjsCaesarCipher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsCaesarCipher.m; sourceTree = "<group>"; };
+		F57D0E46156C216C00C5CDC2 /* readlines-test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "readlines-test.txt"; sourceTree = "<group>"; };
+		F57D0E49156C232E00C5CDC2 /* NSErrorLjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSErrorLjsAdditions.m; path = Unit/NSErrorLjsAdditions.m; sourceTree = "<group>"; };
 		F57F4C0C1532FAB200E8B7D4 /* LjsGoogleImportTest_Super.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleImportTest_Super.h; sourceTree = "<group>"; };
 		F57F4C0D1532FAB200E8B7D4 /* LjsGoogleImportTest_Super.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleImportTest_Super.m; sourceTree = "<group>"; };
 		F58013A9149E06F100692073 /* LjsLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLocationManager.h; sourceTree = "<group>"; };
@@ -879,6 +883,7 @@
 			children = (
 				F50FE6D81410CC250051FC7E /* Unit */,
 				F56147BA1450C86700D2653A /* OCMockWorkingTest.m */,
+				F57D0E49156C232E00C5CDC2 /* NSErrorLjsAdditions.m */,
 			);
 			name = Tests;
 			path = ../../Tests;
@@ -1677,6 +1682,7 @@
 			isa = PBXGroup;
 			children = (
 				F5BB1EBA151B7F5D00BFDDA0 /* google */,
+				F57D0E46156C216C00C5CDC2 /* readlines-test.txt */,
 			);
 			name = resources;
 			path = ../../Tests/resources;
@@ -1890,6 +1896,7 @@
 				F59DE42E153DBE1600B92BFD /* com.littlejoysoftware.faker.us-census-firstnames.plist in Resources */,
 				F59DE431153DBF8C00B92BFD /* com.littlejoysoftware.faker.us-census-surnames.plist in Resources */,
 				F59DE437153DC0CC00B92BFD /* com.littlejoysoftware.faker.domain-names.plist in Resources */,
+				F57D0E47156C216C00C5CDC2 /* readlines-test.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2158,6 +2165,7 @@
 				F5595B74155015CB001CF528 /* NSDictionaryLjsAdditionsTests.m in Sources */,
 				F512D8E8156B951C00D44011 /* NSStringLjsAdditionsTest.m in Sources */,
 				F512D8EA156B985300D44011 /* NSSetLjsAdditionsTest.m in Sources */,
+				F57D0E4A156C232E00C5CDC2 /* NSErrorLjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

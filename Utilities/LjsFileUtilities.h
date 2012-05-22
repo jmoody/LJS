@@ -85,6 +85,7 @@ typedef enum {
 
 + (NSArray *) readArrayFromFile:(NSString *) aPath error:(NSError *__autoreleasing *) error;
 
++ (NSArray *) readLinesFromFile:(NSString *) aPath error:(NSError  *__autoreleasing *) error;
 
 
 @end

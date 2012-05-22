@@ -66,6 +66,10 @@
 		F5223C7E1542E459006DB9E8 /* com.littlejoysoftware.faker.us-census-surnames.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5223C7B1542E459006DB9E8 /* com.littlejoysoftware.faker.us-census-surnames.plist */; };
 		F525D4A214C607DA000A4D5C /* LjsLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F525D4A114C607DA000A4D5C /* LjsLogFileManager.m */; };
 		F5400A0014B2288A001EF805 /* LoremIpsum.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009FF14B2288A001EF805 /* LoremIpsum.m */; };
+		F57D0E51156C2A7C00C5CDC2 /* readlines-test.txt in Resources */ = {isa = PBXBuildFile; fileRef = F57D0E50156C2A7C00C5CDC2 /* readlines-test.txt */; };
+		F57D0E56156C2A8900C5CDC2 /* NSErrorLjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F57D0E53156C2A8900C5CDC2 /* NSErrorLjsAdditions.m */; };
+		F57D0E57156C2A8900C5CDC2 /* NSSetLjsAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F57D0E54156C2A8900C5CDC2 /* NSSetLjsAdditionsTest.m */; };
+		F57D0E58156C2A8900C5CDC2 /* NSStringLjsAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F57D0E55156C2A8900C5CDC2 /* NSStringLjsAdditionsTest.m */; };
 		F5807029146C26F100EA4CFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5807028146C26F100EA4CFB /* Cocoa.framework */; };
 		F5807033146C26F100EA4CFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5807031146C26F100EA4CFB /* InfoPlist.strings */; };
 		F5807035146C26F100EA4CFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807034146C26F100EA4CFB /* main.m */; };
@@ -318,6 +322,10 @@
 		F525D4A114C607DA000A4D5C /* LjsLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLogFileManager.m; sourceTree = "<group>"; };
 		F54009FE14B2288A001EF805 /* LoremIpsum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoremIpsum.h; sourceTree = "<group>"; };
 		F54009FF14B2288A001EF805 /* LoremIpsum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoremIpsum.m; sourceTree = "<group>"; };
+		F57D0E50156C2A7C00C5CDC2 /* readlines-test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "readlines-test.txt"; sourceTree = "<group>"; };
+		F57D0E53156C2A8900C5CDC2 /* NSErrorLjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSErrorLjsAdditions.m; sourceTree = "<group>"; };
+		F57D0E54156C2A8900C5CDC2 /* NSSetLjsAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSetLjsAdditionsTest.m; sourceTree = "<group>"; };
+		F57D0E55156C2A8900C5CDC2 /* NSStringLjsAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringLjsAdditionsTest.m; sourceTree = "<group>"; };
 		F5807024146C26F100EA4CFB /* Tests-MacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tests-MacOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5807028146C26F100EA4CFB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F580702B146C26F100EA4CFB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -1183,6 +1191,9 @@
 		F5807170146C2AAC00EA4CFB /* Unit */ = {
 			isa = PBXGroup;
 			children = (
+				F57D0E53156C2A8900C5CDC2 /* NSErrorLjsAdditions.m */,
+				F57D0E54156C2A8900C5CDC2 /* NSSetLjsAdditionsTest.m */,
+				F57D0E55156C2A8900C5CDC2 /* NSStringLjsAdditionsTest.m */,
 				F5E985B6152473A70061631A /* Google */,
 				F512EB23151C9CDA002E8E3A /* LjsCaesarCipherTests.m */,
 				F512EB24151C9CDA002E8E3A /* LjsFakerTests.m */,
@@ -1440,6 +1451,7 @@
 		F5E985CB152474420061631A /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				F57D0E50156C2A7C00C5CDC2 /* readlines-test.txt */,
 				F5E985CC152474420061631A /* google */,
 			);
 			name = resources;
@@ -1545,6 +1557,7 @@
 				F5223C7C1542E459006DB9E8 /* com.littlejoysoftware.faker.domain-names.plist in Resources */,
 				F5223C7D1542E459006DB9E8 /* com.littlejoysoftware.faker.us-census-firstnames.plist in Resources */,
 				F5223C7E1542E459006DB9E8 /* com.littlejoysoftware.faker.us-census-surnames.plist in Resources */,
+				F57D0E51156C2A7C00C5CDC2 /* readlines-test.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1758,6 +1771,9 @@
 				F5223C781542E2DD006DB9E8 /* LjsGoogleTranslateManagerTests.m in Sources */,
 				F5D33F1A15529DBF00A42506 /* NSDictionaryLjsAdditionsTests.m in Sources */,
 				F5D33F361552A01100A42506 /* NSDictionary+LjsAdditions.m in Sources */,
+				F57D0E56156C2A8900C5CDC2 /* NSErrorLjsAdditions.m in Sources */,
+				F57D0E57156C2A8900C5CDC2 /* NSSetLjsAdditionsTest.m in Sources */,
+				F57D0E58156C2A8900C5CDC2 /* NSStringLjsAdditionsTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
