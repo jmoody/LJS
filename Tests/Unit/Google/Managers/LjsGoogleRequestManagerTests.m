@@ -81,23 +81,13 @@
 @synthesize apiToken;
 @synthesize manager;
 
-//- (id) init {
-//  self = [super init];
-//  if (self) {
-//    // Initialization code here.
-//  }
-//  return self;
-//}
-//
-//- (void) dealloc {
-//}
-
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
   return YES;
 }
 
 - (void) setUpClass {
+  [super setUpClass];
   // Run at start of all tests in the class
   NSString *defaultKey = LjsGoogleApiKey_joshuajmoody;
   NSUInteger len = [defaultKey length];
@@ -112,16 +102,18 @@
 
 - (void) tearDownClass {
   // Run at end of all tests in the class
+  [super tearDownClass];
 }
 
 - (void) setUp {
+  [super setUp];
   // Run before each test method
 }
 
 - (void) tearDown {
   // Run after each test method
+  [super tearDown];
 }  
-
 
 
 

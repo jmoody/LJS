@@ -73,24 +73,13 @@
 @implementation LjsGestaltTests
 @synthesize gestalt;
 
-//- (id) init {
-//  self = [super init];
-//  if (self) {
-//    // Initialization code here.
-//  }
-//  return self;
-//}
-//
-//- (void) dealloc {
-//  [super dealloc];
-//}
-
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
   return NO;
 }
 
 - (void) setUpClass {
+  [super setUpClass];
   // Run at start of all tests in the class
   self.gestalt = [[LjsGestalt alloc] init];
   GHTestLog(@"gestalt = %@", self.gestalt);
@@ -100,17 +89,18 @@
 - (void) tearDownClass {
   // Run at end of all tests in the class
   self.gestalt = nil;
+  [super tearDownClass];
 }
 
 - (void) setUp {
+  [super setUp];
   // Run before each test method
-
 }
 
 - (void) tearDown {
   // Run after each test method
+  [super tearDown];
 }  
-
 
 - (void) test_isDebugBuild {
 #if DEBUG_BUILD

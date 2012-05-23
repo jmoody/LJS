@@ -69,20 +69,13 @@
 #import "NSArray+LjsAdditions.h"
 
 @interface NSArrayLjsAdditionsTests : LjsTestCase {}
+
+- (NSArray *) arrayOfMutableStrings;
+
 @end
 
 @implementation NSArrayLjsAdditionsTests
 
-//- (id) init {
-//  self = [super init];
-//  if (self) {
-//    // Initialization code here.
-//  }
-//  return self;
-//}
-//
-//- (void) dealloc {
-//}
 
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
@@ -90,24 +83,24 @@
 }
 
 - (void) setUpClass {
+  [super setUpClass];
   // Run at start of all tests in the class
 }
 
 - (void) tearDownClass {
   // Run at end of all tests in the class
+  [super tearDownClass];
 }
 
 - (void) setUp {
+  [super setUp];
   // Run before each test method
 }
 
 - (void) tearDown {
   // Run after each test method
+  [super tearDown];
 }  
-
-//- (void)testGHLog {
-//  GHTestLog(@"GH test logging is working");
-//}
 
 - (void) test_nth {
   NSArray *array;
@@ -268,15 +261,59 @@
   GHAssertFalse([marray emptyp], @"should be empty:\n%@", marray);
 }
 
-- (void) test_map {
+- (void) test_mapcar {
   NSArray *array = [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
-  NSArray *actual = [array map:^(id obj) {
+  NSArray *actual = [array mapcar:^(id obj) {
     return [obj uppercaseString];
   }];
   NSSet *expected = [NSSet setWithObjects:@"A", @"B", @"C", nil];
   GHAssertTrue([LjsValidator array:actual containsStrings:expected allowsOthers:NO],
                @"map should have upcased strings in original array\nactual   %@\nexpected     %@\noriginal    %@",
                actual, expected, array);
+}
+
+
+/*
+ - (NSArray *) mapc:(void (^)(id obj)) aBlock;
+ // the threshold for useful concurrency is 10,000 and 50,000 objects
+ //http://darkdust.net/writings/objective-c/nsarray-enumeration-performance#The_graphs
+ - (NSArray *) mapc:(void (^)(id obj)) aBlock concurrent:(BOOL) aConcurrent;
+
+*/
+
+- (NSArray *) arrayOfMutableStrings {
+  NSArray *array = [NSArray arrayWithObjects:
+                    [@"a" mutableCopy],
+                    [@"b" mutableCopy],
+                    [@"c" mutableCopy],
+                    nil];
+  return array;
+}
+
+- (void) test_mapc {
+  NSArray *array = [self arrayOfMutableStrings];
+  NSArray *actual = [array mapc:^(NSMutableString *obj) {
+    [obj setString:[obj uppercaseString]];
+  }];
+  GHAssertEqualObjects(array, actual, @"array returned by mapc should be the same object as the target");
+  NSSet *expected = [NSSet setWithObjects:@"A", @"B", @"C", nil];
+  GHAssertTrue([LjsValidator array:actual containsStrings:expected allowsOthers:NO],
+               @"map should have upcased strings in original array\nactual   %@\nexpected     %@\noriginal    %@",
+               actual, expected, array);
+}
+
+- (void) test_mapc_concurrent {
+  NSArray *array = [self arrayOfMutableStrings];
+  NSArray *actual = [array mapc:^(NSMutableString *obj) {
+    [obj setString:[obj uppercaseString]];
+  }
+                     concurrent:YES];
+  GHAssertEqualObjects(array, actual, @"array returned by mapc should be the same object as the target");
+  NSSet *expected = [NSSet setWithObjects:@"A", @"B", @"C", nil];
+  GHAssertTrue([LjsValidator array:actual containsStrings:expected allowsOthers:NO],
+               @"map should have upcased strings in original array\nactual   %@\nexpected     %@\noriginal    %@",
+               actual, expected, array);
+
 }
 
 - (void) test_arrayByRemovingObjectInArray_nil_array {

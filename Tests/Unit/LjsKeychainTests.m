@@ -85,17 +85,6 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
 
 
 @synthesize km;
-//- (id) init {
-//  self = [super init];
-//  if (self) {
-//    // Initialization code here.
-//  }
-//  return self;
-//}
-//
-//- (void) dealloc {
-//  [super dealloc];
-//}
 
 - (id) nilOrEmptyString {
   NSString *result;
@@ -124,6 +113,7 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
 }
 
 - (void) setUpClass {
+  [super setUpClass];
   // Run at start of all tests in the class
   self.km = [[LjsKeychainManager alloc] init];
 }
@@ -131,10 +121,12 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
 - (void) tearDownClass {
   // Run at end of all tests in the class
   self.km = nil;
+  [super tearDownClass];
 }
 
 - (void) setUp {
   // Run before each test method
+  [super setUp];
 }
 
 - (void) tearDown {
@@ -153,7 +145,7 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
   if (error != nil) {
     DDLogNotice(@"noticed this error but there is nothing to do: %@", error);
   }
-  
+  [super tearDown];
 }  
 
 - (void) test_isValidString {

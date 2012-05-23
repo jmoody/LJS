@@ -77,100 +77,29 @@
 
 @implementation LjsGoogleManagerInitTests
 
-//- (id) init {
-//  self = [super init];
-//  if (self) {
-//    // Initialization code here.
-//  }
-//  return self;
-//}
-//
-//- (void) dealloc {
-//}
-
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
   return NO;
 }
 
 - (void) setUpClass {
+  [super setUpClass];
   // Run at start of all tests in the class
 }
 
 - (void) tearDownClass {
   // Run at end of all tests in the class
+  [super tearDownClass];
 }
 
 - (void) setUp {
+  [super setUp];
   // Run before each test method
 }
 
 - (void) tearDown {
   // Run after each test method
-}  
+  [super tearDown];
+}   
 
-//- (void)testGHLog {
-//  GHTestLog(@"GH test logging is working");
-//}
-
-/*
-- (void) test_init {
-  LjsGoogleManager *manager;
-  NSString *filename;
-  NSString *apiKey;
-  NSString *libDir;
-  NSArray *contents;
-  BOOL result;
-  NSFileManager *fm = [NSFileManager defaultManager];
-  LjsLocationManager *lm = [[LjsLocationManager alloc] init];
-
-  filename = LjsGooglePlacesSqlLiteStore;
-  libDir = [LjsFileUtilities findCoreDataLibraryPath:YES];
-  
-  manager = [[LjsGoogleManager alloc] initWithLocationManager:lm];
-  contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
-  result = [LjsValidator array:contents containsString:filename];
-  GHAssertTrue(result, nil);
-
- 
-  apiKey = [LjsVariates randomAsciiWithLengthMin:10 lenghtMax:20];
-  filename = LjsGooglePlacesSqlLiteStore;
-  libDir = [LjsFileUtilities findCoreDataLibraryPath:YES];
-  manager = [[LjsGoogleManager alloc] initWithApiToken:apiKey
-             manager:lm];
-  contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
-  result = [LjsValidator array:contents containsString:filename];
-  GHAssertTrue(result, nil);
- 
-  
-  
-  apiKey = [LjsVariates randomAsciiWithLengthMin:10 lenghtMax:20];
-  filename = @"com.littlejoysoftware.LjsGooglePlaces_test_init.sqlite";
-  libDir = [LjsFileUtilities findLibraryDirectoryPath:YES];
-  manager = [[LjsGoogleManager alloc] initWithStoreFilename:filename
-                                                         apiToken:apiKey
-             manager:lm];
-  contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
-  result = [LjsValidator array:contents containsString:filename];
-  manager = nil;
-  [fm removeItemAtPath:[libDir stringByAppendingPathComponent:filename]
-                 error:nil];
-
-  
-  apiKey = [LjsVariates randomAsciiWithLengthMin:10 lenghtMax:20];
-  filename = @"com.littlejoysoftware.LjsGooglePlaces_test_init.sqlite";
-  libDir = [LjsFileUtilities findLibraryDirectoryPath:YES];
-  manager = [[LjsGoogleManager alloc] initWithStoreDirectory:libDir
-                                                     storeFilename:filename
-                                                          apiToken:apiKey
-                                                                manager:lm];
-  contents = [fm contentsOfDirectoryAtPath:libDir error:nil];
-  result = [LjsValidator array:contents containsString:filename];
-  GHAssertTrue(result, nil);
-  manager = nil;
-  [fm removeItemAtPath:[libDir stringByAppendingPathComponent:filename]
-                 error:nil];
-
-}
-*/
 @end

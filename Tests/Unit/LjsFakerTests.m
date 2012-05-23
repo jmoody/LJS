@@ -103,23 +103,25 @@
 }
 
 - (void) setUpClass {
+  [super setUpClass];
   // Run at start of all tests in the class
   self.faker = [[LjsFaker alloc] init];
 }
 
 - (void) tearDownClass {
   // Run at end of all tests in the class
+  [super tearDownClass];
 }
 
 - (void) setUp {
+  [super setUp];
   // Run before each test method
-  self.fm = [NSFileManager defaultManager];
 }
 
 - (void) tearDown {
   // Run after each test method
+  [super tearDown];
 }  
-
 
 - (void) test_firstName {
   GHAssertNotNil([self.faker firstName], nil);

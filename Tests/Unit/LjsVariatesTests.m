@@ -81,20 +81,24 @@
   return NO;
 }
 
-- (void)setUpClass {
+- (void) setUpClass {
+  [super setUpClass];
   // Run at start of all tests in the class
 }
 
-- (void)tearDownClass {
+- (void) tearDownClass {
   // Run at end of all tests in the class
+  [super tearDownClass];
 }
 
-- (void)setUp {
+- (void) setUp {
+  [super setUp];
   // Run before each test method
 }
 
-- (void)tearDown {
+- (void) tearDown {
   // Run after each test method
+  [super tearDown];
 }  
 
 - (void) test_flip {

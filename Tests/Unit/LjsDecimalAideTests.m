@@ -92,6 +92,7 @@
 }
 
 - (void) setUpClass {
+  [super setUpClass];
   // Run at start of all tests in the class
   self.zero = [NSDecimalNumber zero];
   self.one = [NSDecimalNumber one];
@@ -100,15 +101,18 @@
 
 - (void) tearDownClass {
   // Run at end of all tests in the class
+  [super tearDownClass];
 }
 
 - (void) setUp {
+  [super setUp];
   // Run before each test method
 }
 
 - (void) tearDown {
   // Run after each test method
-}  
+  [super tearDown];
+}   
 
 
 - (void) test_dne {
