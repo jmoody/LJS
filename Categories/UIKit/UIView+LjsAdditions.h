@@ -44,5 +44,10 @@
 - (NSString *) centerToString;
 - (NSString *) boundsToString;
 
++ (CGRect) frameX:(CGFloat) aX
+                w:(CGFloat) aWidth
+                h:(CGFloat) aHeight
+      centeredToH:(CGFloat) aCenterH;
+
 - (BOOL) containsSubviewWithTag:(NSInteger) aTag;
 @end

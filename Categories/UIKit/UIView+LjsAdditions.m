@@ -147,5 +147,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [self viewWithTag:aTag] != nil;
 }
 
++ (CGRect) frameX:(CGFloat) aX
+                w:(CGFloat) aWidth
+                h:(CGFloat) aHeight
+      centeredToH:(CGFloat) aCenterH {
+  CGFloat y = (aCenterH/2) - (aHeight/2);
+  return CGRectMake(aX, y, aWidth, aHeight);
+}
 
 @end
