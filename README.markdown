@@ -81,6 +81,7 @@ licenses can be found in the attributes file)
 * UKKQueue
 * CocoaHTTPServer
 * InnerBand
+* V8HorizontalPickerView
 
 JSON-RPC
 --------------------
