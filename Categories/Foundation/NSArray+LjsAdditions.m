@@ -77,19 +77,19 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [NSArray arrayWithArray:result];
 }
 
-- (NSArray *) mapc:(void (^)(id obj)) aBlock  {
+- (NSArray *) mapc:(void (^)(id obj, NSUInteger idx, BOOL *stop)) aBlock  {
   return [self mapc:aBlock concurrent:NO];
 }
 
-- (NSArray *) mapc:(void (^)(id obj)) aBlock concurrent:(BOOL) aConcurrent {
+- (NSArray *) mapc:(void (^)(id obj, NSUInteger idx, BOOL *stop)) aBlock concurrent:(BOOL) aConcurrent {
   if (aConcurrent == YES) {
     [self enumerateObjectsWithOptions:NSEnumerationConcurrent 
                            usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                             aBlock(obj);
+                             aBlock(obj, idx, stop);
                            }];
   } else {
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-      aBlock(obj);
+      aBlock(obj, idx, stop);
     }];
   }
   return self;

@@ -30,20 +30,20 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [NSSet setWithSet:result];
 }
 
-- (NSSet *) mapc:(void (^)(id obj)) aBlock  {
+- (NSSet *) mapc:(void (^)(id obj, BOOL *stop)) aBlock  {
   return [self mapc:aBlock concurrent:NO];
 }
 
-- (NSSet *) mapc:(void (^)(id obj)) aBlock concurrent:(BOOL) aConcurrent {
+- (NSSet *) mapc:(void (^)(id obj, BOOL *stop)) aBlock concurrent:(BOOL) aConcurrent {
   if (aConcurrent == YES) {
     [self enumerateObjectsWithOptions:NSEnumerationConcurrent
                            usingBlock:^(id obj, BOOL *stop) {
-                             aBlock(obj);
+                             aBlock(obj, stop);
                            }];
   
   } else {
     [self enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
-      aBlock(obj);
+      aBlock(obj, stop);
     }];
   }
   return self;

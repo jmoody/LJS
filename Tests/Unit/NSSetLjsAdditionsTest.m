@@ -122,7 +122,7 @@
 
 - (void) test_mapc {
   NSSet *set = [self setOfMutableStrings];
-  NSSet *actual = [set mapc:^(NSMutableString *obj) {
+  NSSet *actual = [set mapc:^(NSMutableString *obj, BOOL *stop) {
     [obj setString:[obj uppercaseString]];
   }];
   GHAssertEqualObjects(set, actual, @"array returned by mapc should be the same object as the target");
@@ -135,7 +135,7 @@
 
 - (void) test_mapc_concurrent {
   NSSet *set = [self setOfMutableStrings];
-  NSSet *actual = [set mapc:^(NSMutableString *obj) {
+  NSSet *actual = [set mapc:^(NSMutableString *obj, BOOL *stop) {
     [obj setString:[obj uppercaseString]];
   }
                      concurrent:YES];

@@ -292,7 +292,7 @@
 
 - (void) test_mapc {
   NSArray *array = [self arrayOfMutableStrings];
-  NSArray *actual = [array mapc:^(NSMutableString *obj) {
+  NSArray *actual = [array mapc:^(NSMutableString *obj, NSUInteger idx, BOOL *stop) {
     [obj setString:[obj uppercaseString]];
   }];
   GHAssertEqualObjects(array, actual, @"array returned by mapc should be the same object as the target");
@@ -302,9 +302,22 @@
                actual, expected, array);
 }
 
+- (void) test_mapc_using_index {
+  NSArray *array = [self arrayOfMutableStrings];
+  NSArray *actual = [array mapc:^(NSMutableString *obj, NSUInteger idx, BOOL *stop) {
+    NSString *newStr = [NSString stringWithFormat:@"%d", idx];
+    [obj setString:newStr];
+  }];
+  GHAssertEqualObjects(array, actual, @"array returned by mapc should be the same object as the target");
+  NSSet *expected = [NSSet setWithObjects:@"0", @"1", @"2", nil];
+  GHAssertTrue([LjsValidator array:actual containsStrings:expected allowsOthers:NO],
+               @"map should have upcased strings in original array\nactual   %@\nexpected     %@\noriginal    %@",
+               actual, expected, array);
+}
+
 - (void) test_mapc_concurrent {
   NSArray *array = [self arrayOfMutableStrings];
-  NSArray *actual = [array mapc:^(NSMutableString *obj) {
+  NSArray *actual = [array mapc:^(NSMutableString *obj, NSUInteger idx, BOOL *stop) {
     [obj setString:[obj uppercaseString]];
   }
                      concurrent:YES];
