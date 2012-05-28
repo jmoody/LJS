@@ -106,6 +106,8 @@
 - (NSString *) emptyStringOrNil;
 - (BOOL) flip;
 - (void) dummyControlSelector:(id) sender;
+- (NSArray *) arrayOfAbcStrings;
+- (NSSet *) setOfAbcStrings;
 
 - (NSDate *) dateForTimeOutWithSeconds:(NSTimeInterval) aSeconds;
 - (NSDate *) dateForDefaultTimeOut;

@@ -349,14 +349,20 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   method_exchangeImplementations(self.findApplicationSupportDirectoryForUserpMock,
                                  self.findApplicationSupportDirectoryForUserpOriginal);
 }
-
-
-
 #endif
 
 - (void) dummyControlSelector:(id) sender {
   return;
 }
+
+- (NSArray *) arrayOfAbcStrings {
+  return [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
+}
+
+- (NSSet *) setOfAbcStrings {
+  return [NSSet setWithArray:[self arrayOfAbcStrings]];
+}
+
 
 
 - (NSDate *) dateForTimeOutWithSeconds:(NSTimeInterval) aSeconds {
