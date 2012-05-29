@@ -51,14 +51,6 @@
 
 #endif
 
-#pragma mark NSBundle mocking
-
-@interface NSBundle (TEST)
-
-+ (id) mainBundle;
-
-@end
-
 @class LjsGestalt;
 
 @interface LjsTestCase : GHTestCase 
@@ -118,15 +110,6 @@
 
 - (NSDate *) dateForTimeOutWithSeconds:(NSTimeInterval) aSeconds;
 - (NSDate *) dateForDefaultTimeOut;
-
-
-#pragma mark Mocking NS Singletons
-+ (id) mockMainBundle;
-+ (id) createMockMainBundle;
-+ (id) createNiceMockMainBundle;
-- (NSString *) mockLocalizedStringForKey:(NSString *) aKey
-                                   value:(NSString *) aValue
-                                   table:(NSString *) aTable;
 
 
 @end
