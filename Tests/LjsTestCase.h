@@ -42,7 +42,7 @@
 
 // hamcrest
 //https://github.com/jonreid/OCHamcrest/issues/7
-#define HC_SHORTHAND
+//#define HC_SHORTHAND
 
 
 #if TARGET_OS_IPHONE
