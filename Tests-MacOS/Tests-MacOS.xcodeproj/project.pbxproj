@@ -206,10 +206,13 @@
 		F5E98569152473580061631A /* NSDecimalNumber+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E98568152473580061631A /* NSDecimalNumber+LjsAdditions.m */; };
 		F5E985CF152474420061631A /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5E985CD152474420061631A /* google-places-autocomplete-sample.json */; };
 		F5E985D0152474420061631A /* google-places-details-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5E985CE152474420061631A /* google-places-details-sample.json */; };
-		F5F63E7E1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63E7D1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.m */; };
 		F5F63E8A1574F22F00FE3B72 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F63E891574F22F00FE3B72 /* OCHamcrest.framework */; };
 		F5F63E8D1574F26300FE3B72 /* OCHamcrestWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63E8C1574F26300FE3B72 /* OCHamcrestWorkingTest.m */; };
 		F5F63E8F1574F38200FE3B72 /* OCHamcrest.framework in Copy Files Hamcrest */ = {isa = PBXBuildFile; fileRef = F5F63E891574F22F00FE3B72 /* OCHamcrest.framework */; };
+		F5F63EBE1574F89700FE3B72 /* OCMockSingletonsWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63EBD1574F89700FE3B72 /* OCMockSingletonsWorkingTest.m */; };
+		F5F63EC61574F97300FE3B72 /* NSDate+UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63EC11574F97300FE3B72 /* NSDate+UnitTests.m */; };
+		F5F63EC71574F97300FE3B72 /* NSNotificationCenter+UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63EC31574F97300FE3B72 /* NSNotificationCenter+UnitTests.m */; };
+		F5F63EC81574F97300FE3B72 /* NSObject+SupersequentImplementation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63EC51574F97300FE3B72 /* NSObject+SupersequentImplementation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -607,10 +610,16 @@
 		F5E98568152473580061631A /* NSDecimalNumber+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDecimalNumber+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5E985CD152474420061631A /* google-places-autocomplete-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "google-places-autocomplete-sample.json"; sourceTree = "<group>"; };
 		F5E985CE152474420061631A /* google-places-details-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "google-places-details-sample.json"; sourceTree = "<group>"; };
-		F5F63E7C1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SupersequentImplementation.h"; path = "../../Tests/NSObject+SupersequentImplementation.h"; sourceTree = "<group>"; };
-		F5F63E7D1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SupersequentImplementation.m"; path = "../../Tests/NSObject+SupersequentImplementation.m"; sourceTree = "<group>"; };
 		F5F63E891574F22F00FE3B72 /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = ../../OCHamcrest/1.7/OCHamcrest.framework; sourceTree = "<group>"; };
 		F5F63E8C1574F26300FE3B72 /* OCHamcrestWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCHamcrestWorkingTest.m; path = ../../Tests/OCHamcrestWorkingTest.m; sourceTree = "<group>"; };
+		F5F63EB61574F87A00FE3B72 /* OCMockSingletonExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockSingletonExtensions.h; sourceTree = "<group>"; };
+		F5F63EBD1574F89700FE3B72 /* OCMockSingletonsWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCMockSingletonsWorkingTest.m; path = ../../Tests/OCMockSingletonsWorkingTest.m; sourceTree = "<group>"; };
+		F5F63EC01574F97300FE3B72 /* NSDate+UnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+UnitTests.h"; sourceTree = "<group>"; };
+		F5F63EC11574F97300FE3B72 /* NSDate+UnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+UnitTests.m"; sourceTree = "<group>"; };
+		F5F63EC21574F97300FE3B72 /* NSNotificationCenter+UnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+UnitTests.h"; sourceTree = "<group>"; };
+		F5F63EC31574F97300FE3B72 /* NSNotificationCenter+UnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+UnitTests.m"; sourceTree = "<group>"; };
+		F5F63EC41574F97300FE3B72 /* NSObject+SupersequentImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SupersequentImplementation.h"; sourceTree = "<group>"; };
+		F5F63EC51574F97300FE3B72 /* NSObject+SupersequentImplementation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SupersequentImplementation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -893,10 +902,10 @@
 		F580702F146C26F100EA4CFB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F5F63EAE1574F87A00FE3B72 /* OCMockSingletonExtension */,
+				F5F63EBD1574F89700FE3B72 /* OCMockSingletonsWorkingTest.m */,
 				F5F63E8C1574F26300FE3B72 /* OCHamcrestWorkingTest.m */,
 				F5F63E891574F22F00FE3B72 /* OCHamcrest.framework */,
-				F5F63E7C1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.h */,
-				F5F63E7D1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.m */,
 				F580716F146C2AAC00EA4CFB /* OCMockWorkingTest.m */,
 				F5807045146C280600EA4CFB /* GHUnit.framework */,
 				F5807030146C26F100EA4CFB /* Tests-MacOS-Info.plist */,
@@ -1492,6 +1501,29 @@
 			path = google;
 			sourceTree = "<group>";
 		};
+		F5F63EAE1574F87A00FE3B72 /* OCMockSingletonExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F5F63EB61574F87A00FE3B72 /* OCMockSingletonExtensions.h */,
+				F5F63EBF1574F97300FE3B72 /* Foundation */,
+			);
+			name = OCMockSingletonExtension;
+			path = ../../OCMockSingletonExtension/OCMockSingletonExtension;
+			sourceTree = "<group>";
+		};
+		F5F63EBF1574F97300FE3B72 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				F5F63EC01574F97300FE3B72 /* NSDate+UnitTests.h */,
+				F5F63EC11574F97300FE3B72 /* NSDate+UnitTests.m */,
+				F5F63EC21574F97300FE3B72 /* NSNotificationCenter+UnitTests.h */,
+				F5F63EC31574F97300FE3B72 /* NSNotificationCenter+UnitTests.m */,
+				F5F63EC41574F97300FE3B72 /* NSObject+SupersequentImplementation.h */,
+				F5F63EC51574F97300FE3B72 /* NSObject+SupersequentImplementation.m */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1800,8 +1832,11 @@
 				F57D0E56156C2A8900C5CDC2 /* NSErrorLjsAdditions.m in Sources */,
 				F57D0E57156C2A8900C5CDC2 /* NSSetLjsAdditionsTest.m in Sources */,
 				F57D0E58156C2A8900C5CDC2 /* NSStringLjsAdditionsTest.m in Sources */,
-				F5F63E7E1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.m in Sources */,
 				F5F63E8D1574F26300FE3B72 /* OCHamcrestWorkingTest.m in Sources */,
+				F5F63EBE1574F89700FE3B72 /* OCMockSingletonsWorkingTest.m in Sources */,
+				F5F63EC61574F97300FE3B72 /* NSDate+UnitTests.m in Sources */,
+				F5F63EC71574F97300FE3B72 /* NSNotificationCenter+UnitTests.m in Sources */,
+				F5F63EC81574F97300FE3B72 /* NSObject+SupersequentImplementation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

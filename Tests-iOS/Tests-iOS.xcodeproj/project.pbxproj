@@ -302,11 +302,11 @@
 		F5F620A214E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */; };
 		F5F63E861574F0B400FE3B72 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F63E851574F0B400FE3B72 /* OCHamcrestIOS.framework */; };
 		F5F63E881574F13900FE3B72 /* OCHamcrestWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63E871574F13900FE3B72 /* OCHamcrestWorkingTest.m */; };
-		F5F63E9A1574F4F200FE3B72 /* NSDate+UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63E921574F4F200FE3B72 /* NSDate+UnitTests.m */; };
-		F5F63E9B1574F4F200FE3B72 /* NSNotificationCenter+UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63E941574F4F200FE3B72 /* NSNotificationCenter+UnitTests.m */; };
-		F5F63E9C1574F4F200FE3B72 /* NSObject+SupersequentImplementation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63E961574F4F200FE3B72 /* NSObject+SupersequentImplementation.m */; };
-		F5F63E9D1574F4F200FE3B72 /* UIImage+UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63E991574F4F200FE3B72 /* UIImage+UnitTests.m */; };
 		F5F63EA01574F6D200FE3B72 /* OCMockSingletonsWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63E9F1574F6D200FE3B72 /* OCMockSingletonsWorkingTest.m */; };
+		F5F63ED31574F99000FE3B72 /* NSDate+UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63ECB1574F99000FE3B72 /* NSDate+UnitTests.m */; };
+		F5F63ED41574F99000FE3B72 /* NSNotificationCenter+UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63ECD1574F99000FE3B72 /* NSNotificationCenter+UnitTests.m */; };
+		F5F63ED51574F99000FE3B72 /* NSObject+SupersequentImplementation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63ECF1574F99000FE3B72 /* NSObject+SupersequentImplementation.m */; };
+		F5F63ED61574F99000FE3B72 /* UIImage+UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63ED21574F99000FE3B72 /* UIImage+UnitTests.m */; };
 		F5F7BBB714D3E90800669FE6 /* LjsGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */; };
 		F5F7BBB914D3EA3300669FE6 /* LjsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F572496F149F9AD6006C62A2 /* LjsButton.m */; };
 		F5F7BBBA14D3EA3700669FE6 /* LjsGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */; };
@@ -759,16 +759,16 @@
 		F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateLjsAdditionsTests.m; sourceTree = "<group>"; };
 		F5F63E851574F0B400FE3B72 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = ../../OCHamcrest/1.7/OCHamcrestIOS.framework; sourceTree = "<group>"; };
 		F5F63E871574F13900FE3B72 /* OCHamcrestWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCHamcrestWorkingTest.m; sourceTree = "<group>"; };
-		F5F63E911574F4F200FE3B72 /* NSDate+UnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+UnitTests.h"; sourceTree = "<group>"; };
-		F5F63E921574F4F200FE3B72 /* NSDate+UnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+UnitTests.m"; sourceTree = "<group>"; };
-		F5F63E931574F4F200FE3B72 /* NSNotificationCenter+UnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+UnitTests.h"; sourceTree = "<group>"; };
-		F5F63E941574F4F200FE3B72 /* NSNotificationCenter+UnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+UnitTests.m"; sourceTree = "<group>"; };
-		F5F63E951574F4F200FE3B72 /* NSObject+SupersequentImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SupersequentImplementation.h"; sourceTree = "<group>"; };
-		F5F63E961574F4F200FE3B72 /* NSObject+SupersequentImplementation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SupersequentImplementation.m"; sourceTree = "<group>"; };
-		F5F63E981574F4F200FE3B72 /* UIImage+UnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UnitTests.h"; sourceTree = "<group>"; };
-		F5F63E991574F4F200FE3B72 /* UIImage+UnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UnitTests.m"; sourceTree = "<group>"; };
 		F5F63E9E1574F58000FE3B72 /* OCMockSingletonExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockSingletonExtensions.h; sourceTree = "<group>"; };
 		F5F63E9F1574F6D200FE3B72 /* OCMockSingletonsWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockSingletonsWorkingTest.m; sourceTree = "<group>"; };
+		F5F63ECA1574F99000FE3B72 /* NSDate+UnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+UnitTests.h"; sourceTree = "<group>"; };
+		F5F63ECB1574F99000FE3B72 /* NSDate+UnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+UnitTests.m"; sourceTree = "<group>"; };
+		F5F63ECC1574F99000FE3B72 /* NSNotificationCenter+UnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+UnitTests.h"; sourceTree = "<group>"; };
+		F5F63ECD1574F99000FE3B72 /* NSNotificationCenter+UnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+UnitTests.m"; sourceTree = "<group>"; };
+		F5F63ECE1574F99000FE3B72 /* NSObject+SupersequentImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SupersequentImplementation.h"; sourceTree = "<group>"; };
+		F5F63ECF1574F99000FE3B72 /* NSObject+SupersequentImplementation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SupersequentImplementation.m"; sourceTree = "<group>"; };
+		F5F63ED11574F99000FE3B72 /* UIImage+UnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UnitTests.h"; sourceTree = "<group>"; };
+		F5F63ED21574F99000FE3B72 /* UIImage+UnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UnitTests.m"; sourceTree = "<group>"; };
 		F5F7BBB514D3E90800669FE6 /* LjsGlassButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGlassButton.h; sourceTree = "<group>"; };
 		F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGlassButton.m; sourceTree = "<group>"; };
 		F5FD82961532125400F5800F /* LjsGestalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGestalt.h; sourceTree = "<group>"; };
@@ -1805,18 +1805,34 @@
 		F5F63E901574F4F200FE3B72 /* OCMockSingletonExtension */ = {
 			isa = PBXGroup;
 			children = (
+				F5F63EC91574F99000FE3B72 /* Foundation */,
+				F5F63ED01574F99000FE3B72 /* UIKit */,
 				F5F63E9E1574F58000FE3B72 /* OCMockSingletonExtensions.h */,
-				F5F63E911574F4F200FE3B72 /* NSDate+UnitTests.h */,
-				F5F63E921574F4F200FE3B72 /* NSDate+UnitTests.m */,
-				F5F63E931574F4F200FE3B72 /* NSNotificationCenter+UnitTests.h */,
-				F5F63E941574F4F200FE3B72 /* NSNotificationCenter+UnitTests.m */,
-				F5F63E951574F4F200FE3B72 /* NSObject+SupersequentImplementation.h */,
-				F5F63E961574F4F200FE3B72 /* NSObject+SupersequentImplementation.m */,
-				F5F63E981574F4F200FE3B72 /* UIImage+UnitTests.h */,
-				F5F63E991574F4F200FE3B72 /* UIImage+UnitTests.m */,
 			);
 			name = OCMockSingletonExtension;
 			path = ../../OCMockSingletonExtension/OCMockSingletonExtension;
+			sourceTree = "<group>";
+		};
+		F5F63EC91574F99000FE3B72 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				F5F63ECA1574F99000FE3B72 /* NSDate+UnitTests.h */,
+				F5F63ECB1574F99000FE3B72 /* NSDate+UnitTests.m */,
+				F5F63ECC1574F99000FE3B72 /* NSNotificationCenter+UnitTests.h */,
+				F5F63ECD1574F99000FE3B72 /* NSNotificationCenter+UnitTests.m */,
+				F5F63ECE1574F99000FE3B72 /* NSObject+SupersequentImplementation.h */,
+				F5F63ECF1574F99000FE3B72 /* NSObject+SupersequentImplementation.m */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		F5F63ED01574F99000FE3B72 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				F5F63ED11574F99000FE3B72 /* UIImage+UnitTests.h */,
+				F5F63ED21574F99000FE3B72 /* UIImage+UnitTests.m */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		F5F7BBBE14D3ED5100669FE6 /* Categories */ = {
@@ -2208,11 +2224,11 @@
 				F512D8EA156B985300D44011 /* NSSetLjsAdditionsTest.m in Sources */,
 				F57D0E4A156C232E00C5CDC2 /* NSErrorLjsAdditions.m in Sources */,
 				F5F63E881574F13900FE3B72 /* OCHamcrestWorkingTest.m in Sources */,
-				F5F63E9A1574F4F200FE3B72 /* NSDate+UnitTests.m in Sources */,
-				F5F63E9B1574F4F200FE3B72 /* NSNotificationCenter+UnitTests.m in Sources */,
-				F5F63E9C1574F4F200FE3B72 /* NSObject+SupersequentImplementation.m in Sources */,
-				F5F63E9D1574F4F200FE3B72 /* UIImage+UnitTests.m in Sources */,
 				F5F63EA01574F6D200FE3B72 /* OCMockSingletonsWorkingTest.m in Sources */,
+				F5F63ED31574F99000FE3B72 /* NSDate+UnitTests.m in Sources */,
+				F5F63ED41574F99000FE3B72 /* NSNotificationCenter+UnitTests.m in Sources */,
+				F5F63ED51574F99000FE3B72 /* NSObject+SupersequentImplementation.m in Sources */,
+				F5F63ED61574F99000FE3B72 /* UIImage+UnitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
