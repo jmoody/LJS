@@ -214,6 +214,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     [self restoreFindApplicationSupportDirectory];
 #endif
   }
+  
   [super tearDownClass];
 }
 

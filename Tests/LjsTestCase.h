@@ -40,15 +40,17 @@
 #import "LjsValidator.h"
 #import <objc/runtime.h>
 
+// hamcrest
+//https://github.com/jonreid/OCHamcrest/issues/7
+#define HC_SHORTHAND
+
+
 #if TARGET_OS_IPHONE
 #import "LjsTableViewOwnerProtocol.h"
 
 @interface UIView (UIView_TESTING)
-
 - (NSMutableDictionary *)fullDescription;
-
 @end
-
 #endif
 
 @class LjsGestalt;
@@ -110,6 +112,5 @@
 
 - (NSDate *) dateForTimeOutWithSeconds:(NSTimeInterval) aSeconds;
 - (NSDate *) dateForDefaultTimeOut;
-
 
 @end

@@ -295,12 +295,12 @@
 		F5C8F507152A6D8100B32F95 /* LjsGooglePlaceImportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F506152A6D8100B32F95 /* LjsGooglePlaceImportTests.m */; };
 		F5C8F50A152A6E2500B32F95 /* LjsGoogleReverseGeocodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F509152A6E2500B32F95 /* LjsGoogleReverseGeocodeTests.m */; };
 		F5C8F513152A70F300B32F95 /* LjsGoogleReverseGeocodeOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F512152A70F300B32F95 /* LjsGoogleReverseGeocodeOptions.m */; };
+		F5CE808F15750783006BB87A /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CE808E15750783006BB87A /* OCHamcrestIOS.framework */; };
 		F5D3581F14B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
 		F5D3582014B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
 		F5D86BA315381E5000354105 /* LjsGoogleTranslateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D86BA215381E5000354105 /* LjsGoogleTranslateManager.m */; };
 		F5D86BA615381E6B00354105 /* LjsGoogleTranslateManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D86BA515381E6B00354105 /* LjsGoogleTranslateManagerTests.m */; };
 		F5F620A214E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */; };
-		F5F63E861574F0B400FE3B72 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F63E851574F0B400FE3B72 /* OCHamcrestIOS.framework */; };
 		F5F63E881574F13900FE3B72 /* OCHamcrestWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63E871574F13900FE3B72 /* OCHamcrestWorkingTest.m */; };
 		F5F63EA01574F6D200FE3B72 /* OCMockSingletonsWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63E9F1574F6D200FE3B72 /* OCMockSingletonsWorkingTest.m */; };
 		F5F63ED31574F99000FE3B72 /* NSDate+UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63ECB1574F99000FE3B72 /* NSDate+UnitTests.m */; };
@@ -743,6 +743,7 @@
 		F5C8F509152A6E2500B32F95 /* LjsGoogleReverseGeocodeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleReverseGeocodeTests.m; sourceTree = "<group>"; };
 		F5C8F511152A70F300B32F95 /* LjsGoogleReverseGeocodeOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleReverseGeocodeOptions.h; sourceTree = "<group>"; };
 		F5C8F512152A70F300B32F95 /* LjsGoogleReverseGeocodeOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleReverseGeocodeOptions.m; sourceTree = "<group>"; };
+		F5CE808E15750783006BB87A /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = ../../OCHamcrest/1.7/OCHamcrestIOS.framework; sourceTree = "<group>"; };
 		F5D3581B14B805B50022E24E /* LjsBackingStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsBackingStore.h; sourceTree = "<group>"; };
 		F5D3581D14B8065E0022E24E /* LjsUserDefaultsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsUserDefaultsStore.h; sourceTree = "<group>"; };
 		F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsUserDefaultsStore.m; sourceTree = "<group>"; };
@@ -757,7 +758,6 @@
 		F5D86BA215381E5000354105 /* LjsGoogleTranslateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleTranslateManager.m; sourceTree = "<group>"; };
 		F5D86BA515381E6B00354105 /* LjsGoogleTranslateManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleTranslateManagerTests.m; sourceTree = "<group>"; };
 		F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateLjsAdditionsTests.m; sourceTree = "<group>"; };
-		F5F63E851574F0B400FE3B72 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = ../../OCHamcrest/1.7/OCHamcrestIOS.framework; sourceTree = "<group>"; };
 		F5F63E871574F13900FE3B72 /* OCHamcrestWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCHamcrestWorkingTest.m; sourceTree = "<group>"; };
 		F5F63E9E1574F58000FE3B72 /* OCMockSingletonExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockSingletonExtensions.h; sourceTree = "<group>"; };
 		F5F63E9F1574F6D200FE3B72 /* OCMockSingletonsWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockSingletonsWorkingTest.m; sourceTree = "<group>"; };
@@ -801,7 +801,7 @@
 				F50FE6A01410C6F60051FC7E /* UIKit.framework in Frameworks */,
 				F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */,
 				F59AC1601546B536001ABB88 /* GHUnitIOS.framework in Frameworks */,
-				F5F63E861574F0B400FE3B72 /* OCHamcrestIOS.framework in Frameworks */,
+				F5CE808F15750783006BB87A /* OCHamcrestIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -888,8 +888,8 @@
 		F50FE6A61410C6F60051FC7E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F5CE808E15750783006BB87A /* OCHamcrestIOS.framework */,
 				F5F63E901574F4F200FE3B72 /* OCMockSingletonExtension */,
-				F5F63E851574F0B400FE3B72 /* OCHamcrestIOS.framework */,
 				F59AC15F1546B536001ABB88 /* GHUnitIOS.framework */,
 				F5B03A6A14AA67620015D59B /* ocmock */,
 				F50FE6A71410C6F60051FC7E /* Tests-iOS-Info.plist */,
