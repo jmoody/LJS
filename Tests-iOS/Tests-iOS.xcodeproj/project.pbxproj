@@ -301,6 +301,8 @@
 		F5D86BA615381E6B00354105 /* LjsGoogleTranslateManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D86BA515381E6B00354105 /* LjsGoogleTranslateManagerTests.m */; };
 		F5F620A214E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */; };
 		F5F63E751574CEC900FE3B72 /* NSObject+SupersequentImplementation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63E741574CEC900FE3B72 /* NSObject+SupersequentImplementation.m */; };
+		F5F63E861574F0B400FE3B72 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F63E851574F0B400FE3B72 /* OCHamcrestIOS.framework */; };
+		F5F63E881574F13900FE3B72 /* OCHamcrestWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63E871574F13900FE3B72 /* OCHamcrestWorkingTest.m */; };
 		F5F7BBB714D3E90800669FE6 /* LjsGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */; };
 		F5F7BBB914D3EA3300669FE6 /* LjsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F572496F149F9AD6006C62A2 /* LjsButton.m */; };
 		F5F7BBBA14D3EA3700669FE6 /* LjsGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */; };
@@ -753,6 +755,8 @@
 		F5F620A114E3E41E00D6C4A1 /* NSDateLjsAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateLjsAdditionsTests.m; sourceTree = "<group>"; };
 		F5F63E731574CEC900FE3B72 /* NSObject+SupersequentImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SupersequentImplementation.h"; path = "../../Tests/NSObject+SupersequentImplementation.h"; sourceTree = "<group>"; };
 		F5F63E741574CEC900FE3B72 /* NSObject+SupersequentImplementation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SupersequentImplementation.m"; path = "../../Tests/NSObject+SupersequentImplementation.m"; sourceTree = "<group>"; };
+		F5F63E851574F0B400FE3B72 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = ../../OCHamcrest/1.7/OCHamcrestIOS.framework; sourceTree = "<group>"; };
+		F5F63E871574F13900FE3B72 /* OCHamcrestWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCHamcrestWorkingTest.m; sourceTree = "<group>"; };
 		F5F7BBB514D3E90800669FE6 /* LjsGlassButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGlassButton.h; sourceTree = "<group>"; };
 		F5F7BBB614D3E90800669FE6 /* LjsGlassButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGlassButton.m; sourceTree = "<group>"; };
 		F5FD82961532125400F5800F /* LjsGestalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGestalt.h; sourceTree = "<group>"; };
@@ -785,6 +789,7 @@
 				F50FE6A01410C6F60051FC7E /* UIKit.framework in Frameworks */,
 				F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */,
 				F59AC1601546B536001ABB88 /* GHUnitIOS.framework in Frameworks */,
+				F5F63E861574F0B400FE3B72 /* OCHamcrestIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -873,6 +878,7 @@
 		F50FE6A61410C6F60051FC7E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F5F63E851574F0B400FE3B72 /* OCHamcrestIOS.framework */,
 				F59AC15F1546B536001ABB88 /* GHUnitIOS.framework */,
 				F5B03A6A14AA67620015D59B /* ocmock */,
 				F50FE6A71410C6F60051FC7E /* Tests-iOS-Info.plist */,
@@ -889,6 +895,7 @@
 				F50FE6D81410CC250051FC7E /* Unit */,
 				F56147BA1450C86700D2653A /* OCMockWorkingTest.m */,
 				F57D0E49156C232E00C5CDC2 /* NSErrorLjsAdditions.m */,
+				F5F63E871574F13900FE3B72 /* OCHamcrestWorkingTest.m */,
 			);
 			name = Tests;
 			path = ../../Tests;
@@ -2172,6 +2179,7 @@
 				F512D8EA156B985300D44011 /* NSSetLjsAdditionsTest.m in Sources */,
 				F57D0E4A156C232E00C5CDC2 /* NSErrorLjsAdditions.m in Sources */,
 				F5F63E751574CEC900FE3B72 /* NSObject+SupersequentImplementation.m in Sources */,
+				F5F63E881574F13900FE3B72 /* OCHamcrestWorkingTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2383,6 +2391,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-iOS\"",
+					"\"$(SRCROOT)/../OCHamcrest/1.7\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-iOS/Tests-iOS-Prefix.pch";
@@ -2405,6 +2414,7 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
+					"-lstdc++",
 				);
 				PRODUCT_NAME = "Tests-iOS";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
@@ -2421,6 +2431,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-iOS\"",
+					"\"$(SRCROOT)/../OCHamcrest/1.7\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-iOS/Tests-iOS-Prefix.pch";
@@ -2440,6 +2451,7 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
+					"-lstdc++",
 				);
 				PRODUCT_NAME = "Tests-iOS";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
@@ -2559,6 +2571,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-iOS\"",
+					"\"$(SRCROOT)/../OCHamcrest/1.7\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-iOS/Tests-iOS-Prefix.pch";
@@ -2581,6 +2594,7 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
+					"-lstdc++",
 				);
 				PRODUCT_NAME = "Tests-iOS";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
@@ -2663,6 +2677,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-iOS\"",
+					"\"$(SRCROOT)/../OCHamcrest/1.7\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-iOS/Tests-iOS-Prefix.pch";
@@ -2685,6 +2700,7 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
+					"-lstdc++",
 				);
 				PRODUCT_NAME = "Tests-iOS";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";

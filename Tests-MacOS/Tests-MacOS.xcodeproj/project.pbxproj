@@ -128,8 +128,8 @@
 		F5807164146C296700EA4CFB /* LjsKeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807153146C296700EA4CFB /* LjsKeychainManager.m */; };
 		F5807166146C296700EA4CFB /* LjsValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807158146C296700EA4CFB /* LjsValidator.m */; };
 		F5807167146C296700EA4CFB /* LjsVariates.m in Sources */ = {isa = PBXBuildFile; fileRef = F580715A146C296700EA4CFB /* LjsVariates.m */; };
-		F580716C146C2A1F00EA4CFB /* GHUnit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5807045146C280600EA4CFB /* GHUnit.framework */; };
-		F580716D146C2A2600EA4CFB /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5807127146C291100EA4CFB /* OCMock.framework */; };
+		F580716C146C2A1F00EA4CFB /* GHUnit.framework in Copy Files GHUnit and OCMock */ = {isa = PBXBuildFile; fileRef = F5807045146C280600EA4CFB /* GHUnit.framework */; };
+		F580716D146C2A2600EA4CFB /* OCMock.framework in Copy Files GHUnit and OCMock */ = {isa = PBXBuildFile; fileRef = F5807127146C291100EA4CFB /* OCMock.framework */; };
 		F5807179146C2AAC00EA4CFB /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580716F146C2AAC00EA4CFB /* OCMockWorkingTest.m */; };
 		F580717A146C2AAC00EA4CFB /* LjsDateHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807171146C2AAC00EA4CFB /* LjsDateHelperTests.m */; };
 		F580717B146C2AAC00EA4CFB /* LjsDecimalAideTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807172146C2AAC00EA4CFB /* LjsDecimalAideTests.m */; };
@@ -207,6 +207,9 @@
 		F5E985CF152474420061631A /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5E985CD152474420061631A /* google-places-autocomplete-sample.json */; };
 		F5E985D0152474420061631A /* google-places-details-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5E985CE152474420061631A /* google-places-details-sample.json */; };
 		F5F63E7E1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63E7D1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.m */; };
+		F5F63E8A1574F22F00FE3B72 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F63E891574F22F00FE3B72 /* OCHamcrest.framework */; };
+		F5F63E8D1574F26300FE3B72 /* OCHamcrestWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63E8C1574F26300FE3B72 /* OCHamcrestWorkingTest.m */; };
+		F5F63E8F1574F38200FE3B72 /* OCHamcrest.framework in Copy Files Hamcrest */ = {isa = PBXBuildFile; fileRef = F5F63E891574F22F00FE3B72 /* OCHamcrest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -220,15 +223,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		F580716B146C2A1500EA4CFB /* CopyFiles */ = {
+		F580716B146C2A1500EA4CFB /* Copy Files GHUnit and OCMock */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F580716C146C2A1F00EA4CFB /* GHUnit.framework in CopyFiles */,
-				F580716D146C2A2600EA4CFB /* OCMock.framework in CopyFiles */,
+				F580716C146C2A1F00EA4CFB /* GHUnit.framework in Copy Files GHUnit and OCMock */,
+				F580716D146C2A2600EA4CFB /* OCMock.framework in Copy Files GHUnit and OCMock */,
 			);
+			name = "Copy Files GHUnit and OCMock";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5F63E8E1574F37700FE3B72 /* Copy Files Hamcrest */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				F5F63E8F1574F38200FE3B72 /* OCHamcrest.framework in Copy Files Hamcrest */,
+			);
+			name = "Copy Files Hamcrest";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -594,6 +609,8 @@
 		F5E985CE152474420061631A /* google-places-details-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "google-places-details-sample.json"; sourceTree = "<group>"; };
 		F5F63E7C1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SupersequentImplementation.h"; path = "../../Tests/NSObject+SupersequentImplementation.h"; sourceTree = "<group>"; };
 		F5F63E7D1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SupersequentImplementation.m"; path = "../../Tests/NSObject+SupersequentImplementation.m"; sourceTree = "<group>"; };
+		F5F63E891574F22F00FE3B72 /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = ../../OCHamcrest/1.7/OCHamcrest.framework; sourceTree = "<group>"; };
+		F5F63E8C1574F26300FE3B72 /* OCHamcrestWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCHamcrestWorkingTest.m; path = ../../Tests/OCHamcrestWorkingTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -610,6 +627,7 @@
 				F580718C146C2C8300EA4CFB /* CoreServices.framework in Frameworks */,
 				F580718D146C2C8300EA4CFB /* libxml2.dylib in Frameworks */,
 				F5807129146C291100EA4CFB /* OCMock.framework in Frameworks */,
+				F5F63E8A1574F22F00FE3B72 /* OCHamcrest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -875,6 +893,8 @@
 		F580702F146C26F100EA4CFB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F5F63E8C1574F26300FE3B72 /* OCHamcrestWorkingTest.m */,
+				F5F63E891574F22F00FE3B72 /* OCHamcrest.framework */,
 				F5F63E7C1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.h */,
 				F5F63E7D1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.m */,
 				F580716F146C2AAC00EA4CFB /* OCMockWorkingTest.m */,
@@ -1482,7 +1502,8 @@
 				F5807020146C26F100EA4CFB /* Sources */,
 				F5807021146C26F100EA4CFB /* Frameworks */,
 				F5807022146C26F100EA4CFB /* Resources */,
-				F580716B146C2A1500EA4CFB /* CopyFiles */,
+				F5F63E8E1574F37700FE3B72 /* Copy Files Hamcrest */,
+				F580716B146C2A1500EA4CFB /* Copy Files GHUnit and OCMock */,
 				F56481A014990516008CDF7E /* Run Script RuTests.sh */,
 			);
 			buildRules = (
@@ -1780,6 +1801,7 @@
 				F57D0E57156C2A8900C5CDC2 /* NSSetLjsAdditionsTest.m in Sources */,
 				F57D0E58156C2A8900C5CDC2 /* NSStringLjsAdditionsTest.m in Sources */,
 				F5F63E7E1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.m in Sources */,
+				F5F63E8D1574F26300FE3B72 /* OCHamcrestWorkingTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1876,6 +1898,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-MacOS\"",
 					"\"$(SRCROOT)/../ocmock\"",
+					"\"$(SRCROOT)/../OCHamcrest/1.7\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-MacOS/Tests-MacOS-Prefix.pch";
@@ -1905,6 +1928,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-MacOS\"",
 					"\"$(SRCROOT)/../ocmock\"",
+					"\"$(SRCROOT)/../OCHamcrest/1.7\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-MacOS/Tests-MacOS-Prefix.pch";

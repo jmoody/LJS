@@ -26,3 +26,6 @@
 [submodule "V8HorizontalPickerView"]
 	path = V8HorizontalPickerView
 	url = git@github.com:jmoody/V8HorizontalPickerView.git
+[submodule "OCMockSingletonExtension"]
+	path = OCMockSingletonExtension
+	url = git@github.com:jmoody/OCMockSingletonExtension.git
