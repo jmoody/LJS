@@ -29,6 +29,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 #if TARGET_OS_IPHONE
 #import <GHUnitIOS/GHUnit.h>
 #else
@@ -50,7 +51,13 @@
 
 #endif
 
+#pragma mark NSBundle mocking
 
+@interface NSBundle (TEST)
+
++ (id) mainBundle;
+
+@end
 
 @class LjsGestalt;
 
@@ -111,5 +118,15 @@
 
 - (NSDate *) dateForTimeOutWithSeconds:(NSTimeInterval) aSeconds;
 - (NSDate *) dateForDefaultTimeOut;
+
+
+#pragma mark Mocking NS Singletons
++ (id) mockMainBundle;
++ (id) createMockMainBundle;
++ (id) createNiceMockMainBundle;
+- (NSString *) mockLocalizedStringForKey:(NSString *) aKey
+                                   value:(NSString *) aValue
+                                   table:(NSString *) aTable;
+
 
 @end

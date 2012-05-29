@@ -82,5 +82,14 @@
   GHAssertEqualStrings(actual, @"megamock", @"Should have returned stubbed value."); 
 }
 
+- (void) test_main_bundle_mock_working {
+  id mockBundle = [LjsTestCase createMockMainBundle];
+  [[[mockBundle expect] andReturn:@"foo"] bundlePath];
+  NSString *actual = [mockBundle bundlePath];
+  GHAssertEqualStrings(actual, @"foo", @"should have mocked the bundle");
+  [mockBundle verify];
+}
+
+
 
 @end

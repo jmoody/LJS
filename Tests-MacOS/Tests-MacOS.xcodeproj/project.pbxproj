@@ -206,6 +206,7 @@
 		F5E98569152473580061631A /* NSDecimalNumber+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E98568152473580061631A /* NSDecimalNumber+LjsAdditions.m */; };
 		F5E985CF152474420061631A /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5E985CD152474420061631A /* google-places-autocomplete-sample.json */; };
 		F5E985D0152474420061631A /* google-places-details-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5E985CE152474420061631A /* google-places-details-sample.json */; };
+		F5F63E7E1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63E7D1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -457,7 +458,7 @@
 		F5807158146C296700EA4CFB /* LjsValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsValidator.m; sourceTree = "<group>"; };
 		F5807159146C296700EA4CFB /* LjsVariates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsVariates.h; sourceTree = "<group>"; };
 		F580715A146C296700EA4CFB /* LjsVariates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariates.m; sourceTree = "<group>"; };
-		F580716F146C2AAC00EA4CFB /* OCMockWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockWorkingTest.m; sourceTree = "<group>"; };
+		F580716F146C2AAC00EA4CFB /* OCMockWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCMockWorkingTest.m; path = ../../Tests/OCMockWorkingTest.m; sourceTree = "<group>"; };
 		F5807171146C2AAC00EA4CFB /* LjsDateHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDateHelperTests.m; sourceTree = "<group>"; };
 		F5807172146C2AAC00EA4CFB /* LjsDecimalAideTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDecimalAideTests.m; sourceTree = "<group>"; };
 		F5807173146C2AAC00EA4CFB /* LjsIdGeneratorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsIdGeneratorTests.m; sourceTree = "<group>"; };
@@ -591,6 +592,8 @@
 		F5E98568152473580061631A /* NSDecimalNumber+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDecimalNumber+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5E985CD152474420061631A /* google-places-autocomplete-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "google-places-autocomplete-sample.json"; sourceTree = "<group>"; };
 		F5E985CE152474420061631A /* google-places-details-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "google-places-details-sample.json"; sourceTree = "<group>"; };
+		F5F63E7C1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SupersequentImplementation.h"; path = "../../Tests/NSObject+SupersequentImplementation.h"; sourceTree = "<group>"; };
+		F5F63E7D1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SupersequentImplementation.m"; path = "../../Tests/NSObject+SupersequentImplementation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -872,6 +875,9 @@
 		F580702F146C26F100EA4CFB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F5F63E7C1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.h */,
+				F5F63E7D1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.m */,
+				F580716F146C2AAC00EA4CFB /* OCMockWorkingTest.m */,
 				F5807045146C280600EA4CFB /* GHUnit.framework */,
 				F5807030146C26F100EA4CFB /* Tests-MacOS-Info.plist */,
 				F5807031146C26F100EA4CFB /* InfoPlist.strings */,
@@ -1179,7 +1185,6 @@
 		F580716E146C2AAC00EA4CFB /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				F580716F146C2AAC00EA4CFB /* OCMockWorkingTest.m */,
 				F5807170146C2AAC00EA4CFB /* Unit */,
 				F5807198146C2F8000EA4CFB /* LjsTestCase.h */,
 				F5807199146C2F8000EA4CFB /* LjsTestCase.m */,
@@ -1774,6 +1779,7 @@
 				F57D0E56156C2A8900C5CDC2 /* NSErrorLjsAdditions.m in Sources */,
 				F57D0E57156C2A8900C5CDC2 /* NSSetLjsAdditionsTest.m in Sources */,
 				F57D0E58156C2A8900C5CDC2 /* NSStringLjsAdditionsTest.m in Sources */,
+				F5F63E7E1574D5FD00FE3B72 /* NSObject+SupersequentImplementation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

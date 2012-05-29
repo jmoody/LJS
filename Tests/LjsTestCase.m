@@ -30,6 +30,7 @@
 #import "Lumberjack.h"
 #import "LjsFileUtilities.h"
 #import "LjsGestalt.h"
+#import "NSObject+SupersequentImplementation.h"
 
 
 
@@ -85,7 +86,30 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
 
+@implementation NSBundle (TEST)
+
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
++ (id) mainBundle {
+  if ([LjsTestCase mockMainBundle] != nil) {
+    return [LjsTestCase mockMainBundle];
+  }
+  
+  return invokeSupersequentNoArgs();
+}
+//#pragma clang diagnostic pop
+
+//- (NSString *) localizedStringForKey:(NSString *) aKey 
+//                               value:(NSString *) aValue 
+//                               table:(NSString *) aTable {
+//  return [NSString stringWithFormat:@"localized %@", aValue];
+//}
+
+@end
+
 @implementation LjsTestCase
+
+static id mockMainBundle = nil;
 
 @synthesize gestalt;
 @synthesize findDocumentDirectoryPathMock, findDocumentDirectoryPathOriginal;
@@ -214,6 +238,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
   }
   [super tearDownClass];
+}
+
+
+- (void) tearDown {
+  // Run at the end of each test
+  mockMainBundle = nil;
 }
 
 - (NSString *) emptyStringOrNil {
@@ -411,6 +441,28 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return nil;
 }
 #endif
+
+
+#pragma mark Mocking NS Singletons
+       + (id) mockMainBundle {
+         return mockMainBundle;
+       }
+       
++ (id) createMockMainBundle {
+  mockMainBundle = [OCMockObject mockForClass:[NSBundle class]];
+  return mockMainBundle;
+}
+
++ (id) createNiceMockMainBundle {
+  mockMainBundle = [OCMockObject niceMockForClass:[NSBundle class]];
+  return mockMainBundle;
+}
+
+- (NSString *) mockLocalizedStringForKey:(NSString *) aKey
+                                   value:(NSString *) aValue
+                                   table:(NSString *) aTable {
+  return [NSString stringWithFormat:@"localized %@", aValue];
+}
 
 
 @end
