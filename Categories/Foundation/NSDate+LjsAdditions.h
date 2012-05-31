@@ -98,8 +98,11 @@ typedef struct LjsDateComps LjsDateComps;
 - (BOOL) comesAfterDate:(NSDate *) aDate;
 - (BOOL) isSameDay:(NSDate *) aDate;
 
-- (BOOL) dateIsWithinSeconds:(NSTimeInterval) aSeconds
+- (BOOL) isWithinSeconds:(NSTimeInterval) aSeconds
                       ofDate:(NSDate *) aDate;
+
+- (BOOL) isAlmostNow;
+
 
 - (NSUInteger) daysBetweenDate:(NSDate *) aDate;
 - (NSUInteger) daysBetweenDate:(NSDate *) aDate 

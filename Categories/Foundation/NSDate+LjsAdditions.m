@@ -178,10 +178,15 @@ NSSecondCalendarUnit);
 }
 
 
-- (BOOL) dateIsWithinSeconds:(NSTimeInterval) aSeconds
-                      ofDate:(NSDate *) aDate {
+- (BOOL) isWithinSeconds:(NSTimeInterval) aSeconds
+                  ofDate:(NSDate *) aDate {
   NSTimeInterval sigma = fabs([self timeIntervalSinceDate:aDate]);
-  return aSeconds < sigma;
+  return sigma > aSeconds;
+}
+
+- (BOOL) isAlmostNow {
+  NSTimeInterval sigma = fabs([self timeIntervalSinceDate:[NSDate date]]);
+  return sigma < 0.5;
 }
 
 

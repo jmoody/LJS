@@ -218,15 +218,15 @@
   NSDateFormatter *df = [LjsDateHelper isoDateWithMillisFormatter];
   NSDate *receiver = [NSDate date];
   NSDate *other = [receiver dateByAddingTimeInterval:10];
-  BOOL actual = [receiver dateIsWithinSeconds:9
-                                       ofDate:other];
+  BOOL actual = [receiver isWithinSeconds:9
+                                   ofDate:other];
   GHAssertTrue(actual, @"other date %@ is within 9 seconds of receiver %@ : %.5f",
                [df stringFromDate:other],
                [df stringFromDate:receiver],
                [receiver timeIntervalSinceDate:other]);
 
-  actual = [receiver dateIsWithinSeconds:10
-                                  ofDate:other];
+  actual = [receiver isWithinSeconds:10
+                              ofDate:other];
   GHAssertFalse(actual, @"other date %@ not within 10 seconds of receiver %@ : %.5f",
                [df stringFromDate:other],
                [df stringFromDate:receiver],
@@ -238,20 +238,29 @@
   NSDateFormatter *df = [LjsDateHelper isoDateWithMillisFormatter];
   NSDate *receiver = [NSDate date];
   NSDate *other = [receiver dateByAddingTimeInterval:-10];
-  BOOL actual = [receiver dateIsWithinSeconds:9
-                                       ofDate:other];
+  BOOL actual = [receiver isWithinSeconds:9
+                                   ofDate:other];
   GHAssertTrue(actual, @"other date %@ is within 9 seconds of receiver %@ : %.5f",
                [df stringFromDate:other],
                [df stringFromDate:receiver],
                [receiver timeIntervalSinceDate:other]);
   
-  actual = [receiver dateIsWithinSeconds:10
-                                  ofDate:other];
+  actual = [receiver isWithinSeconds:10
+                              ofDate:other];
   GHAssertFalse(actual, @"other date %@ not within 10 seconds of receiver %@ : %.5f",
                 [df stringFromDate:other],
                 [df stringFromDate:receiver],
                 [receiver timeIntervalSinceDate:other]);
   
+}
+
+- (void) test_date_is_almost_now {
+//  NSDate *receiver = [NSDate date];
+  BOOL actual = [[NSDate date] isAlmostNow];
+//  NSDateFormatter *df = [LjsDateHelper isoDateWithMillisFormatter];
+  GHAssertTrue(actual, @"now should be with 0.5 of now");
+  actual = [[[NSDate date] dateByAddingTimeInterval:-10.0] isAlmostNow];
+  GHAssertFalse(actual, @"now is not within 0.0 of now");
 }
 
 
