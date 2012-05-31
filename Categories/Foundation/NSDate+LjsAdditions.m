@@ -178,6 +178,11 @@ NSSecondCalendarUnit);
 }
 
 
+- (BOOL) dateIsWithinSeconds:(NSTimeInterval) aSeconds
+                      ofDate:(NSDate *) aDate {
+  NSTimeInterval sigma = fabs([self timeIntervalSinceDate:aDate]);
+  return aSeconds < sigma;
+}
 
 
 - (NSUInteger) daysBetweenDate:(NSDate*) aDate {

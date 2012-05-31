@@ -67,6 +67,7 @@
 
 #import "LjsTestCase.h"
 #import "NSDate+LjsAdditions.h"
+#import "LjsDateHelper.h"
 
 @interface NSDateLjsAdditionsTests : LjsTestCase {}
 @end
@@ -212,7 +213,46 @@
                [tomorrow  descriptionWithCurrentLocale]);
 }
 
+//- (BOOL) dateIsWithinSeconds:(NSTimeInterval) aSeconds
+- (void) test_date_is_within_seconds_date_future {
+  NSDateFormatter *df = [LjsDateHelper isoDateWithMillisFormatter];
+  NSDate *receiver = [NSDate date];
+  NSDate *other = [receiver dateByAddingTimeInterval:10];
+  BOOL actual = [receiver dateIsWithinSeconds:9
+                                       ofDate:other];
+  GHAssertTrue(actual, @"other date %@ is within 9 seconds of receiver %@ : %.5f",
+               [df stringFromDate:other],
+               [df stringFromDate:receiver],
+               [receiver timeIntervalSinceDate:other]);
 
+  actual = [receiver dateIsWithinSeconds:10
+                                  ofDate:other];
+  GHAssertFalse(actual, @"other date %@ not within 10 seconds of receiver %@ : %.5f",
+               [df stringFromDate:other],
+               [df stringFromDate:receiver],
+               [receiver timeIntervalSinceDate:other]);
+
+}
+
+- (void) test_date_is_within_seconds_date_past {
+  NSDateFormatter *df = [LjsDateHelper isoDateWithMillisFormatter];
+  NSDate *receiver = [NSDate date];
+  NSDate *other = [receiver dateByAddingTimeInterval:-10];
+  BOOL actual = [receiver dateIsWithinSeconds:9
+                                       ofDate:other];
+  GHAssertTrue(actual, @"other date %@ is within 9 seconds of receiver %@ : %.5f",
+               [df stringFromDate:other],
+               [df stringFromDate:receiver],
+               [receiver timeIntervalSinceDate:other]);
+  
+  actual = [receiver dateIsWithinSeconds:10
+                                  ofDate:other];
+  GHAssertFalse(actual, @"other date %@ not within 10 seconds of receiver %@ : %.5f",
+                [df stringFromDate:other],
+                [df stringFromDate:receiver],
+                [receiver timeIntervalSinceDate:other]);
+  
+}
 
 
 @end
