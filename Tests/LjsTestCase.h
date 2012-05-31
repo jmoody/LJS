@@ -109,6 +109,7 @@
 - (void) dummyControlSelector:(id) sender;
 - (NSArray *) arrayOfAbcStrings;
 - (NSSet *) setOfAbcStrings;
+- (NSArray *) arrayOfDatesTodayTormorrowDayAfter;
 
 - (NSDate *) dateForTimeOutWithSeconds:(NSTimeInterval) aSeconds;
 - (NSDate *) dateForDefaultTimeOut;

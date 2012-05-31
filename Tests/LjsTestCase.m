@@ -374,6 +374,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [NSSet setWithArray:[self arrayOfAbcStrings]];
 }
 
+- (NSArray *) arrayOfDatesTodayTormorrowDayAfter {
+  NSDate *date = [NSDate date];
+  return [NSArray arrayWithObjects:
+          date,
+          [date dateByAddingDays:1],
+          [date dateByAddingDays:2], 
+          nil];
+}
 
 
 - (NSDate *) dateForTimeOutWithSeconds:(NSTimeInterval) aSeconds {
