@@ -155,4 +155,35 @@
   GHAssertTrue([set count] == 3, @"set should contain 3 objects");
 }
 
+- (void) test_maphash {
+  NSDictionary *actual = [self dictionaryOfMutableStrings];
+  [actual maphash:^(NSString *key, NSMutableString *val, BOOL *stop) {
+    [val setString:[val uppercaseString]];
+  }];
+  NSSet *expected = [NSSet setWithObjects:@"A", @"B", @"C", nil];
+  GHAssertTrue([[NSSet setWithArray:[actual allValues]] isEqualToSet:expected], 
+               @"after maphash, all strings should be upcased");
+}
+
+- (void) test_maphash_concurrent {
+  NSDictionary *actual = [self dictionaryOfMutableStrings];
+  [actual maphash:^(NSString *key, NSMutableString *val, BOOL *stop) {
+    [val setString:[val uppercaseString]];
+  }
+       concurrent:YES];
+  NSSet *expected = [NSSet setWithObjects:@"A", @"B", @"C", nil];
+  GHAssertTrue([[NSSet setWithArray:[actual allValues]] isEqualToSet:expected], 
+               @"after maphash, all strings should be upcased");
+}
+
+- (void) test_mapcar {
+  NSArray *actual =  [[self dictionaryOfMutableStrings] mapcar:^id(id key, id val) {
+    return [val uppercaseString];
+  }];
+  NSSet *expected = [NSSet setWithObjects:@"A", @"B", @"C", nil];
+  GHAssertTrue([[NSSet setWithArray:actual] isEqualToSet:expected], 
+               @"mapcar should return an array of upcased strings");
+}
+
+
 @end

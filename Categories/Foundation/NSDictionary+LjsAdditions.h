@@ -38,4 +38,12 @@
 
 - (NSSet *) keySet;
 
+// the threshold for useful concurrency is 10,000 and 50,000 objects
+//http://darkdust.net/writings/objective-c/nsarray-enumeration-performance#The_graphs
+- (void) maphash:(void (^)(id key, id val, BOOL *stop)) aBlock;
+- (void) maphash:(void (^)(id key, id val, BOOL *stop)) aBlock concurrent:(BOOL) aConcurrent;
+- (NSArray *) mapcar:(id (^)(id key, id val)) aBlock;
+
+
+
 @end

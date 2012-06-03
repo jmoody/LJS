@@ -384,6 +384,29 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 
+- (NSArray *) arrayOfMutableStrings {
+  NSArray *array = [NSArray arrayWithObjects:
+                    [@"a" mutableCopy],
+                    [@"b" mutableCopy],
+                    [@"c" mutableCopy],
+                    nil];
+  return array;
+}
+
+- (NSSet *) setOfMutableStrings {
+  NSSet *set = [NSSet setWithObjects:
+                [@"a" mutableCopy],
+                [@"b" mutableCopy],
+                [@"c" mutableCopy],
+                nil];
+  return set;
+}
+
+- (NSDictionary *) dictionaryOfMutableStrings {
+  return [NSDictionary dictionaryWithObjects:[self arrayOfMutableStrings]
+                                     forKeys:[self arrayOfAbcStrings]];
+}
+
 - (NSDate *) dateForTimeOutWithSeconds:(NSTimeInterval) aSeconds {
   return [[NSDate date] dateByAddingTimeInterval:aSeconds];
 }

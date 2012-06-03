@@ -70,7 +70,6 @@
 
 @interface NSArrayLjsAdditionsTests : LjsTestCase {}
 
-- (NSArray *) arrayOfMutableStrings;
 
 @end
 
@@ -280,15 +279,6 @@
  - (NSArray *) mapc:(void (^)(id obj)) aBlock concurrent:(BOOL) aConcurrent;
 
 */
-
-- (NSArray *) arrayOfMutableStrings {
-  NSArray *array = [NSArray arrayWithObjects:
-                    [@"a" mutableCopy],
-                    [@"b" mutableCopy],
-                    [@"c" mutableCopy],
-                    nil];
-  return array;
-}
 
 - (void) test_mapc {
   NSArray *array = [self arrayOfMutableStrings];

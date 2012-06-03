@@ -49,4 +49,34 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [NSSet setWithArray:[self allKeys]];
 }
 
+- (void) maphash:(void (^)(id key, id val, BOOL *stop)) aBlock {
+  [self maphash:aBlock concurrent:NO];
+}
+
+- (void) maphash:(void (^)(id key, id val, BOOL *stop)) aBlock concurrent:(BOOL) aConcurrent {
+  if (aConcurrent == YES) {
+    [self enumerateKeysAndObjectsWithOptions:NSEnumerationConcurrent 
+                                  usingBlock:^(id key, id obj, BOOL *stop) {
+                                    aBlock(key, obj, stop);
+                                  }];
+  } else {
+    [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+      aBlock(key, obj, stop);
+    }];
+  }
+}
+
+- (NSArray *) mapcar:(id (^)(id key, id val)) aBlock {
+  NSMutableArray *array = [NSMutableArray arrayWithCapacity:[self count]];
+  for (id _key in [self allKeys]) {
+    id _val = [self objectForKey:_key];
+    id result = aBlock(_key, _val);
+    if (result != nil) {
+      [array addObject:result];
+    }
+  }
+  return array;
+}
+
+
 @end

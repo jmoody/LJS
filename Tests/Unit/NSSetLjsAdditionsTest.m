@@ -37,7 +37,6 @@
 
 @interface NSSetLjsAdditionsTest : LjsTestCase
 
-- (NSSet *) setOfMutableStrings;
 
 @end
 
@@ -111,14 +110,6 @@
  
  */
 
-- (NSSet *) setOfMutableStrings {
-  NSSet *set = [NSSet setWithObjects:
-                [@"a" mutableCopy],
-                [@"b" mutableCopy],
-                [@"c" mutableCopy],
-                nil];
-  return set;
-}
 
 - (void) test_mapc {
   NSSet *set = [self setOfMutableStrings];

@@ -110,6 +110,10 @@
 - (NSArray *) arrayOfAbcStrings;
 - (NSSet *) setOfAbcStrings;
 - (NSArray *) arrayOfDatesTodayTormorrowDayAfter;
+- (NSArray *) arrayOfMutableStrings;
+- (NSSet *) setOfMutableStrings;
+- (NSDictionary *) dictionaryOfMutableStrings;
+
 
 - (NSDate *) dateForTimeOutWithSeconds:(NSTimeInterval) aSeconds;
 - (NSDate *) dateForDefaultTimeOut;
