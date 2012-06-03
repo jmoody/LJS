@@ -85,6 +85,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @end
 #endif
 
+DoTimesBlock dotimes = ^(NSUInteger times, void(^block)(void)) {
+  for (NSUInteger index = 0; index < times; index++) {
+    block();
+  }
+};
 
 @implementation LjsTestCase
 
@@ -226,6 +231,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   // Run at the end of each test
   [super tearDown];
 }
+
+- (void) test_dotimes {
+  dotimes(5, ^{
+    GHTestLog(@"doing time");
+  });
+}
+
 
 - (NSString *) emptyStringOrNil {
   NSString *result = nil;

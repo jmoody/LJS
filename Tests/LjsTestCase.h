@@ -29,7 +29,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 #if TARGET_OS_IPHONE
 #import <GHUnitIOS/GHUnit.h>
 #else
@@ -55,6 +54,10 @@
 
 @class LjsGestalt;
 
+
+typedef void (^DoTimesBlock)(NSUInteger, void(^block)(void));
+DoTimesBlock dotimes;
+
 @interface LjsTestCase : GHTestCase 
 #if TARGET_OS_IPHONE
 <LjsTableViewOwnerProtocol>
@@ -78,7 +81,6 @@
 @property (assign) Method findApplicationSupportDirectoryForUserpOriginal;
 @property (assign) Method findApplicationSupportDirectoryForUserpMock;
 #endif
-
 
 
 - (NSString *) findDocumentDirectoryPathSwizzled;
