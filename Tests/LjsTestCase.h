@@ -54,10 +54,6 @@
 
 @class LjsGestalt;
 
-
-typedef void (^DoTimesBlock)(NSUInteger, void(^block)(void));
-DoTimesBlock dotimes;
-
 @interface LjsTestCase : GHTestCase 
 #if TARGET_OS_IPHONE
 <LjsTableViewOwnerProtocol>

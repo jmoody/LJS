@@ -71,6 +71,8 @@
 		F5448AD01450B63B0065E516 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AC91450B63B0065E516 /* SFHFKeychainUtils.m */; };
 		F5448AD31450B6590065E516 /* LjsKeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448AD21450B6590065E516 /* LjsKeychainManager.m */; };
 		F545349C1527B45D00B95A6D /* google-places-reverse-geocode-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F545349B1527B45D00B95A6D /* google-places-reverse-geocode-sample.json */; };
+		F546C0AE157D0BA9003E7823 /* LjsBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = F546C0AD157D0BA9003E7823 /* LjsBlocks.m */; };
+		F546C0B1157D0C26003E7823 /* LjsBlocksTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F546C0B0157D0C26003E7823 /* LjsBlocksTest.m */; };
 		F548505014C5AF0700B7824F /* LjsFileBackedKeyStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F548504F14C5AF0700B7824F /* LjsFileBackedKeyStore.m */; };
 		F548505114C5AF0700B7824F /* LjsFileBackedKeyStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F548504F14C5AF0700B7824F /* LjsFileBackedKeyStore.m */; };
 		F54E39761450E22C0059BF53 /* LjsJsonRpcReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E39751450E22C0059BF53 /* LjsJsonRpcReply.m */; };
@@ -418,6 +420,9 @@
 		F5448AD11450B6590065E516 /* LjsKeychainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsKeychainManager.h; sourceTree = "<group>"; };
 		F5448AD21450B6590065E516 /* LjsKeychainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsKeychainManager.m; sourceTree = "<group>"; };
 		F545349B1527B45D00B95A6D /* google-places-reverse-geocode-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "google-places-reverse-geocode-sample.json"; sourceTree = "<group>"; };
+		F546C0AC157D0BA9003E7823 /* LjsBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsBlocks.h; sourceTree = "<group>"; };
+		F546C0AD157D0BA9003E7823 /* LjsBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsBlocks.m; sourceTree = "<group>"; };
+		F546C0B0157D0C26003E7823 /* LjsBlocksTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsBlocksTest.m; sourceTree = "<group>"; };
 		F548504E14C5AF0700B7824F /* LjsFileBackedKeyStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFileBackedKeyStore.h; sourceTree = "<group>"; };
 		F548504F14C5AF0700B7824F /* LjsFileBackedKeyStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileBackedKeyStore.m; sourceTree = "<group>"; };
 		F54E39741450E22C0059BF53 /* LjsJsonRpcReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsJsonRpcReply.h; sourceTree = "<group>"; };
@@ -936,6 +941,7 @@
 				F5595B73155015CB001CF528 /* NSDictionaryLjsAdditionsTests.m */,
 				F512D8E7156B951C00D44011 /* NSStringLjsAdditionsTest.m */,
 				F512D8E9156B985300D44011 /* NSSetLjsAdditionsTest.m */,
+				F546C0B0157D0C26003E7823 /* LjsBlocksTest.m */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -973,6 +979,8 @@
 				F529524414232EB5009C67EE /* LjsValidator.m */,
 				F51C63FB14B7917100F1841B /* LjsLabelAttributes.h */,
 				F51C63FC14B7917100F1841B /* LjsLabelAttributes.m */,
+				F546C0AC157D0BA9003E7823 /* LjsBlocks.h */,
+				F546C0AD157D0BA9003E7823 /* LjsBlocks.m */,
 			);
 			name = Utilities;
 			path = ../Utilities;
@@ -2229,6 +2237,8 @@
 				F5F63ED41574F99000FE3B72 /* NSNotificationCenter+UnitTests.m in Sources */,
 				F5F63ED51574F99000FE3B72 /* NSObject+SupersequentImplementation.m in Sources */,
 				F5F63ED61574F99000FE3B72 /* UIImage+UnitTests.m in Sources */,
+				F546C0AE157D0BA9003E7823 /* LjsBlocks.m in Sources */,
+				F546C0B1157D0C26003E7823 /* LjsBlocksTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

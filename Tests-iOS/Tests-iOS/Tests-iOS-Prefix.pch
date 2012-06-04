@@ -14,5 +14,6 @@
 #import "OCMockSingletonExtensions.h"
 #include "TargetConditionals.h"
 #import "LjsCategories.h"
+#import "LjsBlocks.h"
 #import <CoreData/CoreData.h>
 #endif
