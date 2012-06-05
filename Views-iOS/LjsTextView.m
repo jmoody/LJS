@@ -3,7 +3,6 @@
 #endif
 
 #import "LjsTextView.h"
-#import "LjsCategories.h"
 #import "Lumberjack.h"
 #import "LjsLabelAttributes.h"
 

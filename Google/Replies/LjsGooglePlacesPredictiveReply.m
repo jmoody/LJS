@@ -32,11 +32,7 @@
 
 #import "LjsGooglePlacesPredictiveReply.h"
 #import "Lumberjack.h"
-#import "LjsValidator.h"
-#import "LjsGoogleGlobals.h"
-#import "SBJson.h"
 #import "LjsGooglePlacesPrediction.h"
-#import "NSMutableArray+LjsAdditions.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;

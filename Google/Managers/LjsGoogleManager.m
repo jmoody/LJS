@@ -40,7 +40,6 @@
 #import "LjsGooglePlacesNmoDetails.h"
 #import "LjsGooglePlacesPrediction.h"
 #import "LjsGooglePlace.h"
-#import "LjsFoundationCategories.h"
 #import "LjsGoogleDistancer.h"
 #import "LjsGooglePlacePredictionOptions.h"
 #import "LjsGoogleReverseGeocode.h"

@@ -31,7 +31,6 @@
 #endif
 
 #import "LjsLabelAttributes.h"
-#import "UILabel+LjsAdditions.h"
 #import "Lumberjack.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG

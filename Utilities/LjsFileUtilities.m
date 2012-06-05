@@ -31,8 +31,6 @@
 
 #import "LjsFileUtilities.h"
 #import "Lumberjack.h"
-#import "NSError+LjsAdditions.h"
-#include "TargetConditionals.h"
 
 
 static const int ddLogLevel = LOG_LEVEL_WARN;

@@ -4,8 +4,6 @@
 
 #import "LjsNumericPickerDelegate.h"
 #import "Lumberjack.h"
-#import "LjsLocaleUtils.h"
-#import "NSDecimalNumber+LjsAdditions.h"
 
 NSString *LjsNumericPickerDelegatePickerViewDidChangeNotification = @"com.littlejoysoftware.ljs LJS Numeric Picker Did Change Notification";
 NSString *LjsNumericPickerDelegatePickerViewStringValueUserInfoKey = @"com.littlejoysoftware.ljs LJS Numeric Picker View String Value User Info Key";

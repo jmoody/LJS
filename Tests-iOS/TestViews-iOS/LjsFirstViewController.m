@@ -1,7 +1,5 @@
 #import "LjsFirstViewController.h"
 #import "Lumberjack.h"
-#import "UIColor+LjsAdditions.h"
-#import "LjsGlassView.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;

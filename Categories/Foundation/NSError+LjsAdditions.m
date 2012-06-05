@@ -1,4 +1,3 @@
-#import "NSError+LjsAdditions.h"
 #import "Lumberjack.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG

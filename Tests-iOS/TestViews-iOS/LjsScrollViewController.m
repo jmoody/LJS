@@ -1,9 +1,5 @@
 #import "LjsScrollViewController.h"
 #import "Lumberjack.h"
-#import "LjsCategories.h"
-#import <QuartzCore/QuartzCore.h>
-#import "LjsVariates.h"
-#import "LjsScrollView.h"
 
 
 #ifdef LOG_CONFIGURATION_DEBUG

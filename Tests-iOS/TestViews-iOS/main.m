@@ -1,5 +1,3 @@
-#import <UIKit/UIKit.h>
-
 #import "LjsAppDelegate.h"
 
 int main(int argc, char *argv[]) {

@@ -31,8 +31,6 @@
 
 #import "LjsVariates.h"
 #import "Lumberjack.h"
-#include <stdlib.h>
-#include "math.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;

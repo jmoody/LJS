@@ -32,7 +32,6 @@
 
 #import "LjsFileBackedKeyStore.h"
 #import "Lumberjack.h"
-#import "NSError+LjsAdditions.h"
 #import "LjsFileUtilities.h"
 #import "LjsValidator.h"
 

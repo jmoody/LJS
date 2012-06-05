@@ -33,7 +33,6 @@
 #import "LjsKeychainManager.h"
 #import "Lumberjack.h"
 #import "SFHFKeychainUtils.h"
-#import "LjsValidator.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;

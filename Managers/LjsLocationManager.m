@@ -31,11 +31,8 @@
 #endif
 
 #import "LjsLocationManager.h"
-#import "LjsValidator.h"
 #import "LjsVariates.h"
 #import "Lumberjack.h"
-#import "NSDecimalNumber+LjsAdditions.h"
-#import "NSArray+LjsAdditions.h"
 
 
 static const int ddLogLevel = LOG_LEVEL_WARN;

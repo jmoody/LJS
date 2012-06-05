@@ -1,10 +1,5 @@
 #import "LjsPanZoomController.h"
 #import "Lumberjack.h"
-#import "LjsCategories.h"
-#import <QuartzCore/QuartzCore.h>
-#import "UIColor+LjsAdditions.h"
-#import "UIView+LjsAdditions.h"
-#import "LjsVariates.h"
 
 
 #ifdef LOG_CONFIGURATION_DEBUG

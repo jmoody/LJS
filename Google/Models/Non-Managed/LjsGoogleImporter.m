@@ -5,9 +5,7 @@
 #import "LjsGoogleImporter.h"
 #import "Lumberjack.h"
 #import "LjsGoogleNmoAddressComponent.h"
-#import "NSMutableArray+LjsAdditions.h"
 #import "LjsLocationManager.h"
-#import "NSDecimalNumber+LjsAdditions.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;

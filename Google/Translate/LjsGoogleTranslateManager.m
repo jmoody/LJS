@@ -33,8 +33,6 @@
 #import "LjsGoogleTranslateManager.h"
 #import "Lumberjack.h"
 #import "LjsValidator.h"
-#import "LjsWebCategories.h"
-#import "ASIHTTPRequest.h"
 #import "ASIHTTPRequest+LjsAdditions.h"
 #import "SBJson.h"
 

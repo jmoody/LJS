@@ -3,10 +3,6 @@
 #import "LoremIpsum.h"
 #import "LjsLabelAttributes.h"
 #import "LjsGlassView.h"
-#import <QuartzCore/QuartzCore.h>
-#import "UIColor+LjsAdditions.h"
-#import "LjsGradientView.h"
-#import "UIView+LjsAdditions.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
