@@ -65,6 +65,7 @@
 
 #import "Lumberjack.h"
 #import "LjsVariates.h"
+#import "LjsDateHelper.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -81,6 +82,11 @@ NSSecondCalendarUnit);
 
 - (NSString *) descriptionWithCurrentLocale {
   return [self descriptionWithLocale:[NSLocale autoupdatingCurrentLocale]];
+}
+
+- (NSString *) descriptionWithISO8601 {
+  NSDateFormatter *df = [LjsDateHelper isoDateWithMillisFormatter];
+  return [df stringFromDate:self];
 }
 
 + (NSDate *) LjsDateNotFound {

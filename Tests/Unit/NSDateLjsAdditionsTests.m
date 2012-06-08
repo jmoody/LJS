@@ -263,5 +263,13 @@
   GHAssertFalse(actual, @"now is not within 0.0 of now");
 }
 
+//- (NSString *) descriptionWithISO8601 {
+- (void) test_description_with_iso_8601 {
+  NSDate *date = [NSDate LjsDateNotFound];
+  GHTestLog(@"date = %@", [date descriptionWithISO8601]);
+  GHAssertEqualStrings([date descriptionWithISO8601], @"40272-01-01 00:00:01.000", 
+                       @"date not found should always print the same way");
+}
+
 
 @end
