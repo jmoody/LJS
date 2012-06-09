@@ -172,11 +172,6 @@
 }
 
 
-- (void) test_isSameDate_YES {
-  NSDate *date = [NSDate date];
-  GHAssertTrue([date isSameDay:date], @"dates should be the same");
-}
-
 - (void) test_dateComesBeforeDate_YES {
   NSDate *today = [NSDate date];
   NSDate *tomorrow = [NSDate tomorrow];
@@ -193,6 +188,13 @@
                 @"date < %@ > should not come before < %@ >",
                 [tomorrow descriptionWithCurrentLocale], 
                 [today  descriptionWithCurrentLocale]);
+}
+
+- (void) test_date_comes_before_date_not_found {
+  NSDate *a = [NSDate LjsDateNotFound];
+  NSDate *b = [NSDate date];
+  GHAssertFalse([a comesBeforeDate:b], @"LjsDateNotFound never comes before a date");
+  GHAssertFalse([b comesBeforeDate:a], @"a date can never come before LjsDateNotFound");
 }
 
 - (void) test_dateComesAfterDate_YES {
@@ -212,6 +214,14 @@
                [today descriptionWithCurrentLocale], 
                [tomorrow  descriptionWithCurrentLocale]);
 }
+
+- (void) test_date_comes_after_date_not_found {
+  NSDate *a = [NSDate LjsDateNotFound];
+  NSDate *b = [NSDate date];
+  GHAssertFalse([a comesAfterDate:b], @"LjsDateNotFound never comes after a date");
+  GHAssertFalse([b comesAfterDate:a], @"a date can never come after LjsDateNotFound");
+}
+
 
 //- (BOOL) dateIsWithinSeconds:(NSTimeInterval) aSeconds
 - (void) test_date_is_within_seconds_date_future {
@@ -271,5 +281,35 @@
                        @"date not found should always print the same way");
 }
 
+- (void) test_isSameAsDate_LjsNotFound {
+  NSDate *a = [NSDate LjsDateNotFound];
+  NSDate *b = [NSDate LjsDateNotFound];
+  GHAssertTrue([a isSameAsDate:b], @"LjsDateNotFound should be sameAs");
+}
+
+- (void) test_isSameAsDate_NO {
+  NSDate *a = [NSDate date];
+  NSDate *b = [NSDate tomorrow];
+  GHAssertFalse([a isSameAsDate:b], @"today and tomorrow should not be the same");
+  
+  a = [NSDate date];
+  b = [NSDate date];
+  GHAssertFalse([a isSameAsDate:b], @"now and a moment from now should not be the same");
+}
+
+- (void) test_isSameAsDate_YES {
+  NSDate *date = [NSDate date];
+  NSDate *a = [date dateByAddingTimeInterval:0];
+  NSDate *b = [date dateByAddingTimeInterval:0];
+  GHAssertTrue([a isSameAsDate:b], @"the two dates should be the same");
+}
+
+- (void) test_ljs_date_not_found {
+  NSDate *a = [NSDate LjsDateNotFound];
+  NSDate *b = [NSDate LjsDateNotFound];
+  GHAssertEqualObjects(a, b, @"the two dates should be the same object");
+  GHAssertTrue([a isNotFound], @"a should be LjsDateNotFound");
+  GHAssertTrue([b isNotFound], @"b should be LjsDateNotFound");
+}
 
 @end

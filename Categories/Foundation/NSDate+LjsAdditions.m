@@ -92,17 +92,25 @@ NSSecondCalendarUnit);
 + (NSDate *) LjsDateNotFound {
   // voyager 1 will pass within 1.7 light years of star AC+79 3888 which is in
   // Ursa Minor 
-  NSDate *date = [NSDate dateWithYear:40272
-                                month:1
-                                  day:1
-                                 hour:0
-                               minute:0
-                               second:1];
-  return date;
+  dispatch_once_t pred = 0;
+  __strong static id _ljsDateNotFound = nil;
+  dispatch_once(&pred, ^{
+    _ljsDateNotFound = [NSDate dateWithYear:40272
+                                      month:1
+                                        day:1
+                                       hour:0
+                                     minute:0
+                                     second:1]; 
+  });
+  return _ljsDateNotFound;
 }
 
 - (BOOL) isNotFound {
-  return [[NSDate LjsDateNotFound] compare:self] == NSOrderedSame;
+  if (self == [NSDate LjsDateNotFound]) {
+    return YES;
+  } else {
+    return [[NSDate LjsDateNotFound] compare:self] == NSOrderedSame;
+  }
 }
 
 + (NSDate *) yesterday {
@@ -126,10 +134,20 @@ NSSecondCalendarUnit);
 }
 
 - (BOOL) comesBeforeDate:(NSDate *) aDate {
+  // this is unexpected.  the semantics are, LjsDateNotFound cannot have
+  // a before/after relationship to any date
+  if ([self isNotFound] || [aDate isNotFound]) {
+    return NO;
+  }
   return [self compare:aDate] == NSOrderedAscending;
 }
 
 - (BOOL) comesAfterDate:(NSDate *) aDate {
+  // this is unexpected.  the semantics are, LjsDateNotFound cannot have
+  // a before/after relationship to any date
+  if ([self isNotFound] || [aDate isNotFound]) {
+    return NO;
+  }
   return [self compare:aDate] == NSOrderedDescending;
 }
 
