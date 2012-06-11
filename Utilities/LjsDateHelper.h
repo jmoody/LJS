@@ -148,6 +148,7 @@ extern NSString *LjsOrderedDateFormatWithMillis;
 + (NSUInteger) dayOfMonthWithDate:(NSDate *) aDate;
 + (NSDate *) lastDayOfMonthWithDate:(NSDate *) aDate;
 + (NSDate *) firstDayOfMonthWithDate:(NSDate *) aDate;
++ (NSArray *) datesWithWeek:(NSUInteger) aWeek ofYear:(NSUInteger) aYear;
 
 + (NSString *) audioTimeStringWithInterval:(NSTimeInterval) aInterval;
 

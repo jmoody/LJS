@@ -78,18 +78,6 @@
 
 @implementation LjsDateHelperTests
 
-//- (id) init {
-//  self = [super init];
-//  if (self) {
-//    // Initialization code here.
-//  }
-//  return self;
-//}
-//
-//- (void) dealloc {
-//  [super dealloc];
-//}
-
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
   return NO;
@@ -1033,7 +1021,19 @@
 }
 
 
-#pragma mark DEAD SEA 
+//+ (NSArray *) datesWithWeek:(NSUInteger) aWeek ofYear:(NSUInteger) aYear
+- (void) test_dates_with_week_of_year {
+  
+  NSArray *array = [LjsDateHelper datesWithWeek:24 ofYear:2012];
+  NSDate *start = [NSDate dateWithYear:2012 month:6 day:11 hour:0 minute:0 second:1];
+  [array mapc:^(NSDate *actual, NSUInteger idx, BOOL *stop) {
+    GHTestLog(@"actual: %@", [actual descriptionWithCurrentLocale]);
+    NSDate *expected = [start dateByAddingDays:idx];
+    GHAssertTrue([actual isSameDay:expected], 
+                 @"date actual date: %@ should have the same day as %@. failed at index: %d", 
+                 actual, expected, idx);
+  }];
+}
 
 
 
