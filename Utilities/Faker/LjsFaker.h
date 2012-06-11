@@ -54,6 +54,4 @@
 - (NSString *) state:(BOOL) abbrevated;
 
 
-
-
 @end

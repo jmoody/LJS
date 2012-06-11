@@ -261,4 +261,34 @@
                  [[NSNumber numberWithInteger:5] intValue], nil);
 }
 
+// - (NSDate *) randomDateBetweenStart:(NSDate *) aStart end:(NSDate *) aEnd;
+- (void) test_random_date_between_start_and_end_end_before_start {
+  NSDate *start = [NSDate distantFuture];
+  NSDate *end = [NSDate distantPast];
+  NSDate *actual = [LjsVariates randomDateBetweenStart:start end:end];
+  assertThat(actual, is(nilValue()));
+}
+
+- (void) test_random_date_between_start_and_end {
+  NSDate *start = [[NSDate date] midnight];
+  NSDate *end = [[start dateByAddingDays:1] dateByAddingTimeInterval:-1];
+  for (NSUInteger index = 0; index < 5; index++) {
+    NSDate *actual = [LjsVariates randomDateBetweenStart:start end:end];
+    
+    GHAssertTrue([actual comesAfterDate:start], @"actual should come before start:%@",
+                 [NSArray arrayWithObjects:
+                  [NSString stringWithFormat:@" start: %@",[start descriptionWithCurrentLocale]],
+                  [NSString stringWithFormat:@"actual: %@",[actual descriptionWithCurrentLocale]],
+                  nil]);
+    
+    GHAssertTrue([actual comesBeforeDate:end], @"actual should come after start:%@",
+                 [NSArray arrayWithObjects:
+                  [NSString stringWithFormat:@" end: %@",[end descriptionWithCurrentLocale]],
+                  [NSString stringWithFormat:@"actual: %@",[actual descriptionWithCurrentLocale]],
+                  nil]);
+    
+  }
+}
+
+
 @end

@@ -272,4 +272,8 @@
 
 + (NSString *) randomAsciiWithLengthMin:(NSUInteger) aMin
                               lenghtMax:(NSUInteger) aMax;
+
+
++ (NSDate *) randomDateBetweenStart:(NSDate *) aStart end:(NSDate *) aEnd;
+ 
 @end
