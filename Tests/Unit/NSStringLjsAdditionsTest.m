@@ -35,6 +35,7 @@
 
 #import "LjsTestCase.h"
 
+
 @interface NSStringLjsAdditionsTest : LjsTestCase {}
 @end
 
@@ -88,6 +89,21 @@
   GHAssertFalse([NSString stringIsEmptyP:@"foo"], @"string is empty p should return false for non empty strings");
 }
 
+
+#if TARGET_OS_IPHONE
+- (void) test_string_by_truncating_with_ellipsis {
+  NSString *text, *actual, *expected;
+  CGFloat w;
+  CGSize size;
+  UIFont *font = [UIFont systemFontOfSize:18];
+  text = @"The horse raced past the barn fell.";
+  size = [text sizeWithFont:font];
+  w = size.width / 2;
+  actual = [text stringByTruncatingToWidth:w withFont:font];
+  expected = @"The horse rac...";
+  GHAssertEqualStrings(actual, expected, @"string should be the same");
+}
+#endif
 
 
 @end

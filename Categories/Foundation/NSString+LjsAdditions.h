@@ -72,4 +72,10 @@
 - (BOOL) emptyp;
 + (BOOL) stringIsEmptyP:(NSString *) aString;
 
+// http://mobiledevelopertips.com/cocoa/truncate-an-nsstring-and-append-an-ellipsis-respecting-the-font-size.html
+#if TARGET_OS_IPHONE
+- (NSString *) stringByTruncatingToWidth:(CGFloat) width 
+                                withFont:(UIFont *) font;
+#endif
+
 @end
