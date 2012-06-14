@@ -109,7 +109,6 @@
   LjsProgressiveMigration *lpm = [LjsProgressiveMigration new];
   assertThat(lpm, is(notNilValue()));
   assertThat([lpm timestampedDirectory], is(notNilValue()));
-  assertThat([lpm fileManager], is(notNilValue()));
 }
 
 @end

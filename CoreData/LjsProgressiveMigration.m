@@ -21,7 +21,7 @@ static NSString *const modelPathKey = @"com.littlejoysoftware.core data progress
 @interface LjsProgressiveMigration ()
 
 @property (nonatomic, strong) NSString *timestampedDirectory;
-@property (nonatomic, strong) NSFileManager *fileManager;
+
 
 - (NSArray *) collectModelVersions; 
 - (NSDictionary *) findPathDestinationAndMappingModelWithModelPaths:(NSArray *) aModelPaths
@@ -43,7 +43,7 @@ static NSString *const modelPathKey = @"com.littlejoysoftware.core data progress
 
 @implementation LjsProgressiveMigration
 @synthesize timestampedDirectory;
-@synthesize fileManager;
+
 
 #pragma mark Memory Management
 - (void) dealloc {
@@ -57,7 +57,6 @@ static NSString *const modelPathKey = @"com.littlejoysoftware.core data progress
     NSDateFormatter *df = [LjsDateHelper orderedDateFormatterWithMillis];
     NSString *dateStr = [df stringFromDate:[NSDate date]];
     self.timestampedDirectory = [NSString stringWithFormat:@"migration-%@", dateStr];
-    self.fileManager = [NSFileManager defaultManager];
   }
   return self;
 }
@@ -225,14 +224,10 @@ static NSString *const modelPathKey = @"com.littlejoysoftware.core data progress
   
   NSString *lastPathDir = [baseDirPath lastPathComponent];
   if ([lastPathDir isEqualToString:self.timestampedDirectory] == NO) {
-    BOOL isDir;
-    if ([self.fileManager fileExistsAtPath:timestampDirPath
-                               isDirectory:&isDir] == NO) {
-      
-      if ([self.fileManager createDirectoryAtPath:timestampDirPath
-                      withIntermediateDirectories:YES
-                                       attributes:nil error:aError] == NO
-          || isDir == NO) {
+    if ([[NSFileManager defaultManager] fileExistsAtPath:timestampDirPath] == NO) {
+      if ([[NSFileManager defaultManager] createDirectoryAtPath:timestampDirPath
+                                    withIntermediateDirectories:YES
+                                                     attributes:nil error:aError] == NO) {
         NSString *message = [NSString stringWithFormat:@"Could not create tmp directory %@ at path %@",
                              self.timestampedDirectory, timestampDirPath];
         DDLogError(@"%@", message);
@@ -267,21 +262,21 @@ static NSString *const modelPathKey = @"com.littlejoysoftware.core data progress
   NSString *backupPath = [appSupportPath stringByAppendingPathComponent:guid];
   
   
-  if ([self.fileManager moveItemAtPath:[aSourceStoreURL path]
-                                toPath:backupPath
-                                 error:aError] == NO) {
+  if ([[NSFileManager defaultManager] moveItemAtPath:[aSourceStoreURL path]
+                                              toPath:backupPath
+                                               error:aError] == NO) {
     //Failed to copy the file
     return NO;
   }
   
   //Move the destination to the source path
-  if ([self.fileManager moveItemAtPath:storePath
-                                toPath:[aSourceStoreURL path]
-                                 error:aError] == NO) {
+  if ([[NSFileManager defaultManager] moveItemAtPath:storePath
+                                              toPath:[aSourceStoreURL path]
+                                               error:aError] == NO) {
     //Try to back out the source move first, no point in checking it for errors
-    [self.fileManager moveItemAtPath:backupPath
-                              toPath:[aSourceStoreURL path]
-                               error:nil];
+    [[NSFileManager defaultManager] moveItemAtPath:backupPath
+                                            toPath:[aSourceStoreURL path]
+                                             error:nil];
     return NO;
   }
 
