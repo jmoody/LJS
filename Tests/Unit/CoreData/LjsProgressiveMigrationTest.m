@@ -66,25 +66,19 @@
 #endif
 
 #import "LjsTestCase.h"
-#import "LoremIpsum.h"
-#import "LjsVariates.h"
-#import "LjsLabelAttributes.h"
+#import "LjsProgressiveMigration.h"
 
-@interface LjsTextAndFontTests : LjsTestCase {}
-@property (strong) LoremIpsum *li;
+@interface LjsProgressiveMigration (TEST)
+
+- (NSString *) timestampedDirectory;
+- (NSFileManager *) fileManager;
 
 @end
 
-@implementation LjsTextAndFontTests
+@interface LjsProgressiveMigrationTest : LjsTestCase {}
+@end
 
-@synthesize li;
-- (id) init {
-  self = [super init];
-  if (self) {
-    self.li = [[LoremIpsum alloc] init];
-  }
-  return self;
-}
+@implementation LjsProgressiveMigrationTest
 
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
@@ -111,19 +105,11 @@
   [super tearDown];
 }  
 
-- (void) test_testAttributes {
-  NSString *text = [li characters:150];
-  UIFont *font = [UIFont fontWithName:@"ArialMT" size:14]; 
-  LjsLabelAttributes *attrs = [[LjsLabelAttributes alloc]
-                               initWithString:text
-                               font:font
-                               labelWidth:200];
-  GHTestLog(@"%@", attrs);
-  
-  CGFloat ceil = ceilf(5.8);
-  GHTestLog(@"ceiling = %f", ceil);
-  
-  
+- (void) test_init {
+  LjsProgressiveMigration *lpm = [LjsProgressiveMigration new];
+  assertThat(lpm, is(notNilValue()));
+  assertThat([lpm timestampedDirectory], is(notNilValue()));
+  assertThat([lpm fileManager], is(notNilValue()));
 }
 
 @end
