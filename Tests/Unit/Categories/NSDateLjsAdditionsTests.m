@@ -277,7 +277,7 @@
 - (void) test_description_with_iso_8601 {
   NSDate *date = [NSDate LjsDateNotFound];
   GHTestLog(@"date = %@", [date descriptionWithISO8601]);
-  GHAssertEqualStrings([date descriptionWithISO8601], @"40272-01-01 00:00:01.000", 
+  GHAssertEqualStrings([date descriptionWithISO8601], @"40272-01-01 00:00:01.000 GMT", 
                        @"date not found should always print the same way");
 }
 

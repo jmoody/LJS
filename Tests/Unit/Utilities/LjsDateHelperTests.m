@@ -105,12 +105,46 @@
 
 - (void) test_dateIsFuture {
   BOOL result;
-  
+
   result = [LjsDateHelper dateIsFuture:[NSDate distantFuture]];
   GHAssertTrue(result, nil);
   
   result = [LjsDateHelper dateIsFuture:[NSDate distantPast]];
   GHAssertFalse(result, nil);
+}
+
+- (void) test_date_is_future_problem {
+//"date < 2012-06-15 09:45:34.000 > is in the future - it is now: < 2012-06-16 09:41:22.587 >"
+  NSDateFormatter *df = [LjsDateHelper isoDateWithMillisFormatter];
+  
+  NSDate *receiver = [df dateFromString:@"2012-06-15 09:45:34.000"];
+  GHAssertFalse([LjsDateHelper dateIsFuture:receiver], nil);
+  
+  
+
+  dispatch_async(dispatch_get_main_queue(), ^{
+    dotimes(1000, ^{
+      NSDate *end = [NSDate date];
+      NSDate *start = [end dateByAddingDays:-30];
+      NSDate *rando = [LjsVariates randomDateBetweenStart:start end:end];
+      GHAssertFalse([LjsDateHelper dateIsFuture:rando],
+                    @"target: %@\n   now:%@", [rando descriptionWithISO8601],
+                    [[NSDate date] descriptionWithISO8601]);
+    });
+  });
+
+  
+  dispatch_async(dispatch_get_main_queue(), ^{
+    dotimes(1000, ^{
+      NSDate *start = [[NSDate date] dateByAddingTimeInterval:10.0];
+      NSDate *end = [start dateByAddingDays:30];
+      NSDate *rando = [LjsVariates randomDateBetweenStart:start end:end];
+      GHAssertTrue([LjsDateHelper dateIsFuture:rando],
+                   @"\ntarget: %@\n  should be future - it is now \n   now:%@",
+                   [rando descriptionWithISO8601],
+                   [[NSDate date] descriptionWithISO8601]);
+    });
+  });
 }
   
 - (void) test_dateIsPast {

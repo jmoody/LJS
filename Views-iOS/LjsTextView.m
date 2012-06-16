@@ -103,7 +103,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
       self.placeHolderLabel.userInteractionEnabled = NO;
       self.placeHolderLabel.alpha = 0;
       [self addSubview:placeHolderLabel];
-      self.placeHolderLabel.accessibilityIdentifier = @"textview.label.placeholder";
+      self.placeHolderLabel.accessibilityIdentifier = @"text view placeholder";
     }    
     placeHolderLabel.text = self.placeholder;
     [placeHolderLabel sizeToFit];

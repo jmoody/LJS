@@ -133,6 +133,8 @@ extern NSString *LjsOrderedDateFormatWithMillis;
 + (NSDateFormatter *) isoDateWithMillisFormatter;
 + (NSDateFormatter *) orderedDateFormatter;
 + (NSDateFormatter *) orderedDateFormatterWithMillis;
++ (NSDateFormatter *) isoDateWithMillisAnd_GMT_Formatter;
+
 
 /** @name Handy Locales for 12 and 24 hour formats */
 + (NSLocale *) twelveHourLocale;

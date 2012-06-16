@@ -85,8 +85,9 @@ NSSecondCalendarUnit);
 }
 
 - (NSString *) descriptionWithISO8601 {
-  NSDateFormatter *df = [LjsDateHelper isoDateWithMillisFormatter];
-  return [df stringFromDate:self];
+  NSDateFormatter *df = [LjsDateHelper isoDateWithMillisAnd_GMT_Formatter];
+  NSString *str = [df stringFromDate:self];
+  return [str stringByAppendingFormat:@" %@", [df.timeZone abbreviation]];
 }
 
 + (NSDate *) LjsDateNotFound {
@@ -95,12 +96,15 @@ NSSecondCalendarUnit);
   dispatch_once_t pred = 0;
   __strong static id _ljsDateNotFound = nil;
   dispatch_once(&pred, ^{
+    NSCalendar *calendar = [NSCalendar gregorianCalendar];
+    calendar.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
     _ljsDateNotFound = [NSDate dateWithYear:40272
                                       month:1
                                         day:1
                                        hour:0
                                      minute:0
-                                     second:1]; 
+                                     second:1
+                                   calendar:calendar];
   });
   return _ljsDateNotFound;
 }
@@ -429,7 +433,7 @@ NSSecondCalendarUnit);
                      minute:aMinute
                      second:aSecond
                    timeZone:[aCalendar timeZone]
-                   calendar:[NSCalendar currentCalendar]];
+                   calendar:aCalendar];
 }
 
 

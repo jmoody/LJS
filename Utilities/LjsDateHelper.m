@@ -63,6 +63,7 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
 NSString *LjsHoursMinutesSecondsDateFormat = @"H:mm:ss";
 NSString *LjsHoursMinutesSecondsMillisDateFormat = @"H:mm:ss:SSS";
 NSString *LjsISO8601_DateFormatWithMillis = @"yyyy-MM-dd HH:mm:ss.SSS";
+
 NSString *LjsISO8601_DateFormat = @"yyyy-MM-dd HH:mm:ss";
 NSString *LjsOrderedDateFormat = @"yyyy_MM_dd_HH_mm";
 NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
@@ -760,6 +761,19 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
   return formatter;  
 }
 
++ (NSDateFormatter *) isoDateWithMillisAnd_GMT_Formatter {
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:LjsISO8601_DateFormatWithMillis];
+  NSCalendar *calendar = [NSCalendar gregorianCalendar];
+  NSTimeZone *tz = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+  calendar.timeZone = tz;
+  formatter.calendar = calendar;
+  formatter.timeZone = tz;
+  return formatter;  
+}
+
+
+
 /**
  @return a date formatter for `yyyy_MM_dd_HH_mm`
  */
@@ -777,6 +791,7 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
   [formatter setDateFormat:LjsOrderedDateFormatWithMillis];
   return formatter;  
 }
+
 
 /** 
  @return a string representation of the date created by the interval - the date 
