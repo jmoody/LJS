@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F50A035014E008D900AA0912 /* LoremIpsum.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009FB14B227EA001EF805 /* LoremIpsum.m */; };
 		F50A035214E0090700AA0912 /* LjsVariates.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F81410CC420051FC7E /* LjsVariates.m */; };
-		F50AB58D158CCAE40012945A /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50AB58C158CCAE40012945A /* OCHamcrestIOS.framework */; };
+		F50AB596158CE0340012945A /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50AB595158CE0340012945A /* OCHamcrestIOS.framework */; };
 		F50BD4F714CB78810037227B /* LjsRecessedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F50BD4F614CB78810037227B /* LjsRecessedButton.m */; };
 		F50BD4F814CB78810037227B /* LjsRecessedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F50BD4F614CB78810037227B /* LjsRecessedButton.m */; };
 		F50FE6A01410C6F60051FC7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE69F1410C6F60051FC7E /* UIKit.framework */; };
@@ -334,7 +334,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F50AB58C158CCAE40012945A /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = ../../OCHamcrest/1.8/OCHamcrestIOS.framework; sourceTree = "<group>"; };
+		F50AB595158CE0340012945A /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = ../../OCHamcrest/Source/build/Release/OCHamcrestIOS.framework; sourceTree = "<group>"; };
 		F50BD4F514CB78810037227B /* LjsRecessedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRecessedButton.h; sourceTree = "<group>"; };
 		F50BD4F614CB78810037227B /* LjsRecessedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsRecessedButton.m; sourceTree = "<group>"; };
 		F50FE69B1410C6F60051FC7E /* Tests-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tests-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -810,7 +810,7 @@
 				F50FE6A01410C6F60051FC7E /* UIKit.framework in Frameworks */,
 				F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */,
 				F59AC1601546B536001ABB88 /* GHUnitIOS.framework in Frameworks */,
-				F50AB58D158CCAE40012945A /* OCHamcrestIOS.framework in Frameworks */,
+				F50AB596158CE0340012945A /* OCHamcrestIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -897,7 +897,7 @@
 		F50FE6A61410C6F60051FC7E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F50AB58C158CCAE40012945A /* OCHamcrestIOS.framework */,
+				F50AB595158CE0340012945A /* OCHamcrestIOS.framework */,
 				F5F63E901574F4F200FE3B72 /* OCMockSingletonExtension */,
 				F59AC15F1546B536001ABB88 /* GHUnitIOS.framework */,
 				F5B03A6A14AA67620015D59B /* ocmock */,
@@ -2523,7 +2523,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-iOS\"",
-					"\"$(SRCROOT)/../OCHamcrest/1.8\"",
+					"\"$(SRCROOT)/../OCHamcrest/Source/build/Release\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-iOS/Tests-iOS-Prefix.pch";
@@ -2564,7 +2564,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-iOS\"",
-					"\"$(SRCROOT)/../OCHamcrest/1.8\"",
+					"\"$(SRCROOT)/../OCHamcrest/Source/build/Release\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-iOS/Tests-iOS-Prefix.pch";
@@ -2705,7 +2705,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-iOS\"",
-					"\"$(SRCROOT)/../OCHamcrest/1.8\"",
+					"\"$(SRCROOT)/../OCHamcrest/Source/build/Release\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-iOS/Tests-iOS-Prefix.pch";
@@ -2812,7 +2812,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-iOS\"",
-					"\"$(SRCROOT)/../OCHamcrest/1.8\"",
+					"\"$(SRCROOT)/../OCHamcrest/Source/build/Release\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-iOS/Tests-iOS-Prefix.pch";

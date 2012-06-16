@@ -58,11 +58,21 @@ typedef enum {
 
 #endif
 
+#if TARGET_OS_IPHONE
+- (BOOL) isDeviceIpad;
+- (BOOL) isDeviceIphone;
+- (BOOL) isDeviceUsingRetina;
+#endif
+
+
 - (NSString *) buildConfiguration:(BOOL) abbrevated;
 
 - (BOOL) isIphone;
 - (BOOL) isSimulator;
 - (BOOL) isMacOs;
+
+
+
 
 - (BOOL) isDebugBuild;
 - (BOOL) isAdHocBuild;

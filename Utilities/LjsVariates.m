@@ -236,6 +236,11 @@ static double const LjsE = 2.71828;
     return nil;
   }
   
+  NSTimeInterval interval = [aEnd timeIntervalSinceDate:aStart];
+  NSTimeInterval secondsToAdd = [LjsVariates randomDoubleWithMin:1 max:interval];
+  NSDate *date = [aStart dateByAddingTimeInterval:secondsToAdd];
+
+  /*
   NSUInteger daysBtw = [aStart daysBetweenDate:aEnd];
   LjsDateComps fromComps = [aStart dateComponents];
   
@@ -246,6 +251,10 @@ static double const LjsE = 2.71828;
   NSDate *date = [NSDate dateWithComponents:fromComps];
   
   date = [date dateByAddingDays:[LjsVariates randomIntegerWithMin:0 max:daysBtw]];
+  
+  if ([date compare:aStart] == NSOrderedAscending) {
+    NSTimeInterval interval = [date timeIntervalSinceDate:
+  }
   
   if ([date compare:aEnd] != NSOrderedAscending) {
     LjsDateComps endComps = [aEnd dateComponents];
@@ -260,7 +269,10 @@ static double const LjsE = 2.71828;
     DDLogDebug(@"start: %@", [aStart descriptionWithCurrentLocale]);
     DDLogDebug(@"date:  %@", [date descriptionWithCurrentLocale]);
     DDLogDebug(@"end:   %@", [aEnd descriptionWithCurrentLocale]);
+    DDLogError(@"error - returning nil");
+  
   }
+   */
   return date;
 }
 

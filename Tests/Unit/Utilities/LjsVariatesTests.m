@@ -272,7 +272,7 @@
 - (void) test_random_date_between_start_and_end {
   NSDate *start = [[NSDate date] midnight];
   NSDate *end = [[start dateByAddingDays:1] dateByAddingTimeInterval:-1];
-  for (NSUInteger index = 0; index < 5; index++) {
+  for (NSUInteger index = 0; index < 10; index++) {
     NSDate *actual = [LjsVariates randomDateBetweenStart:start end:end];
     
     GHAssertTrue([actual comesAfterDate:start], @"actual should come before start:%@",
@@ -289,6 +289,32 @@
     
   }
 }
+
+// used to find a problem in random date generation
+//https://riseup.fogbugz.com/default.asp?388
+// but it is no longer necessary
+//- (void) test_async_random_date_between {
+//  __block NSUInteger counter1 = 0;
+//  dispatch_async(dispatch_get_main_queue(), ^{
+//    dotimes(10, ^{   
+//      NSDate *start = [[NSDate date] midnight];
+//      NSDate *end = [start dateByAddingDays:1];
+//      NSDate *rando = [LjsVariates randomDateBetweenStart:start end:end];
+//      NSString *startStr = [NSString stringWithFormat:@" start: %@\n", [start descriptionWithISO8601]];
+//      NSString *endStr   = [NSString stringWithFormat:@"   end: %@\n", [end descriptionWithISO8601]];
+//      NSString *randoStr = [NSString stringWithFormat:@"actual: %@\n", [rando descriptionWithISO8601]];
+//      NSString *message = [NSString stringWithFormat:@"%@%@%@", startStr, randoStr, endStr];
+//      GHAssertTrue([rando compare:end] == NSOrderedAscending, 
+//                   @"actual should come before end\n%@\n - failed on %d iteration",
+//                   message, counter1);
+//      GHAssertTrue([rando compare:start] == NSOrderedDescending,
+//                   @"actual should come after start\n%@\n - failed on %d iteration",
+//                   message, counter1);
+//      counter1++;
+//    });
+//  });
+//}
+
 
 
 @end

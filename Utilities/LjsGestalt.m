@@ -151,6 +151,25 @@ fail:
 }
 
 
+#if TARGET_OS_IPHONE
+
+- (BOOL) isDeviceIpad {
+  return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
+}
+
+- (BOOL) isDeviceIphone {
+  return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
+}
+
+- (BOOL) isDeviceUsingRetina {
+  // http://stackoverflow.com/questions/3504173/detect-retina-display
+  // don't change the order
+  return [[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] &&
+  ([UIScreen mainScreen].scale == 2.0);
+}
+
+#endif
+
 
 - (NSString *) buildConfiguration:(BOOL) abbrevated {
   NSString *config, *abbrev;

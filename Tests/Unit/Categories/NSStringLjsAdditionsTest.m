@@ -34,7 +34,7 @@
 // GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
 
 #import "LjsTestCase.h"
-
+#import "LjsGestalt.h"
 
 @interface NSStringLjsAdditionsTest : LjsTestCase {}
 @end
@@ -100,7 +100,13 @@
   size = [text sizeWithFont:font];
   w = size.width / 2;
   actual = [text stringByTruncatingToWidth:w withFont:font];
-  expected = @"The horse rac...";
+  
+  // retina vs. non retina
+  if ([self.gestalt isDeviceUsingRetina]) {
+    expected = @"The horse rac...";
+  } else {
+    expected = @"The horse ra...";
+  }
   GHAssertEqualStrings(actual, expected, @"string should be the same");
 }
 #endif

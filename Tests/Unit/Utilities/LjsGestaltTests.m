@@ -197,4 +197,56 @@
   GHTestLog(@"WARN:  no good way to test this yet");
 }
 
+- (void) test_is_device_ipad {
+  //iPhone Simulator
+  //iPad Simulator
+  NSString *deviceName = [[UIDevice currentDevice] name];
+  BOOL actual = [self.gestalt isDeviceIpad];
+  if ([self.gestalt isSimulator] == YES) {
+    if ([deviceName isEqualToString:@"iPhone Simulator"] ) {
+      GHAssertFalse(actual, @"should return no if device is iphone simulator");
+    } else if ([deviceName isEqualToString:@"iPad Simulator"]) {
+      GHAssertTrue(actual, @"should return yes if device is ipad simulator");
+    } else {
+      GHAssertTrue(NO, @"expected to find < iPhone Simulator > or < iPad Simulator > for device name, but found < %@ >,",
+                   deviceName);
+    }
+  } else {
+    if ([@"mercury" isEqualToString:deviceName] || [@"neptune" isEqualToString:deviceName]) {
+      GHAssertFalse(actual, @"should return no if device is mercury or neptune");
+    } else if ([@"pluto" isEqualToString:deviceName]) {
+      GHAssertTrue(actual, @"should return yes if device is pluto");
+    } else {
+      GHTestLog(@"skipping test - device %@ is unknown", deviceName);
+    }
+  }
+}
+
+- (void) test_is_device_iphone {
+  //iPad Simulator
+  NSString *deviceName = [[UIDevice currentDevice] name];
+  BOOL actual = [self.gestalt isDeviceIphone];
+  if ([self.gestalt isSimulator] == YES) {
+    if ([deviceName isEqualToString:@"iPhone Simulator"] ) {
+      GHAssertTrue(actual, @"should return yes if device is iphone simulator");
+    } else if ([deviceName isEqualToString:@"iPad Simulator"]) {
+      GHAssertFalse(actual, @"should return no if device is ipad simulator");
+    } else {
+      GHAssertTrue(NO, @"expected to find < iPhone Simulator > or < iPad Simulator > for device name, but found < %@ >,",
+                   deviceName);
+    }
+  } else {
+    if ([@"mercury" isEqualToString:deviceName] || [@"neptune" isEqualToString:deviceName]) {
+      GHAssertTrue(actual, @"should return yes if device is mercury or neptune");
+    } else if ([@"pluto" isEqualToString:deviceName]) {
+      GHAssertFalse(actual, @"should return no if device is pluto");
+    } else {
+      GHTestLog(@"skipping test - device %@ is unknown", deviceName);
+    }
+  }
+
+}
+
+
+
 @end
