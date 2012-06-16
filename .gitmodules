@@ -29,3 +29,6 @@
 [submodule "OCMockSingletonExtension"]
 	path = OCMockSingletonExtension
 	url = git@github.com:jmoody/OCMockSingletonExtension.git
+[submodule "OCHamcrest"]
+	path = OCHamcrest
+	url = https://github.com/hamcrest/OCHamcrest.git
