@@ -765,7 +765,7 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:LjsISO8601_DateFormatWithMillis];
   NSCalendar *calendar = [NSCalendar gregorianCalendar];
-  NSTimeZone *tz = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+  NSTimeZone *tz = [NSTimeZone timeZoneForSecondsFromGMT:0];
   calendar.timeZone = tz;
   formatter.calendar = calendar;
   formatter.timeZone = tz;
@@ -868,6 +868,7 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
   return result;
 }
 
+
 + (NSArray *) datesWithWeek:(NSUInteger) aWeek ofYear:(NSUInteger) aYear {
   NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
   // iOS 5 and 10.7
@@ -882,14 +883,19 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
   comps.year = aYear;
   NSDate *ref = [NSDate dateWithComponents:comps calendar:calendar];
   NSDateComponents *dc = [calendar components:flags fromDate:ref];
-  [dc setWeekOfYear:aWeek];
+  if ([dc respondsToSelector:@selector(setWeekOfYear:)]) {  
+    [dc setWeekOfYear:aWeek];
+  } else {
+    [dc setWeek:aWeek];
+  }
+  
   [dc setWeekday:2];
   NSDate *start = [calendar dateFromComponents:dc];
   NSMutableArray *result = [NSMutableArray arrayWithCapacity:7];
   for (NSUInteger index = 0; index < 7; index++) {
     [result nappend:[start dateByAddingDays:index withCalendar:calendar]];
   }
-  
+    
   return [NSArray arrayWithArray:result];
 }
 

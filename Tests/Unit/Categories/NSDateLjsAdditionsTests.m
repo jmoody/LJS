@@ -277,7 +277,17 @@
 - (void) test_description_with_iso_8601 {
   NSDate *date = [NSDate LjsDateNotFound];
   GHTestLog(@"date = %@", [date descriptionWithISO8601]);
-  GHAssertEqualStrings([date descriptionWithISO8601], @"40272-01-01 00:00:01.000 GMT", 
+  NSString *expected;
+  
+  // ios 4
+  NSTimeZone *tz = [NSTimeZone timeZoneForSecondsFromGMT:0];
+  if ([[tz abbreviation] length] > 3) {
+    expected = @"40272-01-01 00:00:01.000 GMT+00:00";
+  } else {
+    expected = @"40272-01-01 00:00:01.000 GMT";
+  }
+  
+  GHAssertEqualStrings([date descriptionWithISO8601], expected, 
                        @"date not found should always print the same way");
 }
 

@@ -197,6 +197,8 @@
 		F58DBA1A149551D6009F39F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F58DBA18149551D6009F39F7 /* InfoPlist.strings */; };
 		F58DBA1C149551D6009F39F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DBA1B149551D6009F39F7 /* main.m */; };
 		F58DBA23149551D6009F39F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DBA22149551D6009F39F7 /* AppDelegate.m */; };
+		F58E4D3A158DE50F0060B2B8 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58E4D39158DE50F0060B2B8 /* OCHamcrest.framework */; };
+		F58E4D3B158DE5270060B2B8 /* OCHamcrest.framework in Copy Files Hamcrest */ = {isa = PBXBuildFile; fileRef = F58E4D39158DE50F0060B2B8 /* OCHamcrest.framework */; };
 		F5963585149640BA00CDB27E /* LjsObjectWithUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = F5963584149640BA00CDB27E /* LjsObjectWithUUID.m */; };
 		F5963589149655E800CDB27E /* LjsTextViewTailing.m in Sources */ = {isa = PBXBuildFile; fileRef = F5963588149655E800CDB27E /* LjsTextViewTailing.m */; };
 		F59635F914966B9600CDB27E /* README in Resources */ = {isa = PBXBuildFile; fileRef = F59635F014966B9600CDB27E /* README */; };
@@ -210,9 +212,7 @@
 		F5E98569152473580061631A /* NSDecimalNumber+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E98568152473580061631A /* NSDecimalNumber+LjsAdditions.m */; };
 		F5E985CF152474420061631A /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5E985CD152474420061631A /* google-places-autocomplete-sample.json */; };
 		F5E985D0152474420061631A /* google-places-details-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5E985CE152474420061631A /* google-places-details-sample.json */; };
-		F5F63E8A1574F22F00FE3B72 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F63E891574F22F00FE3B72 /* OCHamcrest.framework */; };
 		F5F63E8D1574F26300FE3B72 /* OCHamcrestWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63E8C1574F26300FE3B72 /* OCHamcrestWorkingTest.m */; };
-		F5F63E8F1574F38200FE3B72 /* OCHamcrest.framework in Copy Files Hamcrest */ = {isa = PBXBuildFile; fileRef = F5F63E891574F22F00FE3B72 /* OCHamcrest.framework */; };
 		F5F63EBE1574F89700FE3B72 /* OCMockSingletonsWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63EBD1574F89700FE3B72 /* OCMockSingletonsWorkingTest.m */; };
 		F5F63EC61574F97300FE3B72 /* NSDate+UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63EC11574F97300FE3B72 /* NSDate+UnitTests.m */; };
 		F5F63EC71574F97300FE3B72 /* NSNotificationCenter+UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F63EC31574F97300FE3B72 /* NSNotificationCenter+UnitTests.m */; };
@@ -248,7 +248,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				F5F63E8F1574F38200FE3B72 /* OCHamcrest.framework in Copy Files Hamcrest */,
+				F58E4D3B158DE5270060B2B8 /* OCHamcrest.framework in Copy Files Hamcrest */,
 			);
 			name = "Copy Files Hamcrest";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,6 +596,7 @@
 		F58DBA1D149551D6009F39F7 /* Documentation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Documentation-Prefix.pch"; sourceTree = "<group>"; };
 		F58DBA21149551D6009F39F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F58DBA22149551D6009F39F7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F58E4D39158DE50F0060B2B8 /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = ../../OCHamcrest/Source/build/Release/OCHamcrest.framework; sourceTree = "<group>"; };
 		F5963583149640BA00CDB27E /* LjsObjectWithUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsObjectWithUUID.h; sourceTree = "<group>"; };
 		F5963584149640BA00CDB27E /* LjsObjectWithUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsObjectWithUUID.m; sourceTree = "<group>"; };
 		F5963587149655E800CDB27E /* LjsTextViewTailing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsTextViewTailing.h; sourceTree = "<group>"; };
@@ -620,7 +621,6 @@
 		F5E98568152473580061631A /* NSDecimalNumber+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDecimalNumber+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5E985CD152474420061631A /* google-places-autocomplete-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "google-places-autocomplete-sample.json"; sourceTree = "<group>"; };
 		F5E985CE152474420061631A /* google-places-details-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "google-places-details-sample.json"; sourceTree = "<group>"; };
-		F5F63E891574F22F00FE3B72 /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = ../../OCHamcrest/1.7/OCHamcrest.framework; sourceTree = "<group>"; };
 		F5F63E8C1574F26300FE3B72 /* OCHamcrestWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCHamcrestWorkingTest.m; path = ../../Tests/OCHamcrestWorkingTest.m; sourceTree = "<group>"; };
 		F5F63EB61574F87A00FE3B72 /* OCMockSingletonExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockSingletonExtensions.h; sourceTree = "<group>"; };
 		F5F63EBD1574F89700FE3B72 /* OCMockSingletonsWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCMockSingletonsWorkingTest.m; path = ../../Tests/OCMockSingletonsWorkingTest.m; sourceTree = "<group>"; };
@@ -646,7 +646,7 @@
 				F580718C146C2C8300EA4CFB /* CoreServices.framework in Frameworks */,
 				F580718D146C2C8300EA4CFB /* libxml2.dylib in Frameworks */,
 				F5807129146C291100EA4CFB /* OCMock.framework in Frameworks */,
-				F5F63E8A1574F22F00FE3B72 /* OCHamcrest.framework in Frameworks */,
+				F58E4D3A158DE50F0060B2B8 /* OCHamcrest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -914,12 +914,12 @@
 		F580702F146C26F100EA4CFB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F58E4D39158DE50F0060B2B8 /* OCHamcrest.framework */,
 				F5807198146C2F8000EA4CFB /* LjsTestCase.h */,
 				F5807199146C2F8000EA4CFB /* LjsTestCase.m */,
 				F5F63EAE1574F87A00FE3B72 /* OCMockSingletonExtension */,
 				F5F63EBD1574F89700FE3B72 /* OCMockSingletonsWorkingTest.m */,
 				F5F63E8C1574F26300FE3B72 /* OCHamcrestWorkingTest.m */,
-				F5F63E891574F22F00FE3B72 /* OCHamcrest.framework */,
 				F580716F146C2AAC00EA4CFB /* OCMockWorkingTest.m */,
 				F5807045146C280600EA4CFB /* GHUnit.framework */,
 				F5807030146C26F100EA4CFB /* Tests-MacOS-Info.plist */,
@@ -2010,7 +2010,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-MacOS\"",
 					"\"$(SRCROOT)/../ocmock\"",
-					"\"$(SRCROOT)/../OCHamcrest/1.7\"",
+					"\"$(SRCROOT)/../OCHamcrest/Source/build/Release\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-MacOS/Tests-MacOS-Prefix.pch";
@@ -2040,7 +2040,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-MacOS\"",
 					"\"$(SRCROOT)/../ocmock\"",
-					"\"$(SRCROOT)/../OCHamcrest/1.7\"",
+					"\"$(SRCROOT)/../OCHamcrest/Source/build/Release\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-MacOS/Tests-MacOS-Prefix.pch";

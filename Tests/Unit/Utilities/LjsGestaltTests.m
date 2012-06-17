@@ -197,6 +197,7 @@
   GHTestLog(@"WARN:  no good way to test this yet");
 }
 
+#if TARGET_OS_IPHONE
 - (void) test_is_device_ipad {
   //iPhone Simulator
   //iPad Simulator
@@ -246,6 +247,7 @@
   }
 
 }
+#endif
 
 
 

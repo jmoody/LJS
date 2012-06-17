@@ -1057,6 +1057,7 @@
 
 
 //+ (NSArray *) datesWithWeek:(NSUInteger) aWeek ofYear:(NSUInteger) aYear
+
 - (void) test_dates_with_week_of_year {
   
   NSArray *array = [LjsDateHelper datesWithWeek:24 ofYear:2012];
@@ -1069,6 +1070,7 @@
                  actual, expected, idx);
   }];
 }
+
 
 
 
