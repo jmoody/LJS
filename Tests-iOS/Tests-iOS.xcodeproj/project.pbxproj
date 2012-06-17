@@ -192,7 +192,7 @@
 		F58D234F151A4BAC0043DB52 /* com.littlejoysoftware.faker.street-addresses.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D233C151A4BAC0043DB52 /* com.littlejoysoftware.faker.street-addresses.us.plist */; };
 		F58D2350151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D233D151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist */; };
 		F58D2351151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58D233D151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist */; };
-		F58E4D41158DF5B00060B2B8 /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58E4D40158DF5B00060B2B8 /* OCHamcrest.framework */; };
+		F58E4D52158DF7C80060B2B8 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58E4D51158DF7C80060B2B8 /* OCHamcrestIOS.framework */; };
 		F5903F02151A6BB700995AF1 /* LjsScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8D91518F2FF006FF6FC /* LjsScrollView.m */; };
 		F5903F03151A6BDD00995AF1 /* LjsScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8D91518F2FF006FF6FC /* LjsScrollView.m */; };
 		F5903F04151A6C0700995AF1 /* LjsScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D6C8DD1518F58F006FF6FC /* LjsScrollViewController.m */; };
@@ -591,7 +591,7 @@
 		F58D233B151A4BAC0043DB52 /* com.littlejoysoftware.faker.postal-codes.us.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.littlejoysoftware.faker.postal-codes.us.plist"; sourceTree = "<group>"; };
 		F58D233C151A4BAC0043DB52 /* com.littlejoysoftware.faker.street-addresses.us.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.littlejoysoftware.faker.street-addresses.us.plist"; sourceTree = "<group>"; };
 		F58D233D151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.littlejoysoftware.faker.surnames-names.us.plist"; sourceTree = "<group>"; };
-		F58E4D40158DF5B00060B2B8 /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrest.framework; sourceTree = "<group>"; };
+		F58E4D51158DF7C80060B2B8 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrestIOS.framework; sourceTree = "<group>"; };
 		F5903F4A151B515000995AF1 /* NSArray+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LjsAdditions.h"; sourceTree = "<group>"; };
 		F5903F4B151B515000995AF1 /* NSArray+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5903F4C151B515000995AF1 /* NSCalendar+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+LjsAdditions.h"; sourceTree = "<group>"; };
@@ -810,7 +810,7 @@
 				F50FE6A01410C6F60051FC7E /* UIKit.framework in Frameworks */,
 				F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */,
 				F59AC1601546B536001ABB88 /* GHUnitIOS.framework in Frameworks */,
-				F58E4D41158DF5B00060B2B8 /* OCHamcrest.framework in Frameworks */,
+				F58E4D52158DF7C80060B2B8 /* OCHamcrestIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -897,7 +897,7 @@
 		F50FE6A61410C6F60051FC7E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F58E4D40158DF5B00060B2B8 /* OCHamcrest.framework */,
+				F58E4D51158DF7C80060B2B8 /* OCHamcrestIOS.framework */,
 				F5F63E901574F4F200FE3B72 /* OCMockSingletonExtension */,
 				F59AC15F1546B536001ABB88 /* GHUnitIOS.framework */,
 				F5B03A6A14AA67620015D59B /* ocmock */,
