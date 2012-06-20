@@ -42,6 +42,9 @@ typedef enum {
   LjsConnectivityStatusNoInternet,
 } LjsConnectivityStatus;
 
+/**
+ Documenation
+ */
 @interface LjsReachabilityObserver : LjsServiceObserver
 
 @property (nonatomic, strong) Reachability *internetReachability;

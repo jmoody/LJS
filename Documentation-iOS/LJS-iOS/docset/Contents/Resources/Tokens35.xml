@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/LjsKeyboardInfo.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsKeyboardInfo</TokenIdentifier>
+			<Abstract>Documentation</Abstract>
+			<DeclaredIn>LjsKeyboardInfo.h</DeclaredIn>
+			
+			<NodeRef refid="35"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

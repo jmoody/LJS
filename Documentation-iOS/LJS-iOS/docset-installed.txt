@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/moody/Library/Developer/Shared/Documentation/DocSets/com.littlejoysoftware.Tests-iOS.docset
+Time: 2012-06-20 10:46:53 +0000

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/LjsScrollView.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsScrollView</TokenIdentifier>
+			<Abstract>Documentation</Abstract>
+			<DeclaredIn>LjsScrollView.h</DeclaredIn>
+			
+			<NodeRef refid="49"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

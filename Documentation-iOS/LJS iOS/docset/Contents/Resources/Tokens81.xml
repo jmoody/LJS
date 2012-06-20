@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/LjsTableViewOwnerProtocol.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/LjsTableViewOwnerProtocol</TokenIdentifier>
+			<Abstract>Documentation</Abstract>
+			<DeclaredIn>LjsTableViewOwnerProtocol.h</DeclaredIn>
+			
+			<NodeRef refid="81"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

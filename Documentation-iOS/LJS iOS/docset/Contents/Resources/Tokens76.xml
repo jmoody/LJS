@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/UIView+UIView_LjsAdditions.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/UIView(UIView_LjsAdditions)</TokenIdentifier>
+			<Abstract>UIView on UIView_LjsAdditions category.</Abstract>
+			<DeclaredIn>UIView+LjsAdditions.h</DeclaredIn>
+			
+			<NodeRef refid="76"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

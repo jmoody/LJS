@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/NSError+NSError_LjsAdditions.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/NSError(NSError_LjsAdditions)</TokenIdentifier>
+			<Abstract>NSError on NSError_LjsAdditions category.</Abstract>
+			<DeclaredIn>NSError+LjsAdditions.h</DeclaredIn>
+			
+			<NodeRef refid="65"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

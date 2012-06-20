@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/LjsReachabilityObserver.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsReachabilityObserver</TokenIdentifier>
+			<Abstract>Documenation</Abstract>
+			<DeclaredIn>LjsReachabilityObserver.h</DeclaredIn>
+			
+			<NodeRef refid="47"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

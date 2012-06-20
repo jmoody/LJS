@@ -6,7 +6,7 @@
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" />
-		<meta name="generator" content="appledoc 2.0.5 (build 737)" />
+		<meta name="generator" content="appledoc 2.0.5 (build 789)" />
 	</head>
 	<body>
 		<header id="top_header">
@@ -188,7 +188,7 @@ so regardless of Locale and NSDateFormatter settings you can end up with
 unexpected/unparseable data and time values.  This can cause major headaches
 when trying to layout views that contain date and time references.</p>
 
-<p><a href="LjsTimePickerDelegate.html">LjsTimePickerDelegate</a> solves this problem by bypassing the normal Foundation
+<p>LjsTimePickerDelegate solves this problem by bypassing the normal Foundation
 date formatting and replacing it with <a href="../Classes/LjsDateHelper.html">LjsDateHelper</a> methods.</p>
 					</div>
 					
@@ -215,35 +215,35 @@ date formatting and replacing it with <a href="../Classes/LjsDateHelper.html">Lj
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/minutes">&nbsp;&nbsp;minutes</a></code>
-		<span class="tooltip"><p>an array with 00 to 59 &ndash; data source for <a href="#//api/name/minutes">minutes</a> column</p></span>
+		<span class="tooltip"><p>an array with 00 to 59 &ndash; data source for minutes column</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/hours">&nbsp;&nbsp;hours</a></code>
-		<span class="tooltip"><p>an array with 1 to 12 &ndash; data source for <a href="#//api/name/hours">hours</a> column</p></span>
+		<span class="tooltip"><p>an array with 1 to 12 &ndash; data source for hours column</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
-		<span class="tooltip"><p>the callback <a href="#//api/name/delegate">delegate</a></p></span>
+		<span class="tooltip"><p>the callback delegate</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/AM">&nbsp;&nbsp;AM</a></code>
-		<span class="tooltip"><p>localized <a href="#//api/name/AM">AM</a></p></span>
+		<span class="tooltip"><p>localized AM</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/PM">&nbsp;&nbsp;PM</a></code>
-		<span class="tooltip"><p>localized <a href="#//api/name/PM">PM</a></p></span>
+		<span class="tooltip"><p>localized PM</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -365,7 +365,7 @@ use a.m. which might effect the layout.</p></span>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>localized <a href="#//api/name/AM">AM</a></p>
+		<p>localized AM</p>
 	</div>		
 	
 	
@@ -378,7 +378,7 @@ use a.m. which might effect the layout.</p></span>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>localized <a href="#//api/name/AM">AM</a></p>
+		<p>localized AM</p>
 	</div>
 	
 	
@@ -402,7 +402,7 @@ use a.m. which might effect the layout.</p></span>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>localized <a href="#//api/name/PM">PM</a></p>
+		<p>localized PM</p>
 	</div>		
 	
 	
@@ -415,7 +415,7 @@ use a.m. which might effect the layout.</p></span>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>localized <a href="#//api/name/PM">PM</a></p>
+		<p>localized PM</p>
 	</div>
 	
 	
@@ -443,7 +443,7 @@ use a.m. which might effect the layout.</p></span>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSArray *amPm</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSArray *amPm</code></div>
 	
 	
 	
@@ -476,11 +476,11 @@ use a.m. which might effect the layout.</p></span>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>the callback <a href="#//api/name/delegate">delegate</a></p>
+		<p>the callback delegate</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) id&lt;LjsTimePickerDidChangeCallBackDelegate&gt; delegate</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained) id&lt;&gt; delegate</code></div>
 	
 	
 	
@@ -489,7 +489,7 @@ use a.m. which might effect the layout.</p></span>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>the callback <a href="#//api/name/delegate">delegate</a></p>
+		<p>the callback delegate</p>
 	</div>
 	
 	
@@ -513,11 +513,11 @@ use a.m. which might effect the layout.</p></span>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>an array with 1 to 12 &ndash; data source for <a href="#//api/name/hours">hours</a> column</p>
+		<p>an array with 1 to 12 &ndash; data source for hours column</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSArray *hours</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSArray *hours</code></div>
 	
 	
 	
@@ -526,7 +526,7 @@ use a.m. which might effect the layout.</p></span>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>an array with 1 to 12 &ndash; data source for <a href="#//api/name/hours">hours</a> column</p>
+		<p>an array with 1 to 12 &ndash; data source for hours column</p>
 	</div>
 	
 	
@@ -550,11 +550,11 @@ use a.m. which might effect the layout.</p></span>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>an array with 00 to 59 &ndash; data source for <a href="#//api/name/minutes">minutes</a> column</p>
+		<p>an array with 00 to 59 &ndash; data source for minutes column</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSArray *minutes</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSArray *minutes</code></div>
 	
 	
 	
@@ -563,7 +563,7 @@ use a.m. which might effect the layout.</p></span>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>an array with 00 to 59 &ndash; data source for <a href="#//api/name/minutes">minutes</a> column</p>
+		<p>an array with 00 to 59 &ndash; data source for minutes column</p>
 	</div>
 	
 	
@@ -777,7 +777,7 @@ of view &ndash; <a href="#//api/name/AM">AM</a> for Portugal Locale is a.m. for 
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<div class="bug"><p>Localization of AM/<a href="#//api/name/PM">PM</a> might not be a good idea from a layout point
+		<div class="bug"><p><strong>Bug:</strong> Localization of AM/<a href="#//api/name/PM">PM</a> might not be a good idea from a layout point
 of view &ndash; <a href="#//api/name/AM">AM</a> for Portugal Locale is a.m. for example.</p></div>
 	</div>
 	
@@ -836,7 +836,7 @@ use a.m. which might effect the layout.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<div class="bug"><p>localization might not be the way to go because some Locales like Portugal
+		<div class="bug"><p><strong>Bug:</strong> localization might not be the way to go because some Locales like Portugal
 use a.m. which might effect the layout.</p></div>
 	</div>
 	
@@ -895,7 +895,7 @@ use a.m. which might effect the layout.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<div class="bug"><p>localization might not be the way to go because some Locales like Portugal
+		<div class="bug"><p><strong>Bug:</strong> localization might not be the way to go because some Locales like Portugal
 use a.m. which might effect the layout.</p></div>
 	</div>
 	
@@ -1015,7 +1015,7 @@ use a.m. which might effect the layout.</p></div>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<div class="bug"><p>Does not properly reuse the view.</p></div>
+		<div class="bug"><p><strong>Bug:</strong> Does not properly reuse the view.</p></div>
 	</div>
 	
 	
@@ -1092,9 +1092,9 @@ use a.m. which might effect the layout.</p></div>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2011 Little Joy Software. All rights reserved. (Last updated: 2011-12-27)</span><br />
+						<p><span class="copyright">&copy; 2012 Little Joy Software. All rights reserved. (Last updated: 2012-06-20)</span><br />
 						
-						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 737)</a>.</span></p>
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 789)</a>.</span></p>
 						
 					</div>
 				</div>

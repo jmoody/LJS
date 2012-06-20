@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/NSDictionary+NSDictionary_LjsAdditions.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/NSDictionary(NSDictionary_LjsAdditions)</TokenIdentifier>
+			<Abstract>NSDictionary on NSDictionary_LjsAdditions category.</Abstract>
+			<DeclaredIn>NSDictionary+LjsAdditions.h</DeclaredIn>
+			
+			<NodeRef refid="63"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/LjsVariates.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsVariates</TokenIdentifier>
+			<Abstract>Uses the arc4random algorithm to produce pseudo random numbers.</Abstract>
+			<DeclaredIn>LjsVariates.h</DeclaredIn>
+			
+			<NodeRef refid="55"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsVariates/factorial:</TokenIdentifier>
+			<Abstract>uses tail recursion to compute factorial of n</Abstract>
+			<DeclaredIn>LjsVariates.h</DeclaredIn>			
+			
+			<Declaration>+ (NSUInteger)factorial:(NSUInteger)n</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>n</Name>
+					<Abstract>n</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>the factorial of n (n!)</Abstract></ReturnValue>
+			<Anchor>//api/name/factorial:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsVariates/_factorialHelperWithN:accumulator:</TokenIdentifier>
+			<Abstract>the helper for factorial function</Abstract>
+			<DeclaredIn>LjsVariates.h</DeclaredIn>			
+			
+			<Declaration>+ (NSUInteger)_factorialHelperWithN:(NSUInteger)n accumulator:(NSUInteger)accumulator</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>n</Name>
+					<Abstract>n</Abstract>
+				</Parameter><Parameter>
+					<Name>accumulator</Name>
+					<Abstract>the accumulated value</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>accumulated n</Abstract></ReturnValue>
+			<Anchor>//api/name/_factorialHelperWithN:accumulator:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsVariates/flip</TokenIdentifier>
+			<Abstract>a random BOOL value</Abstract>
+			<DeclaredIn>LjsVariates.h</DeclaredIn>			
+			
+			<Declaration>+ (BOOL)flip</Declaration>
+			
+			<ReturnValue><Abstract>a random BOOL value</Abstract></ReturnValue>
+			<Anchor>//api/name/flip</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsVariates/flipWithProbilityOfYes:</TokenIdentifier>
+			<Abstract>a random BOOL with aProbabilty of YES</Abstract>
+			<DeclaredIn>LjsVariates.h</DeclaredIn>			
+			
+			<Declaration>+ (BOOL)flipWithProbilityOfYes:(double)aProbability</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>aProbability</Name>
+					<Abstract>the probability of a YES</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a random BOOL with aProbabilty of YES</Abstract></ReturnValue>
+			<Anchor>//api/name/flipWithProbilityOfYes:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsVariates/possionWithK:lambda:</TokenIdentifier>
+			<Abstract>Discussion
+e is the base of the natural logarithm (e = 2.71828...)
+k is the number of occurrences of an event — the probability of which is given by the function
+k! is the factorial of k
+λ is a positive real number, equal to the expected number of occurrences during the given interval. For instance, if the events occur on average 4 times per minute, and one is interested in the probability of an event occurring k times in a 10 minute interval, one would use a Poisson distribution as the model with λ = 10×4 = 40.
+As a function of k, this is the probability mass function. The Poisson distribution can be derived as a limiting case of the binomial distribution.</Abstract>
+			<DeclaredIn>LjsVariates.h</DeclaredIn>			
+			
+			<Declaration>+ (double)possionWithK:(NSUInteger)aK lambda:(double)aLambda</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>aK</Name>
+					<Abstract>is the number of occurrences of an event — the probability of which is given by the function</Abstract>
+				</Parameter><Parameter>
+					<Name>aLambda</Name>
+					<Abstract>s a positive real number, equal to the expected number of occurrences during the given interval. For instance, if the events occur on average 4 times per minute, and one is interested in the probability of an event occurring k times in a 10 minute interval, one would use a Poisson distribution as the model with λ = 10×4 = 40.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a poission random value</Abstract></ReturnValue>
+			<Anchor>//api/name/possionWithK:lambda:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsVariates/randomDouble</TokenIdentifier>
+			<Abstract>Generates a random double from 0.0 to 1.0 inclusive - (0.0, 1.0)</Abstract>
+			<DeclaredIn>LjsVariates.h</DeclaredIn>			
+			
+			<Declaration>+ (double)randomDouble</Declaration>
+			
+			<ReturnValue><Abstract>a random double on (0.0, 1.0)</Abstract></ReturnValue>
+			<Anchor>//api/name/randomDouble</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsVariates/randomDecimalDouble</TokenIdentifier>
+			<Abstract>Generates a random double.</Abstract>
+			<DeclaredIn>LjsVariates.h</DeclaredIn>			
+			
+			<Declaration>+ (NSDecimalNumber *)randomDecimalDouble</Declaration>
+			
+			<ReturnValue><Abstract>a random double</Abstract></ReturnValue>
+			<Anchor>//api/name/randomDecimalDouble</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsVariates/randomDoubleWithMin:max:</TokenIdentifier>
+			<Abstract>Generates a random double from min to max inclusive = (min, max)</Abstract>
+			<DeclaredIn>LjsVariates.h</DeclaredIn>			
+			
+			<Declaration>+ (double)randomDoubleWithMin:(double)min max:(double)max</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>min</Name>
+					<Abstract>the lowest value returned</Abstract>
+				</Parameter><Parameter>
+					<Name>max</Name>
+					<Abstract>the hightest value returned</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a random double on (min, max)</Abstract></ReturnValue>
+			<Anchor>//api/name/randomDoubleWithMin:max:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsVariates/randomDecimalDoubleWithMin:max:</TokenIdentifier>
+			<Abstract>Generates a random double and returns it as an NSDecimalNumber.</Abstract>
+			<DeclaredIn>LjsVariates.h</DeclaredIn>			
+			
+			<Declaration>+ (NSDecimalNumber *)randomDecimalDoubleWithMin:(NSDecimalNumber *)min max:(NSDecimalNumber *)max</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>min</Name>
+					<Abstract>the lowest value returned</Abstract>
+				</Parameter><Parameter>
+					<Name>max</Name>
+					<Abstract>the hightest value returned</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a random double on (min, max) wrapped in NSDecimalNumber</Abstract></ReturnValue>
+			<Anchor>//api/name/randomDecimalDoubleWithMin:max:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsVariates/randomInteger</TokenIdentifier>
+			<Abstract>Generates a random integer between two large numbers.  I thought range was
+( -(2^32) - 1, (2^32) -1 ), but I find the range to be much larger when I
+unit test.</Abstract>
+			<DeclaredIn>LjsVariates.h</DeclaredIn>			
+			
+			<Declaration>+ (NSInteger)randomInteger</Declaration>
+			
+			<ReturnValue><Abstract>a positive or negative integer</Abstract></ReturnValue>
+			<Anchor>//api/name/randomInteger</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsVariates/randomDecimalInteger</TokenIdentifier>
+			<Abstract>Generates a random integer and returns it as an NSDecimalNumber.</Abstract>
+			<DeclaredIn>LjsVariates.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/clm/LjsVariates/randomInteger</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>+ (NSDecimalNumber *)randomDecimalInteger</Declaration>
+			
+			<ReturnValue><Abstract>a positive or negative integer wrapped as an NSDecimalNumber.</Abstract></ReturnValue>
+			<Anchor>//api/name/randomDecimalInteger</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsVariates/randomIntegerWithMin:max:</TokenIdentifier>
+			<Abstract>Generates a random int from min to max inclusive = (min, max)</Abstract>
+			<DeclaredIn>LjsVariates.h</DeclaredIn>			
+			
+			<Declaration>+ (NSInteger)randomIntegerWithMin:(NSInteger)min max:(NSInteger)max</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>min</Name>
+					<Abstract>the lowest value returned</Abstract>
+				</Parameter><Parameter>
+					<Name>max</Name>
+					<Abstract>the hightest value returned</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a random int on (min, max)</Abstract></ReturnValue>
+			<Anchor>//api/name/randomIntegerWithMin:max:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsVariates/randomDecimalIntegerWithMin:max:</TokenIdentifier>
+			<Abstract>Generates a random int from min to max inclusive = (min, max)</Abstract>
+			<DeclaredIn>LjsVariates.h</DeclaredIn>			
+			
+			<Declaration>+ (NSDecimalNumber *)randomDecimalIntegerWithMin:(NSDecimalNumber *)min max:(NSDecimalNumber *)max</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>min</Name>
+					<Abstract>the lowest value returned</Abstract>
+				</Parameter><Parameter>
+					<Name>max</Name>
+					<Abstract>the hightest value returned</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a random int on (min, max) wrapped in an NSDecimalNumber</Abstract></ReturnValue>
+			<Anchor>//api/name/randomDecimalIntegerWithMin:max:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsVariates/sampleWithReplacement:number:</TokenIdentifier>
+			<Abstract>randomly samples a number of elements from array using replacement</Abstract>
+			<DeclaredIn>LjsVariates.h</DeclaredIn>			
+			
+			<Declaration>+ (NSArray *)sampleWithReplacement:(NSArray *)array number:(NSUInteger)number</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>array</Name>
+					<Abstract>the array to sample</Abstract>
+				</Parameter><Parameter>
+					<Name>number</Name>
+					<Abstract>the number to sample</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>an array with randomly sampled elements</Abstract></ReturnValue>
+			<Anchor>//api/name/sampleWithReplacement:number:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsVariates/sampleWithoutReplacement:number:</TokenIdentifier>
+			<Abstract>randomly samples a number of elements from array without replacement.
+if number > array count, then this method returns nil.</Abstract>
+			<DeclaredIn>LjsVariates.h</DeclaredIn>			
+			
+			<Declaration>+ (NSArray *)sampleWithoutReplacement:(NSArray *)array number:(NSUInteger)number</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>array</Name>
+					<Abstract>the array to sample</Abstract>
+				</Parameter><Parameter>
+					<Name>number</Name>
+					<Abstract>the number to sample</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>an array with randomly sampled elements</Abstract></ReturnValue>
+			<Anchor>//api/name/sampleWithoutReplacement:number:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsVariates/randomElement:</TokenIdentifier>
+			<Abstract>a random element from the array</Abstract>
+			<DeclaredIn>LjsVariates.h</DeclaredIn>			
+			
+			<Declaration>+ (id)randomElement:(NSArray *)array</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>array</Name>
+					<Abstract>the array to sample</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a random element from the array</Abstract></ReturnValue>
+			<Anchor>//api/name/randomElement:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsVariates/shuffle:</TokenIdentifier>
+			<Abstract>a shuffled array</Abstract>
+			<DeclaredIn>LjsVariates.h</DeclaredIn>			
+			
+			<Declaration>+ (NSArray *)shuffle:(NSArray *)array</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>array</Name>
+					<Abstract>the array to shuffle</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a shuffled array</Abstract></ReturnValue>
+			<Anchor>//api/name/shuffle:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsVariates/randomStringWithLength:</TokenIdentifier>
+			<Abstract>returns a string of random alpha-numeric characters</Abstract>
+			<DeclaredIn>LjsVariates.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)randomStringWithLength:(NSUInteger)length</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>length</Name>
+					<Abstract>the number of characters in the created string</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a string of random alpha-numeric characters</Abstract></ReturnValue>
+			<Anchor>//api/name/randomStringWithLength:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

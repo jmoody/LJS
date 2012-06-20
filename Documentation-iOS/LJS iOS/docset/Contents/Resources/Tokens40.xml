@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/LjsLog.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsLog</TokenIdentifier>
+			<Abstract>Redefines the standard CocoaLumberjackLogging logging macros and replaces them
+with several new levels for finer logging control.</Abstract>
+			<DeclaredIn>LjsLog.h</DeclaredIn>
+			
+			<NodeRef refid="40"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

@@ -14,15 +14,38 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+/**
+ key for the destination model in the dictionary that is returned by the 
+ `findPathDestinationAndMappingModelWithModelPaths:` method
+ */
 static NSString *const desintationModelKey = @"com.littlejoysoftware.core data progressive migration model key";
+
+/**
+ key for the mapping model in the dictionary that is returned by the 
+ `findPathDestinationAndMappingModelWithModelPaths:` method
+ */
 static NSString *const mappingModelKey = @"com.littlejoysoftware.core data progressive migration mapping key";
+
+/**
+ key for the model path in the dictionary that is returned by the 
+ `findPathDestinationAndMappingModelWithModelPaths:` method
+ */
 static NSString *const modelPathKey = @"com.littlejoysoftware.core data progressive migration model path key";
 
+/**
+ LjsProgressMigration (Private)
+ */
 @interface LjsProgressiveMigration ()
 
+/** @name Properties */
+
+/**
+ a timestamped diretory in which all the migration work is done
+ */
 @property (nonatomic, strong) NSString *timestampedDirectory;
 
 
+/** @name Utilitiy */
 - (NSArray *) collectModelVersions; 
 - (NSDictionary *) findPathDestinationAndMappingModelWithModelPaths:(NSArray *) aModelPaths
                                                         sourceModel:(NSManagedObjectModel *) aSourceModel;
@@ -50,6 +73,10 @@ static NSString *const modelPathKey = @"com.littlejoysoftware.core data progress
   DDLogDebug(@"deallocating %@", [self class]);
 }
 
+/**
+ @return a initialized instance 
+ sets the timepstamed directory property to `migration-` _current-date_
+ */
 - (id) init {
   //  [self doesNotRecognizeSelector:_cmd];
   self = [super init];
@@ -61,7 +88,16 @@ static NSString *const modelPathKey = @"com.littlejoysoftware.core data progress
   return self;
 }
 
-
+/*
+ recursively walks over all the model versions and attempts to merge each in turn with the
+ store found at soureStoreURL. 
+ @return YES if the migration was successful and NO if not
+ @param aSourceStoreURL the store that is to be migrated to
+ @param aStoreType the kind of store (have seen problems with in memory stores)
+ @param aFinalModel the model that we are trying to migrate to
+ @param aError if non-NULL will be populated if there is an error - this will
+ be indicated by a return value of NO
+ */
 - (BOOL) progressivelyMigrateURL:(NSURL *) aSourceStoreURL
                        storeType:(NSString *) aStoreType 
                          toModel:(NSManagedObjectModel *) aFinalModel 
@@ -167,7 +203,10 @@ static NSString *const modelPathKey = @"com.littlejoysoftware.core data progress
                                  error:aError];
 }
 
-
+/*
+ @return an array of file paths to momd and mom model versions found in the
+ main bundle
+ */
 - (NSArray *) collectModelVersions {
   NSBundle *main = [NSBundle mainBundle];
   NSArray *momdArray = [main pathsForResourcesOfType:@"momd" 
@@ -185,8 +224,15 @@ static NSString *const modelPathKey = @"com.littlejoysoftware.core data progress
   return [NSArray arrayWithArray:modelPaths];
 }
 
+/*
+ @return a dictionary that contains an NSMappingModel, an NSManagedObjectModel,
+ and path the model that is built by trying to contruct a mapping model from
+ the model paths and the source model
+ @param aModelPaths a list of model paths
+ @param aSourceModel the model we are trying to migration _from_
+ */
 - (NSDictionary *) findPathDestinationAndMappingModelWithModelPaths:(NSArray *) aModelPaths
-                                                    sourceModel:(NSManagedObjectModel *) aSourceModel{
+                                                        sourceModel:(NSManagedObjectModel *) aSourceModel {
   __block NSMappingModel *mappingModel = nil;
   __block NSManagedObjectModel *destinationModel = nil;
   __block NSString *modelPath = nil;
@@ -214,7 +260,15 @@ static NSString *const modelPathKey = @"com.littlejoysoftware.core data progress
     
 }
 
-
+/*
+ @return a file URL to a temporary directory where the migration work will be
+ done.  if there is an error, this method returns nil and attempts to populate
+ the aError parameter
+ @param aSourceStoreURL the original source store url
+ @param aModelName the name of the model we are migrating from
+ @param aStoreExtention the file extension of the store
+ @param aError will be populated if there is an error and the argument is non-NULL
+ */
 - (NSURL *) URLforDestinationStoreWithSourceStoreURL:(NSURL *) aSourceStoreURL 
                                            modelName:(NSString *) aModelName
                                       storeExtension:(NSString *) aStoreExtention
@@ -248,6 +302,15 @@ static NSString *const modelPathKey = @"com.littlejoysoftware.core data progress
 }
 
 
+/*
+ @return YES if the backup process was success and NO otherwise.  if the backup
+ fails, the aError will be populated if it is non-NULL
+ @param aSourceStoreURL the source store
+ @param aDestinationStoreURL the destination store
+ @param aModelName the name of the model we are migrating
+ @param aStoreExtension the file extension of the store
+ @param aError populated when non-NULL and the backup is unsuccessful
+ */
 - (BOOL) makeBackupsToPreserveSourceWithSourceStoreURL:(NSURL *) aSourceStoreURL
                                    destinationStoreURL:(NSURL *) aDestinationStoreURL
                                              modelName:(NSString *) aModelName

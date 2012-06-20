@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/LjsLocationManager.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsLocationManager</TokenIdentifier>
+			<Abstract>A singleton class wrapper around the Location Services.</Abstract>
+			<DeclaredIn>LjsLocationManager.h</DeclaredIn>
+			
+			<NodeRef refid="38"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsLocationManager/setDebugDevices:</TokenIdentifier>
+			<Abstract>available iff LJSLOCATIONSERVICES_DEBUG Preprocessor Macro is defined</Abstract>
+			<DeclaredIn>LjsLocationManager.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) NSArray *debugDevices</Declaration>
+			
+			
+			<Anchor>//api/name/debugDevices</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/LjsLocationManager/debugDevices</TokenIdentifier>
+			<Abstract>available iff LJSLOCATIONSERVICES_DEBUG Preprocessor Macro is defined</Abstract>
+			<DeclaredIn>LjsLocationManager.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) NSArray *debugDevices</Declaration>
+			
+			
+			<Anchor>//api/name/debugDevices</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsLocationManager/setDebugLastHeading:</TokenIdentifier>
+			<Abstract>used simulate the heading changing in environments where there is no heading
+available</Abstract>
+			<DeclaredIn>LjsLocationManager.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat debugLastHeading</Declaration>
+			
+			
+			<Anchor>//api/name/debugLastHeading</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/LjsLocationManager/debugLastHeading</TokenIdentifier>
+			<Abstract>used simulate the heading changing in environments where there is no heading
+available</Abstract>
+			<DeclaredIn>LjsLocationManager.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat debugLastHeading</Declaration>
+			
+			
+			<Anchor>//api/name/debugLastHeading</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsLocationManager/locationIsAvailable</TokenIdentifier>
+			<Abstract>if LJSLOCATIONSERVICES_DEBUG Preprocess Macro is defined, this
+method will always return YES</Abstract>
+			<DeclaredIn>LjsLocationManager.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)locationIsAvailable</Declaration>
+			
+			<ReturnValue><Abstract>true iff location is available</Abstract></ReturnValue>
+			<Anchor>//api/name/locationIsAvailable</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsLocationManager/isValidHeading:</TokenIdentifier>
+			<Abstract>true iff aHeading is on (0.0, 360.0)</Abstract>
+			<DeclaredIn>LjsLocationManager.h</DeclaredIn>			
+			
+			<Declaration>+ (BOOL)isValidHeading:(NSDecimalNumber *)aHeading</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>aHeading</Name>
+					<Abstract>the heading to check</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>true iff aHeading is on (0.0, 360.0)</Abstract></ReturnValue>
+			<Anchor>//api/name/isValidHeading:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsLocationManager/isValidLatitude:</TokenIdentifier>
+			<Abstract>true if aLatitude is on (-90.0, 90.0)</Abstract>
+			<DeclaredIn>LjsLocationManager.h</DeclaredIn>			
+			
+			<Declaration>+ (BOOL)isValidLatitude:(NSDecimalNumber *)aLatitude</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>aLatitude</Name>
+					<Abstract>the latitude to check</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>true if aLatitude is on (-90.0, 90.0)</Abstract></ReturnValue>
+			<Anchor>//api/name/isValidLatitude:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsLocationManager/isValidLongitude:</TokenIdentifier>
+			<Abstract>true if aLongitude is on (-180.0, 180.0)</Abstract>
+			<DeclaredIn>LjsLocationManager.h</DeclaredIn>			
+			
+			<Declaration>+ (BOOL)isValidLongitude:(NSDecimalNumber *)aLongitude</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>aLongitude</Name>
+					<Abstract>the longitude to check</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>true if aLongitude is on (-180.0, 180.0)</Abstract></ReturnValue>
+			<Anchor>//api/name/isValidLongitude:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsLocationManager/headingIsAvailable</TokenIdentifier>
+			<Abstract>true iff heading is available</Abstract>
+			<DeclaredIn>LjsLocationManager.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)headingIsAvailable</Declaration>
+			
+			<ReturnValue><Abstract>true iff heading is available</Abstract></ReturnValue>
+			<Anchor>//api/name/headingIsAvailable</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsLocationManager/longitude</TokenIdentifier>
+			<Abstract>if LJSLOCATIONSERVICES_DEBUG Preprocess Macro is defined and no valid
+location can be found then this method will return the longitude for
+Zurich, CH</Abstract>
+			<DeclaredIn>LjsLocationManager.h</DeclaredIn>			
+			
+			<Declaration>- (NSDecimalNumber *)longitude</Declaration>
+			
+			<ReturnValue><Abstract>the current longitude as a rounded NSDecimalNumber</Abstract></ReturnValue>
+			<Anchor>//api/name/longitude</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsLocationManager/latitude</TokenIdentifier>
+			<Abstract>if LJSLOCATIONSERVICES_DEBUG Preprocess Macro is defined and no valid
+location can be found then this method will return the latitude for
+Zurich, CH</Abstract>
+			<DeclaredIn>LjsLocationManager.h</DeclaredIn>			
+			
+			<Declaration>- (NSDecimalNumber *)latitude</Declaration>
+			
+			<ReturnValue><Abstract>the current latitude as a rounded NSDecimalNumber</Abstract></ReturnValue>
+			<Anchor>//api/name/latitude</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsLocationManager/trueHeading</TokenIdentifier>
+			<Abstract>if LJSLOCATIONSERVICES_DEBUG Preprocess Macro is defined and no valid
+heading can be found then this method will return</Abstract>
+			<DeclaredIn>LjsLocationManager.h</DeclaredIn>			
+			
+			<Declaration>- (NSDecimalNumber *)trueHeading</Declaration>
+			
+			<ReturnValue><Abstract>the current latitude as a rounded NSDecimalNumber</Abstract></ReturnValue>
+			<Anchor>//api/name/trueHeading</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsLocationManager/locationManager:didUpdateToLocation:fromLocation:</TokenIdentifier>
+			<Abstract>Sets the self.coreLocation ivar to the new location.</Abstract>
+			<DeclaredIn>LjsLocationManager.m</DeclaredIn>			
+			
+			<Declaration>- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>manager</Name>
+					<Abstract>The location manager object that generated the update event.</Abstract>
+				</Parameter><Parameter>
+					<Name>newLocation</Name>
+					<Abstract>The new location data.</Abstract>
+				</Parameter><Parameter>
+					<Name>oldLocation</Name>
+					<Abstract>The location data from the previous update. If this is the
+first update event delivered by this location manager, this parameter is nil.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/locationManager:didUpdateToLocation:fromLocation:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsLocationManager/locationManager:didFailWithError:</TokenIdentifier>
+			<Abstract>handles location manager update errors</Abstract>
+			<DeclaredIn>LjsLocationManager.m</DeclaredIn>			
+			
+			<Declaration>- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>manager</Name>
+					<Abstract>The location manager object that was unable to retrieve the location.</Abstract>
+				</Parameter><Parameter>
+					<Name>error</Name>
+					<Abstract>The error object containing the reason the location or heading could
+not be retrieved.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/locationManager:didFailWithError:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsLocationManager/locationManagerShouldDisplayHeadingCalibration:</TokenIdentifier>
+			<Abstract>Asks the delegate whether the heading calibration alert should be displayed.</Abstract>
+			<DeclaredIn>LjsLocationManager.m</DeclaredIn>			
+			
+			<Declaration>- (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>manager</Name>
+					<Abstract>the CLLocation manager</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>Almost always we want to return NO.</Abstract></ReturnValue>
+			<Anchor>//api/name/locationManagerShouldDisplayHeadingCalibration:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsLocationManager/locationManager:didUpdateHeading:</TokenIdentifier>
+			<Abstract>Sets the self.coreHeading ivar.</Abstract>
+			<DeclaredIn>LjsLocationManager.m</DeclaredIn>			
+			
+			<Declaration>- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>manager</Name>
+					<Abstract>The location manager object that generated the update event.</Abstract>
+				</Parameter><Parameter>
+					<Name>newHeading</Name>
+					<Abstract>The new heading data.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/locationManager:didUpdateHeading:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsLocationManager/setCoreLocationManager:</TokenIdentifier>
+			<Abstract>the core location manager</Abstract>
+			<DeclaredIn>LjsLocationManager.m</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) CLLocationManager *coreLocationManager</Declaration>
+			
+			
+			<Anchor>//api/name/coreLocationManager</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/LjsLocationManager/coreLocationManager</TokenIdentifier>
+			<Abstract>the core location manager</Abstract>
+			<DeclaredIn>LjsLocationManager.m</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) CLLocationManager *coreLocationManager</Declaration>
+			
+			
+			<Anchor>//api/name/coreLocationManager</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsLocationManager/setCoreLocation:</TokenIdentifier>
+			<Abstract>the current location</Abstract>
+			<DeclaredIn>LjsLocationManager.m</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) CLLocation *coreLocation</Declaration>
+			
+			
+			<Anchor>//api/name/coreLocation</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/LjsLocationManager/coreLocation</TokenIdentifier>
+			<Abstract>the current location</Abstract>
+			<DeclaredIn>LjsLocationManager.m</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) CLLocation *coreLocation</Declaration>
+			
+			
+			<Anchor>//api/name/coreLocation</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsLocationManager/setCoreHeading:</TokenIdentifier>
+			<Abstract>the current heading</Abstract>
+			<DeclaredIn>LjsLocationManager.m</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) CLHeading *coreHeading</Declaration>
+			
+			
+			<Anchor>//api/name/coreHeading</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/LjsLocationManager/coreHeading</TokenIdentifier>
+			<Abstract>the current heading</Abstract>
+			<DeclaredIn>LjsLocationManager.m</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) CLHeading *coreHeading</Declaration>
+			
+			
+			<Anchor>//api/name/coreHeading</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

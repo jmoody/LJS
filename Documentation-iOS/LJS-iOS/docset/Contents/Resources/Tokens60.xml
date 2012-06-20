@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/NSDate+NSDate_LjsAdditions.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/NSDate(NSDate_LjsAdditions)</TokenIdentifier>
+			<Abstract>NSDate on NSDate_LjsAdditions category.</Abstract>
+			<DeclaredIn>NSDate+LjsAdditions.h</DeclaredIn>
+			
+			<NodeRef refid="60"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>
