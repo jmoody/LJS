@@ -117,5 +117,9 @@
 }
 #endif
 
+- (void) test_make_keyword {
+  NSString *actual = [@"a" makeKeyword];
+  assertThat(actual, is(@":a"));
+}
 
 @end

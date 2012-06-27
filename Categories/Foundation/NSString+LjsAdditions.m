@@ -85,6 +85,11 @@ static NSString *const ellipsis = @"...";
   return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
+- (NSString *) makeKeyword {
+  return [NSString stringWithFormat:@":%@", self];
+}
+
+
 - (NSString *) stringByEscapingDoubleQuotes {
   NSMutableString *mutable = [self mutableCopy];
   
