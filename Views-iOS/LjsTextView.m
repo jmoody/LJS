@@ -34,7 +34,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (void)awakeFromNib {
   [super awakeFromNib];
   [self setPlaceholder:@""];
-  [self setPlaceholderColor:[UIColor lightGrayColor]];
+  [self setPlaceholderColor:[UIColor colorWithR:128 g:128 b:128]];
   [self registerForNotifications];
   
 }
