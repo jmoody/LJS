@@ -30,7 +30,6 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "NSDictionary+LjsAdditions.h"
 #import "Lumberjack.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -44,5 +43,39 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (BOOL) emptyp {
   return [self count] == 0;
 }
+
+- (NSSet *) keySet {
+  return [NSSet setWithArray:[self allKeys]];
+}
+
+- (void) maphash:(void (^)(id key, id val, BOOL *stop)) aBlock {
+  [self maphash:aBlock concurrent:NO];
+}
+
+- (void) maphash:(void (^)(id key, id val, BOOL *stop)) aBlock concurrent:(BOOL) aConcurrent {
+  if (aConcurrent == YES) {
+    [self enumerateKeysAndObjectsWithOptions:NSEnumerationConcurrent 
+                                  usingBlock:^(id key, id obj, BOOL *stop) {
+                                    aBlock(key, obj, stop);
+                                  }];
+  } else {
+    [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+      aBlock(key, obj, stop);
+    }];
+  }
+}
+
+- (NSArray *) mapcar:(id (^)(id key, id val)) aBlock {
+  NSMutableArray *array = [NSMutableArray arrayWithCapacity:[self count]];
+  for (id _key in [self allKeys]) {
+    id _val = [self objectForKey:_key];
+    id result = aBlock(_key, _val);
+    if (result != nil) {
+      [array addObject:result];
+    }
+  }
+  return array;
+}
+
 
 @end

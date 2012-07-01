@@ -31,11 +31,8 @@
 #endif
 
 #import "LjsLocationManager.h"
-#import "LjsValidator.h"
 #import "LjsVariates.h"
 #import "Lumberjack.h"
-#import "NSDecimalNumber+LjsAdditions.h"
-#import "NSArray+LjsAdditions.h"
 
 
 static const int ddLogLevel = LOG_LEVEL_WARN;
@@ -702,8 +699,8 @@ static NSString *LjsLocation_SCALE_KEY = @"scale";
 
 /**
  Asks the delegate whether the heading calibration alert should be displayed.
- 
- Almost always we want to return NO.
+ @param manager the CLLocation manager
+ @return Almost always we want to return NO.
  */
 - (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager {
   return NO;

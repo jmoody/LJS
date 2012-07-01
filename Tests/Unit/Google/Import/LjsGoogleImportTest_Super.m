@@ -27,6 +27,7 @@
 }
 
 - (void) setUpClass {
+  [super setUpClass];
   if (self.resourceName != nil) {
     NSBundle *main = [NSBundle mainBundle];
     NSString *path = [main pathForResource:self.resourceName
@@ -41,18 +42,18 @@
 
 - (void) tearDownClass {
   // Run at end of all tests in the class
+  [super tearDownClass];
 }
 
 - (void) setUp {
+  [super setUp];
   // Run before each test method
 }
 
 - (void) tearDown {
   // Run after each test method
+  [super tearDown];
 }  
 
-//- (void)testGHLog {
-//  GHTestLog(@"GH test logging is working");
-//}
 
 @end

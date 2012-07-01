@@ -4,7 +4,6 @@
 
 #import "LjsLocationTransformer.h"
 #import "Lumberjack.h"
-#import "NSDecimalNumber+LjsAdditions.h"
 #import "LjsLocationManager.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG

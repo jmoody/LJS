@@ -183,11 +183,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return ((aFloat >= aMin) && (aFloat <= aMax));
 }
 
+#if TARGET_OS_IPHONE
 + (BOOL) isZeroRect:(CGRect) aRect {
   NSString *str = NSStringFromCGRect(aRect);
   NSString *zero = NSStringFromCGRect(CGRectZero);
   return [str isEqualToString:zero];
 }
+#endif
 
 @end
 
@@ -228,6 +230,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     NSString *reason = [NSString stringWithFormat:@"%@ cannot be nil", aVarName];
     [self addReason:reason];
   }
+}
+
+- (void) addReasonWithVarName:(NSString *)aVarName ifNilSelector:(SEL) aSel {
+  NSString *selStr = NSStringFromSelector(aSel);
+  [self addReasonWithVarName:aVarName ifNil:selStr];
 }
 
 - (void) addReasonWithVarName:(NSString *)aVarName ifNilOrEmptyString:(NSString *) aString {

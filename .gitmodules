@@ -23,3 +23,12 @@
 [submodule "Core-Data-Localization"]
 	path = Core-Data-Localization
 	url = https://github.com/cspicker/Core-Data-Localization.git
+[submodule "V8HorizontalPickerView"]
+	path = V8HorizontalPickerView
+	url = git@github.com:jmoody/V8HorizontalPickerView.git
+[submodule "OCMockSingletonExtension"]
+	path = OCMockSingletonExtension
+	url = git@github.com:jmoody/OCMockSingletonExtension.git
+[submodule "OCHamcrest"]
+	path = OCHamcrest
+	url = https://github.com/hamcrest/OCHamcrest.git

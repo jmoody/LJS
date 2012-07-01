@@ -47,7 +47,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  NOTE:  ASIHTTPRequest appears to have problem with correctly identifying code
  408.  A status code 0 is converted to 408 by this method.
  
- @param aRequest the request to query
  @return an NSInteger representing the response code.
  */
 - (NSUInteger) responseCode {
@@ -61,7 +60,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 /**
  returns the localized error message of a request.  
  
- @param aRequest a request that has failed
  @return if no error is found, this method will return nil
  */
 - (NSString *) errorMessage {
@@ -80,12 +78,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 /**
  returns a description string for a request.
  
- `<response code>:  <localized description>`
+ `response code:  localized description`
  
  This is a convenience method for logging and as such it is not appropriate to
  use for displaying text to the user.
  
- @param aRequest the request to query
  @return a brief description of the response to the request
  */
 - (NSString *) responseDescription {
@@ -99,10 +96,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 /** 
- returns YES iff the request timed out
- 
- @param aRequest the request to query
- @return  returns YES iff the request timed out
+  @return  returns YES iff the request timed out
  */
 - (BOOL) didTimeOut {
   NSInteger code = [self responseCode];
@@ -110,8 +104,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 /**
- returns YES iff the request was successful with 200 or 201
- @param aRequest the request to query
  @return YES iff the request was successful with 200 or 201
  */
 - (BOOL) was200or201Successful {

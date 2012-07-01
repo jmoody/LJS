@@ -34,32 +34,86 @@
 #else
 #import <GHUnit/GHUnit.h>
 #endif
+
 #import "LjsVariates.h"
 #import "LjsValidator.h"
 #import <objc/runtime.h>
 
+// hamcrest
+//https://github.com/jonreid/OCHamcrest/issues/7
+//#define HC_SHORTHAND
+
+
 #if TARGET_OS_IPHONE
+#import "LjsTableViewOwnerProtocol.h"
+
 @interface UIView (UIView_TESTING)
-
 - (NSMutableDictionary *)fullDescription;
-
 @end
-
 #endif
 
 @class LjsGestalt;
 
 @interface LjsTestCase : GHTestCase 
+#if TARGET_OS_IPHONE
+<LjsTableViewOwnerProtocol>
+#endif
 
 @property (nonatomic, strong) LjsGestalt *gestalt;
 
 @property (assign) Method findDocumentDirectoryPathOriginal;
 @property (assign) Method findDocumentDirectoryPathMock;
 
+@property (assign) Method findLibraryDirectoryPathForUserpOriginal;
+@property (assign) Method findLibraryDirectoryPathForUserpMock;
+
+@property (assign) Method findPreferencesPathForUserpOriginal;
+@property (assign) Method findPreferencesPathForUserpMock;
+
+@property (assign) Method findCoreDataStorePathForUserpOriginal;
+@property (assign) Method findCoreDataStorePathForUserpMock;
+
+#if !TARGET_OS_IPHONE
+@property (assign) Method findApplicationSupportDirectoryForUserpOriginal;
+@property (assign) Method findApplicationSupportDirectoryForUserpMock;
+#endif
+
+
 - (NSString *) findDocumentDirectoryPathSwizzled;
 - (void) swizzleFindDocumentDirectoryPath;
 - (void) restoreFindDocumentDirectoryPath;
 
+- (NSString *) findLibraryDirectoryPathForUserpSwizzled:(BOOL) ignorable;
+- (void) swizzleFindLibraryDirectoryPath;
+- (void) restoreFindLibraryDirectoryPath;
+
+- (NSString *) findPreferencesPathForUserpSwizzled:(BOOL) ignorable;
+- (void) swizzleFindPreferencesPath;
+- (void) restoreFindPreferencesPath;
+
+- (NSString *) findCoreDataStorePathForUserpSwizzled:(BOOL) ignorable;
+- (void) swizzleFindCoreDataPath;
+- (void) restoreFindCoreDataPath;
+
+#if !TARGET_OS_IPHONE 
+- (NSString *) findApplicationSupportDirectoryForUserpSwizzled:(BOOL) ignorable;
+- (void) swizzleFindApplicationSupportDirectory;
+- (void) restoreFindApplicationSupportDirectory;
+#endif
+
+
 - (NSString *) emptyStringOrNil;
+- (BOOL) flip;
+- (void) dummyControlSelector:(id) sender;
+- (NSArray *) arrayOfAbcStrings;
+- (NSSet *) setOfAbcStrings;
+- (NSArray *) arrayOfDatesTodayTormorrowDayAfter;
+- (NSArray *) arrayOfMutableStrings;
+- (NSSet *) setOfMutableStrings;
+- (NSDictionary *) dictionaryOfMutableStrings;
+
+
+- (NSDate *) dateForTimeOutWithSeconds:(NSTimeInterval) aSeconds;
+- (NSDate *) dateForDefaultTimeOut;
 
 @end

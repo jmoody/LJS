@@ -63,9 +63,9 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "NSDate+LjsAdditions.h"
 #import "Lumberjack.h"
 #import "LjsVariates.h"
+#import "LjsDateHelper.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -84,20 +84,37 @@ NSSecondCalendarUnit);
   return [self descriptionWithLocale:[NSLocale autoupdatingCurrentLocale]];
 }
 
+- (NSString *) descriptionWithISO8601 {
+  NSDateFormatter *df = [LjsDateHelper isoDateWithMillisAnd_GMT_Formatter];
+  NSString *str = [df stringFromDate:self];
+  return [str stringByAppendingFormat:@" %@", [df.timeZone abbreviation]];
+}
+
 + (NSDate *) LjsDateNotFound {
   // voyager 1 will pass within 1.7 light years of star AC+79 3888 which is in
   // Ursa Minor 
-  NSDate *date = [NSDate dateWithYear:40272
-                                month:1
-                                  day:1
-                                 hour:0
-                               minute:0
-                               second:1];
-  return date;
+  dispatch_once_t pred = 0;
+  __strong static id _ljsDateNotFound = nil;
+  dispatch_once(&pred, ^{
+    NSCalendar *calendar = [NSCalendar gregorianCalendar];
+    calendar.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+    _ljsDateNotFound = [NSDate dateWithYear:40272
+                                      month:1
+                                        day:1
+                                       hour:0
+                                     minute:0
+                                     second:1
+                                   calendar:calendar];
+  });
+  return _ljsDateNotFound;
 }
 
 - (BOOL) isNotFound {
-  return [[NSDate LjsDateNotFound] compare:self] == NSOrderedSame;
+  if (self == [NSDate LjsDateNotFound]) {
+    return YES;
+  } else {
+    return [[NSDate LjsDateNotFound] compare:self] == NSOrderedSame;
+  }
 }
 
 + (NSDate *) yesterday {
@@ -115,6 +132,30 @@ NSSecondCalendarUnit);
 - (BOOL) isToday {
   return [self isSameDay:[NSDate date]];
 }
+
+- (BOOL) isSameAsDate:(NSDate *) aDate {
+  return [self compare:aDate] == NSOrderedSame;
+}
+
+- (BOOL) comesBeforeDate:(NSDate *) aDate {
+  // this is unexpected.  the semantics are, LjsDateNotFound cannot have
+  // a before/after relationship to any date
+  if ([self isNotFound] || [aDate isNotFound]) {
+    return NO;
+  }
+  return [self compare:aDate] == NSOrderedAscending;
+}
+
+- (BOOL) comesAfterDate:(NSDate *) aDate {
+  // this is unexpected.  the semantics are, LjsDateNotFound cannot have
+  // a before/after relationship to any date
+  if ([self isNotFound] || [aDate isNotFound]) {
+    return NO;
+  }
+  return [self compare:aDate] == NSOrderedDescending;
+}
+
+
 
 - (BOOL) isSameDay:(NSDate *) aDate {
   LjsDateComps selfComps = [self dateComponents];
@@ -164,6 +205,16 @@ NSSecondCalendarUnit);
 }
 
 
+- (BOOL) isWithinSeconds:(NSTimeInterval) aSeconds
+                  ofDate:(NSDate *) aDate {
+  NSTimeInterval sigma = fabs([self timeIntervalSinceDate:aDate]);
+  return sigma > aSeconds;
+}
+
+- (BOOL) isAlmostNow {
+  NSTimeInterval sigma = fabs([self timeIntervalSinceDate:[NSDate date]]);
+  return sigma < 0.5;
+}
 
 
 - (NSUInteger) daysBetweenDate:(NSDate*) aDate {
@@ -341,9 +392,12 @@ NSSecondCalendarUnit);
                    second:(NSUInteger) aSecond {
   NSCalendar *current = [NSCalendar currentCalendar];
   NSTimeZone *local = [current timeZone];
-  return [self dateWithYear:aYear month:aMonth 
-                        day:aDay hour:aHour
-                     minute:aMonth second:aSecond
+  return [self dateWithYear:aYear 
+                      month:aMonth 
+                        day:aDay 
+                       hour:aHour
+                     minute:aMinute 
+                     second:aSecond
                    timeZone:local
                    calendar:current];
 }
@@ -355,9 +409,12 @@ NSSecondCalendarUnit);
                    minute:(NSUInteger) aMinute
                    second:(NSUInteger) aSecond
                  timeZone:(NSTimeZone *) aTimeZone {
-  return [self dateWithYear:aYear month:aMonth 
-                        day:aDay hour:aHour
-                     minute:aMonth second:aSecond
+  return [self dateWithYear:aYear
+                      month:aMonth 
+                        day:aDay 
+                       hour:aHour
+                     minute:aMinute 
+                     second:aSecond
                    timeZone:aTimeZone
                    calendar:[NSCalendar currentCalendar]];
 }
@@ -369,11 +426,14 @@ NSSecondCalendarUnit);
                    minute:(NSUInteger) aMinute
                    second:(NSUInteger) aSecond
                  calendar:(NSCalendar *) aCalendar {
-  return [self dateWithYear:aYear month:aMonth 
-                        day:aDay hour:aHour
-                     minute:aMonth second:aSecond
+  return [self dateWithYear:aYear 
+                      month:aMonth 
+                        day:aDay 
+                       hour:aHour
+                     minute:aMinute
+                     second:aSecond
                    timeZone:[aCalendar timeZone]
-                   calendar:[NSCalendar currentCalendar]];
+                   calendar:aCalendar];
 }
 
 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/LjsPanAndZoomImageView.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsPanAndZoomImageView</TokenIdentifier>
+			<Abstract>Documentation</Abstract>
+			<DeclaredIn>LjsPanAndZoomImageView.h</DeclaredIn>
+			
+			<NodeRef refid="45"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

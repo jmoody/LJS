@@ -40,6 +40,7 @@ extern NSUInteger const LjsFileBackedKeyStoreErrorCode;
 @interface LjsFileBackedKeyStore : NSObject <LjsBackingStore>
 
 /** @name Properties */
+@property (nonatomic, copy) NSString *filepath;
 
 
 /** @name Initializing Objects */
@@ -56,10 +57,3 @@ extern NSUInteger const LjsFileBackedKeyStoreErrorCode;
 
 #pragma mark DEAD SEA
 
-/*
- - (id) initWithFileName:(NSString *) aFilename
- directoryPath:(NSString *) aDirectoryPath
- defaultStore:(NSDictionary *) aStore
- overwriteExisting:(BOOL) shouldOverwrite
- error:(NSError **) error;
- */

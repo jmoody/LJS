@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/NSDictionary+NSDictionary_LjsWebAdditions.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/NSDictionary(NSDictionary_LjsWebAdditions)</TokenIdentifier>
+			<Abstract>NSDictionary on NSDictionary_LjsAdditions category.
+https://github.com/newsyc</Abstract>
+			<DeclaredIn>LjsWebCategories.h</DeclaredIn>
+			
+			<NodeRef refid="64"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

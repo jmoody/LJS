@@ -1,4 +1,3 @@
-#import "NSArray+LjsAdditions.h"
 #import "Lumberjack.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -69,7 +68,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [array arrayByAddingObjectsFromArray:self];
 }
 
-- (NSArray *) map:(id (^)(id obj)) aBlock {
+- (NSArray *) mapcar:(id (^)(id obj)) aBlock {
   NSMutableArray *result = [NSMutableArray arrayWithCapacity:[self count]];
   for (id obj in self) {
     [result addObject:aBlock(obj)];
@@ -77,9 +76,43 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [NSArray arrayWithArray:result];
 }
 
+- (NSArray *) mapc:(void (^)(id obj, NSUInteger idx, BOOL *stop)) aBlock  {
+  return [self mapc:aBlock concurrent:NO];
+}
+
+- (NSArray *) mapc:(void (^)(id obj, NSUInteger idx, BOOL *stop)) aBlock concurrent:(BOOL) aConcurrent {
+  if (aConcurrent == YES) {
+    [self enumerateObjectsWithOptions:NSEnumerationConcurrent 
+                           usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                             aBlock(obj, idx, stop);
+                           }];
+  } else {
+    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+      aBlock(obj, idx, stop);
+    }];
+  }
+  return self;
+}
+
+
+
 - (BOOL) emptyp {
   return [self count] == 0;
 }
+
+- (NSArray *) arrayByRemovingObjectsInArray:(NSArray *) aArray {
+  if (aArray == nil || [aArray emptyp]) {
+    return [NSArray arrayWithArray:self];
+  }
+  NSPredicate *predicate;
+  predicate = [NSPredicate predicateWithBlock:^(id obj, NSDictionary *bindings) {
+    DDLogDebug(@"evaluating: %@", obj);
+    BOOL result = [aArray containsObject:obj] == NO;
+    return result;
+  }];
+  return [self filteredArrayUsingPredicate:predicate];
+}
+
 
 
 @end

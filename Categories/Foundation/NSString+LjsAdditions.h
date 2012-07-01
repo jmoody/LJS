@@ -68,4 +68,20 @@
 
 - (NSString *) stringByEscapingDoubleQuotes;
 - (NSString *) stringByUnescapingDoubleQuotes;
+
+- (BOOL) emptyp;
++ (BOOL) stringIsEmptyP:(NSString *) aString;
+
+/**
+ @return a new string based on the receiver with a ':' on the front
+ like Lisp make-keyword
+ */
+- (NSString *) makeKeyword;
+
+// http://mobiledevelopertips.com/cocoa/truncate-an-nsstring-and-append-an-ellipsis-respecting-the-font-size.html
+#if TARGET_OS_IPHONE
+- (NSString *) stringByTruncatingToWidth:(CGFloat) width 
+                                withFont:(UIFont *) font;
+#endif
+
 @end

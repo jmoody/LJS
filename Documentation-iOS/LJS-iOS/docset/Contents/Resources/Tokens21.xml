@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/LjsGooglePlacesDetailsReply.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsGooglePlacesDetailsReply</TokenIdentifier>
+			<Abstract>Documentation</Abstract>
+			<DeclaredIn>LjsGooglePlacesDetailsReply.h</DeclaredIn>
+			
+			<NodeRef refid="21"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

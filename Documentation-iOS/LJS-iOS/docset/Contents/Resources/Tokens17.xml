@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/LjsGoogleNmoAddressComponent.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsGoogleNmoAddressComponent</TokenIdentifier>
+			<Abstract>Documentation</Abstract>
+			<DeclaredIn>LjsGoogleNmoAddressComponent.h</DeclaredIn>
+			
+			<NodeRef refid="17"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

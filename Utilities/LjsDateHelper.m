@@ -30,9 +30,9 @@
 #endif
 
 #import "LjsDateHelper.h"
-#import "LjsValidator.h"
 #import "LjsLocaleUtils.h"
 #import "Lumberjack.h"
+#import "LjsValidator.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -63,6 +63,7 @@ NSString *LjsDateHelperMinutesNumberKey = @"com.littlejoysoftware.ljs.Date Helpe
 NSString *LjsHoursMinutesSecondsDateFormat = @"H:mm:ss";
 NSString *LjsHoursMinutesSecondsMillisDateFormat = @"H:mm:ss:SSS";
 NSString *LjsISO8601_DateFormatWithMillis = @"yyyy-MM-dd HH:mm:ss.SSS";
+
 NSString *LjsISO8601_DateFormat = @"yyyy-MM-dd HH:mm:ss";
 NSString *LjsOrderedDateFormat = @"yyyy_MM_dd_HH_mm";
 NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
@@ -760,6 +761,19 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
   return formatter;  
 }
 
++ (NSDateFormatter *) isoDateWithMillisAnd_GMT_Formatter {
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:LjsISO8601_DateFormatWithMillis];
+  NSCalendar *calendar = [NSCalendar gregorianCalendar];
+  NSTimeZone *tz = [NSTimeZone timeZoneForSecondsFromGMT:0];
+  calendar.timeZone = tz;
+  formatter.calendar = calendar;
+  formatter.timeZone = tz;
+  return formatter;  
+}
+
+
+
 /**
  @return a date formatter for `yyyy_MM_dd_HH_mm`
  */
@@ -777,6 +791,7 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
   [formatter setDateFormat:LjsOrderedDateFormatWithMillis];
   return formatter;  
 }
+
 
 /** 
  @return a string representation of the date created by the interval - the date 
@@ -851,6 +866,37 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
     result = (NSUInteger) [components week];
   }  
   return result;
+}
+
+
++ (NSArray *) datesWithWeek:(NSUInteger) aWeek ofYear:(NSUInteger) aYear {
+  NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+  // iOS 5 and 10.7
+  [calendar setMinimumDaysInFirstWeek:4];
+  // monday
+  [calendar setFirstWeekday:2];
+  
+  NSDate *date = [[NSDate date] midnight];
+  LjsDateComps comps = [date dateComponentsWithCalendar:calendar];
+  
+  NSUInteger flags = NSYearForWeekOfYearCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSWeekCalendarUnit|NSWeekdayCalendarUnit;
+  comps.year = aYear;
+  NSDate *ref = [NSDate dateWithComponents:comps calendar:calendar];
+  NSDateComponents *dc = [calendar components:flags fromDate:ref];
+  if ([dc respondsToSelector:@selector(setWeekOfYear:)]) {  
+    [dc setWeekOfYear:aWeek];
+  } else {
+    [dc setWeek:aWeek];
+  }
+  
+  [dc setWeekday:2];
+  NSDate *start = [calendar dateFromComponents:dc];
+  NSMutableArray *result = [NSMutableArray arrayWithCapacity:7];
+  for (NSUInteger index = 0; index < 7; index++) {
+    [result nappend:[start dateByAddingDays:index withCalendar:calendar]];
+  }
+    
+  return [NSArray arrayWithArray:result];
 }
 
 

@@ -4,7 +4,13 @@
 
 #ifdef __OBJC__
 #import <Cocoa/Cocoa.h>
+#define HC_SHORTHAND
+#import <OCHamcrest/OCHamcrest.h>
 #import <OCMock/OCMock.h>
+#import <GHUnit/GHUnit.h>
+#import "OCMockSingletonExtensions.h"
 #include "TargetConditionals.h"
 #import "LjsCategories.h"
+
 #endif
+

@@ -74,40 +74,28 @@
 
 @implementation LjsGooglePlacesPredictiveReplyTests
 
-
-//- (id) init {
-//  self = [super init];
-//  if (self) {
-//    // Initialization code here.
-//  }
-//  return self;
-//}
-//
-//- (void) dealloc {
-//}
-
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
   return NO;
 }
 
 - (void) setUpClass {
+  //[super setUpClass];
   // Run at start of all tests in the class
   self.resourceName = @"google-places-autocomplete-sample";
   [super setUpClass];
 }
 
-- (void) tearDownClass {
-  // Run at end of all tests in the class
-}
 
 - (void) setUp {
+  [super setUp];
   // Run before each test method
 }
 
 - (void) tearDown {
   // Run after each test method
-}  
+  [super tearDown];
+}   
 
 - (void) test_replyWithPredictions {
   LjsGooglePlacesPredictiveReply *reply;

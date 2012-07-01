@@ -1,4 +1,3 @@
-#import <UIKit/UIKit.h>
 #import "Lumberjack.h"
 
 int main(int argc, char *argv[]) {

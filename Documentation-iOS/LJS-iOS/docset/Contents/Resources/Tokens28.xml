@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/LjsGoogleRequestManager.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsGoogleRequestManager</TokenIdentifier>
+			<Abstract>Documentation</Abstract>
+			<DeclaredIn>LjsGoogleRequestManager.h</DeclaredIn>
+			
+			<NodeRef refid="28"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

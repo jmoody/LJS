@@ -31,8 +31,6 @@
 
 #import "LjsVariates.h"
 #import "Lumberjack.h"
-#include <stdlib.h>
-#include "math.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -78,7 +76,7 @@ static double const LjsE = 2.71828;
  */
 
 + (double) possionWithK:(NSUInteger) aK
-                     lambda:(double) aLambda {
+                 lambda:(double) aLambda {
   NSUInteger denomiator = [LjsVariates factorial:aK];
   double lambdaToK = pow(aLambda, aK);
   double eToNegLambda = pow(LjsE, -1.0 * aLambda);
@@ -144,9 +142,9 @@ static double const LjsE = 2.71828;
 
 + (NSDecimalNumber *) randomDecimalIntegerWithMin:(NSDecimalNumber *) min
                                               max:(NSDecimalNumber *) max {
-
+  
   NSInteger random = [LjsVariates randomIntegerWithMin:[min intValue]
-                                             max:[max intValue]];
+                                                   max:[max intValue]];
   return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInteger:random] decimalValue]];  
 }
 
@@ -159,7 +157,7 @@ static double const LjsE = 2.71828;
     randomIndex = [LjsVariates randomIntegerWithMin:0 max:maxArrayIndex];
     [sampled addObject:[array objectAtIndex:randomIndex]];
   }
-
+  
   NSArray *result = [NSArray arrayWithArray:sampled];
   return result;
 }
@@ -188,7 +186,7 @@ static double const LjsE = 2.71828;
   if (array == nil || [array count] == 0) {
     return nil;
   }
- 
+  
   NSUInteger count = [array count];
   if (count == 1) {
     return [array objectAtIndex:0];
@@ -228,7 +226,54 @@ static double const LjsE = 2.71828;
     NSUInteger code = [LjsVariates randomIntegerWithMin:32 max:126];
     [array addObject:[NSString stringWithFormat:@"%c", code]];
   }
-return [array componentsJoinedByString:@""];
+  return [array componentsJoinedByString:@""];
+}
+
++ (NSDate *) randomDateBetweenStart:(NSDate *) aStart end:(NSDate *) aEnd {
+  if ([aStart comesBeforeDate:aEnd] == NO) {
+    DDLogError(@"end date must be after start date:\nstart: %@\n  end:%@",
+               aStart, aEnd);
+    return nil;
+  }
+  
+  NSTimeInterval interval = [aEnd timeIntervalSinceDate:aStart];
+  NSTimeInterval secondsToAdd = [LjsVariates randomDoubleWithMin:1 max:interval];
+  NSDate *date = [aStart dateByAddingTimeInterval:secondsToAdd];
+
+  /*
+  NSUInteger daysBtw = [aStart daysBetweenDate:aEnd];
+  LjsDateComps fromComps = [aStart dateComponents];
+  
+  fromComps.hour = [LjsVariates randomIntegerWithMin:fromComps.hour max:23];
+  fromComps.minute = [LjsVariates randomIntegerWithMin:0 max:59];
+  fromComps.second = [LjsVariates randomIntegerWithMin:0 max:59];
+  
+  NSDate *date = [NSDate dateWithComponents:fromComps];
+  
+  date = [date dateByAddingDays:[LjsVariates randomIntegerWithMin:0 max:daysBtw]];
+  
+  if ([date compare:aStart] == NSOrderedAscending) {
+    NSTimeInterval interval = [date timeIntervalSinceDate:
+  }
+  
+  if ([date compare:aEnd] != NSOrderedAscending) {
+    LjsDateComps endComps = [aEnd dateComponents];
+    endComps.hour = [LjsVariates randomIntegerWithMin:0 max:endComps.hour - 1];
+    endComps.minute = [LjsVariates randomIntegerWithMin:0 max:endComps.minute];
+    endComps.second = [LjsVariates randomIntegerWithMin:0 max:endComps.second];
+    
+    date = [NSDate dateWithComponents:endComps];
+  }
+  
+  if ([date compare:aEnd] != NSOrderedAscending) {
+    DDLogDebug(@"start: %@", [aStart descriptionWithCurrentLocale]);
+    DDLogDebug(@"date:  %@", [date descriptionWithCurrentLocale]);
+    DDLogDebug(@"end:   %@", [aEnd descriptionWithCurrentLocale]);
+    DDLogError(@"error - returning nil");
+  
+  }
+   */
+  return date;
 }
 
 

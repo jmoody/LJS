@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/LjsFileUtilities.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsFileUtilities</TokenIdentifier>
+			<Abstract>LjsFileUtilities provides class methods to help with common file operations.</Abstract>
+			<DeclaredIn>LjsFileUtilities.h</DeclaredIn>
+			
+			<NodeRef refid="9"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsFileUtilities/findDocumentDirectory</TokenIdentifier>
+			<Abstract>wrapper around the NSSearchPathDirectoriesInDomains - works for both iOS and
+MacOS</Abstract>
+			<DeclaredIn>LjsFileUtilities.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)findDocumentDirectory</Declaration>
+			
+			<ReturnValue><Abstract>the path to the standard document directory</Abstract></ReturnValue>
+			<Anchor>//api/name/findDocumentDirectory</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsFileUtilities/ensureSaveDirectory:existsWithManager:</TokenIdentifier>
+			<Abstract>ensures directory exists at path</Abstract>
+			<DeclaredIn>LjsFileUtilities.h</DeclaredIn>			
+			
+			<Declaration>+ (BOOL)ensureSaveDirectory:(NSString *)path existsWithManager:(NSFileManager *)fileManager</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>path</Name>
+					<Abstract>the directory path</Abstract>
+				</Parameter><Parameter>
+					<Name>fileManager</Name>
+					<Abstract>the file manager to use
+@deprecated</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>true iff directory was created or exists</Abstract></ReturnValue>
+			<Anchor>//api/name/ensureSaveDirectory:existsWithManager:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsFileUtilities/parentDirectoryForPath:</TokenIdentifier>
+			<Abstract>this method can be useful for controlling the behavior of NSOpenPanel</Abstract>
+			<DeclaredIn>LjsFileUtilities.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)parentDirectoryForPath:(NSString *)childPath</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>childPath</Name>
+					<Abstract>a file or directory path</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>the parent directory of the child path</Abstract></ReturnValue>
+			<Anchor>//api/name/parentDirectoryForPath:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsFileUtilities/pathFromOpenPanelWithPrompt:title:lastDirectory:fallBackDirectory:defaultsKeyOrNil:</TokenIdentifier>
+			<Abstract>creates a NSOpenPanel and returns the users selection as a path string.</Abstract>
+			<DeclaredIn>LjsFileUtilities.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)pathFromOpenPanelWithPrompt:(NSString *)aPrompt title:(NSString *)aTitle lastDirectory:(NSString *)aLastDirectory fallBackDirectory:(NSString *)fallbackDirectory defaultsKeyOrNil:(NSString *)aDefaultsKeyOrNil</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>aPrompt</Name>
+					<Abstract>the title of the select button - should be localized</Abstract>
+				</Parameter><Parameter>
+					<Name>aTitle</Name>
+					<Abstract>the title of the panel - should be localized</Abstract>
+				</Parameter><Parameter>
+					<Name>aLastDirectory</Name>
+					<Abstract>the last directory that was opened by nsopenpanel - if
+this directory exists, the panel will open to this directory</Abstract>
+				</Parameter><Parameter>
+					<Name>fallbackDirectory</Name>
+					<Abstract>if the last directory does not exist, then this the
+open panel will open to this directory</Abstract>
+				</Parameter><Parameter>
+					<Name>aDefaultsKeyOrNil</Name>
+					<Abstract>iff non-nil will use this key to store the users
+selection in NSUserDefaults</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a string representing the path to the file or directory of the user's
+selection</Abstract></ReturnValue>
+			<Anchor>//api/name/pathFromOpenPanelWithPrompt:title:lastDirectory:fallBackDirectory:defaultsKeyOrNil:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsFileUtilities/lastDirectoryPathWithDefaultsKey:fallbackDirectory:</TokenIdentifier>
+			<Abstract>useful method for getting NSOpenPanel to open at the appropriate directory and
+directory level</Abstract>
+			<DeclaredIn>LjsFileUtilities.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)lastDirectoryPathWithDefaultsKey:(NSString *)aDefaultsKey fallbackDirectory:(NSString *)aFallbackDirectory</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>aDefaultsKey</Name>
+					<Abstract>a key to use to look up last directory path - can be nil</Abstract>
+				</Parameter><Parameter>
+					<Name>aFallbackDirectory</Name>
+					<Abstract>a fall back directory to use if there is no entry in
+NSUserDefaults for the key or the key is nil</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a path using value in NSUserDefaults for key aDefaultsKey or to a
+fallback directory</Abstract></ReturnValue>
+			<Anchor>//api/name/lastDirectoryPathWithDefaultsKey:fallbackDirectory:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

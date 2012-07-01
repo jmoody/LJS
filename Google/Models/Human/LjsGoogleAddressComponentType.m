@@ -1,6 +1,5 @@
 #import "LjsGoogleAddressComponentType.h"
 #import "LjsGoogleAddressComponent.h"
-#import "NSArray+LjsAdditions.h"
 #import "Lumberjack.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG

@@ -206,6 +206,14 @@
 			}
 			
 			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
 		</script>
 	</body>
 </html>
@@ -222,9 +230,11 @@ Section Method
 		{{#shortDescription}}{{>GBCommentComponent}}{{/shortDescription}}
 	</div>		
 	{{/hasShortDescription}}
-	
+    {{/comment}}
+
 	<div class="method-subsection method-declaration"><code>{{>MethodDeclaration}}</code></div>
-	
+
+    {{#comment}}
 	{{#hasMethodParameters}}
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">{{strings/objectMethods/parametersTitle}}</h4>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/LjsGlassButton.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsGlassButton</TokenIdentifier>
+			<Abstract>Documentation</Abstract>
+			<DeclaredIn>LjsGlassButton.h</DeclaredIn>
+			
+			<NodeRef refid="10"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

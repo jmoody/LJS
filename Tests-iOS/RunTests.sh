@@ -21,6 +21,11 @@ export GHUNIT_RUN_TESTS_SCRIPT=YES
 export DYLD_FRAMEWORK_PATH="$CONFIGURATION_BUILD_DIR"
 
 TEST_TARGET_EXECUTABLE_PATH="$TARGET_BUILD_DIR/$EXECUTABLE_PATH"
+GROWLNOTIFY=/opt/local/bin/growlnotify
+GROWLNOTIFY_MESSAGE_PASS="$PRODUCT_NAME ==> $CONFIGURATION"$'\n'"All tests passed!"
+GROWLNOTIFY_ICON_PASS="../art/growl/ljs-pass.icns"
+GROWLNOTIFY_MESSAGE_FAIL="$PRODUCT_NAME ==> $CONFIGURATION"$'\n'"Some tests failed. :("
+GROWLNOTIFY_ICON_FAIL="../art/growl/fail-eye.icns"
 
 if [ ! -e "$TEST_TARGET_EXECUTABLE_PATH" ]; then
   echo ""
@@ -54,6 +59,12 @@ if [ -n "$WRITE_JUNIT_XML" ]; then
   if [ -d "$RESULTS_DIR" ]; then
 	`$CP -r "$RESULTS_DIR" "$BUILD_DIR" && rm -r "$RESULTS_DIR"`
   fi
+fi
+
+if [ $RETVAL = 0 ]; then
+ $GROWLNOTIFY --name Xcode --image $GROWLNOTIFY_ICON_PASS --message "$GROWLNOTIFY_MESSAGE_PASS"
+else
+ $GROWLNOTIFY --name Xcode --image $GROWLNOTIFY_ICON_FAIL --message "$GROWLNOTIFY_MESSAGE_FAIL"
 fi
 
 exit $RETVAL

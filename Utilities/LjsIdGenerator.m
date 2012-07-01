@@ -43,18 +43,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 
 + (NSString *) generateUUID {
-  //create a new UUID
-  NSString *tmpString;
-  NSString *result;
-  CFUUIDRef	uuidObj = CFUUIDCreate(nil);
-  if (uuidObj) {
-    tmpString = CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, uuidObj));
-    CFRelease(uuidObj);
-    result = [NSString stringWithFormat:@"%@", tmpString];
-  } else {
-    result = nil;
-  }
-  return result;
+  CFUUIDRef newUniqueId = CFUUIDCreate(kCFAllocatorDefault);
+  NSString * uuidString = (__bridge_transfer NSString*)CFUUIDCreateString(kCFAllocatorDefault, newUniqueId);
+  CFRelease(newUniqueId);
+  return uuidString;
 }
 
 

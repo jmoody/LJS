@@ -1,6 +1,5 @@
 #import "LjsFirstViewController.h"
 #import "Lumberjack.h"
-#import "UIColor+LjsAdditions.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -83,6 +82,36 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 //  [[UIColor redColor] setFill];
 //  [path fill];
 //  [path stroke];
+
+  UIToolbar *bar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 195 - 36, 320, 36)];
+  bar.tintColor = [UIColor colorWithR:10 g:86 b:112];
+  [self.view addSubview:bar];
+//  LjsGlassView *gv = [[LjsGlassView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+//  gv.backgroundColor = [UIColor colorWithR:10 g:86 b:112];
+//  [self.view addSubview:gv];
+//  [gv setYWithY:195 - 20];
+//  
+  
+  UIBarButtonItem *left = [[UIBarButtonItem alloc]
+                           initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                           target:nil action:nil];
+  
+  UIPageControl *pg = [[UIPageControl alloc] initWithFrame:CGRectMake(0,0, 320, 36)];
+  pg.numberOfPages = 3;
+  pg.currentPage = 2;
+  UIBarButtonItem *center = [[UIBarButtonItem alloc]
+                             initWithCustomView:pg];
+  
+  UIBarButtonItem *right = [[UIBarButtonItem alloc]
+                            initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                            target:nil action:nil];
+  
+  
+                            
+  bar.items = [NSArray arrayWithObjects:left,center,right, nil];
+  
+  bar.accessibilityIdentifier = @"picker.bar";
+  
   
 }
 

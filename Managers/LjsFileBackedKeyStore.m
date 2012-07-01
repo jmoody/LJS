@@ -32,7 +32,6 @@
 
 #import "LjsFileBackedKeyStore.h"
 #import "Lumberjack.h"
-#import "NSError+LjsAdditions.h"
 #import "LjsFileUtilities.h"
 #import "LjsValidator.h"
 
@@ -54,7 +53,8 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
 - (void) handleStoreChanged:(NSNotification *) aNotifications;
 - (void) postStoreChangedNotification;
 + (id) semaphore;
-@property (nonatomic, copy) NSString *filepath;
+
+
 @property (nonatomic, strong) NSMutableDictionary *store;
 
 @end
@@ -119,7 +119,7 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
   BOOL fileExists = [fm fileExistsAtPath:self.filepath];
   if (fileExists == NO) {
     self.store = [NSMutableDictionary dictionary];
-    // file does not exist - no need to post notificaiton that we created it
+    // file does not exist - no need to post notification that we created it
     BOOL writeSucceeded = [LjsFileUtilities writeDictionary:self.store
                                                      toFile:self.filepath
                                                       error:error];
@@ -295,6 +295,20 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
                   withValueKey:(NSString *) aValueKey
                   defaultValue:(id) aDefaultValue
                 storeIfMissing:(BOOL) aPersistMissing {
+  if (aDictName == nil) {
+    @throw [[NSException alloc] 
+            initWithName:NSInvalidArgumentException
+            reason:@"dictionary name must be non-nil"
+            userInfo:nil];
+  }
+  
+  if (aValueKey == nil) {
+    @throw [[NSException alloc] 
+            initWithName:NSInvalidArgumentException
+            reason:@"value key must be non-nil"
+            userInfo:nil];
+  }
+    
   id result = nil;
   
   NSDictionary *dict = [self dictionaryForKey:aDictName
@@ -324,16 +338,19 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
 - (void) updateValueInDictionaryNamed:(NSString *) aDictName
                          withValueKey:(NSString *) aValueKey
                                 value:(id) aValue {
+  if (aValue == nil) {
+    @throw [[NSException alloc] 
+            initWithName:NSInvalidArgumentException
+            reason:@"value must be non-nil"
+            userInfo:nil];
+  }
+  
   NSDictionary *dict = [self dictionaryForKey:aDictName
                                  defaultValue:nil
                                storeIfMissing:NO];
   if (dict == nil) {
-    if (aValue != nil) {
-      dict = [NSDictionary dictionaryWithObject:aValue forKey:aValueKey];
-      [self storeObject:dict forKey:aDictName];
-    } else {
-      // nothing to do - dict is nil and value is nil
-    }
+    dict = [NSDictionary dictionaryWithObject:aValue forKey:aValueKey];
+    [self storeObject:dict forKey:aDictName];
   } else {
     NSMutableDictionary *mdict = [NSMutableDictionary dictionaryWithDictionary:dict];
     [mdict setObject:aValue forKey:aValueKey];
@@ -344,10 +361,7 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
 
 
 - (void) storeObject:(id) object forKey:(NSString *) aKey {
-  if ([@"com.recoverywarriors.RiseUp Should Show Checkin Tutorial User Defaults Key" isEqualToString:aKey]) {
-    CGFloat f = 5 + 6;
-    NSLog(@"float = %f", f);
-  }
+  
   [self.store setObject:object forKey:aKey];
   [LjsFileUtilities writeDictionary:self.store toFile:self.filepath error:nil];
   [self postStoreChangedNotification];

@@ -4,16 +4,12 @@
 
 #import "LjsGoogleRequestManager.h"
 #import "Lumberjack.h"
-#import "LjsFoundationCategories.h"
-#import "LjsWebCategories.h"
-#import "ASIHTTPRequest.h"
 #import "ASIHTTPRequest+LjsAdditions.h"
 #import "LjsGooglePlacesPredictiveReply.h"
 #import "LjsGooglePlacesDetailsReply.h"
 #import "LjsGooglePlacesPrediction.h"
 #import "LjsGooglePlacesNmoDetails.h"
 #import "LjsGoogleRgReply.h"
-#import "LjsLocationManager.h"
 #import "LjsGoogleRequestFactory.h"
 
 

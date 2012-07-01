@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocSetNodes version="1.0">
+    <TOC>
+        <Node type="folder">
+            <Name>Tests-iOS</Name>
+            <Path>index.html</Path>
+			<Subnodes>
+				
+				<Node type="folder">
+					<Name>Classes</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="1"/>
+						<NodeRef refid="2"/>
+						<NodeRef refid="3"/>
+						<NodeRef refid="4"/>
+						<NodeRef refid="5"/>
+						<NodeRef refid="6"/>
+						<NodeRef refid="7"/>
+						<NodeRef refid="8"/>
+						<NodeRef refid="9"/>
+						<NodeRef refid="10"/>
+						<NodeRef refid="11"/>
+						<NodeRef refid="12"/>
+						<NodeRef refid="13"/>
+						<NodeRef refid="14"/>
+						<NodeRef refid="15"/>
+						<NodeRef refid="16"/>
+						<NodeRef refid="17"/>
+						<NodeRef refid="18"/>
+						<NodeRef refid="19"/>
+						<NodeRef refid="20"/>
+						<NodeRef refid="21"/>
+						<NodeRef refid="22"/>
+						<NodeRef refid="23"/>
+						<NodeRef refid="24"/>
+						<NodeRef refid="25"/>
+						<NodeRef refid="26"/>
+						<NodeRef refid="27"/>
+						<NodeRef refid="28"/>
+						<NodeRef refid="29"/>
+						<NodeRef refid="30"/>
+						<NodeRef refid="31"/>
+						<NodeRef refid="32"/>
+						<NodeRef refid="33"/>
+						<NodeRef refid="34"/>
+						<NodeRef refid="35"/>
+						<NodeRef refid="36"/>
+						<NodeRef refid="37"/>
+						<NodeRef refid="38"/>
+						<NodeRef refid="39"/>
+						<NodeRef refid="40"/>
+						<NodeRef refid="41"/>
+						<NodeRef refid="42"/>
+						<NodeRef refid="43"/>
+						<NodeRef refid="44"/>
+						<NodeRef refid="45"/>
+						<NodeRef refid="46"/>
+						<NodeRef refid="47"/>
+						<NodeRef refid="48"/>
+						<NodeRef refid="49"/>
+						<NodeRef refid="50"/>
+						<NodeRef refid="51"/>
+						<NodeRef refid="52"/>
+						<NodeRef refid="53"/>
+						<NodeRef refid="54"/>
+						<NodeRef refid="55"/>
+						
+					</Subnodes>
+				</Node>
+				
+				
+				<Node type="folder">
+					<Name>Categories</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="56"/>
+						<NodeRef refid="57"/>
+						<NodeRef refid="58"/>
+						<NodeRef refid="59"/>
+						<NodeRef refid="60"/>
+						<NodeRef refid="61"/>
+						<NodeRef refid="62"/>
+						<NodeRef refid="63"/>
+						<NodeRef refid="64"/>
+						<NodeRef refid="65"/>
+						<NodeRef refid="66"/>
+						<NodeRef refid="67"/>
+						<NodeRef refid="68"/>
+						<NodeRef refid="69"/>
+						<NodeRef refid="70"/>
+						<NodeRef refid="71"/>
+						<NodeRef refid="72"/>
+						<NodeRef refid="73"/>
+						<NodeRef refid="74"/>
+						<NodeRef refid="75"/>
+						<NodeRef refid="76"/>
+						<NodeRef refid="77"/>
+						
+					</Subnodes>
+				</Node>
+				
+				
+				<Node type="folder">
+					<Name>Protocols</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="78"/>
+						<NodeRef refid="79"/>
+						<NodeRef refid="80"/>
+						<NodeRef refid="81"/>
+						<NodeRef refid="82"/>
+						
+					</Subnodes>
+				</Node>
+				
+			</Subnodes>
+        </Node>
+    </TOC>
+	<Library>
+		<Node id="1">
+			<Name>ASIHTTPResponseUtils</Name>
+			<Path>Classes/ASIHTTPResponseUtils.html</Path>
+		</Node>
+		<Node id="2">
+			<Name>LjsBlocks</Name>
+			<Path>Classes/LjsBlocks.html</Path>
+		</Node>
+		<Node id="3">
+			<Name>LjsCaesarCipher</Name>
+			<Path>Classes/LjsCaesarCipher.html</Path>
+		</Node>
+		<Node id="4">
+			<Name>LjsDateHelper</Name>
+			<Path>Classes/LjsDateHelper.html</Path>
+		</Node>
+		<Node id="5">
+			<Name>LjsDefaultFormatter</Name>
+			<Path>Classes/LjsDefaultFormatter.html</Path>
+		</Node>
+		<Node id="6">
+			<Name>LjsDn</Name>
+			<Path>Classes/LjsDn.html</Path>
+		</Node>
+		<Node id="7">
+			<Name>LjsFaker</Name>
+			<Path>Classes/LjsFaker.html</Path>
+		</Node>
+		<Node id="8">
+			<Name>LjsFileBackedKeyStore</Name>
+			<Path>Classes/LjsFileBackedKeyStore.html</Path>
+		</Node>
+		<Node id="9">
+			<Name>LjsFileUtilities</Name>
+			<Path>Classes/LjsFileUtilities.html</Path>
+		</Node>
+		<Node id="10">
+			<Name>LjsGlassButton</Name>
+			<Path>Classes/LjsGlassButton.html</Path>
+		</Node>
+		<Node id="11">
+			<Name>LjsGlassView</Name>
+			<Path>Classes/LjsGlassView.html</Path>
+		</Node>
+		<Node id="12">
+			<Name>LjsGoogleAddressFactory</Name>
+			<Path>Classes/LjsGoogleAddressFactory.html</Path>
+		</Node>
+		<Node id="13">
+			<Name>LjsGoogleDistancer</Name>
+			<Path>Classes/LjsGoogleDistancer.html</Path>
+		</Node>
+		<Node id="14">
+			<Name>LjsGoogleGlobals</Name>
+			<Path>Classes/LjsGoogleGlobals.html</Path>
+		</Node>
+		<Node id="15">
+			<Name>LjsGoogleImporter</Name>
+			<Path>Classes/LjsGoogleImporter.html</Path>
+		</Node>
+		<Node id="16">
+			<Name>LjsGoogleManager</Name>
+			<Path>Classes/LjsGoogleManager.html</Path>
+		</Node>
+		<Node id="17">
+			<Name>LjsGoogleNmoAddressComponent</Name>
+			<Path>Classes/LjsGoogleNmoAddressComponent.html</Path>
+		</Node>
+		<Node id="18">
+			<Name>LjsGoogleNmoPlace</Name>
+			<Path>Classes/LjsGoogleNmoPlace.html</Path>
+		</Node>
+		<Node id="19">
+			<Name>LjsGoogleNmoReverseGeocode</Name>
+			<Path>Classes/LjsGoogleNmoReverseGeocode.html</Path>
+		</Node>
+		<Node id="20">
+			<Name>LjsGooglePlacePredictionOptions</Name>
+			<Path>Classes/LjsGooglePlacePredictionOptions.html</Path>
+		</Node>
+		<Node id="21">
+			<Name>LjsGooglePlacesDetailsReply</Name>
+			<Path>Classes/LjsGooglePlacesDetailsReply.html</Path>
+		</Node>
+		<Node id="22">
+			<Name>LjsGooglePlacesNmoAttribution</Name>
+			<Path>Classes/LjsGooglePlacesNmoAttribution.html</Path>
+		</Node>
+		<Node id="23">
+			<Name>LjsGooglePlacesNmoDetails</Name>
+			<Path>Classes/LjsGooglePlacesNmoDetails.html</Path>
+		</Node>
+		<Node id="24">
+			<Name>LjsGooglePlacesPrediction</Name>
+			<Path>Classes/LjsGooglePlacesPrediction.html</Path>
+		</Node>
+		<Node id="25">
+			<Name>LjsGooglePlacesPredictiveReply</Name>
+			<Path>Classes/LjsGooglePlacesPredictiveReply.html</Path>
+		</Node>
+		<Node id="26">
+			<Name>LjsGoogleReply</Name>
+			<Path>Classes/LjsGoogleReply.html</Path>
+		</Node>
+		<Node id="27">
+			<Name>LjsGoogleRequestFactory</Name>
+			<Path>Classes/LjsGoogleRequestFactory.html</Path>
+		</Node>
+		<Node id="28">
+			<Name>LjsGoogleRequestManager</Name>
+			<Path>Classes/LjsGoogleRequestManager.html</Path>
+		</Node>
+		<Node id="29">
+			<Name>LjsGoogleReverseGeocodeOptions</Name>
+			<Path>Classes/LjsGoogleReverseGeocodeOptions.html</Path>
+		</Node>
+		<Node id="30">
+			<Name>LjsGoogleRgReply</Name>
+			<Path>Classes/LjsGoogleRgReply.html</Path>
+		</Node>
+		<Node id="31">
+			<Name>LjsGoogleTranslateManager</Name>
+			<Path>Classes/LjsGoogleTranslateManager.html</Path>
+		</Node>
+		<Node id="32">
+			<Name>LjsGradientView</Name>
+			<Path>Classes/LjsGradientView.html</Path>
+		</Node>
+		<Node id="33">
+			<Name>LjsIdGenerator</Name>
+			<Path>Classes/LjsIdGenerator.html</Path>
+		</Node>
+		<Node id="34">
+			<Name>LjsJsonRpcReply</Name>
+			<Path>Classes/LjsJsonRpcReply.html</Path>
+		</Node>
+		<Node id="35">
+			<Name>LjsKeyboardInfo</Name>
+			<Path>Classes/LjsKeyboardInfo.html</Path>
+		</Node>
+		<Node id="36">
+			<Name>LjsKeychainManager</Name>
+			<Path>Classes/LjsKeychainManager.html</Path>
+		</Node>
+		<Node id="37">
+			<Name>LjsLabelAttributes</Name>
+			<Path>Classes/LjsLabelAttributes.html</Path>
+		</Node>
+		<Node id="38">
+			<Name>LjsLocationManager</Name>
+			<Path>Classes/LjsLocationManager.html</Path>
+		</Node>
+		<Node id="39">
+			<Name>LjsLocationTransformer</Name>
+			<Path>Classes/LjsLocationTransformer.html</Path>
+		</Node>
+		<Node id="40">
+			<Name>LjsLog</Name>
+			<Path>Classes/LjsLog.html</Path>
+		</Node>
+		<Node id="41">
+			<Name>LjsLogFileManager</Name>
+			<Path>Classes/LjsLogFileManager.html</Path>
+		</Node>
+		<Node id="42">
+			<Name>LjsMessageBuilder</Name>
+			<Path>Classes/LjsMessageBuilder.html</Path>
+		</Node>
+		<Node id="43">
+			<Name>LjsModalViewController</Name>
+			<Path>Classes/LjsModalViewController.html</Path>
+		</Node>
+		<Node id="44">
+			<Name>LjsObjectWithUUID</Name>
+			<Path>Classes/LjsObjectWithUUID.html</Path>
+		</Node>
+		<Node id="45">
+			<Name>LjsPanAndZoomImageView</Name>
+			<Path>Classes/LjsPanAndZoomImageView.html</Path>
+		</Node>
+		<Node id="46">
+			<Name>LjsProgressiveMigration</Name>
+			<Path>Classes/LjsProgressiveMigration.html</Path>
+		</Node>
+		<Node id="47">
+			<Name>LjsReachabilityObserver</Name>
+			<Path>Classes/LjsReachabilityObserver.html</Path>
+		</Node>
+		<Node id="48">
+			<Name>LjsRecessedButton</Name>
+			<Path>Classes/LjsRecessedButton.html</Path>
+		</Node>
+		<Node id="49">
+			<Name>LjsScrollView</Name>
+			<Path>Classes/LjsScrollView.html</Path>
+		</Node>
+		<Node id="50">
+			<Name>LjsServiceObserver</Name>
+			<Path>Classes/LjsServiceObserver.html</Path>
+		</Node>
+		<Node id="51">
+			<Name>LjsTextView</Name>
+			<Path>Classes/LjsTextView.html</Path>
+		</Node>
+		<Node id="52">
+			<Name>LjsTimePickerDelegate</Name>
+			<Path>Classes/LjsTimePickerDelegate.html</Path>
+		</Node>
+		<Node id="53">
+			<Name>LjsUserDefaultsStore</Name>
+			<Path>Classes/LjsUserDefaultsStore.html</Path>
+		</Node>
+		<Node id="54">
+			<Name>LjsValidator</Name>
+			<Path>Classes/LjsValidator.html</Path>
+		</Node>
+		<Node id="55">
+			<Name>LjsVariates</Name>
+			<Path>Classes/LjsVariates.html</Path>
+		</Node>
+		
+		<Node id="56">
+			<Name>ASIHTTPRequest(ASIHTTPRequest_LjsAdditions)</Name>
+			<Path>Categories/ASIHTTPRequest+ASIHTTPRequest_LjsAdditions.html</Path>
+		</Node>
+		<Node id="57">
+			<Name>DDFileLogger(DDFileLogger_CurrentFile)</Name>
+			<Path>Categories/DDFileLogger+DDFileLogger_CurrentFile.html</Path>
+		</Node>
+		<Node id="58">
+			<Name>NSArray(NSArray_LjsAdditions)</Name>
+			<Path>Categories/NSArray+NSArray_LjsAdditions.html</Path>
+		</Node>
+		<Node id="59">
+			<Name>NSCalendar(NSCalendar_LjsAdditions)</Name>
+			<Path>Categories/NSCalendar+NSCalendar_LjsAdditions.html</Path>
+		</Node>
+		<Node id="60">
+			<Name>NSDate(NSDate_LjsAdditions)</Name>
+			<Path>Categories/NSDate+NSDate_LjsAdditions.html</Path>
+		</Node>
+		<Node id="61">
+			<Name>NSDateFormatter(NSDateFormatter_LjsAdditions)</Name>
+			<Path>Categories/NSDateFormatter+NSDateFormatter_LjsAdditions.html</Path>
+		</Node>
+		<Node id="62">
+			<Name>NSDecimalNumber(NSDecimalNumber_LjsAdditions)</Name>
+			<Path>Categories/NSDecimalNumber+NSDecimalNumber_LjsAdditions.html</Path>
+		</Node>
+		<Node id="63">
+			<Name>NSDictionary(NSDictionary_LjsAdditions)</Name>
+			<Path>Categories/NSDictionary+NSDictionary_LjsAdditions.html</Path>
+		</Node>
+		<Node id="64">
+			<Name>NSDictionary(NSDictionary_LjsWebAdditions)</Name>
+			<Path>Categories/NSDictionary+NSDictionary_LjsWebAdditions.html</Path>
+		</Node>
+		<Node id="65">
+			<Name>NSError(NSError_LjsAdditions)</Name>
+			<Path>Categories/NSError+NSError_LjsAdditions.html</Path>
+		</Node>
+		<Node id="66">
+			<Name>NSLocale(NSLocale_LjsAdditions)</Name>
+			<Path>Categories/NSLocale+NSLocale_LjsAdditions.html</Path>
+		</Node>
+		<Node id="67">
+			<Name>NSMutableArray(NSMutableArray_LjsAdditions)</Name>
+			<Path>Categories/NSMutableArray+NSMutableArray_LjsAdditions.html</Path>
+		</Node>
+		<Node id="68">
+			<Name>NSSet(NSSet_LjsAdditions)</Name>
+			<Path>Categories/NSSet+NSSet_LjsAdditions.html</Path>
+		</Node>
+		<Node id="69">
+			<Name>NSString(NSString_LjsAdditions)</Name>
+			<Path>Categories/NSString+NSString_LjsAdditions.html</Path>
+		</Node>
+		<Node id="70">
+			<Name>NSString(NSString_LjsWebAdditions)</Name>
+			<Path>Categories/NSString+NSString_LjsWebAdditions.html</Path>
+		</Node>
+		<Node id="71">
+			<Name>UIButton(UIButton_LjsAdditions)</Name>
+			<Path>Categories/UIButton+UIButton_LjsAdditions.html</Path>
+		</Node>
+		<Node id="72">
+			<Name>UIColor(UIColor_LjsAdditions)</Name>
+			<Path>Categories/UIColor+UIColor_LjsAdditions.html</Path>
+		</Node>
+		<Node id="73">
+			<Name>UIImage(UIImage_LjsCategory)</Name>
+			<Path>Categories/UIImage+UIImage_LjsCategory.html</Path>
+		</Node>
+		<Node id="74">
+			<Name>UIImageView(UIImageView_LjsAdditions)</Name>
+			<Path>Categories/UIImageView+UIImageView_LjsAdditions.html</Path>
+		</Node>
+		<Node id="75">
+			<Name>UILabel(UILabel_LjsAdditions)</Name>
+			<Path>Categories/UILabel+UILabel_LjsAdditions.html</Path>
+		</Node>
+		<Node id="76">
+			<Name>UIView(UIView_LjsAdditions)</Name>
+			<Path>Categories/UIView+UIView_LjsAdditions.html</Path>
+		</Node>
+		<Node id="77">
+			<Name>UIViewController(UIViewController_ParentOrPresenting)</Name>
+			<Path>Categories/UIViewController+UIViewController_ParentOrPresenting.html</Path>
+		</Node>
+		
+		<Node id="78">
+			<Name>LjsBackingStore</Name>
+			<Path>Protocols/LjsBackingStore.html</Path>
+		</Node>
+		<Node id="79">
+			<Name>LjsModalWindowDismissDelegate</Name>
+			<Path>Protocols/LjsModalWindowDismissDelegate.html</Path>
+		</Node>
+		<Node id="80">
+			<Name>LjsRepeatingTimerProtocol</Name>
+			<Path>Protocols/LjsRepeatingTimerProtocol.html</Path>
+		</Node>
+		<Node id="81">
+			<Name>LjsTableViewOwnerProtocol</Name>
+			<Path>Protocols/LjsTableViewOwnerProtocol.html</Path>
+		</Node>
+		<Node id="82">
+			<Name>LjsTimePickerDidChangeCallBackDelegate</Name>
+			<Path>Protocols/LjsTimePickerDidChangeCallBackDelegate.html</Path>
+		</Node>
+		
+	</Library>
+</DocSetNodes>

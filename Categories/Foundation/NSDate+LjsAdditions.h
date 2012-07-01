@@ -34,7 +34,7 @@
 //
 /*
  
- tapku.com || http://github.com/devinross/tapkulibrary
+ tapku.com  http://github.com/devinross/tapkulibrary
  
  Permission is hereby granted, free of charge, to any person
  obtaining a copy of this software and associated documentation
@@ -80,6 +80,7 @@ typedef struct LjsDateComps LjsDateComps;
 
 /** @name Task Section */
 - (NSString *) descriptionWithCurrentLocale;
+- (NSString *) descriptionWithISO8601;
 
 + (NSDate *) LjsDateNotFound;
 - (BOOL) isNotFound;
@@ -93,9 +94,17 @@ typedef struct LjsDateComps LjsDateComps;
 - (NSDate *) nextMonth;
 - (NSDate *) previousMonth;
 
-
-
+- (BOOL) isSameAsDate:(NSDate *) aDate;
+- (BOOL) comesBeforeDate:(NSDate *) aDate;
+- (BOOL) comesAfterDate:(NSDate *) aDate;
 - (BOOL) isSameDay:(NSDate *) aDate;
+
+- (BOOL) isWithinSeconds:(NSTimeInterval) aSeconds
+                      ofDate:(NSDate *) aDate;
+
+- (BOOL) isAlmostNow;
+
+
 - (NSUInteger) daysBetweenDate:(NSDate *) aDate;
 - (NSUInteger) daysBetweenDate:(NSDate *) aDate 
                       calendar:(NSCalendar *) aCalendar;

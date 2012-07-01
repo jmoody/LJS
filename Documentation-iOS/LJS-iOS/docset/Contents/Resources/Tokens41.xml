@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/LjsLogFileManager.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsLogFileManager</TokenIdentifier>
+			<Abstract>This class overrides one method fromt the superclass DDLogFileManagerDefault:
+createNewLogFile and limits the number of log files to one (1).</Abstract>
+			<DeclaredIn>LjsLogFileManager.h</DeclaredIn>
+			
+			<NodeRef refid="41"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsLogFileManager/init</TokenIdentifier>
+			<Abstract>an initialized receiver with maximumNumberOfLogFiles = 1</Abstract>
+			<DeclaredIn>LjsLogFileManager.m</DeclaredIn>			
+			
+			<Declaration>- (id)init</Declaration>
+			
+			<ReturnValue><Abstract>an initialized receiver with maximumNumberOfLogFiles = 1</Abstract></ReturnValue>
+			<Anchor>//api/name/init</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsLogFileManager/createNewLogFile</TokenIdentifier>
+			<Abstract>Generates a new unique log file path, and creates the corresponding log file.</Abstract>
+			<DeclaredIn>LjsLogFileManager.m</DeclaredIn>			
+			
+			<Declaration>- (NSString *)createNewLogFile</Declaration>
+			
+			
+			<Anchor>//api/name/createNewLogFile</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/LjsGoogleManager.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsGoogleManager</TokenIdentifier>
+			<Abstract>Documentation</Abstract>
+			<DeclaredIn>LjsGoogleManager.h</DeclaredIn>
+			
+			<NodeRef refid="16"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

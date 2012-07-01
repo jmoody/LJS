@@ -170,7 +170,10 @@
    onIntervalMin:(CGFloat) aMin
              max:(CGFloat) aMax;
 
+#if TARGET_OS_IPHONE
 + (BOOL) isZeroRect:(CGRect) aRect;
+#endif
+
 @end
 
 @interface LjsReasons : NSObject
@@ -183,6 +186,8 @@
 - (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id) aObject notInArray:(NSArray *) aArray;
 - (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id)aObject inList:(id) aFirst, ...NS_REQUIRES_NIL_TERMINATION;
 - (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id) aObject inArray:(NSArray *) aArray;
+
+- (void) addReasonWithVarName:(NSString *)aVarName ifNilSelector:(SEL) aSel;
 
 - (NSString *) explanation:(NSString *) aExplanation;
 - (NSString *) explanation:(NSString *) aExplanation

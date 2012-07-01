@@ -31,8 +31,6 @@
 
 #import "LjsFileUtilities.h"
 #import "Lumberjack.h"
-#import "NSError+LjsAdditions.h"
-#include "TargetConditionals.h"
 
 
 static const int ddLogLevel = LOG_LEVEL_WARN;
@@ -121,7 +119,7 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
  MacOS
  @return the path to the standard document directory
  */
-+ (NSString *) findDocumentDirectoryPath {
++ (NSString *) findDocumentDirectory {
   NSArray *dirPaths = 
   NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, 
                                       NSUserDomainMask, 
@@ -130,7 +128,7 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
 }
 
 
-+ (NSString *) findLibraryDirectoryPath:(BOOL) forUser {
++ (NSString *) findLibraryDirectoryForUserp:(BOOL) forUser {
   NSSearchPathDomainMask mask;
   if (forUser == YES) {
     mask = NSUserDomainMask;
@@ -144,21 +142,43 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
   return [dirPaths objectAtIndex:0];
 }
 
-+ (NSString *) findCoreDataLibraryPath:(BOOL) forUser {
++ (NSString *) findCoreDataStoreDirectoryForUserp:(BOOL) forUser {
   NSString *result;
 #if !TARGET_OS_IPHONE
-  result = [LjsFileUtilities findOrCreateApplicationFilesDirectory:forUser];
+  result = [LjsFileUtilities findApplicationSupportDirectoryForUserp:forUser];
 #else
-  result = [LjsFileUtilities findLibraryDirectoryPath:forUser];
+  result = [LjsFileUtilities findLibraryDirectoryForUserp:forUser];
 #endif
   return result;
 }
 
-+ (NSString *) findLibraryPreferencesPath:(BOOL) forUser {
-  NSString *library = [LjsFileUtilities findLibraryDirectoryPath:forUser];
++ (NSString *) findPreferencesDirectoryForUserp:(BOOL) forUser {
+  NSString *library = [LjsFileUtilities findLibraryDirectoryForUserp:forUser];
   return [library stringByAppendingPathComponent:LjsFileUtilitiesPreferencesDirectory];
 }
 
+#if !TARGET_OS_IPHONE
++ (NSString *) findApplicationSupportDirectoryForUserp:(BOOL) forUser {
+  NSSearchPathDomainMask mask;
+  if (forUser == YES) {
+    mask = NSUserDomainMask;
+  } else {
+    mask = NSLocalDomainMask;
+  }
+  
+  NSArray *dirPaths = 
+  NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory,
+                                      mask, 
+                                      YES);
+  NSString *appSupDir = [dirPaths objectAtIndex:0];
+  NSBundle *main = [NSBundle mainBundle];
+  NSString *bundleName = [main.infoDictionary objectForKey:@"CFBundleName"];
+  NSString *result = [appSupDir stringByAppendingPathComponent:bundleName];
+  [LjsFileUtilities ensureDirectory:result error:nil];
+  return result;
+}
+
+#endif
 
 
 /**
@@ -232,26 +252,6 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
     }
     result = savePath;
   }
-  return result;
-}
-
-+ (NSString *) findOrCreateApplicationFilesDirectory:(BOOL) forUser {
-  NSSearchPathDomainMask mask;
-  if (forUser == YES) {
-    mask = NSUserDomainMask;
-  } else {
-    mask = NSLocalDomainMask;
-  }
-
-  NSArray *dirPaths = 
-  NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory,
-                                      mask, 
-                                      YES);
-  NSString *appSupDir = [dirPaths objectAtIndex:0];
-  NSBundle *main = [NSBundle mainBundle];
-  NSString *bundleName = [main.infoDictionary objectForKey:@"CFBundleName"];
-  NSString *result = [appSupDir stringByAppendingPathComponent:bundleName];
-  [LjsFileUtilities ensureDirectory:result error:nil];
   return result;
 }
 #endif
@@ -415,6 +415,49 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
   return array;
 }
 
++ (NSArray *) readLinesFromFile:(NSString *) aPath error:(NSError  *__autoreleasing *) error {
+  DDLogDebug(@"reading lines from file at path: %@", aPath);
+  
+  NSFileManager *fm = [NSFileManager defaultManager];
+  BOOL exists = [fm fileExistsAtPath:aPath];
+  if (exists == NO) {
+    NSString *message = NSLocalizedString(@"file does not exist at path.", nil);
+    DDLogError(@"%@: %@ - returning nil", message, aPath);
+    if (error != NULL) {
+      NSDictionary *userInfo;
+      NSString *ensurePath;
+      if (aPath == nil) {
+        ensurePath = @"<path was nil>";
+      }
+      userInfo = [NSDictionary dictionaryWithObject:ensurePath
+                                             forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
+      
+      *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
+                                   code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+                   localizedDescription:message
+                          otherUserInfo:userInfo];
+    }
+    return nil;
+  }
+  
+  NSError *readError = nil;
+  NSData *data = [[NSData alloc] 
+                  initWithContentsOfFile:aPath
+                  options:NSDataReadingUncached 
+                  error:&readError];
+  if (data == nil) {
+    NSString *message = NSLocalizedString(@"error reading file at path", nil);
+    
+    DDLogError(@"%@: %@\n%@: %@", message, aPath, [readError localizedDescription],
+               readError);
+    if (error != NULL) {
+      *error = readError;
+    }
+    return nil;
+  }
 
+  NSString *text = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+  return [text componentsSeparatedByString:@"\n"];
+}
 
 @end

@@ -43,7 +43,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                                            panZoomController,
                                            scrollController, nil];
   self.window.rootViewController = self.tabBarController;
-  [self.tabBarController setSelectedIndex:3];
+  [self.tabBarController setSelectedIndex:0];
   [self.window makeKeyAndVisible];
   return YES;
 }

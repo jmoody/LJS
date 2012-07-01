@@ -1,6 +1,9 @@
 #import <Foundation/Foundation.h>
 #import "LjsRepeatingTimerProtocol.h"
 
+/**
+ Documentation
+ */
 @interface LjsServiceObserver : NSObject <LjsRepeatingTimerProtocol> {
     
 }

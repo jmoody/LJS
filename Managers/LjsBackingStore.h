@@ -77,6 +77,8 @@
 
 
 
+/** @name Optional Methods */
+
 @optional
 
 
@@ -84,9 +86,7 @@
 - (void) storeObject:(id) object forKey:(NSString *) aKey;
 - (void) storeBool:(BOOL) aBool forKey:(NSString *) aKey;
 - (void) removeObjectForKey:(NSString *) aKey;
+- (NSString *) filepath;
 
-
-/** @name Optional Methods */
-@optional
 
 @end

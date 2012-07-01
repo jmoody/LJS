@@ -30,7 +30,6 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "NSDecimalNumber+LjsAdditions.h"
 #import "Lumberjack.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -149,8 +148,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [a compare:b] == NSOrderedSame;
 }
 
-/**
- @return true iff a < b
+/***
+ @return true iff a lt b
  @param a left hand side
  @param b right hand side
  */
@@ -159,7 +158,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 /**
- @return true iff a > b
+ @return true iff a gt b
  @param a left hand side
  @param b right hand side
  */
@@ -168,7 +167,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 /**
- @return true iff a <= b
+ @return true iff a lte b
  @param a left hand side
  @param b right hand side
  */
@@ -177,7 +176,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 /**
- @return true iff a >= b
+ @return true iff a gte b
  @param a left hand side
  @param b right hand side
  */

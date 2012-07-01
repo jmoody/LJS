@@ -133,6 +133,8 @@ extern NSString *LjsOrderedDateFormatWithMillis;
 + (NSDateFormatter *) isoDateWithMillisFormatter;
 + (NSDateFormatter *) orderedDateFormatter;
 + (NSDateFormatter *) orderedDateFormatterWithMillis;
++ (NSDateFormatter *) isoDateWithMillisAnd_GMT_Formatter;
+
 
 /** @name Handy Locales for 12 and 24 hour formats */
 + (NSLocale *) twelveHourLocale;
@@ -148,6 +150,10 @@ extern NSString *LjsOrderedDateFormatWithMillis;
 + (NSUInteger) dayOfMonthWithDate:(NSDate *) aDate;
 + (NSDate *) lastDayOfMonthWithDate:(NSDate *) aDate;
 + (NSDate *) firstDayOfMonthWithDate:(NSDate *) aDate;
+
+
++ (NSArray *) datesWithWeek:(NSUInteger) aWeek ofYear:(NSUInteger) aYear;
+
 
 + (NSString *) audioTimeStringWithInterval:(NSTimeInterval) aInterval;
 

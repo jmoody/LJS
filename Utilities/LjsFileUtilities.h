@@ -40,10 +40,13 @@ typedef enum {
 
 @interface LjsFileUtilities : NSObject 
 
-+ (NSString *) findDocumentDirectoryPath;
-+ (NSString *) findLibraryDirectoryPath:(BOOL) forUser;
-+ (NSString *) findLibraryPreferencesPath:(BOOL) forUser;
-+ (NSString *) findCoreDataLibraryPath:(BOOL) forUser;
++ (NSString *) findDocumentDirectory;
++ (NSString *) findLibraryDirectoryForUserp:(BOOL) forUser;
++ (NSString *) findPreferencesDirectoryForUserp:(BOOL) forUser;
++ (NSString *) findCoreDataStoreDirectoryForUserp:(BOOL) forUser;
+#if !TARGET_OS_IPHONE
++ (NSString *)findApplicationSupportDirectoryForUserp:(BOOL) forUser; 
+#endif
 
 + (BOOL) ensureSaveDirectory:(NSString *) path existsWithManager:(NSFileManager *) fileManager;
 + (BOOL) ensureDirectory:(NSString *) directoryPath error:(NSError *__autoreleasing *) error;
@@ -57,7 +60,6 @@ typedef enum {
                          fallBackDirectory:(NSString *) fallbackDirectory
                           defaultsKeyOrNil:(NSString *) aDefaultsKeyOrNil;
 
-+ (NSString *)findOrCreateApplicationFilesDirectory:(BOOL) forUser; 
 #endif
 
 
@@ -83,6 +85,7 @@ typedef enum {
 
 + (NSArray *) readArrayFromFile:(NSString *) aPath error:(NSError *__autoreleasing *) error;
 
++ (NSArray *) readLinesFromFile:(NSString *) aPath error:(NSError  *__autoreleasing *) error;
 
 
 @end
