@@ -39,6 +39,6 @@ fi
 alias be='bundle exec'
 #alias cuke='appledoc-script.sh;NO_LAUNCH=1 OS=ios5 cucumber'
 #alias cuke='/usr/bin/osascript -e 'tell application "iPhone Simulator" to activate';NO_LAUNCH=1 OS=ios5 cucumber'
-
+alias btar='tar --use-compress-program /opt/local/bin/bzip2 '
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
