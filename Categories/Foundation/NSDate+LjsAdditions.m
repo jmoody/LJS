@@ -231,7 +231,7 @@ NSSecondCalendarUnit);
   
   NSDateComponents *difference = [aCalendar components:NSDayCalendarUnit
                                               fromDate:fromDate toDate:toDate options:0];
-  return (NSUInteger)abs(difference.day);
+  return (NSUInteger)ABS(difference.day);
 }
 
 - (NSDate *) dateByAddingDays:(NSInteger) aNumberOfDays {

@@ -83,7 +83,6 @@
 - (void) setUpClass {
 //  [super setUpClass];
   // Run at start of all tests in the class
-  self.resourceName = @"google-places-details-sample";
   [super setUpClass];
 }
 
@@ -93,6 +92,7 @@
 }
 
 - (void) setUp {
+  self.resourceName = @"google-places-details-sample";
   [super setUp];
   // Run before each test method
 }

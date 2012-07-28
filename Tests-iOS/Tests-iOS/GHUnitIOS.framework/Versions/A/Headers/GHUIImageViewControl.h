@@ -1,9 +1,9 @@
 //
-//  GHNSObject+Swizzle.h
-//  GHUnit
+//  GHUIImageViewControl.h
+//  GHUnitIOS
 //
-//  Created by Gabriel Handford on 4/13/09.
-//  Copyright 2009. All rights reserved.
+//  Created by Gabriel Handford on 4/1/11.
+//  Copyright 2011. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person
 //  obtaining a copy of this software and associated documentation
@@ -27,25 +27,15 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-/*!
- Method swizzling.
- */
-@interface NSObject(GHUSwizzle)
+@interface GHUIImageViewControl : UIControl { 
+  UIImageView *_imageView;
+}
 
-/*!
- Swizzle instance method.
- @param original Original method
- @param withMethod New method
- */
-+ (void)ghu_swizzleMethod:(SEL)original withMethod:(SEL)withMethod;
+@property (readonly, nonatomic) UIImageView *imageView;
+@property (nonatomic) UIImage *image;
 
-/*!
- Swizzle class method.
- @param original Original method
- @param withClassMethod New method
- */
-+ (void)ghu_swizzleClassMethod:(SEL)original withClassMethod:(SEL)withClassMethod;
+- (id)initWithFrame:(CGRect)frame image:(UIImage *)image highlightedImage:(UIImage *)highlightedImage;
 
 @end

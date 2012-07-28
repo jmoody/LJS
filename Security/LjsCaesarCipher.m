@@ -57,15 +57,15 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (id) initWithRotate:(NSUInteger)aRotate {
   self = [super init];
   if (self) {
-    static NSUInteger const LjsCipherAsciiMaximum = 126;
-    static NSUInteger const LjsCipherAsciiMinimum = 32;
+    static unsigned short int const LjsCipherAsciiMaximum = 126;
+    static unsigned short int const LjsCipherAsciiMinimum = 32;
     NSUInteger rotate = aRotate;
     
     NSMutableDictionary *encodeDict = [NSMutableDictionary dictionary];
     NSMutableDictionary *decodeDict = [NSMutableDictionary dictionary];
-    for (NSUInteger index = 32; index <= LjsCipherAsciiMaximum; index++) {
+    for (unsigned short int index = 32; index <= LjsCipherAsciiMaximum; index++) {
       NSString *key = [NSString stringWithFormat:@"%c", index];
-      NSUInteger shift = index + rotate;
+      unsigned short int shift = index + rotate;
       // NSUInteger foo = shift;
       while (shift > LjsCipherAsciiMaximum) {
         shift = LjsCipherAsciiMinimum + (shift - LjsCipherAsciiMaximum) - 1;
@@ -83,8 +83,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     }
     self.encode = [NSDictionary dictionaryWithDictionary:encodeDict];
     self.decode = [NSDictionary dictionaryWithDictionary:decodeDict];
-    // DDLogDebug(@"encode = %@", self.encode);
-    // DDLogDebug(@"decode = %@", self.decode);
+    //DDLogDebug(@"encode = %@", self.encode);
+    //DDLogDebug(@"decode = %@", self.decode);
   }
   return self;
 }
@@ -93,7 +93,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSUInteger count = [aString length];
   NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
   for (NSUInteger index = 0; index < count; index ++) {
-    NSUInteger charAt = (NSUInteger)[aString characterAtIndex:index];
+    unsigned char charAt = [aString characterAtIndex:index];
     NSString *key = [NSString stringWithFormat:@"%c", charAt];
     NSString *encoded = [self.encode objectForKey:key];
     if (encoded == nil) {
@@ -108,7 +108,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSUInteger count = [aString length];
   NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
   for (NSUInteger index = 0; index < count; index ++) {
-    NSUInteger charAt = (NSUInteger)[aString characterAtIndex:index];
+    unsigned char charAt = [aString characterAtIndex:index];
     NSString *key = [NSString stringWithFormat:@"%c", charAt];
     NSString *decoded = [self.decode objectForKey:key];
     if (decoded == nil) {

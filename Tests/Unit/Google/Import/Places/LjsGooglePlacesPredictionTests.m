@@ -82,9 +82,7 @@
 }
 
 - (void) setUpClass {
-  //[super setUpClass];
   // Run at start of all tests in the class
-  self.resourceName = @"google-places-autocomplete-sample";
   [super setUpClass];
 }
 
@@ -94,8 +92,8 @@
 }
 
 - (void) setUp {
-  [super setUp];
-  // Run before each test method
+  self.resourceName = @"google-places-autocomplete-sample";
+  [super setUp];  
 }
 
 - (void) tearDown {
@@ -104,16 +102,10 @@
 }  
 
 - (void) test_predictionTestInit {
-  SBJsonParser *parser;
-  NSError *error;
-  NSDictionary *dict;
-  NSArray *predictions;
-  LjsGooglePlacesPrediction *prediction;
 
-  error = nil;
-  parser = [[SBJsonParser alloc] init];
-  dict = [parser objectWithString:self.jsonResource
-                            error:&error];
+  NSError *error = nil;
+  SBJsonParser *parser = [[SBJsonParser alloc] init];
+  NSDictionary *dict = [parser objectWithString:self.jsonResource error:&error];
   
   if (dict == nil) {
     GHTestLog(@"failed because of an error: %@", error);
@@ -121,7 +113,8 @@
   
   GHAssertNotNil(dict, @"error: %@", error);
   
-  predictions = [dict objectForKey:@"predictions"];
+  LjsGooglePlacesPrediction *prediction = nil;
+  NSArray *predictions = [dict objectForKey:@"predictions"];
   
   for (NSDictionary *predDict in predictions) {
     prediction = [[LjsGooglePlacesPrediction alloc]

@@ -439,7 +439,7 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
       }
       NSString *minutesStr = [tokens objectAtIndex:1];
       if ([LjsDateHelper minutesStringValid:minutesStr] == NO) {
-        [reasons addObject:[NSString stringWithFormat:@"minutes portion of time are not within 0 and 59: %d", minutesStr]];
+        [reasons addObject:[NSString stringWithFormat:@"minutes portion of time are not within 0 and 59: %@", minutesStr]];
       }
       if ([tokens count] == 3) {
         NSString *amPm = [tokens objectAtIndex:2];
@@ -549,7 +549,7 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
       amPmString = LjsDateHelperCanonicalAM;
     } else if (twentyFourHourInt > 12) {
       twelveHourInt = twentyFourHourInt - 12;
-      twelveHourString = [NSString stringWithFormat:@"%d", twelveHourInt];
+      twelveHourString = [NSString stringWithFormat:@"%ld", (long)twelveHourInt];
       twelveHourNumber = [NSNumber numberWithInteger:twelveHourInt];
       amPmString = LjsDateHelperCanonicalPM;
     } else {
@@ -619,17 +619,17 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
         twentyFourHourNumber = [NSNumber numberWithInteger:twentyFourHourInt];
       } else {
         twentyFourHourInt = twelveHourInt;
-        twentyFourHourString = [NSString stringWithFormat:@"%d", twentyFourHourInt];
+        twentyFourHourString = [NSString stringWithFormat:@"%ld", (long)twentyFourHourInt];
         twentyFourHourNumber = [NSNumber numberWithInteger:twentyFourHourInt];
       }
     } else {
       if (twelveHourInt == 12) {
         twentyFourHourInt = twelveHourInt;
-        twentyFourHourString = [NSString stringWithFormat:@"%d", twentyFourHourInt];
+        twentyFourHourString = [NSString stringWithFormat:@"%ld", (long)twentyFourHourInt];
         twentyFourHourNumber = [NSNumber numberWithInteger:twentyFourHourInt];
       } else {
         twentyFourHourInt = twelveHourInt + 12;
-        twentyFourHourString = [NSString stringWithFormat:@"%d", twentyFourHourInt];
+        twentyFourHourString = [NSString stringWithFormat:@"%ld", (long)twentyFourHourInt];
         twentyFourHourNumber = [NSNumber numberWithInteger:twentyFourHourInt];
       }
     }
@@ -982,11 +982,11 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
   NSUInteger seconds = secondsLessMinutes / 1;
   NSString *result = @"";
   if (hours > 0) {
-    result = [result stringByAppendingFormat:@"%d:%02d:", hours, minutes];
+    result = [result stringByAppendingFormat:@"%ld:%02ld:", (long)hours, (long)minutes];
   } else {
-    result = [result stringByAppendingFormat:@"%d:", minutes];
+    result = [result stringByAppendingFormat:@"%ld:", (long)minutes];
   } 
-  result = [result stringByAppendingFormat:@"%02d", seconds];
+  result = [result stringByAppendingFormat:@"%02ld", (long)seconds];
   return result;
 }
 

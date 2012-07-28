@@ -219,7 +219,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 - (void) addReason:(NSString *)aReason {
   if ([LjsValidator stringIsNonNilAndNotEmpty:aReason] == NO) {
-    DDLogWarn(@"declining to add reason < %@ > - reasons must be non-nil and non-empty");
+    DDLogWarn(@"declining to add reason < %@ > - reasons must be non-nil and non-empty", aReason);
     return;
   }
   [self.reasons nappend:aReason];

@@ -118,7 +118,7 @@ fail:
 }
 
 - (NSString *) description {
-  return [NSString stringWithFormat:@"Gestalt %d.%d.%d",
+  return [NSString stringWithFormat:@"Gestalt %ld.%ld.%ld",
           self.majorVersion, self.minorVersion, self.bugVersion];
           
 }

@@ -693,8 +693,9 @@ static NSString *LjsLocation_SCALE_KEY = @"scale";
  not be retrieved.
 */
 - (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-  DDLogError(@"failed to get location: %@ %@ %d", [error domain], [error localizedDescription], 
-             [error code]);
+  DDLogError(@"failed to get location: %@ %@ %ld", [error domain],
+             [error localizedDescription],
+             (long)[error code]);
 }
 
 /**

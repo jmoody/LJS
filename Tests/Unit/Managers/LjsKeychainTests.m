@@ -705,7 +705,7 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
 - (void) printerror:(NSError *) error {
   NSInteger code = [error code];
   NSString *message = [error localizedDescription];
-  GHTestLog(@"%d: %@", code, message);
+  GHTestLog(@"%ld: %@", (long)code, message);
   NSString *reason = [error localizedFailureReason];
   GHTestLog(@"reason = %@", reason);
   NSString *recovery = [error localizedRecoverySuggestion];
@@ -806,7 +806,7 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
     if (error != nil) {
       [self printerror:error];
     } else {
-      GHTestLog(@"deleted password for %@ in %@", fetcehedPwd, name, domain);
+      GHTestLog(@"deleted password < %@ > for %@ in %@", fetcehedPwd, name, domain);
     }
     
     error = nil;

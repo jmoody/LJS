@@ -113,7 +113,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     error = @"Success.";
   }
   NSString *result =
-  [NSString stringWithFormat:@"%d:  %@", [self responseCodeWithRequest:aRequest], error];
+  [NSString stringWithFormat:@"%ld:  %@", (long)[self responseCodeWithRequest:aRequest], error];
   return result;
 }
 

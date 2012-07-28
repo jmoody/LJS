@@ -995,45 +995,45 @@
     expected = 1;
     actual = [LjsDateHelper weekOfMonthWithDate:date];
     
-    GHTestLog(@"actual week = %d : %@", actual, date);
+    GHTestLog(@"actual week = %ld : %@", (long)actual, date);
     GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil);  
     
     NSTimeInterval secondsInADay = LjsSecondsInDay;
     date = [jan1st2012 dateByAddingTimeInterval:secondsInADay];
     expected = 2;
     actual = [LjsDateHelper weekOfMonthWithDate:date];
-    GHTestLog(@"actual week = %d : %@", actual, date);
+    GHTestLog(@"actual week = %ld : %@", (long)actual, date);
     GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil);  
     
     date = [jan1st2012 dateByAddingTimeInterval:secondsInADay * 2];
     expected = 2;
     actual = [LjsDateHelper weekOfMonthWithDate:date];
-    GHTestLog(@"actual week = %d : %@", actual, date);
+    GHTestLog(@"actual week = %ld : %@", (long)actual, date);
     GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil); 
     
     date = [jan1st2012 dateByAddingTimeInterval:secondsInADay * 7];
     expected = 2;
     actual = [LjsDateHelper weekOfMonthWithDate:date];
-    GHTestLog(@"actual week = %d : %@", actual, date);
+    GHTestLog(@"actual week = %ld : %@", (long)actual, date);
     GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil); 
     
     date = [jan1st2012 dateByAddingTimeInterval:secondsInADay * 8];
     expected = 3;
     actual = [LjsDateHelper weekOfMonthWithDate:date];
-    GHTestLog(@"actual week = %d : %@", actual, date);
+    GHTestLog(@"actual week = %ld : %@", (long)actual, date);
     GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil); 
     
     
     date = [jan1st2012 dateByAddingTimeInterval:secondsInADay * 30];
     expected = 6;
     actual = [LjsDateHelper weekOfMonthWithDate:date];
-    GHTestLog(@"actual week = %d : %@", actual, date);
+    GHTestLog(@"actual week = %ld : %@", (long)actual, date);
     GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil); 
     
     date = [jan1st2012 dateByAddingTimeInterval:secondsInADay * 31];
     expected = 1;
     actual = [LjsDateHelper weekOfMonthWithDate:date];
-    GHTestLog(@"actual week = %d : %@", actual, date);
+    GHTestLog(@"actual week = %ld : %@", (long)actual, date);
     GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil); 
     
   }

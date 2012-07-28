@@ -237,7 +237,7 @@ static NSString *LjsConnectivityStatusStringNoInternet = @"Reachability:  Intern
                                                         object:nil 
                                                       userInfo:userInfo];
   } else {
-    DDLogDebug(@"old status is the same as current status < %d > no need to post a notification");
+    DDLogDebug(@"old status is the same as current status < %d > no need to post a notification", self.connectivityStatus);
   }
 }
 

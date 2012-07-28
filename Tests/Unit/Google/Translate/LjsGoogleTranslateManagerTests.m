@@ -264,9 +264,10 @@
 }
 
 - (void) requestDidFinish:(ASIHTTPRequest *)aRequest {
-  GHTestLog(@"request did finish: %d: %@", [aRequest responseCode],
+  GHTestLog(@"request did finish: %ld: %@", (long)[aRequest responseCode],
             [aRequest responseDescription]);
   GHAssertTrue(aRequest.tag == 0, nil);
+  GHTestLog(@"request was 200 or 201 successful = %d", [aRequest was200or201Successful]);
   self.operationSucceeded = [aRequest was200or201Successful];
   [self.condition lock];
 	[self.condition signal];
@@ -372,7 +373,7 @@
 - (void) failedTranslationWithTag:(NSUInteger)aTag 
                           request:(ASIHTTPRequest *)aRequest 
                           manager:(LjsGoogleTranslateManager *)aManager {
-  GHTestLog(@"failed translation with tag: %d", aTag);
+  GHTestLog(@"failed translation with tag: %ld", (long)aTag);
   GHAssertTrue(aTag == 0, nil);
   self.operationSucceeded = NO;
   [self.condition lock];
@@ -385,7 +386,7 @@
                              tag:(NSUInteger)aTag 
                         userInfo:(NSDictionary *)aUserInfo 
                          manager:(LjsGoogleTranslateManager *)aManager {
-  GHTestLog(@"finished with translation %d: %@", aTag, aTranslation);
+  GHTestLog(@"finished with translation %ld: %@", (long)aTag, aTranslation);
   GHAssertTrue(aTag == 0, nil);
   GHAssertEqualStrings(aTranslation, @"Text", nil);
   self.operationSucceeded = YES;

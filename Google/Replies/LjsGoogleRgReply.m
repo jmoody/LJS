@@ -51,8 +51,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 
 - (NSString *) description {
-  return [NSString stringWithFormat:@"#<Reverse Geo Reply:  %@ %d>",
-          [self status], [self count]];
+  return [NSString stringWithFormat:@"#<Reverse Geo Reply:  %@ %ld>",
+          [self status], (long)[self count]];
 }
 
 

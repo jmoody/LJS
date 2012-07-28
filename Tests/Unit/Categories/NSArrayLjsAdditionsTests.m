@@ -295,7 +295,7 @@
 - (void) test_mapc_using_index {
   NSArray *array = [self arrayOfMutableStrings];
   NSArray *actual = [array mapc:^(NSMutableString *obj, NSUInteger idx, BOOL *stop) {
-    NSString *newStr = [NSString stringWithFormat:@"%d", idx];
+    NSString *newStr = [NSString stringWithFormat:@"%ld", (long)idx];
     [obj setString:newStr];
   }];
   GHAssertEqualObjects(array, actual, @"array returned by mapc should be the same object as the target");

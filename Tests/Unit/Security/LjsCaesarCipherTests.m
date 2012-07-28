@@ -101,8 +101,7 @@
 }  
 
 
-- (void) test_EncodeDecode {
-
+- (void) test_encode_decode_with_no_rotation {
   NSUInteger rotate;
   LjsCaesarCipher *cipher;
   NSString *original, *encoded, *decoded;
@@ -113,17 +112,15 @@
   encoded = [cipher stringByEncodingString:original];
   GHAssertEqualStrings(original, encoded, nil);
   decoded = [cipher stringByDecodingString:encoded];
-  GHAssertEqualStrings(original, decoded, nil);
+  GHAssertEqualStrings(encoded, decoded, nil);
+}
 
-  rotate = 95;
-  cipher = [[LjsCaesarCipher alloc] initWithRotate:rotate];
-  original = [LjsVariates randomAsciiWithLengthMin:5 lenghtMax:55];;
-  encoded = [cipher stringByEncodingString:original];
-  GHAssertEqualStrings(original, encoded, nil);
-  decoded = [cipher stringByDecodingString:encoded];
-  GHAssertEqualStrings(original, decoded, nil);
-  
-  
+- (void) test_encode_decode_with_random_rotation {
+
+  NSUInteger rotate;
+  LjsCaesarCipher *cipher;
+  NSString *original, *encoded, *decoded;
+
   for (NSUInteger index = 0; index < 100; index++) {
     rotate = [LjsVariates randomIntegerWithMin:1 max:NSUIntegerMax];
     if (rotate == 0 || rotate == 95) {

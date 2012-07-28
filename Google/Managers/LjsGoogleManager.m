@@ -187,7 +187,7 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
   } 
   
   if (count > 1) {
-    DDLogFatal(@"error fetching place with id: %@ - found multiple records: %d", aId, count);
+    DDLogFatal(@"error fetching place with id: %@ - found multiple records: %ld", aId, (long)count);
   } 
   return count == 1;
 }
@@ -457,7 +457,7 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
 
 - (void) requestForPredictionsFailedWithCode:(NSUInteger)aCode 
                                      request:(ASIHTTPRequest *)aRequest {
-  DDLogDebug(@"request failed with code: %d", aCode);
+  DDLogDebug(@"request failed with code: %ld", (long)aCode);
 }
 
 - (void) requestForPredictionsFailedWithCode:(NSString *) aStatusCode
@@ -486,7 +486,7 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
 
 - (void) requestForDetailsFailedWithCode:(NSUInteger) aCode
                                  request:(ASIHTTPRequest *) aRequest {
-  DDLogDebug(@"failed with code: %d", aCode);
+  DDLogDebug(@"failed with code: %ld", (long)aCode);
 }
 
 - (void) requestForDetailsFailedWithCode:(NSString *) aStatusCode
@@ -534,7 +534,7 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
 
 - (void) requestForReverseGeocodeFailedWithCode:(NSUInteger) aCode
                                         request:(ASIHTTPRequest *) aRequest {
-  DDLogDebug(@"request failed with code: %d", aCode);
+  DDLogDebug(@"request failed with code: %ld", (long)aCode);
 }
 
 
