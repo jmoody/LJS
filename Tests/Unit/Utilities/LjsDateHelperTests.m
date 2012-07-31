@@ -1071,6 +1071,33 @@
   }];
 }
 
+//+ (NSDate *) dateWithDayOfYear:(NSUInteger) aDayOfYear
+//                          year:(NSUInteger) aYear {
+
+- (void) test_date_with_day_of_year_and_year {
+  NSUInteger day = 213;
+  NSUInteger year = 2012;
+  NSDate *date = [LjsDateHelper dateWithDayOfYear:day year:year];
+  NSDateFormatter *df = [[NSDateFormatter alloc] init];
+  [df setDateFormat:@"EEE MMM d"];
+  NSString *actual = [df stringFromDate:date];
+  GHAssertEqualStrings(actual, @"Tue Jul 31", @"date should be correct");
+  
+  day = 1;
+  date = [LjsDateHelper dateWithDayOfYear:day year:year];
+  actual = [df stringFromDate:date];
+  GHAssertEqualStrings(actual, @"Sun Jan 1", @"date should be correct");
+  
+  day = 365;
+  date = [LjsDateHelper dateWithDayOfYear:day year:year];
+  actual = [df stringFromDate:date];
+  GHAssertEqualStrings(actual, @"Sun Dec 30", @"date should be correct");
+  
+  day = 366;
+  date = [LjsDateHelper dateWithDayOfYear:day year:year];
+  actual = [df stringFromDate:date];
+  GHAssertEqualStrings(actual, @"Mon Dec 31", @"date should be correct");
+}
 
 
 

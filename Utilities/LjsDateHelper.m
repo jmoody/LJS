@@ -973,6 +973,19 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 
 }
 
++ (NSDate *) dateWithDayOfYear:(NSUInteger) aDayOfYear
+                          year:(NSUInteger) aYear {
+  NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+  [calendar setTimeZone:[NSTimeZone localTimeZone]];
+  //NSInteger flags = NSYearCalendarUnit | NSDayCalendarUnit;
+  NSDateComponents *components = [[NSDateComponents alloc] init];
+
+  components.day = aDayOfYear;
+  components.year = aYear;
+  NSDate *date = [calendar dateFromComponents:components];
+  return date;
+
+}
 
 + (NSString *) audioTimeStringWithInterval:(NSTimeInterval) aInterval {
   NSUInteger hours = aInterval / LjsSecondsInHour;
