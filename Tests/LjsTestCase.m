@@ -60,6 +60,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
    [self valueForKeyPath:@"subviews.fullDescription"], @"subviews",
    nil];
   
+
   if ([self respondsToSelector:@selector(text)])
   {
     [description

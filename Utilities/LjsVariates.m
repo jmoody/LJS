@@ -58,7 +58,7 @@ static double const LjsE = 2.71828;
 
 
 + (BOOL) flip {
-  return [LjsVariates randomIntegerWithMin:0 max:1];
+  return (BOOL)[LjsVariates randomIntegerWithMin:0 max:1];
 }
 
 + (BOOL) flipWithProbilityOfYes:(double) aProbability {
@@ -131,10 +131,10 @@ static double const LjsE = 2.71828;
   if (max <= min) {
     result = max;
   } else {
-    result = ((max - min + 1) * [LjsVariates randomDouble]) + min;
+    result = (NSInteger)(((max - min + 1) * [LjsVariates randomDouble]) + min);
     while (result > max) {
       DDLogInfo(@"regenerating integer because RNG algorithm produced max + 1 - this is expected.");
-      result = ((max - min + 1) * [LjsVariates randomDouble]) + min;
+      result = (NSUInteger)(((max - min + 1) * [LjsVariates randomDouble]) + min);
     }
   }
   return result;
@@ -150,10 +150,9 @@ static double const LjsE = 2.71828;
 
 + (NSArray *) sampleWithReplacement:(NSArray *) array number:(NSUInteger) number {
   NSMutableArray *sampled = [NSMutableArray new];
-  NSInteger loopVar;
   NSInteger randomIndex;
   NSInteger maxArrayIndex = [array count] - 1;
-  for (loopVar = 0; loopVar < number; loopVar++) {
+  for (NSUInteger loopVar = 0; loopVar < number; loopVar++) {
     randomIndex = [LjsVariates randomIntegerWithMin:0 max:maxArrayIndex];
     [sampled addObject:[array objectAtIndex:randomIndex]];
   }
@@ -165,7 +164,7 @@ static double const LjsE = 2.71828;
 + (NSArray *) sampleWithoutReplacement:(NSArray *) array number:(NSUInteger) number {
   NSMutableArray *sampled = [NSMutableArray arrayWithArray:array];
   NSArray *result;
-  NSInteger arraySize = [array count];
+  NSUInteger arraySize = [array count];
   if (arraySize < number) {
     // not possible to generate enough samples with out replacement
     result = nil;
@@ -209,9 +208,9 @@ static double const LjsE = 2.71828;
   NSString *result = @"";
   NSInteger random;
   
-  for(NSInteger finger = 0; finger < length; finger++) {
+  for(NSUInteger finger = 0; finger < length; finger++) {
     random = [LjsVariates randomIntegerWithMin:0 max:_max_index];
-    char character = [_alphanumeric characterAtIndex:random];
+    char character = (char)[_alphanumeric characterAtIndex:random];
     result = [result stringByAppendingFormat:@"%c", character];
   }
   return result;

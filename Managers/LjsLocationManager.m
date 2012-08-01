@@ -77,8 +77,8 @@ static NSString *LjsLocationManagerNeptune = @"neptune";
 
 // himmeri strasse
 // this is what apple returned to me from a search
-static CGFloat const LjsLatitudeZurich = 47.41909409;
-static CGFloat const LjsLongitudeZurich = 8.53678989;
+static CGFloat const LjsLatitudeZurich = (CGFloat)47.41909409;
+static CGFloat const LjsLongitudeZurich = (CGFloat)8.53678989;
 
 @implementation LjsLocation 
 @synthesize latitude;

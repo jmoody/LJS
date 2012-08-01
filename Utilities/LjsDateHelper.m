@@ -988,11 +988,11 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 }
 
 + (NSString *) audioTimeStringWithInterval:(NSTimeInterval) aInterval {
-  NSUInteger hours = aInterval / LjsSecondsInHour;
+  NSUInteger hours = (NSUInteger)(aInterval / LjsSecondsInHour);
   NSTimeInterval minutesLessHours = aInterval - (hours * LjsSecondsInHour);
-  NSUInteger minutes = minutesLessHours / LjsSecondsInMinute;
+  NSUInteger minutes = (NSUInteger)(minutesLessHours / LjsSecondsInMinute);
   NSTimeInterval secondsLessMinutes = minutesLessHours - (minutes * LjsSecondsInMinute);
-  NSUInteger seconds = secondsLessMinutes / 1;
+  NSUInteger seconds = (NSUInteger)(secondsLessMinutes / 1);
   NSString *result = @"";
   if (hours > 0) {
     result = [result stringByAppendingFormat:@"%ld:%02ld:", (long)hours, (long)minutes];

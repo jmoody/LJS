@@ -126,8 +126,6 @@ extern NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable;
 - (id) initWithLatitude:(NSDecimalNumber *) aLatitude
               longitude:(NSDecimalNumber *) aLongitude;
 - (id) initWithLatitude:(NSDecimalNumber *) aLatitude
-              longitude:(NSDecimalNumber *) aLongitude;
-- (id) initWithLatitude:(NSDecimalNumber *) aLatitude
               longitude:(NSDecimalNumber *) aLongitude
                   scale:(NSUInteger) aScale;
 - (id) initWithLocation:(LjsLocation *) aLocation

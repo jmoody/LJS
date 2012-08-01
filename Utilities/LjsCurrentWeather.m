@@ -118,9 +118,9 @@ static NSString *LjsCurrentWeatherApiKeyKey = @"free.worldweatheronline.com.LJS 
     if (apiKey == nil || [apiKey length] == 0) {
       DDLogError(@"could not find an api key in %@ - nothing to do", apiDict);
     } else {
-      NSString *path = [NSString stringWithFormat:LjsCurrentWeatherUrlFormatString,
+      NSString *urlPath = [NSString stringWithFormat:LjsCurrentWeatherUrlFormatString,
                         self.latitude, self.longitude, apiKey];
-      self.requestURL = [NSURL URLWithString:[path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+      self.requestURL = [NSURL URLWithString:[urlPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
       ASIHTTPRequest *request = [[ASIHTTPRequest alloc]
                                   initWithURL:self.requestURL];
       [request setRequestMethod:@"GET"]; 

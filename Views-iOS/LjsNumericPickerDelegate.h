@@ -19,7 +19,7 @@ extern NSUInteger const LjsNumericPickerDelegageMaximumInteger;
 @property (nonatomic, unsafe_unretained) id<LjsNumericPickerDidChangeCallBackDelegate> callbackDelegate;
 @property (nonatomic, strong) NSArray *digitsForMostSignicantColumn;
 @property (nonatomic, strong) NSArray *zeroToNine;
-@property (nonatomic, assign) NSInteger numberOfColumns;
+@property (nonatomic, assign) NSUInteger numberOfColumns;
 @property (nonatomic, assign) NSUInteger startingValue;
 @property (nonatomic, assign) NSUInteger maxValue;
 @property (nonatomic, copy) NSString *maxStrValue;
