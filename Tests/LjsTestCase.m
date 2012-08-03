@@ -419,7 +419,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 #if TARGET_OS_IPHONE
 - (void) scrollTableViewToIndexPath:(NSIndexPath *) aIndexPath
-                   atScrollPosition:(UITableViewScrollPosition) aPostion {
+                   atScrollPosition:(UITableViewScrollPosition) aPostion
+                           animated:(BOOL)aAnimated {
   return;
 }
 

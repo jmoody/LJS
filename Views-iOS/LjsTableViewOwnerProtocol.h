@@ -36,7 +36,8 @@
 /** @name Required Methods */
 @required
 - (void) scrollTableViewToIndexPath:(NSIndexPath *) aIndexPath
-                   atScrollPosition:(UITableViewScrollPosition) aPostion;
+                   atScrollPosition:(UITableViewScrollPosition) aPostion
+                           animated:(BOOL) aAnimated;
 - (void) reloadTableView;
 - (UITableViewCell *) cellForIndexPath:(NSIndexPath *) aIndexPath;
 - (UITableViewCell *) cellForSelectedRow;
