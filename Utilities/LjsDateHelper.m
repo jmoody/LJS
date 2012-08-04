@@ -47,7 +47,13 @@ NSTimeInterval const LjsSecondsInWeek = 604800;
 NSTimeInterval const LjsSecondsInTropicalYear = 31556925.9936;
 NSTimeInterval const LjsSecondsInYear = 31556926;
 
-
+// possible helpful defintions
+//%P Meridian indicator ("am" or "pm")
+//%p Meridian indicator ("AM" or "PM")
+// de noch, vor
+// pt a.m., p.m.
+// ?? a.M.  p.M.
+//http://en.wikipedia.org/wiki/Gyrotheodolite
 NSString *LjsDateHelperCanonicalAM = @"AM";
 NSString *LjsDateHelperCanonicalPM = @"PM";
 
