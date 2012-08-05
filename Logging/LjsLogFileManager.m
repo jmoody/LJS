@@ -32,6 +32,7 @@
 
 #import "LjsLogFileManager.h"
 #import "Lumberjack.h"
+#import "LjsFileUtilities.h"
 
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -39,6 +40,12 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 #else
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
+
+@interface DDLogFileManagerDefault (Ljs_Additions)
+
+- (NSString *) defaultLogsDirectory;
+
+@end
 
 /**
  This class overrides one method fromt the superclass DDLogFileManagerDefault:
@@ -65,6 +72,29 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 /** @name Creating a New Log File */
 
 /**
+ * Returns the path to the default logs directory.
+ * If the logs directory doesn't exist, this method automatically creates it.
+ **/
+- (NSString *) defaultLogsDirectory
+{
+#if TARGET_OS_IPHONE
+
+//  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+//	NSString *baseDir = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+//	NSString *logsDirectory = [baseDir stringByAppendingPathComponent:@"Logs"];
+  NSString *docPath = [LjsFileUtilities findDocumentDirectory];
+  NSString *logsDirectory = [docPath stringByAppendingPathComponent:@"Logs"];
+  
+#else
+  NSString *logsDirectory = [super  defaultLogsDirectory];
+#endif
+  
+	return logsDirectory;
+}
+
+
+
+/**
  * Generates a new unique log file path, and creates the corresponding log file.
  */
 - (NSString *)createNewLogFile {
@@ -89,7 +119,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 		
 	} while(YES);
 }
-
 
 
 @end
