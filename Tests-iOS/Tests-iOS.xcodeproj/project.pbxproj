@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		F5ADA64E15D1522400E3FA56 /* 4ePodcasts-mogen */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F5ADA64F15D1522400E3FA56 /* Build configuration list for PBXAggregateTarget "4ePodcasts-mogen" */;
+			buildPhases = (
+				F5ADA65415D1522E00E3FA56 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "4ePodcasts-mogen";
+			productName = "Test-iOS-mogen";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		F50A035014E008D900AA0912 /* LoremIpsum.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009FB14B227EA001EF805 /* LoremIpsum.m */; };
 		F50A035214E0090700AA0912 /* LjsVariates.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F81410CC420051FC7E /* LjsVariates.m */; };
@@ -2054,6 +2068,7 @@
 				F50FE69A1410C6F60051FC7E /* Tests-iOS */,
 				F5C112701496715900948605 /* Documentation */,
 				F54FA3EC14B7060A0080CC9A /* TestViews-iOS */,
+				F5ADA64E15D1522400E3FA56 /* 4ePodcasts-mogen */,
 			);
 		};
 /* End PBXProject section */
@@ -2149,6 +2164,19 @@
 			shellPath = /bin/sh;
 			shellScript = "sh RunTests.sh";
 			showEnvVarsInLog = 0;
+		};
+		F5ADA65415D1522E00E3FA56 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$PROJECT_DIR/../Tests/Unit/CoreData/Models/4ePodcasts\"\nmogen=\"/usr/bin/mogenerator\"\nmodeld=\"4ePodcasts.xcdatamodeld\"\nmodelversion=$(/usr/libexec/PlistBuddy -c 'print _XCCurrentVersionName' $modeld/.xccurrentversion)\nmodel=\"$modeld/$modelversion\"\nhuman=\"Human\"\nmachine=\"Machine\"\necho \"executing \" `pwd` \" $mogen -m $model -H $human -M $machine\"\n$mogen -m \"$model\" -H \"$human\" -M \"$machine\" --template-var arc=true\n";
 		};
 		F5C112861496716500948605 /* Run Script appledoc */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2719,6 +2747,34 @@
 			};
 			name = Release;
 		};
+		F5ADA65015D1522400E3FA56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F5ADA65115D1522400E3FA56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F5ADA65215D1522400E3FA56 /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = AppStore;
+		};
+		F5ADA65315D1522400E3FA56 /* AdHoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = AdHoc;
+		};
 		F5C112821496715900948605 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3024,6 +3080,16 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		F5ADA64F15D1522400E3FA56 /* Build configuration list for PBXAggregateTarget "4ePodcasts-mogen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5ADA65015D1522400E3FA56 /* Debug */,
+				F5ADA65115D1522400E3FA56 /* Release */,
+				F5ADA65215D1522400E3FA56 /* AppStore */,
+				F5ADA65315D1522400E3FA56 /* AdHoc */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		F5C112841496715900948605 /* Build configuration list for PBXNativeTarget "Documentation" */ = {
 			isa = XCConfigurationList;
