@@ -749,6 +749,7 @@
 		F5A425961529F32000F35DDE /* LjsGoogleRgReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleRgReply.h; sourceTree = "<group>"; };
 		F5A425971529F32000F35DDE /* LjsGoogleRgReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleRgReply.m; sourceTree = "<group>"; };
 		F5ADA64B15D1510900E3FA56 /* 4ePodcasts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = 4ePodcasts.xcdatamodel; sourceTree = "<group>"; };
+		F5ADA65515D1537600E3FA56 /* v1-initial-model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "v1-initial-model.xcdatamodel"; sourceTree = "<group>"; };
 		F5B03A6E14AA67620015D59B /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		F5B03A6F14AA67620015D59B /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
 		F5B03A7014AA67620015D59B /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
@@ -3119,9 +3120,10 @@
 		F5ADA64A15D1510900E3FA56 /* 4ePodcasts.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				F5ADA65515D1537600E3FA56 /* v1-initial-model.xcdatamodel */,
 				F5ADA64B15D1510900E3FA56 /* 4ePodcasts.xcdatamodel */,
 			);
-			currentVersion = F5ADA64B15D1510900E3FA56 /* 4ePodcasts.xcdatamodel */;
+			currentVersion = F5ADA65515D1537600E3FA56 /* v1-initial-model.xcdatamodel */;
 			path = 4ePodcasts.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
