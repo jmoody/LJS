@@ -138,6 +138,8 @@
 		F5595B711550157E001CF528 /* NSDictionary+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5595B701550157E001CF528 /* NSDictionary+LjsAdditions.m */; };
 		F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F56147B81450C72A00D2653A /* libOCMock.a */; };
 		F56147BB1450C86700D2653A /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F56147BA1450C86700D2653A /* OCMockWorkingTest.m */; };
+		F56B0C6515D1407900A174AA /* LjsFetchRequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F56B0C6415D1407900A174AA /* LjsFetchRequestFactory.m */; };
+		F56B0C6815D1429500A174AA /* LjsFetchRequestFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F56B0C6715D1429500A174AA /* LjsFetchRequestFactoryTest.m */; };
 		F5724970149F9AD6006C62A2 /* LjsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F572496F149F9AD6006C62A2 /* LjsButton.m */; };
 		F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5724971149F9C00006C62A2 /* QuartzCore.framework */; };
 		F573B90014F14E8D00E6F5CF /* LjsKeyboardInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F573B8FE14F14E8D00E6F5CF /* LjsKeyboardInfo.m */; };
@@ -283,6 +285,7 @@
 		F5A425C01529F32000F35DDE /* LjsGooglePlacesPredictiveReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425931529F32000F35DDE /* LjsGooglePlacesPredictiveReply.m */; };
 		F5A425C11529F32000F35DDE /* LjsGoogleReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425951529F32000F35DDE /* LjsGoogleReply.m */; };
 		F5A425C21529F32000F35DDE /* LjsGoogleRgReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425971529F32000F35DDE /* LjsGoogleRgReply.m */; };
+		F5ADA64C15D1510900E3FA56 /* 4ePodcasts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA64A15D1510900E3FA56 /* 4ePodcasts.xcdatamodeld */; };
 		F5BB1EBC151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
 		F5BB1EBD151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
 		F5C112731496715900948605 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE69F1410C6F60051FC7E /* UIKit.framework */; };
@@ -538,6 +541,9 @@
 		F56147B71450C72A00D2653A /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		F56147B81450C72A00D2653A /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		F56147BA1450C86700D2653A /* OCMockWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockWorkingTest.m; sourceTree = "<group>"; };
+		F56B0C6315D1407900A174AA /* LjsFetchRequestFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFetchRequestFactory.h; sourceTree = "<group>"; };
+		F56B0C6415D1407900A174AA /* LjsFetchRequestFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFetchRequestFactory.m; sourceTree = "<group>"; };
+		F56B0C6715D1429500A174AA /* LjsFetchRequestFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFetchRequestFactoryTest.m; sourceTree = "<group>"; };
 		F572496E149F9AD6006C62A2 /* LjsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsButton.h; sourceTree = "<group>"; };
 		F572496F149F9AD6006C62A2 /* LjsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsButton.m; sourceTree = "<group>"; };
 		F5724971149F9C00006C62A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -728,6 +734,7 @@
 		F5A425951529F32000F35DDE /* LjsGoogleReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleReply.m; sourceTree = "<group>"; };
 		F5A425961529F32000F35DDE /* LjsGoogleRgReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleRgReply.h; sourceTree = "<group>"; };
 		F5A425971529F32000F35DDE /* LjsGoogleRgReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleRgReply.m; sourceTree = "<group>"; };
+		F5ADA64B15D1510900E3FA56 /* 4ePodcasts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = 4ePodcasts.xcdatamodel; sourceTree = "<group>"; };
 		F5B03A6E14AA67620015D59B /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		F5B03A6F14AA67620015D59B /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
 		F5B03A7014AA67620015D59B /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
@@ -1320,6 +1327,38 @@
 			path = OCMock;
 			sourceTree = "<group>";
 		};
+		F56B0C6E15D14B8A00A174AA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F56B0C7915D1508300A174AA /* 4ePodcasts */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F56B0C7915D1508300A174AA /* 4ePodcasts */ = {
+			isa = PBXGroup;
+			children = (
+				F5ADA64A15D1510900E3FA56 /* 4ePodcasts.xcdatamodeld */,
+				F56B0C7B15D1508300A174AA /* Human */,
+				F56B0C7C15D1508300A174AA /* Machine */,
+			);
+			path = 4ePodcasts;
+			sourceTree = "<group>";
+		};
+		F56B0C7B15D1508300A174AA /* Human */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Human;
+			sourceTree = "<group>";
+		};
+		F56B0C7C15D1508300A174AA /* Machine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Machine;
+			sourceTree = "<group>";
+		};
 		F5724964149F9A1E006C62A2 /* Views-iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -1405,6 +1444,8 @@
 			children = (
 				F58C26BD1589EA8000B716F4 /* LjsProgressiveMigration.h */,
 				F58C26BE1589EA8000B716F4 /* LjsProgressiveMigration.m */,
+				F56B0C6315D1407900A174AA /* LjsFetchRequestFactory.h */,
+				F56B0C6415D1407900A174AA /* LjsFetchRequestFactory.m */,
 			);
 			name = CoreData;
 			path = ../CoreData;
@@ -1427,7 +1468,9 @@
 		F58C26CE1589EC5500B716F4 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				F56B0C6E15D14B8A00A174AA /* Models */,
 				F58C26F91589ECD500B716F4 /* LjsProgressiveMigrationTest.m */,
+				F56B0C6715D1429500A174AA /* LjsFetchRequestFactoryTest.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -2316,6 +2359,9 @@
 				F58C26FA1589ECD500B716F4 /* LjsProgressiveMigrationTest.m in Sources */,
 				F58C273C1589EEA700B716F4 /* LjsLabelAttributes.m in Sources */,
 				F58C27411589EF0800B716F4 /* LjsLabelAttributesTest.m in Sources */,
+				F56B0C6515D1407900A174AA /* LjsFetchRequestFactory.m in Sources */,
+				F56B0C6815D1429500A174AA /* LjsFetchRequestFactoryTest.m in Sources */,
+				F5ADA64C15D1510900E3FA56 /* 4ePodcasts.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3001,6 +3047,16 @@
 			);
 			currentVersion = F5A425621529F32000F35DDE /* LjsGoogleModel-v2-refactor.xcdatamodel */;
 			path = LjsGoogleModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		F5ADA64A15D1510900E3FA56 /* 4ePodcasts.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F5ADA64B15D1510900E3FA56 /* 4ePodcasts.xcdatamodel */,
+			);
+			currentVersion = F5ADA64B15D1510900E3FA56 /* 4ePodcasts.xcdatamodel */;
+			path = 4ePodcasts.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
