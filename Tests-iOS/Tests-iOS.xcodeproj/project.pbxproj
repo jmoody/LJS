@@ -245,6 +245,10 @@
 		F5903F90151B64B300995AF1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5903F8E151B64A900995AF1 /* CoreData.framework */; };
 		F590BE9F14542E4900E5B89B /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */; };
 		F590BEA014542E4900E5B89B /* LjsLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9E14542E4900E5B89B /* LjsLogFileManager.m */; };
+		F59393A415D1624E005FD30A /* DndClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F59393A115D1624E005FD30A /* DndClass.m */; };
+		F59393A515D1624E005FD30A /* DndRace.m in Sources */ = {isa = PBXBuildFile; fileRef = F59393A315D1624E005FD30A /* DndRace.m */; };
+		F59393AB15D1625B005FD30A /* _DndClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F59393A815D1625B005FD30A /* _DndClass.m */; };
+		F59393AC15D1625B005FD30A /* _DndRace.m in Sources */ = {isa = PBXBuildFile; fileRef = F59393AA15D1625B005FD30A /* _DndRace.m */; };
 		F59635D11496632000CDB27E /* LjsObjectWithUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635D01496632000CDB27E /* LjsObjectWithUUID.m */; };
 		F59635EC149665CC00CDB27E /* LjsModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635E7149665CC00CDB27E /* LjsModalViewController.m */; };
 		F59635ED149665CC00CDB27E /* LjsTimePickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635E9149665CC00CDB27E /* LjsTimePickerDelegate.m */; };
@@ -308,6 +312,8 @@
 		F5ADA66B15D155BB00E3FA56 /* _DndPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA66515D155BB00E3FA56 /* _DndPlayer.m */; };
 		F5ADA66C15D155BB00E3FA56 /* _DndPodcast.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA66715D155BB00E3FA56 /* _DndPodcast.m */; };
 		F5ADA66D15D155BB00E3FA56 /* _DndRole.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA66915D155BB00E3FA56 /* _DndRole.m */; };
+		F5ADA67015D156A500E3FA56 /* LjsManagedObjectContextTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA66F15D156A500E3FA56 /* LjsManagedObjectContextTest.m */; };
+		F5ADA67315D1592400E3FA56 /* FourEdPodcastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA67215D1592400E3FA56 /* FourEdPodcastManager.m */; };
 		F5BB1EBC151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
 		F5BB1EBD151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
 		F5C112731496715900948605 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE69F1410C6F60051FC7E /* UIKit.framework */; };
@@ -658,6 +664,14 @@
 		F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
 		F590BE9D14542E4900E5B89B /* LjsLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLogFileManager.h; sourceTree = "<group>"; };
 		F590BE9E14542E4900E5B89B /* LjsLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLogFileManager.m; sourceTree = "<group>"; };
+		F59393A015D1624E005FD30A /* DndClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DndClass.h; sourceTree = "<group>"; };
+		F59393A115D1624E005FD30A /* DndClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DndClass.m; sourceTree = "<group>"; };
+		F59393A215D1624E005FD30A /* DndRace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DndRace.h; sourceTree = "<group>"; };
+		F59393A315D1624E005FD30A /* DndRace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DndRace.m; sourceTree = "<group>"; };
+		F59393A715D1625B005FD30A /* _DndClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DndClass.h; sourceTree = "<group>"; };
+		F59393A815D1625B005FD30A /* _DndClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DndClass.m; sourceTree = "<group>"; };
+		F59393A915D1625B005FD30A /* _DndRace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DndRace.h; sourceTree = "<group>"; };
+		F59393AA15D1625B005FD30A /* _DndRace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DndRace.m; sourceTree = "<group>"; };
 		F59635CF1496632000CDB27E /* LjsObjectWithUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsObjectWithUUID.h; sourceTree = "<group>"; };
 		F59635D01496632000CDB27E /* LjsObjectWithUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsObjectWithUUID.m; sourceTree = "<group>"; };
 		F59635E6149665CC00CDB27E /* LjsModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsModalViewController.h; sourceTree = "<group>"; };
@@ -757,7 +771,7 @@
 		F5A425961529F32000F35DDE /* LjsGoogleRgReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleRgReply.h; sourceTree = "<group>"; };
 		F5A425971529F32000F35DDE /* LjsGoogleRgReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleRgReply.m; sourceTree = "<group>"; };
 		F5ADA64B15D1510900E3FA56 /* 4ePodcasts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = 4ePodcasts.xcdatamodel; sourceTree = "<group>"; };
-		F5ADA65515D1537600E3FA56 /* v1-initial-model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "v1-initial-model.xcdatamodel"; sourceTree = "<group>"; };
+		F5ADA65515D1537600E3FA56 /* v1-initial-model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "v1-initial-model.xcdatamodel"; sourceTree = "<group>"; };
 		F5ADA65615D155AC00E3FA56 /* DndCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DndCharacter.h; sourceTree = "<group>"; };
 		F5ADA65715D155AC00E3FA56 /* DndCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DndCharacter.m; sourceTree = "<group>"; };
 		F5ADA65815D155AC00E3FA56 /* DndPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DndPlayer.h; sourceTree = "<group>"; };
@@ -774,6 +788,11 @@
 		F5ADA66715D155BB00E3FA56 /* _DndPodcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DndPodcast.m; sourceTree = "<group>"; };
 		F5ADA66815D155BB00E3FA56 /* _DndRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DndRole.h; sourceTree = "<group>"; };
 		F5ADA66915D155BB00E3FA56 /* _DndRole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DndRole.m; sourceTree = "<group>"; };
+		F5ADA66E15D156A500E3FA56 /* LjsManagedObjectContextTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsManagedObjectContextTest.h; sourceTree = "<group>"; };
+		F5ADA66F15D156A500E3FA56 /* LjsManagedObjectContextTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsManagedObjectContextTest.m; sourceTree = "<group>"; };
+		F5ADA67115D1592400E3FA56 /* FourEdPodcastManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourEdPodcastManager.h; sourceTree = "<group>"; };
+		F5ADA67215D1592400E3FA56 /* FourEdPodcastManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourEdPodcastManager.m; sourceTree = "<group>"; };
+		F5ADA67415D1599900E3FA56 /* 4ePodcastsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 4ePodcastsModel.h; sourceTree = "<group>"; };
 		F5B03A6E14AA67620015D59B /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		F5B03A6F14AA67620015D59B /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
 		F5B03A7014AA67620015D59B /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
@@ -1377,9 +1396,12 @@
 		F56B0C7915D1508300A174AA /* 4ePodcasts */ = {
 			isa = PBXGroup;
 			children = (
+				F5ADA67415D1599900E3FA56 /* 4ePodcastsModel.h */,
 				F5ADA64A15D1510900E3FA56 /* 4ePodcasts.xcdatamodeld */,
 				F56B0C7B15D1508300A174AA /* Human */,
 				F56B0C7C15D1508300A174AA /* Machine */,
+				F5ADA67115D1592400E3FA56 /* FourEdPodcastManager.h */,
+				F5ADA67215D1592400E3FA56 /* FourEdPodcastManager.m */,
 			);
 			path = 4ePodcasts;
 			sourceTree = "<group>";
@@ -1387,6 +1409,10 @@
 		F56B0C7B15D1508300A174AA /* Human */ = {
 			isa = PBXGroup;
 			children = (
+				F59393A015D1624E005FD30A /* DndClass.h */,
+				F59393A115D1624E005FD30A /* DndClass.m */,
+				F59393A215D1624E005FD30A /* DndRace.h */,
+				F59393A315D1624E005FD30A /* DndRace.m */,
 				F5ADA65615D155AC00E3FA56 /* DndCharacter.h */,
 				F5ADA65715D155AC00E3FA56 /* DndCharacter.m */,
 				F5ADA65815D155AC00E3FA56 /* DndPlayer.h */,
@@ -1402,6 +1428,10 @@
 		F56B0C7C15D1508300A174AA /* Machine */ = {
 			isa = PBXGroup;
 			children = (
+				F59393A715D1625B005FD30A /* _DndClass.h */,
+				F59393A815D1625B005FD30A /* _DndClass.m */,
+				F59393A915D1625B005FD30A /* _DndRace.h */,
+				F59393AA15D1625B005FD30A /* _DndRace.m */,
 				F5ADA66215D155BB00E3FA56 /* _DndCharacter.h */,
 				F5ADA66315D155BB00E3FA56 /* _DndCharacter.m */,
 				F5ADA66415D155BB00E3FA56 /* _DndPlayer.h */,
@@ -1523,6 +1553,8 @@
 		F58C26CE1589EC5500B716F4 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				F5ADA66E15D156A500E3FA56 /* LjsManagedObjectContextTest.h */,
+				F5ADA66F15D156A500E3FA56 /* LjsManagedObjectContextTest.m */,
 				F56B0C6E15D14B8A00A174AA /* Models */,
 				F58C26F91589ECD500B716F4 /* LjsProgressiveMigrationTest.m */,
 				F56B0C6715D1429500A174AA /* LjsFetchRequestFactoryTest.m */,
@@ -2217,7 +2249,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$PROJECT_DIR/../Tests/Unit/CoreData/Models/4ePodcasts\"\nmogen=\"/usr/bin/mogenerator\"\nmodeld=\"4ePodcasts.xcdatamodeld\"\nmodelversion=$(/usr/libexec/PlistBuddy -c 'print _XCCurrentVersionName' $modeld/.xccurrentversion)\nmodel=\"$modeld/$modelversion\"\nhuman=\"Human\"\nmachine=\"Machine\"\necho \"executing \" `pwd` \" $mogen -m $model -H $human -M $machine\"\n$mogen -m \"$model\" -H \"$human\" -M \"$machine\" --template-var arc=true\n";
+			shellScript = "cd \"$PROJECT_DIR/../Tests/Unit/CoreData/Models/4ePodcasts\"\nmogen=\"/usr/bin/mogenerator\"\nmodeld=\"4ePodcasts.xcdatamodeld\"\nmodelversion=$(/usr/libexec/PlistBuddy -c 'print _XCCurrentVersionName' $modeld/.xccurrentversion)\nmodel=\"$modeld/$modelversion\"\nhuman=\"Human\"\nmachine=\"Machine\"\necho \"executing \" `pwd` \" $mogen -m $model -H $human -M $machine\"\n$mogen -m \"$model\" -H \"$human\" -M \"$machine\" --template-var arc=true --includeh \"4ePodcastsModel.h\"\n";
 		};
 		F5C112861496716500948605 /* Run Script appledoc */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2439,6 +2471,12 @@
 				F5ADA66B15D155BB00E3FA56 /* _DndPlayer.m in Sources */,
 				F5ADA66C15D155BB00E3FA56 /* _DndPodcast.m in Sources */,
 				F5ADA66D15D155BB00E3FA56 /* _DndRole.m in Sources */,
+				F5ADA67015D156A500E3FA56 /* LjsManagedObjectContextTest.m in Sources */,
+				F5ADA67315D1592400E3FA56 /* FourEdPodcastManager.m in Sources */,
+				F59393A415D1624E005FD30A /* DndClass.m in Sources */,
+				F59393A515D1624E005FD30A /* DndRace.m in Sources */,
+				F59393AB15D1625B005FD30A /* _DndClass.m in Sources */,
+				F59393AC15D1625B005FD30A /* _DndRace.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3139,6 +3177,7 @@
 				F5ADA65315D1522400E3FA56 /* AdHoc */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F5C112841496715900948605 /* Build configuration list for PBXNativeTarget "Documentation" */ = {
 			isa = XCConfigurationList;

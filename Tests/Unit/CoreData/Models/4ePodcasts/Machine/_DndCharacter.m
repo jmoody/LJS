@@ -9,7 +9,9 @@ const struct DndCharacterAttributes DndCharacterAttributes = {
 };
 
 const struct DndCharacterRelationships DndCharacterRelationships = {
+	.charClass = @"charClass",
 	.player = @"player",
+	.race = @"race",
 	.role = @"role",
 };
 
@@ -63,7 +65,15 @@ const struct DndCharacterFetchedProperties DndCharacterFetchedProperties = {
 
 
 
+@dynamic charClass;
+
+	
+
 @dynamic player;
+
+	
+
+@dynamic race;
 
 	
 

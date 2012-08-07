@@ -10,14 +10,18 @@ extern const struct DndCharacterAttributes {
 } DndCharacterAttributes;
 
 extern const struct DndCharacterRelationships {
+	__unsafe_unretained NSString *charClass;
 	__unsafe_unretained NSString *player;
+	__unsafe_unretained NSString *race;
 	__unsafe_unretained NSString *role;
 } DndCharacterRelationships;
 
 extern const struct DndCharacterFetchedProperties {
 } DndCharacterFetchedProperties;
 
+@class DndClass;
 @class DndPlayer;
+@class DndRace;
 @class DndRole;
 
 
@@ -52,9 +56,23 @@ extern const struct DndCharacterFetchedProperties {
 
 
 
+@property (nonatomic, strong) DndClass* charClass;
+
+//- (BOOL)validateCharClass:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, strong) DndPlayer* player;
 
 //- (BOOL)validatePlayer:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) DndRace* race;
+
+//- (BOOL)validateRace:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -89,8 +107,18 @@ extern const struct DndCharacterFetchedProperties {
 
 
 
+- (DndClass*)primitiveCharClass;
+- (void)setPrimitiveCharClass:(DndClass*)value;
+
+
+
 - (DndPlayer*)primitivePlayer;
 - (void)setPrimitivePlayer:(DndPlayer*)value;
+
+
+
+- (DndRace*)primitiveRace;
+- (void)setPrimitiveRace:(DndRace*)value;
 
 
 

@@ -65,19 +65,23 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsTestCase.h"
+#import "LjsManagedObjectContextTest.h"
 #import "LjsFetchRequestFactory.h"
+#import "FourEdPodcastManager.h"
+#import "4ePodcastsModel.h"
 
 @interface LjsFetchRequestFactory (TEST)
 
 @end
 
-@interface LjsFetchRequestFactoryTest : LjsTestCase {}
+@interface LjsFetchRequestFactoryTest : LjsManagedObjectContextTest {}
 @property (nonatomic, strong) LjsFetchRequestFactory *fac;
+@property (nonatomic, strong) FourEdPodcastManager *man;
 @end
 
 @implementation LjsFetchRequestFactoryTest
 @synthesize fac;
+@synthesize man;
 
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
@@ -99,9 +103,14 @@
 - (void) setUp {
   [super setUp];
   // Run before each test method
+  NSManagedObjectContext *con = [self inMemoryContextWithModelName:@"4ePodcasts"];
+  GHAssertNotNil(con, @"context cannot be nil");
+  self.man = [[FourEdPodcastManager alloc] initWithContext:con];
+  GHAssertNotNil(self.man, @"manager cannot be nil");
 }
 
 - (void) tearDown {
+  self.man = nil;
   // Run after each test method
   [super tearDown];
 }
@@ -131,6 +140,7 @@
   NSString *actual = [prd predicateFormat];
   assertThat(actual, is(@"key LIKE \":key\" AND type LIKE \":action-type\""));
 }
+
 
 
 @end

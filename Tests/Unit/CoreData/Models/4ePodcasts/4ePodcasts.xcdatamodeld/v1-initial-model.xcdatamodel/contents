@@ -3,8 +3,15 @@
     <entity name="DndCharacter" representedClassName="DndCharacter" syncable="YES">
         <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="charClass" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DndClass" inverseName="characters" inverseEntity="DndClass" syncable="YES"/>
         <relationship name="player" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DndPlayer" inverseName="characters" inverseEntity="DndPlayer" syncable="YES"/>
+        <relationship name="race" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DndRace" inverseName="characters" inverseEntity="DndRace" syncable="YES"/>
         <relationship name="role" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DndRole" inverseName="characters" inverseEntity="DndRole" syncable="YES"/>
+    </entity>
+    <entity name="DndClass" representedClassName="DndClass" syncable="YES">
+        <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DndCharacter" inverseName="charClass" inverseEntity="DndCharacter" syncable="YES"/>
     </entity>
     <entity name="DndPlayer" representedClassName="DndPlayer" syncable="YES">
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
@@ -17,15 +24,22 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DndPlayer" inverseName="podcast" inverseEntity="DndPlayer" syncable="YES"/>
     </entity>
+    <entity name="DndRace" representedClassName="DndRace" syncable="YES">
+        <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DndCharacter" inverseName="race" inverseEntity="DndCharacter" syncable="YES"/>
+    </entity>
     <entity name="DndRole" representedClassName="DndRole" syncable="YES">
         <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DndCharacter" inverseName="role" inverseEntity="DndCharacter" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DndRole" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="DndCharacter" positionX="160" positionY="192" width="128" height="135"/>
         <element name="DndPlayer" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="DndCharacter" positionX="160" positionY="192" width="128" height="105"/>
         <element name="DndPodcast" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="DndRole" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="DndRace" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="DndClass" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

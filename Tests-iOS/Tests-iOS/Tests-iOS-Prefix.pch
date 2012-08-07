@@ -6,14 +6,13 @@
 
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
-#import <Foundation/Foundation.h>
+#import "LjsCategories.h"
 #define HC_SHORTHAND
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #import <OCMock/OCMock.h>
 #import <GHUnitIOS/GHUnit.h>
 #import "OCMockSingletonExtensions.h"
 #include "TargetConditionals.h"
-#import "LjsCategories.h"
 #import "LjsBlocks.h"
 #import <CoreData/CoreData.h>
 #endif
