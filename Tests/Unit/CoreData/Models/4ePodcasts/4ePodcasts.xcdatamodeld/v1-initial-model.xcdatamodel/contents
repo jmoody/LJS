@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1487" systemVersion="11E53" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+    <entity name="DndCharacter" representedClassName="DndCharacter" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="player" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DndPlayer" inverseName="characters" inverseEntity="DndPlayer" syncable="YES"/>
+        <relationship name="role" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DndRole" inverseName="characters" inverseEntity="DndRole" syncable="YES"/>
+    </entity>
+    <entity name="DndPlayer" representedClassName="DndPlayer" syncable="YES">
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DndCharacter" inverseName="player" inverseEntity="DndCharacter" syncable="YES"/>
+        <relationship name="podcast" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DndPodcast" inverseName="players" inverseEntity="DndPodcast" syncable="YES"/>
+    </entity>
+    <entity name="DndPodcast" representedClassName="DndPodcast" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DndPlayer" inverseName="podcast" inverseEntity="DndPlayer" syncable="YES"/>
+    </entity>
+    <entity name="DndRole" representedClassName="DndRole" syncable="YES">
+        <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DndCharacter" inverseName="role" inverseEntity="DndCharacter" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="DndRole" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="DndPlayer" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="DndCharacter" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="DndPodcast" positionX="160" positionY="192" width="128" height="90"/>
+    </elements>
 </model>

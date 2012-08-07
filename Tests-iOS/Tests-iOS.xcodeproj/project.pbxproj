@@ -300,6 +300,14 @@
 		F5A425C11529F32000F35DDE /* LjsGoogleReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425951529F32000F35DDE /* LjsGoogleReply.m */; };
 		F5A425C21529F32000F35DDE /* LjsGoogleRgReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425971529F32000F35DDE /* LjsGoogleRgReply.m */; };
 		F5ADA64C15D1510900E3FA56 /* 4ePodcasts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA64A15D1510900E3FA56 /* 4ePodcasts.xcdatamodeld */; };
+		F5ADA65E15D155AC00E3FA56 /* DndCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA65715D155AC00E3FA56 /* DndCharacter.m */; };
+		F5ADA65F15D155AC00E3FA56 /* DndPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA65915D155AC00E3FA56 /* DndPlayer.m */; };
+		F5ADA66015D155AC00E3FA56 /* DndPodcast.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA65B15D155AC00E3FA56 /* DndPodcast.m */; };
+		F5ADA66115D155AC00E3FA56 /* DndRole.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA65D15D155AC00E3FA56 /* DndRole.m */; };
+		F5ADA66A15D155BB00E3FA56 /* _DndCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA66315D155BB00E3FA56 /* _DndCharacter.m */; };
+		F5ADA66B15D155BB00E3FA56 /* _DndPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA66515D155BB00E3FA56 /* _DndPlayer.m */; };
+		F5ADA66C15D155BB00E3FA56 /* _DndPodcast.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA66715D155BB00E3FA56 /* _DndPodcast.m */; };
+		F5ADA66D15D155BB00E3FA56 /* _DndRole.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA66915D155BB00E3FA56 /* _DndRole.m */; };
 		F5BB1EBC151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
 		F5BB1EBD151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
 		F5C112731496715900948605 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE69F1410C6F60051FC7E /* UIKit.framework */; };
@@ -750,6 +758,22 @@
 		F5A425971529F32000F35DDE /* LjsGoogleRgReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleRgReply.m; sourceTree = "<group>"; };
 		F5ADA64B15D1510900E3FA56 /* 4ePodcasts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = 4ePodcasts.xcdatamodel; sourceTree = "<group>"; };
 		F5ADA65515D1537600E3FA56 /* v1-initial-model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "v1-initial-model.xcdatamodel"; sourceTree = "<group>"; };
+		F5ADA65615D155AC00E3FA56 /* DndCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DndCharacter.h; sourceTree = "<group>"; };
+		F5ADA65715D155AC00E3FA56 /* DndCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DndCharacter.m; sourceTree = "<group>"; };
+		F5ADA65815D155AC00E3FA56 /* DndPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DndPlayer.h; sourceTree = "<group>"; };
+		F5ADA65915D155AC00E3FA56 /* DndPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DndPlayer.m; sourceTree = "<group>"; };
+		F5ADA65A15D155AC00E3FA56 /* DndPodcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DndPodcast.h; sourceTree = "<group>"; };
+		F5ADA65B15D155AC00E3FA56 /* DndPodcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DndPodcast.m; sourceTree = "<group>"; };
+		F5ADA65C15D155AC00E3FA56 /* DndRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DndRole.h; sourceTree = "<group>"; };
+		F5ADA65D15D155AC00E3FA56 /* DndRole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DndRole.m; sourceTree = "<group>"; };
+		F5ADA66215D155BB00E3FA56 /* _DndCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DndCharacter.h; sourceTree = "<group>"; };
+		F5ADA66315D155BB00E3FA56 /* _DndCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DndCharacter.m; sourceTree = "<group>"; };
+		F5ADA66415D155BB00E3FA56 /* _DndPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DndPlayer.h; sourceTree = "<group>"; };
+		F5ADA66515D155BB00E3FA56 /* _DndPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DndPlayer.m; sourceTree = "<group>"; };
+		F5ADA66615D155BB00E3FA56 /* _DndPodcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DndPodcast.h; sourceTree = "<group>"; };
+		F5ADA66715D155BB00E3FA56 /* _DndPodcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DndPodcast.m; sourceTree = "<group>"; };
+		F5ADA66815D155BB00E3FA56 /* _DndRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DndRole.h; sourceTree = "<group>"; };
+		F5ADA66915D155BB00E3FA56 /* _DndRole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DndRole.m; sourceTree = "<group>"; };
 		F5B03A6E14AA67620015D59B /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		F5B03A6F14AA67620015D59B /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
 		F5B03A7014AA67620015D59B /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
@@ -1363,6 +1387,14 @@
 		F56B0C7B15D1508300A174AA /* Human */ = {
 			isa = PBXGroup;
 			children = (
+				F5ADA65615D155AC00E3FA56 /* DndCharacter.h */,
+				F5ADA65715D155AC00E3FA56 /* DndCharacter.m */,
+				F5ADA65815D155AC00E3FA56 /* DndPlayer.h */,
+				F5ADA65915D155AC00E3FA56 /* DndPlayer.m */,
+				F5ADA65A15D155AC00E3FA56 /* DndPodcast.h */,
+				F5ADA65B15D155AC00E3FA56 /* DndPodcast.m */,
+				F5ADA65C15D155AC00E3FA56 /* DndRole.h */,
+				F5ADA65D15D155AC00E3FA56 /* DndRole.m */,
 			);
 			path = Human;
 			sourceTree = "<group>";
@@ -1370,6 +1402,14 @@
 		F56B0C7C15D1508300A174AA /* Machine */ = {
 			isa = PBXGroup;
 			children = (
+				F5ADA66215D155BB00E3FA56 /* _DndCharacter.h */,
+				F5ADA66315D155BB00E3FA56 /* _DndCharacter.m */,
+				F5ADA66415D155BB00E3FA56 /* _DndPlayer.h */,
+				F5ADA66515D155BB00E3FA56 /* _DndPlayer.m */,
+				F5ADA66615D155BB00E3FA56 /* _DndPodcast.h */,
+				F5ADA66715D155BB00E3FA56 /* _DndPodcast.m */,
+				F5ADA66815D155BB00E3FA56 /* _DndRole.h */,
+				F5ADA66915D155BB00E3FA56 /* _DndRole.m */,
 			);
 			path = Machine;
 			sourceTree = "<group>";
@@ -2391,6 +2431,14 @@
 				F56B0C6515D1407900A174AA /* LjsFetchRequestFactory.m in Sources */,
 				F56B0C6815D1429500A174AA /* LjsFetchRequestFactoryTest.m in Sources */,
 				F5ADA64C15D1510900E3FA56 /* 4ePodcasts.xcdatamodeld in Sources */,
+				F5ADA65E15D155AC00E3FA56 /* DndCharacter.m in Sources */,
+				F5ADA65F15D155AC00E3FA56 /* DndPlayer.m in Sources */,
+				F5ADA66015D155AC00E3FA56 /* DndPodcast.m in Sources */,
+				F5ADA66115D155AC00E3FA56 /* DndRole.m in Sources */,
+				F5ADA66A15D155BB00E3FA56 /* _DndCharacter.m in Sources */,
+				F5ADA66B15D155BB00E3FA56 /* _DndPlayer.m in Sources */,
+				F5ADA66C15D155BB00E3FA56 /* _DndPodcast.m in Sources */,
+				F5ADA66D15D155BB00E3FA56 /* _DndRole.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
