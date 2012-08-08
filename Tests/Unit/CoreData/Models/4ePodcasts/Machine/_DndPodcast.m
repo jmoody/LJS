@@ -4,8 +4,8 @@
 #import "_DndPodcast.h"
 
 const struct DndPodcastAttributes DndPodcastAttributes = {
+	.displayName = @"displayName",
 	.key = @"key",
-	.name = @"name",
 };
 
 const struct DndPodcastRelationships DndPodcastRelationships = {
@@ -48,14 +48,14 @@ const struct DndPodcastFetchedProperties DndPodcastFetchedProperties = {
 
 
 
+@dynamic displayName;
+
+
+
+
+
+
 @dynamic key;
-
-
-
-
-
-
-@dynamic name;
 
 
 

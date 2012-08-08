@@ -249,6 +249,8 @@
 		F59393A515D1624E005FD30A /* DndRace.m in Sources */ = {isa = PBXBuildFile; fileRef = F59393A315D1624E005FD30A /* DndRace.m */; };
 		F59393AB15D1625B005FD30A /* _DndClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F59393A815D1625B005FD30A /* _DndClass.m */; };
 		F59393AC15D1625B005FD30A /* _DndRace.m in Sources */ = {isa = PBXBuildFile; fileRef = F59393AA15D1625B005FD30A /* _DndRace.m */; };
+		F59393BC15D16392005FD30A /* PLWeakCompatibilityStubs.m in Sources */ = {isa = PBXBuildFile; fileRef = F59393B715D16392005FD30A /* PLWeakCompatibilityStubs.m */; };
+		F59393BD15D163E2005FD30A /* PLWeakCompatibilityStubs.m in Sources */ = {isa = PBXBuildFile; fileRef = F59393B715D16392005FD30A /* PLWeakCompatibilityStubs.m */; };
 		F59635D11496632000CDB27E /* LjsObjectWithUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635D01496632000CDB27E /* LjsObjectWithUUID.m */; };
 		F59635EC149665CC00CDB27E /* LjsModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635E7149665CC00CDB27E /* LjsModalViewController.m */; };
 		F59635ED149665CC00CDB27E /* LjsTimePickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635E9149665CC00CDB27E /* LjsTimePickerDelegate.m */; };
@@ -672,6 +674,7 @@
 		F59393A815D1625B005FD30A /* _DndClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DndClass.m; sourceTree = "<group>"; };
 		F59393A915D1625B005FD30A /* _DndRace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DndRace.h; sourceTree = "<group>"; };
 		F59393AA15D1625B005FD30A /* _DndRace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DndRace.m; sourceTree = "<group>"; };
+		F59393B715D16392005FD30A /* PLWeakCompatibilityStubs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLWeakCompatibilityStubs.m; sourceTree = "<group>"; };
 		F59635CF1496632000CDB27E /* LjsObjectWithUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsObjectWithUUID.h; sourceTree = "<group>"; };
 		F59635D01496632000CDB27E /* LjsObjectWithUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsObjectWithUUID.m; sourceTree = "<group>"; };
 		F59635E6149665CC00CDB27E /* LjsModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsModalViewController.h; sourceTree = "<group>"; };
@@ -1126,6 +1129,7 @@
 		F5448AC31450B63B0065E516 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				F59393AD15D16392005FD30A /* PLWeakCompatibility */,
 				F54009F914B227EA001EF805 /* LoremIpsum */,
 				F54009E014B22253001EF805 /* Lumberjack */,
 				F54E3A8E1450EA180059BF53 /* Reachability */,
@@ -1698,6 +1702,15 @@
 				F5903F67151B515000995AF1 /* UIView+LjsAdditions.m */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		F59393AD15D16392005FD30A /* PLWeakCompatibility */ = {
+			isa = PBXGroup;
+			children = (
+				F59393B715D16392005FD30A /* PLWeakCompatibilityStubs.m */,
+			);
+			name = PLWeakCompatibility;
+			path = ../PLWeakCompatibility/PLWeakCompatibility;
 			sourceTree = "<group>";
 		};
 		F59635CE1496632000CDB27E /* Model */ = {
@@ -2477,6 +2490,7 @@
 				F59393A515D1624E005FD30A /* DndRace.m in Sources */,
 				F59393AB15D1625B005FD30A /* _DndClass.m in Sources */,
 				F59393AC15D1625B005FD30A /* _DndRace.m in Sources */,
+				F59393BC15D16392005FD30A /* PLWeakCompatibilityStubs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2535,6 +2549,7 @@
 				F5A07F7B15C8F50D00BE83BC /* LjsDateHelper.m in Sources */,
 				F5A07F7C15C8F53300BE83BC /* LjsLabelAttributes.m in Sources */,
 				F5A07F7D15C8F54B00BE83BC /* LjsLocaleUtils.m in Sources */,
+				F59393BD15D163E2005FD30A /* PLWeakCompatibilityStubs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2660,6 +2675,10 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = (
+					"-Xclang",
+					"-fobjc-runtime-has-weak",
+				);
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "020479DF-6747-41CC-99CC-A9194DA867F0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2702,7 +2721,11 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"-Xclang",
+					"-fobjc-runtime-has-weak",
+				);
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "020479DF-6747-41CC-99CC-A9194DA867F0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2926,7 +2949,11 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"-Xclang",
+					"-fobjc-runtime-has-weak",
+				);
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "020479DF-6747-41CC-99CC-A9194DA867F0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3047,7 +3074,11 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"-Xclang",
+					"-fobjc-runtime-has-weak",
+				);
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "020479DF-6747-41CC-99CC-A9194DA867F0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

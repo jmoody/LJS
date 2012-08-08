@@ -43,5 +43,7 @@
 /** @name Handling Notifications, Requests, and Events */
 
 /** @name Utility */
+- (void) saveContext:(NSManagedObjectContext *) aContext;
+
 
 @end

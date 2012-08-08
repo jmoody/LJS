@@ -1,5 +1,9 @@
 #import <Foundation/Foundation.h>
 
+typedef enum {
+  LjsFetchRequestFactoryErrorCodeBadArguments
+} LjsFetchRequestFactoryErrorCodes;
+
 /**
  Documentation
  */
@@ -16,7 +20,19 @@
 - (NSUInteger) countForEntity:(NSString *) aEntityName
                     predicate:(NSPredicate *) aPredicateOrNil
                       context:(NSManagedObjectContext *) aContext
-                        error:(NSError **) error;
+                        error:(NSError **) aError;
+
+- (BOOL) entityExistsForKey:(NSString *) aKey
+                 entityName:(NSString *) aEntityName
+                    context:(NSManagedObjectContext *) aContext
+                      count:(NSUInteger *) aCountRef
+                      error:(NSError **) aError;
+
+- (id) entityForKey:(NSString *) aKey
+         entityName:(NSString *) aEntityName
+              count:(NSUInteger *) aCountRef
+            context:(NSManagedObjectContext *) aContext
+              error:(NSError **) aError;
 
 /** @name Predicates */
 - (NSPredicate *) predicateForKey:(NSString *) aKey;

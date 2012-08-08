@@ -77,11 +77,13 @@
 @interface LjsFetchRequestFactoryTest : LjsManagedObjectContextTest {}
 @property (nonatomic, strong) LjsFetchRequestFactory *fac;
 @property (nonatomic, strong) FourEdPodcastManager *man;
+@property (nonatomic, assign, readonly) NSManagedObjectContext *context;
 @end
 
 @implementation LjsFetchRequestFactoryTest
 @synthesize fac;
 @synthesize man;
+@synthesize context;
 
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
@@ -115,6 +117,9 @@
   [super tearDown];
 }
 
+- (NSManagedObjectContext *) context {
+  return man.context;
+}
 - (void) test_predicate_with_key {
   NSPredicate *prd = [self.fac predicateForKey:@":key"];
   NSString *actual = [prd predicateFormat];
@@ -140,6 +145,312 @@
   NSString *actual = [prd predicateFormat];
   assertThat(actual, is(@"key LIKE \":key\" AND type LIKE \":action-type\""));
 }
+
+/*
+ - (NSUInteger) countForEntity:(NSString *) aEntityName
+ predicate:(NSPredicate *) aPredicateOrNil
+ context:(NSManagedObjectContext *) aContext
+ error:(NSError **) error;
+ */
+
+- (void) test_count_for_entity_with_bad_entity_name {
+  NSError *error = nil;
+  NSUInteger actual = [self.fac countForEntity:[self emptyStringOrNil]
+                                     predicate:nil
+                                       context:self.context
+                                         error:&error];
+  assertThatInteger(actual, equalToInteger(NSNotFound));
+  GHAssertNotNil(error, @"error must not be nil");
+  GHTestLog(@"error = %@", error);
+}
+
+- (void) test_count_for_entity_with_nil_context {
+  NSError *error = nil;
+  NSUInteger actual = [self.fac countForEntity:[DndCharacter entityName]
+                                     predicate:nil
+                                       context:nil
+                                         error:&error];
+  assertThatInteger(actual, equalToInteger(NSNotFound));
+  GHAssertNotNil(error, @"error must not be nil");
+  GHTestLog(@"error = %@", error);
+}
+
+
+
+- (void) test_count_for_entity_with_nil_predicate {
+  NSError *error = nil;
+  NSUInteger actual = [self.fac countForEntity:[DndRace entityName]
+                                      predicate:nil
+                                        context:self.context
+                                          error:&error];
+  GHAssertNil(error, @"error must be nil: %@", error);
+  assertThatInteger(actual, equalToInteger(5));
+}
+
+- (void) test_count_for_entity_with_key_predicate {
+  NSError *error = nil;
+  NSPredicate *prd = [self.fac predicateForKey:@":stephen"];
+  NSUInteger actual = [self.fac countForEntity:[DndPlayer entityName]
+                                     predicate:prd
+                                       context:self.context
+                                         error:&error];
+  GHAssertNil(error, @"error must be nil: %@", error);
+  assertThatInteger(actual, equalToInteger(1));
+}
+
+- (void) test_count_for_entity_with_compound_predicate_unique {
+  NSError *error = nil;
+  
+  NSPredicate *prd = [self.fac predicateForAttribute:@"race.key"
+                                               value:@":eladrin"
+                                                 key:@":orem"];
+  NSUInteger actual = [self.fac countForEntity:[DndCharacter entityName]
+                                     predicate:prd
+                                       context:self.context
+                                         error:&error];
+  GHAssertNil(error, @"error must be nil: %@", error);
+  assertThatInteger(actual, equalToInteger(1));
+}
+
+- (void) test_count_for_entity_with_compound_predicate_none {
+  NSError *error = nil;
+  
+  NSPredicate *prd = [self.fac predicateForAttribute:@"role.key"
+                                               value:@":controller"
+                                                 key:@":torque"];
+  NSUInteger actual = [self.fac countForEntity:[DndCharacter entityName]
+                                     predicate:prd
+                                       context:self.context
+                                         error:&error];
+  GHAssertNil(error, @"error must be nil: %@", error);
+  assertThatInteger(actual, equalToInteger(0));
+}
+
+/*
+ - (BOOL) entityExistsForKey:(NSString *) aKey
+ entityName:(NSString *) aEntityName
+ context:(NSManagedObjectContext *) aContext
+ shouldBeUnique:(BOOL) aShouldBeUnique
+ error:(NSError **) aError {
+ */
+
+- (void) test_entity_exists_for_key_bad_key {
+  NSError *error = nil;
+  NSUInteger count = NSNotFound - 1;
+  BOOL actual = [self.fac entityExistsForKey:[self emptyStringOrNil]
+                                  entityName:[DndRace entityName]
+                                     context:self.context
+                                       count:&count
+                                       error:&error];
+  
+  GHAssertNotNil(error, @"error must not be nil");
+  assertThatInteger(count, equalToInteger(NSNotFound));
+  assertThatBool(actual, equalToBool(NO));
+  GHTestLog(@"error = %@", error);
+}
+
+- (void) test_entity_exists_for_key_bad_entity_name {
+  NSError *error = nil;
+  NSUInteger count = NSNotFound - 1;
+  BOOL actual = [self.fac entityExistsForKey:@":some key"
+                                  entityName:[self emptyStringOrNil]
+                                     context:self.context
+                                       count:&count
+                                       error:&error];
+  
+  GHAssertNotNil(error, @"error must not be nil");
+  assertThatInteger(count, equalToInteger(NSNotFound));
+  assertThatBool(actual, equalToBool(NO));
+  GHTestLog(@"error = %@", error);
+}
+
+- (void) test_entity_exists_for_key_nil_context {
+  NSError *error = nil;
+  NSUInteger count = NSNotFound - 1;
+  BOOL actual = [self.fac entityExistsForKey:@":some key"
+                                  entityName:@"entity"
+                                     context:nil
+                                       count:&count
+                                       error:&error];
+  
+  GHAssertNotNil(error, @"error must not be nil");
+  assertThatInteger(count, equalToInteger(NSNotFound));
+  assertThatBool(actual, equalToBool(NO));
+  GHTestLog(@"error = %@", error);
+}
+
+- (void) test_entity_exists_for_key_no_ref_nil_context {
+  NSError *error = nil;
+  //NSUInteger count = NSNotFound - 1;
+  BOOL actual = [self.fac entityExistsForKey:@":some key"
+                                  entityName:@"entity"
+                                     context:nil
+                                       count:nil
+                                       error:&error];
+  
+  GHAssertNotNil(error, @"error must not be nil");
+  //assertThatInteger(count, equalToInteger(NSNotFound));
+  assertThatBool(actual, equalToBool(NO));
+  GHTestLog(@"error = %@", error);
+}
+
+- (void) test_entity_exists_for_key_return_yes {
+  NSError *error = nil;
+  NSUInteger count = NSNotFound;
+  BOOL actual = [self.fac entityExistsForKey:@":half-orc"
+                                  entityName:[DndRace entityName]
+                                     context:self.context
+                                       count:&count
+                                       error:&error];
+  
+  GHAssertNil(error, @"error must be nil: %@", error);
+  assertThatInteger(count, isNot(equalToInteger(NSNotFound)));
+  assertThatBool(actual, equalToBool(YES));
+}
+
+- (void) test_entity_exists_for_key_return_no {
+  NSError *error = nil;
+  NSUInteger count = NSNotFound;
+  BOOL actual = [self.fac entityExistsForKey:@":dwarf"
+                                  entityName:[DndRace entityName]
+                                     context:self.context
+                                       count:&count
+                                       error:&error];
+  
+  GHAssertNil(error, @"error must be nil: %@", error);
+  assertThatInteger(count, isNot(equalToInteger(NSNotFound)));
+  assertThatBool(actual, equalToBool(NO));
+}
+
+
+- (void) test_entity_exists_for_key_return_yes_not_unique {
+  
+  DndRole *role = (DndRole *)[DndRole insertInManagedObjectContext:self.context];
+  role.displayName = @"FOOBAR";
+  role.key = @":striker";
+  [self.man saveContext:self.context];
+  
+  NSError *error = nil;
+  NSUInteger count = NSNotFound;
+  BOOL actual = [self.fac entityExistsForKey:@":striker"
+                                  entityName:[DndRole entityName]
+                                     context:self.context
+                                       count:&count
+                                       error:&error];
+  
+  GHAssertNil(error, @"error must be nil: %@", error);
+  assertThatInteger(count, equalToInteger(2));
+  assertThatBool(actual, equalToBool(YES));
+}
+
+- (void) test_entity_exists_error {
+    
+  NSError *error = nil;
+  NSUInteger count = NSNotFound;
+  BOOL actual = [self.fac entityExistsForKey:@":striker"
+                                  entityName:[DndRole entityName]
+                                     context:nil
+                                       count:&count
+                                       error:&error];
+  assertThatInteger(count, equalToInteger(NSNotFound));
+  GHAssertNotNil(error, @"error must not be nil");
+  assertThatBool(actual, equalToBool(NO));
+}
+
+/*
+ - (id) entityForKey:(NSString *) aKey
+ entityName:(NSString *) aEntityName
+ count:(NSUInteger *) aCountRef
+ context:(NSManagedObjectContext *) aContext
+ error:(NSError **) aError;
+ 
+ */
+- (void) test_entity_for_key_bad_key {
+  NSError *error = nil;
+  NSUInteger count;
+  DndRole *role = [self.fac entityForKey:[self emptyStringOrNil]
+                              entityName:[DndRole entityName]
+                                   count:&count
+                                 context:self.context
+                                   error:&error];
+  assertThatInteger(count, equalToInteger(NSNotFound));
+  GHAssertNotNil(error, @"error must not be nil");
+  GHAssertNil(role, @"role must be nil");
+}
+
+- (void) test_entity_for_key_bad_entity_name {
+  NSError *error = nil;
+  NSUInteger count = NSNotFound - 1;
+  DndRole *role = [self.fac entityForKey:@":key"
+                              entityName:[self emptyStringOrNil]
+                                   count:&count
+                                 context:self.context
+                                   error:&error];
+  assertThatInteger(count, equalToInteger(NSNotFound));
+  GHAssertNotNil(error, @"error must not be nil");
+  GHAssertNil(role, @"role must be nil");
+}
+
+- (void) test_entity_for_key_nil_context {
+  NSError *error = nil;
+  NSUInteger count = NSNotFound - 1;
+  DndRole *role = [self.fac entityForKey:@":key"
+                              entityName:@"entity name"
+                                   count:&count
+                                 context:nil
+                                   error:&error];
+  assertThatInteger(count, equalToInteger(NSNotFound));
+  GHAssertNotNil(error, @"error must not be nil");
+  GHAssertNil(role, @"role must be nil");
+}
+
+- (void) test_entity_for_key_return_unique {
+  NSError *error = nil;
+  NSUInteger count = NSNotFound - 1;
+  DndRole *role = [self.fac entityForKey:@":striker"
+                              entityName:[DndRole entityName]
+                                   count:&count
+                                 context:self.context
+                                   error:&error];
+  GHAssertNotNil(role, @"role must not be nil");
+  GHAssertNil(error, @"error must be nil: %@", error);
+  assertThatInteger(count, equalToInteger(1));
+}
+
+
+- (void) test_entity_for_key_return_non_unique {
+  DndRole *role = (DndRole *)[DndRole insertInManagedObjectContext:self.context];
+  role.displayName = @"FOOBAR";
+  role.key = @":striker";
+  [self.man saveContext:self.context];
+
+  NSError *error = nil;
+  NSUInteger count = NSNotFound - 1;
+  DndRole *fetched = [self.fac entityForKey:@":striker"
+                                 entityName:[DndRole entityName]
+                                      count:&count
+                                    context:self.context
+                                      error:&error];
+  GHAssertNotNil(fetched, @"role must not be nil");
+  GHAssertNil(error, @"error must be nil: %@", error);
+  assertThatInteger(count, equalToInteger(2));
+}
+
+- (void) test_entity_for_key_return_nil_because_none_found {
+  
+  NSError *error = nil;
+  NSUInteger count = NSNotFound - 1;
+  DndRole *fetched = [self.fac entityForKey:@":healer"
+                                 entityName:[DndRole entityName]
+                                      count:&count
+                                    context:self.context
+                                      error:&error];
+  GHAssertNil(fetched, @"role must be nil: %@", fetched);
+  GHAssertNil(error, @"error must be nil: %@", error);
+  assertThatInteger(count, equalToInteger(0));
+}
+
+
 
 
 

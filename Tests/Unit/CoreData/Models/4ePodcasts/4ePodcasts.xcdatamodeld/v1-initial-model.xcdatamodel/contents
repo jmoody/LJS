@@ -20,8 +20,8 @@
         <relationship name="podcast" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DndPodcast" inverseName="players" inverseEntity="DndPodcast" syncable="YES"/>
     </entity>
     <entity name="DndPodcast" representedClassName="DndPodcast" syncable="YES">
+        <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DndPlayer" inverseName="podcast" inverseEntity="DndPlayer" syncable="YES"/>
     </entity>
     <entity name="DndRace" representedClassName="DndRace" syncable="YES">
@@ -35,7 +35,7 @@
         <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DndCharacter" inverseName="role" inverseEntity="DndCharacter" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DndCharacter" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="DndCharacter" positionX="160" positionY="192" width="128" height="105"/>
         <element name="DndPlayer" positionX="160" positionY="192" width="128" height="105"/>
         <element name="DndPodcast" positionX="160" positionY="192" width="128" height="90"/>
         <element name="DndRole" positionX="160" positionY="192" width="128" height="90"/>

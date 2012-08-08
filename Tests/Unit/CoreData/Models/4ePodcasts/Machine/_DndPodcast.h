@@ -5,8 +5,8 @@
 
 
 extern const struct DndPodcastAttributes {
+	__unsafe_unretained NSString *displayName;
 	__unsafe_unretained NSString *key;
-	__unsafe_unretained NSString *name;
 } DndPodcastAttributes;
 
 extern const struct DndPodcastRelationships {
@@ -33,18 +33,18 @@ extern const struct DndPodcastFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSString* displayName;
+
+
+//- (BOOL)validateDisplayName:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, strong) NSString* key;
 
 
 //- (BOOL)validateKey:(id*)value_ error:(NSError**)error_;
-
-
-
-
-@property (nonatomic, strong) NSString* name;
-
-
-//- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -72,14 +72,14 @@ extern const struct DndPodcastFetchedProperties {
 @interface _DndPodcast (CoreDataGeneratedPrimitiveAccessors)
 
 
+- (NSString*)primitiveDisplayName;
+- (void)setPrimitiveDisplayName:(NSString*)value;
+
+
+
+
 - (NSString*)primitiveKey;
 - (void)setPrimitiveKey:(NSString*)value;
-
-
-
-
-- (NSString*)primitiveName;
-- (void)setPrimitiveName:(NSString*)value;
 
 
 
