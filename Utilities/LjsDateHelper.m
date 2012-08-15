@@ -78,7 +78,7 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 
 // Disallow the normal default initializer for instances
 - (id)init {
-  [self doesNotRecognizeSelector:_cmd];
+ //  [self doesNotRecognizeSelector:_cmd];
   return nil;
 }
 

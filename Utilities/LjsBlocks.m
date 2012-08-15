@@ -54,7 +54,7 @@ DoTimesBlock dotimes = ^(NSUInteger times, void(^block)(void)) {
 //}
 
 - (id) init {
-  [self doesNotRecognizeSelector:_cmd];
+ //  [self doesNotRecognizeSelector:_cmd];
   return nil;  
 }
 

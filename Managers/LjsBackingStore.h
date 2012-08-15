@@ -71,7 +71,7 @@
                   defaultValue:(id) aDefaultValue
                 storeIfMissing:(BOOL) aPersistMissing;
 
-- (void) updateValueInDictionaryNamed:(NSString *) aDictName
+- (BOOL) updateValueInDictionaryNamed:(NSString *) aDictName
                          withValueKey:(NSString *) aValueKey
                                 value:(id) aValue;
 
@@ -83,9 +83,9 @@
 
 
 - (NSArray *) allKeys;
-- (void) storeObject:(id) object forKey:(NSString *) aKey;
-- (void) storeBool:(BOOL) aBool forKey:(NSString *) aKey;
-- (void) removeObjectForKey:(NSString *) aKey;
+- (BOOL) storeObject:(id) object forKey:(NSString *) aKey;
+- (BOOL) storeBool:(BOOL) aBool forKey:(NSString *) aKey;
+- (BOOL) removeObjectForKey:(NSString *) aKey;
 - (NSString *) filepath;
 
 

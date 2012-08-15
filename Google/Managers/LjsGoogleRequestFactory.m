@@ -74,7 +74,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (id) init {
-  [self doesNotRecognizeSelector:_cmd];
+ //  [self doesNotRecognizeSelector:_cmd];
   return nil;
 }
 
