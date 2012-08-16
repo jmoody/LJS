@@ -87,7 +87,7 @@ static NSString *LjsFakerCitiesUSplist = @"com.littlejoysoftware.faker.cities.us
 
 #pragma mark Memory Management
 - (void) dealloc {
-  DDLogDebug(@"deallocating %@", [self class]);
+  // DDLogDebug(@"deallocating %@", [self class]);
 }
 
 - (id) init {

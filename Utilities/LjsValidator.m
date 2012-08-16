@@ -289,6 +289,17 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 
+- (void) addReasonWithVarName:(NSString *)aVarName ifInteger:(NSInteger) aValue isNotOnInterval:(NSRange) aRange {
+  NSInteger min = aRange.location;
+  NSInteger max = aRange.length;
+  if (aValue < min || aValue > max) {
+    NSString *reason = [NSString stringWithFormat:@"< %d > is not on (%d, %d)",
+                        aValue, min, max];
+    [self addReason:reason];
+  }
+}
+
+
 - (NSString *) explanation:(NSString *) aExplanation {
   return [NSString stringWithFormat:@"%@ for these reasons:\n%@",
           aExplanation, self.reasons];

@@ -24,4 +24,10 @@
 - (NSArray *) mapc:(void (^)(id obj, NSUInteger idx, BOOL *stop)) aBlock concurrent:(BOOL) aConcurrent;
 - (BOOL) emptyp;
 - (NSArray *) arrayByRemovingObjectsInArray:(NSArray *) aArray;
+
+// http://stackoverflow.com/questions/1242914/converting-between-c-enum-and-xml/1243622#1243622
+- (NSString *) stringWithEnum:(NSUInteger) enumVal;
+- (NSUInteger) enumFromString:(NSString *) strVal default: (NSUInteger) def;
+- (NSUInteger) enumFromString:(NSString *) strVal;
+
 @end

@@ -23,7 +23,7 @@ static NSUInteger LjsServiceAvailableMaxNumberOfTimesToPoll = UINT_MAX;
 - (void) dealloc {
   // a little strange, but we do nothing here because we manage in the stop
   // and start methods. 
-  DDLogDebug(@"deallocating %@", [self class]);
+  // DDLogDebug(@"deallocating %@", [self class]);
 }
 
 - (id) initWithTimerFrequency:(NSTimeInterval)aTimerFrequency {

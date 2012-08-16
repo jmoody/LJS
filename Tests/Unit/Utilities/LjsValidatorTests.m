@@ -476,6 +476,35 @@
   GHAssertFalse([reasons hasReasons], @"should not have reasons if selector is non-nil");
 }
 
+- (void) test_addReasonIfIntegerIsOnRange_on_range {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"integer" ifInteger:1 isNotOnInterval:NSMakeRange(0, 2)];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons if integer is on interval");
+}
+
+- (void) test_addReasonIfIntegerIsOnRange_on_lhs {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"integer" ifInteger:0 isNotOnInterval:NSMakeRange(0, 2)];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons if integer is on interval");
+}
+
+- (void) test_addReasonIfIntegerIsOnRange_on_rhs {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"integer" ifInteger:2 isNotOnInterval:NSMakeRange(0, 2)];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons if integer is on interval");
+}
+
+- (void) test_addReasonIfIntegerIsOnRange_lt_lhs {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"integer" ifInteger:-1 isNotOnInterval:NSMakeRange(0, 2)];
+  GHAssertTrue([reasons hasReasons], @"should have reasons if integer is not on interval");
+}
+
+- (void) test_addReasonIfIntegerIsOnRange_gt_rhs {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"integer" ifInteger:3 isNotOnInterval:NSMakeRange(0, 2)];
+  GHAssertTrue([reasons hasReasons], @"should have reasons if integer is not on interval");
+}
 
 
 @end

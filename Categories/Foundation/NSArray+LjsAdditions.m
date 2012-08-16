@@ -106,13 +106,26 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
   NSPredicate *predicate;
   predicate = [NSPredicate predicateWithBlock:^(id obj, NSDictionary *bindings) {
-    DDLogDebug(@"evaluating: %@", obj);
+    //DDLogDebug(@"evaluating: %@", obj);
     BOOL result = [aArray containsObject:obj] == NO;
     return result;
   }];
   return [self filteredArrayUsingPredicate:predicate];
 }
 
+- (NSString *) stringWithEnum:(NSUInteger) enumVal {
+  return [self objectAtIndex:enumVal];
+}
+
+- (NSUInteger) enumFromString:(NSString *) strVal default:(NSUInteger) def {
+  NSUInteger n = [self indexOfObject:strVal];
+  if(n == NSNotFound) n = def;
+  return n;
+}
+
+- (NSUInteger) enumFromString:(NSString *) strVal {
+  return [self enumFromString:strVal default:0];
+}
 
 
 @end
