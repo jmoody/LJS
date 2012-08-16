@@ -84,9 +84,38 @@
 }
 #endif
 
-- (void) test_make_keyword {
-  NSString *actual = [@"a" makeKeyword];
-  assertThat(actual, is(@":a"));
+- (void) test_make_keyword_no_spaces_no_colon {
+  NSString *actual = [@"abc" makeKeyword];
+  assertThat(actual, is(@":abc"));
 }
+
+- (void) test_make_keyword_has_spaces {
+  NSString *actual = [@"a b c" makeKeyword];
+  assertThat(actual, is(@":a-b-c"));
+}
+
+- (void) test_make_keyword_has_werid_spaces {
+  NSString *actual = [@" a  b     c    " makeKeyword];
+  assertThat(actual, is(@":a-b-c"));
+}
+
+- (void) test_make_keyword_already_has_colon {
+  NSString *actual = [@":a  b     c    " makeKeyword];
+  assertThat(actual, is(@":a-b-c"));
+}
+
+- (void) test_make_keyword_has_funny_first_colon {
+  NSString *actual = [@" :a  b     c    " makeKeyword];
+  assertThat(actual, is(@":a-b-c"));
+}
+
+- (void) test_make_keyword_has_funnier_first_colon {
+  NSString *actual = [@" : a  b     c    " makeKeyword];
+  assertThat(actual, is(@":a-b-c"));
+}
+
+
+
+
 
 @end
