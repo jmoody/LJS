@@ -506,5 +506,22 @@
   GHAssertTrue([reasons hasReasons], @"should have reasons if integer is not on interval");
 }
 
+- (void) test_addReasonIfEmptyString_nil {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"string" ifEmptyString:nil];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons if the string is nil");
+}
+
+- (void) test_addReasonIfEmptyString_not_empty {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"string" ifEmptyString:@"foo"];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons if the string is not empty");
+}
+
+- (void) test_addReasonIfEmptyString_empty {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"string" ifEmptyString:@""];
+  GHAssertTrue([reasons hasReasons], @"should have reasons if the string is empty");
+}
 
 @end

@@ -245,6 +245,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
 }
 
+- (void) addReasonWithVarName:(NSString *)aVarName ifEmptyString:(NSString *) aString {
+  if (aString != nil && [aString length] == 0) {
+    NSString *reason = [NSString stringWithFormat:@"%@ cannot be nil or empty",
+                        aVarName];
+    [self addReason:reason];
+  }
+}
+
 - (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id) aObject notInList:(id) aFirst, ... {
   NSMutableArray *array = [NSMutableArray array];
   va_list args;

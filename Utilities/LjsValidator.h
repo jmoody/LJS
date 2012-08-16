@@ -181,6 +181,7 @@
 - (BOOL) hasReasons;
 - (void) addReason:(NSString *) aReason;
 - (void) addReasonWithVarName:(NSString *)aVarName ifNil:(id) aObject;
+- (void) addReasonWithVarName:(NSString *)aVarName ifEmptyString:(NSString *) aString;
 - (void) addReasonWithVarName:(NSString *)aVarName ifNilOrEmptyString:(NSString *) aString;
 - (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id) aObject notInList:(id) aFirst, ...NS_REQUIRES_NIL_TERMINATION;
 - (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id) aObject notInArray:(NSArray *) aArray;
