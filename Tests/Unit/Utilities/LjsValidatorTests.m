@@ -524,4 +524,32 @@
   GHAssertTrue([reasons hasReasons], @"should have reasons if the string is empty");
 }
 
+- (void) test_add_reason_if_not_on_interval_or_equal_to_value_not_on_lhs {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"integer"
+                      ifInteger:-1
+                isNotOnInterval:NSMakeRange(0, 2)
+                      orEqualTo:NSNotFound];
+  GHAssertTrue([reasons hasReasons], @"should have reasons if integer is not on interval or equal to outlier");
+}
+
+- (void) test_add_reason_if_not_on_interval_or_equal_to_value_not_on_rhs {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"integer"
+                      ifInteger:3
+                isNotOnInterval:NSMakeRange(0, 2)
+                      orEqualTo:NSNotFound];
+  GHAssertTrue([reasons hasReasons], @"should have reasons if integer is not on interval or equal to outlier");
+}
+
+- (void) test_add_reason_if_not_on_interval_or_equal_to_value_on_interval_equal_outlier {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"integer"
+                      ifInteger:NSNotFound
+                isNotOnInterval:NSMakeRange(0, 2)
+                      orEqualTo:NSNotFound];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons if integer is not on interval, but equal to outlier");
+}
+
+
 @end
