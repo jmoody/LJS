@@ -21,7 +21,8 @@ export GHUNIT_RUN_TESTS_SCRIPT=YES
 export DYLD_FRAMEWORK_PATH="$CONFIGURATION_BUILD_DIR"
 
 TEST_TARGET_EXECUTABLE_PATH="$TARGET_BUILD_DIR/$EXECUTABLE_PATH"
-GROWLNOTIFY=/opt/local/bin/growlnotify
+
+# to get growl notifications, add a GROWLNOTIFY variable to your environment 
 GROWLNOTIFY_MESSAGE_PASS="$PRODUCT_NAME ==> $CONFIGURATION"$'\n'"All tests passed!"
 GROWLNOTIFY_ICON_PASS="../art/growl/ljs-pass.icns"
 GROWLNOTIFY_MESSAGE_FAIL="$PRODUCT_NAME ==> $CONFIGURATION"$'\n'"Some tests failed. :("
@@ -61,10 +62,22 @@ if [ -n "$WRITE_JUNIT_XML" ]; then
   fi
 fi
 
-if [ $RETVAL = 0 ]; then
- $GROWLNOTIFY --name Xcode --image $GROWLNOTIFY_ICON_PASS --message "$GROWLNOTIFY_MESSAGE_PASS"
+if [ "$GROWLNOTIFY" = "" ]; then
+    echo "skipping growl notification - could not find a grownlnotify"
 else
- $GROWLNOTIFY --name Xcode --image $GROWLNOTIFY_ICON_FAIL --message "$GROWLNOTIFY_MESSAGE_FAIL"
+    set +o errexit # Disable exiting if process cannot be found                                                                                                                        
+    GROWL_PROCESS=`ps auxw | grep Growl | grep -v grep`
+    GROWL_RUNNING=$?
+    if [ $GROWL_RUNNING = 1 ]; then
+        echo "skipping growl notifcation - could not find a Growl server running"
+    else
+        if [ $RETVAL = 0 ]; then
+            $GROWLNOTIFY --name Xcode --image $GROWLNOTIFY_ICON_PASS --message "$GROWLNOTIFY_MESSAGE_PASS"
+        else
+            $GROWLNOTIFY --name Xcode --image $GROWLNOTIFY_ICON_FAIL --message "$GROWLNOTIFY_MESSAGE_FAIL"
+        fi
+    fi
+    set -o errexit
 fi
 
 exit $RETVAL
