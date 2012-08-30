@@ -114,7 +114,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (NSString *) stringWithEnum:(NSUInteger) enumVal {
-  return [self objectAtIndex:enumVal];
+  NSString *result = nil;
+  if (enumVal < [self count]) {
+    result = [self objectAtIndex:enumVal];
+  }
+  return result;
 }
 
 - (NSUInteger) enumFromString:(NSString *) strVal default:(NSUInteger) def {

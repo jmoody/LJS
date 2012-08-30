@@ -324,5 +324,22 @@
                @"array should contain only the original objects");
 }
 
+- (void) test_string_with_enum_empty_array {
+  NSArray *array = [NSArray array];
+  NSString *actual = [array stringWithEnum:0];
+  GHAssertNil(actual, @"string should be nil because array is empty");
+  actual = [array stringWithEnum:1];
+  GHAssertNil(actual, @"string should be nil because array is empty");
+}
+
+- (void) test_string_with_enum_one_element_array {
+  NSArray *array = [NSArray arrayWithObjects:@"a", nil];
+  NSString *actual = [array stringWithEnum:0];
+  GHAssertEqualStrings(actual, @"a", @"strings should be the same");
+  actual = [array stringWithEnum:1];
+  GHAssertNil(actual, @"string should be nil because 1 is out of bounds");
+}
+
+
 
 @end
