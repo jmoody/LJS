@@ -301,8 +301,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSInteger min = aRange.location;
   NSInteger max = aRange.length;
   if (aValue < min || aValue > max) {
-    NSString *reason = [NSString stringWithFormat:@"< %d > is not on (%d, %d)",
-                        aValue, min, max];
+    NSString *reason = [NSString stringWithFormat:@"< %ld > is not on (%ld, %ld)",
+                        (long)aValue, (long)min, (long)max];
     [self addReason:reason];
   }
 }
@@ -315,8 +315,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSInteger min = aRange.location;
   NSInteger max = aRange.length;
   if ((aValue < min || aValue > max) && aValue != aOutOfRangeValue) {
-    NSString *reason = [NSString stringWithFormat:@"< %d > is not on (%d, %d) or equal to %d",
-                        aValue, min, max, aOutOfRangeValue];
+    NSString *reason = [NSString stringWithFormat:@"< %ld > is not on (%ld, %ld) or equal to %ld",
+                        (long)aValue, (long)min, (long)max, (long)aOutOfRangeValue];
     [self addReason:reason];
   }
 }
