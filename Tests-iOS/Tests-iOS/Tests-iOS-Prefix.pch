@@ -10,6 +10,7 @@
 #define HC_SHORTHAND
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
 #import <OCMock/OCMock.h>
+//#import "OCMock.h"
 #import <GHUnitIOS/GHUnit.h>
 #import "OCMockSingletonExtensions.h"
 #include "TargetConditionals.h"

@@ -162,7 +162,6 @@
 		F552F41E15DBC0680075258F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = F552F41315DBC0680075258F /* iTunesArtwork */; };
 		F552F41F15DBC0680075258F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = F552F41315DBC0680075258F /* iTunesArtwork */; };
 		F5595B711550157E001CF528 /* NSDictionary+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5595B701550157E001CF528 /* NSDictionary+LjsAdditions.m */; };
-		F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F56147B81450C72A00D2653A /* libOCMock.a */; };
 		F56147BB1450C86700D2653A /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F56147BA1450C86700D2653A /* OCMockWorkingTest.m */; };
 		F56B0C6515D1407900A174AA /* LjsFetchRequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F56B0C6415D1407900A174AA /* LjsFetchRequestFactory.m */; };
 		F56B0C6815D1429500A174AA /* LjsFetchRequestFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F56B0C6715D1429500A174AA /* LjsFetchRequestFactoryTest.m */; };
@@ -328,6 +327,11 @@
 		F5ADA66D15D155BB00E3FA56 /* _DndRole.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA66915D155BB00E3FA56 /* _DndRole.m */; };
 		F5ADA67015D156A500E3FA56 /* LjsManagedObjectContextTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA66F15D156A500E3FA56 /* LjsManagedObjectContextTest.m */; };
 		F5ADA67315D1592400E3FA56 /* FourEdPodcastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA67215D1592400E3FA56 /* FourEdPodcastManager.m */; };
+		F5B36BF21630637D005BED75 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B36BF11630637D005BED75 /* Default-568h@2x.png */; };
+		F5B36C1016306789005BED75 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B36C0716306789005BED75 /* libOCMock.a */; };
+		F5B36C1116306789005BED75 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B36C0716306789005BED75 /* libOCMock.a */; };
+		F5B36C121630678A005BED75 /* VERSION.markdown in Resources */ = {isa = PBXBuildFile; fileRef = F5B36C0F16306789005BED75 /* VERSION.markdown */; };
+		F5B36C131630678A005BED75 /* VERSION.markdown in Resources */ = {isa = PBXBuildFile; fileRef = F5B36C0F16306789005BED75 /* VERSION.markdown */; };
 		F5BB1EBC151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
 		F5BB1EBD151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
 		F5C112731496715900948605 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE69F1410C6F60051FC7E /* UIKit.framework */; };
@@ -581,13 +585,6 @@
 		F5595B6F1550157E001CF528 /* NSDictionary+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LjsAdditions.h"; sourceTree = "<group>"; };
 		F5595B701550157E001CF528 /* NSDictionary+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LjsAdditions.m"; sourceTree = "<group>"; };
 		F56147AC1450BFB800D2653A /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../gh-unit/Project-iOS/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
-		F56147B21450C72A00D2653A /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
-		F56147B31450C72A00D2653A /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
-		F56147B41450C72A00D2653A /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
-		F56147B51450C72A00D2653A /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
-		F56147B61450C72A00D2653A /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
-		F56147B71450C72A00D2653A /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
-		F56147B81450C72A00D2653A /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		F56147BA1450C86700D2653A /* OCMockWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockWorkingTest.m; sourceTree = "<group>"; };
 		F56B0C6315D1407900A174AA /* LjsFetchRequestFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFetchRequestFactory.h; sourceTree = "<group>"; };
 		F56B0C6415D1407900A174AA /* LjsFetchRequestFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFetchRequestFactory.m; sourceTree = "<group>"; };
@@ -821,6 +818,15 @@
 		F5B03A7214AA67620015D59B /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
 		F5B03A7314AA67620015D59B /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		F5B03A7414AA67620015D59B /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		F5B36BF11630637D005BED75 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F5B36C0716306789005BED75 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		F5B36C0916306789005BED75 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		F5B36C0A16306789005BED75 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		F5B36C0B16306789005BED75 /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		F5B36C0C16306789005BED75 /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		F5B36C0D16306789005BED75 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		F5B36C0E16306789005BED75 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
+		F5B36C0F16306789005BED75 /* VERSION.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION.markdown; sourceTree = "<group>"; };
 		F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "google-places-autocomplete-sample.json"; sourceTree = "<group>"; };
 		F5C112711496715900948605 /* LJS iOS Documentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LJS iOS Documentation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C112781496715900948605 /* Documentation-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Documentation-Info.plist"; sourceTree = "<group>"; };
@@ -895,11 +901,11 @@
 				F58013AD149E080E00692073 /* CoreLocation.framework in Frameworks */,
 				F50FE6A41410C6F60051FC7E /* CoreGraphics.framework in Frameworks */,
 				F50FE7351410D3160051FC7E /* Security.framework in Frameworks */,
-				F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */,
 				F50FE6A01410C6F60051FC7E /* UIKit.framework in Frameworks */,
 				F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */,
 				F59AC1601546B536001ABB88 /* GHUnitIOS.framework in Frameworks */,
 				F58E4D52158DF7C80060B2B8 /* OCHamcrestIOS.framework in Frameworks */,
+				F5B36C1016306789005BED75 /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -912,6 +918,7 @@
 				F54FA3F114B7060B0080CC9A /* CoreGraphics.framework in Frameworks */,
 				F5F7BBBD14D3EAE700669FE6 /* QuartzCore.framework in Frameworks */,
 				F5903F90151B64B300995AF1 /* CoreData.framework in Frameworks */,
+				F5B36C1116306789005BED75 /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -931,6 +938,7 @@
 		F50FE6901410C6F60051FC7E = {
 			isa = PBXGroup;
 			children = (
+				F5B36BF11630637D005BED75 /* Default-568h@2x.png */,
 				F5448AC31450B63B0065E516 /* ThirdParty */,
 				F5807168146C298100EA4CFB /* LJS */,
 				F50FE6A51410C6F60051FC7E /* Tests-iOS */,
@@ -1385,40 +1393,11 @@
 		F56147AE1450C72A00D2653A /* ocmock */ = {
 			isa = PBXGroup;
 			children = (
-				F56147AF1450C72A00D2653A /* Library */,
+				F5B36C0616306789005BED75 /* iOS */,
+				F5B36C0F16306789005BED75 /* VERSION.markdown */,
 			);
 			name = ocmock;
 			path = ../ocmock;
-			sourceTree = "<group>";
-		};
-		F56147AF1450C72A00D2653A /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				F56147B01450C72A00D2653A /* Headers */,
-				F56147B81450C72A00D2653A /* libOCMock.a */,
-			);
-			path = Library;
-			sourceTree = "<group>";
-		};
-		F56147B01450C72A00D2653A /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				F56147B11450C72A00D2653A /* OCMock */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		F56147B11450C72A00D2653A /* OCMock */ = {
-			isa = PBXGroup;
-			children = (
-				F56147B21450C72A00D2653A /* NSNotificationCenter+OCMAdditions.h */,
-				F56147B31450C72A00D2653A /* OCMArg.h */,
-				F56147B41450C72A00D2653A /* OCMConstraint.h */,
-				F56147B51450C72A00D2653A /* OCMock.h */,
-				F56147B61450C72A00D2653A /* OCMockObject.h */,
-				F56147B71450C72A00D2653A /* OCMockRecorder.h */,
-			);
-			path = OCMock;
 			sourceTree = "<group>";
 		};
 		F56B0C6E15D14B8A00A174AA /* Models */ = {
@@ -1960,6 +1939,28 @@
 			path = OCMock;
 			sourceTree = "<group>";
 		};
+		F5B36C0616306789005BED75 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				F5B36C0716306789005BED75 /* libOCMock.a */,
+				F5B36C0816306789005BED75 /* OCMock */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		F5B36C0816306789005BED75 /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				F5B36C0916306789005BED75 /* NSNotificationCenter+OCMAdditions.h */,
+				F5B36C0A16306789005BED75 /* OCMArg.h */,
+				F5B36C0B16306789005BED75 /* OCMConstraint.h */,
+				F5B36C0C16306789005BED75 /* OCMock.h */,
+				F5B36C0D16306789005BED75 /* OCMockObject.h */,
+				F5B36C0E16306789005BED75 /* OCMockRecorder.h */,
+			);
+			path = OCMock;
+			sourceTree = "<group>";
+		};
 		F5BB1EB9151B7F5D00BFDDA0 /* resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -2219,6 +2220,8 @@
 				F552F41A15DBC0680075258F /* Icon.png in Resources */,
 				F552F41C15DBC0680075258F /* Icon@2x.png in Resources */,
 				F552F41E15DBC0680075258F /* iTunesArtwork in Resources */,
+				F5B36BF21630637D005BED75 /* Default-568h@2x.png in Resources */,
+				F5B36C121630678A005BED75 /* VERSION.markdown in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2267,6 +2270,7 @@
 				F552F41B15DBC0680075258F /* Icon.png in Resources */,
 				F552F41D15DBC0680075258F /* Icon@2x.png in Resources */,
 				F552F41F15DBC0680075258F /* iTunesArtwork in Resources */,
+				F5B36C131630678A005BED75 /* VERSION.markdown in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2796,14 +2800,14 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = (
-					"${SDK_DIR}/usr/include/libxml2",
-					"$(PROJECT_DIR)/../ocmock/Library/Headers/**",
+					"\"${SDK_DIR}/usr/include/libxml2\"",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				INFOPLIST_FILE = "Tests-iOS/Tests-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../ocmock/Library\"",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -2834,14 +2838,14 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = (
-					"${SDK_DIR}/usr/include/libxml2",
-					"$(PROJECT_DIR)/../ocmock/Library/Headers/**",
+					"\"${SDK_DIR}/usr/include/libxml2\"",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				INFOPLIST_FILE = "Tests-iOS/Tests-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../ocmock/Library\"",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -2873,6 +2877,10 @@
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "TestViews-iOS/TestViews-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				WRAPPER_EXTENSION = app;
@@ -2895,6 +2903,10 @@
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "TestViews-iOS/TestViews-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				WRAPPER_EXTENSION = app;
@@ -3024,14 +3036,14 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = (
-					"${SDK_DIR}/usr/include/libxml2",
-					"$(PROJECT_DIR)/../ocmock/Library/Headers/**",
+					"\"${SDK_DIR}/usr/include/libxml2\"",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				INFOPLIST_FILE = "Tests-iOS/Tests-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../ocmock/Library\"",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -3076,6 +3088,10 @@
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "TestViews-iOS/TestViews-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				WRAPPER_EXTENSION = app;
@@ -3149,14 +3165,14 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = (
-					"${SDK_DIR}/usr/include/libxml2",
-					"$(PROJECT_DIR)/../ocmock/Library/Headers/**",
+					"\"${SDK_DIR}/usr/include/libxml2\"",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				INFOPLIST_FILE = "Tests-iOS/Tests-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../ocmock/Library\"",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -3201,6 +3217,10 @@
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "TestViews-iOS/TestViews-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				WRAPPER_EXTENSION = app;
