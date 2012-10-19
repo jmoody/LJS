@@ -107,7 +107,6 @@
 		F5807108146C288C00EA4CFB /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070FA146C288C00EA4CFB /* SBJsonTokeniser.m */; };
 		F5807109146C288C00EA4CFB /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070FC146C288C00EA4CFB /* SBJsonUTF8Stream.m */; };
 		F580710A146C288C00EA4CFB /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070FE146C288C00EA4CFB /* SBJsonWriter.m */; };
-		F5807129146C291100EA4CFB /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5807127146C291100EA4CFB /* OCMock.framework */; };
 		F5807138146C295200EA4CFB /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F580712D146C295200EA4CFB /* DDFileLogger+CurrentFile.m */; };
 		F5807139146C295200EA4CFB /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F580712F146C295200EA4CFB /* LjsDefaultFormatter.m */; };
 		F580713B146C295200EA4CFB /* LjsMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807134146C295200EA4CFB /* LjsMessageBuilder.m */; };
@@ -119,7 +118,6 @@
 		F5807166146C296700EA4CFB /* LjsValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807158146C296700EA4CFB /* LjsValidator.m */; };
 		F5807167146C296700EA4CFB /* LjsVariates.m in Sources */ = {isa = PBXBuildFile; fileRef = F580715A146C296700EA4CFB /* LjsVariates.m */; };
 		F580716C146C2A1F00EA4CFB /* GHUnit.framework in Copy Files GHUnit and OCMock */ = {isa = PBXBuildFile; fileRef = F5807045146C280600EA4CFB /* GHUnit.framework */; };
-		F580716D146C2A2600EA4CFB /* OCMock.framework in Copy Files GHUnit and OCMock */ = {isa = PBXBuildFile; fileRef = F5807127146C291100EA4CFB /* OCMock.framework */; };
 		F5807179146C2AAC00EA4CFB /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580716F146C2AAC00EA4CFB /* OCMockWorkingTest.m */; };
 		F580718A146C2C8300EA4CFB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5807188146C2C6800EA4CFB /* SystemConfiguration.framework */; };
 		F580718B146C2C8300EA4CFB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5807186146C2C5300EA4CFB /* libz.dylib */; };
@@ -208,6 +206,8 @@
 		F59635FD14966B9600CDB27E /* UKMainThreadProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F814966B9600CDB27E /* UKMainThreadProxy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F5B2844114AD0B6700E48908 /* LjsGestalt.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844014AD0B6700E48908 /* LjsGestalt.m */; };
 		F5B2844E14AD1B5E00E48908 /* LjsRestartFinderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844D14AD1B5E00E48908 /* LjsRestartFinderOperation.m */; };
+		F5CD95D81631050F00FF1BFA /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CD95D71631050F00FF1BFA /* OCMock.framework */; };
+		F5CD95D91631054B00FF1BFA /* OCMock.framework in Copy Files GHUnit and OCMock */ = {isa = PBXBuildFile; fileRef = F5CD95D71631050F00FF1BFA /* OCMock.framework */; };
 		F5D33F361552A01100A42506 /* NSDictionary+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D33F351552A01100A42506 /* NSDictionary+LjsAdditions.m */; };
 		F5E98569152473580061631A /* NSDecimalNumber+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E98568152473580061631A /* NSDecimalNumber+LjsAdditions.m */; };
 		F5E985CF152474420061631A /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5E985CD152474420061631A /* google-places-autocomplete-sample.json */; };
@@ -237,7 +237,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				F580716C146C2A1F00EA4CFB /* GHUnit.framework in Copy Files GHUnit and OCMock */,
-				F580716D146C2A2600EA4CFB /* OCMock.framework in Copy Files GHUnit and OCMock */,
+				F5CD95D91631054B00FF1BFA /* OCMock.framework in Copy Files GHUnit and OCMock */,
 			);
 			name = "Copy Files GHUnit and OCMock";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,13 +440,6 @@
 		F58070FC146C288C00EA4CFB /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
 		F58070FD146C288C00EA4CFB /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		F58070FE146C288C00EA4CFB /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		F5807120146C291100EA4CFB /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
-		F5807121146C291100EA4CFB /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
-		F5807122146C291100EA4CFB /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
-		F5807123146C291100EA4CFB /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
-		F5807124146C291100EA4CFB /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
-		F5807125146C291100EA4CFB /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
-		F5807127146C291100EA4CFB /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMock.framework; sourceTree = "<group>"; };
 		F580712C146C295200EA4CFB /* DDFileLogger+CurrentFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDFileLogger+CurrentFile.h"; sourceTree = "<group>"; };
 		F580712D146C295200EA4CFB /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
 		F580712E146C295200EA4CFB /* LjsDefaultFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultFormatter.h; sourceTree = "<group>"; };
@@ -614,6 +607,7 @@
 		F5B2844014AD0B6700E48908 /* LjsGestalt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestalt.m; sourceTree = "<group>"; };
 		F5B2844C14AD1B5E00E48908 /* LjsRestartFinderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRestartFinderOperation.h; sourceTree = "<group>"; };
 		F5B2844D14AD1B5E00E48908 /* LjsRestartFinderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsRestartFinderOperation.m; sourceTree = "<group>"; };
+		F5CD95D71631050F00FF1BFA /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMock.framework; sourceTree = "<group>"; };
 		F5D33F341552A01100A42506 /* NSDictionary+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LjsAdditions.h"; sourceTree = "<group>"; };
 		F5D33F351552A01100A42506 /* NSDictionary+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5E98566152473580061631A /* LjsFoundationCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFoundationCategories.h; sourceTree = "<group>"; };
@@ -645,8 +639,8 @@
 				F580718B146C2C8300EA4CFB /* libz.dylib in Frameworks */,
 				F580718C146C2C8300EA4CFB /* CoreServices.framework in Frameworks */,
 				F580718D146C2C8300EA4CFB /* libxml2.dylib in Frameworks */,
-				F5807129146C291100EA4CFB /* OCMock.framework in Frameworks */,
 				F58E4D4B158DF6110060B2B8 /* OCHamcrest.framework in Frameworks */,
+				F5CD95D81631050F00FF1BFA /* OCMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1101,40 +1095,10 @@
 		F580711C146C291100EA4CFB /* ocmock */ = {
 			isa = PBXGroup;
 			children = (
-				F580711D146C291100EA4CFB /* Library */,
-				F5807127146C291100EA4CFB /* OCMock.framework */,
+				F5CD95D61631050F00FF1BFA /* OSX */,
 			);
 			name = ocmock;
 			path = ../ocmock;
-			sourceTree = "<group>";
-		};
-		F580711D146C291100EA4CFB /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				F580711E146C291100EA4CFB /* Headers */,
-			);
-			path = Library;
-			sourceTree = "<group>";
-		};
-		F580711E146C291100EA4CFB /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				F580711F146C291100EA4CFB /* OCMock */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		F580711F146C291100EA4CFB /* OCMock */ = {
-			isa = PBXGroup;
-			children = (
-				F5807120146C291100EA4CFB /* NSNotificationCenter+OCMAdditions.h */,
-				F5807121146C291100EA4CFB /* OCMArg.h */,
-				F5807122146C291100EA4CFB /* OCMConstraint.h */,
-				F5807123146C291100EA4CFB /* OCMock.h */,
-				F5807124146C291100EA4CFB /* OCMockObject.h */,
-				F5807125146C291100EA4CFB /* OCMockRecorder.h */,
-			);
-			path = OCMock;
 			sourceTree = "<group>";
 		};
 		F580712A146C295200EA4CFB /* Logging */ = {
@@ -1542,6 +1506,14 @@
 			);
 			name = Operations;
 			path = ../Operations;
+			sourceTree = "<group>";
+		};
+		F5CD95D61631050F00FF1BFA /* OSX */ = {
+			isa = PBXGroup;
+			children = (
+				F5CD95D71631050F00FF1BFA /* OCMock.framework */,
+			);
+			path = OSX;
 			sourceTree = "<group>";
 		};
 		F5E985B6152473A70061631A /* Google */ = {
@@ -2010,7 +1982,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-MacOS\"",
-					"\"$(SRCROOT)/../ocmock\"",
+					"\"$(SRCROOT)/../ocmock/OSX\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-MacOS/Tests-MacOS-Prefix.pch";
@@ -2028,7 +2000,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../ocmock/Library\"",
+					"\"$(SRCROOT)/../ocmock/OSX\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "";
@@ -2046,7 +2018,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-MacOS\"",
-					"\"$(SRCROOT)/../ocmock\"",
+					"\"$(SRCROOT)/../ocmock/OSX\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-MacOS/Tests-MacOS-Prefix.pch";
@@ -2060,7 +2032,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../ocmock/Library\"",
+					"\"$(SRCROOT)/../ocmock/OSX\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "";
