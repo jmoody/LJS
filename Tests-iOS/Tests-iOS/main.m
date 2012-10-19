@@ -1,6 +1,10 @@
 #import "Lumberjack.h"
+#import "LjsApplicationTestRunner.h"
 
 int main(int argc, char *argv[]) {
+  
+  int retVal;
+  
   @autoreleasepool {
     
     LjsDefaultFormatter *formatter = [[LjsDefaultFormatter alloc] init];
@@ -15,19 +19,16 @@ int main(int argc, char *argv[]) {
     [DDLog addLogger:fileLogger];
 
     NSString *GHUNIT_DELEGATE;
-    int retVal;
+
     
 #if TARGET_IPHONE_SIMULATOR 
     GHUNIT_DELEGATE = @"GHUnitIPhoneAppDelegate";
 #else
     GHUNIT_DELEGATE = @"GHUnitIOSAppDelegate";
 #endif
-
-    if (getenv("GHUNIT_CLI")) {
-      retVal = [GHTestRunner run];
-    } else {
-      retVal = UIApplicationMain(argc, argv, nil, GHUNIT_DELEGATE);
-    }
+    
+    retVal = UIApplicationMain(argc, argv, NSStringFromClass([LjsApplicationTestRunner class]), GHUNIT_DELEGATE);
   }
+  return retVal;
 }
 

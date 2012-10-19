@@ -26,70 +26,34 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
-
 #if ! __has_feature(objc_arc)
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsTestCase.h"
-#import "LoremIpsum.h"
-#import "LjsVariates.h"
-#import "LjsLabelAttributes.h"
+#import "LjsApplicationTestRunner.h"
+#import "Lumberjack.h"
 
-@interface LjsLabelAttributesTest : LjsTestCase {}
-@property (strong) LoremIpsum *li;
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
 
-@end
+@implementation LjsApplicationTestRunner
 
-@implementation LjsLabelAttributesTest
 
-@synthesize li;
-- (id) init {
+#pragma mark Memory Management
+- (void) dealloc {
+   DDLogDebug(@"deallocating %@", [self class]);
+}
+
+- (id)init {
   self = [super init];
-  if (self) {
-    self.li = [[LoremIpsum alloc] init];
+  if (getenv("GHUNIT_CLI")) {
+    if ([GHTestRunner run] > 0)
+      [NSException raise:NSGenericException format:@""];
   }
   return self;
 }
-
-- (BOOL)shouldRunOnMainThread {
-  // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
-  return NO;
-}
-
-- (void) setUpClass {
-  [super setUpClass];
-  // Run at start of all tests in the class
-}
-
-- (void) tearDownClass {
-  // Run at end of all tests in the class
-  [super tearDownClass];
-}
-
-- (void) setUp {
-  [super setUp];
-  // Run before each test method
-}
-
-- (void) tearDown {
-  // Run after each test method
-  [super tearDown];
-}  
-
-- (void) test_testAttributes {
-  NSString *text = [li characters:150];
-  UIFont *font = [UIFont fontWithName:@"ArialMT" size:14];
-  LjsLabelAttributes *attrs = [[LjsLabelAttributes alloc]
-                               initWithString:text
-                               font:font
-                               labelWidth:200];
-  GHTestLog(@"%@", attrs);
-  
-  CGFloat ceil = ceilf(5.8);
-  GHTestLog(@"ceiling = %f", ceil);
-}
-
 
 @end

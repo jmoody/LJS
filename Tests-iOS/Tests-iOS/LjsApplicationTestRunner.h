@@ -27,69 +27,19 @@
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
+#import <Foundation/Foundation.h>
 
-#if ! __has_feature(objc_arc)
-#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
-#endif
+/**
+ Documentation
+ */
+@interface LjsApplicationTestRunner : UIApplication 
 
-#import "LjsTestCase.h"
-#import "LoremIpsum.h"
-#import "LjsVariates.h"
-#import "LjsLabelAttributes.h"
+/** @name Properties */
 
-@interface LjsLabelAttributesTest : LjsTestCase {}
-@property (strong) LoremIpsum *li;
+/** @name Initializing Objects */
 
-@end
+/** @name Handling Notifications, Requests, and Events */
 
-@implementation LjsLabelAttributesTest
-
-@synthesize li;
-- (id) init {
-  self = [super init];
-  if (self) {
-    self.li = [[LoremIpsum alloc] init];
-  }
-  return self;
-}
-
-- (BOOL)shouldRunOnMainThread {
-  // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
-  return NO;
-}
-
-- (void) setUpClass {
-  [super setUpClass];
-  // Run at start of all tests in the class
-}
-
-- (void) tearDownClass {
-  // Run at end of all tests in the class
-  [super tearDownClass];
-}
-
-- (void) setUp {
-  [super setUp];
-  // Run before each test method
-}
-
-- (void) tearDown {
-  // Run after each test method
-  [super tearDown];
-}  
-
-- (void) test_testAttributes {
-  NSString *text = [li characters:150];
-  UIFont *font = [UIFont fontWithName:@"ArialMT" size:14];
-  LjsLabelAttributes *attrs = [[LjsLabelAttributes alloc]
-                               initWithString:text
-                               font:font
-                               labelWidth:200];
-  GHTestLog(@"%@", attrs);
-  
-  CGFloat ceil = ceilf(5.8);
-  GHTestLog(@"ceiling = %f", ceil);
-}
-
+/** @name Utility */
 
 @end
