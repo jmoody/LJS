@@ -354,7 +354,7 @@
 		F5C8F507152A6D8100B32F95 /* LjsGooglePlaceImportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F506152A6D8100B32F95 /* LjsGooglePlaceImportTests.m */; };
 		F5C8F50A152A6E2500B32F95 /* LjsGoogleReverseGeocodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F509152A6E2500B32F95 /* LjsGoogleReverseGeocodeTests.m */; };
 		F5C8F513152A70F300B32F95 /* LjsGoogleReverseGeocodeOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F512152A70F300B32F95 /* LjsGoogleReverseGeocodeOptions.m */; };
-		F5CD95F71631333300FF1BFA /* LjsApplicationTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD95F61631333300FF1BFA /* LjsApplicationTestRunner.m */; };
+		F5CD95FA1631469700FF1BFA /* LjsApplicationTestRunnerIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD95F91631469600FF1BFA /* LjsApplicationTestRunnerIOS.m */; };
 		F5D3581F14B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
 		F5D3582014B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
 		F5D86BA315381E5000354105 /* LjsGoogleTranslateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D86BA215381E5000354105 /* LjsGoogleTranslateManager.m */; };
@@ -852,8 +852,8 @@
 		F5C8F509152A6E2500B32F95 /* LjsGoogleReverseGeocodeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleReverseGeocodeTests.m; sourceTree = "<group>"; };
 		F5C8F511152A70F300B32F95 /* LjsGoogleReverseGeocodeOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleReverseGeocodeOptions.h; sourceTree = "<group>"; };
 		F5C8F512152A70F300B32F95 /* LjsGoogleReverseGeocodeOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleReverseGeocodeOptions.m; sourceTree = "<group>"; };
-		F5CD95F51631333300FF1BFA /* LjsApplicationTestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsApplicationTestRunner.h; sourceTree = "<group>"; };
-		F5CD95F61631333300FF1BFA /* LjsApplicationTestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsApplicationTestRunner.m; sourceTree = "<group>"; };
+		F5CD95F81631469600FF1BFA /* LjsApplicationTestRunnerIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsApplicationTestRunnerIOS.h; path = ../../Tests/LjsApplicationTestRunnerIOS.h; sourceTree = "<group>"; };
+		F5CD95F91631469600FF1BFA /* LjsApplicationTestRunnerIOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsApplicationTestRunnerIOS.m; path = ../../Tests/LjsApplicationTestRunnerIOS.m; sourceTree = "<group>"; };
 		F5D3581B14B805B50022E24E /* LjsBackingStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsBackingStore.h; sourceTree = "<group>"; };
 		F5D3581D14B8065E0022E24E /* LjsUserDefaultsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsUserDefaultsStore.h; sourceTree = "<group>"; };
 		F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsUserDefaultsStore.m; sourceTree = "<group>"; };
@@ -985,10 +985,10 @@
 		F50FE6A51410C6F60051FC7E /* Tests-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				F5CD95F81631469600FF1BFA /* LjsApplicationTestRunnerIOS.h */,
+				F5CD95F91631469600FF1BFA /* LjsApplicationTestRunnerIOS.m */,
 				F580719D146C33AC00EA4CFB /* LjsTestCase.h */,
 				F580719E146C33AC00EA4CFB /* LjsTestCase.m */,
-				F5CD95F51631333300FF1BFA /* LjsApplicationTestRunner.h */,
-				F5CD95F61631333300FF1BFA /* LjsApplicationTestRunner.m */,
 				F5BB1EB9151B7F5D00BFDDA0 /* resources */,
 				F50FE6D71410CC250051FC7E /* Tests */,
 				F50FE6A61410C6F60051FC7E /* Supporting Files */,
@@ -2544,7 +2544,7 @@
 				F59393AB15D1625B005FD30A /* _DndClass.m in Sources */,
 				F59393AC15D1625B005FD30A /* _DndRace.m in Sources */,
 				F59393BC15D16392005FD30A /* PLWeakCompatibilityStubs.m in Sources */,
-				F5CD95F71631333300FF1BFA /* LjsApplicationTestRunner.m in Sources */,
+				F5CD95FA1631469700FF1BFA /* LjsApplicationTestRunnerIOS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

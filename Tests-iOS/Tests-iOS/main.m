@@ -1,5 +1,5 @@
 #import "Lumberjack.h"
-#import "LjsApplicationTestRunner.h"
+#import "LjsApplicationTestRunnerIOS.h"
 
 int main(int argc, char *argv[]) {
   
@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
     GHUNIT_DELEGATE = @"GHUnitIOSAppDelegate";
 #endif
     
-    retVal = UIApplicationMain(argc, argv, NSStringFromClass([LjsApplicationTestRunner class]), GHUNIT_DELEGATE);
+    retVal = UIApplicationMain(argc, argv, NSStringFromClass([LjsApplicationTestRunnerIOS class]), GHUNIT_DELEGATE);
   }
   return retVal;
 }

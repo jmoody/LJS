@@ -32,7 +32,7 @@
 /**
  Documentation
  */
-@interface LjsApplicationTestRunner : UIApplication 
+@interface LjsApplicationTestRunnerIOS : UIApplication 
 
 /** @name Properties */
 

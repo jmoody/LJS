@@ -30,7 +30,7 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsApplicationTestRunner.h"
+#import "LjsApplicationTestRunnerIOS.h"
 #import "Lumberjack.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -39,7 +39,7 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-@implementation LjsApplicationTestRunner
+@implementation LjsApplicationTestRunnerIOS
 
 
 #pragma mark Memory Management
