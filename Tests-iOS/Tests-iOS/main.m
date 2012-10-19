@@ -15,13 +15,19 @@ int main(int argc, char *argv[]) {
     [DDLog addLogger:fileLogger];
 
     NSString *GHUNIT_DELEGATE;
+    int retVal;
+    
 #if TARGET_IPHONE_SIMULATOR 
     GHUNIT_DELEGATE = @"GHUnitIPhoneAppDelegate";
 #else
     GHUNIT_DELEGATE = @"GHUnitIOSAppDelegate";
 #endif
-    int retVal = UIApplicationMain(argc, argv, nil, GHUNIT_DELEGATE);
-    return retVal;
+
+    if (getenv("GHUNIT_CLI")) {
+      retVal = [GHTestRunner run];
+    } else {
+      retVal = UIApplicationMain(argc, argv, nil, GHUNIT_DELEGATE);
+    }
   }
 }
 

@@ -2784,6 +2784,7 @@
 		F50FE6C21410C6F60051FC7E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2804,12 +2805,12 @@
 					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				INFOPLIST_FILE = "Tests-iOS/Tests-iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -2818,6 +2819,7 @@
 				PRODUCT_NAME = "Tests-iOS";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "i386 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2825,6 +2827,7 @@
 		F50FE6C31410C6F60051FC7E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2842,12 +2845,12 @@
 					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				INFOPLIST_FILE = "Tests-iOS/Tests-iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -2856,6 +2859,7 @@
 				PRODUCT_NAME = "Tests-iOS";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "i386 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -3020,6 +3024,7 @@
 		F5FD829D1532163C00F5800F /* AdHoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3040,12 +3045,12 @@
 					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				INFOPLIST_FILE = "Tests-iOS/Tests-iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -3054,6 +3059,7 @@
 				PRODUCT_NAME = "Tests-iOS";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "i386 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = AdHoc;
@@ -3149,6 +3155,7 @@
 		F5FD82A11532164700F5800F /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3169,12 +3176,12 @@
 					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				INFOPLIST_FILE = "Tests-iOS/Tests-iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -3183,6 +3190,7 @@
 				PRODUCT_NAME = "Tests-iOS";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "i386 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = AppStore;
