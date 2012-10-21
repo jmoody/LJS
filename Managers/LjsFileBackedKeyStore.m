@@ -62,7 +62,7 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
 @implementation LjsFileBackedKeyStore
 
 @synthesize filepath;
-@synthesize store;
+@synthesize store = _store;
 
 
 #pragma mark Memory Management
@@ -170,7 +170,16 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
         if (dict == nil) {
           DDLogError(@"error reading dictionary so we make no change to key store");
         } else {
-          self.store = [NSMutableDictionary dictionaryWithDictionary:dict];
+          if (_store == NULL) {
+            // getting bad access here occassionally
+            // i _think_ what is happenning is that the self is in the process
+            // of being deallocated so _store == NULL
+            DDLogDebug(@"i am = %@", self);
+            DDLogDebug(@"notification poster is = %@", aNotification.object);
+            DDLogError(@"there is a problem whereby messages sent to self.store (_store) are causing bad access.  use the log information above to try to detect the problem.");
+          } else {
+            self.store = [NSMutableDictionary dictionaryWithDictionary:dict];
+          }
         }
       }
     }
