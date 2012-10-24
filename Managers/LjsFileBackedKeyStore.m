@@ -174,9 +174,13 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
             // getting bad access here occassionally
             // i _think_ what is happenning is that the self is in the process
             // of being deallocated so _store == NULL
+          
+            /*
+             even this printing causes problems
             DDLogDebug(@"i am = %@", self);
             DDLogDebug(@"notification poster is = %@", aNotification.object);
             DDLogError(@"there is a problem whereby messages sent to self.store (_store) are causing bad access.  use the log information above to try to detect the problem.");
+             */
           } else {
             self.store = [NSMutableDictionary dictionaryWithDictionary:dict];
           }

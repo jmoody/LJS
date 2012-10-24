@@ -49,9 +49,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 - (id)init {
   self = [super init];
-  if (getenv("GHUNIT_CLI")) {
-    if ([GHTestRunner run] > 0)
-      [NSException raise:NSGenericException format:@""];
+  if (self != nil) {
+    NSString *sysv = [[UIDevice currentDevice] systemVersion];
+    NSLog(@"sys version = %@", sysv);
+    if (getenv("GHUNIT_CLI") && [@"6.0" isEqualToString:sysv]) {
+      if ([GHTestRunner run] > 0)
+        [NSException raise:NSGenericException format:@""];
+    }
   }
   return self;
 }
