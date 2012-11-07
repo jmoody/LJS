@@ -33,6 +33,7 @@
 #import "LjsLocationManager.h"
 #import "LjsVariates.h"
 #import "Lumberjack.h"
+#import "LjsValidator.h"
 
 
 static const int ddLogLevel = LOG_LEVEL_WARN;
