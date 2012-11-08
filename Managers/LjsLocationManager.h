@@ -141,7 +141,9 @@ extern NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable;
 
 @end
 
-/**
+/*
+ VERY OLD DOCUMENTATION - not a singleton any more.
+ 
  A singleton class wrapper around the Location Services.
  
  The accuracy is hard-wired to kCLLocationAccuracyNearestTenMeters and the 
