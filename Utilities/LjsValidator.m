@@ -232,6 +232,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
 }
 
+- (void) ifNil:(id) aObject addReasonWithVarName:(NSString *) aVarName {
+  [self addReasonWithVarName:aVarName ifNil:aObject];
+}
+
 - (void) addReasonWithVarName:(NSString *)aVarName ifNilSelector:(SEL) aSel {
   NSString *selStr = NSStringFromSelector(aSel);
   [self addReasonWithVarName:aVarName ifNil:selStr];
@@ -245,12 +249,22 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
 }
 
+- (void) ifNilOrEmptyString:(NSString *) aString addReasonWithVarName:(NSString *) aVarName {
+  [self addReasonWithVarName:aVarName ifNilOrEmptyString:aString];
+}
+
+
 - (void) addReasonWithVarName:(NSString *)aVarName ifEmptyString:(NSString *) aString {
   if (aString != nil && [aString length] == 0) {
     NSString *reason = [NSString stringWithFormat:@"%@ cannot be nil or empty",
                         aVarName];
     [self addReason:reason];
   }
+}
+
+
+- (void) ifEmptyString:(NSString *) aString addReasonWithVarName:(NSString *) aVarName {
+  [self addReasonWithVarName:aString ifEmptyString:aString];
 }
 
 - (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id) aObject notInList:(id) aFirst, ... {

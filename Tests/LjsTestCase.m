@@ -363,7 +363,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
 - (void) dummyControlSelector:(id) sender {
+  GHTestLog(@"dummy control selector called with sender: %@", sender);
   return;
+}
+
+- (void) dummySelector {
+  GHTestLog(@"dummy selector called");
 }
 
 - (NSArray *) arrayOfAbcStrings {

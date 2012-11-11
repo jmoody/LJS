@@ -7,7 +7,6 @@
 
 @interface LjsValidatorTests : LjsTestCase {}
 
-- (void) dummySelector;
 
 @end
 
@@ -351,6 +350,12 @@
   GHAssertFalse([reasons hasReasons], @"reasons array should be empty");
   [reasons addReasonWithVarName:@"niller" ifNil:nil];
   GHAssertTrue([reasons hasReasons], @"reasons array should have one reason after adding a reason");
+  
+  reasons = [LjsReasons new];
+  [reasons ifNil:@"bar" addReasonWithVarName:@"foo"];
+  GHAssertFalse([reasons hasReasons], @"reasons array should be empty");
+  [reasons ifNil:nil addReasonWithVarName:@"niller"];
+  GHAssertTrue([reasons hasReasons], @"reasons array should have one reason after adding a reason");
 }
 
 - (void) test_explanation {
@@ -465,9 +470,6 @@
   GHAssertTrue([reasons hasReasons], @"should have reasons");  
 }
 
-- (void) dummySelector {
-  // a selector to supress compiler warning
-}
 
 - (void) test_addReasonIfSelectorIsNotNil {
   LjsReasons *reasons = [LjsReasons new];
@@ -506,15 +508,27 @@
   GHAssertTrue([reasons hasReasons], @"should have reasons if integer is not on interval");
 }
 
+
+#pragma mark - Empty String Testing
+
 - (void) test_addReasonIfEmptyString_nil {
   LjsReasons *reasons = [LjsReasons new];
   [reasons addReasonWithVarName:@"string" ifEmptyString:nil];
   GHAssertFalse([reasons hasReasons], @"should not have reasons if the string is nil");
+  
+  reasons = [LjsReasons new];
+  [reasons ifEmptyString:nil addReasonWithVarName:@"string"];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons if the string is nil");
+
 }
 
 - (void) test_addReasonIfEmptyString_not_empty {
   LjsReasons *reasons = [LjsReasons new];
   [reasons addReasonWithVarName:@"string" ifEmptyString:@"foo"];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons if the string is not empty");
+  
+  reasons = [LjsReasons new];
+  [reasons ifEmptyString:@"foo" addReasonWithVarName:@"string"];
   GHAssertFalse([reasons hasReasons], @"should not have reasons if the string is not empty");
 }
 
@@ -522,7 +536,27 @@
   LjsReasons *reasons = [LjsReasons new];
   [reasons addReasonWithVarName:@"string" ifEmptyString:@""];
   GHAssertTrue([reasons hasReasons], @"should have reasons if the string is empty");
+  
+  reasons = [LjsReasons new];
+  [reasons ifEmptyString:@"" addReasonWithVarName:@"string"];
+  GHAssertTrue([reasons hasReasons], @"should have reasons if the string is empty");
 }
+
+#pragma mark - Empty or Nil String Testing
+
+- (void) test_if_empty_or_nil_string_nil_or_empty {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons ifNilOrEmptyString:[self emptyStringOrNil] addReasonWithVarName:@"string"];
+  GHAssertTrue([reasons hasReasons], @"should have reasons if the string is nil or empty");
+}
+
+- (void) test_if_empty_or_nil_string_not_nil_not_empty {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons ifNilOrEmptyString:@"foo" addReasonWithVarName:@"string"];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons if the string is not empty or nil");
+}
+
+#pragma mark - Interval Testing
 
 - (void) test_add_reason_if_not_on_interval_or_equal_to_value_not_on_lhs {
   LjsReasons *reasons = [LjsReasons new];

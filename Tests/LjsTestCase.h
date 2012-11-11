@@ -105,6 +105,7 @@
 - (NSString *) emptyStringOrNil;
 - (BOOL) flip;
 - (void) dummyControlSelector:(id) sender;
+- (void) dummySelector;
 - (NSArray *) arrayOfAbcStrings;
 - (NSSet *) setOfAbcStrings;
 - (NSArray *) arrayOfDatesTodayTormorrowDayAfter;
