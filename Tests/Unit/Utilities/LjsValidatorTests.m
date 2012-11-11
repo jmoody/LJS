@@ -585,5 +585,24 @@
   GHAssertFalse([reasons hasReasons], @"should not have reasons if integer is not on interval, but equal to outlier");
 }
 
+#pragma mark - Array Testing 
+- (void) test_if_empty_array_empty {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons ifEmptyArray:[NSArray array] addReasonWithVarName:@"array"];
+  GHAssertTrue([reasons hasReasons], @"should have reason if array is empty");
+}
+
+
+- (void) test_if_empty_array_nil_array {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons ifEmptyArray:nil addReasonWithVarName:@"array"];
+  GHAssertTrue([reasons hasReasons], @"should have reason if array is nil");
+}
+
+- (void) test_if_empty_array_not_empty {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons ifEmptyArray:[self arrayOfAbcStrings] addReasonWithVarName:@"array"];
+  GHAssertFalse([reasons hasReasons], @"should not have reason if array is not empty");
+}
 
 @end

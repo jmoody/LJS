@@ -262,9 +262,16 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
 }
 
-
 - (void) ifEmptyString:(NSString *) aString addReasonWithVarName:(NSString *) aVarName {
   [self addReasonWithVarName:aString ifEmptyString:aString];
+}
+
+
+- (void) ifEmptyArray:(NSArray *) aArray addReasonWithVarName:(NSString *) aVarName {
+  if (aArray == nil || [aArray count] == 0) {
+    NSString *reason = [NSString stringWithFormat:@"%@ cannot be empty", aVarName];
+    [self addReason:reason];
+  }
 }
 
 - (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id) aObject notInList:(id) aFirst, ... {
