@@ -104,6 +104,15 @@ typedef struct LjsDateComps LjsDateComps;
 
 - (BOOL) isAlmostNow;
 
+/*
+ ui date pickers often want intervals of 5,15, or 30
+ setting the date of the picker will do this automatically if the interval
+ is set.  however, sometimes the other ui elements need to be synced to the
+ date on the picker, but you dont want to make a change to the model until
+ you have to.
+ */
+- (NSDate *) dateByAddingMinutesUntilInterval:(NSUInteger) aInterval
+                                        error:(NSError **) aError;
 
 - (NSUInteger) daysBetweenDate:(NSDate *) aDate;
 - (NSUInteger) daysBetweenDate:(NSDate *) aDate 

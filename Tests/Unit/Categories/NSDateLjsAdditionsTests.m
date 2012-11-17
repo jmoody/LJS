@@ -289,4 +289,87 @@
   GHAssertTrue([b isNotFound], @"b should be LjsDateNotFound");
 }
 
+/*
+ - (NSDate *) dateByAddingMinutesUntilInterval:(NSUInteger) aInterval
+ error:(NSError **) aError {
+ */
+- (void) test_date_by_adding_minutes_until_interval_failure {
+  BOOL hasError = [LjsVariates flip];
+  NSError *error = nil;
+  NSDate *date = [NSDate date];
+  NSDate *actual = [date dateByAddingMinutesUntilInterval:60
+                                                    error:hasError ? &error : nil];
+  GHAssertNil(actual, @"should return nil if interval > 59");
+  if (hasError) {
+    GHAssertNotNil(error, @"error should be populated");
+    GHAssertTrue(error.code == 1, @"error code should be correct");
+    GHTestLog(@"error = %@", error);
+  }
+}
+
+- (void) test_date_by_adding_minutes_until_interval_5 {
+  BOOL hasError = [LjsVariates flip];
+  NSError *error = nil;
+  NSInteger seconds = [LjsVariates randomIntegerWithMin:0 max:59];
+  NSDate *date = [NSDate dateWithYear:2012 month:11 day:17 hour:23 minute:24 second:seconds];
+  NSUInteger interval = 5;
+  NSDate *actual = [date dateByAddingMinutesUntilInterval:interval
+                                                    error:hasError ? &error : nil];
+
+  GHAssertNotNil(actual, @"should return a date if inteval < 60");
+  if (hasError) GHAssertNil(error, @"error should be nil if the operations was successful");
+  LjsDateComps comps = [actual dateComponents];
+  GHAssertEquals((NSInteger)comps.minute, (NSInteger)25, @"if interval is %d then 24 ==> 25",
+                 interval);
+}
+
+- (void) test_date_by_adding_minutes_until_interval_10 {
+  BOOL hasError = [LjsVariates flip];
+  NSError *error = nil;
+  NSInteger seconds = [LjsVariates randomIntegerWithMin:0 max:59];
+  NSDate *date = [NSDate dateWithYear:2012 month:11 day:17 hour:23 minute:24 second:seconds];
+  NSUInteger interval = 10;
+  NSDate *actual = [date dateByAddingMinutesUntilInterval:interval
+                                                    error:hasError ? &error : nil];
+  
+  GHAssertNotNil(actual, @"should return a date if inteval < 60");
+  if (hasError) GHAssertNil(error, @"error should be nil if the operations was successful");
+  LjsDateComps comps = [actual dateComponents];
+  GHAssertEquals((NSInteger)comps.minute, (NSInteger)30, @"if interval is %d then 24 ==> 30",
+                 interval);
+}
+
+- (void) test_date_by_adding_minutes_until_interval_15 {
+  BOOL hasError = [LjsVariates flip];
+  NSError *error = nil;
+  NSInteger seconds = [LjsVariates randomIntegerWithMin:0 max:59];
+  NSDate *date = [NSDate dateWithYear:2012 month:11 day:17 hour:23 minute:24 second:seconds];
+  NSUInteger interval = 15;
+  NSDate *actual = [date dateByAddingMinutesUntilInterval:interval
+                                                    error:hasError ? &error : nil];
+  
+  GHAssertNotNil(actual, @"should return a date if inteval < 60");
+  if (hasError) GHAssertNil(error, @"error should be nil if the operations was successful");
+  LjsDateComps comps = [actual dateComponents];
+  GHAssertEquals((NSInteger)comps.minute, (NSInteger)30, @"if interval is %d then 24 ==> 30",
+                 interval);
+}
+
+- (void) test_date_by_adding_minutes_until_interval_20 {
+  BOOL hasError = [LjsVariates flip];
+  NSError *error = nil;
+  NSInteger seconds = [LjsVariates randomIntegerWithMin:0 max:59];
+  NSDate *date = [NSDate dateWithYear:2012 month:11 day:17 hour:23 minute:24 second:seconds];
+  NSUInteger interval = 20;
+  NSDate *actual = [date dateByAddingMinutesUntilInterval:interval
+                                                    error:hasError ? &error : nil];
+  
+  GHAssertNotNil(actual, @"should return a date if inteval < 60");
+  if (hasError) GHAssertNil(error, @"error should be nil if the operations was successful");
+  LjsDateComps comps = [actual dateComponents];
+  GHAssertEquals((NSInteger)comps.minute, (NSInteger)40, @"if interval is %d then 24 ==> 40",
+                 interval);
+}
+
+
 @end
