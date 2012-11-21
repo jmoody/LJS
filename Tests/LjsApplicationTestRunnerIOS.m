@@ -60,4 +60,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return self;
 }
 
+- (void) cancelLocalNotification:(UILocalNotification *)notification {
+  return;
+}
+
+
+- (void) scheduleLocalNotification:(UILocalNotification *)notification {
+  return;
+}
+
 @end
