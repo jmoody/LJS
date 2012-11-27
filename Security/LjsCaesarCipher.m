@@ -71,13 +71,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
         shift = LjsCipherAsciiMinimum + (shift - LjsCipherAsciiMaximum) - 1;
       }
       NSString *value = [NSString stringWithFormat:@"%c", shift];
-      // if (shift > LjsCipherAsciiMaximum) {
-      //  DDLogError(@"rotate: %d index: %d shift: %d foo: %d", aRotate, index, shift, foo);
-      //  abort();
-      // } else {
-      //  DDLogDebug(@"rotate: %d index: %d shift: %d foo: %d", aRotate, index, shift, foo);
-      // }
-      
+   
       [encodeDict setObject:value forKey:key];
       [decodeDict setObject:key forKey:value];
     }

@@ -651,8 +651,8 @@ static NSString *LjsLocation_SCALE_KEY = @"scale";
       }];
     }
   } else {    
-    DDLogFatal(@"could not find class CLGeocoder - ");
-    abort();
+    DDLogError(@"could not find class CLGeocoder - ");
+    return;
   }
 #else
   DDLogNotice(@"CLGeocoder not available on MacOS - will reverse geocode with Google API"); 

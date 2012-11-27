@@ -246,11 +246,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSString *path = @"./build/sandbox/Documents";
   NSError *error = nil;
   BOOL success = [LjsFileUtilities ensureDirectory:path error:&error];
-  if (success == NO) {
-    NSLog(@"could not create directory at path: %@\n%@ : %@",
-          path, [error localizedDescription], error);
-    abort();
-  }
+  GHAssertTrue(success, @"could not create directory at path: %@\n%@ : %@",
+               path, [error localizedDescription], error);
+  
   return path;
 }
 
@@ -270,11 +268,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSString *path = @"./build/sandbox/Library";
   NSError *error = nil;
   BOOL success = [LjsFileUtilities ensureDirectory:path error:&error];
-  if (success == NO) {
-    NSLog(@"could not create directory at path: %@\n%@ : %@",
-              path, [error localizedDescription], error);
-    abort();
-  }
+  GHAssertTrue(success, @"could not create directory at path: %@\n%@ : %@",
+               path, [error localizedDescription], error);
   return path;
 }
 
@@ -293,11 +288,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSString *path = @"./build/sandbox/Library/Preferences";
   NSError *error = nil;
   BOOL success = [LjsFileUtilities ensureDirectory:path error:&error];
-  if (success == NO) {
-    NSLog(@"could not create directory at path: %@\n%@ : %@",
-              path, [error localizedDescription], error);
-    abort();
-  }
+  GHAssertTrue(success, @"could not create directory at path: %@\n%@ : %@",
+               path, [error localizedDescription], error);
   return path;
 }
 
@@ -317,11 +309,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSString *path = @"./build/sandbox/Library";
   NSError *error = nil;
   BOOL success = [LjsFileUtilities ensureDirectory:path error:&error];
-  if (success == NO) {
-    NSLog(@"could not create directory at path: %@\n%@ : %@",
-          path, [error localizedDescription], error);
-    abort();
-  }
+  GHAssertTrue(success, @"could not create directory at path: %@\n%@ : %@",
+               path, [error localizedDescription], error);
   return path;
 }
 
@@ -343,11 +332,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSString *path = @"./build/sandbox/Library/Application Support";
   NSError *error = nil;
   BOOL success = [LjsFileUtilities ensureDirectory:path error:&error];
-  if (success == NO) {
-    NSLog(@"could not create directory at path: %@\n%@ : %@",
-          path, [error localizedDescription], error);
-    abort();
-  }
+  GHAssertTrue(success, @"could not create directory at path: %@\n%@ : %@",
+               path, [error localizedDescription], error);
   return path;
 }
 
