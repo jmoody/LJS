@@ -219,7 +219,7 @@ fail:
 }
 
 - (NSString *) currentLanguageCode {
-  return [[NSLocale preferredLanguages] first];
+  return [[NSLocale preferredLanguages] objectAtIndex:0];
 }
 
 - (BOOL) currentLangCodeIsEqualToCode:(NSString *) aCode {
