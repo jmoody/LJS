@@ -1,6 +1,9 @@
 # turds
 (.*/)?\#[^/]*\#$
 
+# idea
+workspace.xml
+
 # my idea
 scratch/*
 Scratch/*
