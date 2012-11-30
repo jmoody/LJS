@@ -34,6 +34,8 @@
 #import "Lumberjack.h"
 #import "4ePodcastsModel.h"
 #import "LjsFetchRequestFactory.h"
+#import "NSString+LjsAdditions.h"
+#import "NSArray+LjsAdditions.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
