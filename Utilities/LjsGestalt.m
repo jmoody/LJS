@@ -168,6 +168,11 @@ fail:
   ([UIScreen mainScreen].scale == 2.0);
 }
 
+- (BOOL) isDeviceIphone5 {
+  CGRect screenBounds = [[UIScreen mainScreen] bounds];
+  return (screenBounds.size.height == 568);
+}
+
 #endif
 
 

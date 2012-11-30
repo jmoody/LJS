@@ -62,6 +62,7 @@ typedef enum {
 - (BOOL) isDeviceIpad;
 - (BOOL) isDeviceIphone;
 - (BOOL) isDeviceUsingRetina;
+- (BOOL) isDeviceIphone5;
 #endif
 
 
@@ -70,8 +71,6 @@ typedef enum {
 - (BOOL) isIphone;
 - (BOOL) isSimulator;
 - (BOOL) isMacOs;
-
-
 
 
 - (BOOL) isDebugBuild;
