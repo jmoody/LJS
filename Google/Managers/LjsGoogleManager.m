@@ -45,6 +45,7 @@
 #import "LjsGoogleReverseGeocode.h"
 #import "LjsGoogleNmoReverseGeocode.h"
 #import "LjsGoogleReverseGeocodeOptions.h"
+#import "NSDecimalNumber+LjsAdditions.h"
 
 
 

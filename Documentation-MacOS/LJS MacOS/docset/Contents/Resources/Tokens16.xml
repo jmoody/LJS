@@ -68,6 +68,39 @@ commas or decimal places.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/stringIsNonNilOrEmpty:</TokenIdentifier>
+			<Abstract>true iff aString is non-nil and non-empty</Abstract>
+			<DeclaredIn>LjsValidator.h</DeclaredIn>			
+			
+			<Declaration>+ (BOOL)stringIsNonNilOrEmpty:(NSString *)aString</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>aString</Name>
+					<Abstract>the string to test
+@deprecated Use stringIsNonNilAndNotEmpty: instead</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>true iff aString is non-nil and non-empty</Abstract></ReturnValue>
+			<Anchor>//api/name/stringIsNonNilOrEmpty:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/stringIsNonNilAndNotEmpty:</TokenIdentifier>
+			<Abstract>true iff aString is non-nil and non-empty</Abstract>
+			<DeclaredIn>LjsValidator.h</DeclaredIn>			
+			
+			<Declaration>+ (BOOL)stringIsNonNilAndNotEmpty:(NSString *)aString</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>aString</Name>
+					<Abstract>the string to test</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>true iff aString is non-nil and non-empty</Abstract></ReturnValue>
+			<Anchor>//api/name/stringIsNonNilAndNotEmpty:</Anchor>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/LjsValidator/isDictionary:</TokenIdentifier>
 			<Abstract>Method for checking if a value is an NSDictionary</Abstract>
 			<DeclaredIn>LjsValidator.h</DeclaredIn>			

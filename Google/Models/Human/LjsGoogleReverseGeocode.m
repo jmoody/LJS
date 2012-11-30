@@ -7,6 +7,8 @@
 #import "LjsGoogleNmoAddressComponent.h"
 #import "LjsGoogleAddressComponentGeocode.h"
 #import "LjsGoogleReverseGeocodeType.h"
+#import "NSDate+LjsAdditions.h"
+#import "NSDecimalNumber+LjsAdditions.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;

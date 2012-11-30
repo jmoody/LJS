@@ -27,7 +27,6 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <GHUnit/GHUnit.h>
 #import <GHUnit/GHTestApp.h>
 #import "Lumberjack.h"
 

@@ -34,6 +34,7 @@
 #import "Lumberjack.h"
 #import "ASIFormDataRequest.h"
 #import "LjsGooglePlacesPrediction.h"
+#import "LjsWebCategories.h"
 
 static NSString *LjsGooglePlacesAutocompleteUrl = @"https://maps.googleapis.com/maps/api/place/autocomplete/json";
 static NSString *LjsGooglePlacesDetailsUrl = @"https://maps.googleapis.com/maps/api/place/details/json";

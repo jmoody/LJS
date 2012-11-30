@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Tests-MacOS" type="AppleRunConfiguration" factoryName="Application" SCHEME_NAME="Tests-MacOS" PROJECT_NAME="Tests-MacOS" TARGET_NAME="Tests-MacOS" CONFIG_NAME="Debug" DESTINATION_ID="macos_x86_64" RUN_TARGET_PROJECT_NAME="Tests-MacOS" RUN_TARGET_NAME="Tests-MacOS" DEBUGGER="LLDB" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+  <configuration default="false" name="Tests-MacOS" type="AppleRunConfiguration" factoryName="Application" SCHEME_NAME="Tests-MacOS" PROJECT_NAME="Tests-MacOS" TARGET_NAME="Tests-MacOS" CONFIG_NAME="Debug" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" RUN_TARGET_PROJECT_NAME="Tests-MacOS" RUN_TARGET_NAME="Tests-MacOS" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
     <envs>
       <env name="GHUNIT_AUTORUN" value="YES" />
       <env name="NSDebugEnabled" value="YES" />
@@ -7,6 +7,8 @@
       <env name="NSDeallocateZombies" value="YES" />
       <env name="NSEnableAutoreleasePool" value="NO" />
     </envs>
+    <RunnerSettings RunnerId="AppRunner" />
+    <ConfigurationWrapper RunnerId="AppRunner" />
     <method />
   </configuration>
 </component>

@@ -34,6 +34,7 @@
 #import "LjsVariates.h"
 #import "Lumberjack.h"
 #import "LjsValidator.h"
+#import "NSDecimalNumber+LjsAdditions.h"
 
 
 static const int ddLogLevel = LOG_LEVEL_WARN;

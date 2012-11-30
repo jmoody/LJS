@@ -60,20 +60,20 @@
 			<Path>Classes/ASIHTTPResponseUtils.html</Path>
 		</Node>
 		<Node id="2">
-			<Name>LjsDateHelper</Name>
-			<Path>Classes/LjsDateHelper.html</Path>
+			<Name>LjsBlocks</Name>
+			<Path>Classes/LjsBlocks.html</Path>
 		</Node>
 		<Node id="3">
-			<Name>LjsDecimalAide</Name>
-			<Path>Classes/LjsDecimalAide.html</Path>
+			<Name>LjsDateHelper</Name>
+			<Path>Classes/LjsDateHelper.html</Path>
 		</Node>
 		<Node id="4">
 			<Name>LjsDefaultFormatter</Name>
 			<Path>Classes/LjsDefaultFormatter.html</Path>
 		</Node>
 		<Node id="5">
-			<Name>LjsFileManager</Name>
-			<Path>Classes/LjsFileManager.html</Path>
+			<Name>LjsFaker</Name>
+			<Path>Classes/LjsFaker.html</Path>
 		</Node>
 		<Node id="6">
 			<Name>LjsFileUtilities</Name>
@@ -88,12 +88,12 @@
 			<Path>Classes/LjsJsonRpcReply.html</Path>
 		</Node>
 		<Node id="9">
-			<Name>LjsKeychainManager</Name>
-			<Path>Classes/LjsKeychainManager.html</Path>
-		</Node>
-		<Node id="10">
 			<Name>LjsLog</Name>
 			<Path>Classes/LjsLog.html</Path>
+		</Node>
+		<Node id="10">
+			<Name>LjsLogFileManager</Name>
+			<Path>Classes/LjsLogFileManager.html</Path>
 		</Node>
 		<Node id="11">
 			<Name>LjsMessageBuilder</Name>
@@ -126,7 +126,7 @@
 		
 		<Node id="18">
 			<Name>DDFileLogger(DDFileLogger_CurrentFile)</Name>
-			<Path>Categories/DDFileLogger(DDFileLogger_CurrentFile).html</Path>
+			<Path>Categories/DDFileLogger+DDFileLogger_CurrentFile.html</Path>
 		</Node>
 		
 		<Node id="19">

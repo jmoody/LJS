@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>LjsFileManager Class Reference</title>
+		<title>LjsLogFileManager Class Reference</title>
 		<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" />
-		<meta name="generator" content="appledoc 2.0.5 (build 737)" />
+		<meta name="generator" content="appledoc 2.0.5 (build 789)" />
 	</head>
 	<body>
 		<header id="top_header">
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">LjsFileManager Class Reference</h1>
+				<h1 class="hideInXcode">LjsLogFileManager Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -39,6 +39,8 @@
 	<option value="instance_methods">Instance Methods</option>
 	
 	<option value="//api/name/createNewLogFile">&nbsp;&nbsp;&nbsp;&nbsp;- createNewLogFile</option>
+	
+	<option value="//api/name/defaultLogsDirectory">&nbsp;&nbsp;&nbsp;&nbsp;- defaultLogsDirectory</option>
 	
 	<option value="//api/name/init">&nbsp;&nbsp;&nbsp;&nbsp;- init</option>
 	
@@ -76,6 +78,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createNewLogFile">createNewLogFile</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/defaultLogsDirectory">defaultLogsDirectory</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/init">init</a></span></li>
 	
 </ul></li>
@@ -85,7 +89,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="LjsFileManager Class Reference" name="top"></a>
+				<a title="LjsLogFileManager Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -94,7 +98,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">LjsFileManager Class Reference</h1>
+						<h1 class="title title-header">LjsLogFileManager Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -105,7 +109,7 @@
 	<td class="specification-value">DDLogFileManagerDefault</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">LjsFileManager.h<br />LjsFileManager.m</td>
+	<td class="specification-value">LjsLogFileManager.h<br />LjsLogFileManager.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -152,6 +156,14 @@ CocoaLumberjackLogging provides.</p>
 
 						<ul class="task-list">
 							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/defaultLogsDirectory">&ndash;&nbsp;defaultLogsDirectory</a></code>
+		<span class="tooltip"><p>Returns the path to the default logs directory.
+If the logs directory doesn&rsquo;t exist, this method automatically creates it.</p></span>
+	</span>
+	
+	
+</li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/createNewLogFile">&ndash;&nbsp;createNewLogFile</a></code>
 		<span class="tooltip"><p>Generates a new unique log file path, and creates the corresponding log file.</p></span>
@@ -206,7 +218,46 @@ CocoaLumberjackLogging provides.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">LjsFileManager.m</code><br />
+		<code class="declared-in-ref">LjsLogFileManager.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/defaultLogsDirectory" title="defaultLogsDirectory"></a>
+	<h3 class="subsubtitle method-title">defaultLogsDirectory</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the path to the default logs directory.
+If the logs directory doesn&rsquo;t exist, this method automatically creates it.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (NSString *)defaultLogsDirectory</code></div>
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the path to the default logs directory.
+If the logs directory doesn&rsquo;t exist, this method automatically creates it.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsLogFileManager.m</code><br />
 	</div>				
 	
 	
@@ -243,7 +294,7 @@ CocoaLumberjackLogging provides.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">LjsFileManager.m</code><br />
+		<code class="declared-in-ref">LjsLogFileManager.m</code><br />
 	</div>				
 	
 	
@@ -262,9 +313,9 @@ CocoaLumberjackLogging provides.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2011 Little Joy Software. All rights reserved. (Last updated: 2011-12-27)</span><br />
+						<p><span class="copyright">&copy; 2012 Little Joy Software. All rights reserved. (Last updated: 2012-11-30)</span><br />
 						
-						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 737)</a>.</span></p>
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 789)</a>.</span></p>
 						
 					</div>
 				</div>

@@ -35,6 +35,11 @@
 #import "LjsValidator.h"
 #import "ASIHTTPRequest+LjsAdditions.h"
 #import "SBJson.h"
+#import "NSArray+LjsAdditions.h"
+#import "NSMutableArray+LjsAdditions.h"
+#import "LjsWebCategories.h"
+#import "NSString+LjsAdditions.h"
+
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;

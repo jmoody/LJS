@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>LjsRepeatingTimerProtocol Protocol Reference</title>
+		<title>LjsFaker Class Reference</title>
 		<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<meta name="viewport" content="width=550" />
@@ -11,7 +11,7 @@
 	<body>
 		<header id="top_header">
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">LjsRepeatingTimerProtocol Protocol Reference</h1>
+				<h1 class="hideInXcode">LjsFaker Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -26,21 +26,12 @@
 	
 	
 	
-	<option value="tasks">Tasks</option>
 	
 	
 	
 	
 	
 	
-	
-	
-	
-	<option value="instance_methods">Instance Methods</option>
-	
-	<option value="//api/name/startAndRetainRepeatingTimers">&nbsp;&nbsp;&nbsp;&nbsp;- startAndRetainRepeatingTimers</option>
-	
-	<option value="//api/name/stopAndReleaseRepeatingTimers">&nbsp;&nbsp;&nbsp;&nbsp;- stopAndReleaseRepeatingTimers</option>
 	
 	
 	
@@ -56,9 +47,6 @@
 
 
 
-<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
-	
-</ul></li>
 
 
 
@@ -66,22 +54,13 @@
 
 
 
-
-
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startAndRetainRepeatingTimers">startAndRetainRepeatingTimers</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stopAndReleaseRepeatingTimers">stopAndReleaseRepeatingTimers</a></span></li>
-	
-</ul></li>
 
 
 			</ul>
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="LjsRepeatingTimerProtocol Protocol Reference" name="top"></a>
+				<a title="LjsFaker Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -90,18 +69,18 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">LjsRepeatingTimerProtocol Protocol Reference</h1>
+						<h1 class="title title-header">LjsFaker Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<td class="specification-title">Conforms to</td>
+	<td class="specification-title">Inherits from</td>
 	<td class="specification-value">NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">LjsRepeatingTimerProtocol.h</td>
+	<td class="specification-value">LjsFaker.h<br />LjsFaker.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -111,46 +90,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>When using repeating timers with target self it is important to invalidate
-the timer before deallocating self because the timer maintains a reference
-to the target until invalidate is called.  It is also often very useful to
-have, say the App Delegate, start and stop timers when the user moves from
-one state to another.</p>
-
-<p>Enter <a href="LjsRepeatingTimerProtocol.html">LjsRepeatingTimerProtocol</a>.  Implementers must define methods for
-starting/stopping and memory management.</p>
-					</div>
-					
-					
-					
-					
-					
-					<div class="section section-tasks">
-						<a title="Tasks" name="tasks"></a>
-						<h2 class="subtitle subtitle-tasks">Tasks</h2>
-						
-						
-						
-						
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/stopAndReleaseRepeatingTimers">&ndash;&nbsp;stopAndReleaseRepeatingTimers</a></code>
-		
-	</span>
-	
-	<span class="task-item-suffix">required method</span>
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/startAndRetainRepeatingTimers">&ndash;&nbsp;startAndRetainRepeatingTimers</a></code>
-		
-	</span>
-	
-	<span class="task-item-suffix">required method</span>
-</li>
-						</ul>
-						
+						<p>Documentation</p>
 					</div>
 					
 					
@@ -161,67 +101,9 @@ starting/stopping and memory management.</p>
 					
 					
 					
-					<div class="section section-methods">
-						<a title="Instance Methods" name="instance_methods"></a>
-						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
-						
-						<div class="section-method">
-	<a name="//api/name/startAndRetainRepeatingTimers" title="startAndRetainRepeatingTimers"></a>
-	<h3 class="subsubtitle method-title">startAndRetainRepeatingTimers</h3>
-	
-	
-	
-	
-	<div class="method-subsection method-declaration"><code>- (void)startAndRetainRepeatingTimers</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">LjsRepeatingTimerProtocol.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/stopAndReleaseRepeatingTimers" title="stopAndReleaseRepeatingTimers"></a>
-	<h3 class="subsubtitle method-title">stopAndReleaseRepeatingTimers</h3>
-	
-	
-	
-	
-	<div class="method-subsection method-declaration"><code>- (void)stopAndReleaseRepeatingTimers</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">LjsRepeatingTimerProtocol.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-					</div>
+					
+					
+					
 					
 					
 				</div>

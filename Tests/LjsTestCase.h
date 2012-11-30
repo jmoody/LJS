@@ -28,6 +28,7 @@
 
 
 #import <Foundation/Foundation.h>
+#import "LjsCategories.h"
 
 #if TARGET_OS_IPHONE
 #import <GHUnitIOS/GHUnit.h>

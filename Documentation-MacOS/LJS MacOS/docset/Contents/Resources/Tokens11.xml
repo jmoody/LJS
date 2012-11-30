@@ -12,6 +12,17 @@
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsMessageBuilder/setMessage:</TokenIdentifier>
+			<Abstract>the message</Abstract>
+			<DeclaredIn>LjsMessageBuilder.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) NSString *message</Declaration>
+			
+			
+			<Anchor>//api/name/message</Anchor>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instp/LjsMessageBuilder/message</TokenIdentifier>
 			<Abstract>the message</Abstract>
 			<DeclaredIn>LjsMessageBuilder.h</DeclaredIn>			

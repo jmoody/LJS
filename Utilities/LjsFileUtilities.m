@@ -31,6 +31,7 @@
 
 #import "LjsFileUtilities.h"
 #import "Lumberjack.h"
+#import "LjsCategories.h"
 
 
 static const int ddLogLevel = LOG_LEVEL_WARN;

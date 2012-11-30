@@ -1,240 +1,578 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/LjsDecimalAide.html">
+	<File path="Classes/LjsDateHelper.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/LjsDecimalAide</TokenIdentifier>
-			<Abstract>NSDecimalNumber is a powerful tool for handling currency, statistics, and other
-floating point data.  The class name and the methods are, in my opinion, overly
-verbose and tend to clutter code at the worse times - when you are doing
-sensitive currency calculations or implementing a complex confusing statistical
-algorithm.  And who can remember how to compare two NSDecimalNumbers?</Abstract>
-			<DeclaredIn>LjsDecimalAide.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/LjsDateHelper</TokenIdentifier>
+			<Abstract>Date handling is a pain, especially on iOS devices where user settings can
+override explicit date formatting and locale conventions.  LjsDateHelper
+wrangles dates into a predictable format.  It also provides methods for
+date comparison and deducing intervals.</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>
 			
 			<NodeRef refid="3"/>
 		</Token>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsDecimalAide/dnWithInteger:</TokenIdentifier>
-			<Abstract>a decimal number with the integer value</Abstract>
-			<DeclaredIn>LjsDecimalAide.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/intervalBetweenPast:future:</TokenIdentifier>
+			<Abstract>will return negative interval if past parameter is later than future
+paramter.</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
 			
-			<Declaration>+ (NSDecimalNumber *)dnWithInteger:(NSUInteger)aInteger</Declaration>
+			<Declaration>+ (NSTimeInterval)intervalBetweenPast:(NSDate *)past future:(NSDate *)future</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>aInteger</Name>
-					<Abstract>an integer</Abstract>
+					<Name>past</Name>
+					<Abstract>date in the past</Abstract>
+				</Parameter><Parameter>
+					<Name>future</Name>
+					<Abstract>date in the past</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract>a decimal number with the integer value</Abstract></ReturnValue>
-			<Anchor>//api/name/dnWithInteger:</Anchor>
+			<ReturnValue><Abstract>the interval in milliseconds between the two dates</Abstract></ReturnValue>
+			<Anchor>//api/name/intervalBetweenPast:future:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsDecimalAide/dnWithDouble:</TokenIdentifier>
-			<Abstract>a decimal number with the double value</Abstract>
-			<DeclaredIn>LjsDecimalAide.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/secondsSinceMidnightWithHHmmss:</TokenIdentifier>
+			<Abstract>returns the number of seconds since midnight for a HH:mm:SS string</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
 			
-			<Declaration>+ (NSDecimalNumber *)dnWithDouble:(double)aDouble</Declaration>
+			<Declaration>+ (NSTimeInterval)secondsSinceMidnightWithHHmmss:(NSString *)aHHmmssString</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>aDouble</Name>
-					<Abstract>a double</Abstract>
+					<Name>aHHmmssString</Name>
+					<Abstract>a string in HH:mm:ss format</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract>a decimal number with the double value</Abstract></ReturnValue>
-			<Anchor>//api/name/dnWithDouble:</Anchor>
+			<ReturnValue><Abstract>the number of seconds since 12:00a</Abstract></ReturnValue>
+			<Anchor>//api/name/secondsSinceMidnightWithHHmmss:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsDecimalAide/dnWithString:</TokenIdentifier>
-			<Abstract>a decimal number with the string value</Abstract>
-			<DeclaredIn>LjsDecimalAide.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/dateIsFuture:</TokenIdentifier>
+			<Abstract>true iff the date is in the future</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
 			
-			<Declaration>+ (NSDecimalNumber *)dnWithString:(NSString *)aString</Declaration>
+			<Declaration>+ (BOOL)dateIsFuture:(NSDate *)date</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>aString</Name>
+					<Name>date</Name>
+					<Abstract>the date to compare to</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>true iff the date is in the future</Abstract></ReturnValue>
+			<Anchor>//api/name/dateIsFuture:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/dateIsPast:</TokenIdentifier>
+			<Abstract>true iff the date is in the past</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (BOOL)dateIsPast:(NSDate *)date</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>date</Name>
+					<Abstract>the date to compare to</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>true iff the date is in the past</Abstract></ReturnValue>
+			<Anchor>//api/name/dateIsPast:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/upcaseAndRemovePeroidsFromAmPmString:</TokenIdentifier>
+			<Abstract>some locales print AM/PM like this: a.m./p.m. - this method returns a string
+with no periods and uppercase</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)upcaseAndRemovePeroidsFromAmPmString:(NSString *)anAmOrPmString</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>anAmOrPmString</Name>
 					<Abstract>a string</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract>a decimal number with the string value</Abstract></ReturnValue>
-			<Anchor>//api/name/dnWithString:</Anchor>
+			<ReturnValue><Abstract>a.m./p.m. ==> AM/PM or nil if anAmOrPmString is nil</Abstract></ReturnValue>
+			<Anchor>//api/name/upcaseAndRemovePeroidsFromAmPmString:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsDecimalAide/dn:e:</TokenIdentifier>
-			<Abstract>true iff a = b</Abstract>
-			<DeclaredIn>LjsDecimalAide.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/isCanonicalAmOrPm:</TokenIdentifier>
+			<Abstract>true iff amOrPm matches AM or PM</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
 			
-			<Declaration>+ (BOOL)dn:(NSDecimalNumber *)a e:(NSDecimalNumber *)b</Declaration>
+			<Declaration>+ (BOOL)isCanonicalAmOrPm:(NSString *)amOrPm</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>a</Name>
-					<Abstract>left hand side</Abstract>
-				</Parameter><Parameter>
-					<Name>b</Name>
-					<Abstract>right hand side</Abstract>
+					<Name>amOrPm</Name>
+					<Abstract>a string</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract>true iff a = b</Abstract></ReturnValue>
-			<Anchor>//api/name/dn:e:</Anchor>
+			<ReturnValue><Abstract>true iff amOrPm matches AM or PM</Abstract></ReturnValue>
+			<Anchor>//api/name/isCanonicalAmOrPm:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsDecimalAide/dn:lt:</TokenIdentifier>
-			<Abstract>true iff a  b</Abstract>
-			<DeclaredIn>LjsDecimalAide.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/canonicalAmWithString:</TokenIdentifier>
+			<Abstract>AM or nil if am parameter cannot be converted</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
 			
-			<Declaration>+ (BOOL)dn:(NSDecimalNumber *)a lt:(NSDecimalNumber *)b</Declaration>
+			<Declaration>+ (NSString *)canonicalAmWithString:(NSString *)am</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>a</Name>
-					<Abstract>left hand side</Abstract>
-				</Parameter><Parameter>
-					<Name>b</Name>
-					<Abstract>right hand side</Abstract>
+					<Name>am</Name>
+					<Abstract>a string</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract>true iff a  b</Abstract></ReturnValue>
-			<Anchor>//api/name/dn:lt:</Anchor>
+			<ReturnValue><Abstract>AM or nil if am parameter cannot be converted</Abstract></ReturnValue>
+			<Anchor>//api/name/canonicalAmWithString:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsDecimalAide/dn:gt:</TokenIdentifier>
-			<Abstract>true iff a  b</Abstract>
-			<DeclaredIn>LjsDecimalAide.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/canonicalPmWithString:</TokenIdentifier>
+			<Abstract>PM or nil if am parameter cannot be converted</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
 			
-			<Declaration>+ (BOOL)dn:(NSDecimalNumber *)a gt:(NSDecimalNumber *)b</Declaration>
+			<Declaration>+ (NSString *)canonicalPmWithString:(NSString *)pm</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>a</Name>
-					<Abstract>left hand side</Abstract>
-				</Parameter><Parameter>
-					<Name>b</Name>
-					<Abstract>right hand side</Abstract>
+					<Name>pm</Name>
+					<Abstract>a string</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract>true iff a  b</Abstract></ReturnValue>
-			<Anchor>//api/name/dn:gt:</Anchor>
+			<ReturnValue><Abstract>PM or nil if am parameter cannot be converted</Abstract></ReturnValue>
+			<Anchor>//api/name/canonicalPmWithString:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsDecimalAide/dn:lte:</TokenIdentifier>
-			<Abstract>true iff a = b</Abstract>
-			<DeclaredIn>LjsDecimalAide.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/canonicalAmPmWithString:</TokenIdentifier>
+			<Abstract>AM or PM or nil if parameter cannot be converted</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
 			
-			<Declaration>+ (BOOL)dn:(NSDecimalNumber *)a lte:(NSDecimalNumber *)b</Declaration>
+			<Declaration>+ (NSString *)canonicalAmPmWithString:(NSString *)amOrPm</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>a</Name>
-					<Abstract>left hand side</Abstract>
-				</Parameter><Parameter>
-					<Name>b</Name>
-					<Abstract>right hand side</Abstract>
+					<Name>amOrPm</Name>
+					<Abstract>a string representation of am or pm</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract>true iff a = b</Abstract></ReturnValue>
-			<Anchor>//api/name/dn:lte:</Anchor>
+			<ReturnValue><Abstract>AM or PM or nil if parameter cannot be converted</Abstract></ReturnValue>
+			<Anchor>//api/name/canonicalAmPmWithString:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsDecimalAide/dn:gte:</TokenIdentifier>
-			<Abstract>true iff a = b</Abstract>
-			<DeclaredIn>LjsDecimalAide.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/minutesStringValid:</TokenIdentifier>
+			<Abstract>true iff parameter is non-nil and on (0, 59)</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
 			
-			<Declaration>+ (BOOL)dn:(NSDecimalNumber *)a gte:(NSDecimalNumber *)b</Declaration>
+			<Declaration>+ (BOOL)minutesStringValid:(NSString *)minutesStr</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>a</Name>
-					<Abstract>left hand side</Abstract>
-				</Parameter><Parameter>
-					<Name>b</Name>
-					<Abstract>right hand side</Abstract>
+					<Name>minutesStr</Name>
+					<Abstract>a string</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract>true iff a = b</Abstract></ReturnValue>
-			<Anchor>//api/name/dn:gte:</Anchor>
+			<ReturnValue><Abstract>true iff parameter is non-nil and on (0, 59)</Abstract></ReturnValue>
+			<Anchor>//api/name/minutesStringValid:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsDecimalAide/dn:isOnMin:max:</TokenIdentifier>
-			<Abstract>return true iff a is on (min, max)</Abstract>
-			<DeclaredIn>LjsDecimalAide.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/hourStringValid:using24HourClock:</TokenIdentifier>
+			<Abstract>true iff hourStr is non-nil and on (1, 12) for 12-hour clock and (0, 23)
+for 24-hour clock</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
 			
-			<Declaration>+ (BOOL)dn:(NSDecimalNumber *)a isOnMin:(NSDecimalNumber *)min max:(NSDecimalNumber *)max</Declaration>
+			<Declaration>+ (BOOL)hourStringValid:(NSString *)hoursStr using24HourClock:(BOOL)use24HourClock</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>a</Name>
-					<Abstract>number to test</Abstract>
+					<Name>hoursStr</Name>
+					<Abstract>a string</Abstract>
 				</Parameter><Parameter>
-					<Name>min</Name>
-					<Abstract>lower bound of range</Abstract>
-				</Parameter><Parameter>
-					<Name>max</Name>
-					<Abstract>upper bound or range</Abstract>
+					<Name>use24HourClock</Name>
+					<Abstract>should validity be checked against 24-hour clock</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract>return true iff a is on (min, max)</Abstract></ReturnValue>
-			<Anchor>//api/name/dn:isOnMin:max:</Anchor>
+			<ReturnValue><Abstract>true iff hourStr is non-nil and on (1, 12) for 12-hour clock and (0, 23)
+for 24-hour clock</Abstract></ReturnValue>
+			<Anchor>//api/name/hourStringValid:using24HourClock:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsDecimalAide/round:withHandler:</TokenIdentifier>
-			<Abstract>rounded decimal number with handler</Abstract>
-			<DeclaredIn>LjsDecimalAide.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/amPmStringValid:</TokenIdentifier>
+			<Abstract>true iff amOrPm is AM/PM</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
 			
-			<Declaration>+ (NSDecimalNumber *)round:(NSDecimalNumber *)number withHandler:(NSDecimalNumberHandler *)handler</Declaration>
+			<Declaration>+ (BOOL)amPmStringValid:(NSString *)amOrPm</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>number</Name>
-					<Abstract>the number to round</Abstract>
-				</Parameter><Parameter>
-					<Name>handler</Name>
-					<Abstract>the handler to use</Abstract>
+					<Name>amOrPm</Name>
+					<Abstract>a string</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract>rounded decimal number with handler</Abstract></ReturnValue>
-			<Anchor>//api/name/round:withHandler:</Anchor>
+			<ReturnValue><Abstract>true iff amOrPm is AM/PM</Abstract></ReturnValue>
+			<Anchor>//api/name/amPmStringValid:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsDecimalAide/statisticsHandlerWithRoundMode:scale:</TokenIdentifier>
-			<Abstract>NB: typically you will want to use NSRoundPlain for statistics</Abstract>
-			<DeclaredIn>LjsDecimalAide.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/timeStringHasCorrectLength:using24HourClock:</TokenIdentifier>
+			<Abstract>checks to see if timeString has correct length (number of characters) for
+either a H:mm a string for 12-hour clocks and HH:mm for 24-hour clocks.</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
 			
-			<Declaration>+ (NSDecimalNumberHandler *)statisticsHandlerWithRoundMode:(NSRoundingMode)aMode scale:(NSUInteger)aInteger</Declaration>
+			<Declaration>+ (BOOL)timeStringHasCorrectLength:(NSString *)timeString using24HourClock:(BOOL)a24Clock</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>aMode</Name>
-					<Abstract>a rounding mode</Abstract>
+					<Name>timeString</Name>
+					<Abstract>a string</Abstract>
 				</Parameter><Parameter>
-					<Name>aInteger</Name>
-					<Abstract>a scale (precision)</Abstract>
+					<Name>a24Clock</Name>
+					<Abstract>should use a 24-hour clock if YES, 12-hour otherwise</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract>a handler with mode and scale</Abstract></ReturnValue>
-			<Anchor>//api/name/statisticsHandlerWithRoundMode:scale:</Anchor>
+			<ReturnValue><Abstract>true iff the time string has a valid length for a 12-hour or 24-hour
+clock</Abstract></ReturnValue>
+			<Anchor>//api/name/timeStringHasCorrectLength:using24HourClock:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsDecimalAide/locationHandlerWithRoundMode:scale:</TokenIdentifier>
-			<Abstract>NB: typically you will want to use NSRoundPlain for location</Abstract>
-			<DeclaredIn>LjsDecimalAide.h</DeclaredIn>			
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/amPmStringHasCorrectComponents:</TokenIdentifier>
+			<Abstract>checks to see if timeString has correct components i.e. hours, minutes and
+optionally AM/PM</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
 			
-			<Declaration>+ (NSDecimalNumberHandler *)locationHandlerWithRoundMode:(NSRoundingMode)aMode scale:(NSUInteger)aInteger</Declaration>
+			<Declaration>+ (BOOL)amPmStringHasCorrectComponents:(NSString *)timeString</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>aMode</Name>
-					<Abstract>a rounding mode</Abstract>
-				</Parameter><Parameter>
-					<Name>aInteger</Name>
-					<Abstract>a scale (precision)</Abstract>
+					<Name>timeString</Name>
+					<Abstract>a time string</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract>a handler with mode and scale</Abstract></ReturnValue>
-			<Anchor>//api/name/locationHandlerWithRoundMode:scale:</Anchor>
+			<ReturnValue><Abstract>true iff timeString can be parsed into hours, minutes and
+optionally AM/PM</Abstract></ReturnValue>
+			<Anchor>//api/name/amPmStringHasCorrectComponents:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/twentyFourHourTimeStringHasCorrectComponents:</TokenIdentifier>
+			<Abstract>checks to see if timeString has correct components i.e. hours, minutes, and
+optionally AM/PM</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (BOOL)twentyFourHourTimeStringHasCorrectComponents:(NSString *)timeString</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>timeString</Name>
+					<Abstract>a string</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>true iff timeString can be parsed into hours, minutes, and optionally
+AM/PM</Abstract></ReturnValue>
+			<Anchor>//api/name/twentyFourHourTimeStringHasCorrectComponents:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/timeStringHasCorrectComponents:using24HourClock:</TokenIdentifier>
+			<Abstract>checks to see if timeString has correct components i.e. hours, minutes, and
+optionally AM/PM</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (BOOL)timeStringHasCorrectComponents:(NSString *)timeString using24HourClock:(BOOL)use24HourClock</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>timeString</Name>
+					<Abstract>a string</Abstract>
+				</Parameter><Parameter>
+					<Name>use24HourClock</Name>
+					<Abstract>should validity be checked against 24-hour clock</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>true iff timeString can be parsed into hours, minutes, and optionally
+AM/PM</Abstract></ReturnValue>
+			<Anchor>//api/name/timeStringHasCorrectComponents:using24HourClock:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/isValidAmPmTime:</TokenIdentifier>
+			<Abstract>true if amPmTime is valid 12-hour format</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (BOOL)isValidAmPmTime:(NSString *)amPmTime</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>amPmTime</Name>
+					<Abstract>a string</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>true if amPmTime is valid 12-hour format</Abstract></ReturnValue>
+			<Anchor>//api/name/isValidAmPmTime:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/isValid24HourTime:</TokenIdentifier>
+			<Abstract>true if a24hourTime is valid 24-hour format</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (BOOL)isValid24HourTime:(NSString *)a24hourTime</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>a24hourTime</Name>
+					<Abstract>string</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>true if a24hourTime is valid 24-hour format</Abstract></ReturnValue>
+			<Anchor>//api/name/isValid24HourTime:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/componentsWithTimeString:</TokenIdentifier>
+			<Abstract>parses timeString and creates a dictionary of components with the following keys:</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSDictionary *)componentsWithTimeString:(NSString *)timeString</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>timeString</Name>
+					<Abstract>a string</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a dictionary of time components or nil if components can be parsed
+from timeString</Abstract></ReturnValue>
+			<Anchor>//api/name/componentsWithTimeString:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/componentsWith24HourTimeString:</TokenIdentifier>
+			<Abstract>parses twentyFourHourTime and creates a dictionary of components with the
+following keys:</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSDictionary *)componentsWith24HourTimeString:(NSString *)twentyFourHourTime</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>twentyFourHourTime</Name>
+					<Abstract>a string</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a dictionary of time components or nil if components can be parsed
+from twentyFourHourTime</Abstract></ReturnValue>
+			<Anchor>//api/name/componentsWith24HourTimeString:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/componentsWithAmPmTimeString:</TokenIdentifier>
+			<Abstract>parses amPmTime and creates a dictionary of components with the
+following keys:</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSDictionary *)componentsWithAmPmTimeString:(NSString *)amPmTime</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>amPmTime</Name>
+					<Abstract>a string</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a dictionary of time components or nil if components can be parsed
+from amPmTime</Abstract></ReturnValue>
+			<Anchor>//api/name/componentsWithAmPmTimeString:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/convert24hourTimeToAmPmTime:</TokenIdentifier>
+			<Abstract>attempts to convert a 24-hour time string to a 12-hour time string</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)convert24hourTimeToAmPmTime:(NSString *)twentyFourHourTime</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>twentyFourHourTime</Name>
+					<Abstract>a string</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a 24-hour time string in 12-hour format</Abstract></ReturnValue>
+			<Anchor>//api/name/convert24hourTimeToAmPmTime:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/amPmTimeWithTimeString:</TokenIdentifier>
+			<Abstract>uses the componentsWithAmPmTimeString: to parse the amPmTime and attempts
+to parse a H:mm a string from the returned components.</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)amPmTimeWithTimeString:(NSString *)amPmTime</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>amPmTime</Name>
+					<Abstract>a string</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a string with H:mm a format or nil if amPmTime cannot be parsed</Abstract></ReturnValue>
+			<Anchor>//api/name/amPmTimeWithTimeString:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/amPmTimeWithDate:</TokenIdentifier>
+			<Abstract>uses the componentsWithAmPmTimeString: to parse the date and attempts
+to parse a H:mm a string from the returned components.</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)amPmTimeWithDate:(NSDate *)date</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>date</Name>
+					<Abstract>a date</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a string with H:mm a format or nil if date cannot be parsed</Abstract></ReturnValue>
+			<Anchor>//api/name/amPmTimeWithDate:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/hoursMinutesAmPmFormatter</TokenIdentifier>
+			<Abstract>a date formatter for H:mm a format</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSDateFormatter *)hoursMinutesAmPmFormatter</Declaration>
+			
+			<ReturnValue><Abstract>a date formatter for H:mm a format</Abstract></ReturnValue>
+			<Anchor>//api/name/hoursMinutesAmPmFormatter</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/briefDateAndTimeFormatter</TokenIdentifier>
+			<Abstract>a date formatter for ccc MMM d HH:mm a or Wed Sep 7 1:30 PM</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSDateFormatter *)briefDateAndTimeFormatter</Declaration>
+			
+			<ReturnValue><Abstract>a date formatter for ccc MMM d HH:mm a or Wed Sep 7 1:30 PM</Abstract></ReturnValue>
+			<Anchor>//api/name/briefDateAndTimeFormatter</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/hoursMinutesSecondsDateFormatter</TokenIdentifier>
+			<Abstract>a date formatter for H:mm:ss</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSDateFormatter *)hoursMinutesSecondsDateFormatter</Declaration>
+			
+			<ReturnValue><Abstract>a date formatter for H:mm:ss</Abstract></ReturnValue>
+			<Anchor>//api/name/hoursMinutesSecondsDateFormatter</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/millisecondsFormatter</TokenIdentifier>
+			<Abstract>a date formatter for H:mm:ss:SSS</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSDateFormatter *)millisecondsFormatter</Declaration>
+			
+			<ReturnValue><Abstract>a date formatter for H:mm:ss:SSS</Abstract></ReturnValue>
+			<Anchor>//api/name/millisecondsFormatter</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/isoDateFormatter</TokenIdentifier>
+			<Abstract>a date formatter for yyyy-MM-dd HH:mm:ss</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSDateFormatter *)isoDateFormatter</Declaration>
+			
+			<ReturnValue><Abstract>a date formatter for yyyy-MM-dd HH:mm:ss</Abstract></ReturnValue>
+			<Anchor>//api/name/isoDateFormatter</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/isoDateWithMillisFormatter</TokenIdentifier>
+			<Abstract>a date formatter for yyyy-MM-dd HH:mm:ss.SSS</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSDateFormatter *)isoDateWithMillisFormatter</Declaration>
+			
+			<ReturnValue><Abstract>a date formatter for yyyy-MM-dd HH:mm:ss.SSS</Abstract></ReturnValue>
+			<Anchor>//api/name/isoDateWithMillisFormatter</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/orderedDateFormatter</TokenIdentifier>
+			<Abstract>a date formatter for yyyyMMddHHmm</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSDateFormatter *)orderedDateFormatter</Declaration>
+			
+			<ReturnValue><Abstract>a date formatter for yyyyMMddHHmm</Abstract></ReturnValue>
+			<Anchor>//api/name/orderedDateFormatter</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/orderedDateFormatterWithMillis</TokenIdentifier>
+			<Abstract>a date formatter for yyyyMMddHHmm.SSS</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSDateFormatter *)orderedDateFormatterWithMillis</Declaration>
+			
+			<ReturnValue><Abstract>a date formatter for yyyyMMddHHmm.SSS</Abstract></ReturnValue>
+			<Anchor>//api/name/orderedDateFormatterWithMillis</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/twelveHourLocale</TokenIdentifier>
+			<Abstract>a locale based on enUSPOSIX which uses a 12-hour clock</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSLocale *)twelveHourLocale</Declaration>
+			
+			<ReturnValue><Abstract>a locale based on enUSPOSIX which uses a 12-hour clock</Abstract></ReturnValue>
+			<Anchor>//api/name/twelveHourLocale</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/twentyFourHourLocale</TokenIdentifier>
+			<Abstract>a locale based on en_GB which uses a 24-hour clock</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSLocale *)twentyFourHourLocale</Declaration>
+			
+			<ReturnValue><Abstract>a locale based on en_GB which uses a 24-hour clock</Abstract></ReturnValue>
+			<Anchor>//api/name/twentyFourHourLocale</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/stringWithTimeInterval:</TokenIdentifier>
+			<Abstract>not test extensively</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)stringWithTimeInterval:(NSTimeInterval)interval</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>interval</Name>
+					<Abstract>a time inteval</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a string representation of the date created by the interval - the date
+formatter is yyyy-MM-dd HH:mm:ss.SSS</Abstract></ReturnValue>
+			<Anchor>//api/name/stringWithTimeInterval:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsDateHelper/stringWithTimeInterval:formatter:</TokenIdentifier>
+			<Abstract>not test extensively</Abstract>
+			<DeclaredIn>LjsDateHelper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)stringWithTimeInterval:(NSTimeInterval)interval formatter:(NSDateFormatter *)formatter</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>interval</Name>
+					<Abstract>a time inteval</Abstract>
+				</Parameter><Parameter>
+					<Name>formatter</Name>
+					<Abstract>a date formatter that will be used to generate the the string</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract>a string representation of the date created by the interval</Abstract></ReturnValue>
+			<Anchor>//api/name/stringWithTimeInterval:formatter:</Anchor>
 		</Token>
 		
 	</File>

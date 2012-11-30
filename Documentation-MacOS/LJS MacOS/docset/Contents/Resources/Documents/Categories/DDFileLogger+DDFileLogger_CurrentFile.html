@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>LjsRepeatingTimerProtocol Protocol Reference</title>
+		<title>DDFileLogger(DDFileLogger_CurrentFile) Category Reference</title>
 		<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<meta name="viewport" content="width=550" />
@@ -11,7 +11,7 @@
 	<body>
 		<header id="top_header">
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">LjsRepeatingTimerProtocol Protocol Reference</h1>
+				<h1 class="hideInXcode">DDFileLogger(DDFileLogger_CurrentFile) Category Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -38,9 +38,7 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/startAndRetainRepeatingTimers">&nbsp;&nbsp;&nbsp;&nbsp;- startAndRetainRepeatingTimers</option>
-	
-	<option value="//api/name/stopAndReleaseRepeatingTimers">&nbsp;&nbsp;&nbsp;&nbsp;- stopAndReleaseRepeatingTimers</option>
+	<option value="//api/name/currentFilePath">&nbsp;&nbsp;&nbsp;&nbsp;- currentFilePath</option>
 	
 	
 	
@@ -70,9 +68,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startAndRetainRepeatingTimers">startAndRetainRepeatingTimers</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stopAndReleaseRepeatingTimers">stopAndReleaseRepeatingTimers</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentFilePath">currentFilePath</a></span></li>
 	
 </ul></li>
 
@@ -81,7 +77,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="LjsRepeatingTimerProtocol Protocol Reference" name="top"></a>
+				<a title="DDFileLogger(DDFileLogger_CurrentFile) Category Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -90,18 +86,15 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">LjsRepeatingTimerProtocol Protocol Reference</h1>
+						<h1 class="title title-header">DDFileLogger(DDFileLogger_CurrentFile) Category Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<td class="specification-title">Conforms to</td>
-	<td class="specification-value">NSObject</td>
-</tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">LjsRepeatingTimerProtocol.h</td>
+	<td class="specification-value">DDFileLogger+CurrentFile.h<br />DDFileLogger+CurrentFile.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -111,14 +104,8 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>When using repeating timers with target self it is important to invalidate
-the timer before deallocating self because the timer maintains a reference
-to the target until invalidate is called.  It is also often very useful to
-have, say the App Delegate, start and stop timers when the user moves from
-one state to another.</p>
-
-<p>Enter <a href="LjsRepeatingTimerProtocol.html">LjsRepeatingTimerProtocol</a>.  Implementers must define methods for
-starting/stopping and memory management.</p>
+						<p>A Category on DDFileLogger &ndash; because it is hard to dig the current
+file path out of the DDFileLogger.</p>
 					</div>
 					
 					
@@ -136,18 +123,12 @@ starting/stopping and memory management.</p>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/stopAndReleaseRepeatingTimers">&ndash;&nbsp;stopAndReleaseRepeatingTimers</a></code>
-		
+		<code><a href="#//api/name/currentFilePath">&ndash;&nbsp;currentFilePath</a></code>
+		<span class="tooltip"><p>the current file path of the receiver using the current log file info
+filePath method</p></span>
 	</span>
 	
-	<span class="task-item-suffix">required method</span>
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/startAndRetainRepeatingTimers">&ndash;&nbsp;startAndRetainRepeatingTimers</a></code>
-		
-	</span>
 	
-	<span class="task-item-suffix">required method</span>
 </li>
 						</ul>
 						
@@ -166,44 +147,27 @@ starting/stopping and memory management.</p>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/startAndRetainRepeatingTimers" title="startAndRetainRepeatingTimers"></a>
-	<h3 class="subsubtitle method-title">startAndRetainRepeatingTimers</h3>
+	<a name="//api/name/currentFilePath" title="currentFilePath"></a>
+	<h3 class="subsubtitle method-title">currentFilePath</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>the current file path of the receiver using the current log file info
+filePath method</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (NSString *)currentFilePath</code></div>
 	
 	
 	
 	
-	<div class="method-subsection method-declaration"><code>- (void)startAndRetainRepeatingTimers</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">LjsRepeatingTimerProtocol.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/stopAndReleaseRepeatingTimers" title="stopAndReleaseRepeatingTimers"></a>
-	<h3 class="subsubtitle method-title">stopAndReleaseRepeatingTimers</h3>
-	
-	
-	
-	
-	<div class="method-subsection method-declaration"><code>- (void)stopAndReleaseRepeatingTimers</code></div>
-	
-	
-	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>the current file path of the receiver using the current log file info
+filePath method</p>
+	</div>
 	
 	
 	
@@ -215,7 +179,7 @@ starting/stopping and memory management.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">LjsRepeatingTimerProtocol.h</code><br />
+		<code class="declared-in-ref">DDFileLogger+CurrentFile.m</code><br />
 	</div>				
 	
 	

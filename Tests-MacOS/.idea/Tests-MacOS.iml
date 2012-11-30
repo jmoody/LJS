@@ -130,6 +130,12 @@
     <content url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/Extensions/README.txt">
       <sourceFolder url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/Extensions/README.txt" isTestSource="false" />
     </content>
+    <content url="file://$MODULE_DIR$/../CoreData/LjsProgressiveMigration.h">
+      <sourceFolder url="file://$MODULE_DIR$/../CoreData/LjsProgressiveMigration.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../CoreData/LjsProgressiveMigration.m">
+      <sourceFolder url="file://$MODULE_DIR$/../CoreData/LjsProgressiveMigration.m" isTestSource="false" />
+    </content>
     <content url="file://$MODULE_DIR$/../Google/LjsGoogleGlobals.h">
       <sourceFolder url="file://$MODULE_DIR$/../Google/LjsGoogleGlobals.h" isTestSource="false" />
     </content>
@@ -445,6 +451,12 @@
     <content url="file://$MODULE_DIR$/../Managers/LjsFileBackedKeyStore.m">
       <sourceFolder url="file://$MODULE_DIR$/../Managers/LjsFileBackedKeyStore.m" isTestSource="false" />
     </content>
+    <content url="file://$MODULE_DIR$/../Managers/LjsKeychainManager.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Managers/LjsKeychainManager.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Managers/LjsKeychainManager.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Managers/LjsKeychainManager.m" isTestSource="false" />
+    </content>
     <content url="file://$MODULE_DIR$/../Managers/LjsLocationManager.h">
       <sourceFolder url="file://$MODULE_DIR$/../Managers/LjsLocationManager.h" isTestSource="false" />
     </content>
@@ -513,6 +525,30 @@
     </content>
     <content url="file://$MODULE_DIR$/../Tests/OCMockWorkingTest.m">
       <sourceFolder url="file://$MODULE_DIR$/../Tests/OCMockWorkingTest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Categories/LjsDecimalAideTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Categories/LjsDecimalAideTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSArrayLjsAdditionsTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSArrayLjsAdditionsTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSDateLjsAdditionsTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSDateLjsAdditionsTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSDictionaryLjsAdditionsTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSDictionaryLjsAdditionsTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSErrorLjsAdditions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSErrorLjsAdditions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSSetLjsAdditionsTest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSSetLjsAdditionsTest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSStringLjsAdditionsTest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSStringLjsAdditionsTest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/LjsProgressiveMigrationTest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/LjsProgressiveMigrationTest.m" isTestSource="false" />
     </content>
     <content url="file://$MODULE_DIR$/../Tests/Unit/Google/Import/LjsGoogleAddressComponentImportTests.m">
       <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Google/Import/LjsGoogleAddressComponentImportTests.m" isTestSource="false" />
@@ -595,6 +631,12 @@
     <content url="file://$MODULE_DIR$/../Tests/Unit/LoremIpsumTests.m">
       <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/LoremIpsumTests.m" isTestSource="false" />
     </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Managers/LjsFileBackedStoreTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Managers/LjsFileBackedStoreTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Managers/LjsKeychainTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Managers/LjsKeychainTests.m" isTestSource="false" />
+    </content>
     <content url="file://$MODULE_DIR$/../Tests/Unit/NSArrayLjsAdditionsTests.m">
       <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/NSArrayLjsAdditionsTests.m" isTestSource="false" />
     </content>
@@ -612,6 +654,39 @@
     </content>
     <content url="file://$MODULE_DIR$/../Tests/Unit/NSStringLjsAdditionsTest.m">
       <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/NSStringLjsAdditionsTest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Security/LjsCaesarCipherTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Security/LjsCaesarCipherTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/ThirdParty/LoremIpsumTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/ThirdParty/LoremIpsumTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsBlocksTest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsBlocksTest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsDateHelperTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsDateHelperTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsFakerTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsFakerTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsFileUtiltiesTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsFileUtiltiesTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsGestaltTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsGestaltTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsIdGeneratorTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsIdGeneratorTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsJsonRpcReplyTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsJsonRpcReplyTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsValidatorTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsValidatorTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsVariatesTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsVariatesTests.m" isTestSource="false" />
     </content>
     <content url="file://$MODULE_DIR$/../Tests/resources/readlines-test.txt">
       <sourceFolder url="file://$MODULE_DIR$/../Tests/resources/readlines-test.txt" isTestSource="false" />

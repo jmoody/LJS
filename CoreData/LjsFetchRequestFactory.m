@@ -3,6 +3,8 @@
 #endif
 
 #import "LjsFetchRequestFactory.h"
+#import "NSError+LjsAdditions.h"
+#import "NSArray+LjsAdditions.h"
 #import "Lumberjack.h"
 #import "LjsValidator.h"
 

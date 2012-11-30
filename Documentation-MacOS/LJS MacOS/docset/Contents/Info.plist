@@ -9,9 +9,9 @@
 	<key>CFBundleName</key>
 	<string>Tests-MacOS Documentation</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0 b53af49</string>
+	<string>2.0 6fbade6</string>
 	<key>CFBundleVersion</key>
-	<string>1.0 b53af49</string>
+	<string>2.0 6fbade6</string>
 	
 	
 	
@@ -27,6 +27,6 @@
 	<key>DocSetPublisherName</key>
 	<string>Little Joy Software</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2011 Little Joy Software. All rights reserved.</string>
+	<string>Copyright © 2012 Little Joy Software. All rights reserved.</string>
 </dict>
 </plist>

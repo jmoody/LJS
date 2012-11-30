@@ -64,8 +64,11 @@
 #endif
 
 #import "Lumberjack.h"
+#import "NSDate+LjsAdditions.h"
+#import "NSCalendar+LjsAdditions.h"
 #import "LjsVariates.h"
 #import "LjsDateHelper.h"
+
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;

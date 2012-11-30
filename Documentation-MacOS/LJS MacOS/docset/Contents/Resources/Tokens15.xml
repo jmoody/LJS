@@ -12,14 +12,36 @@
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsTextViewTailing/setLogView:</TokenIdentifier>
+			<Abstract>the log view</Abstract>
+			<DeclaredIn>LjsTextViewTailing.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) NSTextView *logView</Declaration>
+			
+			
+			<Anchor>//api/name/logView</Anchor>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instp/LjsTextViewTailing/logView</TokenIdentifier>
 			<Abstract>the log view</Abstract>
 			<DeclaredIn>LjsTextViewTailing.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, retain) NSTextView *logView</Declaration>
+			<Declaration>@property (nonatomic, strong) NSTextView *logView</Declaration>
 			
 			
 			<Anchor>//api/name/logView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsTextViewTailing/setLogger:</TokenIdentifier>
+			<Abstract>the logger</Abstract>
+			<DeclaredIn>LjsTextViewTailing.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) DDFileLogger *logger</Declaration>
+			
+			
+			<Anchor>//api/name/logger</Anchor>
 		</Token>
 		
 		<Token>
@@ -27,10 +49,22 @@
 			<Abstract>the logger</Abstract>
 			<DeclaredIn>LjsTextViewTailing.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, retain) DDFileLogger *logger</Declaration>
+			<Declaration>@property (nonatomic, strong) DDFileLogger *logger</Declaration>
 			
 			
 			<Anchor>//api/name/logger</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsTextViewTailing/setLogFileSearchTimer:</TokenIdentifier>
+			<Abstract>the file search timer - watches for the log file and stops once the file is
+acquired</Abstract>
+			<DeclaredIn>LjsTextViewTailing.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) NSTimer *logFileSearchTimer</Declaration>
+			
+			
+			<Anchor>//api/name/logFileSearchTimer</Anchor>
 		</Token>
 		
 		<Token>
@@ -39,7 +73,7 @@
 acquired</Abstract>
 			<DeclaredIn>LjsTextViewTailing.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, retain) NSTimer *logFileSearchTimer</Declaration>
+			<Declaration>@property (nonatomic, strong) NSTimer *logFileSearchTimer</Declaration>
 			
 			
 			<Anchor>//api/name/logFileSearchTimer</Anchor>

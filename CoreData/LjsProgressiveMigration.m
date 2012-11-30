@@ -4,6 +4,8 @@
 
 #import "LjsProgressiveMigration.h"
 #import "Lumberjack.h"
+#import "NSError+LjsAdditions.h"
+#import "NSArray+LjsAdditions.h"
 #import <CoreData/CoreData.h>
 #import "LjsIdGenerator.h"
 #import "LjsDateHelper.h"

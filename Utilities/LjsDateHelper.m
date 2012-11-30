@@ -33,6 +33,7 @@
 #import "LjsLocaleUtils.h"
 #import "Lumberjack.h"
 #import "LjsValidator.h"
+#import "LjsCategories.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
