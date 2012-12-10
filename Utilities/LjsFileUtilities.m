@@ -101,7 +101,7 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
                                                              forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
         
         *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
-                                     code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+                                     code:kLjsFileUtilitiesErrorCodeFileDoesNotExist
                      localizedDescription:message
                             otherUserInfo:userInfo];
       }
@@ -297,7 +297,7 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
                                                            forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
       
       *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
-                                   code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+                                   code:kLjsFileUtilitiesErrorCodeFileDoesNotExist
                    localizedDescription:message
                           otherUserInfo:userInfo];
     }
@@ -342,7 +342,7 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
                                                            forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
       
       *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
-                                   code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+                                   code:kLjsFileUtilitiesErrorCodeFileDoesNotExist
                    localizedDescription:message
                           otherUserInfo:userInfo];
     }
@@ -365,7 +365,7 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
                                                            forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
       
       *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
-                                   code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+                                   code:kLjsFileUtilitiesErrorCodeFileDoesNotExist
                    localizedDescription:message
                           otherUserInfo:userInfo];
     }
@@ -407,7 +407,7 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
                                                            forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
       
       *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
-                                   code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+                                   code:kLjsFileUtilitiesErrorCodeFileDoesNotExist
                    localizedDescription:message
                           otherUserInfo:userInfo];
     }
@@ -434,7 +434,7 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
                                              forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
       
       *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
-                                   code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+                                   code:kLjsFileUtilitiesErrorCodeFileDoesNotExist
                    localizedDescription:message
                           otherUserInfo:userInfo];
     }

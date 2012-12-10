@@ -109,7 +109,7 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
                                                            forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
       
       *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
-                                   code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+                                   code:kLjsFileUtilitiesErrorCodeFileDoesNotExist
                    localizedDescription:message
                           otherUserInfo:userInfo];
     }
@@ -455,7 +455,7 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
  //      NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aDirectoryPath
  //                                                           forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
  //      *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
- //                                   code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+ //                                   code:kLjsFileUtilitiesErrorCodeFileDoesNotExist
  //                   localizedDescription:message
  //                          otherUserInfo:userInfo];
  //    }

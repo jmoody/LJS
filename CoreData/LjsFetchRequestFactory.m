@@ -49,7 +49,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     DDLogError(message);
     if (aError != NULL) {
       *aError = [NSError errorWithDomain:[[self class] description]
-                                    code:LjsFetchRequestFactoryErrorCodeBadArguments
+                                    code:kLjsFetchRequestFactoryErrorCodeInvalidArgument
                     localizedDescription:message];
     }
     return NSNotFound;
@@ -84,7 +84,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     DDLogError(message);
     if (aError != NULL) {
       *aError = [NSError errorWithDomain:[[self class] description]
-                                    code:LjsFetchRequestFactoryErrorCodeBadArguments
+                                    code:kLjsFetchRequestFactoryErrorCodeInvalidArgument
                     localizedDescription:message];
     }
     if (aCountRef != NULL) *aCountRef = NSNotFound;
@@ -125,7 +125,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     DDLogError(message);
     if (aError != NULL) {
       *aError = [NSError errorWithDomain:[[self class] description]
-                                    code:LjsFetchRequestFactoryErrorCodeBadArguments
+                                    code:kLjsFetchRequestFactoryErrorCodeInvalidArgument
                     localizedDescription:message];
     }
     
