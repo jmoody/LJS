@@ -262,6 +262,11 @@
  */
 + (NSArray *) shuffle:(NSArray *) array;
 
+/**
+ @return an integer on the range eg. (-1, 5) ==> 5
+ @param aRange the range to sample
+ */
++ (NSInteger) randomIntegerWithRange:(NSRange) aRange;
 
 /**
  returns a string of random alpha-numeric characters

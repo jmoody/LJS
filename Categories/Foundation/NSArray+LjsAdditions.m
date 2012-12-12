@@ -128,7 +128,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (NSUInteger) enumFromString:(NSString *) strVal {
-  return [self enumFromString:strVal default:0];
+  return [self enumFromString:strVal default:NSNotFound];
 }
 
 

@@ -35,7 +35,7 @@
 
 #import "LjsTestCase.h"
 #import "LjsVariates.h"
-
+#import "LjsBlocks.h"
 #import "math.h"
 
 @interface LjsVariatesTests : LjsTestCase {}
@@ -282,6 +282,16 @@
 //  });
 //}
 
-
+- (void) test_random_integer_on_range {
+  CGFloat loc = 0;
+  CGFloat len = 3;
+  NSRange range = NSMakeRange(loc, len);
+  dotimes(20, ^{
+    NSInteger actual = [LjsVariates randomIntegerWithRange:range];
+    GHAssertTrue(actual >= range.location, @"'%d' should be >= '%d'", actual, range.location);
+    GHAssertTrue(actual <= range.length, @"'%d' should be <= '%d'", actual, range.length);
+    GHTestLog(@"actual = %d", actual);
+  });
+}
 
 @end

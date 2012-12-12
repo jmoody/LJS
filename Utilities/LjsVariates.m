@@ -277,4 +277,14 @@ static double const LjsE = 2.71828;
 }
 
 
+/**
+ @return an integer on the range eg. (-1, 5) ==> 5
+ @param aRange the range to sample
+ */
++ (NSInteger) randomIntegerWithRange:(NSRange) aRange {
+  return [LjsVariates randomIntegerWithMin:aRange.location max:aRange.length];
+}
+
+
+
 @end
