@@ -290,7 +290,6 @@
     NSInteger actual = [LjsVariates randomIntegerWithRange:range];
     GHAssertTrue(actual >= range.location, @"'%d' should be >= '%d'", actual, range.location);
     GHAssertTrue(actual <= range.length, @"'%d' should be <= '%d'", actual, range.length);
-    GHTestLog(@"actual = %d", actual);
   });
 }
 
