@@ -181,13 +181,29 @@
 - (BOOL) hasReasons;
 - (void) addReason:(NSString *) aReason;
 - (void) addReasonWithVarName:(NSString *)aVarName ifNil:(id) aObject;
+- (void) ifNil:(id) aObject addReasonWithVarName:(NSString *) aVarName;
+
+- (void) addReasonWithVarName:(NSString *)aVarName ifEmptyString:(NSString *) aString;
+- (void) ifEmptyString:(NSString *) aString addReasonWithVarName:(NSString *) aVarName;
+
 - (void) addReasonWithVarName:(NSString *)aVarName ifNilOrEmptyString:(NSString *) aString;
+- (void) ifNilOrEmptyString:(NSString *) aString addReasonWithVarName:(NSString *) aVarName;
+
+- (void) ifEmptyArray:(NSArray *) aArray addReasonWithVarName:(NSString *) aVarName;
+
 - (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id) aObject notInList:(id) aFirst, ...NS_REQUIRES_NIL_TERMINATION;
 - (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id) aObject notInArray:(NSArray *) aArray;
 - (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id)aObject inList:(id) aFirst, ...NS_REQUIRES_NIL_TERMINATION;
 - (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id) aObject inArray:(NSArray *) aArray;
-
 - (void) addReasonWithVarName:(NSString *)aVarName ifNilSelector:(SEL) aSel;
+- (void) addReasonWithVarName:(NSString *)aVarName
+                    ifInteger:(NSInteger) aValue
+              isNotOnInterval:(NSRange) aRange;
+- (void) addReasonWithVarName:(NSString *)aVarName
+                    ifInteger:(NSInteger) aValue
+              isNotOnInterval:(NSRange) aRange
+                    orEqualTo:(NSInteger) aOutOfRangeValue;
+
 
 - (NSString *) explanation:(NSString *) aExplanation;
 - (NSString *) explanation:(NSString *) aExplanation

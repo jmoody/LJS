@@ -32,3 +32,6 @@
 [submodule "OCHamcrest"]
 	path = OCHamcrest
 	url = https://github.com/hamcrest/OCHamcrest.git
+[submodule "PLWeakCompatibility"]
+	path = PLWeakCompatibility
+	url = https://github.com/plausiblelabs/PLWeakCompatibility.git

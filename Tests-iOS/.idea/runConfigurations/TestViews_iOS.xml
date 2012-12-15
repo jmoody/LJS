@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="TestViews-iOS" type="AppleRunConfiguration" factoryName="Application" SCHEME_NAME="TestViews-iOS" PROJECT_NAME="Tests-iOS" TARGET_NAME="TestViews-iOS" CONFIG_NAME="Debug" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" RUN_TARGET_PROJECT_NAME="Tests-iOS" RUN_TARGET_NAME="TestViews-iOS" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+    <envs />
+    <method />
+  </configuration>
+</component>

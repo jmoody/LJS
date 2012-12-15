@@ -4,7 +4,7 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/cl/LjsReachabilityObserver</TokenIdentifier>
-			<Abstract></Abstract>
+			<Abstract>Documenation</Abstract>
 			<DeclaredIn>LjsReachabilityObserver.h</DeclaredIn>
 			
 			<NodeRef refid="13"/>

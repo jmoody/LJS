@@ -32,6 +32,7 @@
 
 #import "LjsUserDefaultsStore.h"
 #import "Lumberjack.h"
+#import "LjsValidator.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -48,7 +49,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 #pragma mark Memory Management
 - (void) dealloc {
-   DDLogDebug(@"deallocating %@", [self class]);
+   // DDLogDebug(@"deallocating %@", [self class]);
 }
 
 - (id) init {
@@ -193,9 +194,19 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return result;
 }
 
-- (void) updateValueInDictionaryNamed:(NSString *) aDictName
+- (BOOL) updateValueInDictionaryNamed:(NSString *) aDictName
                          withValueKey:(NSString *) aValueKey
                                 value:(id) aValue {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"dictionary name" ifNilOrEmptyString:aDictName];
+  [reasons addReasonWithVarName:@"value key" ifNilOrEmptyString:aValueKey];
+  [reasons addReasonWithVarName:@"value" ifNil:aValue];
+  if ([reasons hasReasons]) {
+    DDLogError([reasons explanation:@"could not update value"
+                        consequence:@"NO"]);
+    return NO;
+  }
+
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   NSDictionary *dict = (NSDictionary *) [defaults objectForKey:aDictName];
   if (dict == nil) {
@@ -203,28 +214,58 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
       dict = [NSDictionary dictionaryWithObject:aValue forKey:aValueKey];
       [defaults setObject:dict forKey:aDictName];
     } else {
-      // nothing to do - dict is nil and value is nil
+      // unreachable code (i think)
+      DDLogNotice(@"@joshua - need to test this");
+      return NO;
     }
   } else {
     NSMutableDictionary *mdict = [NSMutableDictionary dictionaryWithDictionary:dict];
     [mdict setObject:aValue forKey:aValueKey];
     [defaults setObject:mdict forKey:aDictName];
   }
+  return YES;
 }
 
 
-- (void) storeObject:(id) object forKey:(NSString *) aKey {
+- (BOOL) storeObject:(id) object forKey:(NSString *) aKey {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"object" ifNil:object];
+  [reasons addReasonWithVarName:@"key" ifNilOrEmptyString:aKey];
+  if ([reasons hasReasons]) {
+    DDLogError([reasons explanation:@"could not store value"
+                        consequence:@"nil"]);
+    return NO;
+  }
+
   [[NSUserDefaults standardUserDefaults] setObject:object
                                             forKey:aKey];
+  return YES;
 }
 
-- (void) storeBool:(BOOL) aBool forKey:(NSString *) aKey {
+- (BOOL) storeBool:(BOOL) aBool forKey:(NSString *) aKey {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"key" ifNilOrEmptyString:aKey];
+  if ([reasons hasReasons]) {
+    DDLogError([reasons explanation:@"could not store value"
+                        consequence:@"nil"]);
+    return NO;
+  }
+
   [[NSUserDefaults standardUserDefaults] setBool:aBool
                                           forKey:aKey];
+  return YES;
 }
 
-- (void) removeObjectForKey:(NSString *) aKey {
+- (BOOL) removeObjectForKey:(NSString *) aKey {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"key" ifNilOrEmptyString:aKey];
+  if ([reasons hasReasons]) {
+    DDLogError([reasons explanation:@"could not store value"
+                        consequence:@"nil"]);
+    return NO;
+  }
   [[NSUserDefaults standardUserDefaults] removeObjectForKey:aKey];
+  return YES;
 }
 
 

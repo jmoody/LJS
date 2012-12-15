@@ -33,6 +33,7 @@
 #import "LjsGoogleNmoAddressComponent.h"
 #import "Lumberjack.h"
 #import "LjsValidator.h"
+#import "NSArray+LjsAdditions.h"
 
 
 #ifdef LOG_CONFIGURATION_DEBUG

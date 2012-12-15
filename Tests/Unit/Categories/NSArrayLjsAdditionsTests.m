@@ -26,40 +26,7 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// a1 is always the RECEIVED value
-// a2 is always the EXPECTED value
-// GHAssertNoErr(a1, description, ...)
-// GHAssertErr(a1, a2, description, ...)
-// GHAssertNotNULL(a1, description, ...)
-// GHAssertNULL(a1, description, ...)
-// GHAssertNotEquals(a1, a2, description, ...)
-// GHAssertNotEqualObjects(a1, a2, desc, ...)
-// GHAssertOperation(a1, a2, op, description, ...)
-// GHAssertGreaterThan(a1, a2, description, ...)
-// GHAssertGreaterThanOrEqual(a1, a2, description, ...)
-// GHAssertLessThan(a1, a2, description, ...)
-// GHAssertLessThanOrEqual(a1, a2, description, ...)
-// GHAssertEqualStrings(a1, a2, description, ...)
-// GHAssertNotEqualStrings(a1, a2, description, ...)
-// GHAssertEqualCStrings(a1, a2, description, ...)
-// GHAssertNotEqualCStrings(a1, a2, description, ...)
-// GHAssertEqualObjects(a1, a2, description, ...)
-// GHAssertEquals(a1, a2, description, ...)
-// GHAbsoluteDifference(left,right) (MAX(left,right)-MIN(left,right))
-// GHAssertEqualsWithAccuracy(a1, a2, accuracy, description, ...)
-// GHFail(description, ...)
-// GHAssertNil(a1, description, ...)
-// GHAssertNotNil(a1, description, ...)
-// GHAssertTrue(expr, description, ...)
-// GHAssertTrueNoThrow(expr, description, ...)
-// GHAssertFalse(expr, description, ...)
-// GHAssertFalseNoThrow(expr, description, ...)
-// GHAssertThrows(expr, description, ...)
-// GHAssertThrowsSpecific(expr, specificException, description, ...)
-// GHAssertThrowsSpecificNamed(expr, specificException, aName, description, ...)
-// GHAssertNoThrow(expr, description, ...)
-// GHAssertNoThrowSpecific(expr, specificException, description, ...)
-// GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
+
 
 #if ! __has_feature(objc_arc)
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
@@ -295,7 +262,7 @@
 - (void) test_mapc_using_index {
   NSArray *array = [self arrayOfMutableStrings];
   NSArray *actual = [array mapc:^(NSMutableString *obj, NSUInteger idx, BOOL *stop) {
-    NSString *newStr = [NSString stringWithFormat:@"%d", idx];
+    NSString *newStr = [NSString stringWithFormat:@"%ld", (long)idx];
     [obj setString:newStr];
   }];
   GHAssertEqualObjects(array, actual, @"array returned by mapc should be the same object as the target");
@@ -356,6 +323,23 @@
   GHAssertTrue([LjsValidator array:actual containsStrings:[NSSet setWithObject:@"a"] allowsOthers:NO],
                @"array should contain only the original objects");
 }
+
+- (void) test_string_with_enum_empty_array {
+  NSArray *array = [NSArray array];
+  NSString *actual = [array stringWithEnum:0];
+  GHAssertNil(actual, @"string should be nil because array is empty");
+  actual = [array stringWithEnum:1];
+  GHAssertNil(actual, @"string should be nil because array is empty");
+}
+
+- (void) test_string_with_enum_one_element_array {
+  NSArray *array = [NSArray arrayWithObjects:@"a", nil];
+  NSString *actual = [array stringWithEnum:0];
+  GHAssertEqualStrings(actual, @"a", @"strings should be the same");
+  actual = [array stringWithEnum:1];
+  GHAssertNil(actual, @"string should be nil because 1 is out of bounds");
+}
+
 
 
 @end

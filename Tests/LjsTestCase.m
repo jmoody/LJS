@@ -34,6 +34,7 @@
 
 
 
+
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
 #else
@@ -60,6 +61,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
    [self valueForKeyPath:@"subviews.fullDescription"], @"subviews",
    nil];
   
+
   if ([self respondsToSelector:@selector(text)])
   {
     [description
@@ -245,11 +247,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSString *path = @"./build/sandbox/Documents";
   NSError *error = nil;
   BOOL success = [LjsFileUtilities ensureDirectory:path error:&error];
-  if (success == NO) {
-    NSLog(@"could not create directory at path: %@\n%@ : %@",
-          path, [error localizedDescription], error);
-    abort();
-  }
+  GHAssertTrue(success, @"could not create directory at path: %@\n%@ : %@",
+               path, [error localizedDescription], error);
+  
   return path;
 }
 
@@ -269,11 +269,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSString *path = @"./build/sandbox/Library";
   NSError *error = nil;
   BOOL success = [LjsFileUtilities ensureDirectory:path error:&error];
-  if (success == NO) {
-    NSLog(@"could not create directory at path: %@\n%@ : %@",
-              path, [error localizedDescription], error);
-    abort();
-  }
+  GHAssertTrue(success, @"could not create directory at path: %@\n%@ : %@",
+               path, [error localizedDescription], error);
   return path;
 }
 
@@ -292,11 +289,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSString *path = @"./build/sandbox/Library/Preferences";
   NSError *error = nil;
   BOOL success = [LjsFileUtilities ensureDirectory:path error:&error];
-  if (success == NO) {
-    NSLog(@"could not create directory at path: %@\n%@ : %@",
-              path, [error localizedDescription], error);
-    abort();
-  }
+  GHAssertTrue(success, @"could not create directory at path: %@\n%@ : %@",
+               path, [error localizedDescription], error);
   return path;
 }
 
@@ -316,11 +310,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSString *path = @"./build/sandbox/Library";
   NSError *error = nil;
   BOOL success = [LjsFileUtilities ensureDirectory:path error:&error];
-  if (success == NO) {
-    NSLog(@"could not create directory at path: %@\n%@ : %@",
-          path, [error localizedDescription], error);
-    abort();
-  }
+  GHAssertTrue(success, @"could not create directory at path: %@\n%@ : %@",
+               path, [error localizedDescription], error);
   return path;
 }
 
@@ -342,11 +333,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSString *path = @"./build/sandbox/Library/Application Support";
   NSError *error = nil;
   BOOL success = [LjsFileUtilities ensureDirectory:path error:&error];
-  if (success == NO) {
-    NSLog(@"could not create directory at path: %@\n%@ : %@",
-          path, [error localizedDescription], error);
-    abort();
-  }
+  GHAssertTrue(success, @"could not create directory at path: %@\n%@ : %@",
+               path, [error localizedDescription], error);
   return path;
 }
 
@@ -362,7 +350,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
 - (void) dummyControlSelector:(id) sender {
+  GHTestLog(@"dummy control selector called with sender: %@", sender);
   return;
+}
+
+- (void) dummySelector {
+  GHTestLog(@"dummy selector called");
 }
 
 - (NSArray *) arrayOfAbcStrings {
@@ -418,7 +411,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 #if TARGET_OS_IPHONE
 - (void) scrollTableViewToIndexPath:(NSIndexPath *) aIndexPath
-                   atScrollPosition:(UITableViewScrollPosition) aPostion {
+                   atScrollPosition:(UITableViewScrollPosition) aPostion
+                           animated:(BOOL)aAnimated {
   return;
 }
 

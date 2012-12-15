@@ -5,6 +5,7 @@
 #import "LjsTextView.h"
 #import "Lumberjack.h"
 #import "LjsLabelAttributes.h"
+#import "LjsCategories.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -27,7 +28,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 #pragma mark Memory Management
 - (void) dealloc {
-  DDLogDebug(@"deallocating %@", [self class]);
+  //DDLogDebug(@"deallocating %@", [self class]);
   [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

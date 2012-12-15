@@ -26,40 +26,7 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// a1 is always the RECEIVED value
-// a2 is always the EXPECTED value
-// GHAssertNoErr(a1, description, ...)
-// GHAssertErr(a1, a2, description, ...)
-// GHAssertNotNULL(a1, description, ...)
-// GHAssertNULL(a1, description, ...)
-// GHAssertNotEquals(a1, a2, description, ...)
-// GHAssertNotEqualObjects(a1, a2, desc, ...)
-// GHAssertOperation(a1, a2, op, description, ...)
-// GHAssertGreaterThan(a1, a2, description, ...)
-// GHAssertGreaterThanOrEqual(a1, a2, description, ...)
-// GHAssertLessThan(a1, a2, description, ...)
-// GHAssertLessThanOrEqual(a1, a2, description, ...)
-// GHAssertEqualStrings(a1, a2, description, ...)
-// GHAssertNotEqualStrings(a1, a2, description, ...)
-// GHAssertEqualCStrings(a1, a2, description, ...)
-// GHAssertNotEqualCStrings(a1, a2, description, ...)
-// GHAssertEqualObjects(a1, a2, description, ...)
-// GHAssertEquals(a1, a2, description, ...)
-// GHAbsoluteDifference(left,right) (MAX(left,right)-MIN(left,right))
-// GHAssertEqualsWithAccuracy(a1, a2, accuracy, description, ...)
-// GHFail(description, ...)
-// GHAssertNil(a1, description, ...)
-// GHAssertNotNil(a1, description, ...)
-// GHAssertTrue(expr, description, ...)
-// GHAssertTrueNoThrow(expr, description, ...)
-// GHAssertFalse(expr, description, ...)
-// GHAssertFalseNoThrow(expr, description, ...)
-// GHAssertThrows(expr, description, ...)
-// GHAssertThrowsSpecific(expr, specificException, description, ...)
-// GHAssertThrowsSpecificNamed(expr, specificException, aName, description, ...)
-// GHAssertNoThrow(expr, description, ...)
-// GHAssertNoThrowSpecific(expr, specificException, description, ...)
-// GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
+
 
 #if ! __has_feature(objc_arc)
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
@@ -82,9 +49,7 @@
 }
 
 - (void) setUpClass {
-  //[super setUpClass];
   // Run at start of all tests in the class
-  self.resourceName = @"google-places-autocomplete-sample";
   [super setUpClass];
 }
 
@@ -94,8 +59,8 @@
 }
 
 - (void) setUp {
-  [super setUp];
-  // Run before each test method
+  self.resourceName = @"google-places-autocomplete-sample";
+  [super setUp];  
 }
 
 - (void) tearDown {
@@ -104,16 +69,10 @@
 }  
 
 - (void) test_predictionTestInit {
-  SBJsonParser *parser;
-  NSError *error;
-  NSDictionary *dict;
-  NSArray *predictions;
-  LjsGooglePlacesPrediction *prediction;
 
-  error = nil;
-  parser = [[SBJsonParser alloc] init];
-  dict = [parser objectWithString:self.jsonResource
-                            error:&error];
+  NSError *error = nil;
+  SBJsonParser *parser = [[SBJsonParser alloc] init];
+  NSDictionary *dict = [parser objectWithString:self.jsonResource error:&error];
   
   if (dict == nil) {
     GHTestLog(@"failed because of an error: %@", error);
@@ -121,7 +80,8 @@
   
   GHAssertNotNil(dict, @"error: %@", error);
   
-  predictions = [dict objectForKey:@"predictions"];
+  LjsGooglePlacesPrediction *prediction = nil;
+  NSArray *predictions = [dict objectForKey:@"predictions"];
   
   for (NSDictionary *predDict in predictions) {
     prediction = [[LjsGooglePlacesPrediction alloc]

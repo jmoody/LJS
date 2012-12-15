@@ -34,6 +34,7 @@
 #import "Lumberjack.h"
 #import "ASIFormDataRequest.h"
 #import "LjsGooglePlacesPrediction.h"
+#import "LjsWebCategories.h"
 
 static NSString *LjsGooglePlacesAutocompleteUrl = @"https://maps.googleapis.com/maps/api/place/autocomplete/json";
 static NSString *LjsGooglePlacesDetailsUrl = @"https://maps.googleapis.com/maps/api/place/details/json";
@@ -74,7 +75,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (id) init {
-  [self doesNotRecognizeSelector:_cmd];
+ //  [self doesNotRecognizeSelector:_cmd];
   return nil;
 }
 

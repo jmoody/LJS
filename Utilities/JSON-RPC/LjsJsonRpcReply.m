@@ -182,7 +182,8 @@ NSString *LjsJsonRpcReplyErrorDataUserInfoKey = @"com.littlejoysoftware.ljs.Json
           reason = @"contains an error key, but none of the required key-value pairs";
           [reasons addObject:reason];
         } else {
-          reason = [NSString stringWithFormat:@"contains an error key, but an incorrect number of keys - expected %d but found %d", 3, [errorDict count]];
+          reason = [NSString stringWithFormat:@"contains an error key, but an incorrect number of keys - expected 3 but found %ld",
+                    (long)[errorDict count]];
           [reasons addObject:reason];
         }
       } else {

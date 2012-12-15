@@ -1,37 +1,4 @@
-// a1 is always the RECEIVED value
-// a2 is always the EXPECTED value
-// GHAssertNoErr(a1, description, ...)
-// GHAssertErr(a1, a2, description, ...)
-// GHAssertNotNULL(a1, description, ...)
-// GHAssertNULL(a1, description, ...)
-// GHAssertNotEquals(a1, a2, description, ...)
-// GHAssertNotEqualObjects(a1, a2, desc, ...)
-// GHAssertOperation(a1, a2, op, description, ...)
-// GHAssertGreaterThan(a1, a2, description, ...)
-// GHAssertGreaterThanOrEqual(a1, a2, description, ...)
-// GHAssertLessThan(a1, a2, description, ...)
-// GHAssertLessThanOrEqual(a1, a2, description, ...)
-// GHAssertEqualStrings(a1, a2, description, ...)
-// GHAssertNotEqualStrings(a1, a2, description, ...)
-// GHAssertEqualCStrings(a1, a2, description, ...)
-// GHAssertNotEqualCStrings(a1, a2, description, ...)
-// GHAssertEqualObjects(a1, a2, description, ...)
-// GHAssertEquals(a1, a2, description, ...)
-// GHAbsoluteDifference(left,right) (MAX(left,right)-MIN(left,right))
-// GHAssertEqualsWithAccuracy(a1, a2, accuracy, description, ...)
-// GHFail(description, ...)
-// GHAssertNil(a1, description, ...)
-// GHAssertNotNil(a1, description, ...)
-// GHAssertTrue(expr, description, ...)
-// GHAssertTrueNoThrow(expr, description, ...)
-// GHAssertFalse(expr, description, ...)
-// GHAssertFalseNoThrow(expr, description, ...)
-// GHAssertThrows(expr, description, ...)
-// GHAssertThrowsSpecific(expr, specificException, description, ...)
-// GHAssertThrowsSpecificNamed(expr, specificException, aName, description, ...)
-// GHAssertNoThrow(expr, description, ...)
-// GHAssertNoThrowSpecific(expr, specificException, description, ...)
-// GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
+
 
 #import "LjsTestCase.h"
 #import "LjsValidator.h"
@@ -40,7 +7,6 @@
 
 @interface LjsValidatorTests : LjsTestCase {}
 
-- (void) dummySelector;
 
 @end
 
@@ -384,6 +350,12 @@
   GHAssertFalse([reasons hasReasons], @"reasons array should be empty");
   [reasons addReasonWithVarName:@"niller" ifNil:nil];
   GHAssertTrue([reasons hasReasons], @"reasons array should have one reason after adding a reason");
+  
+  reasons = [LjsReasons new];
+  [reasons ifNil:@"bar" addReasonWithVarName:@"foo"];
+  GHAssertFalse([reasons hasReasons], @"reasons array should be empty");
+  [reasons ifNil:nil addReasonWithVarName:@"niller"];
+  GHAssertTrue([reasons hasReasons], @"reasons array should have one reason after adding a reason");
 }
 
 - (void) test_explanation {
@@ -498,9 +470,6 @@
   GHAssertTrue([reasons hasReasons], @"should have reasons");  
 }
 
-- (void) dummySelector {
-  // a selector to supress compiler warning
-}
 
 - (void) test_addReasonIfSelectorIsNotNil {
   LjsReasons *reasons = [LjsReasons new];
@@ -509,6 +478,131 @@
   GHAssertFalse([reasons hasReasons], @"should not have reasons if selector is non-nil");
 }
 
+- (void) test_addReasonIfIntegerIsOnRange_on_range {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"integer" ifInteger:1 isNotOnInterval:NSMakeRange(0, 2)];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons if integer is on interval");
+}
 
+- (void) test_addReasonIfIntegerIsOnRange_on_lhs {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"integer" ifInteger:0 isNotOnInterval:NSMakeRange(0, 2)];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons if integer is on interval");
+}
+
+- (void) test_addReasonIfIntegerIsOnRange_on_rhs {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"integer" ifInteger:2 isNotOnInterval:NSMakeRange(0, 2)];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons if integer is on interval");
+}
+
+- (void) test_addReasonIfIntegerIsOnRange_lt_lhs {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"integer" ifInteger:-1 isNotOnInterval:NSMakeRange(0, 2)];
+  GHAssertTrue([reasons hasReasons], @"should have reasons if integer is not on interval");
+}
+
+- (void) test_addReasonIfIntegerIsOnRange_gt_rhs {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"integer" ifInteger:3 isNotOnInterval:NSMakeRange(0, 2)];
+  GHAssertTrue([reasons hasReasons], @"should have reasons if integer is not on interval");
+}
+
+
+#pragma mark - Empty String Testing
+
+- (void) test_addReasonIfEmptyString_nil {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"string" ifEmptyString:nil];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons if the string is nil");
+  
+  reasons = [LjsReasons new];
+  [reasons ifEmptyString:nil addReasonWithVarName:@"string"];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons if the string is nil");
+
+}
+
+- (void) test_addReasonIfEmptyString_not_empty {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"string" ifEmptyString:@"foo"];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons if the string is not empty");
+  
+  reasons = [LjsReasons new];
+  [reasons ifEmptyString:@"foo" addReasonWithVarName:@"string"];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons if the string is not empty");
+}
+
+- (void) test_addReasonIfEmptyString_empty {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"string" ifEmptyString:@""];
+  GHAssertTrue([reasons hasReasons], @"should have reasons if the string is empty");
+  
+  reasons = [LjsReasons new];
+  [reasons ifEmptyString:@"" addReasonWithVarName:@"string"];
+  GHAssertTrue([reasons hasReasons], @"should have reasons if the string is empty");
+}
+
+#pragma mark - Empty or Nil String Testing
+
+- (void) test_if_empty_or_nil_string_nil_or_empty {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons ifNilOrEmptyString:[self emptyStringOrNil] addReasonWithVarName:@"string"];
+  GHAssertTrue([reasons hasReasons], @"should have reasons if the string is nil or empty");
+}
+
+- (void) test_if_empty_or_nil_string_not_nil_not_empty {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons ifNilOrEmptyString:@"foo" addReasonWithVarName:@"string"];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons if the string is not empty or nil");
+}
+
+#pragma mark - Interval Testing
+
+- (void) test_add_reason_if_not_on_interval_or_equal_to_value_not_on_lhs {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"integer"
+                      ifInteger:-1
+                isNotOnInterval:NSMakeRange(0, 2)
+                      orEqualTo:NSNotFound];
+  GHAssertTrue([reasons hasReasons], @"should have reasons if integer is not on interval or equal to outlier");
+}
+
+- (void) test_add_reason_if_not_on_interval_or_equal_to_value_not_on_rhs {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"integer"
+                      ifInteger:3
+                isNotOnInterval:NSMakeRange(0, 2)
+                      orEqualTo:NSNotFound];
+  GHAssertTrue([reasons hasReasons], @"should have reasons if integer is not on interval or equal to outlier");
+}
+
+- (void) test_add_reason_if_not_on_interval_or_equal_to_value_on_interval_equal_outlier {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"integer"
+                      ifInteger:NSNotFound
+                isNotOnInterval:NSMakeRange(0, 2)
+                      orEqualTo:NSNotFound];
+  GHAssertFalse([reasons hasReasons], @"should not have reasons if integer is not on interval, but equal to outlier");
+}
+
+#pragma mark - Array Testing 
+- (void) test_if_empty_array_empty {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons ifEmptyArray:[NSArray array] addReasonWithVarName:@"array"];
+  GHAssertTrue([reasons hasReasons], @"should have reason if array is empty");
+}
+
+
+- (void) test_if_empty_array_nil_array {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons ifEmptyArray:nil addReasonWithVarName:@"array"];
+  GHAssertTrue([reasons hasReasons], @"should have reason if array is nil");
+}
+
+- (void) test_if_empty_array_not_empty {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons ifEmptyArray:[self arrayOfAbcStrings] addReasonWithVarName:@"array"];
+  GHAssertFalse([reasons hasReasons], @"should not have reason if array is not empty");
+}
 
 @end

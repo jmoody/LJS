@@ -510,7 +510,7 @@ NSString *LjsKeychainManagerErrorDomain = @"com.littlejoysoftware.ljs LJS Keycha
 - (void) logKeychainError:(NSError *) error {
   NSInteger code = [error code];
   NSString *message = [error localizedDescription];
-  DDLogError(@"%d: %@", code, message);
+  DDLogError(@"%ld: %@", (long)code, message);
 }
 
 /**

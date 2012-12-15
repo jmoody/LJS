@@ -153,7 +153,8 @@ extern NSString *LjsOrderedDateFormatWithMillis;
 
 
 + (NSArray *) datesWithWeek:(NSUInteger) aWeek ofYear:(NSUInteger) aYear;
-
++ (NSDate *) dateWithDayOfYear:(NSUInteger) aDayOfYear
+                          year:(NSUInteger) aYear;
 
 + (NSString *) audioTimeStringWithInterval:(NSTimeInterval) aInterval;
 

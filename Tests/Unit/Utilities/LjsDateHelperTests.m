@@ -26,41 +26,6 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// a1 is always the RECEIVED value
-// a2 is always the EXPECTED value
-// GHAssertNoErr(a1, description, ...)
-// GHAssertErr(a1, a2, description, ...)
-// GHAssertNotNULL(a1, description, ...)
-// GHAssertNULL(a1, description, ...)
-// GHAssertNotEquals(a1, a2, description, ...)
-// GHAssertNotEqualObjects(a1, a2, desc, ...)
-// GHAssertOperation(a1, a2, op, description, ...)
-// GHAssertGreaterThan(a1, a2, description, ...)
-// GHAssertGreaterThanOrEqual(a1, a2, description, ...)
-// GHAssertLessThan(a1, a2, description, ...)
-// GHAssertLessThanOrEqual(a1, a2, description, ...)
-// GHAssertEqualStrings(a1, a2, description, ...)
-// GHAssertNotEqualStrings(a1, a2, description, ...)
-// GHAssertEqualCStrings(a1, a2, description, ...)
-// GHAssertNotEqualCStrings(a1, a2, description, ...)
-// GHAssertEqualObjects(a1, a2, description, ...)
-// GHAssertEquals(a1, a2, description, ...)
-// GHAbsoluteDifference(left,right) (MAX(left,right)-MIN(left,right))
-// GHAssertEqualsWithAccuracy(a1, a2, accuracy, description, ...)
-// GHFail(description, ...)
-// GHAssertNil(a1, description, ...)
-// GHAssertNotNil(a1, description, ...)
-// GHAssertTrue(expr, description, ...)
-// GHAssertTrueNoThrow(expr, description, ...)
-// GHAssertFalse(expr, description, ...)
-// GHAssertFalseNoThrow(expr, description, ...)
-// GHAssertThrows(expr, description, ...)
-// GHAssertThrowsSpecific(expr, specificException, description, ...)
-// GHAssertThrowsSpecificNamed(expr, specificException, aName, description, ...)
-// GHAssertNoThrow(expr, description, ...)
-// GHAssertNoThrowSpecific(expr, specificException, description, ...)
-// GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
-
 #import "LjsTestCase.h"
 #import "LjsDateHelper.h"
 #import "LjsLocaleUtils.h"
@@ -995,45 +960,45 @@
     expected = 1;
     actual = [LjsDateHelper weekOfMonthWithDate:date];
     
-    GHTestLog(@"actual week = %d : %@", actual, date);
+    GHTestLog(@"actual week = %ld : %@", (long)actual, date);
     GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil);  
     
     NSTimeInterval secondsInADay = LjsSecondsInDay;
     date = [jan1st2012 dateByAddingTimeInterval:secondsInADay];
     expected = 2;
     actual = [LjsDateHelper weekOfMonthWithDate:date];
-    GHTestLog(@"actual week = %d : %@", actual, date);
+    GHTestLog(@"actual week = %ld : %@", (long)actual, date);
     GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil);  
     
     date = [jan1st2012 dateByAddingTimeInterval:secondsInADay * 2];
     expected = 2;
     actual = [LjsDateHelper weekOfMonthWithDate:date];
-    GHTestLog(@"actual week = %d : %@", actual, date);
+    GHTestLog(@"actual week = %ld : %@", (long)actual, date);
     GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil); 
     
     date = [jan1st2012 dateByAddingTimeInterval:secondsInADay * 7];
     expected = 2;
     actual = [LjsDateHelper weekOfMonthWithDate:date];
-    GHTestLog(@"actual week = %d : %@", actual, date);
+    GHTestLog(@"actual week = %ld : %@", (long)actual, date);
     GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil); 
     
     date = [jan1st2012 dateByAddingTimeInterval:secondsInADay * 8];
     expected = 3;
     actual = [LjsDateHelper weekOfMonthWithDate:date];
-    GHTestLog(@"actual week = %d : %@", actual, date);
+    GHTestLog(@"actual week = %ld : %@", (long)actual, date);
     GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil); 
     
     
     date = [jan1st2012 dateByAddingTimeInterval:secondsInADay * 30];
     expected = 6;
     actual = [LjsDateHelper weekOfMonthWithDate:date];
-    GHTestLog(@"actual week = %d : %@", actual, date);
+    GHTestLog(@"actual week = %ld : %@", (long)actual, date);
     GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil); 
     
     date = [jan1st2012 dateByAddingTimeInterval:secondsInADay * 31];
     expected = 1;
     actual = [LjsDateHelper weekOfMonthWithDate:date];
-    GHTestLog(@"actual week = %d : %@", actual, date);
+    GHTestLog(@"actual week = %ld : %@", (long)actual, date);
     GHAssertEquals((NSInteger) actual, (NSInteger) expected, nil); 
     
   }
@@ -1071,6 +1036,33 @@
   }];
 }
 
+//+ (NSDate *) dateWithDayOfYear:(NSUInteger) aDayOfYear
+//                          year:(NSUInteger) aYear {
+
+- (void) test_date_with_day_of_year_and_year {
+  NSUInteger day = 213;
+  NSUInteger year = 2012;
+  NSDate *date = [LjsDateHelper dateWithDayOfYear:day year:year];
+  NSDateFormatter *df = [[NSDateFormatter alloc] init];
+  [df setDateFormat:@"EEE MMM d"];
+  NSString *actual = [df stringFromDate:date];
+  GHAssertEqualStrings(actual, @"Tue Jul 31", @"date should be correct");
+  
+  day = 1;
+  date = [LjsDateHelper dateWithDayOfYear:day year:year];
+  actual = [df stringFromDate:date];
+  GHAssertEqualStrings(actual, @"Sun Jan 1", @"date should be correct");
+  
+  day = 365;
+  date = [LjsDateHelper dateWithDayOfYear:day year:year];
+  actual = [df stringFromDate:date];
+  GHAssertEqualStrings(actual, @"Sun Dec 30", @"date should be correct");
+  
+  day = 366;
+  date = [LjsDateHelper dateWithDayOfYear:day year:year];
+  actual = [df stringFromDate:date];
+  GHAssertEqualStrings(actual, @"Mon Dec 31", @"date should be correct");
+}
 
 
 

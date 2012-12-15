@@ -33,6 +33,7 @@
 #import "LjsLocaleUtils.h"
 #import "Lumberjack.h"
 #import "LjsValidator.h"
+#import "LjsCategories.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -47,7 +48,13 @@ NSTimeInterval const LjsSecondsInWeek = 604800;
 NSTimeInterval const LjsSecondsInTropicalYear = 31556925.9936;
 NSTimeInterval const LjsSecondsInYear = 31556926;
 
-
+// possible helpful defintions
+//%P Meridian indicator ("am" or "pm")
+//%p Meridian indicator ("AM" or "PM")
+// de noch, vor
+// pt a.m., p.m.
+// ?? a.M.  p.M.
+//http://en.wikipedia.org/wiki/Gyrotheodolite
 NSString *LjsDateHelperCanonicalAM = @"AM";
 NSString *LjsDateHelperCanonicalPM = @"PM";
 
@@ -72,7 +79,7 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 
 // Disallow the normal default initializer for instances
 - (id)init {
-  [self doesNotRecognizeSelector:_cmd];
+ //  [self doesNotRecognizeSelector:_cmd];
   return nil;
 }
 
@@ -439,7 +446,7 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
       }
       NSString *minutesStr = [tokens objectAtIndex:1];
       if ([LjsDateHelper minutesStringValid:minutesStr] == NO) {
-        [reasons addObject:[NSString stringWithFormat:@"minutes portion of time are not within 0 and 59: %d", minutesStr]];
+        [reasons addObject:[NSString stringWithFormat:@"minutes portion of time are not within 0 and 59: %@", minutesStr]];
       }
       if ([tokens count] == 3) {
         NSString *amPm = [tokens objectAtIndex:2];
@@ -549,7 +556,7 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
       amPmString = LjsDateHelperCanonicalAM;
     } else if (twentyFourHourInt > 12) {
       twelveHourInt = twentyFourHourInt - 12;
-      twelveHourString = [NSString stringWithFormat:@"%d", twelveHourInt];
+      twelveHourString = [NSString stringWithFormat:@"%ld", (long)twelveHourInt];
       twelveHourNumber = [NSNumber numberWithInteger:twelveHourInt];
       amPmString = LjsDateHelperCanonicalPM;
     } else {
@@ -619,17 +626,17 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
         twentyFourHourNumber = [NSNumber numberWithInteger:twentyFourHourInt];
       } else {
         twentyFourHourInt = twelveHourInt;
-        twentyFourHourString = [NSString stringWithFormat:@"%d", twentyFourHourInt];
+        twentyFourHourString = [NSString stringWithFormat:@"%ld", (long)twentyFourHourInt];
         twentyFourHourNumber = [NSNumber numberWithInteger:twentyFourHourInt];
       }
     } else {
       if (twelveHourInt == 12) {
         twentyFourHourInt = twelveHourInt;
-        twentyFourHourString = [NSString stringWithFormat:@"%d", twentyFourHourInt];
+        twentyFourHourString = [NSString stringWithFormat:@"%ld", (long)twentyFourHourInt];
         twentyFourHourNumber = [NSNumber numberWithInteger:twentyFourHourInt];
       } else {
         twentyFourHourInt = twelveHourInt + 12;
-        twentyFourHourString = [NSString stringWithFormat:@"%d", twentyFourHourInt];
+        twentyFourHourString = [NSString stringWithFormat:@"%ld", (long)twentyFourHourInt];
         twentyFourHourNumber = [NSNumber numberWithInteger:twentyFourHourInt];
       }
     }
@@ -727,7 +734,6 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 + (NSDateFormatter *) hoursMinutesSecondsDateFormatter {
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:LjsHoursMinutesSecondsDateFormat];
-  [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
   return formatter;
 }
 
@@ -737,7 +743,6 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 + (NSDateFormatter *) millisecondsFormatter {
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:LjsHoursMinutesSecondsMillisDateFormat];
-  [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
   return formatter;
 }
 
@@ -747,8 +752,7 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 + (NSDateFormatter *) isoDateFormatter {
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:LjsISO8601_DateFormat];
-  //[formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-  return formatter;  
+  return formatter;
 }
 
 /**
@@ -757,8 +761,7 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 + (NSDateFormatter *) isoDateWithMillisFormatter {
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:LjsISO8601_DateFormatWithMillis];
-  //[formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-  return formatter;  
+  return formatter;
 }
 
 + (NSDateFormatter *) isoDateWithMillisAnd_GMT_Formatter {
@@ -973,20 +976,33 @@ NSString *LjsOrderedDateFormatWithMillis = @"yyyy_MM_dd_HH_mm_SSS";
 
 }
 
++ (NSDate *) dateWithDayOfYear:(NSUInteger) aDayOfYear
+                          year:(NSUInteger) aYear {
+  NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+  [calendar setTimeZone:[NSTimeZone localTimeZone]];
+  //NSInteger flags = NSYearCalendarUnit | NSDayCalendarUnit;
+  NSDateComponents *components = [[NSDateComponents alloc] init];
+
+  components.day = aDayOfYear;
+  components.year = aYear;
+  NSDate *date = [calendar dateFromComponents:components];
+  return date;
+
+}
 
 + (NSString *) audioTimeStringWithInterval:(NSTimeInterval) aInterval {
-  NSUInteger hours = aInterval / LjsSecondsInHour;
+  NSUInteger hours = (NSUInteger)(aInterval / LjsSecondsInHour);
   NSTimeInterval minutesLessHours = aInterval - (hours * LjsSecondsInHour);
-  NSUInteger minutes = minutesLessHours / LjsSecondsInMinute;
+  NSUInteger minutes = (NSUInteger)(minutesLessHours / LjsSecondsInMinute);
   NSTimeInterval secondsLessMinutes = minutesLessHours - (minutes * LjsSecondsInMinute);
-  NSUInteger seconds = secondsLessMinutes / 1;
+  NSUInteger seconds = (NSUInteger)(secondsLessMinutes / 1);
   NSString *result = @"";
   if (hours > 0) {
-    result = [result stringByAppendingFormat:@"%d:%02d:", hours, minutes];
+    result = [result stringByAppendingFormat:@"%ld:%02ld:", (long)hours, (long)minutes];
   } else {
-    result = [result stringByAppendingFormat:@"%d:", minutes];
+    result = [result stringByAppendingFormat:@"%ld:", (long)minutes];
   } 
-  result = [result stringByAppendingFormat:@"%02d", seconds];
+  result = [result stringByAppendingFormat:@"%02ld", (long)seconds];
   return result;
 }
 

@@ -6,7 +6,7 @@
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" />
-		<meta name="generator" content="appledoc 2.0.5 (build 737)" />
+		<meta name="generator" content="appledoc 2.0.5 (build 789)" />
 	</head>
 	<body>
 		<header id="top_header">
@@ -64,6 +64,10 @@
 	
 	<option value="//api/name/stringContainsOnlyNumbers:">&nbsp;&nbsp;&nbsp;&nbsp;+ stringContainsOnlyNumbers:</option>
 	
+	<option value="//api/name/stringIsNonNilAndNotEmpty:">&nbsp;&nbsp;&nbsp;&nbsp;+ stringIsNonNilAndNotEmpty:</option>
+	
+	<option value="//api/name/stringIsNonNilOrEmpty:">&nbsp;&nbsp;&nbsp;&nbsp;+ stringIsNonNilOrEmpty:</option>
+	
 	
 	
 	
@@ -120,6 +124,10 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringContainsOnlyNumbers:">stringContainsOnlyNumbers:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringIsNonNilAndNotEmpty:">stringIsNonNilAndNotEmpty:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringIsNonNilOrEmpty:">stringIsNonNilOrEmpty:</a></span></li>
+	
 </ul></li>
 
 
@@ -159,7 +167,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p><a href="LjsValidator.html">LjsValidator</a> provides class methods for validating all sorts of things.  The
+						<p>LjsValidator provides class methods for validating all sorts of things.  The
 methods here may appear trivial and redundant &ndash; why go through the effort of
 wrapping well-known and well-used operations?  Validation is repeatative
 and tedious work and it helps me to have a consistent interface.</p>
@@ -198,6 +206,20 @@ and tedious work and it helps me to have a consistent interface.</p>
 		<span class="tooltip"><p>Method for checking if a string contains only numbers.  Does not check to see
 if the number is a valid deciment &ndash; e.g. 0454.  Will return false if there are
 commas or decimal places.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringIsNonNilOrEmpty:">+&nbsp;stringIsNonNilOrEmpty:</a></code>
+		<span class="tooltip"><p>true iff aString is non-nil and non-empty</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringIsNonNilAndNotEmpty:">+&nbsp;stringIsNonNilAndNotEmpty:</a></code>
+		<span class="tooltip"><p>true iff aString is non-nil and non-empty</p></span>
 	</span>
 	
 	
@@ -1071,6 +1093,101 @@ commas or decimal places.</p>
 	
 </div>
 						
+						<div class="section-method">
+	<a name="//api/name/stringIsNonNilAndNotEmpty:" title="stringIsNonNilAndNotEmpty:"></a>
+	<h3 class="subsubtitle method-title">stringIsNonNilAndNotEmpty:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>true iff aString is non-nil and non-empty</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (BOOL)stringIsNonNilAndNotEmpty:(NSString *)<em>aString</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aString</em></dt>
+			<dd><p>the string to test</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>true iff aString is non-nil and non-empty</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsValidator.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringIsNonNilOrEmpty:" title="stringIsNonNilOrEmpty:"></a>
+	<h3 class="subsubtitle method-title">stringIsNonNilOrEmpty:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>true iff aString is non-nil and non-empty</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (BOOL)stringIsNonNilOrEmpty:(NSString *)<em>aString</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aString</em></dt>
+			<dd><p>the string to test
+@deprecated Use <a href="#//api/name/stringIsNonNilAndNotEmpty:">stringIsNonNilAndNotEmpty:</a> instead</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>true iff aString is non-nil and non-empty</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LjsValidator.h</code><br />
+	</div>				
+	
+	
+</div>
+						
 					</div>
 					
 					
@@ -1086,9 +1203,9 @@ commas or decimal places.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2011 Little Joy Software. All rights reserved. (Last updated: 2011-12-27)</span><br />
+						<p><span class="copyright">&copy; 2012 Little Joy Software. All rights reserved. (Last updated: 2012-11-30)</span><br />
 						
-						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 737)</a>.</span></p>
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 789)</a>.</span></p>
 						
 					</div>
 				</div>

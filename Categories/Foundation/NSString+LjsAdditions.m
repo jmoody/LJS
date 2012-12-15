@@ -86,7 +86,32 @@ static NSString *const ellipsis = @"...";
 }
 
 - (NSString *) makeKeyword {
-  return [NSString stringWithFormat:@":%@", self];
+  
+  if ([self emptyp] == YES) {
+    return nil;
+  }
+  
+  NSString *firstChar = [self substringToIndex:1];
+  BOOL noSpaces = [self rangeOfString:@" "].location == NSNotFound;
+  if ([firstChar isEqualToString:@":"] && noSpaces) {
+    return self;
+  }
+
+  NSString *trimmed = [[self trimmed] stringByReplacingOccurrencesOfString:@":"
+                                                                withString:@""];
+
+
+  NSArray *tokens = [trimmed componentsSeparatedByString:@" "];
+  NSPredicate *prd = [NSPredicate predicateWithBlock:^BOOL(NSString *str,
+                                                           NSDictionary *bindings) {
+    return ![str emptyp];
+  }];
+  tokens = [tokens filteredArrayUsingPredicate:prd];
+  NSString *squeezed = [tokens componentsJoinedByString:@"-"];
+  
+  firstChar = [squeezed substringToIndex:1];
+  return [firstChar isEqualToString:@":"] ? squeezed :
+  [NSString stringWithFormat:@":%@", squeezed];
 }
 
 

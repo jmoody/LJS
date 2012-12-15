@@ -35,6 +35,11 @@
 #import "LjsValidator.h"
 #import "ASIHTTPRequest+LjsAdditions.h"
 #import "SBJson.h"
+#import "NSArray+LjsAdditions.h"
+#import "NSMutableArray+LjsAdditions.h"
+#import "LjsWebCategories.h"
+#import "NSString+LjsAdditions.h"
+
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -75,12 +80,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 #pragma mark Memory Management
 - (void) dealloc {
-//  DDLogDebug(@"deallocating %@", [self class]);
+  // DDLogDebug(@"deallocating %@", [self class]);
   self.delegate = nil;
 }
 
 - (id) init {
-  [self doesNotRecognizeSelector:_cmd];
+ //  [self doesNotRecognizeSelector:_cmd];
   return nil;
 }
 
@@ -168,12 +173,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
   
   if (aDidFailSelector == nil) {
-    message = [NSString stringWithFormat:@"a did fail selector < %@ > must not be nil", aDidFailSelector];
+
+    message = [NSString stringWithFormat:@"a did fail selector < %@ > must not be nil",  NSStringFromSelector(aDidFailSelector)];
     [reasons nappend:message];
   }
   
   if (aDidFinishSelector == nil) {
-    message =  [NSString stringWithFormat:@"a did finish selector < %@ > must not be nil", aDidFinishSelector];
+    message =  [NSString stringWithFormat:@"a did finish selector < %@ > must not be nil", NSStringFromSelector(aDidFinishSelector)];
     [reasons nappend:message];
   }
   
@@ -231,7 +237,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (void) handleRequestDidFail:(ASIHTTPRequest *) aRequest {
-  DDLogDebug(@"request did fail: %d : %@", [aRequest responseCode],
+  DDLogDebug(@"request did fail: %ld : %@", (long)[aRequest responseCode],
              [aRequest responseDescription]);
   [self.delegate failedTranslationWithTag:aRequest.tag
                                   request:aRequest
@@ -239,7 +245,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (void) handleRequestDidFinish:(ASIHTTPRequest *) aRequest {
-  DDLogDebug(@"request did finish: %d : %@", [aRequest responseCode],
+  DDLogDebug(@"request did finish: %ld : %@", (long)[aRequest responseCode],
              [aRequest responseDescription]);
   if ([aRequest was200or201Successful] == NO) {
     [self handleRequestDidFail:aRequest];
@@ -265,8 +271,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                                                error:&error];
   
   if (dict == nil) {
-    DDLogError(@"error parsing < %@ > : %@ - %@", 
-               aString, [error code], [error localizedDescription]);
+    DDLogError(@"error parsing < %@ > : %ld - %@", 
+               aString, (long)[error code], [error localizedDescription]);
     return nil;
   }
   

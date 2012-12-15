@@ -32,6 +32,7 @@
 
 #import "LjsValidator.h"
 #import "Lumberjack.h"
+#import "LjsCategories.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -219,7 +220,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 - (void) addReason:(NSString *)aReason {
   if ([LjsValidator stringIsNonNilAndNotEmpty:aReason] == NO) {
-    DDLogWarn(@"declining to add reason < %@ > - reasons must be non-nil and non-empty");
+    DDLogWarn(@"declining to add reason < %@ > - reasons must be non-nil and non-empty", aReason);
     return;
   }
   [self.reasons nappend:aReason];
@@ -232,6 +233,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
 }
 
+- (void) ifNil:(id) aObject addReasonWithVarName:(NSString *) aVarName {
+  [self addReasonWithVarName:aVarName ifNil:aObject];
+}
+
 - (void) addReasonWithVarName:(NSString *)aVarName ifNilSelector:(SEL) aSel {
   NSString *selStr = NSStringFromSelector(aSel);
   [self addReasonWithVarName:aVarName ifNil:selStr];
@@ -241,6 +246,31 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   if ([LjsValidator stringIsNonNilAndNotEmpty:aString] == NO) {
     NSString *reason = [NSString stringWithFormat:@"%@ cannot be nil or empty",
                         aVarName];
+    [self addReason:reason];
+  }
+}
+
+- (void) ifNilOrEmptyString:(NSString *) aString addReasonWithVarName:(NSString *) aVarName {
+  [self addReasonWithVarName:aVarName ifNilOrEmptyString:aString];
+}
+
+
+- (void) addReasonWithVarName:(NSString *)aVarName ifEmptyString:(NSString *) aString {
+  if (aString != nil && [aString length] == 0) {
+    NSString *reason = [NSString stringWithFormat:@"%@ cannot be nil or empty",
+                        aVarName];
+    [self addReason:reason];
+  }
+}
+
+- (void) ifEmptyString:(NSString *) aString addReasonWithVarName:(NSString *) aVarName {
+  [self addReasonWithVarName:aString ifEmptyString:aString];
+}
+
+
+- (void) ifEmptyArray:(NSArray *) aArray addReasonWithVarName:(NSString *) aVarName {
+  if (aArray == nil || [aArray count] == 0) {
+    NSString *reason = [NSString stringWithFormat:@"%@ cannot be empty", aVarName];
     [self addReason:reason];
   }
 }
@@ -284,6 +314,31 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     set = [NSString stringWithFormat:@"{%@}", set];
     NSString *reason = [NSString stringWithFormat:@"%@ < %@ > is in: %@",
                         aVarName, aObject, set];
+    [self addReason:reason];
+  }
+}
+
+
+- (void) addReasonWithVarName:(NSString *)aVarName ifInteger:(NSInteger) aValue isNotOnInterval:(NSRange) aRange {
+  NSInteger min = aRange.location;
+  NSInteger max = aRange.length;
+  if (aValue < min || aValue > max) {
+    NSString *reason = [NSString stringWithFormat:@"< %ld > is not on (%ld, %ld)",
+                        (long)aValue, (long)min, (long)max];
+    [self addReason:reason];
+  }
+}
+
+
+- (void) addReasonWithVarName:(NSString *)aVarName
+                    ifInteger:(NSInteger) aValue
+              isNotOnInterval:(NSRange) aRange
+                    orEqualTo:(NSInteger) aOutOfRangeValue {
+  NSInteger min = aRange.location;
+  NSInteger max = aRange.length;
+  if ((aValue < min || aValue > max) && aValue != aOutOfRangeValue) {
+    NSString *reason = [NSString stringWithFormat:@"< %ld > is not on (%ld, %ld) or equal to %ld",
+                        (long)aValue, (long)min, (long)max, (long)aOutOfRangeValue];
     [self addReason:reason];
   }
 }

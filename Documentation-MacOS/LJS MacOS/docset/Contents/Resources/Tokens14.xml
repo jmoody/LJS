@@ -4,7 +4,7 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/cl/LjsServiceObserver</TokenIdentifier>
-			<Abstract></Abstract>
+			<Abstract>Documentation</Abstract>
 			<DeclaredIn>LjsServiceObserver.h</DeclaredIn>
 			
 			<NodeRef refid="14"/>

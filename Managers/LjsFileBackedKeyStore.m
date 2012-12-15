@@ -62,7 +62,7 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
 @implementation LjsFileBackedKeyStore
 
 @synthesize filepath;
-@synthesize store;
+@synthesize store = _store;
 
 
 #pragma mark Memory Management
@@ -78,6 +78,8 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
   if (self == nil) {
     return nil;
   }
+  
+  self.store = nil;
   
   BOOL validFilename = [LjsValidator stringIsNonNilOrEmpty:aFilename];
   NSAssert1(validFilename,
@@ -107,7 +109,7 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
                                                            forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
       
       *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
-                                   code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+                                   code:kLjsFileUtilitiesErrorCodeFileDoesNotExist
                    localizedDescription:message
                           otherUserInfo:userInfo];
     }
@@ -168,7 +170,20 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
         if (dict == nil) {
           DDLogError(@"error reading dictionary so we make no change to key store");
         } else {
-          self.store = [NSMutableDictionary dictionaryWithDictionary:dict];
+          if (_store == NULL) {
+            // getting bad access here occassionally
+            // i _think_ what is happenning is that the self is in the process
+            // of being deallocated so _store == NULL
+          
+            /*
+             even this printing causes problems
+            DDLogDebug(@"i am = %@", self);
+            DDLogDebug(@"notification poster is = %@", aNotification.object);
+            DDLogError(@"there is a problem whereby messages sent to self.store (_store) are causing bad access.  use the log information above to try to detect the problem.");
+             */
+          } else {
+            self.store = [NSMutableDictionary dictionaryWithDictionary:dict];
+          }
         }
       }
     }
@@ -295,18 +310,13 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
                   withValueKey:(NSString *) aValueKey
                   defaultValue:(id) aDefaultValue
                 storeIfMissing:(BOOL) aPersistMissing {
-  if (aDictName == nil) {
-    @throw [[NSException alloc] 
-            initWithName:NSInvalidArgumentException
-            reason:@"dictionary name must be non-nil"
-            userInfo:nil];
-  }
-  
-  if (aValueKey == nil) {
-    @throw [[NSException alloc] 
-            initWithName:NSInvalidArgumentException
-            reason:@"value key must be non-nil"
-            userInfo:nil];
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"dictionary name" ifNil:aDictName];
+  [reasons addReasonWithVarName:@"value key" ifNil:aValueKey];
+  if ([reasons hasReasons]) {
+    DDLogError([reasons explanation:@"cannot get value"
+                        consequence:@"nil"]);
+    return nil;
   }
     
   id result = nil;
@@ -335,14 +345,18 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
   return result;
 }
 
-- (void) updateValueInDictionaryNamed:(NSString *) aDictName
+- (BOOL) updateValueInDictionaryNamed:(NSString *) aDictName
                          withValueKey:(NSString *) aValueKey
                                 value:(id) aValue {
-  if (aValue == nil) {
-    @throw [[NSException alloc] 
-            initWithName:NSInvalidArgumentException
-            reason:@"value must be non-nil"
-            userInfo:nil];
+
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"dictionary name" ifNilOrEmptyString:aDictName];
+  [reasons addReasonWithVarName:@"value key" ifNilOrEmptyString:aValueKey];
+  [reasons addReasonWithVarName:@"a value" ifNil:aValue];
+  if ([reasons hasReasons]) {
+    DDLogError([reasons explanation:@"cannot update value"
+                        consequence:@"NO"]);
+    return NO;
   }
   
   NSDictionary *dict = [self dictionaryForKey:aDictName
@@ -356,26 +370,45 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
     [mdict setObject:aValue forKey:aValueKey];
     [self storeObject:mdict forKey:aDictName];
   }
+  return YES;
 }
 
 
 
-- (void) storeObject:(id) object forKey:(NSString *) aKey {
-  
+- (BOOL) storeObject:(id) object forKey:(NSString *) aKey {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"object" ifNil:object];
+  [reasons addReasonWithVarName:@"key" ifNilOrEmptyString:aKey];
+  if ([reasons hasReasons]) {
+    DDLogError([reasons explanation:@"could not perform store"
+                        consequence:@"NO"]);
+    return NO;
+  }
+
   [self.store setObject:object forKey:aKey];
   [LjsFileUtilities writeDictionary:self.store toFile:self.filepath error:nil];
   [self postStoreChangedNotification];
+  return YES;
 }
 
-- (void) storeBool:(BOOL) aBool forKey:(NSString *) aKey {
+- (BOOL) storeBool:(BOOL) aBool forKey:(NSString *) aKey {
   NSNumber *number = [NSNumber numberWithBool:aBool];
-  [self storeObject:number forKey:aKey];
+  return [self storeObject:number forKey:aKey];
 }
 
-- (void) removeObjectForKey:(NSString *) aKey {
+- (BOOL) removeObjectForKey:(NSString *) aKey {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons addReasonWithVarName:@"key" ifNilOrEmptyString:aKey];
+  if ([reasons hasReasons]) {
+    DDLogError([reasons explanation:@"could not remove key"
+                        consequence:@"NO"]);
+    return NO;
+  }
+
   [self.store removeObjectForKey:aKey];
   [LjsFileUtilities writeDictionary:self.store toFile:self.filepath error:nil];
   [self postStoreChangedNotification];
+  return YES;
 }
 
 
@@ -422,7 +455,7 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
  //      NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aDirectoryPath
  //                                                           forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
  //      *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
- //                                   code:LjsFileUtilitiesFileDoesNotExistErrorCode 
+ //                                   code:kLjsFileUtilitiesErrorCodeFileDoesNotExist
  //                   localizedDescription:message
  //                          otherUserInfo:userInfo];
  //    }

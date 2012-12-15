@@ -1,5 +1,6 @@
 #import "LjsPanZoomController.h"
 #import "Lumberjack.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 #ifdef LOG_CONFIGURATION_DEBUG

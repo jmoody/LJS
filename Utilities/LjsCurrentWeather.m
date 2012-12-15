@@ -89,8 +89,8 @@ static NSString *LjsCurrentWeatherApiKeyKey = @"free.worldweatheronline.com.LJS 
   if (self != nil) {
     BOOL isValidLat = [LjsLocationManager isValidLatitude:aLatitude];
     BOOL isValidLong = [LjsLocationManager isValidLongitude:aLongitude];
-    NSAssert1(isValidLat, @"latitude < %.5f > must be valid", aLatitude);
-    NSAssert1(isValidLong, @"longitude < %.5f > must be valid", aLongitude);
+    NSAssert1(isValidLat, @"latitude < %@ > must be valid", aLatitude);
+    NSAssert1(isValidLong, @"longitude < %@ > must be valid", aLongitude);
     
     if (!isValidLat || !isValidLong) {
       DDLogError(@"lat and lon must be valid: (%@, %@)", aLatitude, aLongitude);
@@ -118,9 +118,9 @@ static NSString *LjsCurrentWeatherApiKeyKey = @"free.worldweatheronline.com.LJS 
     if (apiKey == nil || [apiKey length] == 0) {
       DDLogError(@"could not find an api key in %@ - nothing to do", apiDict);
     } else {
-      NSString *path = [NSString stringWithFormat:LjsCurrentWeatherUrlFormatString,
+      NSString *urlPath = [NSString stringWithFormat:LjsCurrentWeatherUrlFormatString,
                         self.latitude, self.longitude, apiKey];
-      self.requestURL = [NSURL URLWithString:[path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+      self.requestURL = [NSURL URLWithString:[urlPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
       ASIHTTPRequest *request = [[ASIHTTPRequest alloc]
                                   initWithURL:self.requestURL];
       [request setRequestMethod:@"GET"]; 
@@ -320,13 +320,13 @@ static NSString *LjsCurrentWeatherApiKeyKey = @"free.worldweatheronline.com.LJS 
 - (NSString *) briefDescription {
   NSString *result = nil;
   if ([self weatherAvailable]) {
-    result = [NSString stringWithFormat:@"%@ T:%d/%d W:%@ %d/%d Precip:%.2fmm",
+    result = [NSString stringWithFormat:@"%@ T:%ld/%ld W:%@ %ld/%ld Precip:%.2fmm",
               [self weatherDescription], 
-              [self temperatureC],
-              [self temperatureF],
+              (long)[self temperatureC],
+              (long)[self temperatureF],
               [self windDirection16Point],
-              [self windSpeedKmph],
-              [self windSpeedMph],
+              (long)[self windSpeedKmph],
+              (long)[self windSpeedMph],
               [self precipitationMM]];
   }
   return result;

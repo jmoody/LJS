@@ -126,8 +126,6 @@ extern NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable;
 - (id) initWithLatitude:(NSDecimalNumber *) aLatitude
               longitude:(NSDecimalNumber *) aLongitude;
 - (id) initWithLatitude:(NSDecimalNumber *) aLatitude
-              longitude:(NSDecimalNumber *) aLongitude;
-- (id) initWithLatitude:(NSDecimalNumber *) aLatitude
               longitude:(NSDecimalNumber *) aLongitude
                   scale:(NSUInteger) aScale;
 - (id) initWithLocation:(LjsLocation *) aLocation
@@ -143,7 +141,9 @@ extern NSString *LjsLocationManagerNotificationReverseGeocodingResultAvailable;
 
 @end
 
-/**
+/*
+ VERY OLD DOCUMENTATION - not a singleton any more.
+ 
  A singleton class wrapper around the Location Services.
  
  The accuracy is hard-wired to kCLLocationAccuracyNearestTenMeters and the 

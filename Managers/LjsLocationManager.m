@@ -33,6 +33,9 @@
 #import "LjsLocationManager.h"
 #import "LjsVariates.h"
 #import "Lumberjack.h"
+#import "LjsValidator.h"
+#import "NSDecimalNumber+LjsAdditions.h"
+#import "NSArray+LjsAdditions.h"
 
 
 static const int ddLogLevel = LOG_LEVEL_WARN;
@@ -77,8 +80,8 @@ static NSString *LjsLocationManagerNeptune = @"neptune";
 
 // himmeri strasse
 // this is what apple returned to me from a search
-static CGFloat const LjsLatitudeZurich = 47.41909409;
-static CGFloat const LjsLongitudeZurich = 8.53678989;
+static CGFloat const LjsLatitudeZurich = (CGFloat)47.41909409;
+static CGFloat const LjsLongitudeZurich = (CGFloat)8.53678989;
 
 @implementation LjsLocation 
 @synthesize latitude;
@@ -650,8 +653,8 @@ static NSString *LjsLocation_SCALE_KEY = @"scale";
       }];
     }
   } else {    
-    DDLogFatal(@"could not find class CLGeocoder - ");
-    abort();
+    DDLogError(@"could not find class CLGeocoder - ");
+    return;
   }
 #else
   DDLogNotice(@"CLGeocoder not available on MacOS - will reverse geocode with Google API"); 
@@ -693,8 +696,9 @@ static NSString *LjsLocation_SCALE_KEY = @"scale";
  not be retrieved.
 */
 - (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-  DDLogError(@"failed to get location: %@ %@ %d", [error domain], [error localizedDescription], 
-             [error code]);
+  DDLogError(@"failed to get location: %@ %@ %ld", [error domain],
+             [error localizedDescription],
+             (long)[error code]);
 }
 
 /**

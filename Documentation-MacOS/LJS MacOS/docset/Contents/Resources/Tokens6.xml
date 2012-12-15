@@ -12,15 +12,15 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/LjsFileUtilities/findDocumentDirectoryPath</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/clm/LjsFileUtilities/findDocumentDirectory</TokenIdentifier>
 			<Abstract>wrapper around the NSSearchPathDirectoriesInDomains - works for both iOS and
 MacOS</Abstract>
 			<DeclaredIn>LjsFileUtilities.h</DeclaredIn>			
 			
-			<Declaration>+ (NSString *)findDocumentDirectoryPath</Declaration>
+			<Declaration>+ (NSString *)findDocumentDirectory</Declaration>
 			
 			<ReturnValue><Abstract>the path to the standard document directory</Abstract></ReturnValue>
-			<Anchor>//api/name/findDocumentDirectoryPath</Anchor>
+			<Anchor>//api/name/findDocumentDirectory</Anchor>
 		</Token>
 		
 		<Token>
@@ -35,7 +35,8 @@ MacOS</Abstract>
 					<Abstract>the directory path</Abstract>
 				</Parameter><Parameter>
 					<Name>fileManager</Name>
-					<Abstract>the file manager to use</Abstract>
+					<Abstract>the file manager to use
+@deprecated</Abstract>
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract>true iff directory was created or exists</Abstract></ReturnValue>

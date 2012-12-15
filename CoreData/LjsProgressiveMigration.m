@@ -4,6 +4,8 @@
 
 #import "LjsProgressiveMigration.h"
 #import "Lumberjack.h"
+#import "NSError+LjsAdditions.h"
+#import "NSArray+LjsAdditions.h"
 #import <CoreData/CoreData.h>
 #import "LjsIdGenerator.h"
 #import "LjsDateHelper.h"
@@ -70,7 +72,7 @@ static NSString *const modelPathKey = @"com.littlejoysoftware.core data progress
 
 #pragma mark Memory Management
 - (void) dealloc {
-  DDLogDebug(@"deallocating %@", [self class]);
+  // DDLogDebug(@"deallocating %@", [self class]);
 }
 
 /**

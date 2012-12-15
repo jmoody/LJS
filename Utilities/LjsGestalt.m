@@ -118,7 +118,7 @@ fail:
 }
 
 - (NSString *) description {
-  return [NSString stringWithFormat:@"Gestalt %d.%d.%d",
+  return [NSString stringWithFormat:@"Gestalt %ld.%ld.%ld",
           self.majorVersion, self.minorVersion, self.bugVersion];
           
 }
@@ -166,6 +166,11 @@ fail:
   // don't change the order
   return [[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] &&
   ([UIScreen mainScreen].scale == 2.0);
+}
+
+- (BOOL) isDeviceIphone5 {
+  CGRect screenBounds = [[UIScreen mainScreen] bounds];
+  return (screenBounds.size.height == 568);
 }
 
 #endif
@@ -219,7 +224,7 @@ fail:
 }
 
 - (NSString *) currentLanguageCode {
-  return [[NSLocale preferredLanguages] first];
+  return [[NSLocale preferredLanguages] objectAtIndex:0];
 }
 
 - (BOOL) currentLangCodeIsEqualToCode:(NSString *) aCode {

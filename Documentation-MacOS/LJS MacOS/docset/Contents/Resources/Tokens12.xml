@@ -13,6 +13,17 @@ class with one property uuid that is assigned at object init.</Abstract>
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/LjsObjectWithUUID/setUuid:</TokenIdentifier>
+			<Abstract>a uuid for this object</Abstract>
+			<DeclaredIn>LjsObjectWithUUID.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) NSString *uuid</Declaration>
+			
+			
+			<Anchor>//api/name/uuid</Anchor>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instp/LjsObjectWithUUID/uuid</TokenIdentifier>
 			<Abstract>a uuid for this object</Abstract>
 			<DeclaredIn>LjsObjectWithUUID.h</DeclaredIn>			

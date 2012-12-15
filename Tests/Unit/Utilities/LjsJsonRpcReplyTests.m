@@ -1,38 +1,5 @@
 
-// a1 is always the RECEIVED value
-// a2 is always the EXPECTED value
-// GHAssertNoErr(a1, description, ...)
-// GHAssertErr(a1, a2, description, ...)
-// GHAssertNotNULL(a1, description, ...)
-// GHAssertNULL(a1, description, ...)
-// GHAssertNotEquals(a1, a2, description, ...)
-// GHAssertNotEqualObjects(a1, a2, desc, ...)
-// GHAssertOperation(a1, a2, op, description, ...)
-// GHAssertGreaterThan(a1, a2, description, ...)
-// GHAssertGreaterThanOrEqual(a1, a2, description, ...)
-// GHAssertLessThan(a1, a2, description, ...)
-// GHAssertLessThanOrEqual(a1, a2, description, ...)
-// GHAssertEqualStrings(a1, a2, description, ...)
-// GHAssertNotEqualStrings(a1, a2, description, ...)
-// GHAssertEqualCStrings(a1, a2, description, ...)
-// GHAssertNotEqualCStrings(a1, a2, description, ...)
-// GHAssertEqualObjects(a1, a2, description, ...)
-// GHAssertEquals(a1, a2, description, ...)
-// GHAbsoluteDifference(left,right) (MAX(left,right)-MIN(left,right))
-// GHAssertEqualsWithAccuracy(a1, a2, accuracy, description, ...)
-// GHFail(description, ...)
-// GHAssertNil(a1, description, ...)
-// GHAssertNotNil(a1, description, ...)
-// GHAssertTrue(expr, description, ...)
-// GHAssertTrueNoThrow(expr, description, ...)
-// GHAssertFalse(expr, description, ...)
-// GHAssertFalseNoThrow(expr, description, ...)
-// GHAssertThrows(expr, description, ...)
-// GHAssertThrowsSpecific(expr, specificException, description, ...)
-// GHAssertThrowsSpecificNamed(expr, specificException, aName, description, ...)
-// GHAssertNoThrow(expr, description, ...)
-// GHAssertNoThrowSpecific(expr, specificException, description, ...)
-// GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
+
 
 #import "LjsTestCase.h"
 #import "LjsJsonRpcReply.h"
@@ -148,7 +115,7 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
 #else
   GHAssertFalse(result, nil);
   GHAssertNotNil(reply.jsonRpcFormatError, nil);
-  GHTestLog(@"error = %d : %@ : %@", [reply.jsonRpcFormatError code], 
+  GHTestLog(@"error = %ld : %@ : %@", (long)[reply.jsonRpcFormatError code], 
             [reply.jsonRpcFormatError localizedDescription],
             [reply.jsonRpcFormatError localizedFailureReason]);
   
@@ -168,7 +135,7 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
   
   GHAssertFalse(result, nil);
   GHAssertNotNil(reply.jsonRpcFormatError, nil);
-  GHTestLog(@"error = %d : %@ : %@", [reply.jsonRpcFormatError code], 
+  GHTestLog(@"error = %ld : %@ : %@", (long)[reply.jsonRpcFormatError code],
             [reply.jsonRpcFormatError localizedDescription],
             [reply.jsonRpcFormatError localizedFailureReason]);
   
@@ -177,7 +144,7 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
   result = [reply replyWasValidRpc];
   GHAssertFalse(result, nil);
   GHAssertNotNil(reply.jsonRpcFormatError, nil);
-  GHTestLog(@"error = %d : %@ : %@", [reply.jsonRpcFormatError code], 
+  GHTestLog(@"error = %ld: %@ : %@", (long)[reply.jsonRpcFormatError code],
             [reply.jsonRpcFormatError localizedDescription],
             [reply.jsonRpcFormatError localizedFailureReason]);
   
@@ -186,7 +153,7 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
   result = [reply replyWasValidRpc];
   GHAssertFalse(result, nil);
   GHAssertNotNil(reply.jsonRpcFormatError, nil);
-  GHTestLog(@"error = %d : %@ : %@", [reply.jsonRpcFormatError code], 
+  GHTestLog(@"error = %ld: %@ : %@", (long)[reply.jsonRpcFormatError code], 
             [reply.jsonRpcFormatError localizedDescription],
             [reply.jsonRpcFormatError localizedFailureReason]);
 
@@ -211,7 +178,7 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
   result = [reply replyWasValidRpc];
   GHAssertFalse(result, nil);
   GHAssertNotNil(reply.jsonRpcFormatError, nil);
-  GHTestLog(@"error = %d : %@ : %@", [reply.jsonRpcFormatError code], 
+  GHTestLog(@"error = %ld : %@ : %@", (long)[reply.jsonRpcFormatError code], 
             [reply.jsonRpcFormatError localizedDescription],
             [reply.jsonRpcFormatError localizedFailureReason]);
 
@@ -220,7 +187,7 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
   result = [reply replyWasValidRpc];
   GHAssertFalse(result, nil);
   GHAssertNotNil(reply.jsonRpcFormatError, nil);
-  GHTestLog(@"error = %d : %@ : %@", [reply.jsonRpcFormatError code], 
+  GHTestLog(@"error = %ld : %@ : %@", (long)[reply.jsonRpcFormatError code], 
             [reply.jsonRpcFormatError localizedDescription],
             [reply.jsonRpcFormatError localizedFailureReason]);
 
@@ -229,7 +196,7 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
   result = [reply replyWasValidRpc];
   GHAssertFalse(result, nil);
   GHAssertNotNil(reply.jsonRpcFormatError, nil);
-  GHTestLog(@"error = %d : %@ : %@", [reply.jsonRpcFormatError code], 
+  GHTestLog(@"error = %ld : %@ : %@", (long)[reply.jsonRpcFormatError code], 
             [reply.jsonRpcFormatError localizedDescription],
             [reply.jsonRpcFormatError localizedFailureReason]);
   
@@ -240,7 +207,7 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
   GHAssertFalse([reply replyWasValidJson], nil);
   GHAssertNotNil(reply.jsonParseError, nil);
   parseError = reply.jsonParseError;
-  GHTestLog(@"error = %d : %@", [parseError code], [parseError localizedDescription]);
+  GHTestLog(@"error = %ld : %@", (long)[parseError code], [parseError localizedDescription]);
   
   
   // has escaped characters
@@ -250,7 +217,7 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
             initWithJsonReply:non20jsonRpcError];
   parseError = reply.jsonParseError;
   GHAssertNotNil(parseError, nil);
-  GHTestLog(@"error = %d : %@", [parseError code], [parseError localizedDescription]);
+  GHTestLog(@"error = %ld : %@", (long)[parseError code], [parseError localizedDescription]);
   
   
 #ifdef JSON_RPC_10
@@ -262,7 +229,7 @@ static NSString *InvalidJson = @"{\"id\":null,\"error\":{\"name\":\"JSONRPCError
             initWithJsonReply:non20jsonRpcError];
   jsonRpcFormatError = reply.jsonRpcFormatError;
   GHAssertNotNil(jsonRpcFormatError, nil);
-  GHTestLog(@"error = %d : %@", [jsonRpcFormatError code], [jsonRpcFormatError localizedDescription]);
+  GHTestLog(@"error = %ld : %@", (long)[jsonRpcFormatError code], [jsonRpcFormatError localizedDescription]);
 #endif
 }
 

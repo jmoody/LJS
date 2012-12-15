@@ -1,37 +1,4 @@
-// a1 is always the RECEIVED value
-// a2 is always the EXPECTED value
-// GHAssertNoErr(a1, description, ...)
-// GHAssertErr(a1, a2, description, ...)
-// GHAssertNotNULL(a1, description, ...)
-// GHAssertNULL(a1, description, ...)
-// GHAssertNotEquals(a1, a2, description, ...)
-// GHAssertNotEqualObjects(a1, a2, desc, ...)
-// GHAssertOperation(a1, a2, op, description, ...)
-// GHAssertGreaterThan(a1, a2, description, ...)
-// GHAssertGreaterThanOrEqual(a1, a2, description, ...)
-// GHAssertLessThan(a1, a2, description, ...)
-// GHAssertLessThanOrEqual(a1, a2, description, ...)
-// GHAssertEqualStrings(a1, a2, description, ...)
-// GHAssertNotEqualStrings(a1, a2, description, ...)
-// GHAssertEqualCStrings(a1, a2, description, ...)
-// GHAssertNotEqualCStrings(a1, a2, description, ...)
-// GHAssertEqualObjects(a1, a2, description, ...)
-// GHAssertEquals(a1, a2, description, ...)
-// GHAbsoluteDifference(left,right) (MAX(left,right)-MIN(left,right))
-// GHAssertEqualsWithAccuracy(a1, a2, accuracy, description, ...)
-// GHFail(description, ...)
-// GHAssertNil(a1, description, ...)
-// GHAssertNotNil(a1, description, ...)
-// GHAssertTrue(expr, description, ...)
-// GHAssertTrueNoThrow(expr, description, ...)
-// GHAssertFalse(expr, description, ...)
-// GHAssertFalseNoThrow(expr, description, ...)
-// GHAssertThrows(expr, description, ...)
-// GHAssertThrowsSpecific(expr, specificException, description, ...)
-// GHAssertThrowsSpecificNamed(expr, specificException, aName, description, ...)
-// GHAssertNoThrow(expr, description, ...)
-// GHAssertNoThrowSpecific(expr, specificException, description, ...)
-// GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
+
 
 #import "LjsTestCase.h"
 #import "LjsGestalt.h"
@@ -113,13 +80,42 @@
   
   GHAssertTrue([candidates containsObject:actual], 
                @"%@ should be one of these strings: %@", actual, candidates);
-
 }
 #endif
 
-- (void) test_make_keyword {
-  NSString *actual = [@"a" makeKeyword];
-  assertThat(actual, is(@":a"));
+
+- (void) test_make_keyword_no_spaces_no_colon {
+  NSString *actual = [@"abc" makeKeyword];
+  assertThat(actual, is(@":abc"));
 }
+
+- (void) test_make_keyword_has_spaces {
+  NSString *actual = [@"a b c" makeKeyword];
+  assertThat(actual, is(@":a-b-c"));
+}
+
+- (void) test_make_keyword_has_werid_spaces {
+  NSString *actual = [@" a  b     c    " makeKeyword];
+  assertThat(actual, is(@":a-b-c"));
+}
+
+- (void) test_make_keyword_already_has_colon {
+  NSString *actual = [@":a  b     c    " makeKeyword];
+  assertThat(actual, is(@":a-b-c"));
+}
+
+- (void) test_make_keyword_has_funny_first_colon {
+  NSString *actual = [@" :a  b     c    " makeKeyword];
+  assertThat(actual, is(@":a-b-c"));
+}
+
+- (void) test_make_keyword_has_funnier_first_colon {
+  NSString *actual = [@" : a  b     c    " makeKeyword];
+  assertThat(actual, is(@":a-b-c"));
+}
+
+
+
+
 
 @end

@@ -64,8 +64,11 @@
 #endif
 
 #import "Lumberjack.h"
+#import "NSDate+LjsAdditions.h"
+#import "NSCalendar+LjsAdditions.h"
 #import "LjsVariates.h"
 #import "LjsDateHelper.h"
+
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -216,6 +219,40 @@ NSSecondCalendarUnit);
   return sigma < 0.5;
 }
 
+- (NSDate *) dateByAddingMinutesUntilInterval:(NSUInteger) aInterval
+                                        error:(NSError **) aError {
+  if (aInterval > 59) {
+    if (aError != NULL) {
+      NSString *message = [NSString stringWithFormat:@"invalid argument: aInterval = '%d' is > 59",
+                           (int)aInterval];
+      NSDictionary *ui = [NSDictionary dictionaryWithObject:message
+                                                     forKey:NSLocalizedDescriptionKey];
+      *aError = [NSError errorWithDomain:@"com.littlejoysoftware.NSError+LjsAdditons"
+                                    code:1
+                                userInfo:ui];
+    }
+    return nil;
+  }
+  
+  LjsDateComps comps = [self dateComponents];
+  // normalize to 0 seconds
+  comps.second = 0;
+  NSDate *result = [NSDate dateWithComponents:comps];
+  
+  NSUInteger minutes = comps.minute;
+  NSUInteger count = 0;
+  while ((NSUInteger)fmod(minutes, aInterval) != 0) {
+    //NSLog(@"invariant = %d", (NSUInteger)fmod(minutes, aInterval));
+    minutes = (minutes > 59) ? 0 : minutes + 1;
+    //NSLog(@"minutes = %d", minutes);
+    count++;
+  }
+  
+  return [result dateByAddingTimeInterval:count * 60];
+}
+
+
+
 
 - (NSUInteger) daysBetweenDate:(NSDate*) aDate {
   return [self daysBetweenDate:aDate calendar:[NSCalendar currentCalendar]];
@@ -231,7 +268,7 @@ NSSecondCalendarUnit);
   
   NSDateComponents *difference = [aCalendar components:NSDayCalendarUnit
                                               fromDate:fromDate toDate:toDate options:0];
-  return (NSUInteger)abs(difference.day);
+  return (NSUInteger)ABS(difference.day);
 }
 
 - (NSDate *) dateByAddingDays:(NSInteger) aNumberOfDays {

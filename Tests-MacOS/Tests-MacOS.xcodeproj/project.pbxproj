@@ -34,7 +34,7 @@
 		F512EB90151C9E3A002E8E3A /* LjsLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB8C151C9E3A002E8E3A /* LjsLocationManager.m */; };
 		F512EB91151C9E3A002E8E3A /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB8E151C9E3A002E8E3A /* LjsUserDefaultsStore.m */; };
 		F512EB93151C9E63002E8E3A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F512EB92151C9E63002E8E3A /* CoreLocation.framework */; };
-		F512EB97151C9E8C002E8E3A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB96151C9E8C002E8E3A /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F512EB97151C9E8C002E8E3A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB96151C9E8C002E8E3A /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-objc-redundant-literal-use"; }; };
 		F512EB9E151C9EA7002E8E3A /* LjsLocationServiceObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB99151C9EA7002E8E3A /* LjsLocationServiceObserver.m */; };
 		F512EB9F151C9EA7002E8E3A /* LjsReachabilityObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB9B151C9EA7002E8E3A /* LjsReachabilityObserver.m */; };
 		F512EBA0151C9EA7002E8E3A /* LjsServiceObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB9D151C9EA7002E8E3A /* LjsServiceObserver.m */; };
@@ -74,30 +74,30 @@
 		F580705F146C283400EA4CFB /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807057146C283400EA4CFB /* DispatchQueueLogFormatter.m */; };
 		F5807060146C283400EA4CFB /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5807058146C283400EA4CFB /* README.txt */; };
 		F580706C146C284C00EA4CFB /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807069146C284C00EA4CFB /* SFHFKeychainUtils.m */; };
-		F58070C1146C287200EA4CFB /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807072146C287200EA4CFB /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070C2146C287200EA4CFB /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807074146C287200EA4CFB /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070C3146C287200EA4CFB /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807076146C287200EA4CFB /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070C4146C287200EA4CFB /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807078146C287200EA4CFB /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070C5146C287200EA4CFB /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580707A146C287200EA4CFB /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070C6146C287200EA4CFB /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = F580707E146C287200EA4CFB /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070C7146C287200EA4CFB /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807080146C287200EA4CFB /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070C8146C287200EA4CFB /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807084146C287200EA4CFB /* ASIWebPageRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070C9146C287200EA4CFB /* ASICloudFilesCDNRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807087146C287200EA4CFB /* ASICloudFilesCDNRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070CA146C287200EA4CFB /* ASICloudFilesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807089146C287200EA4CFB /* ASICloudFilesContainer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070CB146C287200EA4CFB /* ASICloudFilesContainerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580708B146C287200EA4CFB /* ASICloudFilesContainerRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070CC146C287200EA4CFB /* ASICloudFilesContainerXMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F580708D146C287200EA4CFB /* ASICloudFilesContainerXMLParserDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070CD146C287200EA4CFB /* ASICloudFilesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F580708F146C287200EA4CFB /* ASICloudFilesObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070CE146C287200EA4CFB /* ASICloudFilesObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807091146C287200EA4CFB /* ASICloudFilesObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070CF146C287200EA4CFB /* ASICloudFilesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807093146C287200EA4CFB /* ASICloudFilesRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070D0146C287200EA4CFB /* ASIS3Bucket.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807097146C287200EA4CFB /* ASIS3Bucket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070D1146C287200EA4CFB /* ASIS3BucketObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807099146C287200EA4CFB /* ASIS3BucketObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070D2146C287200EA4CFB /* ASIS3BucketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580709B146C287200EA4CFB /* ASIS3BucketRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070D3146C287200EA4CFB /* ASIS3ObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580709D146C287200EA4CFB /* ASIS3ObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070D4146C287200EA4CFB /* ASIS3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F580709F146C287200EA4CFB /* ASIS3Request.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F58070D5146C287200EA4CFB /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070A1146C287200EA4CFB /* ASIS3ServiceRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F58070C1146C287200EA4CFB /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807072146C287200EA4CFB /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070C2146C287200EA4CFB /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807074146C287200EA4CFB /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070C3146C287200EA4CFB /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807076146C287200EA4CFB /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070C4146C287200EA4CFB /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807078146C287200EA4CFB /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070C5146C287200EA4CFB /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580707A146C287200EA4CFB /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070C6146C287200EA4CFB /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = F580707E146C287200EA4CFB /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070C7146C287200EA4CFB /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807080146C287200EA4CFB /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070C8146C287200EA4CFB /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807084146C287200EA4CFB /* ASIWebPageRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070C9146C287200EA4CFB /* ASICloudFilesCDNRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807087146C287200EA4CFB /* ASICloudFilesCDNRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070CA146C287200EA4CFB /* ASICloudFilesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807089146C287200EA4CFB /* ASICloudFilesContainer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070CB146C287200EA4CFB /* ASICloudFilesContainerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580708B146C287200EA4CFB /* ASICloudFilesContainerRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070CC146C287200EA4CFB /* ASICloudFilesContainerXMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F580708D146C287200EA4CFB /* ASICloudFilesContainerXMLParserDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070CD146C287200EA4CFB /* ASICloudFilesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F580708F146C287200EA4CFB /* ASICloudFilesObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070CE146C287200EA4CFB /* ASICloudFilesObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807091146C287200EA4CFB /* ASICloudFilesObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070CF146C287200EA4CFB /* ASICloudFilesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807093146C287200EA4CFB /* ASICloudFilesRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070D0146C287200EA4CFB /* ASIS3Bucket.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807097146C287200EA4CFB /* ASIS3Bucket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070D1146C287200EA4CFB /* ASIS3BucketObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807099146C287200EA4CFB /* ASIS3BucketObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070D2146C287200EA4CFB /* ASIS3BucketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580709B146C287200EA4CFB /* ASIS3BucketRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070D3146C287200EA4CFB /* ASIS3ObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580709D146C287200EA4CFB /* ASIS3ObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070D4146C287200EA4CFB /* ASIS3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F580709F146C287200EA4CFB /* ASIS3Request.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F58070D5146C287200EA4CFB /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070A1146C287200EA4CFB /* ASIS3ServiceRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
 		F58070FF146C288C00EA4CFB /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070E7146C288C00EA4CFB /* NSObject+SBJson.m */; };
 		F5807100146C288C00EA4CFB /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070EA146C288C00EA4CFB /* SBJsonParser.m */; };
-		F5807101146C288C00EA4CFB /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070EC146C288C00EA4CFB /* SBJsonStreamParser.m */; };
+		F5807101146C288C00EA4CFB /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070EC146C288C00EA4CFB /* SBJsonStreamParser.m */; settings = {COMPILER_FLAGS = "-Wno-format"; }; };
 		F5807102146C288C00EA4CFB /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070EE146C288C00EA4CFB /* SBJsonStreamParserAccumulator.m */; };
 		F5807103146C288C00EA4CFB /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070F0146C288C00EA4CFB /* SBJsonStreamParserAdapter.m */; };
 		F5807104146C288C00EA4CFB /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070F2146C288C00EA4CFB /* SBJsonStreamParserState.m */; };
@@ -107,7 +107,6 @@
 		F5807108146C288C00EA4CFB /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070FA146C288C00EA4CFB /* SBJsonTokeniser.m */; };
 		F5807109146C288C00EA4CFB /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070FC146C288C00EA4CFB /* SBJsonUTF8Stream.m */; };
 		F580710A146C288C00EA4CFB /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070FE146C288C00EA4CFB /* SBJsonWriter.m */; };
-		F5807129146C291100EA4CFB /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5807127146C291100EA4CFB /* OCMock.framework */; };
 		F5807138146C295200EA4CFB /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F580712D146C295200EA4CFB /* DDFileLogger+CurrentFile.m */; };
 		F5807139146C295200EA4CFB /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F580712F146C295200EA4CFB /* LjsDefaultFormatter.m */; };
 		F580713B146C295200EA4CFB /* LjsMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807134146C295200EA4CFB /* LjsMessageBuilder.m */; };
@@ -119,7 +118,6 @@
 		F5807166146C296700EA4CFB /* LjsValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807158146C296700EA4CFB /* LjsValidator.m */; };
 		F5807167146C296700EA4CFB /* LjsVariates.m in Sources */ = {isa = PBXBuildFile; fileRef = F580715A146C296700EA4CFB /* LjsVariates.m */; };
 		F580716C146C2A1F00EA4CFB /* GHUnit.framework in Copy Files GHUnit and OCMock */ = {isa = PBXBuildFile; fileRef = F5807045146C280600EA4CFB /* GHUnit.framework */; };
-		F580716D146C2A2600EA4CFB /* OCMock.framework in Copy Files GHUnit and OCMock */ = {isa = PBXBuildFile; fileRef = F5807127146C291100EA4CFB /* OCMock.framework */; };
 		F5807179146C2AAC00EA4CFB /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580716F146C2AAC00EA4CFB /* OCMockWorkingTest.m */; };
 		F580718A146C2C8300EA4CFB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5807188146C2C6800EA4CFB /* SystemConfiguration.framework */; };
 		F580718B146C2C8300EA4CFB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5807186146C2C5300EA4CFB /* libz.dylib */; };
@@ -208,6 +206,8 @@
 		F59635FD14966B9600CDB27E /* UKMainThreadProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F814966B9600CDB27E /* UKMainThreadProxy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F5B2844114AD0B6700E48908 /* LjsGestalt.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844014AD0B6700E48908 /* LjsGestalt.m */; };
 		F5B2844E14AD1B5E00E48908 /* LjsRestartFinderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844D14AD1B5E00E48908 /* LjsRestartFinderOperation.m */; };
+		F5CD95D81631050F00FF1BFA /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CD95D71631050F00FF1BFA /* OCMock.framework */; };
+		F5CD95D91631054B00FF1BFA /* OCMock.framework in Copy Files GHUnit and OCMock */ = {isa = PBXBuildFile; fileRef = F5CD95D71631050F00FF1BFA /* OCMock.framework */; };
 		F5D33F361552A01100A42506 /* NSDictionary+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D33F351552A01100A42506 /* NSDictionary+LjsAdditions.m */; };
 		F5E98569152473580061631A /* NSDecimalNumber+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E98568152473580061631A /* NSDecimalNumber+LjsAdditions.m */; };
 		F5E985CF152474420061631A /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5E985CD152474420061631A /* google-places-autocomplete-sample.json */; };
@@ -237,7 +237,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				F580716C146C2A1F00EA4CFB /* GHUnit.framework in Copy Files GHUnit and OCMock */,
-				F580716D146C2A2600EA4CFB /* OCMock.framework in Copy Files GHUnit and OCMock */,
+				F5CD95D91631054B00FF1BFA /* OCMock.framework in Copy Files GHUnit and OCMock */,
 			);
 			name = "Copy Files GHUnit and OCMock";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,13 +440,6 @@
 		F58070FC146C288C00EA4CFB /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
 		F58070FD146C288C00EA4CFB /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		F58070FE146C288C00EA4CFB /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		F5807120146C291100EA4CFB /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
-		F5807121146C291100EA4CFB /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
-		F5807122146C291100EA4CFB /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
-		F5807123146C291100EA4CFB /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
-		F5807124146C291100EA4CFB /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
-		F5807125146C291100EA4CFB /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
-		F5807127146C291100EA4CFB /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMock.framework; sourceTree = "<group>"; };
 		F580712C146C295200EA4CFB /* DDFileLogger+CurrentFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDFileLogger+CurrentFile.h"; sourceTree = "<group>"; };
 		F580712D146C295200EA4CFB /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
 		F580712E146C295200EA4CFB /* LjsDefaultFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultFormatter.h; sourceTree = "<group>"; };
@@ -614,6 +607,7 @@
 		F5B2844014AD0B6700E48908 /* LjsGestalt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestalt.m; sourceTree = "<group>"; };
 		F5B2844C14AD1B5E00E48908 /* LjsRestartFinderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRestartFinderOperation.h; sourceTree = "<group>"; };
 		F5B2844D14AD1B5E00E48908 /* LjsRestartFinderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsRestartFinderOperation.m; sourceTree = "<group>"; };
+		F5CD95D71631050F00FF1BFA /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMock.framework; sourceTree = "<group>"; };
 		F5D33F341552A01100A42506 /* NSDictionary+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LjsAdditions.h"; sourceTree = "<group>"; };
 		F5D33F351552A01100A42506 /* NSDictionary+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5E98566152473580061631A /* LjsFoundationCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFoundationCategories.h; sourceTree = "<group>"; };
@@ -645,8 +639,8 @@
 				F580718B146C2C8300EA4CFB /* libz.dylib in Frameworks */,
 				F580718C146C2C8300EA4CFB /* CoreServices.framework in Frameworks */,
 				F580718D146C2C8300EA4CFB /* libxml2.dylib in Frameworks */,
-				F5807129146C291100EA4CFB /* OCMock.framework in Frameworks */,
 				F58E4D4B158DF6110060B2B8 /* OCHamcrest.framework in Frameworks */,
+				F5CD95D81631050F00FF1BFA /* OCMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1101,40 +1095,10 @@
 		F580711C146C291100EA4CFB /* ocmock */ = {
 			isa = PBXGroup;
 			children = (
-				F580711D146C291100EA4CFB /* Library */,
-				F5807127146C291100EA4CFB /* OCMock.framework */,
+				F5CD95D61631050F00FF1BFA /* OSX */,
 			);
 			name = ocmock;
 			path = ../ocmock;
-			sourceTree = "<group>";
-		};
-		F580711D146C291100EA4CFB /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				F580711E146C291100EA4CFB /* Headers */,
-			);
-			path = Library;
-			sourceTree = "<group>";
-		};
-		F580711E146C291100EA4CFB /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				F580711F146C291100EA4CFB /* OCMock */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		F580711F146C291100EA4CFB /* OCMock */ = {
-			isa = PBXGroup;
-			children = (
-				F5807120146C291100EA4CFB /* NSNotificationCenter+OCMAdditions.h */,
-				F5807121146C291100EA4CFB /* OCMArg.h */,
-				F5807122146C291100EA4CFB /* OCMConstraint.h */,
-				F5807123146C291100EA4CFB /* OCMock.h */,
-				F5807124146C291100EA4CFB /* OCMockObject.h */,
-				F5807125146C291100EA4CFB /* OCMockRecorder.h */,
-			);
-			path = OCMock;
 			sourceTree = "<group>";
 		};
 		F580712A146C295200EA4CFB /* Logging */ = {
@@ -1544,6 +1508,14 @@
 			path = ../Operations;
 			sourceTree = "<group>";
 		};
+		F5CD95D61631050F00FF1BFA /* OSX */ = {
+			isa = PBXGroup;
+			children = (
+				F5CD95D71631050F00FF1BFA /* OCMock.framework */,
+			);
+			path = OSX;
+			sourceTree = "<group>";
+		};
 		F5E985B6152473A70061631A /* Google */ = {
 			isa = PBXGroup;
 			children = (
@@ -1645,7 +1617,7 @@
 		F580701B146C26F100EA4CFB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = "Little Joy Software";
 			};
 			buildConfigurationList = F580701E146C26F100EA4CFB /* Build configuration list for PBXProject "Tests-MacOS" */;
@@ -2006,14 +1978,21 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-MacOS\"",
-					"\"$(SRCROOT)/../ocmock\"",
+					"\"$(SRCROOT)/../ocmock/OSX\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-MacOS/Tests-MacOS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = LOG_CONFIGURATION_DEBUG;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
@@ -2021,11 +2000,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../ocmock/Library\"",
+					"\"$(SRCROOT)/../ocmock/OSX\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2035,14 +2016,17 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-MacOS\"",
-					"\"$(SRCROOT)/../ocmock\"",
+					"\"$(SRCROOT)/../ocmock/OSX\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-MacOS/Tests-MacOS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = LOG_CONFIGURATION_DEBUG;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
@@ -2050,11 +2034,12 @@
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../ocmock/Library\"",
+					"\"$(SRCROOT)/../ocmock/OSX\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -2062,6 +2047,7 @@
 		F58DBA27149551D7009F39F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Documentation/Documentation-Prefix.pch";
 				INFOPLIST_FILE = "Documentation/Documentation-Info.plist";
@@ -2073,6 +2059,7 @@
 		F58DBA28149551D7009F39F7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Documentation/Documentation-Prefix.pch";
 				INFOPLIST_FILE = "Documentation/Documentation-Info.plist";

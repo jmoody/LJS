@@ -18,7 +18,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 #pragma mark Memory Management
 - (void) dealloc {
-  DDLogDebug(@"deallocating %@", [self class]);
+  // DDLogDebug(@"deallocating %@", [self class]);
 }
 
 

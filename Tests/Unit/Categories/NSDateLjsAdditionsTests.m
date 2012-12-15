@@ -26,40 +26,7 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// a1 is always the RECEIVED value
-// a2 is always the EXPECTED value
-// GHAssertNoErr(a1, description, ...)
-// GHAssertErr(a1, a2, description, ...)
-// GHAssertNotNULL(a1, description, ...)
-// GHAssertNULL(a1, description, ...)
-// GHAssertNotEquals(a1, a2, description, ...)
-// GHAssertNotEqualObjects(a1, a2, desc, ...)
-// GHAssertOperation(a1, a2, op, description, ...)
-// GHAssertGreaterThan(a1, a2, description, ...)
-// GHAssertGreaterThanOrEqual(a1, a2, description, ...)
-// GHAssertLessThan(a1, a2, description, ...)
-// GHAssertLessThanOrEqual(a1, a2, description, ...)
-// GHAssertEqualStrings(a1, a2, description, ...)
-// GHAssertNotEqualStrings(a1, a2, description, ...)
-// GHAssertEqualCStrings(a1, a2, description, ...)
-// GHAssertNotEqualCStrings(a1, a2, description, ...)
-// GHAssertEqualObjects(a1, a2, description, ...)
-// GHAssertEquals(a1, a2, description, ...)
-// GHAbsoluteDifference(left,right) (MAX(left,right)-MIN(left,right))
-// GHAssertEqualsWithAccuracy(a1, a2, accuracy, description, ...)
-// GHFail(description, ...)
-// GHAssertNil(a1, description, ...)
-// GHAssertNotNil(a1, description, ...)
-// GHAssertTrue(expr, description, ...)
-// GHAssertTrueNoThrow(expr, description, ...)
-// GHAssertFalse(expr, description, ...)
-// GHAssertFalseNoThrow(expr, description, ...)
-// GHAssertThrows(expr, description, ...)
-// GHAssertThrowsSpecific(expr, specificException, description, ...)
-// GHAssertThrowsSpecificNamed(expr, specificException, aName, description, ...)
-// GHAssertNoThrow(expr, description, ...)
-// GHAssertNoThrowSpecific(expr, specificException, description, ...)
-// GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
+
 
 #if ! __has_feature(objc_arc)
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
@@ -321,5 +288,88 @@
   GHAssertTrue([a isNotFound], @"a should be LjsDateNotFound");
   GHAssertTrue([b isNotFound], @"b should be LjsDateNotFound");
 }
+
+/*
+ - (NSDate *) dateByAddingMinutesUntilInterval:(NSUInteger) aInterval
+ error:(NSError **) aError {
+ */
+- (void) test_date_by_adding_minutes_until_interval_failure {
+  BOOL hasError = [LjsVariates flip];
+  NSError *error = nil;
+  NSDate *date = [NSDate date];
+  NSDate *actual = [date dateByAddingMinutesUntilInterval:60
+                                                    error:hasError ? &error : nil];
+  GHAssertNil(actual, @"should return nil if interval > 59");
+  if (hasError) {
+    GHAssertNotNil(error, @"error should be populated");
+    GHAssertTrue(error.code == 1, @"error code should be correct");
+    GHTestLog(@"error = %@", error);
+  }
+}
+
+- (void) test_date_by_adding_minutes_until_interval_5 {
+  BOOL hasError = [LjsVariates flip];
+  NSError *error = nil;
+  NSInteger seconds = [LjsVariates randomIntegerWithMin:0 max:59];
+  NSDate *date = [NSDate dateWithYear:2012 month:11 day:17 hour:23 minute:24 second:seconds];
+  NSUInteger interval = 5;
+  NSDate *actual = [date dateByAddingMinutesUntilInterval:interval
+                                                    error:hasError ? &error : nil];
+
+  GHAssertNotNil(actual, @"should return a date if inteval < 60");
+  if (hasError) GHAssertNil(error, @"error should be nil if the operations was successful");
+  LjsDateComps comps = [actual dateComponents];
+  GHAssertEquals((NSInteger)comps.minute, (NSInteger)25, @"if interval is %d then 24 ==> 25",
+                 interval);
+}
+
+- (void) test_date_by_adding_minutes_until_interval_10 {
+  BOOL hasError = [LjsVariates flip];
+  NSError *error = nil;
+  NSInteger seconds = [LjsVariates randomIntegerWithMin:0 max:59];
+  NSDate *date = [NSDate dateWithYear:2012 month:11 day:17 hour:23 minute:24 second:seconds];
+  NSUInteger interval = 10;
+  NSDate *actual = [date dateByAddingMinutesUntilInterval:interval
+                                                    error:hasError ? &error : nil];
+  
+  GHAssertNotNil(actual, @"should return a date if inteval < 60");
+  if (hasError) GHAssertNil(error, @"error should be nil if the operations was successful");
+  LjsDateComps comps = [actual dateComponents];
+  GHAssertEquals((NSInteger)comps.minute, (NSInteger)30, @"if interval is %d then 24 ==> 30",
+                 interval);
+}
+
+- (void) test_date_by_adding_minutes_until_interval_15 {
+  BOOL hasError = [LjsVariates flip];
+  NSError *error = nil;
+  NSInteger seconds = [LjsVariates randomIntegerWithMin:0 max:59];
+  NSDate *date = [NSDate dateWithYear:2012 month:11 day:17 hour:23 minute:24 second:seconds];
+  NSUInteger interval = 15;
+  NSDate *actual = [date dateByAddingMinutesUntilInterval:interval
+                                                    error:hasError ? &error : nil];
+  
+  GHAssertNotNil(actual, @"should return a date if inteval < 60");
+  if (hasError) GHAssertNil(error, @"error should be nil if the operations was successful");
+  LjsDateComps comps = [actual dateComponents];
+  GHAssertEquals((NSInteger)comps.minute, (NSInteger)30, @"if interval is %d then 24 ==> 30",
+                 interval);
+}
+
+- (void) test_date_by_adding_minutes_until_interval_20 {
+  BOOL hasError = [LjsVariates flip];
+  NSError *error = nil;
+  NSInteger seconds = [LjsVariates randomIntegerWithMin:0 max:59];
+  NSDate *date = [NSDate dateWithYear:2012 month:11 day:17 hour:23 minute:24 second:seconds];
+  NSUInteger interval = 20;
+  NSDate *actual = [date dateByAddingMinutesUntilInterval:interval
+                                                    error:hasError ? &error : nil];
+  
+  GHAssertNotNil(actual, @"should return a date if inteval < 60");
+  if (hasError) GHAssertNil(error, @"error should be nil if the operations was successful");
+  LjsDateComps comps = [actual dateComponents];
+  GHAssertEquals((NSInteger)comps.minute, (NSInteger)40, @"if interval is %d then 24 ==> 40",
+                 interval);
+}
+
 
 @end

@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		F5ADA64E15D1522400E3FA56 /* 4ePodcasts-mogen */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F5ADA64F15D1522400E3FA56 /* Build configuration list for PBXAggregateTarget "4ePodcasts-mogen" */;
+			buildPhases = (
+				F5ADA65415D1522E00E3FA56 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "4ePodcasts-mogen";
+			productName = "Test-iOS-mogen";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		F50A035014E008D900AA0912 /* LoremIpsum.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009FB14B227EA001EF805 /* LoremIpsum.m */; };
 		F50A035214E0090700AA0912 /* LjsVariates.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F81410CC420051FC7E /* LjsVariates.m */; };
@@ -62,28 +76,28 @@
 		F548505114C5AF0700B7824F /* LjsFileBackedKeyStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F548504F14C5AF0700B7824F /* LjsFileBackedKeyStore.m */; };
 		F54E39761450E22C0059BF53 /* LjsJsonRpcReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E39751450E22C0059BF53 /* LjsJsonRpcReply.m */; };
 		F54E39A21450E4570059BF53 /* ASIHTTPResponseUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E39A11450E4570059BF53 /* ASIHTTPResponseUtils.m */; };
-		F54E3A521450E6C90059BF53 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A1F1450E6C90059BF53 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A531450E6C90059BF53 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A221450E6C90059BF53 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A541450E6C90059BF53 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A241450E6C90059BF53 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A551450E6C90059BF53 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A261450E6C90059BF53 /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A561450E6C90059BF53 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A281450E6C90059BF53 /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A571450E6C90059BF53 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A2A1450E6C90059BF53 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A581450E6C90059BF53 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A2E1450E6C90059BF53 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A591450E6C90059BF53 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A301450E6C90059BF53 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A5A1450E6C90059BF53 /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A341450E6C90059BF53 /* ASIWebPageRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A5B1450E6C90059BF53 /* ASICloudFilesCDNRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A371450E6C90059BF53 /* ASICloudFilesCDNRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A5C1450E6C90059BF53 /* ASICloudFilesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A391450E6C90059BF53 /* ASICloudFilesContainer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A5D1450E6C90059BF53 /* ASICloudFilesContainerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A3B1450E6C90059BF53 /* ASICloudFilesContainerRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A5E1450E6C90059BF53 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A3D1450E6C90059BF53 /* ASICloudFilesContainerXMLParserDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A5F1450E6C90059BF53 /* ASICloudFilesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A3F1450E6C90059BF53 /* ASICloudFilesObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A601450E6C90059BF53 /* ASICloudFilesObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A411450E6C90059BF53 /* ASICloudFilesObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A611450E6C90059BF53 /* ASICloudFilesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A431450E6C90059BF53 /* ASICloudFilesRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A621450E6C90059BF53 /* ASIS3Bucket.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A471450E6C90059BF53 /* ASIS3Bucket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A631450E6C90059BF53 /* ASIS3BucketObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A491450E6C90059BF53 /* ASIS3BucketObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A641450E6C90059BF53 /* ASIS3BucketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A4B1450E6C90059BF53 /* ASIS3BucketRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A651450E6C90059BF53 /* ASIS3ObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A4D1450E6C90059BF53 /* ASIS3ObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A661450E6C90059BF53 /* ASIS3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A4F1450E6C90059BF53 /* ASIS3Request.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F54E3A671450E6C90059BF53 /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A511450E6C90059BF53 /* ASIS3ServiceRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A521450E6C90059BF53 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A1F1450E6C90059BF53 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A531450E6C90059BF53 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A221450E6C90059BF53 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A541450E6C90059BF53 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A241450E6C90059BF53 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A551450E6C90059BF53 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A261450E6C90059BF53 /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A561450E6C90059BF53 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A281450E6C90059BF53 /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A571450E6C90059BF53 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A2A1450E6C90059BF53 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A581450E6C90059BF53 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A2E1450E6C90059BF53 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A591450E6C90059BF53 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A301450E6C90059BF53 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A5A1450E6C90059BF53 /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A341450E6C90059BF53 /* ASIWebPageRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A5B1450E6C90059BF53 /* ASICloudFilesCDNRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A371450E6C90059BF53 /* ASICloudFilesCDNRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A5C1450E6C90059BF53 /* ASICloudFilesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A391450E6C90059BF53 /* ASICloudFilesContainer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A5D1450E6C90059BF53 /* ASICloudFilesContainerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A3B1450E6C90059BF53 /* ASICloudFilesContainerRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A5E1450E6C90059BF53 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A3D1450E6C90059BF53 /* ASICloudFilesContainerXMLParserDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A5F1450E6C90059BF53 /* ASICloudFilesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A3F1450E6C90059BF53 /* ASICloudFilesObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A601450E6C90059BF53 /* ASICloudFilesObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A411450E6C90059BF53 /* ASICloudFilesObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A611450E6C90059BF53 /* ASICloudFilesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A431450E6C90059BF53 /* ASICloudFilesRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A621450E6C90059BF53 /* ASIS3Bucket.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A471450E6C90059BF53 /* ASIS3Bucket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A631450E6C90059BF53 /* ASIS3BucketObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A491450E6C90059BF53 /* ASIS3BucketObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A641450E6C90059BF53 /* ASIS3BucketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A4B1450E6C90059BF53 /* ASIS3BucketRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A651450E6C90059BF53 /* ASIS3ObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A4D1450E6C90059BF53 /* ASIS3ObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A661450E6C90059BF53 /* ASIS3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A4F1450E6C90059BF53 /* ASIS3Request.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A671450E6C90059BF53 /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A511450E6C90059BF53 /* ASIS3ServiceRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
 		F54E3A821450E6E80059BF53 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A6A1450E6E80059BF53 /* NSObject+SBJson.m */; };
 		F54E3A831450E6E80059BF53 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A6D1450E6E80059BF53 /* SBJsonParser.m */; };
 		F54E3A841450E6E80059BF53 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A6F1450E6E80059BF53 /* SBJsonStreamParser.m */; };
@@ -96,7 +110,7 @@
 		F54E3A8B1450E6E80059BF53 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A7D1450E6E80059BF53 /* SBJsonTokeniser.m */; };
 		F54E3A8C1450E6E80059BF53 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A7F1450E6E80059BF53 /* SBJsonUTF8Stream.m */; };
 		F54E3A8D1450E6E80059BF53 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A811450E6E80059BF53 /* SBJsonWriter.m */; };
-		F54E3A911450EA340059BF53 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A901450EA340059BF53 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F54E3A911450EA340059BF53 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A901450EA340059BF53 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-objc-redundant-literal-use"; }; };
 		F54E3A991450EAD40059BF53 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54E3A981450EAD40059BF53 /* CFNetwork.framework */; };
 		F54E3A9B1450EAE10059BF53 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54E3A9A1450EAE10059BF53 /* SystemConfiguration.framework */; };
 		F54E3A9D1450EAEA0059BF53 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54E3A9C1450EAEA0059BF53 /* MobileCoreServices.framework */; };
@@ -135,9 +149,22 @@
 		F54FA42014B708D40080CC9A /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448ABB1450B63B0065E516 /* LjsDefaultFormatter.m */; };
 		F54FA42114B708D40080CC9A /* LjsMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F5448ABE1450B63B0065E516 /* LjsMessageBuilder.m */; };
 		F54FA42314B725C00080CC9A /* LjsValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F529524414232EB5009C67EE /* LjsValidator.m */; };
+		F552F41415DBC0680075258F /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = F552F40E15DBC0680075258F /* Icon-72.png */; };
+		F552F41515DBC0680075258F /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = F552F40E15DBC0680075258F /* Icon-72.png */; };
+		F552F41615DBC0680075258F /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = F552F40F15DBC0680075258F /* Icon-Small-50.png */; };
+		F552F41715DBC0680075258F /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = F552F40F15DBC0680075258F /* Icon-Small-50.png */; };
+		F552F41815DBC0680075258F /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = F552F41015DBC0680075258F /* Icon-Small.png */; };
+		F552F41915DBC0680075258F /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = F552F41015DBC0680075258F /* Icon-Small.png */; };
+		F552F41A15DBC0680075258F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F552F41115DBC0680075258F /* Icon.png */; };
+		F552F41B15DBC0680075258F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F552F41115DBC0680075258F /* Icon.png */; };
+		F552F41C15DBC0680075258F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F552F41215DBC0680075258F /* Icon@2x.png */; };
+		F552F41D15DBC0680075258F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F552F41215DBC0680075258F /* Icon@2x.png */; };
+		F552F41E15DBC0680075258F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = F552F41315DBC0680075258F /* iTunesArtwork */; };
+		F552F41F15DBC0680075258F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = F552F41315DBC0680075258F /* iTunesArtwork */; };
 		F5595B711550157E001CF528 /* NSDictionary+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5595B701550157E001CF528 /* NSDictionary+LjsAdditions.m */; };
-		F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F56147B81450C72A00D2653A /* libOCMock.a */; };
 		F56147BB1450C86700D2653A /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F56147BA1450C86700D2653A /* OCMockWorkingTest.m */; };
+		F56B0C6515D1407900A174AA /* LjsFetchRequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F56B0C6415D1407900A174AA /* LjsFetchRequestFactory.m */; };
+		F56B0C6815D1429500A174AA /* LjsFetchRequestFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F56B0C6715D1429500A174AA /* LjsFetchRequestFactoryTest.m */; };
 		F5724970149F9AD6006C62A2 /* LjsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F572496F149F9AD6006C62A2 /* LjsButton.m */; };
 		F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5724971149F9C00006C62A2 /* QuartzCore.framework */; };
 		F573B90014F14E8D00E6F5CF /* LjsKeyboardInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F573B8FE14F14E8D00E6F5CF /* LjsKeyboardInfo.m */; };
@@ -229,6 +256,12 @@
 		F5903F90151B64B300995AF1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5903F8E151B64A900995AF1 /* CoreData.framework */; };
 		F590BE9F14542E4900E5B89B /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */; };
 		F590BEA014542E4900E5B89B /* LjsLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9E14542E4900E5B89B /* LjsLogFileManager.m */; };
+		F59393A415D1624E005FD30A /* DndClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F59393A115D1624E005FD30A /* DndClass.m */; };
+		F59393A515D1624E005FD30A /* DndRace.m in Sources */ = {isa = PBXBuildFile; fileRef = F59393A315D1624E005FD30A /* DndRace.m */; };
+		F59393AB15D1625B005FD30A /* _DndClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F59393A815D1625B005FD30A /* _DndClass.m */; };
+		F59393AC15D1625B005FD30A /* _DndRace.m in Sources */ = {isa = PBXBuildFile; fileRef = F59393AA15D1625B005FD30A /* _DndRace.m */; };
+		F59393BC15D16392005FD30A /* PLWeakCompatibilityStubs.m in Sources */ = {isa = PBXBuildFile; fileRef = F59393B715D16392005FD30A /* PLWeakCompatibilityStubs.m */; };
+		F59393BD15D163E2005FD30A /* PLWeakCompatibilityStubs.m in Sources */ = {isa = PBXBuildFile; fileRef = F59393B715D16392005FD30A /* PLWeakCompatibilityStubs.m */; };
 		F59635D11496632000CDB27E /* LjsObjectWithUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635D01496632000CDB27E /* LjsObjectWithUUID.m */; };
 		F59635EC149665CC00CDB27E /* LjsModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635E7149665CC00CDB27E /* LjsModalViewController.m */; };
 		F59635ED149665CC00CDB27E /* LjsTimePickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635E9149665CC00CDB27E /* LjsTimePickerDelegate.m */; };
@@ -237,6 +270,9 @@
 		F59DE42E153DBE1600B92BFD /* com.littlejoysoftware.faker.us-census-firstnames.plist in Resources */ = {isa = PBXBuildFile; fileRef = F59DE42D153DBE1600B92BFD /* com.littlejoysoftware.faker.us-census-firstnames.plist */; };
 		F59DE431153DBF8C00B92BFD /* com.littlejoysoftware.faker.us-census-surnames.plist in Resources */ = {isa = PBXBuildFile; fileRef = F59DE430153DBF8C00B92BFD /* com.littlejoysoftware.faker.us-census-surnames.plist */; };
 		F59DE437153DC0CC00B92BFD /* com.littlejoysoftware.faker.domain-names.plist in Resources */ = {isa = PBXBuildFile; fileRef = F59DE436153DC0CC00B92BFD /* com.littlejoysoftware.faker.domain-names.plist */; };
+		F5A07F7B15C8F50D00BE83BC /* LjsDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6EA1410CC420051FC7E /* LjsDateHelper.m */; };
+		F5A07F7C15C8F53300BE83BC /* LjsLabelAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = F58C273B1589EEA700B716F4 /* LjsLabelAttributes.m */; };
+		F5A07F7D15C8F54B00BE83BC /* LjsLocaleUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F54FA3CE14B676B40080CC9A /* LjsLocaleUtils.m */; };
 		F5A425981529F32000F35DDE /* LjsGoogleGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A4253B1529F32000F35DDE /* LjsGoogleGlobals.m */; };
 		F5A425991529F32000F35DDE /* LjsGoogleDistancer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A4253E1529F32000F35DDE /* LjsGoogleDistancer.m */; };
 		F5A4259A1529F32000F35DDE /* LjsGoogleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425401529F32000F35DDE /* LjsGoogleManager.m */; };
@@ -280,6 +316,22 @@
 		F5A425C01529F32000F35DDE /* LjsGooglePlacesPredictiveReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425931529F32000F35DDE /* LjsGooglePlacesPredictiveReply.m */; };
 		F5A425C11529F32000F35DDE /* LjsGoogleReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425951529F32000F35DDE /* LjsGoogleReply.m */; };
 		F5A425C21529F32000F35DDE /* LjsGoogleRgReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425971529F32000F35DDE /* LjsGoogleRgReply.m */; };
+		F5ADA64C15D1510900E3FA56 /* 4ePodcasts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA64A15D1510900E3FA56 /* 4ePodcasts.xcdatamodeld */; };
+		F5ADA65E15D155AC00E3FA56 /* DndCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA65715D155AC00E3FA56 /* DndCharacter.m */; };
+		F5ADA65F15D155AC00E3FA56 /* DndPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA65915D155AC00E3FA56 /* DndPlayer.m */; };
+		F5ADA66015D155AC00E3FA56 /* DndPodcast.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA65B15D155AC00E3FA56 /* DndPodcast.m */; };
+		F5ADA66115D155AC00E3FA56 /* DndRole.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA65D15D155AC00E3FA56 /* DndRole.m */; };
+		F5ADA66A15D155BB00E3FA56 /* _DndCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA66315D155BB00E3FA56 /* _DndCharacter.m */; };
+		F5ADA66B15D155BB00E3FA56 /* _DndPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA66515D155BB00E3FA56 /* _DndPlayer.m */; };
+		F5ADA66C15D155BB00E3FA56 /* _DndPodcast.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA66715D155BB00E3FA56 /* _DndPodcast.m */; };
+		F5ADA66D15D155BB00E3FA56 /* _DndRole.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA66915D155BB00E3FA56 /* _DndRole.m */; };
+		F5ADA67015D156A500E3FA56 /* LjsManagedObjectContextTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA66F15D156A500E3FA56 /* LjsManagedObjectContextTest.m */; };
+		F5ADA67315D1592400E3FA56 /* FourEdPodcastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA67215D1592400E3FA56 /* FourEdPodcastManager.m */; };
+		F5B36BF21630637D005BED75 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B36BF11630637D005BED75 /* Default-568h@2x.png */; };
+		F5B36C1016306789005BED75 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B36C0716306789005BED75 /* libOCMock.a */; };
+		F5B36C1116306789005BED75 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B36C0716306789005BED75 /* libOCMock.a */; };
+		F5B36C121630678A005BED75 /* VERSION.markdown in Resources */ = {isa = PBXBuildFile; fileRef = F5B36C0F16306789005BED75 /* VERSION.markdown */; };
+		F5B36C131630678A005BED75 /* VERSION.markdown in Resources */ = {isa = PBXBuildFile; fileRef = F5B36C0F16306789005BED75 /* VERSION.markdown */; };
 		F5BB1EBC151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
 		F5BB1EBD151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
 		F5C112731496715900948605 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE69F1410C6F60051FC7E /* UIKit.framework */; };
@@ -302,6 +354,7 @@
 		F5C8F507152A6D8100B32F95 /* LjsGooglePlaceImportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F506152A6D8100B32F95 /* LjsGooglePlaceImportTests.m */; };
 		F5C8F50A152A6E2500B32F95 /* LjsGoogleReverseGeocodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F509152A6E2500B32F95 /* LjsGoogleReverseGeocodeTests.m */; };
 		F5C8F513152A70F300B32F95 /* LjsGoogleReverseGeocodeOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8F512152A70F300B32F95 /* LjsGoogleReverseGeocodeOptions.m */; };
+		F5CD95FA1631469700FF1BFA /* LjsApplicationTestRunnerIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD95F91631469600FF1BFA /* LjsApplicationTestRunnerIOS.m */; };
 		F5D3581F14B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
 		F5D3582014B8065E0022E24E /* LjsUserDefaultsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */; };
 		F5D86BA315381E5000354105 /* LjsGoogleTranslateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D86BA215381E5000354105 /* LjsGoogleTranslateManager.m */; };
@@ -524,17 +577,19 @@
 		F54FA40A14B7060B0080CC9A /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		F54FA40D14B7060B0080CC9A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LjsFirstViewController.xib; sourceTree = "<group>"; };
 		F54FA41014B7060B0080CC9A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LjsSecondViewController.xib; sourceTree = "<group>"; };
+		F552F40E15DBC0680075258F /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = SOURCE_ROOT; };
+		F552F40F15DBC0680075258F /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = SOURCE_ROOT; };
+		F552F41015DBC0680075258F /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = SOURCE_ROOT; };
+		F552F41115DBC0680075258F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
+		F552F41215DBC0680075258F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
+		F552F41315DBC0680075258F /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = SOURCE_ROOT; };
 		F5595B6F1550157E001CF528 /* NSDictionary+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LjsAdditions.h"; sourceTree = "<group>"; };
 		F5595B701550157E001CF528 /* NSDictionary+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LjsAdditions.m"; sourceTree = "<group>"; };
 		F56147AC1450BFB800D2653A /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../gh-unit/Project-iOS/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
-		F56147B21450C72A00D2653A /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
-		F56147B31450C72A00D2653A /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
-		F56147B41450C72A00D2653A /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
-		F56147B51450C72A00D2653A /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
-		F56147B61450C72A00D2653A /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
-		F56147B71450C72A00D2653A /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
-		F56147B81450C72A00D2653A /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		F56147BA1450C86700D2653A /* OCMockWorkingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockWorkingTest.m; sourceTree = "<group>"; };
+		F56B0C6315D1407900A174AA /* LjsFetchRequestFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFetchRequestFactory.h; sourceTree = "<group>"; };
+		F56B0C6415D1407900A174AA /* LjsFetchRequestFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFetchRequestFactory.m; sourceTree = "<group>"; };
+		F56B0C6715D1429500A174AA /* LjsFetchRequestFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFetchRequestFactoryTest.m; sourceTree = "<group>"; };
 		F572496E149F9AD6006C62A2 /* LjsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsButton.h; sourceTree = "<group>"; };
 		F572496F149F9AD6006C62A2 /* LjsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsButton.m; sourceTree = "<group>"; };
 		F5724971149F9C00006C62A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -627,6 +682,15 @@
 		F590BE9C14542E4900E5B89B /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
 		F590BE9D14542E4900E5B89B /* LjsLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLogFileManager.h; sourceTree = "<group>"; };
 		F590BE9E14542E4900E5B89B /* LjsLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLogFileManager.m; sourceTree = "<group>"; };
+		F59393A015D1624E005FD30A /* DndClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DndClass.h; sourceTree = "<group>"; };
+		F59393A115D1624E005FD30A /* DndClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DndClass.m; sourceTree = "<group>"; };
+		F59393A215D1624E005FD30A /* DndRace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DndRace.h; sourceTree = "<group>"; };
+		F59393A315D1624E005FD30A /* DndRace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DndRace.m; sourceTree = "<group>"; };
+		F59393A715D1625B005FD30A /* _DndClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DndClass.h; sourceTree = "<group>"; };
+		F59393A815D1625B005FD30A /* _DndClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DndClass.m; sourceTree = "<group>"; };
+		F59393A915D1625B005FD30A /* _DndRace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DndRace.h; sourceTree = "<group>"; };
+		F59393AA15D1625B005FD30A /* _DndRace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DndRace.m; sourceTree = "<group>"; };
+		F59393B715D16392005FD30A /* PLWeakCompatibilityStubs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLWeakCompatibilityStubs.m; sourceTree = "<group>"; };
 		F59635CF1496632000CDB27E /* LjsObjectWithUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsObjectWithUUID.h; sourceTree = "<group>"; };
 		F59635D01496632000CDB27E /* LjsObjectWithUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsObjectWithUUID.m; sourceTree = "<group>"; };
 		F59635E6149665CC00CDB27E /* LjsModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsModalViewController.h; sourceTree = "<group>"; };
@@ -725,6 +789,29 @@
 		F5A425951529F32000F35DDE /* LjsGoogleReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleReply.m; sourceTree = "<group>"; };
 		F5A425961529F32000F35DDE /* LjsGoogleRgReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleRgReply.h; sourceTree = "<group>"; };
 		F5A425971529F32000F35DDE /* LjsGoogleRgReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleRgReply.m; sourceTree = "<group>"; };
+		F5ADA64B15D1510900E3FA56 /* 4ePodcasts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = 4ePodcasts.xcdatamodel; sourceTree = "<group>"; };
+		F5ADA65515D1537600E3FA56 /* v1-initial-model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "v1-initial-model.xcdatamodel"; sourceTree = "<group>"; };
+		F5ADA65615D155AC00E3FA56 /* DndCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DndCharacter.h; sourceTree = "<group>"; };
+		F5ADA65715D155AC00E3FA56 /* DndCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DndCharacter.m; sourceTree = "<group>"; };
+		F5ADA65815D155AC00E3FA56 /* DndPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DndPlayer.h; sourceTree = "<group>"; };
+		F5ADA65915D155AC00E3FA56 /* DndPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DndPlayer.m; sourceTree = "<group>"; };
+		F5ADA65A15D155AC00E3FA56 /* DndPodcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DndPodcast.h; sourceTree = "<group>"; };
+		F5ADA65B15D155AC00E3FA56 /* DndPodcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DndPodcast.m; sourceTree = "<group>"; };
+		F5ADA65C15D155AC00E3FA56 /* DndRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DndRole.h; sourceTree = "<group>"; };
+		F5ADA65D15D155AC00E3FA56 /* DndRole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DndRole.m; sourceTree = "<group>"; };
+		F5ADA66215D155BB00E3FA56 /* _DndCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DndCharacter.h; sourceTree = "<group>"; };
+		F5ADA66315D155BB00E3FA56 /* _DndCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DndCharacter.m; sourceTree = "<group>"; };
+		F5ADA66415D155BB00E3FA56 /* _DndPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DndPlayer.h; sourceTree = "<group>"; };
+		F5ADA66515D155BB00E3FA56 /* _DndPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DndPlayer.m; sourceTree = "<group>"; };
+		F5ADA66615D155BB00E3FA56 /* _DndPodcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DndPodcast.h; sourceTree = "<group>"; };
+		F5ADA66715D155BB00E3FA56 /* _DndPodcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DndPodcast.m; sourceTree = "<group>"; };
+		F5ADA66815D155BB00E3FA56 /* _DndRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DndRole.h; sourceTree = "<group>"; };
+		F5ADA66915D155BB00E3FA56 /* _DndRole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DndRole.m; sourceTree = "<group>"; };
+		F5ADA66E15D156A500E3FA56 /* LjsManagedObjectContextTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsManagedObjectContextTest.h; sourceTree = "<group>"; };
+		F5ADA66F15D156A500E3FA56 /* LjsManagedObjectContextTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsManagedObjectContextTest.m; sourceTree = "<group>"; };
+		F5ADA67115D1592400E3FA56 /* FourEdPodcastManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourEdPodcastManager.h; sourceTree = "<group>"; };
+		F5ADA67215D1592400E3FA56 /* FourEdPodcastManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourEdPodcastManager.m; sourceTree = "<group>"; };
+		F5ADA67415D1599900E3FA56 /* 4ePodcastsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 4ePodcastsModel.h; sourceTree = "<group>"; };
 		F5B03A6E14AA67620015D59B /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		F5B03A6F14AA67620015D59B /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
 		F5B03A7014AA67620015D59B /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
@@ -732,6 +819,15 @@
 		F5B03A7214AA67620015D59B /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
 		F5B03A7314AA67620015D59B /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		F5B03A7414AA67620015D59B /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		F5B36BF11630637D005BED75 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F5B36C0716306789005BED75 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		F5B36C0916306789005BED75 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		F5B36C0A16306789005BED75 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		F5B36C0B16306789005BED75 /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		F5B36C0C16306789005BED75 /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		F5B36C0D16306789005BED75 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		F5B36C0E16306789005BED75 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
+		F5B36C0F16306789005BED75 /* VERSION.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION.markdown; sourceTree = "<group>"; };
 		F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "google-places-autocomplete-sample.json"; sourceTree = "<group>"; };
 		F5C112711496715900948605 /* LJS iOS Documentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LJS iOS Documentation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C112781496715900948605 /* Documentation-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Documentation-Info.plist"; sourceTree = "<group>"; };
@@ -756,6 +852,8 @@
 		F5C8F509152A6E2500B32F95 /* LjsGoogleReverseGeocodeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleReverseGeocodeTests.m; sourceTree = "<group>"; };
 		F5C8F511152A70F300B32F95 /* LjsGoogleReverseGeocodeOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleReverseGeocodeOptions.h; sourceTree = "<group>"; };
 		F5C8F512152A70F300B32F95 /* LjsGoogleReverseGeocodeOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleReverseGeocodeOptions.m; sourceTree = "<group>"; };
+		F5CD95F81631469600FF1BFA /* LjsApplicationTestRunnerIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsApplicationTestRunnerIOS.h; path = ../../Tests/LjsApplicationTestRunnerIOS.h; sourceTree = "<group>"; };
+		F5CD95F91631469600FF1BFA /* LjsApplicationTestRunnerIOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsApplicationTestRunnerIOS.m; path = ../../Tests/LjsApplicationTestRunnerIOS.m; sourceTree = "<group>"; };
 		F5D3581B14B805B50022E24E /* LjsBackingStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsBackingStore.h; sourceTree = "<group>"; };
 		F5D3581D14B8065E0022E24E /* LjsUserDefaultsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsUserDefaultsStore.h; sourceTree = "<group>"; };
 		F5D3581E14B8065E0022E24E /* LjsUserDefaultsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsUserDefaultsStore.m; sourceTree = "<group>"; };
@@ -806,11 +904,11 @@
 				F58013AD149E080E00692073 /* CoreLocation.framework in Frameworks */,
 				F50FE6A41410C6F60051FC7E /* CoreGraphics.framework in Frameworks */,
 				F50FE7351410D3160051FC7E /* Security.framework in Frameworks */,
-				F56147B91450C72A00D2653A /* libOCMock.a in Frameworks */,
 				F50FE6A01410C6F60051FC7E /* UIKit.framework in Frameworks */,
 				F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */,
 				F59AC1601546B536001ABB88 /* GHUnitIOS.framework in Frameworks */,
 				F58E4D52158DF7C80060B2B8 /* OCHamcrestIOS.framework in Frameworks */,
+				F5B36C1016306789005BED75 /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,6 +921,7 @@
 				F54FA3F114B7060B0080CC9A /* CoreGraphics.framework in Frameworks */,
 				F5F7BBBD14D3EAE700669FE6 /* QuartzCore.framework in Frameworks */,
 				F5903F90151B64B300995AF1 /* CoreData.framework in Frameworks */,
+				F5B36C1116306789005BED75 /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -842,6 +941,7 @@
 		F50FE6901410C6F60051FC7E = {
 			isa = PBXGroup;
 			children = (
+				F5B36BF11630637D005BED75 /* Default-568h@2x.png */,
 				F5448AC31450B63B0065E516 /* ThirdParty */,
 				F5807168146C298100EA4CFB /* LJS */,
 				F50FE6A51410C6F60051FC7E /* Tests-iOS */,
@@ -885,9 +985,11 @@
 		F50FE6A51410C6F60051FC7E /* Tests-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				F5BB1EB9151B7F5D00BFDDA0 /* resources */,
+				F5CD95F81631469600FF1BFA /* LjsApplicationTestRunnerIOS.h */,
+				F5CD95F91631469600FF1BFA /* LjsApplicationTestRunnerIOS.m */,
 				F580719D146C33AC00EA4CFB /* LjsTestCase.h */,
 				F580719E146C33AC00EA4CFB /* LjsTestCase.m */,
+				F5BB1EB9151B7F5D00BFDDA0 /* resources */,
 				F50FE6D71410CC250051FC7E /* Tests */,
 				F50FE6A61410C6F60051FC7E /* Supporting Files */,
 			);
@@ -897,6 +999,7 @@
 		F50FE6A61410C6F60051FC7E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F552F40C15DBC0530075258F /* required artwork */,
 				F58E4D51158DF7C80060B2B8 /* OCHamcrestIOS.framework */,
 				F5F63E901574F4F200FE3B72 /* OCMockSingletonExtension */,
 				F59AC15F1546B536001ABB88 /* GHUnitIOS.framework */,
@@ -1058,6 +1161,7 @@
 		F5448AC31450B63B0065E516 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				F59393AD15D16392005FD30A /* PLWeakCompatibility */,
 				F54009F914B227EA001EF805 /* LoremIpsum */,
 				F54009E014B22253001EF805 /* Lumberjack */,
 				F54E3A8E1450EA180059BF53 /* Reachability */,
@@ -1278,43 +1382,86 @@
 			name = artwork;
 			sourceTree = "<group>";
 		};
+		F552F40C15DBC0530075258F /* required artwork */ = {
+			isa = PBXGroup;
+			children = (
+				F552F40E15DBC0680075258F /* Icon-72.png */,
+				F552F40F15DBC0680075258F /* Icon-Small-50.png */,
+				F552F41015DBC0680075258F /* Icon-Small.png */,
+				F552F41115DBC0680075258F /* Icon.png */,
+				F552F41215DBC0680075258F /* Icon@2x.png */,
+				F552F41315DBC0680075258F /* iTunesArtwork */,
+			);
+			name = "required artwork";
+			sourceTree = "<group>";
+		};
 		F56147AE1450C72A00D2653A /* ocmock */ = {
 			isa = PBXGroup;
 			children = (
-				F56147AF1450C72A00D2653A /* Library */,
+				F5B36C0616306789005BED75 /* iOS */,
+				F5B36C0F16306789005BED75 /* VERSION.markdown */,
 			);
 			name = ocmock;
 			path = ../ocmock;
 			sourceTree = "<group>";
 		};
-		F56147AF1450C72A00D2653A /* Library */ = {
+		F56B0C6E15D14B8A00A174AA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F56147B01450C72A00D2653A /* Headers */,
-				F56147B81450C72A00D2653A /* libOCMock.a */,
+				F56B0C7915D1508300A174AA /* 4ePodcasts */,
 			);
-			path = Library;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		F56147B01450C72A00D2653A /* Headers */ = {
+		F56B0C7915D1508300A174AA /* 4ePodcasts */ = {
 			isa = PBXGroup;
 			children = (
-				F56147B11450C72A00D2653A /* OCMock */,
+				F5ADA67415D1599900E3FA56 /* 4ePodcastsModel.h */,
+				F5ADA64A15D1510900E3FA56 /* 4ePodcasts.xcdatamodeld */,
+				F56B0C7B15D1508300A174AA /* Human */,
+				F56B0C7C15D1508300A174AA /* Machine */,
+				F5ADA67115D1592400E3FA56 /* FourEdPodcastManager.h */,
+				F5ADA67215D1592400E3FA56 /* FourEdPodcastManager.m */,
 			);
-			path = Headers;
+			path = 4ePodcasts;
 			sourceTree = "<group>";
 		};
-		F56147B11450C72A00D2653A /* OCMock */ = {
+		F56B0C7B15D1508300A174AA /* Human */ = {
 			isa = PBXGroup;
 			children = (
-				F56147B21450C72A00D2653A /* NSNotificationCenter+OCMAdditions.h */,
-				F56147B31450C72A00D2653A /* OCMArg.h */,
-				F56147B41450C72A00D2653A /* OCMConstraint.h */,
-				F56147B51450C72A00D2653A /* OCMock.h */,
-				F56147B61450C72A00D2653A /* OCMockObject.h */,
-				F56147B71450C72A00D2653A /* OCMockRecorder.h */,
+				F59393A015D1624E005FD30A /* DndClass.h */,
+				F59393A115D1624E005FD30A /* DndClass.m */,
+				F59393A215D1624E005FD30A /* DndRace.h */,
+				F59393A315D1624E005FD30A /* DndRace.m */,
+				F5ADA65615D155AC00E3FA56 /* DndCharacter.h */,
+				F5ADA65715D155AC00E3FA56 /* DndCharacter.m */,
+				F5ADA65815D155AC00E3FA56 /* DndPlayer.h */,
+				F5ADA65915D155AC00E3FA56 /* DndPlayer.m */,
+				F5ADA65A15D155AC00E3FA56 /* DndPodcast.h */,
+				F5ADA65B15D155AC00E3FA56 /* DndPodcast.m */,
+				F5ADA65C15D155AC00E3FA56 /* DndRole.h */,
+				F5ADA65D15D155AC00E3FA56 /* DndRole.m */,
 			);
-			path = OCMock;
+			path = Human;
+			sourceTree = "<group>";
+		};
+		F56B0C7C15D1508300A174AA /* Machine */ = {
+			isa = PBXGroup;
+			children = (
+				F59393A715D1625B005FD30A /* _DndClass.h */,
+				F59393A815D1625B005FD30A /* _DndClass.m */,
+				F59393A915D1625B005FD30A /* _DndRace.h */,
+				F59393AA15D1625B005FD30A /* _DndRace.m */,
+				F5ADA66215D155BB00E3FA56 /* _DndCharacter.h */,
+				F5ADA66315D155BB00E3FA56 /* _DndCharacter.m */,
+				F5ADA66415D155BB00E3FA56 /* _DndPlayer.h */,
+				F5ADA66515D155BB00E3FA56 /* _DndPlayer.m */,
+				F5ADA66615D155BB00E3FA56 /* _DndPodcast.h */,
+				F5ADA66715D155BB00E3FA56 /* _DndPodcast.m */,
+				F5ADA66815D155BB00E3FA56 /* _DndRole.h */,
+				F5ADA66915D155BB00E3FA56 /* _DndRole.m */,
+			);
+			path = Machine;
 			sourceTree = "<group>";
 		};
 		F5724964149F9A1E006C62A2 /* Views-iOS */ = {
@@ -1402,6 +1549,8 @@
 			children = (
 				F58C26BD1589EA8000B716F4 /* LjsProgressiveMigration.h */,
 				F58C26BE1589EA8000B716F4 /* LjsProgressiveMigration.m */,
+				F56B0C6315D1407900A174AA /* LjsFetchRequestFactory.h */,
+				F56B0C6415D1407900A174AA /* LjsFetchRequestFactory.m */,
 			);
 			name = CoreData;
 			path = ../CoreData;
@@ -1424,7 +1573,11 @@
 		F58C26CE1589EC5500B716F4 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				F5ADA66E15D156A500E3FA56 /* LjsManagedObjectContextTest.h */,
+				F5ADA66F15D156A500E3FA56 /* LjsManagedObjectContextTest.m */,
+				F56B0C6E15D14B8A00A174AA /* Models */,
 				F58C26F91589ECD500B716F4 /* LjsProgressiveMigrationTest.m */,
+				F56B0C6715D1429500A174AA /* LjsFetchRequestFactoryTest.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -1565,6 +1718,15 @@
 				F5903F67151B515000995AF1 /* UIView+LjsAdditions.m */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		F59393AD15D16392005FD30A /* PLWeakCompatibility */ = {
+			isa = PBXGroup;
+			children = (
+				F59393B715D16392005FD30A /* PLWeakCompatibilityStubs.m */,
+			);
+			name = PLWeakCompatibility;
+			path = ../PLWeakCompatibility/PLWeakCompatibility;
 			sourceTree = "<group>";
 		};
 		F59635CE1496632000CDB27E /* Model */ = {
@@ -1782,6 +1944,28 @@
 			path = OCMock;
 			sourceTree = "<group>";
 		};
+		F5B36C0616306789005BED75 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				F5B36C0716306789005BED75 /* libOCMock.a */,
+				F5B36C0816306789005BED75 /* OCMock */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		F5B36C0816306789005BED75 /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				F5B36C0916306789005BED75 /* NSNotificationCenter+OCMAdditions.h */,
+				F5B36C0A16306789005BED75 /* OCMArg.h */,
+				F5B36C0B16306789005BED75 /* OCMConstraint.h */,
+				F5B36C0C16306789005BED75 /* OCMock.h */,
+				F5B36C0D16306789005BED75 /* OCMockObject.h */,
+				F5B36C0E16306789005BED75 /* OCMockRecorder.h */,
+			);
+			path = OCMock;
+			sourceTree = "<group>";
+		};
 		F5BB1EB9151B7F5D00BFDDA0 /* resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1990,7 +2174,7 @@
 		F50FE6921410C6F60051FC7E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = "Little Joy Software";
 			};
 			buildConfigurationList = F50FE6951410C6F60051FC7E /* Build configuration list for PBXProject "Tests-iOS" */;
@@ -2008,6 +2192,7 @@
 				F50FE69A1410C6F60051FC7E /* Tests-iOS */,
 				F5C112701496715900948605 /* Documentation */,
 				F54FA3EC14B7060A0080CC9A /* TestViews-iOS */,
+				F5ADA64E15D1522400E3FA56 /* 4ePodcasts-mogen */,
 			);
 		};
 /* End PBXProject section */
@@ -2034,6 +2219,14 @@
 				F59DE431153DBF8C00B92BFD /* com.littlejoysoftware.faker.us-census-surnames.plist in Resources */,
 				F59DE437153DC0CC00B92BFD /* com.littlejoysoftware.faker.domain-names.plist in Resources */,
 				F57D0E47156C216C00C5CDC2 /* readlines-test.txt in Resources */,
+				F552F41415DBC0680075258F /* Icon-72.png in Resources */,
+				F552F41615DBC0680075258F /* Icon-Small-50.png in Resources */,
+				F552F41815DBC0680075258F /* Icon-Small.png in Resources */,
+				F552F41A15DBC0680075258F /* Icon.png in Resources */,
+				F552F41C15DBC0680075258F /* Icon@2x.png in Resources */,
+				F552F41E15DBC0680075258F /* iTunesArtwork in Resources */,
+				F5B36BF21630637D005BED75 /* Default-568h@2x.png in Resources */,
+				F5B36C121630678A005BED75 /* VERSION.markdown in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2076,6 +2269,13 @@
 				F58D234F151A4BAC0043DB52 /* com.littlejoysoftware.faker.street-addresses.us.plist in Resources */,
 				F58D2351151A4BAC0043DB52 /* com.littlejoysoftware.faker.surnames-names.us.plist in Resources */,
 				F5BB1EBD151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */,
+				F552F41515DBC0680075258F /* Icon-72.png in Resources */,
+				F552F41715DBC0680075258F /* Icon-Small-50.png in Resources */,
+				F552F41915DBC0680075258F /* Icon-Small.png in Resources */,
+				F552F41B15DBC0680075258F /* Icon.png in Resources */,
+				F552F41D15DBC0680075258F /* Icon@2x.png in Resources */,
+				F552F41F15DBC0680075258F /* iTunesArtwork in Resources */,
+				F5B36C131630678A005BED75 /* VERSION.markdown in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2103,6 +2303,19 @@
 			shellPath = /bin/sh;
 			shellScript = "sh RunTests.sh";
 			showEnvVarsInLog = 0;
+		};
+		F5ADA65415D1522E00E3FA56 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$PROJECT_DIR/../Tests/Unit/CoreData/Models/4ePodcasts\"\nmogen=\"/usr/bin/mogenerator\"\nmodeld=\"4ePodcasts.xcdatamodeld\"\nmodelversion=$(/usr/libexec/PlistBuddy -c 'print _XCCurrentVersionName' $modeld/.xccurrentversion)\nmodel=\"$modeld/$modelversion\"\nhuman=\"Human\"\nmachine=\"Machine\"\necho \"executing \" `pwd` \" $mogen -m $model -H $human -M $machine\"\n$mogen -m \"$model\" -H \"$human\" -M \"$machine\" --template-var arc=true --includeh \"4ePodcastsModel.h\"\n";
 		};
 		F5C112861496716500948605 /* Run Script appledoc */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2313,6 +2526,25 @@
 				F58C26FA1589ECD500B716F4 /* LjsProgressiveMigrationTest.m in Sources */,
 				F58C273C1589EEA700B716F4 /* LjsLabelAttributes.m in Sources */,
 				F58C27411589EF0800B716F4 /* LjsLabelAttributesTest.m in Sources */,
+				F56B0C6515D1407900A174AA /* LjsFetchRequestFactory.m in Sources */,
+				F56B0C6815D1429500A174AA /* LjsFetchRequestFactoryTest.m in Sources */,
+				F5ADA64C15D1510900E3FA56 /* 4ePodcasts.xcdatamodeld in Sources */,
+				F5ADA65E15D155AC00E3FA56 /* DndCharacter.m in Sources */,
+				F5ADA65F15D155AC00E3FA56 /* DndPlayer.m in Sources */,
+				F5ADA66015D155AC00E3FA56 /* DndPodcast.m in Sources */,
+				F5ADA66115D155AC00E3FA56 /* DndRole.m in Sources */,
+				F5ADA66A15D155BB00E3FA56 /* _DndCharacter.m in Sources */,
+				F5ADA66B15D155BB00E3FA56 /* _DndPlayer.m in Sources */,
+				F5ADA66C15D155BB00E3FA56 /* _DndPodcast.m in Sources */,
+				F5ADA66D15D155BB00E3FA56 /* _DndRole.m in Sources */,
+				F5ADA67015D156A500E3FA56 /* LjsManagedObjectContextTest.m in Sources */,
+				F5ADA67315D1592400E3FA56 /* FourEdPodcastManager.m in Sources */,
+				F59393A415D1624E005FD30A /* DndClass.m in Sources */,
+				F59393A515D1624E005FD30A /* DndRace.m in Sources */,
+				F59393AB15D1625B005FD30A /* _DndClass.m in Sources */,
+				F59393AC15D1625B005FD30A /* _DndRace.m in Sources */,
+				F59393BC15D16392005FD30A /* PLWeakCompatibilityStubs.m in Sources */,
+				F5CD95FA1631469700FF1BFA /* LjsApplicationTestRunnerIOS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2368,6 +2600,10 @@
 				F5903F83151B515000995AF1 /* UIView+LjsAdditions.m in Sources */,
 				F5C3B1E81523BAC7005B1087 /* NSDecimalNumber+LjsAdditions.m in Sources */,
 				F5C3B1F01523BB84005B1087 /* LjsWebCategories.m in Sources */,
+				F5A07F7B15C8F50D00BE83BC /* LjsDateHelper.m in Sources */,
+				F5A07F7C15C8F53300BE83BC /* LjsLabelAttributes.m in Sources */,
+				F5A07F7D15C8F54B00BE83BC /* LjsLocaleUtils.m in Sources */,
+				F59393BD15D163E2005FD30A /* PLWeakCompatibilityStubs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2458,6 +2694,10 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 					armv6,
 				);
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2474,11 +2714,25 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_THUMB_SUPPORT = NO;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = (
+					"-Xclang",
+					"-fobjc-runtime-has-weak",
+				);
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "020479DF-6747-41CC-99CC-A9194DA867F0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2493,6 +2747,10 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 					armv6,
 				);
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2502,12 +2760,26 @@
 					LJS_LOCATION_SERVICES_DEBUG,
 				);
 				GCC_THUMB_SUPPORT = NO;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"-Xclang",
+					"-fobjc-runtime-has-weak",
+				);
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "020479DF-6747-41CC-99CC-A9194DA867F0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2518,6 +2790,7 @@
 		F50FE6C21410C6F60051FC7E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2532,15 +2805,16 @@
 				);
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = (
-					"${SDK_DIR}/usr/include/libxml2",
-					"$(PROJECT_DIR)/../ocmock/Library/Headers/**",
+					"\"${SDK_DIR}/usr/include/libxml2\"",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				INFOPLIST_FILE = "Tests-iOS/Tests-iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../ocmock/Library\"",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -2551,6 +2825,7 @@
 				PRODUCT_NAME = "Tests-iOS";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "i386 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2558,6 +2833,7 @@
 		F50FE6C31410C6F60051FC7E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2569,15 +2845,16 @@
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = LOG_CONFIGURATION_DEBUG;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = (
-					"${SDK_DIR}/usr/include/libxml2",
-					"$(PROJECT_DIR)/../ocmock/Library/Headers/**",
+					"\"${SDK_DIR}/usr/include/libxml2\"",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				INFOPLIST_FILE = "Tests-iOS/Tests-iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../ocmock/Library\"",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -2588,6 +2865,7 @@
 				PRODUCT_NAME = "Tests-iOS";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "i386 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -2609,6 +2887,10 @@
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "TestViews-iOS/TestViews-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				WRAPPER_EXTENSION = app;
@@ -2631,11 +2913,43 @@
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "TestViews-iOS/TestViews-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
+		};
+		F5ADA65015D1522400E3FA56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F5ADA65115D1522400E3FA56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F5ADA65215D1522400E3FA56 /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = AppStore;
+		};
+		F5ADA65315D1522400E3FA56 /* AdHoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = AdHoc;
 		};
 		F5C112821496715900948605 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2673,6 +2987,10 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 					armv6,
 				);
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2682,12 +3000,26 @@
 					LJS_LOCATION_SERVICES_DEBUG,
 				);
 				GCC_THUMB_SUPPORT = NO;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"-Xclang",
+					"-fobjc-runtime-has-weak",
+				);
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "020479DF-6747-41CC-99CC-A9194DA867F0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2698,6 +3030,7 @@
 		F5FD829D1532163C00F5800F /* AdHoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2712,15 +3045,16 @@
 				);
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = (
-					"${SDK_DIR}/usr/include/libxml2",
-					"$(PROJECT_DIR)/../ocmock/Library/Headers/**",
+					"\"${SDK_DIR}/usr/include/libxml2\"",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				INFOPLIST_FILE = "Tests-iOS/Tests-iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../ocmock/Library\"",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -2731,6 +3065,7 @@
 				PRODUCT_NAME = "Tests-iOS";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "i386 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = AdHoc;
@@ -2765,6 +3100,10 @@
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "TestViews-iOS/TestViews-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				WRAPPER_EXTENSION = app;
@@ -2779,6 +3118,10 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 					armv6,
 				);
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2788,12 +3131,26 @@
 					LJS_LOCATION_SERVICES_DEBUG,
 				);
 				GCC_THUMB_SUPPORT = NO;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"-Xclang",
+					"-fobjc-runtime-has-weak",
+				);
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "020479DF-6747-41CC-99CC-A9194DA867F0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2804,6 +3161,7 @@
 		F5FD82A11532164700F5800F /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2818,15 +3176,16 @@
 				);
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = (
-					"${SDK_DIR}/usr/include/libxml2",
-					"$(PROJECT_DIR)/../ocmock/Library/Headers/**",
+					"\"${SDK_DIR}/usr/include/libxml2\"",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				INFOPLIST_FILE = "Tests-iOS/Tests-iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../ocmock/Library\"",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -2837,6 +3196,7 @@
 				PRODUCT_NAME = "Tests-iOS";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "i386 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = AppStore;
@@ -2871,6 +3231,10 @@
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "TestViews-iOS/TestViews-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../ocmock/iOS\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				WRAPPER_EXTENSION = app;
@@ -2913,6 +3277,17 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		F5ADA64F15D1522400E3FA56 /* Build configuration list for PBXAggregateTarget "4ePodcasts-mogen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5ADA65015D1522400E3FA56 /* Debug */,
+				F5ADA65115D1522400E3FA56 /* Release */,
+				F5ADA65215D1522400E3FA56 /* AppStore */,
+				F5ADA65315D1522400E3FA56 /* AdHoc */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F5C112841496715900948605 /* Build configuration list for PBXNativeTarget "Documentation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2935,6 +3310,17 @@
 			);
 			currentVersion = F5A425621529F32000F35DDE /* LjsGoogleModel-v2-refactor.xcdatamodel */;
 			path = LjsGoogleModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		F5ADA64A15D1510900E3FA56 /* 4ePodcasts.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F5ADA65515D1537600E3FA56 /* v1-initial-model.xcdatamodel */,
+				F5ADA64B15D1510900E3FA56 /* 4ePodcasts.xcdatamodel */,
+			);
+			currentVersion = F5ADA65515D1537600E3FA56 /* v1-initial-model.xcdatamodel */;
+			path = 4ePodcasts.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

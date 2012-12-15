@@ -26,41 +26,6 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// a1 is always the RECEIVED value
-// a2 is always the EXPECTED value
-// GHAssertNoErr(a1, description, ...)
-// GHAssertErr(a1, a2, description, ...)
-// GHAssertNotNULL(a1, description, ...)
-// GHAssertNULL(a1, description, ...)
-// GHAssertNotEquals(a1, a2, description, ...)
-// GHAssertNotEqualObjects(a1, a2, desc, ...)
-// GHAssertOperation(a1, a2, op, description, ...)
-// GHAssertGreaterThan(a1, a2, description, ...)
-// GHAssertGreaterThanOrEqual(a1, a2, description, ...)
-// GHAssertLessThan(a1, a2, description, ...)
-// GHAssertLessThanOrEqual(a1, a2, description, ...)
-// GHAssertEqualStrings(a1, a2, description, ...)
-// GHAssertNotEqualStrings(a1, a2, description, ...)
-// GHAssertEqualCStrings(a1, a2, description, ...)
-// GHAssertNotEqualCStrings(a1, a2, description, ...)
-// GHAssertEqualObjects(a1, a2, description, ...)
-// GHAssertEquals(a1, a2, description, ...)
-// GHAbsoluteDifference(left,right) (MAX(left,right)-MIN(left,right))
-// GHAssertEqualsWithAccuracy(a1, a2, accuracy, description, ...)
-// GHFail(description, ...)
-// GHAssertNil(a1, description, ...)
-// GHAssertNotNil(a1, description, ...)
-// GHAssertTrue(expr, description, ...)
-// GHAssertTrueNoThrow(expr, description, ...)
-// GHAssertFalse(expr, description, ...)
-// GHAssertFalseNoThrow(expr, description, ...)
-// GHAssertThrows(expr, description, ...)
-// GHAssertThrowsSpecific(expr, specificException, description, ...)
-// GHAssertThrowsSpecificNamed(expr, specificException, aName, description, ...)
-// GHAssertNoThrow(expr, description, ...)
-// GHAssertNoThrowSpecific(expr, specificException, description, ...)
-// GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
-
 #import "LjsTestCase.h"
 #import "LjsFileBackedKeyStore.h"
 #import "LjsFileUtilities.h"
@@ -133,6 +98,7 @@ static NSString *LjsTestStoreFilename = @"com.littlejoysoftware.LjsTestStore.pli
 - (void) tearDown {
   // Run after each test method
   [self.store removeKeys:[self.store allKeys]];
+  self.store = nil;
   [super tearDown];
 }  
 
@@ -188,30 +154,26 @@ static NSString *LjsTestStoreFilename = @"com.littlejoysoftware.LjsTestStore.pli
 
 
 - (void) test_storeObject_for_nil_key_value {
-  GHAssertThrowsSpecificNamed([self.store storeObject:nil forKey:@"a"],
-                              NSException, NSInvalidArgumentException, 
-                              @"should throw an exception if object is nil", nil);
-  GHAssertThrowsSpecificNamed([self.store storeObject:@"a" forKey:nil],
-                              NSException, NSInvalidArgumentException, 
-                              @"should throw an exception if key is nil", nil);
+  BOOL actual = [self.store storeObject:nil forKey:@"a"];
+  GHAssertFalse(actual, @"should not be able to store nil object");
+  actual = [self.store storeObject:@"a" forKey:[self emptyStringOrNil]];
+  GHAssertFalse(actual, @"should not be able to store object for nil or empty key");
 }
 
 - (void) test_getting_values_from_dictionary_with_name_nil {
-  GHAssertThrowsSpecificNamed([self.store valueForDictionaryNamed:nil
-                                                     withValueKey:@"key"
-                                                     defaultValue:@"default"
-                                                   storeIfMissing:[self flip]],
-                               NSException, NSInvalidArgumentException, 
-                               @"should throw an exception if key is nil", nil);
+  id actual = [self.store valueForDictionaryNamed:nil
+                                     withValueKey:@"key"
+                                     defaultValue:@"default"
+                                   storeIfMissing:[self flip]];
+  assertThat(actual, nilValue());
 }
 
 - (void) test_getting_values_from_dictionary_with_value_key_nil {
-  GHAssertThrowsSpecificNamed([self.store valueForDictionaryNamed:@"name"
-                                                     withValueKey:nil
-                                                     defaultValue:@"default"
-                                                   storeIfMissing:[self flip]],
-                              NSException, NSInvalidArgumentException, 
-                              @"should throw an exception if key is nil", nil);
+ id actual = [self.store valueForDictionaryNamed:@"name"
+                                    withValueKey:nil
+                                    defaultValue:@"default"
+                                  storeIfMissing:[self flip]];
+  assertThat(actual, nilValue());
 }
 
 - (void) test_getting_values_from_dictionary_with_nil_default_value_persist_no {
@@ -276,27 +238,24 @@ static NSString *LjsTestStoreFilename = @"com.littlejoysoftware.LjsTestStore.pli
 
 
 - (void) test_updating_value_in_dictionary_with_nil_name {
-  GHAssertThrowsSpecificNamed([self.store updateValueInDictionaryNamed:nil
-                                                          withValueKey:@"key"
-                                                                 value:@"value"],
-                              NSException, NSInvalidArgumentException, 
-                              @"should throw an exception if name is nil", nil);
+  BOOL actual = [self.store updateValueInDictionaryNamed:nil
+                                            withValueKey:@"key"
+                                                   value:@"value"];
+  GHAssertFalse(actual, @"should return false if value cannot be updated");
 }
 
 - (void) test_updating_value_in_dictionary_with_nil_key {
-  GHAssertThrowsSpecificNamed([self.store updateValueInDictionaryNamed:@"name"
-                                                          withValueKey:nil
-                                                                 value:@"value"],
-                              NSException, NSInvalidArgumentException, 
-                              @"should throw an exception if key is nil", nil);
+  BOOL actual = [self.store updateValueInDictionaryNamed:@"name"
+                                            withValueKey:nil
+                                                   value:@"value"];
+  GHAssertFalse(actual, @"should return false if value cannot be updated");
 }
                                
 - (void) test_updating_value_in_dictionary_with_nil_value {
-  GHAssertThrowsSpecificNamed([self.store updateValueInDictionaryNamed:@"name"
-                                                          withValueKey:@"key"
-                                                                 value:nil],
-                              NSException, NSInvalidArgumentException, 
-                              @"should throw an exception if value is nil", nil);
+  BOOL actual = [self.store updateValueInDictionaryNamed:@"name"
+                                            withValueKey:@"key"
+                                                   value:nil];
+  GHAssertFalse(actual, @"should return NO if we are unable to update value");
 }
 
 

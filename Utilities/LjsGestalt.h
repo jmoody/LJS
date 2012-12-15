@@ -28,7 +28,12 @@
 #import <Foundation/Foundation.h>
 
 #if !TARGET_OS_IPHONE
-typedef enum {
+
+#ifndef NS_ENUM
+#define NS_ENUM(_type, _name) enum _name : _type _name; enum _name : _type
+#endif
+
+typedef NS_ENUM(NSUInteger, LjsGestaltMinorVersion) {
   LjsGestaltMinor_v_10_0 = 0,
   LjsGestaltMinor_v_10_1,
   LjsGestaltMinor_v_10_2,
@@ -36,8 +41,9 @@ typedef enum {
   LjsGestaltMinor_v_10_4,
   LjsGestaltMinor_v_10_5,
   LjsGestaltMinor_v_10_6,
-  LjsGestaltMinor_v_10_7
-} LjsGestaltMinorVersion;
+  LjsGestaltMinor_v_10_7,
+  LjsGestaltMinor_v_10_8
+};
 
 #endif
 
@@ -62,6 +68,7 @@ typedef enum {
 - (BOOL) isDeviceIpad;
 - (BOOL) isDeviceIphone;
 - (BOOL) isDeviceUsingRetina;
+- (BOOL) isDeviceIphone5;
 #endif
 
 
@@ -70,8 +77,6 @@ typedef enum {
 - (BOOL) isIphone;
 - (BOOL) isSimulator;
 - (BOOL) isMacOs;
-
-
 
 
 - (BOOL) isDebugBuild;

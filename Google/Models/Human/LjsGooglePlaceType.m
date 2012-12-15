@@ -1,6 +1,7 @@
 #import "LjsGooglePlaceType.h"
 #import "LjsGooglePlace.h"
 #import "Lumberjack.h"
+#import "NSArray+LjsAdditions.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;

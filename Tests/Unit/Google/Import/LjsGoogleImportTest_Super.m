@@ -28,16 +28,6 @@
 
 - (void) setUpClass {
   [super setUpClass];
-  if (self.resourceName != nil) {
-    NSBundle *main = [NSBundle mainBundle];
-    NSString *path = [main pathForResource:self.resourceName
-                                    ofType:@"json"];
-    NSFileManager *fm = [NSFileManager defaultManager];
-    
-    NSData *data = [fm contentsAtPath:path];
-    NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    self.jsonResource = str;
-  } 
 }
 
 - (void) tearDownClass {
@@ -47,11 +37,23 @@
 
 - (void) setUp {
   [super setUp];
-  // Run before each test method
+  GHAssertNotNil(self.resourceName, @"resource name cannot be nil");
+  if (self.resourceName != nil) {
+    NSBundle *main = [NSBundle mainBundle];
+    NSString *path = [main pathForResource:self.resourceName
+                                    ofType:@"json"];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    
+    NSData *data = [fm contentsAtPath:path];
+    NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    self.jsonResource = str;
+  }
 }
 
 - (void) tearDown {
   // Run after each test method
+  self.jsonResource = nil;
+  self.resourceName = nil;
   [super tearDown];
 }  
 

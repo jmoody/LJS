@@ -33,6 +33,11 @@
 #import "LjsGooglePlacesPredictiveReply.h"
 #import "Lumberjack.h"
 #import "LjsGooglePlacesPrediction.h"
+#import "NSArray+LjsAdditions.h"
+#import "NSMutableArray+LjsAdditions.h"
+#import "NSDate+LjsAdditions.h"
+#import "NSDecimalNumber+LjsAdditions.h"
+
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -82,8 +87,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
 }
 - (NSString *) description {
-  return [NSString stringWithFormat:@"#<Predicitve Reply:  %@ %d>",
-          [self status], [self count]];
+  return [NSString stringWithFormat:@"#<Predicitve Reply:  %@ %ld>",
+          [self status], (long)[self count]];
 }
 
 

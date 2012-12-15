@@ -31,44 +31,11 @@
 //
 //  Created by Joshua Moody on 12/27/10.
 
-// a1 is always the RECEIVED value
-// a2 is always the EXPECTED value
-// GHAssertNoErr(a1, description, ...)
-// GHAssertErr(a1, a2, description, ...)
-// GHAssertNotNULL(a1, description, ...)
-// GHAssertNULL(a1, description, ...)
-// GHAssertNotEquals(a1, a2, description, ...)
-// GHAssertNotEqualObjects(a1, a2, desc, ...)
-// GHAssertOperation(a1, a2, op, description, ...)
-// GHAssertGreaterThan(a1, a2, description, ...)
-// GHAssertGreaterThanOrEqual(a1, a2, description, ...)
-// GHAssertLessThan(a1, a2, description, ...)
-// GHAssertLessThanOrEqual(a1, a2, description, ...)
-// GHAssertEqualStrings(a1, a2, description, ...)
-// GHAssertNotEqualStrings(a1, a2, description, ...)
-// GHAssertEqualCStrings(a1, a2, description, ...)
-// GHAssertNotEqualCStrings(a1, a2, description, ...)
-// GHAssertEqualObjects(a1, a2, description, ...)
-// GHAssertEquals(a1, a2, description, ...)
-// GHAbsoluteDifference(left,right) (MAX(left,right)-MIN(left,right))
-// GHAssertEqualsWithAccuracy(a1, a2, accuracy, description, ...)
-// GHFail(description, ...)
-// GHAssertNil(a1, description, ...)
-// GHAssertNotNil(a1, description, ...)
-// GHAssertTrue(expr, description, ...)
-// GHAssertTrueNoThrow(expr, description, ...)
-// GHAssertFalse(expr, description, ...)
-// GHAssertFalseNoThrow(expr, description, ...)
-// GHAssertThrows(expr, description, ...)
-// GHAssertThrowsSpecific(expr, specificException, description, ...)
-// GHAssertThrowsSpecificNamed(expr, specificException, aName, description, ...)
-// GHAssertNoThrow(expr, description, ...)
-// GHAssertNoThrowSpecific(expr, specificException, description, ...)
-// GHAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
+
 
 #import "LjsTestCase.h"
 #import "LjsVariates.h"
-
+#import "LjsBlocks.h"
 #import "math.h"
 
 @interface LjsVariatesTests : LjsTestCase {}
@@ -315,6 +282,16 @@
 //  });
 //}
 
-
+- (void) test_random_integer_on_range {
+  CGFloat loc = 0;
+  CGFloat len = 3;
+  NSRange range = NSMakeRange(loc, len);
+  dotimes(20, ^{
+    NSInteger actual = [LjsVariates randomIntegerWithRange:range];
+    GHAssertTrue(actual >= range.location, @"'%d' should be >= '%d'", actual, range.location);
+    GHAssertTrue(actual <= range.length, @"'%d' should be <= '%d'", actual, range.length);
+    GHTestLog(@"actual = %d", actual);
+  });
+}
 
 @end

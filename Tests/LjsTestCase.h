@@ -28,6 +28,7 @@
 
 
 #import <Foundation/Foundation.h>
+#import "LjsCategories.h"
 
 #if TARGET_OS_IPHONE
 #import <GHUnitIOS/GHUnit.h>
@@ -105,6 +106,7 @@
 - (NSString *) emptyStringOrNil;
 - (BOOL) flip;
 - (void) dummyControlSelector:(id) sender;
+- (void) dummySelector;
 - (NSArray *) arrayOfAbcStrings;
 - (NSSet *) setOfAbcStrings;
 - (NSArray *) arrayOfDatesTodayTormorrowDayAfter;

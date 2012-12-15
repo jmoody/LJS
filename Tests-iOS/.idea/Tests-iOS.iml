@@ -1,0 +1,1238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="CIDR_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/LjsFoundationCategories.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/LjsFoundationCategories.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/LjsWebCategories.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/LjsWebCategories.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/LjsWebCategories.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/LjsWebCategories.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSArray+LjsAdditions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSArray+LjsAdditions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSArray+LjsAdditions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSArray+LjsAdditions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSCalendar+LjsAdditions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSCalendar+LjsAdditions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSCalendar+LjsAdditions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSCalendar+LjsAdditions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSDate+LjsAdditions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSDate+LjsAdditions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSDate+LjsAdditions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSDate+LjsAdditions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSDateFormatter+LjsAdditions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSDateFormatter+LjsAdditions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSDateFormatter+LjsAdditions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSDateFormatter+LjsAdditions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSDecimalNumber+LjsAdditions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSDecimalNumber+LjsAdditions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSDecimalNumber+LjsAdditions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSDecimalNumber+LjsAdditions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSDictionary+LjsAdditions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSDictionary+LjsAdditions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSDictionary+LjsAdditions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSDictionary+LjsAdditions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSError+LjsAdditions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSError+LjsAdditions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSError+LjsAdditions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSError+LjsAdditions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSLocale+LjsAdditions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSLocale+LjsAdditions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSLocale+LjsAdditions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSLocale+LjsAdditions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSMutableArray+LjsAdditions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSMutableArray+LjsAdditions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSMutableArray+LjsAdditions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSMutableArray+LjsAdditions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSSet+LjsAdditions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSSet+LjsAdditions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSSet+LjsAdditions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSSet+LjsAdditions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSString+LjsAdditions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSString+LjsAdditions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/Foundation/NSString+LjsAdditions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/Foundation/NSString+LjsAdditions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/LjsCategories.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/LjsCategories.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/ThirdParty/ASIHTTPRequest+LjsAdditions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/ThirdParty/ASIHTTPRequest+LjsAdditions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/ThirdParty/ASIHTTPRequest+LjsAdditions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/ThirdParty/ASIHTTPRequest+LjsAdditions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/UIKit/UIButton+LjsAdditions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/UIKit/UIButton+LjsAdditions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/UIKit/UIButton+LjsAdditions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/UIKit/UIButton+LjsAdditions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/UIKit/UIColor+LjsAdditions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/UIKit/UIColor+LjsAdditions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/UIKit/UIColor+LjsAdditions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/UIKit/UIColor+LjsAdditions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/UIKit/UIImage+LjsCategory.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/UIKit/UIImage+LjsCategory.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/UIKit/UIImage+LjsCategory.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/UIKit/UIImage+LjsCategory.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/UIKit/UIImageView+LjsAdditions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/UIKit/UIImageView+LjsAdditions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/UIKit/UIImageView+LjsAdditions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/UIKit/UIImageView+LjsAdditions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/UIKit/UILabel+LjsAdditions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/UIKit/UILabel+LjsAdditions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/UIKit/UILabel+LjsAdditions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/UIKit/UILabel+LjsAdditions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/UIKit/UIView+LjsAdditions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/UIKit/UIView+LjsAdditions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Categories/UIKit/UIView+LjsAdditions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Categories/UIKit/UIView+LjsAdditions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDASLLogger.h">
+      <sourceFolder url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDASLLogger.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDASLLogger.m">
+      <sourceFolder url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDASLLogger.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDAbstractDatabaseLogger.h">
+      <sourceFolder url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDAbstractDatabaseLogger.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDAbstractDatabaseLogger.m">
+      <sourceFolder url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDAbstractDatabaseLogger.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDFileLogger.h">
+      <sourceFolder url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDFileLogger.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDFileLogger.m">
+      <sourceFolder url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDFileLogger.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDLog.h">
+      <sourceFolder url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDLog.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDLog.m">
+      <sourceFolder url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDLog.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDTTYLogger.h">
+      <sourceFolder url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDTTYLogger.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDTTYLogger.m">
+      <sourceFolder url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/DDTTYLogger.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/Extensions/ContextFilterLogFormatter.h">
+      <sourceFolder url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/Extensions/ContextFilterLogFormatter.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/Extensions/ContextFilterLogFormatter.m">
+      <sourceFolder url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/Extensions/ContextFilterLogFormatter.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/Extensions/DispatchQueueLogFormatter.h">
+      <sourceFolder url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/Extensions/DispatchQueueLogFormatter.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/Extensions/DispatchQueueLogFormatter.m">
+      <sourceFolder url="file://$MODULE_DIR$/../CocoaLumberjack/Lumberjack/Extensions/DispatchQueueLogFormatter.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Controllers-iOS/LjsModalViewController.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Controllers-iOS/LjsModalViewController.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Controllers-iOS/LjsModalViewController.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Controllers-iOS/LjsModalViewController.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Controllers-iOS/LjsTimePickerDelegate.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Controllers-iOS/LjsTimePickerDelegate.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Controllers-iOS/LjsTimePickerDelegate.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Controllers-iOS/LjsTimePickerDelegate.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Controllers-iOS/UIViewController+ParentOrPresenting.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Controllers-iOS/UIViewController+ParentOrPresenting.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Controllers-iOS/UIViewController+ParentOrPresenting.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Controllers-iOS/UIViewController+ParentOrPresenting.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../CoreData/LjsFetchRequestFactory.h">
+      <sourceFolder url="file://$MODULE_DIR$/../CoreData/LjsFetchRequestFactory.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../CoreData/LjsFetchRequestFactory.m">
+      <sourceFolder url="file://$MODULE_DIR$/../CoreData/LjsFetchRequestFactory.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../CoreData/LjsProgressiveMigration.h">
+      <sourceFolder url="file://$MODULE_DIR$/../CoreData/LjsProgressiveMigration.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../CoreData/LjsProgressiveMigration.m">
+      <sourceFolder url="file://$MODULE_DIR$/../CoreData/LjsProgressiveMigration.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/LjsGoogleGlobals.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/LjsGoogleGlobals.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/LjsGoogleGlobals.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/LjsGoogleGlobals.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleDistancer.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleDistancer.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleDistancer.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleDistancer.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleManager.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleManager.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleManager.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleManager.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Managers/LjsGooglePlacePredictionOptions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Managers/LjsGooglePlacePredictionOptions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Managers/LjsGooglePlacePredictionOptions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Managers/LjsGooglePlacePredictionOptions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleRequestFactory.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleRequestFactory.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleRequestFactory.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleRequestFactory.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleRequestManager.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleRequestManager.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleRequestManager.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleRequestManager.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleReverseGeocodeOptions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleReverseGeocodeOptions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleReverseGeocodeOptions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Managers/LjsGoogleReverseGeocodeOptions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAddressComponent.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAddressComponent.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAddressComponent.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAddressComponent.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAddressComponentGeocode.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAddressComponentGeocode.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAddressComponentGeocode.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAddressComponentGeocode.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAddressComponentPlace.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAddressComponentPlace.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAddressComponentPlace.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAddressComponentPlace.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAddressComponentType.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAddressComponentType.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAddressComponentType.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAddressComponentType.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAttribution.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAttribution.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAttribution.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleAttribution.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleBounds.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleBounds.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleBounds.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleBounds.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGooglePlace.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGooglePlace.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGooglePlace.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGooglePlace.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGooglePlaceType.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGooglePlaceType.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGooglePlaceType.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGooglePlaceType.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleRect.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleRect.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleRect.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleRect.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleReverseGeocode.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleReverseGeocode.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleReverseGeocode.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleReverseGeocode.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleReverseGeocodeType.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleReverseGeocodeType.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleReverseGeocodeType.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleReverseGeocodeType.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleViewport.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleViewport.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleViewport.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Human/LjsGoogleViewport.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAddressComponent.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAddressComponent.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAddressComponent.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAddressComponent.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAddressComponentGeocode.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAddressComponentGeocode.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAddressComponentGeocode.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAddressComponentGeocode.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAddressComponentPlace.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAddressComponentPlace.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAddressComponentPlace.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAddressComponentPlace.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAddressComponentType.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAddressComponentType.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAddressComponentType.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAddressComponentType.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAttribution.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAttribution.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAttribution.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleAttribution.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleBounds.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleBounds.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleBounds.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleBounds.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGooglePlace.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGooglePlace.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGooglePlace.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGooglePlace.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGooglePlaceType.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGooglePlaceType.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGooglePlaceType.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGooglePlaceType.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleRect.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleRect.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleRect.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleRect.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleReverseGeocode.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleReverseGeocode.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleReverseGeocode.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleReverseGeocode.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleReverseGeocodeType.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleReverseGeocodeType.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleReverseGeocodeType.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleReverseGeocodeType.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleViewport.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleViewport.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleViewport.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Machine/_LjsGoogleViewport.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGoogleImporter.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGoogleImporter.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGoogleImporter.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGoogleImporter.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGoogleNmoAddressComponent.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGoogleNmoAddressComponent.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGoogleNmoAddressComponent.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGoogleNmoAddressComponent.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGoogleNmoPlace.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGoogleNmoPlace.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGoogleNmoPlace.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGoogleNmoPlace.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGoogleNmoReverseGeocode.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGoogleNmoReverseGeocode.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGoogleNmoReverseGeocode.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGoogleNmoReverseGeocode.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGooglePlacesNmoAttribution.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGooglePlacesNmoAttribution.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGooglePlacesNmoAttribution.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGooglePlacesNmoAttribution.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGooglePlacesNmoDetails.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGooglePlacesNmoDetails.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGooglePlacesNmoDetails.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGooglePlacesNmoDetails.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGooglePlacesPrediction.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGooglePlacesPrediction.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGooglePlacesPrediction.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Non-Managed/LjsGooglePlacesPrediction.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Transformers/LjsLocationTransformer.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Transformers/LjsLocationTransformer.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Models/Transformers/LjsLocationTransformer.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Models/Transformers/LjsLocationTransformer.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Replies/LjsGooglePlacesDetailsReply.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Replies/LjsGooglePlacesDetailsReply.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Replies/LjsGooglePlacesDetailsReply.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Replies/LjsGooglePlacesDetailsReply.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Replies/LjsGooglePlacesPredictiveReply.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Replies/LjsGooglePlacesPredictiveReply.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Replies/LjsGooglePlacesPredictiveReply.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Replies/LjsGooglePlacesPredictiveReply.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Replies/LjsGoogleReply.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Replies/LjsGoogleReply.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Replies/LjsGoogleReply.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Replies/LjsGoogleReply.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Replies/LjsGoogleRgReply.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Replies/LjsGoogleRgReply.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Replies/LjsGoogleRgReply.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Replies/LjsGoogleRgReply.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Translate/LjsGoogleTranslateManager.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Translate/LjsGoogleTranslateManager.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Google/Translate/LjsGoogleTranslateManager.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Google/Translate/LjsGoogleTranslateManager.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Logging/DDFileLogger+CurrentFile.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Logging/DDFileLogger+CurrentFile.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Logging/DDFileLogger+CurrentFile.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Logging/DDFileLogger+CurrentFile.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Logging/LjsDefaultFormatter.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Logging/LjsDefaultFormatter.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Logging/LjsDefaultFormatter.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Logging/LjsDefaultFormatter.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Logging/LjsLog.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Logging/LjsLog.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Logging/LjsLogFileManager.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Logging/LjsLogFileManager.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Logging/LjsLogFileManager.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Logging/LjsLogFileManager.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Logging/LjsMessageBuilder.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Logging/LjsMessageBuilder.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Logging/LjsMessageBuilder.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Logging/LjsMessageBuilder.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Logging/Lumberjack.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Logging/Lumberjack.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Managers/LjsBackingStore.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Managers/LjsBackingStore.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Managers/LjsFileBackedKeyStore.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Managers/LjsFileBackedKeyStore.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Managers/LjsFileBackedKeyStore.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Managers/LjsFileBackedKeyStore.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Managers/LjsKeychainManager.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Managers/LjsKeychainManager.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Managers/LjsKeychainManager.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Managers/LjsKeychainManager.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Managers/LjsLocationManager.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Managers/LjsLocationManager.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Managers/LjsLocationManager.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Managers/LjsLocationManager.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Managers/LjsUserDefaultsStore.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Managers/LjsUserDefaultsStore.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Managers/LjsUserDefaultsStore.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Managers/LjsUserDefaultsStore.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Model/LjsObjectWithUUID.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Model/LjsObjectWithUUID.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Model/LjsObjectWithUUID.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Model/LjsObjectWithUUID.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../OCMockSingletonExtension/OCMockSingletonExtension/Foundation/NSDate+UnitTests.h">
+      <sourceFolder url="file://$MODULE_DIR$/../OCMockSingletonExtension/OCMockSingletonExtension/Foundation/NSDate+UnitTests.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../OCMockSingletonExtension/OCMockSingletonExtension/Foundation/NSDate+UnitTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../OCMockSingletonExtension/OCMockSingletonExtension/Foundation/NSDate+UnitTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../OCMockSingletonExtension/OCMockSingletonExtension/Foundation/NSNotificationCenter+UnitTests.h">
+      <sourceFolder url="file://$MODULE_DIR$/../OCMockSingletonExtension/OCMockSingletonExtension/Foundation/NSNotificationCenter+UnitTests.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../OCMockSingletonExtension/OCMockSingletonExtension/Foundation/NSNotificationCenter+UnitTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../OCMockSingletonExtension/OCMockSingletonExtension/Foundation/NSNotificationCenter+UnitTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../OCMockSingletonExtension/OCMockSingletonExtension/Foundation/NSObject+SupersequentImplementation.h">
+      <sourceFolder url="file://$MODULE_DIR$/../OCMockSingletonExtension/OCMockSingletonExtension/Foundation/NSObject+SupersequentImplementation.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../OCMockSingletonExtension/OCMockSingletonExtension/Foundation/NSObject+SupersequentImplementation.m">
+      <sourceFolder url="file://$MODULE_DIR$/../OCMockSingletonExtension/OCMockSingletonExtension/Foundation/NSObject+SupersequentImplementation.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../OCMockSingletonExtension/OCMockSingletonExtension/OCMockSingletonExtensions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../OCMockSingletonExtension/OCMockSingletonExtension/OCMockSingletonExtensions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../OCMockSingletonExtension/OCMockSingletonExtension/UIKit/UIImage+UnitTests.h">
+      <sourceFolder url="file://$MODULE_DIR$/../OCMockSingletonExtension/OCMockSingletonExtension/UIKit/UIImage+UnitTests.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../OCMockSingletonExtension/OCMockSingletonExtension/UIKit/UIImage+UnitTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../OCMockSingletonExtension/OCMockSingletonExtension/UIKit/UIImage+UnitTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../PLWeakCompatibility/PLWeakCompatibility/PLWeakCompatibilityStubs.m">
+      <sourceFolder url="file://$MODULE_DIR$/../PLWeakCompatibility/PLWeakCompatibility/PLWeakCompatibilityStubs.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Security/LjsCaesarCipher.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Security/LjsCaesarCipher.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Security/LjsCaesarCipher.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Security/LjsCaesarCipher.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/LjsApplicationTestRunnerIOS.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/LjsApplicationTestRunnerIOS.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/LjsApplicationTestRunnerIOS.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/LjsApplicationTestRunnerIOS.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/LjsTestCase.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/LjsTestCase.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/LjsTestCase.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/LjsTestCase.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/OCHamcrestWorkingTest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/OCHamcrestWorkingTest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/OCMockSingletonsWorkingTest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/OCMockSingletonsWorkingTest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/OCMockWorkingTest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/OCMockWorkingTest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Categories/LjsDecimalAideTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Categories/LjsDecimalAideTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSArrayLjsAdditionsTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSArrayLjsAdditionsTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSDateLjsAdditionsTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSDateLjsAdditionsTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSDictionaryLjsAdditionsTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSDictionaryLjsAdditionsTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSErrorLjsAdditions.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSErrorLjsAdditions.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSSetLjsAdditionsTest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSSetLjsAdditionsTest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSStringLjsAdditionsTest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Categories/NSStringLjsAdditionsTest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/LjsFetchRequestFactoryTest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/LjsFetchRequestFactoryTest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/LjsManagedObjectContextTest.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/LjsManagedObjectContextTest.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/LjsManagedObjectContextTest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/LjsManagedObjectContextTest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/LjsProgressiveMigrationTest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/LjsProgressiveMigrationTest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/4ePodcastsModel.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/4ePodcastsModel.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/FourEdPodcastManager.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/FourEdPodcastManager.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/FourEdPodcastManager.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/FourEdPodcastManager.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndCharacter.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndCharacter.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndCharacter.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndCharacter.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndClass.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndClass.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndClass.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndClass.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndPlayer.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndPlayer.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndPlayer.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndPlayer.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndPodcast.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndPodcast.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndPodcast.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndPodcast.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndRace.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndRace.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndRace.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndRace.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndRole.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndRole.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndRole.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Human/DndRole.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndCharacter.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndCharacter.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndCharacter.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndCharacter.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndClass.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndClass.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndClass.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndClass.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndPlayer.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndPlayer.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndPlayer.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndPlayer.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndPodcast.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndPodcast.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndPodcast.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndPodcast.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndRace.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndRace.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndRace.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndRace.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndRole.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndRole.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndRole.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/CoreData/Models/4ePodcasts/Machine/_DndRole.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Google/Import/LjsGoogleAddressComponentImportTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Google/Import/LjsGoogleAddressComponentImportTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Google/Import/LjsGoogleImportTest_Super.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Google/Import/LjsGoogleImportTest_Super.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Google/Import/LjsGoogleImportTest_Super.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Google/Import/LjsGoogleImportTest_Super.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Google/Import/Places/LjsGooglePlaceImportTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Google/Import/Places/LjsGooglePlaceImportTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Google/Import/Places/LjsGooglePlacesAttributeImportTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Google/Import/Places/LjsGooglePlacesAttributeImportTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Google/Import/Places/LjsGooglePlacesDetailsReplyTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Google/Import/Places/LjsGooglePlacesDetailsReplyTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Google/Import/Places/LjsGooglePlacesPredictionTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Google/Import/Places/LjsGooglePlacesPredictionTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Google/Import/Places/LjsGooglePlacesPredictiveReplyTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Google/Import/Places/LjsGooglePlacesPredictiveReplyTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Google/Managers/LjsGoogleManagerInitTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Google/Managers/LjsGoogleManagerInitTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Google/Managers/LjsGoogleManagerTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Google/Managers/LjsGoogleManagerTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Google/Managers/LjsGoogleRequestManagerTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Google/Managers/LjsGoogleRequestManagerTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Google/Models/LjsGoogleReverseGeocodeTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Google/Models/LjsGoogleReverseGeocodeTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Google/Translate/LjsGoogleTranslateManagerTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Google/Translate/LjsGoogleTranslateManagerTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Managers/LjsFileBackedStoreTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Managers/LjsFileBackedStoreTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Managers/LjsKeychainTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Managers/LjsKeychainTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Security/LjsCaesarCipherTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Security/LjsCaesarCipherTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/ThirdParty/LoremIpsumTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/ThirdParty/LoremIpsumTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsBlocksTest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsBlocksTest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsDateHelperTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsDateHelperTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsFakerTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsFakerTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsFileUtiltiesTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsFileUtiltiesTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsGestaltTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsGestaltTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsIdGeneratorTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsIdGeneratorTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsJsonRpcReplyTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsJsonRpcReplyTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsValidatorTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsValidatorTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsVariatesTests.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Utilities/LjsVariatesTests.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/Unit/Views-iOS/LjsLabelAttributesTest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/Unit/Views-iOS/LjsLabelAttributesTest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Tests/resources/readlines-test.txt">
+      <sourceFolder url="file://$MODULE_DIR$/../Tests/resources/readlines-test.txt" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ThirdParty/LoremIpsum/LoremIpsum.h">
+      <sourceFolder url="file://$MODULE_DIR$/../ThirdParty/LoremIpsum/LoremIpsum.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ThirdParty/LoremIpsum/LoremIpsum.m">
+      <sourceFolder url="file://$MODULE_DIR$/../ThirdParty/LoremIpsum/LoremIpsum.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ThirdParty/Security/SFHFKeychainUtils.h">
+      <sourceFolder url="file://$MODULE_DIR$/../ThirdParty/Security/SFHFKeychainUtils.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ThirdParty/Security/SFHFKeychainUtils.m">
+      <sourceFolder url="file://$MODULE_DIR$/../ThirdParty/Security/SFHFKeychainUtils.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/ASIHTTP/ASIHTTPResponseUtils.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/ASIHTTP/ASIHTTPResponseUtils.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/ASIHTTP/ASIHTTPResponseUtils.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/ASIHTTP/ASIHTTPResponseUtils.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/Faker/LjsFaker.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/Faker/LjsFaker.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/Faker/LjsFaker.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/Faker/LjsFaker.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.addresses.us.plist">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.addresses.us.plist" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.cities.us.plist">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.cities.us.plist" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.companies.us.plist">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.companies.us.plist" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.domain-names.plist">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.domain-names.plist" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.given-names.us.plist">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.given-names.us.plist" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.occupations.us.plist">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.occupations.us.plist" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.phone-numbers.us.plist">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.phone-numbers.us.plist" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.postal-codes.us.plist">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.postal-codes.us.plist" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.street-addresses.us.plist">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.street-addresses.us.plist" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.surnames-names.us.plist">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.surnames-names.us.plist" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.us-census-firstnames.plist">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.us-census-firstnames.plist" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.us-census-surnames.plist">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/Faker/plists/com.littlejoysoftware.faker.us-census-surnames.plist" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/JSON-RPC/LjsJsonRpcReply.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/JSON-RPC/LjsJsonRpcReply.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/JSON-RPC/LjsJsonRpcReply.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/JSON-RPC/LjsJsonRpcReply.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsBlocks.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsBlocks.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsBlocks.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsBlocks.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsCurrentWeather.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsCurrentWeather.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsCurrentWeather.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsCurrentWeather.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsDateHelper.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsDateHelper.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsDateHelper.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsDateHelper.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsFileUtilities.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsFileUtilities.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsFileUtilities.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsFileUtilities.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsGestalt.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsGestalt.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsGestalt.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsGestalt.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsIdGenerator.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsIdGenerator.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsIdGenerator.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsIdGenerator.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsLocaleUtils.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsLocaleUtils.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsLocaleUtils.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsLocaleUtils.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsLocationServiceObserver.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsLocationServiceObserver.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsLocationServiceObserver.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsLocationServiceObserver.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsReachabilityObserver.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsReachabilityObserver.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsReachabilityObserver.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsReachabilityObserver.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsRepeatingTimerProtocol.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsRepeatingTimerProtocol.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsServiceObserver.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsServiceObserver.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsServiceObserver.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsServiceObserver.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsValidator.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsValidator.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsValidator.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsValidator.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsVariates.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsVariates.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Utilities/LjsVariates.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Utilities/LjsVariates.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsButton.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsButton.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsButton.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsButton.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsGlassButton.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsGlassButton.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsGlassButton.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsGlassButton.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsGlassView.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsGlassView.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsGlassView.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsGlassView.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsGradientView.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsGradientView.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsGradientView.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsGradientView.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsKeyboardInfo.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsKeyboardInfo.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsKeyboardInfo.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsKeyboardInfo.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsLabelAttributes.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsLabelAttributes.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsLabelAttributes.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsLabelAttributes.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsNumericPickerDelegate.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsNumericPickerDelegate.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsNumericPickerDelegate.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsNumericPickerDelegate.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsPanAndZoomImageView.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsPanAndZoomImageView.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsPanAndZoomImageView.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsPanAndZoomImageView.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsRecessedButton.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsRecessedButton.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsRecessedButton.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsRecessedButton.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsScrollView.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsScrollView.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsScrollView.m">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsScrollView.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../Views-iOS/LjsTableViewOwnerProtocol.h">
+      <sourceFolder url="file://$MODULE_DIR$/../Views-iOS/LjsTableViewOwnerProtocol.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIAuthenticationDialog.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIAuthenticationDialog.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIAuthenticationDialog.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIAuthenticationDialog.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASICacheDelegate.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASICacheDelegate.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIDataCompressor.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIDataCompressor.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIDataCompressor.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIDataCompressor.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIDataDecompressor.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIDataDecompressor.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIDataDecompressor.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIDataDecompressor.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIDownloadCache.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIDownloadCache.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIDownloadCache.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIDownloadCache.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIFormDataRequest.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIFormDataRequest.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIFormDataRequest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIFormDataRequest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIHTTPRequest.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIHTTPRequest.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIHTTPRequest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIHTTPRequest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIHTTPRequestConfig.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIHTTPRequestConfig.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIHTTPRequestDelegate.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIHTTPRequestDelegate.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIInputStream.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIInputStream.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIInputStream.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIInputStream.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASINetworkQueue.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASINetworkQueue.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASINetworkQueue.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASINetworkQueue.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIProgressDelegate.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIProgressDelegate.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIWebPageRequest/ASIWebPageRequest.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIWebPageRequest/ASIWebPageRequest.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIWebPageRequest/ASIWebPageRequest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/ASIWebPageRequest/ASIWebPageRequest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesCDNRequest.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesCDNRequest.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesCDNRequest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesCDNRequest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesContainer.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesContainer.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesContainer.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesContainer.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesContainerRequest.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesContainerRequest.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesContainerRequest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesContainerRequest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesContainerXMLParserDelegate.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesContainerXMLParserDelegate.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesContainerXMLParserDelegate.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesContainerXMLParserDelegate.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesObject.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesObject.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesObject.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesObject.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesObjectRequest.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesObjectRequest.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesObjectRequest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesObjectRequest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesRequest.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesRequest.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesRequest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/CloudFiles/ASICloudFilesRequest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASINSXMLParserCompat.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASINSXMLParserCompat.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3Bucket.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3Bucket.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3Bucket.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3Bucket.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3BucketObject.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3BucketObject.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3BucketObject.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3BucketObject.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3BucketRequest.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3BucketRequest.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3BucketRequest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3BucketRequest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3ObjectRequest.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3ObjectRequest.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3ObjectRequest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3ObjectRequest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3Request.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3Request.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3Request.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3Request.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3ServiceRequest.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3ServiceRequest.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3ServiceRequest.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/Classes/S3/ASIS3ServiceRequest.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/External/Reachability/Reachability.h">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/External/Reachability/Reachability.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../asi-http-request/External/Reachability/Reachability.m">
+      <sourceFolder url="file://$MODULE_DIR$/../asi-http-request/External/Reachability/Reachability.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/NSObject+SBJson.h">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/NSObject+SBJson.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/NSObject+SBJson.m">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/NSObject+SBJson.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJson.h">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJson.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonParser.h">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonParser.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonParser.m">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonParser.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamParser.h">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamParser.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamParser.m">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamParser.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamParserAccumulator.h">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamParserAccumulator.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamParserAccumulator.m">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamParserAccumulator.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamParserAdapter.h">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamParserAdapter.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamParserAdapter.m">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamParserAdapter.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamParserState.h">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamParserState.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamParserState.m">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamParserState.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamWriter.h">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamWriter.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamWriter.m">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamWriter.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamWriterAccumulator.h">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamWriterAccumulator.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamWriterAccumulator.m">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamWriterAccumulator.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamWriterState.h">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamWriterState.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamWriterState.m">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonStreamWriterState.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonTokeniser.h">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonTokeniser.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonTokeniser.m">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonTokeniser.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonUTF8Stream.h">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonUTF8Stream.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonUTF8Stream.m">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonUTF8Stream.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonWriter.h">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonWriter.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonWriter.m">
+      <sourceFolder url="file://$MODULE_DIR$/../json-framework/Classes/SBJsonWriter.m" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ocmock/VERSION.markdown">
+      <sourceFolder url="file://$MODULE_DIR$/../ocmock/VERSION.markdown" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ocmock/iOS/OCMock/NSNotificationCenter+OCMAdditions.h">
+      <sourceFolder url="file://$MODULE_DIR$/../ocmock/iOS/OCMock/NSNotificationCenter+OCMAdditions.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ocmock/iOS/OCMock/OCMArg.h">
+      <sourceFolder url="file://$MODULE_DIR$/../ocmock/iOS/OCMock/OCMArg.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ocmock/iOS/OCMock/OCMConstraint.h">
+      <sourceFolder url="file://$MODULE_DIR$/../ocmock/iOS/OCMock/OCMConstraint.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ocmock/iOS/OCMock/OCMock.h">
+      <sourceFolder url="file://$MODULE_DIR$/../ocmock/iOS/OCMock/OCMock.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ocmock/iOS/OCMock/OCMockObject.h">
+      <sourceFolder url="file://$MODULE_DIR$/../ocmock/iOS/OCMock/OCMockObject.h" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ocmock/iOS/OCMock/OCMockRecorder.h">
+      <sourceFolder url="file://$MODULE_DIR$/../ocmock/iOS/OCMock/OCMockRecorder.h" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
+
