@@ -16,19 +16,21 @@ export CLICOLOR=1
 # use yellow for dir’s
 export LSCOLORS=dxfxcxdxbxegedabagacad
 
-export POSTGRES_PATH=/Library/PostgreSQL/9.0/bin
+
+export GROWLNOTIFY="/usr/local/bin/growlnotify"
+
 export DEVELOPER_PATH=/Applications/Xcode.app/Contents/Developer/usr/bin
-export PATH=$DEVELOPER_PATH:/opt/local/bin:/opt/local/sbin:$POSTGRES_PATH:~/bin:$PATH
+export PATH=$DEVELOPER_PATH:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
 
 
-export RUBYMINE_HOME="/Applications/RubyMine 3.2.4.app/"
+export RUBYMINE_HOME="/Applications/RubyMine.app/"
 
-export CLASSPATH=~/lib/quaqua:$CLASSPATH
-
-if [ -f /opt/local/etc/bash_completion ]; then
-    . /opt/local/etc/bash_completion
+if [ -d /usr/local/etc/bash_completion.d ]; then
+    . /usr/local/etc/bash_completion.d/git-completion.bash
+    . /usr/local/etc/bash_completion.d/git-prompt.sh
 fi
+
 
 if [ "`/usr/bin/whoami`" == "root" ]; then
     export PS1="[\h:\w]: \u# "
@@ -37,8 +39,12 @@ else
 fi
 
 alias be='bundle exec'
-#alias cuke='appledoc-script.sh;NO_LAUNCH=1 OS=ios5 cucumber'
-#alias cuke='/usr/bin/osascript -e 'tell application "iPhone Simulator" to activate';NO_LAUNCH=1 OS=ios5 cucumber'
 alias btar='tar --use-compress-program /opt/local/bin/bzip2 '
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin 
+
+
+
+
