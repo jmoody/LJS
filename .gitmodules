@@ -35,3 +35,6 @@
 [submodule "PLWeakCompatibility"]
 	path = PLWeakCompatibility
 	url = https://github.com/plausiblelabs/PLWeakCompatibility.git
+[submodule "AFNetworking"]
+	path = AFNetworking
+	url = git@github.com:AFNetworking/AFNetworking.git
