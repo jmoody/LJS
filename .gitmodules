@@ -7,7 +7,6 @@
 [submodule "asi-http-request"]
 	path = asi-http-request
 	url = https://github.com/pokeb/asi-http-request.git
-
 [submodule "CocoaLumberjack"]
 	path = CocoaLumberjack
 	url = https://github.com/robbiehanson/CocoaLumberjack.git
@@ -20,9 +19,6 @@
 [submodule "CocoaHTTPServer"]
 	path = CocoaHTTPServer
 	url = https://github.com/robbiehanson/CocoaHTTPServer.git
-[submodule "Core-Data-Localization"]
-	path = Core-Data-Localization
-	url = https://github.com/cspicker/Core-Data-Localization.git
 [submodule "V8HorizontalPickerView"]
 	path = V8HorizontalPickerView
 	url = git@github.com:jmoody/V8HorizontalPickerView.git
