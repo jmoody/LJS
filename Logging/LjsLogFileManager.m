@@ -32,7 +32,6 @@
 
 #import "LjsLogFileManager.h"
 #import "Lumberjack.h"
-#import "LjsFileUtilities.h"
 
 
 #ifdef LOG_CONFIGURATION_DEBUG

@@ -86,6 +86,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 #if !TARGET_OS_IPHONE
 //http://www.cocoadev.com/index.pl?DeterminingOSVersion
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (BOOL)getSystemVersionMajor:(unsigned *)major
                         minor:(unsigned *)minor
                        bugFix:(unsigned *)bugFix {
@@ -116,6 +119,8 @@ fail:
   if (bugFix) *bugFix = 0;
   return NO;
 }
+
+#pragma clang diagnostic pop
 
 - (NSString *) description {
   return [NSString stringWithFormat:@"Gestalt %ld.%ld.%ld",
