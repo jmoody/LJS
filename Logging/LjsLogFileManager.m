@@ -74,14 +74,17 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  * Returns the path to the default logs directory.
  * If the logs directory doesn't exist, this method automatically creates it.
  **/
-- (NSString *) defaultLogsDirectory
-{
+- (NSString *) defaultLogsDirectory {
 #if TARGET_OS_IPHONE
 
 //  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
 //	NSString *baseDir = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
 //	NSString *logsDirectory = [baseDir stringByAppendingPathComponent:@"Logs"];
-  NSString *docPath = [LjsFileUtilities findDocumentDirectory];
+  NSArray *dirPaths =
+  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                      NSUserDomainMask,
+                                      YES);
+  NSString *docPath = [dirPaths objectAtIndex:0];
   NSString *logsDirectory = [docPath stringByAppendingPathComponent:@"Logs"];
   
 #else

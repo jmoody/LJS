@@ -34,5 +34,7 @@
 #import "LjsDefaultFormatter.h"
 #import "LjsLogFileManager.h"
 #import "DDFileLogger+CurrentFile.h"
+#if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_6
 #import "ContextFilterLogFormatter.h"
 #import "DispatchQueueLogFormatter.h"
+#endif
