@@ -206,6 +206,7 @@
 		F59635FD14966B9600CDB27E /* UKMainThreadProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F814966B9600CDB27E /* UKMainThreadProxy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F5B2844114AD0B6700E48908 /* LjsGestalt.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844014AD0B6700E48908 /* LjsGestalt.m */; };
 		F5B2844E14AD1B5E00E48908 /* LjsRestartFinderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844D14AD1B5E00E48908 /* LjsRestartFinderOperation.m */; };
+		F5B5C08516950DB4000BEF0C /* LjsErrorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B5C08416950DB4000BEF0C /* LjsErrorFactory.m */; };
 		F5CD95D81631050F00FF1BFA /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CD95D71631050F00FF1BFA /* OCMock.framework */; };
 		F5CD95D91631054B00FF1BFA /* OCMock.framework in Copy Files GHUnit and OCMock */ = {isa = PBXBuildFile; fileRef = F5CD95D71631050F00FF1BFA /* OCMock.framework */; };
 		F5D33F361552A01100A42506 /* NSDictionary+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D33F351552A01100A42506 /* NSDictionary+LjsAdditions.m */; };
@@ -607,6 +608,8 @@
 		F5B2844014AD0B6700E48908 /* LjsGestalt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestalt.m; sourceTree = "<group>"; };
 		F5B2844C14AD1B5E00E48908 /* LjsRestartFinderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRestartFinderOperation.h; sourceTree = "<group>"; };
 		F5B2844D14AD1B5E00E48908 /* LjsRestartFinderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsRestartFinderOperation.m; sourceTree = "<group>"; };
+		F5B5C08316950DB4000BEF0C /* LjsErrorFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsErrorFactory.h; sourceTree = "<group>"; };
+		F5B5C08416950DB4000BEF0C /* LjsErrorFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsErrorFactory.m; sourceTree = "<group>"; };
 		F5CD95D71631050F00FF1BFA /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMock.framework; sourceTree = "<group>"; };
 		F5D33F341552A01100A42506 /* NSDictionary+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LjsAdditions.h"; sourceTree = "<group>"; };
 		F5D33F351552A01100A42506 /* NSDictionary+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LjsAdditions.m"; sourceTree = "<group>"; };
@@ -1122,6 +1125,8 @@
 		F580713D146C296700EA4CFB /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F5B5C08316950DB4000BEF0C /* LjsErrorFactory.h */,
+				F5B5C08416950DB4000BEF0C /* LjsErrorFactory.m */,
 				F546C0B2157D10B7003E7823 /* LjsBlocks.h */,
 				F546C0B3157D10B7003E7823 /* LjsBlocks.m */,
 				F512EB98151C9EA7002E8E3A /* LjsLocationServiceObserver.h */,
@@ -1886,6 +1891,7 @@
 				F58C27341589EDFA00B716F4 /* LjsValidatorTests.m in Sources */,
 				F58C27351589EDFA00B716F4 /* LjsVariatesTests.m in Sources */,
 				F58C27391589EE1300B716F4 /* LjsProgressiveMigration.m in Sources */,
+				F5B5C08516950DB4000BEF0C /* LjsErrorFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
