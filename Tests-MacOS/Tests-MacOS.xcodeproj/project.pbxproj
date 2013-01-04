@@ -58,6 +58,8 @@
 		F5223C7D1542E459006DB9E8 /* com.littlejoysoftware.faker.us-census-firstnames.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5223C7A1542E459006DB9E8 /* com.littlejoysoftware.faker.us-census-firstnames.plist */; };
 		F5223C7E1542E459006DB9E8 /* com.littlejoysoftware.faker.us-census-surnames.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5223C7B1542E459006DB9E8 /* com.littlejoysoftware.faker.us-census-surnames.plist */; };
 		F525D4A214C607DA000A4D5C /* LjsLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F525D4A114C607DA000A4D5C /* LjsLogFileManager.m */; };
+		F5385B4A169775D500306410 /* NSAttributedString+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5385B49169775D500306410 /* NSAttributedString+LjsAdditions.m */; };
+		F5385B4C1697760000306410 /* NSAttributedStringLjsAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5385B4B1697760000306410 /* NSAttributedStringLjsAdditionsTest.m */; };
 		F5400A0014B2288A001EF805 /* LoremIpsum.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009FF14B2288A001EF805 /* LoremIpsum.m */; };
 		F546C0B4157D10B7003E7823 /* LjsBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = F546C0B3157D10B7003E7823 /* LjsBlocks.m */; };
 		F57D0E51156C2A7C00C5CDC2 /* readlines-test.txt in Resources */ = {isa = PBXBuildFile; fileRef = F57D0E50156C2A7C00C5CDC2 /* readlines-test.txt */; };
@@ -337,6 +339,9 @@
 		F5223C7B1542E459006DB9E8 /* com.littlejoysoftware.faker.us-census-surnames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.littlejoysoftware.faker.us-census-surnames.plist"; sourceTree = "<group>"; };
 		F525D4A014C607DA000A4D5C /* LjsLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLogFileManager.h; sourceTree = "<group>"; };
 		F525D4A114C607DA000A4D5C /* LjsLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLogFileManager.m; sourceTree = "<group>"; };
+		F5385B48169775D500306410 /* NSAttributedString+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5385B49169775D500306410 /* NSAttributedString+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+LjsAdditions.m"; sourceTree = "<group>"; };
+		F5385B4B1697760000306410 /* NSAttributedStringLjsAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSAttributedStringLjsAdditionsTest.m; sourceTree = "<group>"; };
 		F54009FE14B2288A001EF805 /* LoremIpsum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoremIpsum.h; sourceTree = "<group>"; };
 		F54009FF14B2288A001EF805 /* LoremIpsum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoremIpsum.m; sourceTree = "<group>"; };
 		F546C0B2157D10B7003E7823 /* LjsBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsBlocks.h; sourceTree = "<group>"; };
@@ -672,11 +677,13 @@
 		F512EB32151C9DAF002E8E3A /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				F5385B48169775D500306410 /* NSAttributedString+LjsAdditions.h */,
+				F5385B49169775D500306410 /* NSAttributedString+LjsAdditions.m */,
+				F5E98566152473580061631A /* LjsFoundationCategories.h */,
 				F5D33F341552A01100A42506 /* NSDictionary+LjsAdditions.h */,
 				F5D33F351552A01100A42506 /* NSDictionary+LjsAdditions.m */,
 				F5185D111526099B00F178E5 /* NSString+LjsAdditions.h */,
 				F5185D121526099B00F178E5 /* NSString+LjsAdditions.m */,
-				F5E98566152473580061631A /* LjsFoundationCategories.h */,
 				F5E98567152473580061631A /* NSDecimalNumber+LjsAdditions.h */,
 				F5E98568152473580061631A /* NSDecimalNumber+LjsAdditions.m */,
 				F512EB33151C9DAF002E8E3A /* LjsWebCategories.h */,
@@ -1375,6 +1382,7 @@
 		F58C27041589EDFA00B716F4 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				F5385B4B1697760000306410 /* NSAttributedStringLjsAdditionsTest.m */,
 				F58C27051589EDFA00B716F4 /* LjsDecimalAideTests.m */,
 				F58C27061589EDFA00B716F4 /* NSArrayLjsAdditionsTests.m */,
 				F58C27071589EDFA00B716F4 /* NSDateLjsAdditionsTests.m */,
@@ -1892,6 +1900,8 @@
 				F58C27351589EDFA00B716F4 /* LjsVariatesTests.m in Sources */,
 				F58C27391589EE1300B716F4 /* LjsProgressiveMigration.m in Sources */,
 				F5B5C08516950DB4000BEF0C /* LjsErrorFactory.m in Sources */,
+				F5385B4A169775D500306410 /* NSAttributedString+LjsAdditions.m in Sources */,
+				F5385B4C1697760000306410 /* NSAttributedStringLjsAdditionsTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

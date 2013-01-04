@@ -38,8 +38,12 @@
 #import "NSDecimalNumber+LjsAdditions.h"
 #import "NSString+LjsAdditions.h"
 #import "NSDictionary+LjsAdditions.h"
-#import "NSAttributedString+LjsAdditions.h"
+
 
 // categories on string and dictionary for encoding and url parameters
 #import "LjsWebCategories.h"
 
+
+#if !TARGET_OS_IPHONE
+#import "NSAttributedString+LjsAdditions.h"
+#endif

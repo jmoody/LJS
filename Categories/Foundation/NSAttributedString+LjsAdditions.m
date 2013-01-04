@@ -34,6 +34,7 @@
 
 @implementation NSAttributedString (NSAttributedString_LjsAdditions)
 
+
 + (id) hyperlinkFromString:(NSString *) aString
                    withURL:(NSURL *) aURL
                  alignment:(NSTextAlignment) aTextAlignment {
