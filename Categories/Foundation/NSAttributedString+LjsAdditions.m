@@ -26,20 +26,37 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
 
-#import "NSCalendar+LjsAdditions.h"
-#import "NSArray+LjsAdditions.h"
-#import "NSMutableArray+LjsAdditions.h"
-#import "NSDate+LjsAdditions.h"
-#import "NSError+LjsAdditions.h"
-#import "NSSet+LjsAdditions.h"
-#import "NSLocale+LjsAdditions.h"
-#import "NSDateFormatter+LjsAdditions.h"
-#import "NSDecimalNumber+LjsAdditions.h"
-#import "NSString+LjsAdditions.h"
-#import "NSDictionary+LjsAdditions.h"
 #import "NSAttributedString+LjsAdditions.h"
 
-// categories on string and dictionary for encoding and url parameters
-#import "LjsWebCategories.h"
+@implementation NSAttributedString (NSAttributedString_LjsAdditions)
+
++ (id) hyperlinkFromString:(NSString *) aString
+                   withURL:(NSURL *) aURL
+                 alignment:(NSTextAlignment) aTextAlignment {
+  NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:aString];
+  NSRange range = NSMakeRange(0, [attrString length]);
+  
+  [attrString beginEditing];
+  [attrString addAttribute:NSLinkAttributeName value:[aURL absoluteString] range:range];
+  
+  // make the text appear in blue
+  [attrString addAttribute:NSForegroundColorAttributeName value:[NSColor blueColor] range:range];
+  
+  // next make the text appear with an underline
+  [attrString addAttribute:
+   NSUnderlineStyleAttributeName value:[NSNumber numberWithInt:NSSingleUnderlineStyle] range:range];
+  
+  [attrString addAttribute:NSFontAttributeName value:[NSFont systemFontOfSize:13] range:range];
+  
+  [attrString setAlignment:aTextAlignment range:range];
+  [attrString endEditing];
+  
+  return attrString;
+}
+
+@end
 

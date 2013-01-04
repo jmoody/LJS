@@ -27,19 +27,15 @@
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-#import "NSCalendar+LjsAdditions.h"
-#import "NSArray+LjsAdditions.h"
-#import "NSMutableArray+LjsAdditions.h"
-#import "NSDate+LjsAdditions.h"
-#import "NSError+LjsAdditions.h"
-#import "NSSet+LjsAdditions.h"
-#import "NSLocale+LjsAdditions.h"
-#import "NSDateFormatter+LjsAdditions.h"
-#import "NSDecimalNumber+LjsAdditions.h"
-#import "NSString+LjsAdditions.h"
-#import "NSDictionary+LjsAdditions.h"
-#import "NSAttributedString+LjsAdditions.h"
+#import <Foundation/Foundation.h>
 
-// categories on string and dictionary for encoding and url parameters
-#import "LjsWebCategories.h"
+/**
+ from https://developer.apple.com/library/mac/#qa/qa2006/qa1487.html
+ */
+@interface NSAttributedString (NSAttributedString_LjsAdditions)
 
++ (id) hyperlinkFromString:(NSString *) aString
+                   withURL:(NSURL *) aURL
+                 alignment:(NSTextAlignment) aTextAlignment;
+
+@end
