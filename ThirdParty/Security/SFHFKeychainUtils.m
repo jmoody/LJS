@@ -35,11 +35,12 @@
 #import "Lumberjack.h"
 #import "LjsGestalt.h"
 
-#ifdef LOG_CONFIGURATION_DEBUG
-static const int ddLogLevel = LOG_LEVEL_DEBUG;
-#else
+//#ifdef LOG_CONFIGURATION_DEBUG
+//static const int ddLogLevel = LOG_LEVEL_DEBUG;
+//#else
+//static const int ddLogLevel = LOG_LEVEL_WARN;
+//#endif
 static const int ddLogLevel = LOG_LEVEL_WARN;
-#endif
 
 static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
 
