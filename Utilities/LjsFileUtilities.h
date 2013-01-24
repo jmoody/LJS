@@ -32,16 +32,11 @@
 extern NSString *LjsFileUtilitiesErrorDomain;
 extern NSString *LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey;
 
-
-#ifndef NS_ENUM
-#define NS_ENUM(_type, _name) enum _name : _type _name; enum _name : _type
-#endif
-
-typedef NS_ENUM(NSUInteger, LjsFileUtilitiesErrorCode) {
+typedef enum : NSUInteger {
   kLjsFileUtilitiesErrorCodeRead = 911,
   kLjsFileUtilitiesErrorCodeWrite,
   kLjsFileUtilitiesErrorCodeFileDoesNotExist
-};
+} LjsFileUtilitiesErrorCode;
 
 
 @interface LjsFileUtilities : NSObject 
