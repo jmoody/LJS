@@ -398,7 +398,7 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
     error = nil;
     key = [self nilOrEmptyString];
     serviceName = [self nilOrEmptyString];
-    actual = [self.km keychainPasswordForUsernameInDefaults:key 
+    actual = [self.km keychainPasswordForUsernameInDefaultsWithKey:key 
                                                 serviceName:serviceName
                                                       error:&error];
     GHAssertNil(actual, nil);
@@ -409,7 +409,7 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
     error = nil;
     key = LjsKeychainTestsUsernameDefaultsKey;
     serviceName = [self nilOrEmptyString];
-    actual = [self.km keychainPasswordForUsernameInDefaults:key 
+    actual = [self.km keychainPasswordForUsernameInDefaultsWithKey:key 
                                                 serviceName:serviceName
                                                       error:&error];
     GHAssertNil(actual, nil);
@@ -420,9 +420,9 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
     error = nil;
     key = LjsKeychainTestsUsernameDefaultsKey;
     serviceName = LjsKeychainTestsPasswordKeychainServiceName;
-    actual = [self.km keychainPasswordForUsernameInDefaults:key 
-                                                serviceName:serviceName
-                                                      error:&error];
+    actual = [self.km keychainPasswordForUsernameInDefaultsWithKey:key
+                                                       serviceName:serviceName
+                                                             error:&error];
     GHAssertNil(actual, nil);
     GHAssertNil(error, nil);
     
@@ -459,7 +459,7 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
     GHAssertNil(error, nil);
     
     serviceName = LjsKeychainTestsPasswordKeychainServiceName;
-    actual = [self.km keychainPasswordForUsernameInDefaults:key 
+    actual = [self.km keychainPasswordForUsernameInDefaultsWithKey:key 
                                                 serviceName:serviceName
                                                       error:&error];
     expected = LjsKeychainTestsDefaultPassword;
@@ -469,6 +469,19 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
     method_exchangeImplementations(mockMethod, originalMethod);
   }
 }
+
+- (void) test_keychain_password_for_username_in_defaults_with_key {
+  NSError *error = nil;
+  NSString *key = LjsKeychainTestsUsernameDefaultsKey;
+  NSString *serviceName = LjsKeychainTestsPasswordKeychainServiceName;
+  NSString *actual = [self.km keychainPasswordForUsernameInDefaultsWithKey:key
+                                                          serviceName:serviceName
+                                                                error:&error];
+  GHAssertNil(actual, nil);
+  GHTestLog(@"error = %@", error);
+  GHAssertNil(error, nil);
+}
+
 
 - (void) test_synchronizeKeychainAndDefaults0 {
   if ([self.gestalt isGhUnitCommandLineBuild] == YES) {

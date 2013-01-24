@@ -31,12 +31,12 @@
 extern NSString *LjsKeychainManagerErrorDomain;
 
 typedef enum {
-  // a sublime number
   LjsKeychainManagerBadKeyError = 4390116,
   LjsKeychainManagerBadUsernameError,
   LjsKeychainManagerBadPasswordError,
   LjsKeychainManagerBadServiceNameError
 } LjsKeychainManagerErrorCodes;
+
 
 @interface LjsKeychainManager : NSObject 
 
@@ -70,9 +70,9 @@ typedef enum {
                             serviceName:(NSString *) serviceName
                                   error:(NSError **) error;
 
-- (NSString *) keychainPasswordForUsernameInDefaults:(NSString *) key
-                                         serviceName:(NSString *) serviceName
-                                               error:(NSError **) error;
+- (NSString *) keychainPasswordForUsernameInDefaultsWithKey:(NSString *) key
+                                                serviceName:(NSString *) serviceName
+                                                      error:(NSError **) error;
 
 - (BOOL) keychainDeletePasswordForUsername:(NSString *) username 
                                serviceName:(NSString *) serviceName
@@ -94,11 +94,6 @@ typedef enum {
 
 
 
-/** @name Utility */
-- (BOOL) ljsKeychainManagerErrorWithCode:(NSInteger) code
-                                   error:(NSError **) error;
-- (void) logKeychainError:(NSError *) error;
-- (BOOL) isValidString:(NSString *) string;
 
 
 

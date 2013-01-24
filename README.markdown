@@ -6,9 +6,8 @@ ARC.
 
 Tested:
 
-Xcode 4.3 4D1002
-Lion 10.7.2
-iOS 4.2 - 5.1
+Lion 10.7.2 - 10.8.*
+iOS 4.2 - 6.1
 
 Regarding the MacOS libraries and ARC read this from apple:
 
@@ -44,7 +43,7 @@ This license allows the software to be used in commercial and
 noncommercial projects.
 
 Although the license does not prohibit the use of this code in
-miliarty or intelligence domains (CIA, FBI, all they tell us is lies),
+military or intelligence domains (CIA, FBI, all they tell us is lies),
 I would appreciate it if you would not.
 
 I worked for about 10 years under DARPA contracts and indirectly for
@@ -72,7 +71,6 @@ licenses can be found in the attributes file)
 
 * SFHFKeychainUtils
 * Appledoc
-* Reporter
 * CocoaLumberjack 
 * OCMock
 * GHUnit
@@ -82,6 +80,7 @@ licenses can be found in the attributes file)
 * CocoaHTTPServer
 * InnerBand
 * V8HorizontalPickerView
+* AFNetworking
 
 JSON-RPC
 --------------------
@@ -101,8 +100,5 @@ Contact Information
     Joshua Moody
     http://littlejoysoftware.com
     joshuajmoody@gmail.com
-    UK 44 20 3286 1473
-    US 802-659-0087
     Skype:    morethan50eggs
-    iChat:    morethan50eggs@me.com
     FaceTime: joshuajmoody@gmail.com
