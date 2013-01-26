@@ -29,11 +29,7 @@
 
 #if !TARGET_OS_IPHONE
 
-#ifndef NS_ENUM
-#define NS_ENUM(_type, _name) enum _name : _type _name; enum _name : _type
-#endif
-
-typedef NS_ENUM(NSUInteger, LjsGestaltMinorVersion) {
+typedef enum : NSUInteger {
   LjsGestaltMinor_v_10_0 = 0,
   LjsGestaltMinor_v_10_1,
   LjsGestaltMinor_v_10_2,
@@ -43,7 +39,7 @@ typedef NS_ENUM(NSUInteger, LjsGestaltMinorVersion) {
   LjsGestaltMinor_v_10_6,
   LjsGestaltMinor_v_10_7,
   LjsGestaltMinor_v_10_8
-};
+} LjsGestaltMinorVersion;
 
 #endif
 
