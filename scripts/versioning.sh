@@ -72,6 +72,7 @@
 # in sync with git revision and the info plist is for releases.
 #
 # trying the product Info.plist rewrite approach
+#
 #############################################################################
 
 if [ $# != 4 ] ; then
