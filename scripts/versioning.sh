@@ -5,12 +5,16 @@
 #
 # to use:
 #
-# in xcode, make a Run Script build phase with the follow:
+# 1. in xcode, make a Run Script build phase with the following:
 #
-# sh versioning.sh "${CONFIGURATION}" "${INFOPLIST_FILE}" <app store config>
+# sh versioning.sh "${CONFIGURATION}" "${INFOPLIST_FILE}" "${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}" "AppStore"
 #
-# put that build phase script before all others (just under target 
-# dependencies)
+# 2. put that build phase script at the _last_ item to run
+# 3. in the project build settings make then Info.plist Output Encoding to be XML
+# 4. copy this script from LJS/scripts to the SOURCE_ROOT of your target (the
+#    directory with the .xcodeproj file
+#
+# SEE ISSUES BELOW
 #
 ############################# IMPORTANT ####################################
 # 
@@ -66,25 +70,11 @@
 # since all my release are automated and/or have clean step, i am going to
 # punt on this for now.  the only time it really matters if the version is
 # in sync with git revision and the info plist is for releases.
-# 
-# another idea is to:
-# 1. set Info.plist format to XML in build settings
-# 2. do the versioning _after_ the build
-# 3. run the following to update the Info.plist in the product
 #
-# PlistBuddyPath=/usr/libexec/PlistBuddy
-# PRODUCT_INFOPLIST_FILE="${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}"
-# build_number=$("$PlistBuddyPath" -c "Print CFBuildNumber" "$INFOPLIST_FILE")
-# "$PlistBuddyPath" -c "Set :CFBuildNumber $build_number" "$PRODUCT_INFOPLIST_FILE"
-#
-# bundle_version=$("$PlistBuddyPath" -c "Print CFBundleVersion" "$INFOPLIST_FILE")
-# "$PlistBuddyPath" -c "Set :CFBundleVersion $bundle_version" "$PRODUCT_INFOPLIST_FILE"
-# short_version=$("$PlistBuddyPath" -c "Print CFBundleShortVersionString" "$INFOPLIST_FILE")
-# "$PlistBuddyPath" -c "Set :CFBundleShortVersionString $short_version" "$PRODUCT_INFOPLIST_FILE"
-#
+# trying the product Info.plist rewrite approach
 #############################################################################
 
-if [ $# != 3 ] ; then
+if [ $# != 4 ] ; then
     echo "usage: versioning.sh <CONFIGURATION> <INFOPLIST_FILE> <APP STORE CONFIG>"
     exit 1
 fi
@@ -92,9 +82,8 @@ fi
 PlistBuddyPath=/usr/libexec/PlistBuddy
 CONFIGURATION="$1"
 INFOPLIST_FILE="$2"
-APP_STORE_CONFIGURATION="$3"
-
-touch "$INFOPLIST_FILE"    
+PRODUCT_INFOPLIST_FILE="$3"
+APP_STORE_CONFIGURATION="$4"
 
 LjsAppStoreBundleVersionNumber=$("$PlistBuddyPath" -c "Print LjsAppStoreBundleVersionNumber" "$INFOPLIST_FILE")
 # if the build number property does not exist, create it and set it to 0
@@ -116,23 +105,26 @@ if [ "$CONFIGURATION" = "$APP_STORE_CONFIGURATION" ]; then
         exit 1
     fi
     "$PlistBuddyPath" -c "Set :CFBundleVersion $CFBundleShortVersionString.$LjsAppStoreBundleVersionNumber" "$INFOPLIST_FILE"
-
-    echo CONFIGURATION = "finished versioning for $CONFIGURATION"
-    echo build number = $("$PlistBuddyPath" -c "Print LjsAppStoreBundleVersionNumber" "$INFOPLIST_FILE")
-    echo bundle version = $("$PlistBuddyPath" -c "Print CFBundleVersion" "$INFOPLIST_FILE")
-    echo bundle short version = $("$PlistBuddyPath" -c "Print CFBundleShortVersionString" "$INFOPLIST_FILE")
-    exit 0
+else
+    # use the git revision for the bundle version, except when building for the app store
+    gitpath=`which git`
+    GITREV=`$gitpath rev-parse --short HEAD`
+    "$PlistBuddyPath" -c "Set :CFBundleVersion $GITREV" "$INFOPLIST_FILE"
 fi
 
-# use the git revision for the bundle version, except when building for the app store
-gitpath=`which git`
-GITREV=`$gitpath rev-parse --short HEAD`
-"$PlistBuddyPath" -c "Set :CFBundleVersion $GITREV" "$INFOPLIST_FILE"
+echo updating Info.plist at "$PRODUCT_INFOPLIST_FILE"
+build_number=$("$PlistBuddyPath" -c "Print LjsAppStoreBundleVersionNumber" "$INFOPLIST_FILE")
+"$PlistBuddyPath" -c "Set :LjsAppStoreBundleVersionNumber $build_number" "$PRODUCT_INFOPLIST_FILE"
+bundle_version=$("$PlistBuddyPath" -c "Print CFBundleVersion" "$INFOPLIST_FILE")
+"$PlistBuddyPath" -c "Set :CFBundleVersion $bundle_version" "$PRODUCT_INFOPLIST_FILE"
+short_version=$("$PlistBuddyPath" -c "Print CFBundleShortVersionString" "$INFOPLIST_FILE")
+"$PlistBuddyPath" -c "Set :CFBundleShortVersionString $short_version" "$PRODUCT_INFOPLIST_FILE"
+
 
 echo CONFIGURATION = "finished versioning for $CONFIGURATION"
-echo build number = $("$PlistBuddyPath" -c "Print LjsAppStoreBundleVersionNumber" "$INFOPLIST_FILE")
-echo bundle version = $("$PlistBuddyPath" -c "Print CFBundleVersion" "$INFOPLIST_FILE")
-echo bundle short version = $("$PlistBuddyPath" -c "Print CFBundleShortVersionString" "$INFOPLIST_FILE")
+echo build number = $build_number
+echo bundle version = $build_version
+echo bundle short version = $short_version
 
 
 
