@@ -34,6 +34,4 @@
 [submodule "AFNetworking"]
 	path = AFNetworking
 	url = git@github.com:AFNetworking/AFNetworking.git
-[submodule "DTCoreText"]
-	path = DTCoreText
-	url = https://github.com/Cocoanetics/DTCoreText.git
+
