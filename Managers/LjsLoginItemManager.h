@@ -1,4 +1,4 @@
-// Copyright (c) 2010, Little Joy Software
+// Copyright 2013 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,14 +26,28 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import "DDLog.h"
-#import "LjsLog.h"
-#import "DDASLLogger.h"
-#import "DDFileLogger.h"
-#import "DDTTYLogger.h"
-#import "LjsDefaultFormatter.h"
-#import "LjsLogFileManager.h"
-#import "DDFileLogger+CurrentFile.h"
-#import "ContextFilterLogFormatter.h"
-#import "DispatchQueueLogFormatter.h"
 
+#import <Foundation/Foundation.h>
+#import "LjsRepeatingTimerProtocol.h"
+
+typedef void(^Ljs_Block_LoginItemManager_TimerEvent)(BOOL aIsLoginItem);
+
+/**
+ Documentation
+ */
+@interface LjsLoginItemManager : NSObject <LjsRepeatingTimerProtocol>
+
+/** @name Properties */
+
+/** @name Initializing Objects */
+- (id) initWithTimerEventBlock:(void (^)(BOOL aIsLoginItem)) aTimerEventBlock;
+
+/** @name Handling Notifications, Requests, and Events */
+
+#pragma mark - Login Item Methods
+/** @name Login Item Control */
+- (BOOL) addLoginItem:(NSError **) aError;
+- (BOOL) deleteLoginItem:(NSError **) aError;
+- (BOOL) isLoginItem;
+
+@end

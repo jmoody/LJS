@@ -1,4 +1,4 @@
-// Copyright (c) 2010, Little Joy Software
+// Copyright 2012 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,14 +26,38 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import "DDLog.h"
-#import "LjsLog.h"
-#import "DDASLLogger.h"
-#import "DDFileLogger.h"
-#import "DDTTYLogger.h"
-#import "LjsDefaultFormatter.h"
-#import "LjsLogFileManager.h"
-#import "DDFileLogger+CurrentFile.h"
-#import "ContextFilterLogFormatter.h"
-#import "DispatchQueueLogFormatter.h"
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
+
+#import "NSAttributedString+LjsAdditions.h"
+
+@implementation NSAttributedString (NSAttributedString_LjsAdditions)
+
+
++ (id) hyperlinkFromString:(NSString *) aString
+                   withURL:(NSURL *) aURL
+                 alignment:(NSTextAlignment) aTextAlignment {
+  NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:aString];
+  NSRange range = NSMakeRange(0, [attrString length]);
+  
+  [attrString beginEditing];
+  [attrString addAttribute:NSLinkAttributeName value:[aURL absoluteString] range:range];
+  
+  // make the text appear in blue
+  [attrString addAttribute:NSForegroundColorAttributeName value:[NSColor blueColor] range:range];
+  
+  // next make the text appear with an underline
+  [attrString addAttribute:
+   NSUnderlineStyleAttributeName value:[NSNumber numberWithInt:NSSingleUnderlineStyle] range:range];
+  
+  [attrString addAttribute:NSFontAttributeName value:[NSFont systemFontOfSize:13] range:range];
+  
+  [attrString setAlignment:aTextAlignment range:range];
+  [attrString endEditing];
+  
+  return attrString;
+}
+
+@end
 

@@ -332,6 +332,7 @@
 		F5B36C1116306789005BED75 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B36C0716306789005BED75 /* libOCMock.a */; };
 		F5B36C121630678A005BED75 /* VERSION.markdown in Resources */ = {isa = PBXBuildFile; fileRef = F5B36C0F16306789005BED75 /* VERSION.markdown */; };
 		F5B36C131630678A005BED75 /* VERSION.markdown in Resources */ = {isa = PBXBuildFile; fileRef = F5B36C0F16306789005BED75 /* VERSION.markdown */; };
+		F5B5C08916951522000BEF0C /* LjsErrorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B5C08816951522000BEF0C /* LjsErrorFactory.m */; };
 		F5BB1EBC151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
 		F5BB1EBD151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
 		F5C112731496715900948605 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE69F1410C6F60051FC7E /* UIKit.framework */; };
@@ -828,6 +829,8 @@
 		F5B36C0D16306789005BED75 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
 		F5B36C0E16306789005BED75 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		F5B36C0F16306789005BED75 /* VERSION.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION.markdown; sourceTree = "<group>"; };
+		F5B5C08716951522000BEF0C /* LjsErrorFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsErrorFactory.h; path = ../Utilities/LjsErrorFactory.h; sourceTree = "<group>"; };
+		F5B5C08816951522000BEF0C /* LjsErrorFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsErrorFactory.m; path = ../Utilities/LjsErrorFactory.m; sourceTree = "<group>"; };
 		F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "google-places-autocomplete-sample.json"; sourceTree = "<group>"; };
 		F5C112711496715900948605 /* LJS iOS Documentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LJS iOS Documentation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C112781496715900948605 /* Documentation-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Documentation-Info.plist"; sourceTree = "<group>"; };
@@ -1732,6 +1735,8 @@
 		F59635CE1496632000CDB27E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F5B5C08716951522000BEF0C /* LjsErrorFactory.h */,
+				F5B5C08816951522000BEF0C /* LjsErrorFactory.m */,
 				F59635CF1496632000CDB27E /* LjsObjectWithUUID.h */,
 				F59635D01496632000CDB27E /* LjsObjectWithUUID.m */,
 			);
@@ -2545,6 +2550,7 @@
 				F59393AC15D1625B005FD30A /* _DndRace.m in Sources */,
 				F59393BC15D16392005FD30A /* PLWeakCompatibilityStubs.m in Sources */,
 				F5CD95FA1631469700FF1BFA /* LjsApplicationTestRunnerIOS.m in Sources */,
+				F5B5C08916951522000BEF0C /* LjsErrorFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2733,7 +2739,7 @@
 					"-Xclang",
 					"-fobjc-runtime-has-weak",
 				);
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "020479DF-6747-41CC-99CC-A9194DA867F0";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E8C409C-B185-433A-BD92-E32795A19DF8";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2780,7 +2786,7 @@
 					"-Xclang",
 					"-fobjc-runtime-has-weak",
 				);
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "020479DF-6747-41CC-99CC-A9194DA867F0";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E8C409C-B185-433A-BD92-E32795A19DF8";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -2823,7 +2829,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "Tests-iOS";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E8C409C-B185-433A-BD92-E32795A19DF8";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "i386 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -2863,7 +2869,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "Tests-iOS";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E8C409C-B185-433A-BD92-E32795A19DF8";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "i386 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -2892,7 +2898,7 @@
 					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E8C409C-B185-433A-BD92-E32795A19DF8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2918,7 +2924,7 @@
 					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E8C409C-B185-433A-BD92-E32795A19DF8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -2991,7 +2997,7 @@
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = (
@@ -3020,7 +3026,6 @@
 					"-Xclang",
 					"-fobjc-runtime-has-weak",
 				);
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "020479DF-6747-41CC-99CC-A9194DA867F0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3032,7 +3037,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-iOS\"",
@@ -3063,7 +3068,6 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "Tests-iOS";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "i386 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -3093,7 +3097,7 @@
 				);
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestViews-iOS/TestViews-iOS-Prefix.pch";
@@ -3105,7 +3109,6 @@
 					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				WRAPPER_EXTENSION = app;
 			};
 			name = AdHoc;
@@ -3122,7 +3125,7 @@
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = (
@@ -3151,7 +3154,6 @@
 					"-Xclang",
 					"-fobjc-runtime-has-weak",
 				);
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "020479DF-6747-41CC-99CC-A9194DA867F0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3163,7 +3165,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-iOS\"",
@@ -3194,7 +3196,6 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "Tests-iOS";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "i386 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -3224,7 +3225,7 @@
 				);
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestViews-iOS/TestViews-iOS-Prefix.pch";
@@ -3236,7 +3237,6 @@
 					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4976C626-A59E-4D37-82C6-EA300A4F6172";
 				WRAPPER_EXTENSION = app;
 			};
 			name = AppStore;

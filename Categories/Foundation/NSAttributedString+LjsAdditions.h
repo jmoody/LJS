@@ -1,4 +1,4 @@
-// Copyright (c) 2010, Little Joy Software
+// Copyright 2012 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,14 +26,17 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import "DDLog.h"
-#import "LjsLog.h"
-#import "DDASLLogger.h"
-#import "DDFileLogger.h"
-#import "DDTTYLogger.h"
-#import "LjsDefaultFormatter.h"
-#import "LjsLogFileManager.h"
-#import "DDFileLogger+CurrentFile.h"
-#import "ContextFilterLogFormatter.h"
-#import "DispatchQueueLogFormatter.h"
 
+#import <Foundation/Foundation.h>
+
+/**
+ from https://developer.apple.com/library/mac/#qa/qa2006/qa1487.html
+ */
+@interface NSAttributedString (NSAttributedString_LjsAdditions)
+
+
++ (id) hyperlinkFromString:(NSString *) aString
+                   withURL:(NSURL *) aURL
+                 alignment:(NSTextAlignment) aTextAlignment;
+
+@end

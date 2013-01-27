@@ -1,12 +1,8 @@
 #import <Foundation/Foundation.h>
 
-#ifndef NS_ENUM
-#define NS_ENUM(_type, _name) enum _name : _type _name; enum _name : _type
-#endif
-
-typedef NS_ENUM(NSUInteger, LjsFetchRequestFactoryErrorCode) {
+typedef enum : NSUInteger {
   kLjsFetchRequestFactoryErrorCodeInvalidArgument
-};
+} LjsFetchRequestFactoryErrorCode;
 
 
 /**
