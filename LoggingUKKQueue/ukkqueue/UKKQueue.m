@@ -274,7 +274,7 @@ static UKKQueue * gUKKQueueSharedQueueSingleton = nil;
     
     AT_SYNCHRONIZED( self )
     {
-        index = [watchedPaths indexOfObject: path];
+        index = (int)[watchedPaths indexOfObject: path];
         
         if( index == NSNotFound )
             return;
