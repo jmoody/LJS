@@ -40,7 +40,7 @@
 @property (nonatomic, assign) CGRect frameEnd;
 @property (nonatomic, assign) BOOL frameChangedByUserInteraction;
 @property (nonatomic, assign) CGFloat animationDuration;
-@property (nonatomic, assign) UIViewAnimationCurve animationCurve;
+@property (nonatomic, assign) UIViewAnimationOptions animationCurve;
 @property (nonatomic, assign) CGFloat beginTopOfFrame;
 @property (nonatomic, assign) CGFloat endTopOfFrame;
 @property (nonatomic, assign) CGFloat keyboardHeight;
