@@ -11,13 +11,13 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+@interface ___FILEBASENAMEASIDENTIFIER___ ()
+
+@end
+
 @implementation ___FILEBASENAMEASIDENTIFIER___
 
-
 #pragma mark Memory Management
-- (void) dealloc {
-  DDLogDebug(@"deallocating %@", [self class]);
-}
 
 - (id) init {
   //  [self doesNotRecognizeSelector:_cmd];

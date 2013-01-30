@@ -15,10 +15,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 #pragma mark Memory Management
 
-- (void) dealloc {
-  DDLogDebug(@"deallocating %@", [self class]);
-}
-
 - (void)didReceiveMemoryWarning {
   DDLogWarn(@"received memory warning");
   // Releases the view if it doesn't have a superview.
