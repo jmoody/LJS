@@ -1,4 +1,4 @@
-// Copyright 2012 Little Joy Software. All rights reserved.
+// Copyright 2013 Recovery Warriors LLC. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,38 +26,15 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 /**
- Documentation
+ NSManagedObject on NSManagedObject_LjsAdditions category.
  */
-@interface LjsKeyboardInfo : NSObject 
+@interface NSManagedObject (NSManagedObject_LjsAdditions)
 
-
-/** @name Properties */
-@property (nonatomic, assign) CGRect frameBegin;
-@property (nonatomic, assign) CGRect frameEnd;
-@property (nonatomic, assign) BOOL frameChangedByUserInteraction;
-@property (nonatomic, assign) CGFloat animationDuration;
-@property (nonatomic, assign) UIViewAnimationOptions animationCurve;
-@property (nonatomic, assign) CGFloat beginTopOfFrame;
-@property (nonatomic, assign) CGFloat endTopOfFrame;
-@property (nonatomic, assign) CGFloat keyboardHeight;
-
-/** @name Initializing Objects */
-
-- (id) initWithNotification:(NSNotification *) aNotification;
-
-/** @name Handling Notifications, Requests, and Events */
-
-/** @name Utility */
-+ (void) registerForKeyboardNotificationWithObserver:(id) aObserver 
-                                         willShowSel:(SEL) aWillShowSel
-                                          didShowSel:(SEL) aDidShowSel
-                                         willHideSel:(SEL) aWillHideSel
-                                          didHideSel:(SEL) aDidHideSel 
-                                              object:(id) aObject;
-  
+/** @name Task Section */
+//http://www.section42.de/2011/07/01/coredata-how-to-revert-a-managed-object-to-its-original-state/#comment-123
+- (void) revertChanges;
 
 @end

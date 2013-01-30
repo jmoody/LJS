@@ -1,4 +1,4 @@
-// Copyright 2012 Little Joy Software. All rights reserved.
+// Copyright 2013 Recovery Warriors LLC. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,38 +26,33 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
 
-#import <UIKit/UIKit.h>
+#import "NSManagedObject+LjsAdditions.h"
+#import "Lumberjack.h"
+#import <CoreData/CoreData.h>
 
-/**
- Documentation
- */
-@interface LjsKeyboardInfo : NSObject 
+#ifdef LOG_CONFIGURATION_DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
 
+@implementation NSManagedObject (NSManagedObject_LjsAdditions)
 
-/** @name Properties */
-@property (nonatomic, assign) CGRect frameBegin;
-@property (nonatomic, assign) CGRect frameEnd;
-@property (nonatomic, assign) BOOL frameChangedByUserInteraction;
-@property (nonatomic, assign) CGFloat animationDuration;
-@property (nonatomic, assign) UIViewAnimationOptions animationCurve;
-@property (nonatomic, assign) CGFloat beginTopOfFrame;
-@property (nonatomic, assign) CGFloat endTopOfFrame;
-@property (nonatomic, assign) CGFloat keyboardHeight;
-
-/** @name Initializing Objects */
-
-- (id) initWithNotification:(NSNotification *) aNotification;
-
-/** @name Handling Notifications, Requests, and Events */
-
-/** @name Utility */
-+ (void) registerForKeyboardNotificationWithObserver:(id) aObserver 
-                                         willShowSel:(SEL) aWillShowSel
-                                          didShowSel:(SEL) aDidShowSel
-                                         willHideSel:(SEL) aWillHideSel
-                                          didHideSel:(SEL) aDidHideSel 
-                                              object:(id) aObject;
-  
+- (void) revertChanges {
+  // Revert to original Values
+  NSDictionary *changedValues = [self changedValues];
+  NSDictionary *committedValues = [self committedValuesForKeys:[changedValues allKeys]];
+  [changedValues enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+    id committedValue = [committedValues objectForKey:key];
+    if (committedValue == [NSNull null]) { committedValue = nil; }
+    DDLogDebug(@"Reverting field '%@' from '%@' to '%@'",
+               key, [changedValues objectForKey:key], committedValue);
+    [self setValue:committedValue forKey:key];
+  }];
+}
 
 @end
