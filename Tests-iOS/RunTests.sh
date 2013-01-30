@@ -41,10 +41,11 @@ if [ ! -e "$TEST_TARGET_EXECUTABLE_PATH" ]; then
 fi
 
 # If trapping fails, make sure we kill any running securityd
-launchctl list | grep GHUNIT_RunIPhoneSecurityd && launchctl remove GHUNIT_RunIPhoneSecurityd
-SCRIPTS_PATH=`cd $(dirname $0); pwd`
-launchctl submit -l GHUNIT_RunIPhoneSecurityd -- "$SCRIPTS_PATH"/RunIPhoneSecurityd.sh $IPHONE_SIMULATOR_ROOT $CFFIXED_USER_HOME
-trap "launchctl remove GHUNIT_RunIPhoneSecurityd" EXIT TERM INT
+# causes failure on Jenkins CI server
+#launchctl list | grep GHUNIT_RunIPhoneSecurityd && launchctl remove GHUNIT_RunIPhoneSecurityd
+#SCRIPTS_PATH=`cd $(dirname $0); pwd`
+#launchctl submit -l GHUNIT_RunIPhoneSecurityd -- "$SCRIPTS_PATH"/RunIPhoneSecurityd.sh $IPHONE_SIMULATOR_ROOT $CFFIXED_USER_HOME
+#trap "launchctl remove GHUNIT_RunIPhoneSecurityd" EXIT TERM INT
 
 RUN_CMD="\"$TEST_TARGET_EXECUTABLE_PATH\" -RegisterForSystemEvents"
 
