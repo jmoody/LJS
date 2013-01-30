@@ -96,7 +96,7 @@ NSSecondCalendarUnit);
 + (NSDate *) LjsDateNotFound {
   // voyager 1 will pass within 1.7 light years of star AC+79 3888 which is in
   // Ursa Minor 
-  dispatch_once_t pred = 0;
+  static dispatch_once_t pred = 0;
   __strong static id _ljsDateNotFound = nil;
   dispatch_once(&pred, ^{
     NSCalendar *calendar = [NSCalendar gregorianCalendar];
