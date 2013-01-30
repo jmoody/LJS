@@ -46,11 +46,10 @@ NSString *LjsCurrentWeatherRequestDidFinishNotification = @"com.littlejoysoftwar
 static NSString *LjsCurrentWeatherDataKey = @"data";
 static NSString *LjsCurrentWeatherCurrentConditionKey = @"current_condition";
 static NSString *LjsCurrentWeatherErrorKey = @"error";
-static NSString *LjsCurrentWeatherRequestKey = @"request";
 static NSString *LjsCurrentWeatherValueKey = @"value";
 static NSString *LjsCurrentWeatherCloudCoverKey = @"cloudcover";
 static NSString *LjsCurrentWeatherHumidtyKey = @"humidity";
-static NSString *LjsCurrentWeatherTimeKey = @"\"observation_time\"";
+
 static NSString *LjsCurrentWeatherPrecipMMKey = @"precipMM";
 static NSString *LjsCurrentWeatherPressureKey = @"pressure";
 static NSString *LjsCurrentWeatherTempCKey = @"temp_C";
@@ -67,6 +66,10 @@ static NSString *LjsCurrentWeatherWindMphKey = @"windspeedMiles";
 static NSString *LjsCurrentWeatherUrlFormatString = @"http://free.worldweatheronline.com/feed/weather.ashx?q=%@,%@&format=json&num_of_days=1&key=%@";
 static NSString *LjsCurrentWeatherApiKeyPlist = @"weather-api-key";
 static NSString *LjsCurrentWeatherApiKeyKey = @"free.worldweatheronline.com.LJS Key";
+
+// unused
+//static NSString *LjsCurrentWeatherRequestKey = @"request";
+//static NSString *LjsCurrentWeatherTimeKey = @"\"observation_time\"";
 
 
 @implementation LjsCurrentWeather

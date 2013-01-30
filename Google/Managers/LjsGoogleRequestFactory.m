@@ -38,7 +38,8 @@
 
 static NSString *LjsGooglePlacesAutocompleteUrl = @"https://maps.googleapis.com/maps/api/place/autocomplete/json";
 static NSString *LjsGooglePlacesDetailsUrl = @"https://maps.googleapis.com/maps/api/place/details/json";
-static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/maps/api/place/search/json";
+// unused
+//static NSString *LjsGooglePlacesPlaceSearchUrl = @"https://maps.googleapis.com/maps/api/place/search/json";
 static NSString *LjsGoogleReverseGeocodeUrl = @"https://maps.googleapis.com/maps/api/geocode/json";
 
 
