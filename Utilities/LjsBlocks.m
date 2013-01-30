@@ -49,9 +49,7 @@ DoTimesBlock dotimes = ^(NSUInteger times, void(^block)(void)) {
 
 
 #pragma mark Memory Management
-//- (void) dealloc {
-//   // DDLogDebug(@"deallocating %@", [self class]);
-//}
+
 
 - (id) init {
  //  [self doesNotRecognizeSelector:_cmd];

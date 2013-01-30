@@ -73,9 +73,7 @@ NSString *LjsJsonRpcReplyErrorDataUserInfoKey = @"com.littlejoysoftware.ljs.Json
 @synthesize replyDict;
 
 #pragma mark Memory Management
-- (void) dealloc {
-  DDLogDebug(@"deallocating %@", [self class]);
-}
+
 
 - (id) initWithJsonReply:(NSString *)json {
   self = [super init];

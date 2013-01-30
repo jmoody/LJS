@@ -32,9 +32,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @synthesize importer;
 
 #pragma mark Memory Management
-- (void) dealloc {
-//  DDLogDebug(@"deallocating %@", [self class]);
-}
 
 - (id) initWithDictionary:(NSDictionary *) aDictionary {
   self = [super init];

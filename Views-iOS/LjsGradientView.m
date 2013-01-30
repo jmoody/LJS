@@ -47,9 +47,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @synthesize gradientLayer;
 
 #pragma mark Memory Management
-- (void) dealloc {
-   DDLogDebug(@"deallocating %@", [self class]);
-}
+
 
 - (id) initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];

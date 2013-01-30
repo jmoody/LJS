@@ -24,9 +24,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @synthesize lm;
 
 #pragma mark Memory Management
-- (void) dealloc {
-  //DDLogDebug(@"deallocating %@", [self class]);
-}
+
 
 - (id) initWithLocationManager:(LjsLocationManager *) aManager {
   self = [super init];
