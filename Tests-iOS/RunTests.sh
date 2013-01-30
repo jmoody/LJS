@@ -25,9 +25,9 @@ TEST_TARGET_EXECUTABLE_PATH="$TARGET_BUILD_DIR/$EXECUTABLE_PATH"
 # to get growl notifications, add a GROWLNOTIFY variable to your environment 
 SDKNAME=`basename $SDKROOT`
 GROWLNOTIFY_MESSAGE_PASS="$PRODUCT_NAME $SDKNAME ==> $CONFIGURATION"$'\n'"All tests passed!"
-GROWLNOTIFY_ICON_PASS="../art/growl/ljs-pass.icns"
+GROWLNOTIFY_ICON_PASS="../art/growl/tests-pass.png"
 GROWLNOTIFY_MESSAGE_FAIL="$PRODUCT_NAME ==> $SDKNAME $CONFIGURATION"$'\n'"Some tests failed. :("
-GROWLNOTIFY_ICON_FAIL="../art/growl/fail-eye.icns"
+GROWLNOTIFY_ICON_FAIL="../art/growl/tests-fail.png"
 
 if [ ! -e "$TEST_TARGET_EXECUTABLE_PATH" ]; then
   echo ""
@@ -41,10 +41,11 @@ if [ ! -e "$TEST_TARGET_EXECUTABLE_PATH" ]; then
 fi
 
 # If trapping fails, make sure we kill any running securityd
-launchctl list | grep GHUNIT_RunIPhoneSecurityd && launchctl remove GHUNIT_RunIPhoneSecurityd
-SCRIPTS_PATH=`cd $(dirname $0); pwd`
-launchctl submit -l GHUNIT_RunIPhoneSecurityd -- "$SCRIPTS_PATH"/RunIPhoneSecurityd.sh $IPHONE_SIMULATOR_ROOT $CFFIXED_USER_HOME
-trap "launchctl remove GHUNIT_RunIPhoneSecurityd" EXIT TERM INT
+# causes failure on Jenkins CI server
+#launchctl list | grep GHUNIT_RunIPhoneSecurityd && launchctl remove GHUNIT_RunIPhoneSecurityd
+#SCRIPTS_PATH=`cd $(dirname $0); pwd`
+#launchctl submit -l GHUNIT_RunIPhoneSecurityd -- "$SCRIPTS_PATH"/RunIPhoneSecurityd.sh $IPHONE_SIMULATOR_ROOT $CFFIXED_USER_HOME
+#trap "launchctl remove GHUNIT_RunIPhoneSecurityd" EXIT TERM INT
 
 RUN_CMD="\"$TEST_TARGET_EXECUTABLE_PATH\" -RegisterForSystemEvents"
 

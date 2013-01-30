@@ -104,9 +104,7 @@ NSString *LjsGooglePlacesSqlLiteStore = @"com.littlejoysoftware.LjsGoogle.sqlite
 
 
 #pragma mark Memory Management
-- (void) dealloc {
-  //DDLogDebug(@"deallocating %@", [self class]);
-}
+
 
 - (NSString *) decodeDefaultApiKey {
   NSString *defaultToken = LjsGoogleApiKey_joshuajmoody;

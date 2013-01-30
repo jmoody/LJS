@@ -25,9 +25,9 @@ TEST_TARGET_EXECUTABLE_PATH="$TARGET_BUILD_DIR/$EXECUTABLE_PATH"
 # to get growl notifications, add a GROWLNOTIFY variable to your environment
 SDKNAME=`basename $SDKROOT`
 GROWLNOTIFY_MESSAGE_PASS="$PRODUCT_NAME $SDKNAME ==> $CONFIGURATION"$'\n'"All tests passed!"
-GROWLNOTIFY_ICON_PASS="../art/growl/ljs-pass.icns"
+GROWLNOTIFY_ICON_PASS="../art/growl/tests-pass.png"
 GROWLNOTIFY_MESSAGE_FAIL="$PRODUCT_NAME ==> $SDKNAME $CONFIGURATION"$'\n'"Some tests failed. :("
-GROWLNOTIFY_ICON_FAIL="../art/growl/fail-eye.icns"
+GROWLNOTIFY_ICON_FAIL="../art/growl/tests-fail.png"
 
 if [ ! -e "$TEST_TARGET_EXECUTABLE_PATH" ]; then
 echo ""
