@@ -281,7 +281,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     return nil;
   }
   
-  NSArray *translations = [[dict objectForKey:@"data"] objectForKey:@"translations"];
+  NSArray *translations = [(NSDictionary *)[dict objectForKey:@"data"] objectForKey:@"translations"];
   NSDictionary *first = [translations first];
   // the google translation service is primarily focused on javascript, so quotes
   // are returned as &quot; so we replace them.

@@ -84,7 +84,7 @@
 		F54E3A571450E6C90059BF53 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A2A1450E6C90059BF53 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
 		F54E3A581450E6C90059BF53 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A2E1450E6C90059BF53 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
 		F54E3A591450E6C90059BF53 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A301450E6C90059BF53 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
-		F54E3A5A1450E6C90059BF53 /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A341450E6C90059BF53 /* ASIWebPageRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
+		F54E3A5A1450E6C90059BF53 /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A341450E6C90059BF53 /* ASIWebPageRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format -Wno-strict-selector-match"; }; };
 		F54E3A5B1450E6C90059BF53 /* ASICloudFilesCDNRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A371450E6C90059BF53 /* ASICloudFilesCDNRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
 		F54E3A5C1450E6C90059BF53 /* ASICloudFilesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A391450E6C90059BF53 /* ASICloudFilesContainer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
 		F54E3A5D1450E6C90059BF53 /* ASICloudFilesContainerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A3B1450E6C90059BF53 /* ASICloudFilesContainerRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
@@ -2815,6 +2815,9 @@
 				);
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = (
 					"\"${SDK_DIR}/usr/include/libxml2\"",
@@ -2836,6 +2839,10 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E8C409C-B185-433A-BD92-E32795A19DF8";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "i386 armv7 armv7s";
+				WARNING_CFLAGS = (
+					"-fcolor-diagnostics",
+					"-Wno-format-security",
+				);
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2855,6 +2862,9 @@
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = LOG_CONFIGURATION_DEBUG;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = (
 					"\"${SDK_DIR}/usr/include/libxml2\"",
@@ -2876,6 +2886,10 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E8C409C-B185-433A-BD92-E32795A19DF8";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "i386 armv7 armv7s";
+				WARNING_CFLAGS = (
+					"-fcolor-diagnostics",
+					"-Wno-format-security",
+				);
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -3056,6 +3070,9 @@
 				);
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = (
 					"\"${SDK_DIR}/usr/include/libxml2\"",
@@ -3076,6 +3093,10 @@
 				PRODUCT_NAME = "Tests-iOS";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "i386 armv7 armv7s";
+				WARNING_CFLAGS = (
+					"-fcolor-diagnostics",
+					"-Wno-format-security",
+				);
 				WRAPPER_EXTENSION = app;
 			};
 			name = AdHoc;
@@ -3186,6 +3207,9 @@
 				);
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = (
 					"\"${SDK_DIR}/usr/include/libxml2\"",
@@ -3206,6 +3230,10 @@
 				PRODUCT_NAME = "Tests-iOS";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "i386 armv7 armv7s";
+				WARNING_CFLAGS = (
+					"-fcolor-diagnostics",
+					"-Wno-format-security",
+				);
 				WRAPPER_EXTENSION = app;
 			};
 			name = AppStore;
