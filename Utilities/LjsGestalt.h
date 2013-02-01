@@ -88,5 +88,7 @@ typedef enum : NSUInteger {
 
 - (BOOL) isGhUnitCommandLineBuild;
 
+- (NSString *) versionString;
+
 @end
 
