@@ -119,7 +119,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   self.timerEventBlock(status);
 }
 
-#pragma mark Login Item Methods
+#pragma mark - Login Item Methods
 
 /**
  adds TwistedPair as a login item using and applescript

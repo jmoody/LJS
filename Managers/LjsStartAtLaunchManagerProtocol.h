@@ -26,25 +26,20 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
 #import <Foundation/Foundation.h>
-#import "LjsRepeatingTimerProtocol.h"
-#import "LjsStartAtLaunchManagerProtocol.h"
-
-typedef void(^Ljs_Block_LoginItemManager_TimerEvent)(BOOL aIsLoginItem);
 
 /**
  Documentation
  */
-@interface LjsLoginItemManager : NSObject
-<LjsRepeatingTimerProtocol,
-LjsStartAtLaunchManagerProtocol>
+@protocol LjsStartAtLaunchManagerProtocol <NSObject>
 
-/** @name Properties */
+/** @name Required Methods */
+@required
+- (BOOL) addLoginItem:(NSError **) aError;
+- (BOOL) deleteLoginItem:(NSError **) aError;
+- (BOOL) isLoginItem;
 
-/** @name Initializing Objects */
-- (id) initWithTimerEventBlock:(void (^)(BOOL aIsLoginItem)) aTimerEventBlock;
-
-/** @name Handling Notifications, Requests, and Events */
+/** @name Optional Methods */
+@optional
 
 @end

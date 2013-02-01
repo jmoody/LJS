@@ -28,23 +28,28 @@
 
 
 #import <Foundation/Foundation.h>
-#import "LjsRepeatingTimerProtocol.h"
 #import "LjsStartAtLaunchManagerProtocol.h"
 
-typedef void(^Ljs_Block_LoginItemManager_TimerEvent)(BOOL aIsLoginItem);
+extern NSString *const kLjsStartAtLoginManagerErrorDomain;
+
+typedef enum : NSUInteger {
+  kLjsStartAtLoginManagerErrorCode_add_item_failed = 7006271,
+  kLjsStartAtLoginManagerErrorCode_delete_item_failed
+} LjsStartAtLoginManagerErrorCode;
+
 
 /**
  Documentation
  */
-@interface LjsLoginItemManager : NSObject
-<LjsRepeatingTimerProtocol,
-LjsStartAtLaunchManagerProtocol>
+@interface LjsStartAtLoginManager : NSObject <LjsStartAtLaunchManagerProtocol>
 
 /** @name Properties */
 
 /** @name Initializing Objects */
-- (id) initWithTimerEventBlock:(void (^)(BOOL aIsLoginItem)) aTimerEventBlock;
+- (id) initWithHelperAppIdentifier:(NSString *) aHelperAppIdentifier;
 
 /** @name Handling Notifications, Requests, and Events */
+
+/** @name Utility */
 
 @end
