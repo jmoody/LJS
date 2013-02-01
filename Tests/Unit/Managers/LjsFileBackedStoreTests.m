@@ -43,7 +43,7 @@ static NSString *LjsTestStoreFilename = @"com.littlejoysoftware.LjsTestStore.pli
 
 @interface LjsFileBackedStoreTests : LjsTestCase
 @property (nonatomic, strong) LjsFileBackedKeyStore *store;
-@property (nonatomic, strong) LjsFileBackedKeyStore *other;
+
 
 - (NSArray *) listOfTestKeys;
 - (NSArray *) listOfTestValues;
@@ -53,7 +53,7 @@ static NSString *LjsTestStoreFilename = @"com.littlejoysoftware.LjsTestStore.pli
 
 @implementation LjsFileBackedStoreTests
 @synthesize store;
-@synthesize other;
+
 
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
@@ -76,22 +76,22 @@ static NSString *LjsTestStoreFilename = @"com.littlejoysoftware.LjsTestStore.pli
   NSString *docDir = [LjsFileUtilities findPreferencesDirectoryForUserp:YES];
   NSError *error = nil;
   
-  self.store = [[LjsFileBackedKeyStore alloc]
-                initWithFileName:LjsTestStoreFilename
-                directoryPath:docDir
-                error:&error];
-  
+  self.store = [LjsFileBackedKeyStore sharedInstanceWithFilename:LjsTestStoreFilename
+                                                   directoryPath:docDir
+                                         shouldPostNotifications:[LjsVariates flip]
+                                                           error:&error];
   if (store == nil) {
     GHTestLog(@"error == %@", error);
   }
   
   GHAssertNotNil(self.store, @"store should not be nil");
   
-  self.other = [[LjsFileBackedKeyStore alloc]
-                initWithFileName:LjsTestStoreFilename
-                directoryPath:docDir
-                error:&error];
-  GHAssertNotNil(self.other, @"other should not be nil");
+  LjsFileBackedKeyStore *other = [LjsFileBackedKeyStore sharedInstanceWithFilename:LjsTestStoreFilename
+                                                   directoryPath:docDir
+                                         shouldPostNotifications:[LjsVariates flip]
+                                                           error:&error];
+
+  GHAssertEqualObjects(self.store, other, @"should be the same object");
   
 }
 
@@ -228,12 +228,6 @@ static NSString *LjsTestStoreFilename = @"com.littlejoysoftware.LjsTestStore.pli
   GHAssertEqualStrings([dict objectForKey:@"key"], @"default", 
                        @"dictionary should contain < default > for key < key >");
   
-  dict = [self.other dictionaryForKey:@"name"
-                         defaultValue:nil
-                       storeIfMissing:NO];
-  GHAssertEqualStrings([dict objectForKey:@"key"], @"default", 
-                       @"other store dictionary should contain < default > for key < key >");
-
 }
 
 
@@ -272,11 +266,6 @@ static NSString *LjsTestStoreFilename = @"com.littlejoysoftware.LjsTestStore.pli
                                             storeIfMissing:NO],
                        @"new", @"value should have updated from < old > to < new >");
   
-  GHAssertEqualStrings([self.other valueForDictionaryNamed:@"name"
-                                              withValueKey:@"key"
-                                              defaultValue:nil
-                                            storeIfMissing:NO],
-                       @"new", @"value in other store should have updated from < old > to < new >");
 }
 
 

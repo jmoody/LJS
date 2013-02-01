@@ -34,6 +34,7 @@
 #import "Lumberjack.h"
 #import "LjsFileUtilities.h"
 #import "LjsValidator.h"
+#import "NSArray+LjsAdditions.h"
 
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -42,20 +43,30 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+typedef enum : NSUInteger {
+  kDidChangeNotification = 0,
+  kWillChangeNotification
+} LjsFileBackedKeyStoreNotificationType;
+
+#define kLjsFileBackedKeyStoreNotificationTypes @"did change", @"will change", nil
+
 NSString *LjsFileBackedKeyStoreErrorDomain = @"Ljs File Backed Key Store Error";
 NSUInteger const LjsFileBackedKeyStoreErrorCode = 4390116;
 
-static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoysoftware.LjsFileBackedKeyStore Store Changed Notification";
+
 
 @interface LjsFileBackedKeyStore ()
 
-
-- (void) handleStoreChanged:(NSNotification *) aNotifications;
-- (void) postStoreChangedNotification;
-+ (id) semaphore;
+- (id) initWithFileName:(NSString *)aFilename
+          directoryPath:(NSString *)aDirectoryPath
+shouldPostNotifications:(BOOL) aShouldPostNotifications
+                  error:(NSError *__autoreleasing *)error;
 
 
 @property (nonatomic, strong) NSMutableDictionary *store;
+@property (nonatomic, copy) NSString *filepath;
+
+- (void) postNotification:(LjsFileBackedKeyStoreNotificationType) aNotificationType;
 
 @end
 
@@ -63,16 +74,37 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
 
 @synthesize filepath;
 @synthesize store = _store;
+@synthesize storeDidChangeNotificationName = _storeDidChangeNotificationName;
+@synthesize storeWillChangeNotificationName = _storeWillChangeNotificationName;
+@synthesize shouldPostNotifications;
 
+#pragma mark - Memory Management
 
-#pragma mark Memory Management
-- (void) dealloc {
-   //DDLogDebug(@"deallocating %@", [self class]);
-  [[NSNotificationCenter defaultCenter] removeObserver:self];
+- (id) init {
+  [self doesNotRecognizeSelector:_cmd];
+  return nil;
 }
 
-- (id) initWithFileName:(NSString *)aFilename 
-          directoryPath:(NSString *)aDirectoryPath 
++ (LjsFileBackedKeyStore *) sharedInstanceWithFilename:(NSString *) aFilename
+                                         directoryPath:(NSString *) aDirectoryPath
+                               shouldPostNotifications:(BOOL) aShouldPostNotifications
+                                                 error:(NSError **) aError {
+  static LjsFileBackedKeyStore *sharedInstance = nil;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    sharedInstance = [[LjsFileBackedKeyStore alloc]
+                      initWithFileName:aFilename
+                      directoryPath:aDirectoryPath
+                      shouldPostNotifications:aShouldPostNotifications
+                      error:aError];
+  });
+  return sharedInstance;
+}
+
+
+- (id) initWithFileName:(NSString *)aFilename
+          directoryPath:(NSString *)aDirectoryPath
+shouldPostNotifications:(BOOL) aShouldPostNotifications
                   error:(NSError *__autoreleasing *)error {
   self = [super init];
   if (self == nil) {
@@ -140,53 +172,33 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
     self.store = [NSMutableDictionary dictionaryWithDictionary:dict];
   }
   
-  [[NSNotificationCenter defaultCenter]
-   addObserver:self
-   selector:@selector(handleStoreChanged:) 
-   name:LjsFileBackedKeyStoreNotificationStoreChanged
-   object:nil];
+  NSString *bundleId = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
+  _storeWillChangeNotificationName = [NSString stringWithFormat:@"%@ - '%@' file will change notification",
+                                      bundleId, aFilename];
+  _storeDidChangeNotificationName = [NSString stringWithFormat:@"%@ - '%@' file did change notification",
+                                     bundleId, aFilename];
+  self.shouldPostNotifications = aShouldPostNotifications;
   return self;
 }
 
-- (void) postStoreChangedNotification {
-  [[NSNotificationCenter defaultCenter]
-   postNotificationName:LjsFileBackedKeyStoreNotificationStoreChanged
-   object:self];
-}
 
-+ (id) semaphore {
-  return LjsFileBackedKeyStoreNotificationStoreChanged;
-}
-
-- (void) handleStoreChanged:(NSNotification *) aNotification {
-  if (aNotification.object != self) {
-    LjsFileBackedKeyStore *sender = (LjsFileBackedKeyStore *) aNotification.object;
-    if ([sender.filepath isEqualToString:self.filepath]) {
-      id semaphore = [LjsFileBackedKeyStore semaphore];
-      @synchronized(semaphore) {
-        // no need for an error - file utilities will verbosely present an error
-        NSDictionary *dict = [LjsFileUtilities readDictionaryFromFile:self.filepath
-                                                                error:nil];
-        if (dict == nil) {
-          DDLogError(@"error reading dictionary so we make no change to key store");
-        } else {
-          if (_store == NULL) {
-            // getting bad access here occassionally
-            // i _think_ what is happenning is that the self is in the process
-            // of being deallocated so _store == NULL
-          
-            /*
-             even this printing causes problems
-            DDLogDebug(@"i am = %@", self);
-            DDLogDebug(@"notification poster is = %@", aNotification.object);
-            DDLogError(@"there is a problem whereby messages sent to self.store (_store) are causing bad access.  use the log information above to try to detect the problem.");
-             */
-          } else {
-            self.store = [NSMutableDictionary dictionaryWithDictionary:dict];
-          }
-        }
+- (void) postNotification:(LjsFileBackedKeyStoreNotificationType) aNotificationType {
+  if (self.shouldPostNotifications == YES) {
+    NSString *name = nil;
+    switch (aNotificationType) {
+      case kDidChangeNotification: { name = self.storeDidChangeNotificationName; break; }
+      case kWillChangeNotification: { name = self.storeWillChangeNotificationName; break; }
+      default: {
+        NSArray *types = [[NSArray alloc] initWithObjects:kLjsFileBackedKeyStoreNotificationTypes];
+        DDLogError(@"notification type: '%d' was not in %@; will not post notification",
+                   (int)aNotificationType, types);
+        return;
       }
     }
+    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:name
+     object:self];
   }
 }
 
@@ -197,8 +209,9 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
 
 - (void) removeKeys:(NSArray *) keys {
   [self.store removeObjectsForKeys:keys];
+  [self postNotification:kWillChangeNotification];
   [LjsFileUtilities writeDictionary:self.store toFile:self.filepath error:nil];
-  [self postStoreChangedNotification];
+  [self postNotification:kDidChangeNotification];
 }
 
 - (NSString *) stringForKey:(NSString *) aKey 
@@ -368,7 +381,8 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
   } else {
     NSMutableDictionary *mdict = [NSMutableDictionary dictionaryWithDictionary:dict];
     [mdict setObject:aValue forKey:aValueKey];
-    [self storeObject:mdict forKey:aDictName];
+      [self storeObject:mdict forKey:aDictName];
+    
   }
   return YES;
 }
@@ -385,9 +399,16 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
     return NO;
   }
 
+  [self postNotification:kWillChangeNotification];
   [self.store setObject:object forKey:aKey];
-  [LjsFileUtilities writeDictionary:self.store toFile:self.filepath error:nil];
-  [self postStoreChangedNotification];
+  NSError *writeError = nil;
+  if ([LjsFileUtilities writeDictionary:self.store
+                                 toFile:self.filepath
+                                  error:&writeError] == NO) {
+    DDLogError(@"could not store change - will not post 'did change' notification");
+    return NO;
+  }
+  [self postNotification:kDidChangeNotification];
   return YES;
 }
 
@@ -405,107 +426,19 @@ static NSString *LjsFileBackedKeyStoreNotificationStoreChanged = @"com.littlejoy
     return NO;
   }
 
+  [self postNotification:kWillChangeNotification];
+  NSError *writeError = nil;
   [self.store removeObjectForKey:aKey];
-  [LjsFileUtilities writeDictionary:self.store toFile:self.filepath error:nil];
-  [self postStoreChangedNotification];
+  if ([LjsFileUtilities writeDictionary:self.store
+                                 toFile:self.filepath
+                                  error:&writeError] == NO) {
+    DDLogError(@"could not remove item - will not post 'did change' notification");
+    return NO;
+  }
+  [self postNotification:kDidChangeNotification];
   return YES;
 }
 
 
 @end
 
-#pragma mark DEAD SEA
-/*
- //- (id) initWithFileName:(NSString *) aFilename
- //          directoryPath:(NSString *) aDirectoryPath 
- //           defaultStore:(NSDictionary *) aStore
- //      overwriteExisting:(BOOL) shouldOverwrite
- //                  error:(NSError **) error {
- //  self = [super init];
- //  if (self == nil) {
- //    return nil;
- //  }
- //  
- //  BOOL validFilename = [LjsValidator stringIsNonNilOrEmpty:aFilename];
- //  NSAssert1(validFilename,
- //            @"filename must not be nil or empty - < %@ >", aFilename);
- //  BOOL validDirectory = [LjsValidator stringIsNonNilOrEmpty:aDirectoryPath];
- //  NSAssert1(validDirectory != 0, 
- //            @"directory path must be non-nil and non-empty - < %@ >", aDirectoryPath);
- //  BOOL validStore = aStore != nil;
- //  NSAssert(validStore, @"aStore must not be nil");
- //  
- //  if (validFilename == NO || validDirectory == NO || validStore == NO) {
- //    if (error != NULL) {
- //      *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
- //                                   code:LjsFileBackedKeyStoreErrorCode
- //                   localizedDescription:@"could not created keystore because of a problem with the arguments"];
- //    }
- //    return nil;
- //  }
- //  
- //  NSFileManager *fm = [NSFileManager defaultManager];
- //  BOOL directoryExists = [LjsFileUtilities ensureSaveDirectory:aDirectoryPath
- //                                             existsWithManager:fm];
- //  if (directoryExists == NO) {
- //    NSString *message = NSLocalizedString(@"Could not create directory", nil);
- //    DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
- //                       message, aDirectoryPath]);
- //    if (error != NULL) {
- //      NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aDirectoryPath
- //                                                           forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
- //      *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
- //                                   code:kLjsFileUtilitiesErrorCodeFileDoesNotExist
- //                   localizedDescription:message
- //                          otherUserInfo:userInfo];
- //    }
- //    return nil;
- //  }
- //  
- //  self.filepath = [aDirectoryPath stringByAppendingPathComponent:aFilename];
- //  
- //  BOOL fileExists = [fm fileExistsAtPath:self.filepath];
- //  
- //  if (fileExists == NO) {
- //    BOOL writeSucceeded = [LjsFileUtilities writeDictionary:aStore
- //                                                     toFile:self.filepath
- //                                                      error:error];
- //    if (writeSucceeded == NO) {
- //      // writing failed - bail out (error and messages handled in write selector)
- //      return nil;
- //    } 
- //    self.store = [NSMutableDictionary dictionaryWithDictionary:aStore];
- //    [[NSNotificationCenter defaultCenter]
- //     addObserver:self
- //     selector:@selector(handleStoreChanged:) 
- //     name:LjsFileBackedKeyStoreNotificationStoreChanged
- //     object:nil];
- //    return self;
- //  } 
- //  
- //  if (shouldOverwrite == YES) {
- //    BOOL writeSucceeded = [LjsFileUtilities writeDictionary:aStore
- //                                                     toFile:self.filepath
- //                                                      error:error];
- //    if (writeSucceeded == NO) {
- //      // writing failed - bail out (error and messages handled in write selector)
- //      return nil;
- //    } 
- //  }
- //  
- //  NSDictionary *dict = [LjsFileUtilities readDictionaryFromFile:self.filepath
- //                                                          error:error];
- //  if (dict == nil) {
- //    // reading failed - bail out (error and messages handled in read selector)
- //    return nil;
- //  }
- //  
- //  self.store = [NSMutableDictionary dictionaryWithDictionary:dict];
- //  [[NSNotificationCenter defaultCenter]
- //   addObserver:self
- //   selector:@selector(handleStoreChanged:) 
- //   name:LjsFileBackedKeyStoreNotificationStoreChanged
- //   object:nil];
- //  return self;
- //}
-*/

@@ -40,14 +40,16 @@ extern NSUInteger const LjsFileBackedKeyStoreErrorCode;
 @interface LjsFileBackedKeyStore : NSObject <LjsBackingStore>
 
 /** @name Properties */
-@property (nonatomic, copy) NSString *filepath;
-
+@property (nonatomic, copy, readonly) NSString *storeWillChangeNotificationName;
+@property (nonatomic, copy, readonly) NSString *storeDidChangeNotificationName;
+@property (nonatomic, assign) BOOL shouldPostNotifications;
 
 /** @name Initializing Objects */
 
-- (id) initWithFileName:(NSString *)aFilename 
-          directoryPath:(NSString *)aDirectoryPath 
-                  error:(NSError *__autoreleasing *)error;
++ (LjsFileBackedKeyStore *) sharedInstanceWithFilename:(NSString *) aFilename
+                                         directoryPath:(NSString *) aDirectoryPath
+                               shouldPostNotifications:(BOOL) aShouldPostNotifications
+                                                 error:(NSError **) aError;
 
 /** @name Handling Notifications, Requests, and Events */
 
