@@ -2019,6 +2019,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-MacOS\"",
 					"\"$(SRCROOT)/../ocmock/OSX\"",
+					"\"$(SRCROOT)/../OCHamcrest.framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-MacOS/Tests-MacOS-Prefix.pch";
@@ -2066,6 +2067,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Tests-MacOS\"",
 					"\"$(SRCROOT)/../ocmock/OSX\"",
+					"\"$(SRCROOT)/../OCHamcrest.framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests-MacOS/Tests-MacOS-Prefix.pch";
