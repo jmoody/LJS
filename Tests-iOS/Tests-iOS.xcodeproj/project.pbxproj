@@ -98,18 +98,18 @@
 		F54E3A651450E6C90059BF53 /* ASIS3ObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A4D1450E6C90059BF53 /* ASIS3ObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
 		F54E3A661450E6C90059BF53 /* ASIS3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A4F1450E6C90059BF53 /* ASIS3Request.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
 		F54E3A671450E6C90059BF53 /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A511450E6C90059BF53 /* ASIS3ServiceRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
-		F54E3A821450E6E80059BF53 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A6A1450E6E80059BF53 /* NSObject+SBJson.m */; };
-		F54E3A831450E6E80059BF53 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A6D1450E6E80059BF53 /* SBJsonParser.m */; };
-		F54E3A841450E6E80059BF53 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A6F1450E6E80059BF53 /* SBJsonStreamParser.m */; };
-		F54E3A851450E6E80059BF53 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A711450E6E80059BF53 /* SBJsonStreamParserAccumulator.m */; };
-		F54E3A861450E6E80059BF53 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A731450E6E80059BF53 /* SBJsonStreamParserAdapter.m */; };
-		F54E3A871450E6E80059BF53 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A751450E6E80059BF53 /* SBJsonStreamParserState.m */; };
-		F54E3A881450E6E80059BF53 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A771450E6E80059BF53 /* SBJsonStreamWriter.m */; };
-		F54E3A891450E6E80059BF53 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A791450E6E80059BF53 /* SBJsonStreamWriterAccumulator.m */; };
-		F54E3A8A1450E6E80059BF53 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A7B1450E6E80059BF53 /* SBJsonStreamWriterState.m */; };
-		F54E3A8B1450E6E80059BF53 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A7D1450E6E80059BF53 /* SBJsonTokeniser.m */; };
-		F54E3A8C1450E6E80059BF53 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A7F1450E6E80059BF53 /* SBJsonUTF8Stream.m */; };
-		F54E3A8D1450E6E80059BF53 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A811450E6E80059BF53 /* SBJsonWriter.m */; };
+		F54E3A821450E6E80059BF53 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A6A1450E6E80059BF53 /* NSObject+SBJson.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F54E3A831450E6E80059BF53 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A6D1450E6E80059BF53 /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F54E3A841450E6E80059BF53 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A6F1450E6E80059BF53 /* SBJsonStreamParser.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F54E3A851450E6E80059BF53 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A711450E6E80059BF53 /* SBJsonStreamParserAccumulator.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F54E3A861450E6E80059BF53 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A731450E6E80059BF53 /* SBJsonStreamParserAdapter.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F54E3A871450E6E80059BF53 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A751450E6E80059BF53 /* SBJsonStreamParserState.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F54E3A881450E6E80059BF53 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A771450E6E80059BF53 /* SBJsonStreamWriter.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F54E3A891450E6E80059BF53 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A791450E6E80059BF53 /* SBJsonStreamWriterAccumulator.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F54E3A8A1450E6E80059BF53 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A7B1450E6E80059BF53 /* SBJsonStreamWriterState.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F54E3A8B1450E6E80059BF53 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A7D1450E6E80059BF53 /* SBJsonTokeniser.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F54E3A8C1450E6E80059BF53 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A7F1450E6E80059BF53 /* SBJsonUTF8Stream.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F54E3A8D1450E6E80059BF53 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A811450E6E80059BF53 /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
 		F54E3A911450EA340059BF53 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3A901450EA340059BF53 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-objc-redundant-literal-use"; }; };
 		F54E3A991450EAD40059BF53 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54E3A981450EAD40059BF53 /* CFNetwork.framework */; };
 		F54E3A9B1450EAE10059BF53 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54E3A9A1450EAE10059BF53 /* SystemConfiguration.framework */; };
@@ -2738,6 +2738,11 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E8C409C-B185-433A-BD92-E32795A19DF8";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = (
+					"-Wunreachable-code",
+					"-fcolor-diagnostics",
+					"-Wno-format-security",
+				);
 			};
 			name = Debug;
 		};
@@ -2788,6 +2793,11 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				WARNING_CFLAGS = (
+					"-Wunreachable-code",
+					"-fcolor-diagnostics",
+					"-Wno-format-security",
+				);
 			};
 			name = Release;
 		};
@@ -2834,6 +2844,7 @@
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "i386 armv7 armv7s";
 				WARNING_CFLAGS = (
+					"-Wunreachable-code",
 					"-fcolor-diagnostics",
 					"-Wno-format-security",
 				);
@@ -2881,6 +2892,7 @@
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "i386 armv7 armv7s";
 				WARNING_CFLAGS = (
+					"-Wunreachable-code",
 					"-fcolor-diagnostics",
 					"-Wno-format-security",
 				);
@@ -2911,6 +2923,11 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E8C409C-B185-433A-BD92-E32795A19DF8";
+				WARNING_CFLAGS = (
+					"-Wunreachable-code",
+					"-fcolor-diagnostics",
+					"-Wno-format-security",
+				);
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2937,6 +2954,11 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E8C409C-B185-433A-BD92-E32795A19DF8";
+				WARNING_CFLAGS = (
+					"-Wunreachable-code",
+					"-fcolor-diagnostics",
+					"-Wno-format-security",
+				);
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -3043,6 +3065,11 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				WARNING_CFLAGS = (
+					"-Wunreachable-code",
+					"-fcolor-diagnostics",
+					"-Wno-format-security",
+				);
 			};
 			name = AdHoc;
 		};
@@ -3088,6 +3115,7 @@
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "i386 armv7 armv7s";
 				WARNING_CFLAGS = (
+					"-Wunreachable-code",
 					"-fcolor-diagnostics",
 					"-Wno-format-security",
 				);
@@ -3130,6 +3158,11 @@
 					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = (
+					"-Wunreachable-code",
+					"-fcolor-diagnostics",
+					"-Wno-format-security",
+				);
 				WRAPPER_EXTENSION = app;
 			};
 			name = AdHoc;
@@ -3180,6 +3213,11 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				WARNING_CFLAGS = (
+					"-Wunreachable-code",
+					"-fcolor-diagnostics",
+					"-Wno-format-security",
+				);
 			};
 			name = AppStore;
 		};
@@ -3225,6 +3263,7 @@
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "i386 armv7 armv7s";
 				WARNING_CFLAGS = (
+					"-Wunreachable-code",
 					"-fcolor-diagnostics",
 					"-Wno-format-security",
 				);
@@ -3267,6 +3306,11 @@
 					"\"$(SRCROOT)/../ocmock/iOS\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = (
+					"-Wunreachable-code",
+					"-fcolor-diagnostics",
+					"-Wno-format-security",
+				);
 				WRAPPER_EXTENSION = app;
 			};
 			name = AppStore;

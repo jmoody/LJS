@@ -97,18 +97,18 @@
 		F58070D3146C287200EA4CFB /* ASIS3ObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F580709D146C287200EA4CFB /* ASIS3ObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
 		F58070D4146C287200EA4CFB /* ASIS3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F580709F146C287200EA4CFB /* ASIS3Request.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
 		F58070D5146C287200EA4CFB /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070A1146C287200EA4CFB /* ASIS3ServiceRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-format"; }; };
-		F58070FF146C288C00EA4CFB /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070E7146C288C00EA4CFB /* NSObject+SBJson.m */; };
-		F5807100146C288C00EA4CFB /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070EA146C288C00EA4CFB /* SBJsonParser.m */; };
-		F5807101146C288C00EA4CFB /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070EC146C288C00EA4CFB /* SBJsonStreamParser.m */; settings = {COMPILER_FLAGS = "-Wno-format"; }; };
-		F5807102146C288C00EA4CFB /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070EE146C288C00EA4CFB /* SBJsonStreamParserAccumulator.m */; };
-		F5807103146C288C00EA4CFB /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070F0146C288C00EA4CFB /* SBJsonStreamParserAdapter.m */; };
-		F5807104146C288C00EA4CFB /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070F2146C288C00EA4CFB /* SBJsonStreamParserState.m */; };
-		F5807105146C288C00EA4CFB /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070F4146C288C00EA4CFB /* SBJsonStreamWriter.m */; };
-		F5807106146C288C00EA4CFB /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070F6146C288C00EA4CFB /* SBJsonStreamWriterAccumulator.m */; };
-		F5807107146C288C00EA4CFB /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070F8146C288C00EA4CFB /* SBJsonStreamWriterState.m */; };
-		F5807108146C288C00EA4CFB /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070FA146C288C00EA4CFB /* SBJsonTokeniser.m */; };
-		F5807109146C288C00EA4CFB /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070FC146C288C00EA4CFB /* SBJsonUTF8Stream.m */; };
-		F580710A146C288C00EA4CFB /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070FE146C288C00EA4CFB /* SBJsonWriter.m */; };
+		F58070FF146C288C00EA4CFB /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070E7146C288C00EA4CFB /* NSObject+SBJson.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5807100146C288C00EA4CFB /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070EA146C288C00EA4CFB /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5807101146C288C00EA4CFB /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070EC146C288C00EA4CFB /* SBJsonStreamParser.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5807102146C288C00EA4CFB /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070EE146C288C00EA4CFB /* SBJsonStreamParserAccumulator.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5807103146C288C00EA4CFB /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070F0146C288C00EA4CFB /* SBJsonStreamParserAdapter.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5807104146C288C00EA4CFB /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070F2146C288C00EA4CFB /* SBJsonStreamParserState.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5807105146C288C00EA4CFB /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070F4146C288C00EA4CFB /* SBJsonStreamWriter.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5807106146C288C00EA4CFB /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070F6146C288C00EA4CFB /* SBJsonStreamWriterAccumulator.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5807107146C288C00EA4CFB /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070F8146C288C00EA4CFB /* SBJsonStreamWriterState.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5807108146C288C00EA4CFB /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070FA146C288C00EA4CFB /* SBJsonTokeniser.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5807109146C288C00EA4CFB /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070FC146C288C00EA4CFB /* SBJsonUTF8Stream.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F580710A146C288C00EA4CFB /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F58070FE146C288C00EA4CFB /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
 		F5807138146C295200EA4CFB /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F580712D146C295200EA4CFB /* DDFileLogger+CurrentFile.m */; };
 		F5807139146C295200EA4CFB /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F580712F146C295200EA4CFB /* LjsDefaultFormatter.m */; };
 		F580713B146C295200EA4CFB /* LjsMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F5807134146C295200EA4CFB /* LjsMessageBuilder.m */; };
@@ -1972,6 +1972,11 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				WARNING_CFLAGS = (
+					"-Wunreachable-code",
+					"-fcolor-diagnostics",
+					"-Wno-format-security",
+				);
 			};
 			name = Debug;
 		};
@@ -1996,6 +2001,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
+				WARNING_CFLAGS = (
+					"-Wunreachable-code",
+					"-fcolor-diagnostics",
+					"-Wno-format-security",
+				);
 			};
 			name = Release;
 		};
@@ -2038,6 +2048,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				WARNING_CFLAGS = (
+					"-Wunreachable-code",
 					"-fcolor-diagnostics",
 					"-Wno-format-security",
 				);
@@ -2079,6 +2090,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				WARNING_CFLAGS = (
+					"-Wunreachable-code",
 					"-fcolor-diagnostics",
 					"-Wno-format-security",
 				);
