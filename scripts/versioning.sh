@@ -7,7 +7,7 @@
 #
 # 1. in xcode, make a Run Script build phase with the following:
 #
-# sh versioning.sh "${CONFIGURATION}" "${INFOPLIST_FILE}" "${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}" "AppStore"
+# sh versioning.sh "${CONFIGURATION}" "${INFOPLIST_FILE}" "${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}" "${ARCHS}" AppStore
 #
 # 2. put that build phase script at the _last_ item to run
 # 3. in the project build settings make then Info.plist Output Encoding to be XML
@@ -23,18 +23,24 @@
 #
 #############################################################################
 #
-# LjsAppStoreBundleVersionNumber: an incrementing counter to keep track of 
-#                                 the number of AppStore Distribution builds
-#                                 that have been created.  _must_ be reset
-#                                 manually when the short version string
-#                                 is changed
-#	
+# LjsAppStoreBuildNumber: a number that is used to indicate the 'next' app
+#                         store build.  this _must_ be managed by you at
+#                         archive time - it should be +1 whatever the 
+#                         current iTunes Connect record is.  eg.  if the
+#                         iTC record is 1.0.11, then this number needs to be 
+#                         > 12.  if you are changing minor verion, then you
+#                         should reset this to zero.  if this field does not
+#                         exist, it will be created
+#
 # CFBundleShortVersionString: short version typically set in the Summary section
 #                             of the app
 #   !App Store Configuration: <major>.<minor> + any number of bug fix versions
 #                             eg. 0.9.3
-#    App Store Configuration: <major>.<minor> REQUIRED FORMAT
-#                             eg. 1.4                             
+#   
+#    MacOS App Store Configuration: <major>.<minor> REQUIRED FORMAT
+#                                   eg. 1.4                             
+#      iOS App Store Configuration: <major>.<minor>.<build number> REQUIRED
+#                                   FORMAT  eg. 1.4.1                                    
 #
 # CFBundleVersion - the current bundle version
 #   !App Store Distribution:  <git short rev> 
@@ -42,41 +48,19 @@
 #    App Store Distribution:  <short version>.<build number> REQUIRED FORMAT
 #                             eg. 1.1.10
 #
-############################# IMPORTANT ####################################
-#
-# You must manage the CFBundleShortVersionString (eg. 0.8.5 or 2.2) manually! 
-# This is usually done in the Summary tab of the target in xcode.
-#
 #############################################################################
 #
 ############################# IMPORTANT ####################################
 #  
 # When archiving for the app store, if you have increased your major and/or
 # minor version (CFBundleShortVersionString), you should manually reset the
-# LjsAppStoreBundleVersionNumber to zero in the info plist.
+# LjsAppStoreBuildNumber to zero in the info plist.
 #
 ############################################################################
-#
-##############################  ISSUES  ####################################
-#  
-# unless the project is cleaned, it is possible that the CFBundleVersion
-# or the CFBundleShortVersionString will be out of sync in the product
-# Info.plist.  i have tried many solutions to this including:
-#
-# http://www.cimgf.com/2011/02/20/revisiting-git-tags-and-building/
-# 
-# all approaches seem to have this problem
-#
-# since all my release are automated and/or have clean step, i am going to
-# punt on this for now.  the only time it really matters if the version is
-# in sync with git revision and the info plist is for releases.
-#
-# trying the product Info.plist rewrite approach
-#
-#############################################################################
 
-if [ $# != 4 ] ; then
-    echo "usage: versioning.sh <CONFIGURATION> <INFOPLIST_FILE> <APP STORE CONFIG>"
+if [ $# != 5 ] ; then
+    echo "usage: versioning.sh <CONFIGURATION> <INFOPLIST_FILE> <PRODUCT_INFOPLIST_PATH> <ARCHS> <APP STORE CONFIG>"
+echo "Ex. sh versioning.sh \"\${CONFIGURATION}\" \"\${INFOPLIST_FILE}\" \"\${BUILT_PRODUCTS_DIR}/\${INFOPLIST_PATH}\" \"\${ARCHS}\" AppStore"
     exit 1
 fi
 
@@ -84,28 +68,42 @@ PlistBuddyPath=/usr/libexec/PlistBuddy
 CONFIGURATION="$1"
 INFOPLIST_FILE="$2"
 PRODUCT_INFOPLIST_FILE="$3"
-APP_STORE_CONFIGURATION="$4"
+ARCHS="$4"
+APP_STORE_CONFIGURATION="$5"
 
-LjsAppStoreBundleVersionNumber=$("$PlistBuddyPath" -c "Print LjsAppStoreBundleVersionNumber" "$INFOPLIST_FILE")
+echo "executing:"
+echo "./versioning.sh ${CONFIGURATION} ${INFOPLIST_FILE} ${PRODUCT_INFOPLIST_FILE} ${ARCHS} ${APP_STORE_CONFIGURATION}"
+
+LjsAppStoreBuildNumber=$("$PlistBuddyPath" -c "Print LjsAppStoreBuildNumber" "$INFOPLIST_FILE")
 # if the build number property does not exist, create it and set it to 0
-if [ `echo $?` != 0 ]
+if [ `echo $?` != 0 ];
 then
-    echo "No entry for LjsAppStoreBundleVersionNumber in Plist, so we create it"
-    LjsAppStoreBundleVersionNumber=0
-    "$PlistBuddyPath" -c "Add :LjsAppStoreBundleVersionNumber integer $LjsAppStoreBundleVersionNumber" "$INFOPLIST_FILE"
+    echo "No entry for LjsAppStoreBuildNumber in Plist, so we create it"
+    LjsAppStoreBuildNumber=0
+    "$PlistBuddyPath" -c "Add :LjsAppStoreBuildNumber integer $LjsAppStoreBuildNumber" "$INFOPLIST_FILE"
 fi
 
-# if this is an app store release, then increment the build number
+# app store
 if [ "$CONFIGURATION" = "$APP_STORE_CONFIGURATION" ]; then
-    LjsAppStoreBundleVersionNumber=$(($LjsAppStoreBundleVersionNumber + 1))
-    "$PlistBuddyPath" -c "Set :LjsAppStoreBundleVersionNumber $LjsAppStoreBundleVersionNumber" "$INFOPLIST_FILE"
+    "$PlistBuddyPath" -c "Set :LjsAppStoreBuildNumber $LjsAppStoreBuildNumber" "$INFOPLIST_FILE"
     CFBundleShortVersionString=$("$PlistBuddyPath" -c "Print CFBundleShortVersionString" "$INFOPLIST_FILE")
+    
+
     num_dots=$((`echo "$CFBundleShortVersionString"|sed 's/[^.]//g'|wc -m`-1))
     if [ $num_dots != 1 ]; then
         echo "CFBundleShortVersionString *must* be in <major>.<minor> format:  found $CFBundleShortVersionString"
         exit 1
     fi
-    "$PlistBuddyPath" -c "Set :CFBundleVersion $CFBundleShortVersionString.$LjsAppStoreBundleVersionNumber" "$INFOPLIST_FILE"
+
+    # mac os - CFBundleVersion <major>.<minor>.<build number>
+    #          CFBundleShortVersionString <major>.<minor>
+    # ios    - CFBundleVersion <major>.<minor>.<build number>
+    #          CFBundleShortVersionString <major>.<minor>.<build number>
+    "$PlistBuddyPath" -c "Set :CFBundleVersion $CFBundleShortVersionString.$LjsAppStoreBuildNumber" "$INFOPLIST_FILE"
+    if [ "$ARCHS" = "armv7" ]; then
+        bundle_version=$("$PlistBuddyPath" -c "Print CFBundleVersion" "$INFOPLIST_FILE")
+        "$PlistBuddyPath" -c "Set :CFBundleShortVersionString $bundle_version" "$INFOPLIST_FILE"
+    fi
 else
     # use the git revision for the bundle version, except when building for the app store
     gitpath=`which git`
@@ -114,18 +112,18 @@ else
 fi
 
 echo updating Info.plist at "$PRODUCT_INFOPLIST_FILE"
-build_number=$("$PlistBuddyPath" -c "Print LjsAppStoreBundleVersionNumber" "$INFOPLIST_FILE")
-"$PlistBuddyPath" -c "Set :LjsAppStoreBundleVersionNumber $build_number" "$PRODUCT_INFOPLIST_FILE"
+build_number=$("$PlistBuddyPath" -c "Print LjsAppStoreBuildNumber" "$INFOPLIST_FILE")
+"$PlistBuddyPath" -c "Set :LjsAppStoreBuildNumber $build_number" "$PRODUCT_INFOPLIST_FILE"
 bundle_version=$("$PlistBuddyPath" -c "Print CFBundleVersion" "$INFOPLIST_FILE")
 "$PlistBuddyPath" -c "Set :CFBundleVersion $bundle_version" "$PRODUCT_INFOPLIST_FILE"
 short_version=$("$PlistBuddyPath" -c "Print CFBundleShortVersionString" "$INFOPLIST_FILE")
 "$PlistBuddyPath" -c "Set :CFBundleShortVersionString $short_version" "$PRODUCT_INFOPLIST_FILE"
 
 
-echo CONFIGURATION = "finished versioning for $CONFIGURATION"
-echo build number = $build_number
-echo bundle version = $build_version
-echo bundle short version = $short_version
+echo CONFIGURATION = "finished versioning for $CONFIGURATION and $ARCHS"
+echo build number = "'$build_number'"
+echo bundle version = "'$bundle_version'"
+echo bundle short version = "'$short_version'"
 
 
 
