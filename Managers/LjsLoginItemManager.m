@@ -248,7 +248,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 			}
     }
   }
-  CFRelease(loginItems);
+  if (loginItems != NULL) { CFRelease(loginItems); }
   return result;
 }
 
