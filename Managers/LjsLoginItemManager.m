@@ -41,6 +41,7 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+
 @interface LjsLoginItemManager ()
 
 @property (nonatomic, strong) NSTimer *checkLoginItemTimer;
@@ -88,9 +89,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 
 #pragma mark Memory Management
-- (void) dealloc {
-   DDLogDebug(@"deallocating %@", [self class]);
-}
 
 - (id) init {
   //[self doesNotRecognizeSelector:_cmd];
@@ -109,12 +107,15 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     
     }
     self.timerEventBlock = aTimerEventBlock;
+    self.shouldLogTimerEvent = NO;
   }
   return self;
 }
 
 - (void) handleCheckLoginItemTimerEvent:(NSTimer *) aTimer {
-  DDLogInfo(@"handling check login item timer event");
+  if (self.shouldLogTimerEvent == YES) {
+    DDLogDebug(@"handling check login item timer event");
+  }
   BOOL status = [self isLoginItem];
   self.timerEventBlock(status);
 }
@@ -128,7 +129,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
  */
 -(BOOL) addLoginItem:(NSError **) aError {
-    
+  // possible way around apple scripting, but not around sandboxing
+  // https://github.com/pkamb/OpenAtLogin/blob/master/OpenAtLogin.m
+  
   //tell application "System Events"
   //  make login item at end with properties {path:"/Applications/Ansible.app", kind:application}
   // end tell
@@ -167,6 +170,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  @return YES iff delete was successful
  */
 - (BOOL) deleteLoginItem:(NSError **) aError {
+  // possible way around apple scripting, but not around sandboxing
+  // https://github.com/pkamb/OpenAtLogin/blob/master/OpenAtLogin.m
+
   NSBundle *main = [NSBundle mainBundle];
   NSString *bundleName = [[main infoDictionary] objectForKey:@"CFBundleName"];
   NSString *conditionLine = [NSString stringWithFormat:@"if login item \"%@\" exists then",

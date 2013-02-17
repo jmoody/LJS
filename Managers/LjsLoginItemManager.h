@@ -41,6 +41,7 @@ typedef void(^Ljs_Block_LoginItemManager_TimerEvent)(BOOL aIsLoginItem);
 LjsStartAtLaunchManagerProtocol>
 
 /** @name Properties */
+@property (assign) BOOL shouldLogTimerEvent;
 
 /** @name Initializing Objects */
 - (id) initWithTimerEventBlock:(void (^)(BOOL aIsLoginItem)) aTimerEventBlock;
