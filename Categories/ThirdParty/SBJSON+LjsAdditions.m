@@ -1,4 +1,4 @@
-// Copyright 2012 Little Joy Software. All rights reserved.
+// Copyright 2013 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -30,11 +30,9 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LjsGoogleReply.h"
-#import "Lumberjack.h"
-#import "LjsGoogleGlobals.h"
-#import "SBJson.h"
 #import "SBJSON+LjsAdditions.h"
+#import "Lumberjack.h"
+#import "LjsErrorFactory.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -42,58 +40,18 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-@implementation LjsGoogleReply
+@implementation SBJsonParser (SBJSON_LjsAdditions)
 
-@synthesize dictionary;
-
-#pragma mark Memory Management
-
-
-- (id) initWithReply:(NSString *) aReply 
-               error:(NSError *__autoreleasing *)error {
-  self = [super init];
-  if (self) {
-    SBJsonParser *parser = [[SBJsonParser alloc] init];
-    self.dictionary = [parser objectWithString:aReply
-                                   error:error];
+- (id) objectWithString:(NSString *) aString
+                  error:(NSError **) aError {
+  id obj = [self objectWithString:aString];
+  if (obj == nil) {
+    if (aError != NULL) {
+      *aError = [LjsErrorFactory errorWithCode:1
+                          localizedDescription:aString];
+    }
   }
-  return self;
+  return obj;
 }
-
-- (NSString *) status {
-  if (self.dictionary == nil) {
-    return LjsGoogleStatusLocalParseError; 
-  }
-  return [self.dictionary objectForKey:LjsGooglePlacesKeyStatus];
-}
-
-- (BOOL) statusHasResults {
-  return [LjsGoogleStatusOK isEqualToString:[self status]];
-}
-
-- (BOOL) statusNoResults {
-  return [LjsGoogleStatusNotFound isEqualToString:[self status]];
-}
-
-- (BOOL) statusRejected {
-  return [self statusNoResults] == NO && [self statusHasResults] == NO;
-}
-
-- (BOOL) statusOverQueryLimit {
-  return [LjsGoogleStatusOverQueryLimit isEqualToString:[self status]];
-}
-
-- (BOOL) statusRequestDenied {
-  return [LjsGoogleStatusRequestDenied isEqualToString:[self status]];
-}
-
-- (BOOL) statusInvalidRequest {
-  return [LjsGoogleStatusInvalidRequest isEqualToString:[self status]];
-}
-
-- (BOOL) statusLocalParseError {
-  return [LjsGoogleStatusLocalParseError isEqualToString:[self status]];
-}
-
 
 @end

@@ -36,6 +36,7 @@
 #import "LjsGooglePlacesPrediction.h"
 #import "LjsValidator.h"
 #import "SBJson.h"
+#import "SBJSON+LjsAdditions.h"
 
 @interface LjsGooglePlacesPredictionTests : LjsGoogleImportTest_Super
 

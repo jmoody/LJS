@@ -75,16 +75,17 @@
 		F5450AD016DE06A300D9D01C /* Default~iphone-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5450ACF16DE06A300D9D01C /* Default~iphone-568h@2x.png */; };
 		F5450AD316DE06FD00D9D01C /* Default~ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5450AD116DE06FD00D9D01C /* Default~ipad@2x.png */; };
 		F5450AD416DE06FD00D9D01C /* Default~iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5450AD216DE06FD00D9D01C /* Default~iphone@2x.png */; };
-		F5450AEA16DE074800D9D01C /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450AD716DE074800D9D01C /* SBJsonParser.m */; };
-		F5450AEB16DE074800D9D01C /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450AD916DE074800D9D01C /* SBJsonStreamParser.m */; };
-		F5450AEC16DE074800D9D01C /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450ADB16DE074800D9D01C /* SBJsonStreamParserAccumulator.m */; };
-		F5450AED16DE074800D9D01C /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450ADD16DE074800D9D01C /* SBJsonStreamParserAdapter.m */; };
-		F5450AEE16DE074800D9D01C /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450ADF16DE074800D9D01C /* SBJsonStreamParserState.m */; };
-		F5450AEF16DE074800D9D01C /* SBJsonStreamTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450AE116DE074800D9D01C /* SBJsonStreamTokeniser.m */; };
-		F5450AF016DE074800D9D01C /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450AE316DE074800D9D01C /* SBJsonStreamWriter.m */; };
-		F5450AF116DE074800D9D01C /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450AE516DE074800D9D01C /* SBJsonStreamWriterAccumulator.m */; };
-		F5450AF216DE074800D9D01C /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450AE716DE074800D9D01C /* SBJsonStreamWriterState.m */; };
-		F5450AF316DE074800D9D01C /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450AE916DE074800D9D01C /* SBJsonWriter.m */; };
+		F5450AEA16DE074800D9D01C /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450AD716DE074800D9D01C /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5450AEB16DE074800D9D01C /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450AD916DE074800D9D01C /* SBJsonStreamParser.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5450AEC16DE074800D9D01C /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450ADB16DE074800D9D01C /* SBJsonStreamParserAccumulator.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5450AED16DE074800D9D01C /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450ADD16DE074800D9D01C /* SBJsonStreamParserAdapter.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5450AEE16DE074800D9D01C /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450ADF16DE074800D9D01C /* SBJsonStreamParserState.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5450AEF16DE074800D9D01C /* SBJsonStreamTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450AE116DE074800D9D01C /* SBJsonStreamTokeniser.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5450AF016DE074800D9D01C /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450AE316DE074800D9D01C /* SBJsonStreamWriter.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5450AF116DE074800D9D01C /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450AE516DE074800D9D01C /* SBJsonStreamWriterAccumulator.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5450AF216DE074800D9D01C /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450AE716DE074800D9D01C /* SBJsonStreamWriterState.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5450AF316DE074800D9D01C /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450AE916DE074800D9D01C /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
+		F5450AF616DE419300D9D01C /* SBJSON+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5450AF516DE419300D9D01C /* SBJSON+LjsAdditions.m */; };
 		F545349C1527B45D00B95A6D /* google-places-reverse-geocode-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F545349B1527B45D00B95A6D /* google-places-reverse-geocode-sample.json */; };
 		F546C0AE157D0BA9003E7823 /* LjsBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = F546C0AD157D0BA9003E7823 /* LjsBlocks.m */; };
 		F548505014C5AF0700B7824F /* LjsFileBackedKeyStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F548504F14C5AF0700B7824F /* LjsFileBackedKeyStore.m */; };
@@ -486,6 +487,8 @@
 		F5450AE716DE074800D9D01C /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonStreamWriterState.m; path = "../json-framework/src/main/objc/SBJsonStreamWriterState.m"; sourceTree = "<group>"; };
 		F5450AE816DE074800D9D01C /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = "../json-framework/src/main/objc/SBJsonWriter.h"; sourceTree = "<group>"; };
 		F5450AE916DE074800D9D01C /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = "../json-framework/src/main/objc/SBJsonWriter.m"; sourceTree = "<group>"; };
+		F5450AF416DE419300D9D01C /* SBJSON+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SBJSON+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5450AF516DE419300D9D01C /* SBJSON+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SBJSON+LjsAdditions.m"; sourceTree = "<group>"; };
 		F545349B1527B45D00B95A6D /* google-places-reverse-geocode-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "google-places-reverse-geocode-sample.json"; sourceTree = "<group>"; };
 		F546C0AC157D0BA9003E7823 /* LjsBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsBlocks.h; sourceTree = "<group>"; };
 		F546C0AD157D0BA9003E7823 /* LjsBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsBlocks.m; sourceTree = "<group>"; };
@@ -1697,6 +1700,8 @@
 			children = (
 				F5903F84151B517D00995AF1 /* ASIHTTPRequest+LjsAdditions.h */,
 				F5903F85151B517D00995AF1 /* ASIHTTPRequest+LjsAdditions.m */,
+				F5450AF416DE419300D9D01C /* SBJSON+LjsAdditions.h */,
+				F5450AF516DE419300D9D01C /* SBJSON+LjsAdditions.m */,
 			);
 			path = ThirdParty;
 			sourceTree = "<group>";
@@ -2549,6 +2554,7 @@
 				F5450AF116DE074800D9D01C /* SBJsonStreamWriterAccumulator.m in Sources */,
 				F5450AF216DE074800D9D01C /* SBJsonStreamWriterState.m in Sources */,
 				F5450AF316DE074800D9D01C /* SBJsonWriter.m in Sources */,
+				F5450AF616DE419300D9D01C /* SBJSON+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2810,6 +2816,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2861,6 +2868,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3082,6 +3090,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3230,6 +3239,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

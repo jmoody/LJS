@@ -1,4 +1,4 @@
-// Copyright 2012 Little Joy Software. All rights reserved.
+// Copyright 2013 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,19 +26,16 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
 #import <Foundation/Foundation.h>
+#import "SBJSON.h"
 
 /**
- from https://developer.apple.com/library/mac/#qa/qa2006/qa1487.html
+ SBJsonParser on SBJSON_LjsAdditions category.
  */
-@interface NSAttributedString (NSAttributedString_LjsAdditions)
+@interface SBJsonParser (SBJSON_LjsAdditions)
 
-
-+ (id) hyperlinkFromString:(NSString *) aString
-                   withURL:(NSURL *) aURL
-                 alignment:(NSTextAlignment) aTextAlignment;
-
-
+/** @name Task Section */
+- (id)objectWithString:(NSString *) aString
+                 error:(NSError **) aError;
 
 @end

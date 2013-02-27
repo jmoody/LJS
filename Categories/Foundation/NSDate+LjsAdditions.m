@@ -81,6 +81,7 @@ static NSInteger NSDateLjsAdditionsComponentFlags =
 NSDayCalendarUnit | NSWeekdayCalendarUnit | NSHourCalendarUnit | 
 NSSecondCalendarUnit);
 
+#pragma clang diagnostic ignored "-Wincomplete-implementation"
 @implementation NSDate (NSDate_LjsAdditions)
 
 - (NSString *) descriptionWithCurrentLocale {
@@ -555,6 +556,10 @@ NSSecondCalendarUnit);
                            calendar:aCalendar];
 }
 
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+// deprecated - replace in LjsVariates
 + (NSDate *) randomDateBetweenStart:(NSDate *) aStart end:(NSDate *) aEnd {
   NSUInteger daysBtw = [aStart daysBetweenDate:aEnd];
   LjsDateComps fromComps = [aStart dateComponents];
@@ -585,5 +590,6 @@ NSSecondCalendarUnit);
   }
   return date;
 }
+#pragma clang diagnostic pop
 
 @end
