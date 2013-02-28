@@ -61,7 +61,7 @@
          <EnvironmentVariable
             key = "GHUNIT_CLI"
             value = "YES"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "GHUNIT_RERAISE"

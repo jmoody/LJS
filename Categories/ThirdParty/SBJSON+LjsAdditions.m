@@ -32,7 +32,7 @@
 
 #import "SBJSON+LjsAdditions.h"
 #import "Lumberjack.h"
-#import "LjsErrorFactory.h"
+#import "NSError+LjsAdditions.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -55,3 +55,191 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 @end
+
+#pragma mark - NSArray
+
+@implementation NSArray (NSArray_SBJsonWriting)
+
+- (NSString *) toJson:(NSError **) aError {
+  SBJsonWriter *writer = [[SBJsonWriter alloc] init];
+  NSString *json = [writer stringWithObject:self];
+  if (json == nil) {
+    DDLogDebug(@"error parsing %@ ==> %@", self, writer.error);
+    if (aError != nil) {
+      *aError = [LjsErrorFactory errorWithCode:1
+                          localizedDescription:writer.error];
+    }
+  }
+  return json;
+}
+
+@end
+
+@implementation NSDictionary (NSDictionary_SBJsonWriting)
+
+- (NSString *) toJson:(NSError **) aError {
+  SBJsonWriter *writer = [[SBJsonWriter alloc] init];
+  NSString *json = [writer stringWithObject:self];
+  if (json == nil) {
+    DDLogDebug(@"error parsing %@ ==> %@", self, writer.error);
+    if (aError != nil) {
+      *aError = [LjsErrorFactory errorWithCode:1
+                          localizedDescription:writer.error];
+    }
+  }
+  return json;
+}
+
+@end
+
+
+@interface NSString (NSString_SBJsonParsing_Helper)
+
+- (id) valueFromJson:(NSString **) aErrorMessage;
+
+@end
+
+@implementation NSString (NSString_SBJsonParsing_Helper)
+
+- (id) valueFromJson:(NSString **) aErrorMessage {
+  SBJsonParser *parser = [[SBJsonParser alloc] init];
+  id repr = [parser objectWithString:self];
+  if (!repr) {
+    DDLogDebug(@"error parsing %@ ==> %@", self, parser.error);
+    if (aErrorMessage != nil) {
+      *aErrorMessage = [NSString stringWithString:parser.error];
+    }
+  }
+  return repr;
+}
+
+@end
+
+@implementation NSString (NSString_SBJsonParsing)
+
+- (NSArray *) arrayFromJson:(NSError **) aError {
+  NSString *errorMsg = nil;
+  id repr = [self valueFromJson:&errorMsg];
+  if (repr == nil) {
+    if (aError != nil) {
+      *aError = [LjsErrorFactory errorWithCode:1
+                          localizedDescription:errorMsg];
+    }
+    return nil;
+  }
+  
+  if ([repr respondsToSelector:@selector(objectAtIndex:)] == NO) {
+    NSString *msg = @"could not create an array from self - am i a dictionary?";
+    DDLogDebug(@"%@ ==> %@", msg, self);
+    if (aError != nil) {
+      *aError = [LjsErrorFactory errorWithCode:1
+                          localizedDescription:msg
+                                userInfoObject:self
+                                   userInfoKey:@"self"];
+    }
+    return nil;
+  }
+  return (NSArray *) repr;
+}
+
+- (NSDictionary *) dictionaryFromJson:(NSError **) aError {
+  NSString *errorMsg = nil;
+  id repr = [self valueFromJson:&errorMsg];
+  if (repr == nil) {
+    if (aError != nil) {
+      *aError = [LjsErrorFactory errorWithCode:1
+                          localizedDescription:errorMsg];
+    }
+    return nil;
+  }
+  
+  if ([repr respondsToSelector:@selector(objectForKey:)] == NO) {
+    NSString *msg = @"could not create a dictionary from self - am i an array?";
+    DDLogDebug(@"%@ ==> %@", msg, self);
+    if (aError != nil) {
+      *aError = [LjsErrorFactory errorWithCode:1
+                          localizedDescription:msg
+                                userInfoObject:self
+                                   userInfoKey:@"self"];
+    }
+    return nil;
+  }
+  return (NSDictionary *) repr;
+}
+
+@end
+
+
+@interface NSData (NSData_SBJsonParsing_Helper)
+
+- (id) valueFromJson:(NSString **) aErrorMessage;
+
+@end
+
+@implementation NSData (NSData_SBJsonParsing_Helper)
+
+- (id) valueFromJson:(NSString **) aErrorMessage {
+  SBJsonParser *parser = [[SBJsonParser alloc] init];
+  id repr = [parser objectWithData:self];
+  if (!repr) {
+    DDLogDebug(@"error parsing: %@", parser.error);
+    if (aErrorMessage != nil) {
+      *aErrorMessage = [NSString stringWithString:parser.error];
+    }
+  }
+  return repr;
+}
+
+@end
+
+
+@implementation NSData (NSData_SBJsonParsing)
+
+- (NSArray *) arrayFromJson:(NSError **) aError {
+  NSString *errorMsg = nil;
+  id repr = [self valueFromJson:&errorMsg];
+  if (repr == nil) {
+    if (aError != nil) {
+      *aError = [LjsErrorFactory errorWithCode:1
+                          localizedDescription:errorMsg];
+    }
+    return nil;
+  }
+  
+  if ([repr respondsToSelector:@selector(objectAtIndex:)] == NO) {
+    NSString *msg = @"could not create an array from self (NSData) - do i represent a dictionary?";
+    DDLogDebug(@"%@", msg);
+    if (aError != nil) {
+      *aError = [LjsErrorFactory errorWithCode:1
+                          localizedDescription:msg];
+    }
+    return nil;
+  }
+  return (NSArray *) repr;
+}
+
+- (NSDictionary *) dictionaryFromJson:(NSError **) aError {
+  NSString *errorMsg = nil;
+  id repr = [self valueFromJson:&errorMsg];
+  if (repr == nil) {
+    if (aError != nil) {
+      *aError = [LjsErrorFactory errorWithCode:1
+                          localizedDescription:errorMsg];
+    }
+    return nil;
+  }
+  
+  if ([repr respondsToSelector:@selector(objectForKey:)] == NO) {
+    NSString *msg = @"could not create a dictionary from self (NSData) - do i represent an array?";
+    DDLogDebug(@"%@", msg);
+    if (aError != nil) {
+      *aError = [LjsErrorFactory errorWithCode:1
+                          localizedDescription:msg];
+    }
+    return nil;
+  }
+  return (NSDictionary *) repr;
+}
+
+@end
+

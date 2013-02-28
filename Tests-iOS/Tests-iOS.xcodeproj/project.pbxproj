@@ -171,6 +171,7 @@
 		F56B0C6815D1429500A174AA /* LjsFetchRequestFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F56B0C6715D1429500A174AA /* LjsFetchRequestFactoryTest.m */; };
 		F5724970149F9AD6006C62A2 /* LjsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F572496F149F9AD6006C62A2 /* LjsButton.m */; };
 		F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5724971149F9C00006C62A2 /* QuartzCore.framework */; };
+		F5730B6216DF7DEB003202CC /* SBJSONLjsAdditonsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5730B6116DF7DEB003202CC /* SBJSONLjsAdditonsTest.m */; };
 		F573B90014F14E8D00E6F5CF /* LjsKeyboardInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F573B8FE14F14E8D00E6F5CF /* LjsKeyboardInfo.m */; };
 		F573CBFB1510C7A600277794 /* LjsCaesarCipher.m in Sources */ = {isa = PBXBuildFile; fileRef = F573CBFA1510C7A600277794 /* LjsCaesarCipher.m */; };
 		F57D0E47156C216C00C5CDC2 /* readlines-test.txt in Resources */ = {isa = PBXBuildFile; fileRef = F57D0E46156C216C00C5CDC2 /* readlines-test.txt */; };
@@ -335,7 +336,6 @@
 		F5B36C1116306789005BED75 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B36C0716306789005BED75 /* libOCMock.a */; };
 		F5B36C121630678A005BED75 /* VERSION.markdown in Resources */ = {isa = PBXBuildFile; fileRef = F5B36C0F16306789005BED75 /* VERSION.markdown */; };
 		F5B36C131630678A005BED75 /* VERSION.markdown in Resources */ = {isa = PBXBuildFile; fileRef = F5B36C0F16306789005BED75 /* VERSION.markdown */; };
-		F5B5C08916951522000BEF0C /* LjsErrorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B5C08816951522000BEF0C /* LjsErrorFactory.m */; };
 		F5BB1EBC151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
 		F5BB1EBD151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */; };
 		F5C112731496715900948605 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE69F1410C6F60051FC7E /* UIKit.framework */; };
@@ -599,6 +599,7 @@
 		F572496E149F9AD6006C62A2 /* LjsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsButton.h; sourceTree = "<group>"; };
 		F572496F149F9AD6006C62A2 /* LjsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsButton.m; sourceTree = "<group>"; };
 		F5724971149F9C00006C62A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F5730B6116DF7DEB003202CC /* SBJSONLjsAdditonsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSONLjsAdditonsTest.m; sourceTree = "<group>"; };
 		F573B8FC14F1363D00E6F5CF /* LjsCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsCategories.h; sourceTree = "<group>"; };
 		F573B8FD14F14E8D00E6F5CF /* LjsKeyboardInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsKeyboardInfo.h; sourceTree = "<group>"; };
 		F573B8FE14F14E8D00E6F5CF /* LjsKeyboardInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsKeyboardInfo.m; sourceTree = "<group>"; };
@@ -833,8 +834,6 @@
 		F5B36C0D16306789005BED75 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
 		F5B36C0E16306789005BED75 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		F5B36C0F16306789005BED75 /* VERSION.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION.markdown; sourceTree = "<group>"; };
-		F5B5C08716951522000BEF0C /* LjsErrorFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsErrorFactory.h; path = ../Utilities/LjsErrorFactory.h; sourceTree = "<group>"; };
-		F5B5C08816951522000BEF0C /* LjsErrorFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsErrorFactory.m; path = ../Utilities/LjsErrorFactory.m; sourceTree = "<group>"; };
 		F5BB1EBB151B7F5D00BFDDA0 /* google-places-autocomplete-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "google-places-autocomplete-sample.json"; sourceTree = "<group>"; };
 		F5C112711496715900948605 /* LJS iOS Documentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LJS iOS Documentation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C112781496715900948605 /* Documentation-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Documentation-Info.plist"; sourceTree = "<group>"; };
@@ -1562,6 +1561,7 @@
 		F58C26C61589EC5500B716F4 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				F5730B6116DF7DEB003202CC /* SBJSONLjsAdditonsTest.m */,
 				F58C26C71589EC5500B716F4 /* LjsDecimalAideTests.m */,
 				F58C26C81589EC5500B716F4 /* NSArrayLjsAdditionsTests.m */,
 				F58C26C91589EC5500B716F4 /* NSDateLjsAdditionsTests.m */,
@@ -1737,8 +1737,6 @@
 		F59635CE1496632000CDB27E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F5B5C08716951522000BEF0C /* LjsErrorFactory.h */,
-				F5B5C08816951522000BEF0C /* LjsErrorFactory.m */,
 				F59635CF1496632000CDB27E /* LjsObjectWithUUID.h */,
 				F59635D01496632000CDB27E /* LjsObjectWithUUID.m */,
 			);
@@ -2543,7 +2541,6 @@
 				F59393AB15D1625B005FD30A /* _DndClass.m in Sources */,
 				F59393AC15D1625B005FD30A /* _DndRace.m in Sources */,
 				F59393BC15D16392005FD30A /* PLWeakCompatibilityStubs.m in Sources */,
-				F5B5C08916951522000BEF0C /* LjsErrorFactory.m in Sources */,
 				F5450AEA16DE074800D9D01C /* SBJsonParser.m in Sources */,
 				F5450AEB16DE074800D9D01C /* SBJsonStreamParser.m in Sources */,
 				F5450AEC16DE074800D9D01C /* SBJsonStreamParserAccumulator.m in Sources */,
@@ -2555,6 +2552,7 @@
 				F5450AF216DE074800D9D01C /* SBJsonStreamWriterState.m in Sources */,
 				F5450AF316DE074800D9D01C /* SBJsonWriter.m in Sources */,
 				F5450AF616DE419300D9D01C /* SBJSON+LjsAdditions.m in Sources */,
+				F5730B6216DF7DEB003202CC /* SBJSONLjsAdditonsTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

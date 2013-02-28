@@ -75,6 +75,7 @@
 		F5450B5916DE459700D9D01C /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5450B5816DE459700D9D01C /* OCHamcrest.framework */; };
 		F5450B5A16DE459B00D9D01C /* OCHamcrest.framework in Copy Files Hamcrest */ = {isa = PBXBuildFile; fileRef = F5450B5816DE459700D9D01C /* OCHamcrest.framework */; };
 		F546C0B4157D10B7003E7823 /* LjsBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = F546C0B3157D10B7003E7823 /* LjsBlocks.m */; };
+		F5730B6016DF7122003202CC /* SBJSONLjsAdditonsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5730B5F16DF7122003202CC /* SBJSONLjsAdditonsTest.m */; };
 		F57D0E51156C2A7C00C5CDC2 /* readlines-test.txt in Resources */ = {isa = PBXBuildFile; fileRef = F57D0E50156C2A7C00C5CDC2 /* readlines-test.txt */; };
 		F5807029146C26F100EA4CFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5807028146C26F100EA4CFB /* Cocoa.framework */; };
 		F5807033146C26F100EA4CFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5807031146C26F100EA4CFB /* InfoPlist.strings */; };
@@ -207,7 +208,6 @@
 		F59635FD14966B9600CDB27E /* UKMainThreadProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F814966B9600CDB27E /* UKMainThreadProxy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F5B2844114AD0B6700E48908 /* LjsGestalt.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844014AD0B6700E48908 /* LjsGestalt.m */; };
 		F5B2844E14AD1B5E00E48908 /* LjsRestartFinderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844D14AD1B5E00E48908 /* LjsRestartFinderOperation.m */; };
-		F5B5C08516950DB4000BEF0C /* LjsErrorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B5C08416950DB4000BEF0C /* LjsErrorFactory.m */; };
 		F5CD95D81631050F00FF1BFA /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CD95D71631050F00FF1BFA /* OCMock.framework */; };
 		F5CD95D91631054B00FF1BFA /* OCMock.framework in Copy Files GHUnit and OCMock */ = {isa = PBXBuildFile; fileRef = F5CD95D71631050F00FF1BFA /* OCMock.framework */; };
 		F5D33F361552A01100A42506 /* NSDictionary+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D33F351552A01100A42506 /* NSDictionary+LjsAdditions.m */; };
@@ -369,6 +369,7 @@
 		F5450B5816DE459700D9D01C /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrest.framework; sourceTree = "<group>"; };
 		F546C0B2157D10B7003E7823 /* LjsBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsBlocks.h; sourceTree = "<group>"; };
 		F546C0B3157D10B7003E7823 /* LjsBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsBlocks.m; sourceTree = "<group>"; };
+		F5730B5F16DF7122003202CC /* SBJSONLjsAdditonsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSONLjsAdditonsTest.m; sourceTree = "<group>"; };
 		F57D0E50156C2A7C00C5CDC2 /* readlines-test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "readlines-test.txt"; sourceTree = "<group>"; };
 		F5807024146C26F100EA4CFB /* Tests-MacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tests-MacOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5807028146C26F100EA4CFB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -610,8 +611,6 @@
 		F5B2844014AD0B6700E48908 /* LjsGestalt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestalt.m; sourceTree = "<group>"; };
 		F5B2844C14AD1B5E00E48908 /* LjsRestartFinderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRestartFinderOperation.h; sourceTree = "<group>"; };
 		F5B2844D14AD1B5E00E48908 /* LjsRestartFinderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsRestartFinderOperation.m; sourceTree = "<group>"; };
-		F5B5C08316950DB4000BEF0C /* LjsErrorFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsErrorFactory.h; sourceTree = "<group>"; };
-		F5B5C08416950DB4000BEF0C /* LjsErrorFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsErrorFactory.m; sourceTree = "<group>"; };
 		F5CD95D71631050F00FF1BFA /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMock.framework; sourceTree = "<group>"; };
 		F5D33F341552A01100A42506 /* NSDictionary+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LjsAdditions.h"; sourceTree = "<group>"; };
 		F5D33F351552A01100A42506 /* NSDictionary+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LjsAdditions.m"; sourceTree = "<group>"; };
@@ -1126,8 +1125,6 @@
 		F580713D146C296700EA4CFB /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				F5B5C08316950DB4000BEF0C /* LjsErrorFactory.h */,
-				F5B5C08416950DB4000BEF0C /* LjsErrorFactory.m */,
 				F546C0B2157D10B7003E7823 /* LjsBlocks.h */,
 				F546C0B3157D10B7003E7823 /* LjsBlocks.m */,
 				F512EB98151C9EA7002E8E3A /* LjsLocationServiceObserver.h */,
@@ -1384,6 +1381,7 @@
 				F58C27091589EDFA00B716F4 /* NSErrorLjsAdditions.m */,
 				F58C270A1589EDFA00B716F4 /* NSSetLjsAdditionsTest.m */,
 				F58C270B1589EDFA00B716F4 /* NSStringLjsAdditionsTest.m */,
+				F5730B5F16DF7122003202CC /* SBJSONLjsAdditonsTest.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1881,7 +1879,6 @@
 				F58C27341589EDFA00B716F4 /* LjsValidatorTests.m in Sources */,
 				F58C27351589EDFA00B716F4 /* LjsVariatesTests.m in Sources */,
 				F58C27391589EE1300B716F4 /* LjsProgressiveMigration.m in Sources */,
-				F5B5C08516950DB4000BEF0C /* LjsErrorFactory.m in Sources */,
 				F5385B4A169775D500306410 /* NSAttributedString+LjsAdditions.m in Sources */,
 				F5385B4C1697760000306410 /* NSAttributedStringLjsAdditionsTest.m in Sources */,
 				F5450B1816DE44A100D9D01C /* SBJSON+LjsAdditions.m in Sources */,
@@ -1895,6 +1892,7 @@
 				F5450B5516DE44F600D9D01C /* SBJsonStreamWriterAccumulator.m in Sources */,
 				F5450B5616DE44F600D9D01C /* SBJsonStreamWriterState.m in Sources */,
 				F5450B5716DE44F600D9D01C /* SBJsonWriter.m in Sources */,
+				F5730B6016DF7122003202CC /* SBJSONLjsAdditonsTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
