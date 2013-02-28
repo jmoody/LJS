@@ -208,6 +208,10 @@
 		F59635FD14966B9600CDB27E /* UKMainThreadProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F814966B9600CDB27E /* UKMainThreadProxy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F5B2844114AD0B6700E48908 /* LjsGestalt.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844014AD0B6700E48908 /* LjsGestalt.m */; };
 		F5B2844E14AD1B5E00E48908 /* LjsRestartFinderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844D14AD1B5E00E48908 /* LjsRestartFinderOperation.m */; };
+		F5C1BF8116E00A7E00F14075 /* TpUnixOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BF7C16E00A7E00F14075 /* TpUnixOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5C1BF8216E00A7E00F14075 /* TpUnixOperationResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BF7E16E00A7E00F14075 /* TpUnixOperationResult.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5C1BF8316E00A7E00F14075 /* TpUnixWhich.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BF8016E00A7E00F14075 /* TpUnixWhich.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5C1BF8616E00B3F00F14075 /* TpUnixOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BF8516E00B3F00F14075 /* TpUnixOperationTest.m */; };
 		F5CD95D81631050F00FF1BFA /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CD95D71631050F00FF1BFA /* OCMock.framework */; };
 		F5CD95D91631054B00FF1BFA /* OCMock.framework in Copy Files GHUnit and OCMock */ = {isa = PBXBuildFile; fileRef = F5CD95D71631050F00FF1BFA /* OCMock.framework */; };
 		F5D33F361552A01100A42506 /* NSDictionary+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D33F351552A01100A42506 /* NSDictionary+LjsAdditions.m */; };
@@ -611,6 +615,13 @@
 		F5B2844014AD0B6700E48908 /* LjsGestalt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestalt.m; sourceTree = "<group>"; };
 		F5B2844C14AD1B5E00E48908 /* LjsRestartFinderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRestartFinderOperation.h; sourceTree = "<group>"; };
 		F5B2844D14AD1B5E00E48908 /* LjsRestartFinderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsRestartFinderOperation.m; sourceTree = "<group>"; };
+		F5C1BF7B16E00A7E00F14075 /* TpUnixOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TpUnixOperation.h; sourceTree = "<group>"; };
+		F5C1BF7C16E00A7E00F14075 /* TpUnixOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TpUnixOperation.m; sourceTree = "<group>"; };
+		F5C1BF7D16E00A7E00F14075 /* TpUnixOperationResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TpUnixOperationResult.h; sourceTree = "<group>"; };
+		F5C1BF7E16E00A7E00F14075 /* TpUnixOperationResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TpUnixOperationResult.m; sourceTree = "<group>"; };
+		F5C1BF7F16E00A7E00F14075 /* TpUnixWhich.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TpUnixWhich.h; sourceTree = "<group>"; };
+		F5C1BF8016E00A7E00F14075 /* TpUnixWhich.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TpUnixWhich.m; sourceTree = "<group>"; };
+		F5C1BF8516E00B3F00F14075 /* TpUnixOperationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TpUnixOperationTest.m; sourceTree = "<group>"; };
 		F5CD95D71631050F00FF1BFA /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMock.framework; sourceTree = "<group>"; };
 		F5D33F341552A01100A42506 /* NSDictionary+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LjsAdditions.h"; sourceTree = "<group>"; };
 		F5D33F351552A01100A42506 /* NSDictionary+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LjsAdditions.m"; sourceTree = "<group>"; };
@@ -1179,6 +1190,7 @@
 		F580716A146C29A800EA4CFB /* LJS */ = {
 			isa = PBXGroup;
 			children = (
+				F5C1BF7A16E00A7E00F14075 /* Unix */,
 				F58C27361589EE1300B716F4 /* CoreData */,
 				F58939211529F71000CD20B7 /* Google */,
 				F512EB87151C9E3A002E8E3A /* Managers */,
@@ -1205,6 +1217,7 @@
 		F5807170146C2AAC00EA4CFB /* Unit */ = {
 			isa = PBXGroup;
 			children = (
+				F5C1BF8416E00B1C00F14075 /* Unix */,
 				F58C27041589EDFA00B716F4 /* Categories */,
 				F58C270C1589EDFA00B716F4 /* CoreData */,
 				F58C270E1589EDFA00B716F4 /* Managers */,
@@ -1511,6 +1524,28 @@
 			);
 			name = Operations;
 			path = ../Operations;
+			sourceTree = "<group>";
+		};
+		F5C1BF7A16E00A7E00F14075 /* Unix */ = {
+			isa = PBXGroup;
+			children = (
+				F5C1BF7B16E00A7E00F14075 /* TpUnixOperation.h */,
+				F5C1BF7C16E00A7E00F14075 /* TpUnixOperation.m */,
+				F5C1BF7D16E00A7E00F14075 /* TpUnixOperationResult.h */,
+				F5C1BF7E16E00A7E00F14075 /* TpUnixOperationResult.m */,
+				F5C1BF7F16E00A7E00F14075 /* TpUnixWhich.h */,
+				F5C1BF8016E00A7E00F14075 /* TpUnixWhich.m */,
+			);
+			name = Unix;
+			path = ../Unix;
+			sourceTree = "<group>";
+		};
+		F5C1BF8416E00B1C00F14075 /* Unix */ = {
+			isa = PBXGroup;
+			children = (
+				F5C1BF8516E00B3F00F14075 /* TpUnixOperationTest.m */,
+			);
+			path = Unix;
 			sourceTree = "<group>";
 		};
 		F5CD95D61631050F00FF1BFA /* OSX */ = {
@@ -1893,6 +1928,10 @@
 				F5450B5616DE44F600D9D01C /* SBJsonStreamWriterState.m in Sources */,
 				F5450B5716DE44F600D9D01C /* SBJsonWriter.m in Sources */,
 				F5730B6016DF7122003202CC /* SBJSONLjsAdditonsTest.m in Sources */,
+				F5C1BF8116E00A7E00F14075 /* TpUnixOperation.m in Sources */,
+				F5C1BF8216E00A7E00F14075 /* TpUnixOperationResult.m in Sources */,
+				F5C1BF8316E00A7E00F14075 /* TpUnixWhich.m in Sources */,
+				F5C1BF8616E00B3F00F14075 /* TpUnixOperationTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
