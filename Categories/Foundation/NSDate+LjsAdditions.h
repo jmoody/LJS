@@ -196,17 +196,6 @@ typedef struct LjsDateComps LjsDateComps;
 - (NSDate *) lastSecondWithTimeZone:(NSTimeZone *)aTimeZone
                            calendar:(NSCalendar *) aCalendar;
 
-/**
- return a random date (and time) between the two dates.  will return nil if 
- no date is possible.  
- 
- @warn this method is deprecated.  consult LjsVariates for replacement.
- 
- @param aStart the start date (must come before the aEnd)
- @param aEnd the end date (must come after the aStart)
- @deprecated
- */
-+ (NSDate *) randomDateBetweenStart:(NSDate *) aStart end:(NSDate *) aEnd __attribute__((deprecated));
 
 
 
