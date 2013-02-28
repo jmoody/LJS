@@ -246,17 +246,5 @@ fail:
   }
 }
 
-- (NSString *) versionString {
-  NSBundle *mb = [NSBundle mainBundle];
-  NSString *shortVersion = [mb objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-  NSString *bundleVersion = [mb objectForInfoDictionaryKey:@"CFBundleVersion"];
-  if ([self isAppStoreBuild]) {
-    return bundleVersion;
-  } else {
-    return  [NSString stringWithFormat:@"%@ %@",
-             shortVersion, bundleVersion];
-  }
-}
-
 @end
 
