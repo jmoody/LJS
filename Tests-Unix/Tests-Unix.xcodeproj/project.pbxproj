@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F5C1BF9416E00E7800F14075 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C1BF9316E00E7800F14075 /* Cocoa.framework */; };
+		F5C1BF9E16E00E7800F14075 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5C1BF9C16E00E7800F14075 /* InfoPlist.strings */; };
+		F5C1BFA016E00E7800F14075 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BF9F16E00E7800F14075 /* main.m */; };
+		F5C1BFA716E00E7800F14075 /* LjsUnixAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BFA616E00E7800F14075 /* LjsUnixAppDelegate.m */; };
+		F5C1BFAA16E00E7900F14075 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5C1BFA816E00E7900F14075 /* MainMenu.xib */; };
+		F5C1BFB716E00E8F00F14075 /* TpUnixOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BFB216E00E8F00F14075 /* TpUnixOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5C1BFB816E00E8F00F14075 /* TpUnixOperationResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BFB416E00E8F00F14075 /* TpUnixOperationResult.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5C1BFB916E00E8F00F14075 /* TpUnixWhich.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BFB616E00E8F00F14075 /* TpUnixWhich.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5C1BFCC16E00F0700F14075 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BFBD16E00F0700F14075 /* DDAbstractDatabaseLogger.m */; };
+		F5C1BFCD16E00F0700F14075 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BFBF16E00F0700F14075 /* DDASLLogger.m */; };
+		F5C1BFCE16E00F0700F14075 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BFC116E00F0700F14075 /* DDFileLogger.m */; };
+		F5C1BFCF16E00F0700F14075 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BFC316E00F0700F14075 /* DDLog.m */; };
+		F5C1BFD016E00F0700F14075 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BFC516E00F0700F14075 /* DDTTYLogger.m */; };
+		F5C1BFD116E00F0700F14075 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BFC816E00F0700F14075 /* ContextFilterLogFormatter.m */; };
+		F5C1BFD216E00F0700F14075 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BFCA16E00F0700F14075 /* DispatchQueueLogFormatter.m */; };
+		F5C1BFD316E00F0700F14075 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5C1BFCB16E00F0700F14075 /* README.txt */; };
+		F5C1BFDF16E00F1000F14075 /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BFD616E00F1000F14075 /* DDFileLogger+CurrentFile.m */; };
+		F5C1BFE016E00F1000F14075 /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BFD816E00F1000F14075 /* LjsDefaultFormatter.m */; };
+		F5C1BFE116E00F1000F14075 /* LjsLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BFDB16E00F1000F14075 /* LjsLogFileManager.m */; };
+		F5C1BFE216E00F1000F14075 /* LjsMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BFDD16E00F1000F14075 /* LjsMessageBuilder.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F5C1BF9016E00E7800F14075 /* Tests-Unix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tests-Unix.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5C1BF9316E00E7800F14075 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		F5C1BF9616E00E7800F14075 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		F5C1BF9716E00E7800F14075 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F5C1BF9816E00E7800F14075 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F5C1BF9B16E00E7800F14075 /* Tests-Unix-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Unix-Info.plist"; sourceTree = "<group>"; };
+		F5C1BF9D16E00E7800F14075 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F5C1BF9F16E00E7800F14075 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F5C1BFA116E00E7800F14075 /* Tests-Unix-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Unix-Prefix.pch"; sourceTree = "<group>"; };
+		F5C1BFA516E00E7800F14075 /* LjsUnixAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LjsUnixAppDelegate.h; sourceTree = "<group>"; };
+		F5C1BFA616E00E7800F14075 /* LjsUnixAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LjsUnixAppDelegate.m; sourceTree = "<group>"; };
+		F5C1BFA916E00E7900F14075 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		F5C1BFB116E00E8F00F14075 /* TpUnixOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TpUnixOperation.h; sourceTree = "<group>"; };
+		F5C1BFB216E00E8F00F14075 /* TpUnixOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TpUnixOperation.m; sourceTree = "<group>"; };
+		F5C1BFB316E00E8F00F14075 /* TpUnixOperationResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TpUnixOperationResult.h; sourceTree = "<group>"; };
+		F5C1BFB416E00E8F00F14075 /* TpUnixOperationResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TpUnixOperationResult.m; sourceTree = "<group>"; };
+		F5C1BFB516E00E8F00F14075 /* TpUnixWhich.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TpUnixWhich.h; sourceTree = "<group>"; };
+		F5C1BFB616E00E8F00F14075 /* TpUnixWhich.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TpUnixWhich.m; sourceTree = "<group>"; };
+		F5C1BFBC16E00F0700F14075 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		F5C1BFBD16E00F0700F14075 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		F5C1BFBE16E00F0700F14075 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		F5C1BFBF16E00F0700F14075 /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
+		F5C1BFC016E00F0700F14075 /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		F5C1BFC116E00F0700F14075 /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
+		F5C1BFC216E00F0700F14075 /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		F5C1BFC316E00F0700F14075 /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
+		F5C1BFC416E00F0700F14075 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		F5C1BFC516E00F0700F14075 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
+		F5C1BFC716E00F0700F14075 /* ContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		F5C1BFC816E00F0700F14075 /* ContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		F5C1BFC916E00F0700F14075 /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		F5C1BFCA16E00F0700F14075 /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		F5C1BFCB16E00F0700F14075 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		F5C1BFD516E00F1000F14075 /* DDFileLogger+CurrentFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDFileLogger+CurrentFile.h"; sourceTree = "<group>"; };
+		F5C1BFD616E00F1000F14075 /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
+		F5C1BFD716E00F1000F14075 /* LjsDefaultFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultFormatter.h; sourceTree = "<group>"; };
+		F5C1BFD816E00F1000F14075 /* LjsDefaultFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultFormatter.m; sourceTree = "<group>"; };
+		F5C1BFD916E00F1000F14075 /* LjsLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLog.h; sourceTree = "<group>"; };
+		F5C1BFDA16E00F1000F14075 /* LjsLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLogFileManager.h; sourceTree = "<group>"; };
+		F5C1BFDB16E00F1000F14075 /* LjsLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLogFileManager.m; sourceTree = "<group>"; };
+		F5C1BFDC16E00F1000F14075 /* LjsMessageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsMessageBuilder.h; sourceTree = "<group>"; };
+		F5C1BFDD16E00F1000F14075 /* LjsMessageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsMessageBuilder.m; sourceTree = "<group>"; };
+		F5C1BFDE16E00F1000F14075 /* Lumberjack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lumberjack.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F5C1BF8D16E00E7800F14075 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5C1BF9416E00E7800F14075 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F5C1BF8716E00E7800F14075 = {
+			isa = PBXGroup;
+			children = (
+				F5C1BF9916E00E7800F14075 /* Tests-Unix */,
+				F5C1BF9216E00E7800F14075 /* Frameworks */,
+				F5C1BF9116E00E7800F14075 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F5C1BF9116E00E7800F14075 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5C1BF9016E00E7800F14075 /* Tests-Unix.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F5C1BF9216E00E7800F14075 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5C1BF9316E00E7800F14075 /* Cocoa.framework */,
+				F5C1BF9516E00E7800F14075 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5C1BF9516E00E7800F14075 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5C1BF9616E00E7800F14075 /* AppKit.framework */,
+				F5C1BF9716E00E7800F14075 /* CoreData.framework */,
+				F5C1BF9816E00E7800F14075 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		F5C1BF9916E00E7800F14075 /* Tests-Unix */ = {
+			isa = PBXGroup;
+			children = (
+				F5C1BFBA16E00EFD00F14075 /* Logging */,
+				F5C1BFB016E00E8F00F14075 /* Unix */,
+				F5C1BFA516E00E7800F14075 /* LjsUnixAppDelegate.h */,
+				F5C1BFA616E00E7800F14075 /* LjsUnixAppDelegate.m */,
+				F5C1BF9A16E00E7800F14075 /* Supporting Files */,
+			);
+			path = "Tests-Unix";
+			sourceTree = "<group>";
+		};
+		F5C1BF9A16E00E7800F14075 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F5C1BFA816E00E7900F14075 /* MainMenu.xib */,
+				F5C1BF9B16E00E7800F14075 /* Tests-Unix-Info.plist */,
+				F5C1BF9C16E00E7800F14075 /* InfoPlist.strings */,
+				F5C1BF9F16E00E7800F14075 /* main.m */,
+				F5C1BFA116E00E7800F14075 /* Tests-Unix-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F5C1BFB016E00E8F00F14075 /* Unix */ = {
+			isa = PBXGroup;
+			children = (
+				F5C1BFB116E00E8F00F14075 /* TpUnixOperation.h */,
+				F5C1BFB216E00E8F00F14075 /* TpUnixOperation.m */,
+				F5C1BFB316E00E8F00F14075 /* TpUnixOperationResult.h */,
+				F5C1BFB416E00E8F00F14075 /* TpUnixOperationResult.m */,
+				F5C1BFB516E00E8F00F14075 /* TpUnixWhich.h */,
+				F5C1BFB616E00E8F00F14075 /* TpUnixWhich.m */,
+			);
+			name = Unix;
+			path = ../../Unix;
+			sourceTree = "<group>";
+		};
+		F5C1BFBA16E00EFD00F14075 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				F5C1BFD416E00F1000F14075 /* Logging */,
+				F5C1BFBB16E00F0700F14075 /* Lumberjack */,
+			);
+			name = Logging;
+			sourceTree = "<group>";
+		};
+		F5C1BFBB16E00F0700F14075 /* Lumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				F5C1BFBC16E00F0700F14075 /* DDAbstractDatabaseLogger.h */,
+				F5C1BFBD16E00F0700F14075 /* DDAbstractDatabaseLogger.m */,
+				F5C1BFBE16E00F0700F14075 /* DDASLLogger.h */,
+				F5C1BFBF16E00F0700F14075 /* DDASLLogger.m */,
+				F5C1BFC016E00F0700F14075 /* DDFileLogger.h */,
+				F5C1BFC116E00F0700F14075 /* DDFileLogger.m */,
+				F5C1BFC216E00F0700F14075 /* DDLog.h */,
+				F5C1BFC316E00F0700F14075 /* DDLog.m */,
+				F5C1BFC416E00F0700F14075 /* DDTTYLogger.h */,
+				F5C1BFC516E00F0700F14075 /* DDTTYLogger.m */,
+				F5C1BFC616E00F0700F14075 /* Extensions */,
+			);
+			name = Lumberjack;
+			path = ../../CocoaLumberjack/Lumberjack;
+			sourceTree = "<group>";
+		};
+		F5C1BFC616E00F0700F14075 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F5C1BFC716E00F0700F14075 /* ContextFilterLogFormatter.h */,
+				F5C1BFC816E00F0700F14075 /* ContextFilterLogFormatter.m */,
+				F5C1BFC916E00F0700F14075 /* DispatchQueueLogFormatter.h */,
+				F5C1BFCA16E00F0700F14075 /* DispatchQueueLogFormatter.m */,
+				F5C1BFCB16E00F0700F14075 /* README.txt */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F5C1BFD416E00F1000F14075 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				F5C1BFD516E00F1000F14075 /* DDFileLogger+CurrentFile.h */,
+				F5C1BFD616E00F1000F14075 /* DDFileLogger+CurrentFile.m */,
+				F5C1BFD716E00F1000F14075 /* LjsDefaultFormatter.h */,
+				F5C1BFD816E00F1000F14075 /* LjsDefaultFormatter.m */,
+				F5C1BFD916E00F1000F14075 /* LjsLog.h */,
+				F5C1BFDA16E00F1000F14075 /* LjsLogFileManager.h */,
+				F5C1BFDB16E00F1000F14075 /* LjsLogFileManager.m */,
+				F5C1BFDC16E00F1000F14075 /* LjsMessageBuilder.h */,
+				F5C1BFDD16E00F1000F14075 /* LjsMessageBuilder.m */,
+				F5C1BFDE16E00F1000F14075 /* Lumberjack.h */,
+			);
+			name = Logging;
+			path = ../../Logging;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F5C1BF8F16E00E7800F14075 /* Tests-Unix */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5C1BFAD16E00E7900F14075 /* Build configuration list for PBXNativeTarget "Tests-Unix" */;
+			buildPhases = (
+				F5C1BF8C16E00E7800F14075 /* Sources */,
+				F5C1BF8D16E00E7800F14075 /* Frameworks */,
+				F5C1BF8E16E00E7800F14075 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Tests-Unix";
+			productName = "Tests-Unix";
+			productReference = F5C1BF9016E00E7800F14075 /* Tests-Unix.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F5C1BF8816E00E7800F14075 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = LjsUnix;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Little Joy Software";
+			};
+			buildConfigurationList = F5C1BF8B16E00E7800F14075 /* Build configuration list for PBXProject "Tests-Unix" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F5C1BF8716E00E7800F14075;
+			productRefGroup = F5C1BF9116E00E7800F14075 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F5C1BF8F16E00E7800F14075 /* Tests-Unix */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F5C1BF8E16E00E7800F14075 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5C1BF9E16E00E7800F14075 /* InfoPlist.strings in Resources */,
+				F5C1BFAA16E00E7900F14075 /* MainMenu.xib in Resources */,
+				F5C1BFD316E00F0700F14075 /* README.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F5C1BF8C16E00E7800F14075 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5C1BFA016E00E7800F14075 /* main.m in Sources */,
+				F5C1BFA716E00E7800F14075 /* LjsUnixAppDelegate.m in Sources */,
+				F5C1BFB716E00E8F00F14075 /* TpUnixOperation.m in Sources */,
+				F5C1BFB816E00E8F00F14075 /* TpUnixOperationResult.m in Sources */,
+				F5C1BFB916E00E8F00F14075 /* TpUnixWhich.m in Sources */,
+				F5C1BFCC16E00F0700F14075 /* DDAbstractDatabaseLogger.m in Sources */,
+				F5C1BFCD16E00F0700F14075 /* DDASLLogger.m in Sources */,
+				F5C1BFCE16E00F0700F14075 /* DDFileLogger.m in Sources */,
+				F5C1BFCF16E00F0700F14075 /* DDLog.m in Sources */,
+				F5C1BFD016E00F0700F14075 /* DDTTYLogger.m in Sources */,
+				F5C1BFD116E00F0700F14075 /* ContextFilterLogFormatter.m in Sources */,
+				F5C1BFD216E00F0700F14075 /* DispatchQueueLogFormatter.m in Sources */,
+				F5C1BFDF16E00F1000F14075 /* DDFileLogger+CurrentFile.m in Sources */,
+				F5C1BFE016E00F1000F14075 /* LjsDefaultFormatter.m in Sources */,
+				F5C1BFE116E00F1000F14075 /* LjsLogFileManager.m in Sources */,
+				F5C1BFE216E00F1000F14075 /* LjsMessageBuilder.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F5C1BF9C16E00E7800F14075 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5C1BF9D16E00E7800F14075 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F5C1BFA816E00E7900F14075 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5C1BFA916E00E7900F14075 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F5C1BFAB16E00E7900F14075 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		F5C1BFAC16E00E7900F14075 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F5C1BFAE16E00E7900F14075 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tests-Unix/Tests-Unix-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = (
+					LOG_CONFIGURATION_DEBUG,
+					USE_EN1,
+				);
+				INFOPLIST_FILE = "Tests-Unix/Tests-Unix-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F5C1BFAF16E00E7900F14075 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tests-Unix/Tests-Unix-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = (
+					LOG_CONFIGURATION_DEBUG,
+					USE_EN1,
+				);
+				INFOPLIST_FILE = "Tests-Unix/Tests-Unix-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F5C1BF8B16E00E7800F14075 /* Build configuration list for PBXProject "Tests-Unix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5C1BFAB16E00E7900F14075 /* Debug */,
+				F5C1BFAC16E00E7900F14075 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5C1BFAD16E00E7900F14075 /* Build configuration list for PBXNativeTarget "Tests-Unix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5C1BFAE16E00E7900F14075 /* Debug */,
+				F5C1BFAF16E00E7900F14075 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F5C1BF8816E00E7800F14075 /* Project object */;
+}

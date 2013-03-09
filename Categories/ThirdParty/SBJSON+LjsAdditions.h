@@ -39,3 +39,31 @@
                  error:(NSError **) aError;
 
 @end
+
+#pragma mark - NSArray
+
+@interface NSArray (NSArray_SBJsonWriting)
+- (NSString *) toJson:(NSError **) aError;
+@end
+
+
+#pragma mark - NSDictionary
+
+@interface NSDictionary (NSArray_SBJsonWriting)
+- (NSString *) toJson:(NSError **) aError;
+@end
+
+#pragma mark - NSString
+
+@interface NSString (NSString_SBJsonParsing)
+- (NSArray *) arrayFromJson:(NSError **) aError;
+- (NSDictionary *) dictionaryFromJson:(NSError **) aError;
+@end
+
+#pragma mark - NSData
+
+@interface NSData (NSData_SBJsonParsing)
+- (NSArray *) arrayFromJson:(NSError **) aError;
+- (NSDictionary *) dictionaryFromJson:(NSError **) aError;
+@end
+

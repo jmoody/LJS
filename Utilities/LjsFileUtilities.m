@@ -93,7 +93,8 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
     if (result == YES) {
       DDLogDebug(@"successfully created: %@", directoryPath);
     } else {
-      NSString *message = NSLocalizedString(@"Could create directory.", nil);
+      NSString *message = NSLocalizedString(@"Could create directory.",
+                                            @"LJS:  error message translation is  OPTIONAL" );
       DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
                          message, directoryPath]);
       if (error != NULL) {
@@ -289,7 +290,8 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
   DDLogDebug(@"write dictionary to file: %@", aPath);
   BOOL result = [aDict writeToFile:aPath atomically:YES];
   if (result == NO) {
-    NSString *message = NSLocalizedString(@"Could not write file.", nil);
+    NSString *message = NSLocalizedString(@"Could not write file.",
+                                          @"LJS:  error message translation is  OPTIONAL" );
     DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
                        message, aPath]);
     if (error != NULL) {
@@ -334,7 +336,8 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
   
   NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:aPath];
   if (dict == nil) {
-    NSString *message = NSLocalizedString(@"Could not read file.", nil);
+    NSString *message = NSLocalizedString(@"Could not read file.",
+                                          @"LJS:  error message translation is  OPTIONAL" );
     DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
                        message, aPath]);
     if (error != NULL) {
@@ -357,7 +360,8 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
   DDLogDebug(@"write array to file: %@", aPath);
   BOOL result = [aArray writeToFile:aPath atomically:YES];
   if (result == NO) {
-    NSString *message = NSLocalizedString(@"Could not write file.", nil);
+    NSString *message = NSLocalizedString(@"Could not write file.",
+                                          @"LJS:  error message translation is  OPTIONAL" );
     DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
                        message, aPath]);
     if (error != NULL) {
@@ -399,7 +403,8 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
   
   NSArray *array = [NSArray arrayWithContentsOfFile:aPath];
   if (array == nil) {
-    NSString *message = NSLocalizedString(@"Could not read file.", nil);
+    NSString *message = NSLocalizedString(@"Could not read file.",
+                                          @"LJS:  error message translation is  OPTIONAL" );
     DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
                        message, aPath]);
     if (error != NULL) {
@@ -422,7 +427,7 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
   NSFileManager *fm = [NSFileManager defaultManager];
   BOOL exists = [fm fileExistsAtPath:aPath];
   if (exists == NO) {
-    NSString *message = NSLocalizedString(@"file does not exist at path.", nil);
+    NSString *message = NSLocalizedString(@"file does not exist at path.", @"LJS:  error message translation is  OPTIONAL" );
     DDLogError(@"%@: %@ - returning nil", message, aPath);
     if (error != NULL) {
       NSDictionary *userInfo;
@@ -447,7 +452,7 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
                   options:NSDataReadingUncached 
                   error:&readError];
   if (data == nil) {
-    NSString *message = NSLocalizedString(@"error reading file at path", nil);
+    NSString *message = NSLocalizedString(@"error reading file at path", @"LJS:  error message translation is  OPTIONAL" );
     
     DDLogError(@"%@: %@\n%@: %@", message, aPath, [readError localizedDescription],
                readError);
