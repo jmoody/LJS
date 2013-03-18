@@ -1,5 +1,12 @@
 #import <Foundation/Foundation.h>
 
+
+typedef enum : NSUInteger {
+  kLjsErrorCode_NotFound = 40272,
+  kLjsErrorCode_AlreadyExists
+} LjsErrorFactoryCode;
+
+
 /**
  NSError on NSError_LjsAdditions category.
  */
