@@ -55,14 +55,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
            labelWidth:(CGFloat) aLabelWidth {
   self = [super init];
   if (self != nil) {
-    self.linebreakMode = UILineBreakModeWordWrap;
+    self.linebreakMode = NSLineBreakByWordWrapping;
     self.font = aFont;
     CGSize oneLineSize = [aString sizeWithFont:aFont];
     self.lineHeight = oneLineSize.height;
         
     CGSize labelSize = [aString sizeWithFont:aFont
                            constrainedToSize:CGSizeMake(aLabelWidth, CGFLOAT_MAX) 
-                               lineBreakMode:UILineBreakModeWordWrap];
+                               lineBreakMode:self.linebreakMode];
     self.labelHeight = labelSize.height;
     self.numberOfLines = (NSUInteger) self.labelHeight / self.lineHeight;
     self.string = aString;
