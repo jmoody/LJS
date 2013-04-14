@@ -48,4 +48,7 @@ LjsStartAtLaunchManagerProtocol>
 
 /** @name Handling Notifications, Requests, and Events */
 
+/** @name Utility */
++ (BOOL) hasOnDemainLaunchHelperWithBundleId:(NSString *) aLaunchHelperBundleId;
+
 @end
