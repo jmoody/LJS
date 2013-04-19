@@ -3,7 +3,8 @@
 
 typedef enum : NSUInteger {
   kLjsErrorCode_NotFound = 40272,
-  kLjsErrorCode_AlreadyExists
+  kLjsErrorCode_AlreadyExists,
+  kLjsErrorCode_InvalidArgument
 } LjsErrorFactoryCode;
 
 
@@ -59,5 +60,6 @@ typedef enum : NSUInteger {
              userInfoObject:(id) aObject
                 userInfoKey:(id) aKey;
 
++ (NSError *) errorForInvalidArgumentWithLocalizedDescription:(NSString *) aLocalizedDescription;
 
 @end

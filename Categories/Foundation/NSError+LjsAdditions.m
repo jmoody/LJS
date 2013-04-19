@@ -117,5 +117,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                     otherUserInfo:nil];
 }
 
++ (NSError *) errorForInvalidArgumentWithLocalizedDescription:(NSString *) aLocalizedDescription {
+  return [LjsErrorFactory errorWithCode:kLjsErrorCode_InvalidArgument
+                   localizedDescription:aLocalizedDescription];
+}
+
 
 @end
