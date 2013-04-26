@@ -60,7 +60,7 @@
 
 if [ $# != 5 ] ; then
     echo "usage: versioning.sh <CONFIGURATION> <INFOPLIST_FILE> <PRODUCT_INFOPLIST_PATH> <ARCHS> <APP STORE CONFIG>"
-echo "Ex. sh versioning.sh \"\${CONFIGURATION}\" \"\${INFOPLIST_FILE}\" \"\${BUILT_PRODUCTS_DIR}/\${INFOPLIST_PATH}\" \"\${ARCHS}\" AppStore"
+echo "Ex. sh versioning.sh [\"\${CONFIGURATION}\" ]\"\${INFOPLIST_FILE}\" \"\${BUILT_PRODUCTS_DIR}/\${INFOPLIST_PATH}\" \"\${ARCHS}\" AppStore"
     exit 1
 fi
 
