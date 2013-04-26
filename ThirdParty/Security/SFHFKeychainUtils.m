@@ -267,7 +267,7 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
   // ugh - faking out ARC
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-variable"
-  NSData *attrData = (__bridge_transfer NSData *)cfAttrResult;
+  NSData *attrData __attribute ((unused)) = (__bridge_transfer NSData *)cfAttrResult;
 #pragma clang diagnostic pop
 
 	if (status != noErr) {

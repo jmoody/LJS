@@ -126,13 +126,10 @@ static NSInteger const LjsTimePickerLargeInteger = 24000;
   switch (component) {
     case 0:
       return [self.hours objectAtIndex:row % [self.hours count]]; 
-      break;
     case 1:
       return [self.minutes objectAtIndex:row % [self.minutes count]];
-      break;
     case 2:
       return [self.amPm objectAtIndex:row];
-      break;
     default:
       DDLogError(@"fell through switch for (row, component) = (%d, %d)", row, component);
       result = @"FIXME";
@@ -158,13 +155,10 @@ static NSInteger const LjsTimePickerLargeInteger = 24000;
   switch (component) {
     case 0:
       return 50.0;
-      break;
     case 1:
       return 50.0;
-      break;
     case 2:
       return 50.0;
-      break;
     default:
       DDLogError(@"fell through switch for component %d", component);
       result = 200;

@@ -35,6 +35,7 @@
 #import "LjsValidator.h"
 #import "ASIHTTPRequest+LjsAdditions.h"
 #import "SBJson.h"
+#import "SBJSON+LjsAdditions.h"
 #import "NSArray+LjsAdditions.h"
 #import "NSMutableArray+LjsAdditions.h"
 #import "LjsWebCategories.h"

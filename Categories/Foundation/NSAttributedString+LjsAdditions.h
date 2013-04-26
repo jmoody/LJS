@@ -34,9 +34,11 @@
  */
 @interface NSAttributedString (NSAttributedString_LjsAdditions)
 
-
+#if !TARGET_OS_IPHONE
 + (id) hyperlinkFromString:(NSString *) aString
                    withURL:(NSURL *) aURL
                  alignment:(NSTextAlignment) aTextAlignment;
+#endif
+
 
 @end

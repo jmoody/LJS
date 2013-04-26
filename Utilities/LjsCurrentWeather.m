@@ -31,6 +31,7 @@
 #import "LjsLocationManager.h"
 #import "SBJson.h"
 #import "LjsValidator.h"
+#import "SBJSON+LjsAdditions.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;

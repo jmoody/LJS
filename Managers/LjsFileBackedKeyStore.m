@@ -133,7 +133,8 @@ shouldPostNotifications:(BOOL) aShouldPostNotifications
   BOOL directoryExists = [LjsFileUtilities ensureSaveDirectory:aDirectoryPath
                                              existsWithManager:fm];
   if (directoryExists == NO) {
-    NSString *message = NSLocalizedString(@"Could not create directory", nil);
+    NSString *message = NSLocalizedString(@"Could not create directory",
+                                          @"LJS:  error message translation is OPTIONAL");
     DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
                        message, aDirectoryPath]);
     if (error != NULL) {

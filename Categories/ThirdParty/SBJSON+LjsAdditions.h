@@ -1,4 +1,4 @@
-// Copyright 2011 Little Joy Software. All rights reserved.
+// Copyright 2013 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,69 +25,45 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 #import <Foundation/Foundation.h>
+#import "SBJSON.h"
 
-#if !TARGET_OS_IPHONE
+/**
+ SBJsonParser on SBJSON_LjsAdditions category.
+ */
+@interface SBJsonParser (SBJSON_LjsAdditions)
 
-typedef enum : NSUInteger {
-  LjsGestaltMinor_v_10_0 = 0,
-  LjsGestaltMinor_v_10_1,
-  LjsGestaltMinor_v_10_2,
-  LjsGestaltMinor_v_10_3,
-  LjsGestaltMinor_v_10_4,
-  LjsGestaltMinor_v_10_5,
-  LjsGestaltMinor_v_10_6,
-  LjsGestaltMinor_v_10_7,
-  LjsGestaltMinor_v_10_8
-} LjsGestaltMinorVersion;
+/** @name Task Section */
+- (id)objectWithString:(NSString *) aString
+                 error:(NSError **) aError;
 
-#endif
+@end
 
-@interface LjsGestalt : NSObject 
+#pragma mark - NSArray
 
-
-#if !TARGET_OS_IPHONE
-
-@property (nonatomic, assign) NSUInteger majorVersion;
-@property (nonatomic, assign) NSUInteger minorVersion;
-@property (nonatomic, assign) NSUInteger bugVersion;
+@interface NSArray (NSArray_SBJsonWriting)
+- (NSString *) toJson:(NSError **) aError;
+@end
 
 
-- (BOOL)getSystemVersionMajor:(unsigned *)major
-                        minor:(unsigned *)minor
-                       bugFix:(unsigned *)bugFix;
+#pragma mark - NSDictionary
 
+@interface NSDictionary (NSArray_SBJsonWriting)
+- (NSString *) toJson:(NSError **) aError;
+@end
 
-#endif
+#pragma mark - NSString
 
-#if TARGET_OS_IPHONE
-- (BOOL) isDeviceIpad;
-- (BOOL) isDeviceIphone;
-- (BOOL) isDeviceUsingRetina;
-- (BOOL) isDeviceIphone5;
-#endif
+@interface NSString (NSString_SBJsonParsing)
+- (NSArray *) arrayFromJson:(NSError **) aError;
+- (NSDictionary *) dictionaryFromJson:(NSError **) aError;
+@end
 
+#pragma mark - NSData
 
-- (NSString *) buildConfiguration:(BOOL) abbrevated;
-
-- (BOOL) isIphone;
-- (BOOL) isSimulator;
-- (BOOL) isMacOs;
-
-
-- (BOOL) isDebugBuild;
-- (BOOL) isAdHocBuild;
-- (BOOL) isAppStoreBuild;
-
-- (BOOL) shouldDebugLabels;
-- (BOOL) shouldDebugButtons;
-
-- (NSString *) currentLanguageCode;
-- (BOOL) currentLangCodeIsEqualToCode:(NSString *) aCode;
-- (BOOL) isCurrentLanguageEnglish;
-
-- (BOOL) isGhUnitCommandLineBuild;
-
-
+@interface NSData (NSData_SBJsonParsing)
+- (NSArray *) arrayFromJson:(NSError **) aError;
+- (NSDictionary *) dictionaryFromJson:(NSError **) aError;
 @end
 

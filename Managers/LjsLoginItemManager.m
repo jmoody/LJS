@@ -33,13 +33,16 @@
 #import "LjsLoginItemManager.h"
 #import "Lumberjack.h"
 #import "LjsValidator.h"
-#import "LjsErrorFactory.h"
+#import "NSError+LjsAdditions.h"
+#import <ServiceManagement/ServiceManagement.h>
+#import "LjsCategories.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
 #else
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
+
 
 @interface LjsLoginItemManager ()
 
@@ -88,9 +91,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 
 #pragma mark Memory Management
-- (void) dealloc {
-   DDLogDebug(@"deallocating %@", [self class]);
-}
 
 - (id) init {
   //[self doesNotRecognizeSelector:_cmd];
@@ -109,12 +109,15 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     
     }
     self.timerEventBlock = aTimerEventBlock;
+    self.shouldLogTimerEvent = NO;
   }
   return self;
 }
 
 - (void) handleCheckLoginItemTimerEvent:(NSTimer *) aTimer {
-  DDLogInfo(@"handling check login item timer event");
+  if (self.shouldLogTimerEvent == YES) {
+    DDLogDebug(@"handling check login item timer event");
+  }
   BOOL status = [self isLoginItem];
   self.timerEventBlock(status);
 }
@@ -128,7 +131,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
  */
 -(BOOL) addLoginItem:(NSError **) aError {
-    
+  // possible way around apple scripting, but not around sandboxing
+  // https://github.com/pkamb/OpenAtLogin/blob/master/OpenAtLogin.m
+  
   //tell application "System Events"
   //  make login item at end with properties {path:"/Applications/Ansible.app", kind:application}
   // end tell
@@ -167,6 +172,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  @return YES iff delete was successful
  */
 - (BOOL) deleteLoginItem:(NSError **) aError {
+  // possible way around apple scripting, but not around sandboxing
+  // https://github.com/pkamb/OpenAtLogin/blob/master/OpenAtLogin.m
+
   NSBundle *main = [NSBundle mainBundle];
   NSString *bundleName = [[main infoDictionary] objectForKey:@"CFBundleName"];
   NSString *conditionLine = [NSString stringWithFormat:@"if login item \"%@\" exists then",
@@ -248,8 +256,29 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 			}
     }
   }
-  CFRelease(loginItems);
+  if (loginItems != NULL) { CFRelease(loginItems); }
   return result;
+}
+
+
++ (BOOL) hasOnDemainLaunchHelperWithBundleId:(NSString *)aLaunchHelperBundleId {
+  NSArray * jobDicts = nil;
+  jobDicts = (__bridge_transfer NSArray *)SMCopyAllJobDictionaries( kSMDomainUserLaunchd );
+  
+  if (jobDicts == nil || [jobDicts count] == 0) {
+    DDLogWarn(@"could not find any job dictionaries which could be a problem; returning NO");
+    return NO;
+  }
+  
+  __block BOOL onDemand = NO;
+  [jobDicts mapc:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
+    if ([aLaunchHelperBundleId isEqualToString:[dict objectForKey:@"Label"]]) {
+      onDemand = [[dict objectForKey:@"OnDemand"] boolValue];
+      *stop = YES;
+    }
+  }];
+  
+  return onDemand;
 }
 
 @end

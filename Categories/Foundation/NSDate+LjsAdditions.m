@@ -66,8 +66,7 @@
 #import "Lumberjack.h"
 #import "NSDate+LjsAdditions.h"
 #import "NSCalendar+LjsAdditions.h"
-#import "LjsVariates.h"
-#import "LjsDateHelper.h"
+
 
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -88,9 +87,15 @@ NSSecondCalendarUnit);
 }
 
 - (NSString *) descriptionWithISO8601 {
-  NSDateFormatter *df = [LjsDateHelper isoDateWithMillisAnd_GMT_Formatter];
-  NSString *str = [df stringFromDate:self];
-  return [str stringByAppendingFormat:@" %@", [df.timeZone abbreviation]];
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
+  NSCalendar *calendar = [NSCalendar gregorianCalendar];
+  NSTimeZone *tz = [NSTimeZone timeZoneForSecondsFromGMT:0];
+  calendar.timeZone = tz;
+  formatter.calendar = calendar;
+  formatter.timeZone = tz;
+  NSString *str = [formatter stringFromDate:self];
+  return [str stringByAppendingFormat:@" %@", [formatter.timeZone abbreviation]];
 }
 
 + (NSDate *) LjsDateNotFound {
@@ -555,35 +560,40 @@ NSSecondCalendarUnit);
                            calendar:aCalendar];
 }
 
-+ (NSDate *) randomDateBetweenStart:(NSDate *) aStart end:(NSDate *) aEnd {
-  NSUInteger daysBtw = [aStart daysBetweenDate:aEnd];
-  LjsDateComps fromComps = [aStart dateComponents];
-  
-  fromComps.hour = [LjsVariates randomIntegerWithMin:fromComps.hour max:23];
-  fromComps.minute = [LjsVariates randomIntegerWithMin:0 max:59];
-  fromComps.second = [LjsVariates randomIntegerWithMin:0 max:59];
-  
-  NSDate *date = [NSDate dateWithComponents:fromComps];
-  
-  date = [date dateByAddingDays:[LjsVariates randomIntegerWithMin:0 max:daysBtw]];
-  
-  
-  if ([date compare:aEnd] != NSOrderedAscending) {
-    LjsDateComps endComps = [aEnd dateComponents];
-    endComps.hour = [LjsVariates randomIntegerWithMin:0 max:endComps.hour - 1];
-    endComps.minute = [LjsVariates randomIntegerWithMin:0 max:endComps.minute];
-    endComps.second = [LjsVariates randomIntegerWithMin:0 max:endComps.second];
-    
-    date = [NSDate dateWithComponents:endComps];
-  }
-  
-  if ([date compare:aEnd] != NSOrderedAscending) {
-    DDLogWarn(@"could not make a correct end date");
-    DDLogWarn(@"start: %@", [aStart descriptionWithCurrentLocale]);
-    DDLogWarn(@"date:  %@", [date descriptionWithCurrentLocale]);
-    DDLogWarn(@"end:   %@", [aEnd descriptionWithCurrentLocale]);
-  }
-  return date;
-}
+
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+//// deprecated - replace in LjsVariates
+//+ (NSDate *) randomDateBetweenStart:(NSDate *) aStart end:(NSDate *) aEnd {
+//  NSUInteger daysBtw = [aStart daysBetweenDate:aEnd];
+//  LjsDateComps fromComps = [aStart dateComponents];
+//  
+//  fromComps.hour = [LjsVariates randomIntegerWithMin:fromComps.hour max:23];
+//  fromComps.minute = [LjsVariates randomIntegerWithMin:0 max:59];
+//  fromComps.second = [LjsVariates randomIntegerWithMin:0 max:59];
+//  
+//  NSDate *date = [NSDate dateWithComponents:fromComps];
+//  
+//  date = [date dateByAddingDays:[LjsVariates randomIntegerWithMin:0 max:daysBtw]];
+//  
+//  
+//  if ([date compare:aEnd] != NSOrderedAscending) {
+//    LjsDateComps endComps = [aEnd dateComponents];
+//    endComps.hour = [LjsVariates randomIntegerWithMin:0 max:endComps.hour - 1];
+//    endComps.minute = [LjsVariates randomIntegerWithMin:0 max:endComps.minute];
+//    endComps.second = [LjsVariates randomIntegerWithMin:0 max:endComps.second];
+//    
+//    date = [NSDate dateWithComponents:endComps];
+//  }
+//  
+//  if ([date compare:aEnd] != NSOrderedAscending) {
+//    DDLogWarn(@"could not make a correct end date");
+//    DDLogWarn(@"start: %@", [aStart descriptionWithCurrentLocale]);
+//    DDLogWarn(@"date:  %@", [date descriptionWithCurrentLocale]);
+//    DDLogWarn(@"end:   %@", [aEnd descriptionWithCurrentLocale]);
+//  }
+//  return date;
+//}
+//#pragma clang diagnostic pop
 
 @end
