@@ -77,6 +77,21 @@
   GHAssertEquals(counter, (NSUInteger)5, @"counter should have been incremented 5 times");
 }
 
+- (void) test_mapc_type_range {
+  NSRange range = {0, 3};
+  NSArray *expected = @[@(0), @(1), @(2), @(3)];
+  NSMutableArray *actual = [NSMutableArray arrayWithCapacity:4];
+  mapc_type_range(range, ^(NSUInteger idx) {
+    [actual nappend:@(idx)];
+  });
+  GHTestLog(@"expected = %@", expected);
+  GHTestLog(@"actual = %@", actual);
+  [actual mapc:^(NSNumber *num, NSUInteger idx, BOOL *stop) {
+    GHAssertTrue([num compare:[expected nth:idx]] == NSOrderedSame,
+                 @"should be able to cons up a list from a range");
+  }];
+}
+
 
 
 

@@ -32,6 +32,9 @@
 typedef void (^DoTimesBlock)(NSUInteger, void(^block)(void));
 DoTimesBlock dotimes;
 
+typedef void (^MapcTypeRangeBlock)(NSRange, void(^block)(NSUInteger));
+MapcTypeRangeBlock mapc_type_range;
+
 /**
  Documentation
  */
