@@ -33,7 +33,9 @@
 #import "LjsLoginItemManager.h"
 #import "Lumberjack.h"
 #import "LjsValidator.h"
-#import "LjsErrorFactory.h"
+#import "NSError+LjsAdditions.h"
+#import <ServiceManagement/ServiceManagement.h>
+#import "LjsCategories.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -256,6 +258,27 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
   if (loginItems != NULL) { CFRelease(loginItems); }
   return result;
+}
+
+
++ (BOOL) hasOnDemainLaunchHelperWithBundleId:(NSString *)aLaunchHelperBundleId {
+  NSArray * jobDicts = nil;
+  jobDicts = (__bridge_transfer NSArray *)SMCopyAllJobDictionaries( kSMDomainUserLaunchd );
+  
+  if (jobDicts == nil || [jobDicts count] == 0) {
+    DDLogWarn(@"could not find any job dictionaries which could be a problem; returning NO");
+    return NO;
+  }
+  
+  __block BOOL onDemand = NO;
+  [jobDicts mapc:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
+    if ([aLaunchHelperBundleId isEqualToString:[dict objectForKey:@"Label"]]) {
+      onDemand = [[dict objectForKey:@"OnDemand"] boolValue];
+      *stop = YES;
+    }
+  }];
+  
+  return onDemand;
 }
 
 @end
