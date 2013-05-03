@@ -156,12 +156,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #pragma mark Predicates
 
 - (NSPredicate *) predicateForKey:(NSString *) aKey {
-  return [NSPredicate predicateWithFormat:@"key LIKE %@", aKey];
+  return [NSPredicate predicateWithFormat:@"key == %@", aKey];
 }
 
 - (NSPredicate *) predicateForAttribute:(NSString *)aAttributeName
                                   value:(NSString *)aAttributeValue {
-  return [NSPredicate predicateWithFormat:@"%K LIKE %@", aAttributeName,
+  return [NSPredicate predicateWithFormat:@"%K == %@", aAttributeName,
           aAttributeValue];
 }
 

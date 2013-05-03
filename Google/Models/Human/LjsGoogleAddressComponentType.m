@@ -17,7 +17,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSString *entityName = [LjsGoogleAddressComponentType entityName];
   LjsGoogleAddressComponentType *result = nil;
   NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
-  request.predicate = [NSPredicate predicateWithFormat:@"name LIKE %@", aName];
+  request.predicate = [NSPredicate predicateWithFormat:@"name == %@", aName];
   NSError *error = nil;
   NSArray *fetched = [aContext executeFetchRequest:request error:&error];
   if (fetched == nil) {
