@@ -25,15 +25,6 @@ typedef enum : NSUInteger {
 
 @end
 
-/**
- Category on NSString to make stringWithFormat a little less verbose
- */
-@interface NSString (NSString_LjsErrorFactory)
-
-+ (NSString *) swf:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2);
-
-@end
-
 
 /**
  Documentation
