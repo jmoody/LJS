@@ -6,9 +6,11 @@
 #import "Lumberjack.h"
 #import "NSError+LjsAdditions.h"
 #import "NSArray+LjsAdditions.h"
+#import "NSDictionary+LjsAdditions.h"
 #import <CoreData/CoreData.h>
 #import "LjsIdGenerator.h"
 #import "LjsDateHelper.h"
+
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -20,19 +22,26 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  key for the destination model in the dictionary that is returned by the 
  `findPathDestinationAndMappingModelWithModelPaths:` method
  */
-static NSString *const desintationModelKey = @"com.littlejoysoftware.core data progressive migration model key";
+static NSString *const kDesintationModelKey = @"com.littlejoysoftware.core data progressive migration model key";
 
 /**
  key for the mapping model in the dictionary that is returned by the 
  `findPathDestinationAndMappingModelWithModelPaths:` method
  */
-static NSString *const mappingModelKey = @"com.littlejoysoftware.core data progressive migration mapping key";
+static NSString *const kMappingModelKey = @"com.littlejoysoftware.core data progressive migration mapping key";
 
 /**
  key for the model path in the dictionary that is returned by the 
  `findPathDestinationAndMappingModelWithModelPaths:` method
  */
-static NSString *const modelPathKey = @"com.littlejoysoftware.core data progressive migration model path key";
+static NSString *const kModelPathKey = @"com.littlejoysoftware.core data progressive migration model path key";
+
+static NSString *const kErrorDomain = @"com.littlejoysoftware.core date progressive migration";
+
+typedef enum : NSUInteger {
+  kErrorCode = 8001
+} error_codes;
+
 
 /**
  LjsProgressMigration (Private)
@@ -44,7 +53,7 @@ static NSString *const modelPathKey = @"com.littlejoysoftware.core data progress
 /**
  a timestamped diretory in which all the migration work is done
  */
-@property (nonatomic, strong) NSString *timestampedDirectory;
+@property (nonatomic, copy) NSString *timestampedDirectory;
 
 
 /** @name Utilitiy */
@@ -63,15 +72,19 @@ static NSString *const modelPathKey = @"com.littlejoysoftware.core data progress
                                         storeExtension:(NSString *) aStoreExtension
                                                  error:(NSError **) aError;
 
+- (NSError *) errorWithMessage:(NSString *) aMessage;
+
 
 @end
 
 @implementation LjsProgressiveMigration
-@synthesize timestampedDirectory;
 
 
 #pragma mark Memory Management
 
+- (NSError *) errorWithMessage:(NSString *) aMessage {
+  return [NSError errorWithDomain:kErrorDomain code:kErrorCode localizedDescription:aMessage];
+}
 
 /**
  @return a initialized instance 
@@ -121,13 +134,9 @@ static NSString *const modelPathKey = @"com.littlejoysoftware.core data progress
                                        mergedModelFromBundles:nil
                                        forStoreMetadata:sourceMetadata];
   if (sourceModel == nil) {
-    NSString *message = [NSString stringWithFormat:@"failed to create source model from metadata: %@",
-                         sourceMetadata];
-    DDLogError(@"%@", message);
-    if (aError != NULL) {
-      *aError = [NSError errorWithDomain:@"Zarra" code:8001
-                    localizedDescription:message];
-    }
+    NSString *msg = [@"failed to create source model from metadata: "
+                     stringByAppendingFormat:@"%@", sourceMetadata];
+    DDLogError(msg); if (aError != NULL) { *aError = [self errorWithMessage:msg]; }
     return NO;
   }
   
@@ -136,30 +145,28 @@ static NSString *const modelPathKey = @"com.littlejoysoftware.core data progress
   
   if (modelPaths == nil || [modelPaths emptyp]) {
     NSString *message = @"No models found in bundle.";
-    DDLogError(@"%@", message);
-    if (aError != NULL) {
-      *aError = [NSError errorWithDomain:@"Zarra" code:8001
-                    localizedDescription:message];
-    }
+    DDLogError(message); if (aError != NULL) { *aError = [self errorWithMessage:message]; }
     return NO;
   }
 
+  DDLogDebug(@"model paths = %@", modelPaths);
   //See if we can find a matching path, destination (mom) model, and mapping model
   NSDictionary *map = [self findPathDestinationAndMappingModelWithModelPaths:modelPaths
                                                                  sourceModel:sourceModel];
   if (map == nil) {
     NSString *message = @"Could not find matching destination MOM and mapping.";
-    DDLogError(@"%@", message);
-    if (aError != NULL) {
-      
-      *aError = [NSError errorWithDomain:@"Zarra" code:8001
-                    localizedDescription:message];
-    }
+    DDLogError(message); if (aError != NULL) { *aError = [self errorWithMessage:message]; }
     return NO;
   }
-  NSMappingModel *mappingModel = [map objectForKey:mappingModelKey];
-  NSManagedObjectModel *destinationModel = [map objectForKey:desintationModelKey];
-  NSString *modelPath = [map objectForKey:modelPathKey];
+  
+//  if ([map emptyp]) {
+//    DDLogDebug(@"versions were the same - no need to migrate - returing YES");
+//    return YES;
+//  }
+  
+  NSMappingModel *mappingModel = [map objectForKey:kMappingModelKey];
+  NSManagedObjectModel *destinationModel = [map objectForKey:kDesintationModelKey];
+  NSString *modelPath = [map objectForKey:kModelPathKey];
 
 
   //We have a mapping model and a destination model.  Time to migrate
@@ -233,31 +240,30 @@ static NSString *const modelPathKey = @"com.littlejoysoftware.core data progress
  */
 - (NSDictionary *) findPathDestinationAndMappingModelWithModelPaths:(NSArray *) aModelPaths
                                                         sourceModel:(NSManagedObjectModel *) aSourceModel {
-  __block NSMappingModel *mappingModel = nil;
-  __block NSManagedObjectModel *destinationModel = nil;
-  __block NSString *modelPath = nil;
-  [aModelPaths mapc:^(NSString *path, NSUInteger idx, BOOL *stop) {
-    modelPath = path;
+  for (NSString *path in aModelPaths) {
     NSURL *url = [NSURL fileURLWithPath:path];
-    destinationModel = [[NSManagedObjectModel alloc] 
-                        initWithContentsOfURL:url];
-    mappingModel = [NSMappingModel mappingModelFromBundles:nil 
-                                            forSourceModel:aSourceModel 
-                                          destinationModel:destinationModel];
-    if (mappingModel != nil) {
-      *stop = YES;
-    } 
-  }];
-  
-  if (mappingModel == nil) {
-    return nil;
-  }
-  
-  return [NSDictionary dictionaryWithObjectsAndKeys:
-          mappingModel, mappingModelKey,
-          destinationModel, desintationModelKey, 
-          modelPath, modelPathKey, nil];
+    NSManagedObjectModel *destMom = [[NSManagedObjectModel alloc] initWithContentsOfURL:url];
+    NSString *sourceVersion = [[[aSourceModel versionIdentifiers] allObjects] first];
+    NSString *targetVersion = [[[destMom versionIdentifiers] allObjects] first];
+    if ([sourceVersion isEqualToString:targetVersion] == YES) {
+      DDLogDebug(@"model versions are the same: '%@'", targetVersion);
+      continue;
+    }
+
+    NSMappingModel *mappingModel = [NSMappingModel mappingModelFromBundles:nil
+                                                            forSourceModel:aSourceModel
+                                                          destinationModel:destMom];
+    if (mappingModel == nil) {
+      DDLogError(@"no mapping model from '%@' to '%@'", sourceVersion, targetVersion);
+      return nil;
+    }
     
+    return @{kMappingModelKey : mappingModel,
+             kDesintationModelKey : destMom,
+             kModelPathKey : path};
+             
+  }
+  return nil;
 }
 
 /*
@@ -282,13 +288,10 @@ static NSString *const modelPathKey = @"com.littlejoysoftware.core data progress
       if ([[NSFileManager defaultManager] createDirectoryAtPath:timestampDirPath
                                     withIntermediateDirectories:YES
                                                      attributes:nil error:aError] == NO) {
-        NSString *message = [NSString stringWithFormat:@"Could not create tmp directory %@ at path %@",
+        NSString *message = [@"Could not create tmp directory "
+                             stringByAppendingFormat:@"%@ at path %@",
                              self.timestampedDirectory, timestampDirPath];
-        DDLogError(@"%@", message);
-        if (aError != NULL) {
-          *aError = [NSError errorWithDomain:@"Zarra" code:8001
-                        localizedDescription:message];
-        }
+        DDLogError(message);  if (aError != NULL) { *aError = [self errorWithMessage:message]; }
         return nil;
       }
     }
