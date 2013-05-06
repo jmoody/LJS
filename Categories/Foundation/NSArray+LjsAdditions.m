@@ -8,6 +8,17 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @implementation NSArray (NSArray_LjsAdditions)
 
+- (BOOL) not_empty {
+  return [self count] != 0;
+}
+
+- (BOOL) has_objects {
+  return [self count] != 0;
+}
+
+
+#pragma mark - Lisp
+
 - (id) nth:(NSUInteger) index {
   NSUInteger count = [self count];
   if (index >= count) {
@@ -55,18 +66,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
 }
 
+#pragma mark - Sorting
+
 - (NSArray *) sortedArrayUsingDescriptor:(NSSortDescriptor *) aSorter {
   NSArray *array = [NSArray arrayWithObject:aSorter];
   return [self sortedArrayUsingDescriptors:array];
 }
 
-- (NSArray *) pushObject:(id) object {
-  if (object == nil) {
-    return [NSArray arrayWithArray:self];
-  }
-  NSArray *array = [NSArray arrayWithObject:object];
-  return [array arrayByAddingObjectsFromArray:self];
-}
+#pragma mark - Mapping
 
 - (NSArray *) mapcar:(id (^)(id obj)) aBlock {
   NSMutableArray *result = [NSMutableArray arrayWithCapacity:[self count]];
@@ -94,14 +101,15 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return self;
 }
 
+#pragma mark - Filtering
 
-
-- (BOOL) emptyp {
-  return [self count] == 0;
+- (NSArray *)filteredArrayUsingBlock:(BOOL (^)(id obj, NSUInteger idx, BOOL *stop))predicate {
+  NSIndexSet * filteredIndexes = [self indexesOfObjectsPassingTest:predicate];
+  return [self objectsAtIndexes:filteredIndexes];
 }
 
 - (NSArray *) arrayByRemovingObjectsInArray:(NSArray *) aArray {
-  if (aArray == nil || [aArray emptyp]) {
+  if ([aArray not_empty] == NO) {
     return [NSArray arrayWithArray:self];
   }
   NSPredicate *predicate;
@@ -112,6 +120,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }];
   return [self filteredArrayUsingPredicate:predicate];
 }
+
+#pragma mark - Strings <==> Enumerations
 
 - (NSString *) stringWithEnum:(NSUInteger) enumVal {
   NSString *result = nil;

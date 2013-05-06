@@ -64,6 +64,14 @@ static NSString *const ellipsis = @"...";
 @implementation NSString (NSString_LjsAdditions)
 
 
+- (BOOL) not_empty {
+  return [self length] != 0;
+}
+
+- (BOOL) has_chars {
+  return [self length] != 0;
+}
+
 // https://github.com/ZaBlanc/InnerBand
 - (NSComparisonResult) diacriticInsensitiveCaseInsensitiveSort:(NSString *)rhs {
 	return [self compare:rhs options:NSDiacriticInsensitiveSearch | 
@@ -86,10 +94,7 @@ static NSString *const ellipsis = @"...";
 }
 
 - (NSString *) makeKeyword {
-  
-  if ([self emptyp] == YES) {
-    return nil;
-  }
+  if ([self has_chars] == NO) { return nil; }
   
   NSString *firstChar = [self substringToIndex:1];
   BOOL noSpaces = [self rangeOfString:@" "].location == NSNotFound;
@@ -104,8 +109,9 @@ static NSString *const ellipsis = @"...";
   NSArray *tokens = [trimmed componentsSeparatedByString:@" "];
   NSPredicate *prd = [NSPredicate predicateWithBlock:^BOOL(NSString *str,
                                                            NSDictionary *bindings) {
-    return ![str emptyp];
+    return [str has_chars];
   }];
+  
   tokens = [tokens filteredArrayUsingPredicate:prd];
   NSString *squeezed = [tokens componentsJoinedByString:@"-"];
   
@@ -135,14 +141,6 @@ static NSString *const ellipsis = @"...";
   return [NSString stringWithString:mutable];
 }
 
-
-- (BOOL) emptyp {
-  return [self length] == 0;
-}
-
-+ (BOOL) stringIsEmptyP:(NSString *) aString {
-  return (aString == nil) ? YES : [aString emptyp];
-}
 
 #if TARGET_OS_IPHONE
 - (NSString *) stringByTruncatingToWidth:(CGFloat) width withFont:(UIFont *) font {

@@ -59,19 +59,6 @@
 + (BOOL) stringContainsOnlyNumbers:(NSString *) aString;
 
 /**
- @return true iff aString is non-nil and non-empty
- @param aString the string to test
- @deprecated Use stringIsNonNilAndNotEmpty: instead
- */
-+ (BOOL) stringIsNonNilOrEmpty:(NSString *) aString;
-
-/**
- @return true iff aString is non-nil and non-empty
- @param aString the string to test
- */
-+ (BOOL) stringIsNonNilAndNotEmpty:(NSString *) aString;
-
-/**
  Method for checking if a value is an NSDictionary
  @param value some value
  @return true iff value is an NSDictionary

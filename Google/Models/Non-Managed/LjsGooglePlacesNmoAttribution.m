@@ -33,6 +33,7 @@
 #import "LjsGooglePlacesNmoAttribution.h"
 #import "Lumberjack.h"
 #import "LjsValidator.h"
+#import "NSString+LjsAdditions.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -50,9 +51,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (id) initWithHtml:(NSString *)aHtml {
   self = [super init];
   if (self) {
-    BOOL valid = [LjsValidator stringIsNonNilAndNotEmpty:aHtml];
-    if (valid == NO) {
-      DDLogWarn(@"@<%@> must be non-nil and non-empty - returning nil", aHtml);
+    LjsReasons *reasons = [LjsReasons new];
+    [reasons ifNilOrEmptyString:aHtml addReasonWithVarName:@"html"];
+    if ([reasons hasReasons]) {
+      DDLogError([reasons explanation:@"could not recreate attribution" consequence:@"nil"]);
       return nil;
     }
     self.html = aHtml;

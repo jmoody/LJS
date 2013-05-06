@@ -50,12 +50,25 @@
 
 #import <Foundation/Foundation.h>
 
+
 /**
  NSString on NSString_LjsAdditions category.
  */
 @interface NSString (NSString_LjsAdditions)
 
 /** @name Task Section */
+
+// ugh - these suck
+//- (BOOL) emptyp;
+//+ (BOOL) stringIsEmptyP:(NSString *) aString;
+
+// would like to use empty or emptyp, but i want these to return true when
+// called on nil objects
+- (BOOL) not_empty;
+- (BOOL) has_chars;
+
+
+#pragma mark - compare (inner band)
 
 // https://github.com/ZaBlanc/InnerBand
 - (NSComparisonResult) diacriticInsensitiveCaseInsensitiveSort:(NSString *)rhs;
@@ -68,9 +81,6 @@
 
 - (NSString *) stringByEscapingDoubleQuotes;
 - (NSString *) stringByUnescapingDoubleQuotes;
-
-- (BOOL) emptyp;
-+ (BOOL) stringIsEmptyP:(NSString *) aString;
 
 /**
  @return a new string based on the receiver with a ':' on the front

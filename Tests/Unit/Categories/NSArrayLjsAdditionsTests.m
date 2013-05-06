@@ -161,71 +161,78 @@
   }
 }
 
-- (void) test_append {
-  id object;
-  NSArray *array;
-  NSArray *actual, *expected;
-  NSUInteger actualCount, expectedCount;
-  
-  object = nil;
-  array = nil;
-  actual = [array append:object];
-  expected = nil;
+#pragma mark - append
+
+- (void) test_append_mutable_array_fails {
+  NSMutableArray *ma = [NSMutableArray array];
+  GHAssertThrows([ma append:@"a"], @"should throw does not respond to selector");
+}
+
+- (void) test_append_to_nil {
+  id object = nil;
+  NSArray *array = nil;
+  NSArray *actual = [array append:object];
   GHAssertNil(actual, nil);
-  
-  object = nil;
-  array = [NSArray array];
-  actual = [array append:object];
-  actualCount = [actual count];
-  expected = [NSArray array];
-  expectedCount = [expected count];
-  GHAssertEquals((NSUInteger) actualCount, (NSUInteger) expectedCount, nil);
-  
-  object = @"d";
-  array = [NSArray array];
-  actual = [array append:object];
-  actualCount = [actual count];
-  expected = [NSArray arrayWithObject:object];
-  expectedCount = [expected count];
-  GHAssertEquals((NSUInteger) actualCount, (NSUInteger) expectedCount, nil);
-  GHAssertEqualStrings([actual first], [expected first], nil);
-  
-  object = @"d";
-  array = [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
-  actual = [array append:object];
-  actualCount = [actual count];
-  expected = [NSArray arrayWithObjects:@"a", @"b", @"c", object, nil];
-  expectedCount = [expected count];
-  GHAssertEquals((NSUInteger) actualCount, (NSUInteger) expectedCount, nil);
-  for (NSUInteger index; index < actualCount; index++) {
-    GHAssertEqualStrings([actual nth:index], [expected nth:index], nil);
-  }
-  
-  object = [NSArray arrayWithObjects:@"d", @"e", @"f", nil];
-  array = [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
-  actual = [array append:object];
-  actualCount = [actual count];
-  expected = [NSArray arrayWithObjects:@"a", @"b", @"c", @"d", @"e", @"f", nil];
-  expectedCount = [expected count];
-  GHAssertEquals((NSUInteger) actualCount, (NSUInteger) expectedCount, nil);
-  for (NSUInteger index; index < actualCount; index++) {
-    GHAssertEqualStrings([actual nth:index], [expected nth:index], nil);
-  }
 }
 
-- (void) test_emptypTrue {
+- (void) test_append_nil_obj {
+  id object = nil;
   NSArray *array = [NSArray array];
-  GHAssertTrue([array emptyp], @"should be empty:\n%@", array);
-  NSMutableArray *marray = [NSMutableArray array];
-  GHAssertTrue([marray emptyp], @"should be empty:\n%@", marray);
+  NSArray *actual = [array append:object];
+  GHAssertFalse([actual has_objects], @"should have not objects: %@", array);
 }
 
-- (void) test_emptypFalse {
-  NSArray *array = [NSArray arrayWithObject:@"a"];
-  GHAssertFalse([array emptyp], @"should be empty:\n%@", array);
-  NSMutableArray *marray = [NSMutableArray arrayWithObject:@"a"];
-  GHAssertFalse([marray emptyp], @"should be empty:\n%@", marray);
+- (void) test_append_obj {
+  id object = @"d";
+  NSArray *array = [self arrayOfAbcStrings];
+  NSArray *actual = [array append:object];
+  GHAssertEquals((int)[actual count], (int)4, @"should have the correct count");
+  GHAssertEqualStrings([actual nth:3], object, nil);
 }
+
+- (void) test_append_array {
+  id object = [self arrayOfAbcStrings];
+  NSArray *array = [self arrayOfAbcStrings];
+  NSArray *actual = [array append:object];
+  NSArray *expected = @[@"a", @"b", @"c", @"a", @"b", @"c"];
+  [self compareArray:actual toArray:expected asStrings:YES];
+}
+
+#pragma mark - not_empty and has_objects
+
+- (void) test_has_objects_false {
+  NSArray *array = [NSArray array];
+  GHAssertFalse([array has_objects], @"should not have objects: '%@'", array);
+  NSMutableArray *marray = [NSMutableArray array];
+  GHAssertFalse([marray has_objects], @"should not have objects: '%@'", marray);
+  NSArray *nil_array = nil;
+  GHAssertFalse([nil_array has_objects], @"should not have objects:'%@'", nil_array);
+}
+
+- (void) test_not_empty_false {
+  NSArray *array = [NSArray array];
+  GHAssertFalse([array not_empty], @"should not have objects: '%@'", array);
+  NSMutableArray *marray = [NSMutableArray array];
+  GHAssertFalse([marray not_empty], @"should not have objects: '%@'", marray);
+  NSArray *nil_array = nil;
+  GHAssertFalse([nil_array not_empty], @"should not have objects:'%@'", nil_array);
+}
+
+- (void) test_has_objects_true {
+  NSArray *array = @[@"a"];
+  GHAssertTrue([array has_objects], @"should have objects: '%@'", array);
+  NSMutableArray *marray = [NSMutableArray arrayWithArray:array];
+  GHAssertTrue([marray has_objects], @"should have objects: '%@'", marray);
+}
+
+- (void) test_not_empty_true {
+  NSArray *array = @[@"a"];
+  GHAssertTrue([array not_empty], @"should have objects: '%@'", array);
+  NSMutableArray *marray = [NSMutableArray arrayWithArray:array];
+  GHAssertTrue([marray not_empty], @"should have objects: '%@'", marray);
+}
+
+#pragma mark - Mapping
 
 - (void) test_mapcar {
   NSArray *array = [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
@@ -304,7 +311,7 @@
   NSArray *array = [NSArray arrayWithObjects:@"a", nil];
   NSArray *toRemove = [NSArray arrayWithObjects:@"a", nil];
   NSArray *actual = [array arrayByRemovingObjectsInArray:toRemove];
-  GHAssertTrue([actual emptyp], @"array should be emptyp");
+  GHAssertFalse([actual has_objects], @"array should be emptyp");
 }
 
 

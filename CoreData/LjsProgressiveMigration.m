@@ -36,7 +36,7 @@ static NSString *const kMappingModelKey = @"com.littlejoysoftware.core data prog
  */
 static NSString *const kModelPathKey = @"com.littlejoysoftware.core data progressive migration model path key";
 
-static NSString *const kErrorDomain = @"com.littlejoysoftware.core date progressive migration";
+static NSString *const kErrorDomain = @"com.littlejoysoftware.core data progressive migration";
 
 typedef enum : NSUInteger {
   kErrorCode = 8001
@@ -54,7 +54,7 @@ typedef enum : NSUInteger {
  a timestamped diretory in which all the migration work is done
  */
 @property (nonatomic, copy) NSString *timestampedDirectory;
-
+@property (nonatomic, strong) NSArray *ignorableModels;
 
 /** @name Utilitiy */
 - (NSArray *) collectModelVersions; 
@@ -91,12 +91,19 @@ typedef enum : NSUInteger {
  sets the timepstamed directory property to `migration-` _current-date_
  */
 - (id) init {
-  //  [self doesNotRecognizeSelector:_cmd];
   self = [super init];
   if (self) {
     NSDateFormatter *df = [LjsDateHelper orderedDateFormatterWithMillis];
     NSString *dateStr = [df stringFromDate:[NSDate date]];
     self.timestampedDirectory = [NSString stringWithFormat:@"migration-%@", dateStr];
+  }
+  return self;
+}
+
+- (id) initWithIgnorableModels:(NSArray *) aIgnorableModels {
+  self = [self init];
+  if (self != nil) {
+    self.ignorableModels = [NSArray arrayWithArray:aIgnorableModels];
   }
   return self;
 }
@@ -142,14 +149,14 @@ typedef enum : NSUInteger {
   
   //Find all of the mom and momd files in the Resources directory
   NSArray *modelPaths = [self collectModelVersions];
-  
-  if (modelPaths == nil || [modelPaths emptyp]) {
+  if ([modelPaths has_objects] == NO) {
     NSString *message = @"No models found in bundle.";
     DDLogError(message); if (aError != NULL) { *aError = [self errorWithMessage:message]; }
     return NO;
   }
 
-  DDLogDebug(@"model paths = %@", modelPaths);
+  DDLogDebug(@"found these model paths: %@", modelPaths);
+  
   //See if we can find a matching path, destination (mom) model, and mapping model
   NSDictionary *map = [self findPathDestinationAndMappingModelWithModelPaths:modelPaths
                                                                  sourceModel:sourceModel];
@@ -159,11 +166,7 @@ typedef enum : NSUInteger {
     return NO;
   }
   
-//  if ([map emptyp]) {
-//    DDLogDebug(@"versions were the same - no need to migrate - returing YES");
-//    return YES;
-//  }
-  
+
   NSMappingModel *mappingModel = [map objectForKey:kMappingModelKey];
   NSManagedObjectModel *destinationModel = [map objectForKey:kDesintationModelKey];
   NSString *modelPath = [map objectForKey:kModelPathKey];
@@ -228,7 +231,18 @@ typedef enum : NSUInteger {
   NSArray* otherModels = [main pathsForResourcesOfType:@"mom" 
                                            inDirectory:nil];
   [modelPaths addObjectsFromArray:otherModels];
-  return [NSArray arrayWithArray:modelPaths];
+  
+  
+//  if ([NSArray emptyp:self.ignorableModels]) {
+//    return [NSArray arrayWithArray:modelPaths];
+//  }
+//
+//  NSPredicate *prd = [NSPredicate predicateWithBlock:^BOOL(NSString *path, NSDictionary *bindings) {
+//    NSString *name = [path]
+//  }];
+  
+  //  NSArray *filtered = [modelPaths filteredArrayUsingPredicate:<#(NSPredicate *)#>]
+  return modelPaths;
 }
 
 /*

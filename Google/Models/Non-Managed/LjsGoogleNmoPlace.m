@@ -34,6 +34,7 @@
 #import "Lumberjack.h"
 #import "LjsValidator.h"
 #import "NSArray+LjsAdditions.h"
+#import "NSString+LjsAdditions.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -63,7 +64,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     
     for (NSString *key in [[keys reverse] rest]) {
       NSString *value = [aDictionary objectForKey:key];
-      valid = [LjsValidator stringIsNonNilAndNotEmpty:value];
+      valid = [value has_chars];
       if (valid == NO) {
         DDLogWarn(@"@< %@ > must be non-nil and non-empty - returning nil", value);
         return nil;

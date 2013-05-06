@@ -407,6 +407,26 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [self dateForTimeOutWithSeconds:1.5];
 }
 
+#pragma mark - comparing arrays
+
+- (void) compareArray:(NSArray *) aActual
+              toArray:(NSArray *) aExpected
+            asStrings:(BOOL) aCompareElementsAsStrings {
+  GHAssertNotNil(aActual, @"pre-condition - should not be nil");
+  GHAssertNotNil(aExpected, @"pre-condition - should not be nil");
+  GHAssertEquals((NSUInteger)[aActual count], (NSUInteger)[aExpected count],
+                 @"arrays should have the same number of elements");
+  [aActual mapc:^(id actual, NSUInteger idx, BOOL *stop) {
+    id expected = [aExpected nth:idx];
+    if (aCompareElementsAsStrings) {
+      GHAssertEqualStrings(actual, expected, @"expected string equality - failed at index '%d'", idx);
+    } else {
+      GHAssertEquals(actual, expected, @"expected object equality - failed at index '%d'", idx);
+    }
+  }];
+}
+
+
 #pragma mark LJS Table View Owner Protocol
 
 #if TARGET_OS_IPHONE

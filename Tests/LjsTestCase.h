@@ -55,7 +55,7 @@
 
 @class LjsGestalt;
 
-@interface LjsTestCase : GHTestCase 
+@interface LjsTestCase : GHTestCase
 #if TARGET_OS_IPHONE
 <LjsTableViewOwnerProtocol>
 #endif
@@ -96,26 +96,40 @@
 - (void) swizzleFindCoreDataPath;
 - (void) restoreFindCoreDataPath;
 
-#if !TARGET_OS_IPHONE 
+#if !TARGET_OS_IPHONE
 - (NSString *) findApplicationSupportDirectoryForUserpSwizzled:(BOOL) ignorable;
 - (void) swizzleFindApplicationSupportDirectory;
 - (void) restoreFindApplicationSupportDirectory;
 #endif
 
+#pragma mark - variates
 
-- (NSString *) emptyStringOrNil;
 - (BOOL) flip;
+
+#pragma mark - selectors
+
 - (void) dummyControlSelector:(id) sender;
 - (void) dummySelector;
+
+#pragma mark - strings
+
+- (NSString *) emptyStringOrNil;
 - (NSArray *) arrayOfAbcStrings;
 - (NSSet *) setOfAbcStrings;
-- (NSArray *) arrayOfDatesTodayTormorrowDayAfter;
 - (NSArray *) arrayOfMutableStrings;
 - (NSSet *) setOfMutableStrings;
 - (NSDictionary *) dictionaryOfMutableStrings;
 
+#pragma mark - dates
 
+- (NSArray *) arrayOfDatesTodayTormorrowDayAfter;
 - (NSDate *) dateForTimeOutWithSeconds:(NSTimeInterval) aSeconds;
 - (NSDate *) dateForDefaultTimeOut;
+
+#pragma mark - comparing arrays
+
+- (void) compareArray:(NSArray *) aActual
+              toArray:(NSArray *) aExpected
+            asStrings:(BOOL) aCompareElementsAsStrings;
 
 @end

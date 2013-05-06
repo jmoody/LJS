@@ -35,6 +35,7 @@
 #import "LjsFileUtilities.h"
 #import "LjsValidator.h"
 #import "NSArray+LjsAdditions.h"
+#import "NSString+LjsAdditions.h"
 
 
 #ifdef LOG_CONFIGURATION_DEBUG
@@ -107,16 +108,17 @@ shouldPostNotifications:(BOOL) aShouldPostNotifications
 shouldPostNotifications:(BOOL) aShouldPostNotifications
                   error:(NSError *__autoreleasing *)error {
   self = [super init];
+
   if (self == nil) {
     return nil;
   }
   
   self.store = nil;
   
-  BOOL validFilename = [LjsValidator stringIsNonNilOrEmpty:aFilename];
+  BOOL validFilename = [aFilename has_chars];
   NSAssert1(validFilename,
             @"filename must not be nil or empty - < %@ >", aFilename);
-  BOOL validDirectory = [LjsValidator stringIsNonNilOrEmpty:aDirectoryPath];
+  BOOL validDirectory = [aDirectoryPath has_chars];
   NSAssert1(validDirectory != 0, 
             @"directory path must be non-nil and non-empty - < %@ >", aDirectoryPath);
   if (validFilename == NO || validDirectory == NO) {
