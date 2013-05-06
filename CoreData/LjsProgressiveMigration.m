@@ -155,7 +155,7 @@ typedef enum : NSUInteger {
     return NO;
   }
 
-  DDLogDebug(@"found these model paths: %@", modelPaths);
+  //DDLogDebug(@"found these model paths: %@", modelPaths);
   
   //See if we can find a matching path, destination (mom) model, and mapping model
   NSDictionary *map = [self findPathDestinationAndMappingModelWithModelPaths:modelPaths
