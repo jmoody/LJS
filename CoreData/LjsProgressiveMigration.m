@@ -232,17 +232,17 @@ typedef enum : NSUInteger {
                                            inDirectory:nil];
   [modelPaths addObjectsFromArray:otherModels];
   
+  NSArray *ignorable = self.ignorableModels;
+  if ([ignorable has_objects] == NO) {
+    return [NSArray arrayWithArray:modelPaths];
+  }
+
+  NSArray *filtered = [modelPaths filteredArrayUsingPassingBlock:^BOOL(NSString *path, NSUInteger idx, BOOL *stop) {
+    NSString *filename = [[path lastPathComponent] stringByDeletingPathExtension];
+    return [ignorable containsObject:filename] == NO;
+  }];
   
-//  if ([NSArray emptyp:self.ignorableModels]) {
-//    return [NSArray arrayWithArray:modelPaths];
-//  }
-//
-//  NSPredicate *prd = [NSPredicate predicateWithBlock:^BOOL(NSString *path, NSDictionary *bindings) {
-//    NSString *name = [path]
-//  }];
-  
-  //  NSArray *filtered = [modelPaths filteredArrayUsingPredicate:<#(NSPredicate *)#>]
-  return modelPaths;
+  return filtered;
 }
 
 /*
@@ -336,7 +336,8 @@ typedef enum : NSUInteger {
   NSString *storePath = [aDestinationStoreURL path];
   
   NSString *guid = [LjsIdGenerator generateUUID];
-  guid = [guid stringByAppendingPathExtension:aModelName];
+  guid = [guid stringByAppendingString:@"-ORIGINAL-"];
+  guid = [guid stringByAppendingFormat:@"-%@", aModelName];
   guid = [guid stringByAppendingPathExtension:aStoreExtension];
   NSString *appSupportPath = [storePath stringByDeletingLastPathComponent];
   NSString *backupPath = [appSupportPath stringByAppendingPathComponent:guid];
@@ -345,7 +346,7 @@ typedef enum : NSUInteger {
   if ([[NSFileManager defaultManager] moveItemAtPath:[aSourceStoreURL path]
                                               toPath:backupPath
                                                error:aError] == NO) {
-    //Failed to copy the file
+    //Failed to move the file
     return NO;
   }
   

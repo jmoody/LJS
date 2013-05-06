@@ -33,7 +33,7 @@
 
 - (NSArray *) arrayByRemovingObjectsInArray:(NSArray *) aArray;
 // https://github.com/Gabro/NSArray-filter-using-block.git
-- (NSArray *) filteredArrayUsingBlock:(BOOL (^)(id obj, NSUInteger idx, BOOL *stop))predicate;
+- (NSArray *) filteredArrayUsingPassingBlock:(BOOL (^)(id obj, NSUInteger idx, BOOL *stop))predicate;
 
 #pragma mark - Strings <==> Enumerations
 

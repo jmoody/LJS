@@ -103,7 +103,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 #pragma mark - Filtering
 
-- (NSArray *)filteredArrayUsingBlock:(BOOL (^)(id obj, NSUInteger idx, BOOL *stop))predicate {
+- (NSArray *) filteredArrayUsingPassingBlock:(BOOL (^)(id obj, NSUInteger idx, BOOL *stop))predicate {
   NSIndexSet * filteredIndexes = [self indexesOfObjectsPassingTest:predicate];
   return [self objectsAtIndexes:filteredIndexes];
 }
