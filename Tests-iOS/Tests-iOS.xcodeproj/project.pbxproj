@@ -321,6 +321,7 @@
 		F5A425C01529F32000F35DDE /* LjsGooglePlacesPredictiveReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425931529F32000F35DDE /* LjsGooglePlacesPredictiveReply.m */; };
 		F5A425C11529F32000F35DDE /* LjsGoogleReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425951529F32000F35DDE /* LjsGoogleReply.m */; };
 		F5A425C21529F32000F35DDE /* LjsGoogleRgReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425971529F32000F35DDE /* LjsGoogleRgReply.m */; };
+		F5AB0A3117384ED70029F1A8 /* NSMutableSet+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AB0A3017384ED70029F1A8 /* NSMutableSet+LjsAdditions.m */; };
 		F5ADA64C15D1510900E3FA56 /* 4ePodcasts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA64A15D1510900E3FA56 /* 4ePodcasts.xcdatamodeld */; };
 		F5ADA65E15D155AC00E3FA56 /* DndCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA65715D155AC00E3FA56 /* DndCharacter.m */; };
 		F5ADA65F15D155AC00E3FA56 /* DndPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA65915D155AC00E3FA56 /* DndPlayer.m */; };
@@ -796,6 +797,8 @@
 		F5A425951529F32000F35DDE /* LjsGoogleReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleReply.m; sourceTree = "<group>"; };
 		F5A425961529F32000F35DDE /* LjsGoogleRgReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleRgReply.h; sourceTree = "<group>"; };
 		F5A425971529F32000F35DDE /* LjsGoogleRgReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleRgReply.m; sourceTree = "<group>"; };
+		F5AB0A2F17384ED70029F1A8 /* NSMutableSet+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5AB0A3017384ED70029F1A8 /* NSMutableSet+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5ADA64B15D1510900E3FA56 /* 4ePodcasts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = 4ePodcasts.xcdatamodel; sourceTree = "<group>"; };
 		F5ADA65515D1537600E3FA56 /* v1-initial-model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "v1-initial-model.xcdatamodel"; sourceTree = "<group>"; };
 		F5ADA65615D155AC00E3FA56 /* DndCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DndCharacter.h; sourceTree = "<group>"; };
@@ -1689,6 +1692,8 @@
 				F5903F57151B515000995AF1 /* NSMutableArray+LjsAdditions.m */,
 				F5903F58151B515000995AF1 /* NSSet+LjsAdditions.h */,
 				F5903F59151B515000995AF1 /* NSSet+LjsAdditions.m */,
+				F5AB0A2F17384ED70029F1A8 /* NSMutableSet+LjsAdditions.h */,
+				F5AB0A3017384ED70029F1A8 /* NSMutableSet+LjsAdditions.m */,
 				F5C3B1ED1523BB84005B1087 /* LjsWebCategories.h */,
 				F5C3B1EE1523BB84005B1087 /* LjsWebCategories.m */,
 			);
@@ -2553,6 +2558,7 @@
 				F5450AF316DE074800D9D01C /* SBJsonWriter.m in Sources */,
 				F5450AF616DE419300D9D01C /* SBJSON+LjsAdditions.m in Sources */,
 				F5730B6216DF7DEB003202CC /* SBJSONLjsAdditonsTest.m in Sources */,
+				F5AB0A3117384ED70029F1A8 /* NSMutableSet+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

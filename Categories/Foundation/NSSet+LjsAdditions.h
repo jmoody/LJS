@@ -5,8 +5,8 @@
  */
 @interface NSSet (NSSet_LjsAdditions)
 
-- (BOOL) emptyp;
-+ (BOOL) setIsEmptyP:(NSSet *) aSet;
+- (BOOL) not_empty;
+- (BOOL) has_objects;
 
 - (NSArray *) sortedArrayUsingDescriptor:(NSSortDescriptor *) aSorter;
 - (NSSet *) mapcar:(id (^)(id obj)) aBlock;

@@ -1,4 +1,4 @@
-// Copyright 2012 Little Joy Software. All rights reserved.
+// Copyright 2013 Recovery Warriors LLC. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,25 +26,15 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+#import <Foundation/Foundation.h>
 
-#import "NSCalendar+LjsAdditions.h"
-#import "NSArray+LjsAdditions.h"
-#import "NSMutableArray+LjsAdditions.h"
-#import "NSDate+LjsAdditions.h"
-#import "NSError+LjsAdditions.h"
-#import "NSSet+LjsAdditions.h"
-#import "NSMutableSet+LjsAdditions.h"
-#import "NSLocale+LjsAdditions.h"
-#import "NSDateFormatter+LjsAdditions.h"
-#import "NSDecimalNumber+LjsAdditions.h"
-#import "NSString+LjsAdditions.h"
-#import "NSDictionary+LjsAdditions.h"
+/**
+ NSMutableSet on NSMutableSet_LjsAdditions category.
+ */
+@interface NSMutableSet (NSMutableSet_LjsAdditions)
 
+/** @name Task Section */
+- (void) push:(id) aObject;
+- (id) pop;
 
-// categories on string and dictionary for encoding and url parameters
-#import "LjsWebCategories.h"
-
-
-#if !TARGET_OS_IPHONE
-#import "NSAttributedString+LjsAdditions.h"
-#endif
+@end

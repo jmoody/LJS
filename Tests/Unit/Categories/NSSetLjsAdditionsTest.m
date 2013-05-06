@@ -1,9 +1,7 @@
-
-
 #import "LjsTestCase.h"
+#import "NSMutableSet+LjsAdditions.h"
 
 @interface NSSetLjsAdditionsTest : LjsTestCase
-
 
 @end
 
@@ -35,25 +33,16 @@
   [super tearDown];
 }  
 
-- (void) test_emptyp {
+- (void) test_non_empty {
   NSSet *set = nil;
-  GHAssertFalse([set emptyp], @"nil set should return NO - should be obvious - included as a clarifying test");
+  GHAssertFalse([set has_objects], @"nil sets should return NO");
+  GHAssertFalse([set not_empty], @"nil sets should return NO");
   set = [NSSet set];
-  GHAssertTrue([set emptyp], @"emptyp should return yes if set is empty");
+  GHAssertFalse([set has_objects], @"empty sets should have no objects");
+  GHAssertFalse([set not_empty], @"empty sets should have no objects");
   set = [NSSet setWithObject:@"a"];
-  GHAssertFalse([set emptyp], @"sets with objects should not be emptyp");
-}
-
-- (void) test_setIsEmptyP_YES {
-  NSSet *set = nil;
-  GHAssertTrue([NSSet setIsEmptyP:set], @"nil sets should be emptyp");
-  set = [NSSet set];
-  GHAssertTrue([NSSet setIsEmptyP:set], @"empty sets should be emptyp");
-}
-
-- (void) test_setIsEmptyP_NO {
-  NSSet *set = [NSSet setWithObject:@"a"];
-  GHAssertFalse([NSSet setIsEmptyP:set], @"sets that are not empty should not be emptyp");
+  GHAssertTrue([set has_objects], @"sets with objects should have objects");
+  GHAssertTrue([set not_empty], @"sets with objects should have objects");
 }
 
 - (void) test_mapcar {
@@ -64,18 +53,9 @@
   NSSet *expected = [NSSet setWithObjects:@"A", @"B", @"C", nil];
   GHAssertEquals((NSUInteger)[set count], (NSUInteger)3, @"should contain the same number of elements");
   GHAssertTrue([[expected objectsPassingTest:^BOOL(id obj, BOOL *stop) {
-    return ![actual containsObject:obj];
-  }] emptyp], @"actual should contain all the objects in expected");
+    return [actual containsObject:obj];
+  }] has_objects], @"actual should contain all the objects in expected");
 }
-
-
-/*
- - (NSSet *) mapc:(void (^)(id obj)) aBlock;
- // the threshold for useful concurrency is 10,000 and 50,000 objects
- //http://darkdust.net/writings/objective-c/nsarray-enumeration-performance#The_graphs
- - (NSSet *) mapc:(void (^)(id obj)) aBlock concurrent:(BOOL) aConcurrent;
- 
- */
 
 
 - (void) test_mapc {
@@ -87,8 +67,8 @@
   GHAssertEquals((NSUInteger)[set count], (NSUInteger)3, @"should contain the same number of elements");
   NSSet *expected = [NSSet setWithObjects:@"A", @"B", @"C", nil];
   GHAssertTrue([[expected objectsPassingTest:^BOOL(id obj, BOOL *stop) {
-    return ![actual containsObject:obj];
-  }] emptyp], @"actual should contain all the objects in expected");
+    return [actual containsObject:obj];
+  }] has_objects], @"actual should contain all the objects in expected");
 }
 
 - (void) test_mapc_concurrent {
@@ -101,8 +81,37 @@
   GHAssertEquals((NSUInteger)[set count], (NSUInteger)3, @"should contain the same number of elements");
   NSSet *expected = [NSSet setWithObjects:@"A", @"B", @"C", nil];
   GHAssertTrue([[expected objectsPassingTest:^BOOL(id obj, BOOL *stop) {
-    return ![actual containsObject:obj];
-  }] emptyp], @"actual should contain all the objects in expected");  
+    return [actual containsObject:obj];
+  }] has_objects], @"actual should contain all the objects in expected");
 }
+
+#pragma mark - Push and Pop
+
+- (void) test_push_nil {
+  NSMutableSet *set = [NSMutableSet setWithObjects:@"a", @"b", @"c", nil];
+  [set push:nil];
+  GHAssertEquals((int)[set count], (int)3, @"should not be able to push nil");
+}
+
+- (void) test_push_non_nil {
+  NSMutableSet *set = [NSMutableSet setWithObjects:@"a", @"b", @"c", nil];
+  [set push:@"d"];
+  GHAssertEquals((int)[set count], (int)4, @"should not be able to push non nil");
+}
+
+- (void) test_pop_empty {
+  NSMutableSet *set = [NSMutableSet set];
+  id obj = [set pop];
+  GHAssertNil(obj, @"poping empty set should return nil");
+}
+
+- (void) test_pop_not_empty {
+  NSMutableSet *set = [NSMutableSet setWithObjects:@"a", @"b", @"c", nil];
+  id obj = [set pop];
+  GHAssertNotNil(obj, @"should be able to pop obj from non-empty set");
+  GHAssertEquals((int)[set count], (int)2, @"should not be able to push non nil");
+}
+
+
 
 @end
