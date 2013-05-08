@@ -45,6 +45,13 @@
 //#define HC_SHORTHAND
 
 
+#define pending(description) \
+[self failWithException:[NSException ghu_failureInFile: [NSString stringWithUTF8String:__FILE__] \
+atLine: __LINE__ \
+withDescription: GHComposeString(description, nil)]]
+
+
+
 #if TARGET_OS_IPHONE
 #import "LjsTableViewOwnerProtocol.h"
 
