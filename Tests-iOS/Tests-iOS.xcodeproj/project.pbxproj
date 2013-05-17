@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		F505FB781746D01100860990 /* NSOrderedSet+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F505FB771746D01100860990 /* NSOrderedSet+LjsAdditions.m */; };
 		F50A035014E008D900AA0912 /* LoremIpsum.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009FB14B227EA001EF805 /* LoremIpsum.m */; };
 		F50A035214E0090700AA0912 /* LjsVariates.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F81410CC420051FC7E /* LjsVariates.m */; };
 		F50BD4F714CB78810037227B /* LjsRecessedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F50BD4F614CB78810037227B /* LjsRecessedButton.m */; };
@@ -391,6 +392,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F505FB761746D01100860990 /* NSOrderedSet+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOrderedSet+LjsAdditions.h"; sourceTree = "<group>"; };
+		F505FB771746D01100860990 /* NSOrderedSet+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOrderedSet+LjsAdditions.m"; sourceTree = "<group>"; };
 		F50BD4F514CB78810037227B /* LjsRecessedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRecessedButton.h; sourceTree = "<group>"; };
 		F50BD4F614CB78810037227B /* LjsRecessedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsRecessedButton.m; sourceTree = "<group>"; };
 		F50FE69B1410C6F60051FC7E /* Tests-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tests-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1669,6 +1672,8 @@
 		F5903F49151B515000995AF1 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				F505FB761746D01100860990 /* NSOrderedSet+LjsAdditions.h */,
+				F505FB771746D01100860990 /* NSOrderedSet+LjsAdditions.m */,
 				F5C3B1E41523BAC7005B1087 /* LjsFoundationCategories.h */,
 				F5595B6F1550157E001CF528 /* NSDictionary+LjsAdditions.h */,
 				F5595B701550157E001CF528 /* NSDictionary+LjsAdditions.m */,
@@ -2559,6 +2564,7 @@
 				F5450AF616DE419300D9D01C /* SBJSON+LjsAdditions.m in Sources */,
 				F5730B6216DF7DEB003202CC /* SBJSONLjsAdditonsTest.m in Sources */,
 				F5AB0A3117384ED70029F1A8 /* NSMutableSet+LjsAdditions.m in Sources */,
+				F505FB781746D01100860990 /* NSOrderedSet+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
