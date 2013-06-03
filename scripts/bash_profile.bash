@@ -35,12 +35,6 @@ export MANPATH=/opt/local/share/man:$MANPATH
 
 export RUBYMINE_HOME="/Applications/RubyMine.app/"
 
-if [ -d /usr/local/etc/bash_completion.d ]; then
-    . /usr/local/etc/bash_completion.d/git-completion.bash
-    . /usr/local/etc/bash_completion.d/git-prompt.sh
-fi
-
-
 if [ "`/usr/bin/whoami`" == "root" ]; then
     export PS1="[\h:\w]: \u# "
 else
@@ -51,7 +45,7 @@ alias bui='bundle update && bundle install'
 alias be='bundle exec'
 alias btar='tar --use-compress-program /opt/local/bin/bzip2 '
 alias rt='./run-tests.sh'
-
+alias gsu='git submodule update --init --recursive'
 # MacPorts Installer addition on 2013-01-08_at_16:31:19: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
@@ -65,7 +59,18 @@ PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 ### HOME BREW ###
 export PATH=/usr/local/bin:$PATH
 
+if [ -d /usr/local/etc/bash_completion.d ]; then
+    . /usr/local/etc/bash_completion.d/git-completion.bash
+    . /usr/local/etc/bash_completion.d/git-prompt.sh
+fi
+
+if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+      . /opt/local/etc/profile.d/bash_completion.sh
+fi
+
 ### RUBY ENV ###
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 eval "$(rbenv init -)"
+
+
