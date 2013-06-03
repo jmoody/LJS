@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		F505FB781746D01100860990 /* NSOrderedSet+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F505FB771746D01100860990 /* NSOrderedSet+LjsAdditions.m */; };
 		F50A035014E008D900AA0912 /* LoremIpsum.m in Sources */ = {isa = PBXBuildFile; fileRef = F54009FB14B227EA001EF805 /* LoremIpsum.m */; };
 		F50A035214E0090700AA0912 /* LjsVariates.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6F81410CC420051FC7E /* LjsVariates.m */; };
 		F50BD4F714CB78810037227B /* LjsRecessedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F50BD4F614CB78810037227B /* LjsRecessedButton.m */; };
@@ -321,6 +322,7 @@
 		F5A425C01529F32000F35DDE /* LjsGooglePlacesPredictiveReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425931529F32000F35DDE /* LjsGooglePlacesPredictiveReply.m */; };
 		F5A425C11529F32000F35DDE /* LjsGoogleReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425951529F32000F35DDE /* LjsGoogleReply.m */; };
 		F5A425C21529F32000F35DDE /* LjsGoogleRgReply.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A425971529F32000F35DDE /* LjsGoogleRgReply.m */; };
+		F5AB0A3117384ED70029F1A8 /* NSMutableSet+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AB0A3017384ED70029F1A8 /* NSMutableSet+LjsAdditions.m */; };
 		F5ADA64C15D1510900E3FA56 /* 4ePodcasts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA64A15D1510900E3FA56 /* 4ePodcasts.xcdatamodeld */; };
 		F5ADA65E15D155AC00E3FA56 /* DndCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA65715D155AC00E3FA56 /* DndCharacter.m */; };
 		F5ADA65F15D155AC00E3FA56 /* DndPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ADA65915D155AC00E3FA56 /* DndPlayer.m */; };
@@ -390,6 +392,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F505FB761746D01100860990 /* NSOrderedSet+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOrderedSet+LjsAdditions.h"; sourceTree = "<group>"; };
+		F505FB771746D01100860990 /* NSOrderedSet+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOrderedSet+LjsAdditions.m"; sourceTree = "<group>"; };
 		F50BD4F514CB78810037227B /* LjsRecessedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRecessedButton.h; sourceTree = "<group>"; };
 		F50BD4F614CB78810037227B /* LjsRecessedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsRecessedButton.m; sourceTree = "<group>"; };
 		F50FE69B1410C6F60051FC7E /* Tests-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tests-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -796,6 +800,8 @@
 		F5A425951529F32000F35DDE /* LjsGoogleReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleReply.m; sourceTree = "<group>"; };
 		F5A425961529F32000F35DDE /* LjsGoogleRgReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGoogleRgReply.h; sourceTree = "<group>"; };
 		F5A425971529F32000F35DDE /* LjsGoogleRgReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGoogleRgReply.m; sourceTree = "<group>"; };
+		F5AB0A2F17384ED70029F1A8 /* NSMutableSet+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5AB0A3017384ED70029F1A8 /* NSMutableSet+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5ADA64B15D1510900E3FA56 /* 4ePodcasts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = 4ePodcasts.xcdatamodel; sourceTree = "<group>"; };
 		F5ADA65515D1537600E3FA56 /* v1-initial-model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "v1-initial-model.xcdatamodel"; sourceTree = "<group>"; };
 		F5ADA65615D155AC00E3FA56 /* DndCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DndCharacter.h; sourceTree = "<group>"; };
@@ -1666,6 +1672,8 @@
 		F5903F49151B515000995AF1 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				F505FB761746D01100860990 /* NSOrderedSet+LjsAdditions.h */,
+				F505FB771746D01100860990 /* NSOrderedSet+LjsAdditions.m */,
 				F5C3B1E41523BAC7005B1087 /* LjsFoundationCategories.h */,
 				F5595B6F1550157E001CF528 /* NSDictionary+LjsAdditions.h */,
 				F5595B701550157E001CF528 /* NSDictionary+LjsAdditions.m */,
@@ -1689,6 +1697,8 @@
 				F5903F57151B515000995AF1 /* NSMutableArray+LjsAdditions.m */,
 				F5903F58151B515000995AF1 /* NSSet+LjsAdditions.h */,
 				F5903F59151B515000995AF1 /* NSSet+LjsAdditions.m */,
+				F5AB0A2F17384ED70029F1A8 /* NSMutableSet+LjsAdditions.h */,
+				F5AB0A3017384ED70029F1A8 /* NSMutableSet+LjsAdditions.m */,
 				F5C3B1ED1523BB84005B1087 /* LjsWebCategories.h */,
 				F5C3B1EE1523BB84005B1087 /* LjsWebCategories.m */,
 			);
@@ -2553,6 +2563,8 @@
 				F5450AF316DE074800D9D01C /* SBJsonWriter.m in Sources */,
 				F5450AF616DE419300D9D01C /* SBJSON+LjsAdditions.m in Sources */,
 				F5730B6216DF7DEB003202CC /* SBJSONLjsAdditonsTest.m in Sources */,
+				F5AB0A3117384ED70029F1A8 /* NSMutableSet+LjsAdditions.m in Sources */,
+				F505FB781746D01100860990 /* NSOrderedSet+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

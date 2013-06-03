@@ -34,28 +34,30 @@
   [super tearDown];
 }  
 
-- (void) test_emptyp_YES {
+- (void) test_has_chars_false {
   NSString *str = nil;
-  GHAssertFalse([str emptyp], @"should return false for nil string, should be obvious, but this is a clarifying test");
+  GHAssertFalse([str has_chars], @"should not have chars: '%@'", str);
+  GHAssertFalse([str not_empty], @"should not be not_empty: '%@'", str);
+  NSMutableString *mstr = nil;
+  GHAssertFalse([mstr has_chars], @"should not have chars: '%@'", mstr);
+  GHAssertFalse([mstr not_empty], @"should not be not_empty: '%@'", mstr);
+
   str = @"";
-  GHAssertTrue([str emptyp], @"emptyp should return YES if string is empty");
-
+  GHAssertFalse([str has_chars], @"should not have chars: '%@'", str);
+  GHAssertFalse([str not_empty], @"should not be not_empty: '%@'", str);
+  mstr = [NSMutableString stringWithString:str];
+  GHAssertFalse([mstr has_chars], @"should not have chars: '%@'", mstr);
+  GHAssertFalse([mstr not_empty], @"should not be not_empty: '%@'", mstr);
 }
 
-- (void) test_emptyp_NO {
-  GHAssertFalse([@"foo" emptyp], @"not empty and non nil strings should not be emptyp");
+- (void) test_has_chars_true {
+  NSString *str = @"a";
+  GHAssertTrue([str has_chars], @"should have chars: '%@'", str);
+  GHAssertTrue([str not_empty], @"should be not_empty: '%@'", str);
+  NSMutableString *mstr = [NSMutableString stringWithString:str];
+  GHAssertTrue([mstr has_chars], @"should have chars: '%@'", mstr);
+  GHAssertTrue([mstr not_empty], @"should be not_empty: '%@'", mstr);
 }
-
-- (void) test_stringIsEmptyP_YES {
-  for (NSUInteger index = 0; index < 5; index++) {
-    GHAssertTrue([NSString stringIsEmptyP:[self emptyStringOrNil]], @"stirng is empty p should return YES if string is empty or nil");
-  }
-}
-
-- (void) test_stringIsEmptyP_NO {
-  GHAssertFalse([NSString stringIsEmptyP:@"foo"], @"string is empty p should return false for non empty strings");
-}
-
 
 #if TARGET_OS_IPHONE
 - (void) test_string_by_truncating_with_ellipsis {

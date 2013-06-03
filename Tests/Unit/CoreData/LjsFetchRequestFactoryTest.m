@@ -88,7 +88,7 @@
 - (void) test_predicate_with_key {
   NSPredicate *prd = [self.fac predicateForKey:@":key"];
   NSString *actual = [prd predicateFormat];
-  assertThat(actual, is(@"key LIKE \":key\""));
+  assertThat(actual, is(@"key == \":key\""));
 }
 
 /*
@@ -100,7 +100,7 @@
   NSPredicate *prd = [self.fac predicateForAttribute:@"dataSourceType.name"
                                                              value:@"action"];
   NSString *actual = [prd predicateFormat];
-  assertThat(actual, is(@"dataSourceType.name LIKE \"action\""));
+  assertThat(actual, is(@"dataSourceType.name == \"action\""));
 }
 
 - (void) test_predicate_with_attribute_value_and_key {
@@ -108,7 +108,7 @@
                                                              value:@":action-type"
                                                                key:@":key"];
   NSString *actual = [prd predicateFormat];
-  assertThat(actual, is(@"key LIKE \":key\" AND type LIKE \":action-type\""));
+  assertThat(actual, is(@"key == \":key\" AND type == \":action-type\""));
 }
 
 /*

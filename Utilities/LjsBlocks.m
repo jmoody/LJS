@@ -45,6 +45,14 @@ DoTimesBlock dotimes = ^(NSUInteger times, void(^block)(void)) {
   }
 };
 
+MapcTypeRangeBlock mapc_type_range = ^(NSRange aRange, void(^block)(NSUInteger)) {
+  NSUInteger stop = aRange.length;
+  for (NSUInteger index = aRange.location; index <= stop; index++) {
+    block(index);
+  }
+};
+
+
 @implementation LjsBlocks
 
 

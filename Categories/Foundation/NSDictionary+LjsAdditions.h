@@ -33,8 +33,8 @@
  */
 @interface NSDictionary (NSDictionary_LjsAdditions)
 
-/** @name Task Section */
-- (BOOL) emptyp;
+- (BOOL) not_empty;
+- (BOOL) has_objects;
 
 - (NSSet *) keySet;
 

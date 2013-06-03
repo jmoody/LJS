@@ -40,6 +40,20 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                 
 @implementation NSMutableArray (NSMutableArray_LjsAdditions)
 
+#pragma mark - runtime errors for NSArray methods that are not defined
+
+- (NSArray *) append:(id) object {
+  DDLogError(@"cannot append to mutable array - use nappend");
+  [self doesNotRecognizeSelector:_cmd];
+  return nil;
+}
+
+- (NSArray *) reverse {
+  DDLogError(@"cannot reverse mutable array - use nreverse");
+  [self doesNotRecognizeSelector:_cmd];
+  return nil;
+}
+
 - (void) nreverse {
   NSArray *tmp = [[self reverseObjectEnumerator] allObjects];
   [self removeAllObjects];

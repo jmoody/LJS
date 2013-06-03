@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F505FB7B1746E40300860990 /* NSOrderedSet+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F505FB7A1746E40300860990 /* NSOrderedSet+LjsAdditions.m */; };
 		F512EB56151C9DAF002E8E3A /* LjsWebCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB34151C9DAF002E8E3A /* LjsWebCategories.m */; };
 		F512EB57151C9DAF002E8E3A /* NSArray+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB36151C9DAF002E8E3A /* NSArray+LjsAdditions.m */; };
 		F512EB58151C9DAF002E8E3A /* NSCalendar+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F512EB38151C9DAF002E8E3A /* NSCalendar+LjsAdditions.m */; };
@@ -206,6 +207,7 @@
 		F59635FB14966B9600CDB27E /* UKFNSubscribeFileWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F414966B9600CDB27E /* UKFNSubscribeFileWatcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F59635FC14966B9600CDB27E /* UKKQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F614966B9600CDB27E /* UKKQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F59635FD14966B9600CDB27E /* UKMainThreadProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F59635F814966B9600CDB27E /* UKMainThreadProxy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5AB0A34173855BA0029F1A8 /* NSMutableSet+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AB0A33173855BA0029F1A8 /* NSMutableSet+LjsAdditions.m */; };
 		F5B2844114AD0B6700E48908 /* LjsGestalt.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844014AD0B6700E48908 /* LjsGestalt.m */; };
 		F5B2844E14AD1B5E00E48908 /* LjsRestartFinderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2844D14AD1B5E00E48908 /* LjsRestartFinderOperation.m */; };
 		F5C1BF8116E00A7E00F14075 /* TpUnixOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C1BF7C16E00A7E00F14075 /* TpUnixOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -262,6 +264,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F505FB791746E40300860990 /* NSOrderedSet+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOrderedSet+LjsAdditions.h"; sourceTree = "<group>"; };
+		F505FB7A1746E40300860990 /* NSOrderedSet+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOrderedSet+LjsAdditions.m"; sourceTree = "<group>"; };
 		F512EB33151C9DAF002E8E3A /* LjsWebCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsWebCategories.h; sourceTree = "<group>"; };
 		F512EB34151C9DAF002E8E3A /* LjsWebCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsWebCategories.m; sourceTree = "<group>"; };
 		F512EB35151C9DAF002E8E3A /* NSArray+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LjsAdditions.h"; sourceTree = "<group>"; };
@@ -611,6 +615,8 @@
 		F59635F614966B9600CDB27E /* UKKQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKKQueue.m; sourceTree = "<group>"; };
 		F59635F714966B9600CDB27E /* UKMainThreadProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKMainThreadProxy.h; sourceTree = "<group>"; };
 		F59635F814966B9600CDB27E /* UKMainThreadProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKMainThreadProxy.m; sourceTree = "<group>"; };
+		F5AB0A32173855BA0029F1A8 /* NSMutableSet+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5AB0A33173855BA0029F1A8 /* NSMutableSet+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5B2843F14AD0B6700E48908 /* LjsGestalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsGestalt.h; sourceTree = "<group>"; };
 		F5B2844014AD0B6700E48908 /* LjsGestalt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestalt.m; sourceTree = "<group>"; };
 		F5B2844C14AD1B5E00E48908 /* LjsRestartFinderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsRestartFinderOperation.h; sourceTree = "<group>"; };
@@ -684,6 +690,8 @@
 		F512EB32151C9DAF002E8E3A /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				F505FB791746E40300860990 /* NSOrderedSet+LjsAdditions.h */,
+				F505FB7A1746E40300860990 /* NSOrderedSet+LjsAdditions.m */,
 				F5385B48169775D500306410 /* NSAttributedString+LjsAdditions.h */,
 				F5385B49169775D500306410 /* NSAttributedString+LjsAdditions.m */,
 				F5E98566152473580061631A /* LjsFoundationCategories.h */,
@@ -711,6 +719,8 @@
 				F512EB42151C9DAF002E8E3A /* NSMutableArray+LjsAdditions.m */,
 				F512EB43151C9DAF002E8E3A /* NSSet+LjsAdditions.h */,
 				F512EB44151C9DAF002E8E3A /* NSSet+LjsAdditions.m */,
+				F5AB0A32173855BA0029F1A8 /* NSMutableSet+LjsAdditions.h */,
+				F5AB0A33173855BA0029F1A8 /* NSMutableSet+LjsAdditions.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -1932,6 +1942,8 @@
 				F5C1BF8216E00A7E00F14075 /* TpUnixOperationResult.m in Sources */,
 				F5C1BF8316E00A7E00F14075 /* TpUnixWhich.m in Sources */,
 				F5C1BF8616E00B3F00F14075 /* TpUnixOperationTest.m in Sources */,
+				F5AB0A34173855BA0029F1A8 /* NSMutableSet+LjsAdditions.m in Sources */,
+				F505FB7B1746E40300860990 /* NSOrderedSet+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -300,23 +300,6 @@
   GHAssertTrue(actual, nil);
 }
 
-- (void) test_stringNonNilOrEmpty {
-  NSString *string;
-  BOOL actual;
-  
-  string = nil;
-  actual = [LjsValidator stringIsNonNilOrEmpty:string];
-  GHAssertFalse(actual, nil);
-  
-  string = @"";
-  actual = [LjsValidator stringIsNonNilOrEmpty:string];
-  GHAssertFalse(actual, nil);
-
-  string = [LjsVariates randomStringWithLength:3];
-  actual = [LjsValidator stringIsNonNilOrEmpty:string];
-  GHAssertTrue(actual, nil);
-  
-}
 
 #if TARGET_OS_IPHONE
 - (void) test_isZeroRect_true {

@@ -18,7 +18,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSString *html = aAttribution.html;
   LjsGoogleAttribution *result = nil;
   NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
-  request.predicate = [NSPredicate predicateWithFormat:@"html LIKE %@", html];
+  request.predicate = [NSPredicate predicateWithFormat:@"html == %@", html];
   NSError *error = nil;
   NSArray *fetched = [aContext executeFetchRequest:request error:&error];
   if (fetched == nil) {

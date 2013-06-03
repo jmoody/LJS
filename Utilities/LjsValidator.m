@@ -80,16 +80,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return result;
 }
 
-+ (BOOL) stringIsNonNilOrEmpty:(NSString *) aString {
-  return [LjsValidator stringIsNonNilAndNotEmpty:aString];
-}
-
-
-+ (BOOL) stringIsNonNilAndNotEmpty:(NSString *) aString {
-  return aString != nil && [aString length] != 0;
-}
-
-
 + (BOOL) isDictionary:(id) value {
   return [value respondsToSelector:@selector(objectForKey:)];
 }
@@ -215,11 +205,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (BOOL) hasReasons {
-  return ![self.reasons emptyp];
+  return [self.reasons not_empty];
 }
 
 - (void) addReason:(NSString *)aReason {
-  if ([LjsValidator stringIsNonNilAndNotEmpty:aReason] == NO) {
+  if ([aReason has_chars] == NO) {
     DDLogWarn(@"declining to add reason < %@ > - reasons must be non-nil and non-empty", aReason);
     return;
   }
@@ -243,7 +233,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (void) addReasonWithVarName:(NSString *)aVarName ifNilOrEmptyString:(NSString *) aString {
-  if ([LjsValidator stringIsNonNilAndNotEmpty:aString] == NO) {
+  if ([aString has_chars] == NO) {
     NSString *reason = [NSString stringWithFormat:@"%@ cannot be nil or empty",
                         aVarName];
     [self addReason:reason];
@@ -318,7 +308,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
 }
 
-
 - (void) addReasonWithVarName:(NSString *)aVarName ifInteger:(NSInteger) aValue isNotOnInterval:(NSRange) aRange {
   NSInteger min = aRange.location;
   NSInteger max = aRange.length;
@@ -352,7 +341,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (NSString *) explanation:(NSString *) aExplanation
            consequence:(NSString *) aConsequence {
   NSString *result = [self explanation:aExplanation];
-  if ([LjsValidator stringIsNonNilAndNotEmpty:aConsequence]) {
+  if ([aConsequence has_chars]) {
     result = [result stringByAppendingFormat:@"\nreturning %@", aConsequence];
   } 
   return result;

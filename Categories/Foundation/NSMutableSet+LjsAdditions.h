@@ -1,4 +1,4 @@
-// Copyright 2012 Little Joy Software. All rights reserved.
+// Copyright 2013 Recovery Warriors LLC. All rights reserved.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,47 +26,15 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#if ! __has_feature(objc_arc)
-#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
-#endif
+#import <Foundation/Foundation.h>
 
-#import "LjsGooglePlacesNmoAttribution.h"
-#import "Lumberjack.h"
-#import "LjsValidator.h"
-#import "NSString+LjsAdditions.h"
+/**
+ NSMutableSet on NSMutableSet_LjsAdditions category.
+ */
+@interface NSMutableSet (NSMutableSet_LjsAdditions)
 
-#ifdef LOG_CONFIGURATION_DEBUG
-static const int ddLogLevel = LOG_LEVEL_DEBUG;
-#else
-static const int ddLogLevel = LOG_LEVEL_WARN;
-#endif
-
-@implementation LjsGooglePlacesNmoAttribution
-
-@synthesize html;
-
-#pragma mark Memory Management
-
-
-- (id) initWithHtml:(NSString *)aHtml {
-  self = [super init];
-  if (self) {
-    LjsReasons *reasons = [LjsReasons new];
-    [reasons ifNilOrEmptyString:aHtml addReasonWithVarName:@"html"];
-    if ([reasons hasReasons]) {
-      DDLogError([reasons explanation:@"could not recreate attribution" consequence:@"nil"]);
-      return nil;
-    }
-    self.html = aHtml;
-  }
-  return self;
-}
-
-
-- (NSString *) description {
-  return [NSString stringWithFormat:@"#<Attribution:  %@>",
-          self.html];
-}
-
+/** @name Task Section */
+- (void) push:(id) aObject;
+- (id) pop;
 
 @end

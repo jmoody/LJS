@@ -74,7 +74,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
       self.minorVersion = (NSUInteger) tMinor;
       self.bugVersion = (NSUInteger) tBug;
     } else {
-      self = nil;
+      return nil;
     }
 #endif
   }

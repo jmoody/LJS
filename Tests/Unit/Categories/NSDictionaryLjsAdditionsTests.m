@@ -66,24 +66,34 @@
 }  
 
 - (void) test_emptyp_with_empty_dictionary {
-  BOOL actual = [[NSDictionary dictionary] emptyp];
-  GHAssertTrue(actual, @"empty dictionary should be emptyp");  
+  BOOL actual = [[NSDictionary dictionary] has_objects];
+  GHAssertFalse(actual, @"empty dictionary should be emptyp");
+  actual = [[NSDictionary dictionary] not_empty];
+  GHAssertFalse(actual, @"empty dictionary should be emptyp");
 }
 
 - (void) test_emptyp_with_empty_dictionary_mutable {
-  BOOL actual = [[NSMutableDictionary dictionary] emptyp];
-  GHAssertTrue(actual, @"empty dictionary should be emptyp");  
+  BOOL actual = [[NSMutableDictionary dictionary] has_objects];
+  GHAssertFalse(actual, @"empty dictionary should be emptyp");
+  actual = [[NSMutableDictionary dictionary] not_empty];
+  GHAssertFalse(actual, @"empty dictionary should be emptyp");
+
 }
 
 
 - (void) test_emptyp_with_non_empty_dict {
-  BOOL actual = [[NSDictionary dictionaryWithObject:@"foo" forKey:@"bar"] emptyp];
-  GHAssertFalse(actual, @"non-empty dictionaries should not be emptyp");
+  BOOL actual = [[NSDictionary dictionaryWithObject:@"foo" forKey:@"bar"] has_objects];
+  GHAssertTrue(actual, @"non-empty dictionaries should not be emptyp");
+  actual = [[NSDictionary dictionaryWithObject:@"foo" forKey:@"bar"] not_empty];
+  GHAssertTrue(actual, @"non-empty dictionaries should not be emptyp");
+
 }
 
 - (void) test_emptyp_with_non_empty_dict_mutable {
-  BOOL actual = [[NSMutableDictionary dictionaryWithObject:@"foo" forKey:@"bar"] emptyp];
-  GHAssertFalse(actual, @"non-empty dictionaries should not be emptyp");
+  BOOL actual = [[NSMutableDictionary dictionaryWithObject:@"foo" forKey:@"bar"] has_objects];
+  GHAssertTrue(actual, @"non-empty dictionaries should not be emptyp");
+  actual = [[NSMutableDictionary dictionaryWithObject:@"foo" forKey:@"bar"] not_empty];
+  GHAssertTrue(actual, @"non-empty dictionaries should not be emptyp");
 }
 
 - (void) test_keySet_with_empty_dict {

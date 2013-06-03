@@ -94,25 +94,16 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                delegate:(id<LjsGoogleTranslateManagerCallbackDelegate>) aDelegate {
   self = [super init];
   if (self) {
-    self.apiToken = aApiToken;
-    self.delegate = aDelegate;
-    NSMutableArray *reasons = [NSMutableArray arrayWithCapacity:2];
-    NSString *message;
-    if ([LjsValidator stringIsNonNilAndNotEmpty:self.apiToken] == NO) {
-      message = [NSString stringWithFormat:@"api token < %@ > needs to be non-nil and non empty",
-                 self.apiToken];
-      [reasons nappend:message];
-    }
-
-    if (self.delegate == nil) {
-      message = [NSString stringWithFormat:@"delegate < %@ > need to be non-nil", self.delegate];
-      [reasons nappend:message];
-    }
-    if ([reasons count] != 0) {
-      DDLogError(@"failed to initialized because: %@", [reasons componentsJoinedByString:@"\n"]);
+    LjsReasons *reasons = [LjsReasons new];
+    [reasons ifNilOrEmptyString:aApiToken addReasonWithVarName:@"api token"];
+    [reasons ifNil:aDelegate addReasonWithVarName:@"delegate"];
+    if ([reasons hasReasons]) {
+      DDLogError([reasons explanation:@"could not create manager" consequence:@"nil"]);
       return nil;
     }
-    
+    self.apiToken = aApiToken;
+    self.delegate = aDelegate;
+
     self.parser = [[SBJsonParser alloc] init];
   }
   return self;
@@ -121,26 +112,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (NSURL *) urlWithText:(NSString *) aText
          sourceLangCode:(NSString *) aSourceCode
          targetLangCode:(NSString *) aTargetCode {
-  NSMutableArray *reasons = [NSMutableArray arrayWithCapacity:3];
-  NSString *message;
-  
-  if ([LjsValidator stringIsNonNilAndNotEmpty:aText] == NO) {
-    message = [NSString stringWithFormat:@"aText < %@ > must be non-nil and non-empty", 
-               aText];
-    [reasons nappend:message];
-  }
-  if ([LjsValidator stringIsNonNilAndNotEmpty:aSourceCode] == NO) {
-    message = [NSString stringWithFormat:@"source lang code < %@ > must be non-nil and non-empty", 
-               aSourceCode];
-    [reasons nappend:message];
-  }
-  if ([LjsValidator stringIsNonNilAndNotEmpty:aTargetCode] == NO) {
-    message = [NSString stringWithFormat:@"target lang code < %@ > must be non-nil and non-empty", 
-               aTargetCode];
-    [reasons nappend:message];
-  }
-  if ([reasons count] != 0) {
-    DDLogWarn(@"could not make url because: %@", [reasons componentsJoinedByString:@"\n"]);
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons ifNilOrEmptyString:aText addReasonWithVarName:@"text"];
+  [reasons ifNilOrEmptyString:aSourceCode addReasonWithVarName:@"source code"];
+  [reasons ifNilOrEmptyString:aTargetCode addReasonWithVarName:@"target code"];
+  if ([reasons hasReasons]) {
+    DDLogError([reasons explanation:@"could not create url" consequence:@"nil"]);
     return nil;
   }
   

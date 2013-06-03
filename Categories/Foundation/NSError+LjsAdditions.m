@@ -44,19 +44,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @end
 
 
-@implementation NSString (NSString_RuErrorFactory)
-
-+ (NSString *) swf:(NSString *)format, ... {
-  va_list args;
-  va_start(args, format);
-  return [[NSString alloc] initWithFormat:format
-                                arguments:args];
-}
-
-
-
-@end
-
 @interface LjsErrorFactory ()
 
 + (NSString *) errorDomain;

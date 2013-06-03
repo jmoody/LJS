@@ -40,9 +40,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @implementation NSDictionary (NSDictionary_LjsAdditions)
 
-- (BOOL) emptyp {
-  return [self count] == 0;
+- (BOOL) not_empty {
+  return [self count] != 0;
 }
+
+- (BOOL) has_objects {
+  return [self count] != 0;
+}
+
 
 - (NSSet *) keySet {
   return [NSSet setWithArray:[self allKeys]];

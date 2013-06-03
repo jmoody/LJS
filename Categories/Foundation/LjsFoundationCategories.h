@@ -33,12 +33,13 @@
 #import "NSDate+LjsAdditions.h"
 #import "NSError+LjsAdditions.h"
 #import "NSSet+LjsAdditions.h"
+#import "NSMutableSet+LjsAdditions.h"
 #import "NSLocale+LjsAdditions.h"
 #import "NSDateFormatter+LjsAdditions.h"
 #import "NSDecimalNumber+LjsAdditions.h"
 #import "NSString+LjsAdditions.h"
 #import "NSDictionary+LjsAdditions.h"
-
+#import "NSOrderedSet+LjsAdditions.h"
 
 // categories on string and dictionary for encoding and url parameters
 #import "LjsWebCategories.h"

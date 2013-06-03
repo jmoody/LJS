@@ -13,6 +13,7 @@
 /** @name Properties */
 
 /** @name Initializing Objects */
+- (id) initWithIgnorableModels:(NSArray *) aIgnorableModels;
 
 /** @name Handling Notifications, Requests, and Events */
 
